@@ -17,10 +17,6 @@ struct MyRect {
         self.rightBottom = rightBottom
     }
     
-    init(origin: MyPoint, size: CGSize) {
-        //로직구현
-    }
-    
     func areaRect() -> Double {
         let leftBottom = MyPoint(x: leftTop.x, y: rightBottom.y)
         let bottomLine = MyLine(pointA: leftBottom , pointB: rightBottom).distance()
