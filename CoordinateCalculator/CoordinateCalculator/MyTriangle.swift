@@ -15,8 +15,11 @@ struct MyTriangle {
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         //로직 구현
+        lineAB = MyLine(pointA: pointA, pointB: pointB)
+        lineBC = MyLine(pointA: pointB, pointB: pointC)
+        lineAC = MyLine(pointA: pointA, pointB: pointC)
     }
-    
+   
     func areaTriangle() -> Double {
         let a = lineAB.distance()
         let b = lineBC.distance()

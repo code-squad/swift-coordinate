@@ -9,8 +9,13 @@
 import Foundation
 
 struct MyRect {
-    private var leftTop = MyPoint()
-    private var rightBottom = MyPoint()
+    private(set) var leftTop = MyPoint()
+    private(set) var rightBottom = MyPoint()
+    
+    init(leftTop: MyPoint, rightBottom: MyPoint) {
+        self.leftTop = leftTop
+        self.rightBottom = rightBottom
+    }
     
     init(origin: MyPoint, size: CGSize) {
         //로직구현
@@ -18,8 +23,8 @@ struct MyRect {
     
     func areaRect() -> Double {
         let leftBottom = MyPoint(x: leftTop.x, y: rightBottom.y)
-        let bottonLine = MyLine(pointA: leftBottom , pointB: rightBottom).distance()
+        let bottomLine = MyLine(pointA: leftBottom , pointB: rightBottom).distance()
         let height = MyLine(pointA: leftBottom, pointB: leftTop).distance()
-        return bottonLine * height
+        return bottomLine * height
     }
 }
