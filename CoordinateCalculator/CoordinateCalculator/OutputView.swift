@@ -17,4 +17,8 @@ struct OutputView {
     func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
+    
+    func printPoint(point: MyPoint) {
+        print("x: \(point.x) y: \(point.y)")
+    }
 }
