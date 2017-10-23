@@ -6,17 +6,10 @@ while(true) {
     do {
         guard let input: Int = try inputView.readInput() else { break }
         switch input {
-        case 1:
-            OutputView.removeText()
-            OutputView.printPoint(point: inputView.point)
-        case 2:
-            OutputView.removeText()
-            OutputView.printLine(line: inputView.line)
+        case 1: OutputView.printPoint(point: inputView.point)
+        case 2: OutputView.printLine(line: inputView.line)
         default: break
         }
-        OutputView.drawAxis()
-        OutputView.removeText()
-        
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {
