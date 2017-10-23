@@ -17,13 +17,14 @@ public enum InputError: Error {
 struct InputView {
     
     func readInput() throws -> [MyPoint]? {
-        print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요.")
+        print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요. (종료하려면 엔터 입력)")
         guard let input = readLine() else { throw InputError.emptyInput }
         if input == "" { return nil }
         
-        
+        let validInput = CharacterSet.init(charactersIn: "()-0123456789")
+        if input.rangeOfCharacter(from: validInput) == nil { throw InputError.invalidInput }
+
         let points = splitInputToPoint(input: input)
-        
         var pointArray = [MyPoint]()
         
         for point in points {

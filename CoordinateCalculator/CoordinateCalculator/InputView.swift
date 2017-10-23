@@ -21,8 +21,10 @@ struct InputView {
         guard let input = readLine() else { throw InputError.emptyInput }
         if input == "" { return nil }
 
-        let points = splitInputToPoint(input: input)
+        let validInput = CharacterSet.init(charactersIn: "()-0123456789")
+        if input.rangeOfCharacter(from: validInput) == nil { throw InputError.invalidInput }
         
+        let points = splitInputToPoint(input: input)
         var pointArray = [MyPoint]()
         
         for point in points {
