@@ -24,9 +24,10 @@ struct InputView {
         guard let input = readLine() else { throw InputError.emptyInput }
         if input == "" { return nil }
         
-        let validInput = CharacterSet.init(charactersIn: "()-0123456789")
-        if input.rangeOfCharacter(from: validInput) != nil { throw InputError.invalidInput }
-
+        let validInput = CharacterSet.init(charactersIn: "()-,0123456789")
+        let filter = input.trimmingCharacters(in: validInput)
+        if !filter.isEmpty { throw InputError.invalidInput }
+        
         let points = splitInputToPoint(input: input)
         let count = points.count
         
