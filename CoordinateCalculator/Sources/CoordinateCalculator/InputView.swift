@@ -16,7 +16,7 @@ public enum InputError: Error {
 
 struct InputView {
     
-    func readInput() throws -> MyPoint? {
+    static func readInput() throws -> MyPoint? {
         print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요. 종료하려면 엔터 입력.")
         guard let input = readLine() else { throw InputError.emptyInput }
         if input == "" { return nil }

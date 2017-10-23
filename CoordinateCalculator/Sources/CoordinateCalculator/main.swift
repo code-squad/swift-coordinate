@@ -1,13 +1,11 @@
-let outputView = OutputView()
-let inputView = InputView()
 
 while(true) {
     do {
-        guard let input = try inputView.readInput() else { break }
-        outputView.removeText()
-        outputView.printPoint(point: input)
-        outputView.drawAxis()
-        outputView.removeText()
+        guard let input = try InputView.readInput() else { break }
+        OutputView.removeText()
+        OutputView.printPoint(point: input)
+        OutputView.drawAxis()
+        OutputView.removeText()
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {
