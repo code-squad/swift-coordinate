@@ -1,9 +1,15 @@
 
+let inputView = InputView()
+
 while(true) {
     do {
-        guard let input = try InputView.readInput() else { break }
+        guard let input = try inputView.readInput() else { break }
+        
+        for i in input {
+            print("x: \(i.x), y: \(i.y)")
+        }
+        //OutputView.printPoint(point: input)
         OutputView.removeText()
-        OutputView.printPoint(point: input)
         OutputView.drawAxis()
         OutputView.removeText()
     } catch InputError.emptyInput {
