@@ -10,8 +10,8 @@ import Foundation
 
 struct InputView {
     
-    func readInput() throws -> (Int, Int) {
-        print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요.")
+    func readInput() -> (Int, Int) {
+        print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.whiteBright) 좌표를 입력하세요.")
         let input = readLine() ?? ""
         let split = input.index(of: ",") ?? input.endIndex
         let x = input[input.index(input.startIndex, offsetBy: 1)..<split]
