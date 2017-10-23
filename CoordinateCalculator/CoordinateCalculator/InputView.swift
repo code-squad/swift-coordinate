@@ -16,15 +16,16 @@ public enum InputError: Error {
 
 struct InputView {
     
-    func readInput() throws -> [MyPoint]? {
+    private(set) var point: MyPoint = MyPoint()
+    private(set) var line: MyLine = MyLine()
+    
+    mutating func readInput() throws -> Int? {
         print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요. (종료하려면 엔터 입력)")
         guard let input = readLine() else { throw InputError.emptyInput }
         if input == "" { return nil }
-
-        let validInput = CharacterSet.init(charactersIn: "()-0123456789")
-        if input.rangeOfCharacter(from: validInput) == nil { throw InputError.invalidInput }
-        
         let points = splitInputToPoint(input: input)
+        let count = points.count
+        
         var pointArray = [MyPoint]()
         
         for point in points {
@@ -34,9 +35,19 @@ struct InputView {
             if xNum > 24 || yNum > 24 { throw InputError.outOfNumber }
             pointArray.append(MyPoint(x: xNum, y: yNum))
         }
-        return pointArray
+        switch count {
+        case 1:
+            self.point = MyPoint(x: pointArray[0].x, y: pointArray[0].y)
+            return 1
+        case 2:
+            self.line = MyLine(pointA: pointArray[0], pointB: pointArray[1])
+            return 2
+        default:
+            break
+        }
+        return nil
     }
-    
+
     // "-" 기준으로 나누기
     private func splitInputToPoint(input: String) -> [String] {
         return input.split(separator: "-").map(String.init)

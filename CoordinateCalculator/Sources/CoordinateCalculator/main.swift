@@ -1,17 +1,22 @@
+import Foundation
 
-let inputView = InputView()
+var inputView = InputView()
 
 while(true) {
     do {
-        guard let input = try inputView.readInput() else { break }
-        
-        for i in input {
-            print("x: \(i.x), y: \(i.y)")
+        guard let input: Int = try inputView.readInput() else { break }
+        switch input {
+        case 1:
+            OutputView.removeText()
+            OutputView.printPoint(point: inputView.point)
+        case 2:
+            OutputView.removeText()
+            OutputView.printLine(line: inputView.line)
+        default: break
         }
-        //OutputView.printPoint(point: input)
-        OutputView.removeText()
         OutputView.drawAxis()
         OutputView.removeText()
+        
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {
@@ -20,4 +25,3 @@ while(true) {
         print("좌표를 24 이하로 입력해 주세요.")
     }
 }
-

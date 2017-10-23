@@ -23,4 +23,13 @@ struct OutputView {
         let col = 2*point.x+1
         print("\(ANSICode.cursor.move(row: row, col: col))\(ANSICode.text.whiteBright) ⦁")
     }
+    
+    static func printLine(line: MyLine) {
+        let rowA = abs(24-line.pointA.y)+1
+        let colA = 2*line.pointA.x+1
+        print("\(ANSICode.cursor.move(row: rowA, col: colA))\(ANSICode.text.whiteBright) ⦁")
+        let rowB = abs(24-line.pointB.y)+1
+        let colB = 2*line.pointB.x+1
+        print("\(ANSICode.cursor.move(row: rowB, col: colB))\(ANSICode.text.whiteBright) ⦁")
+    }
 }
