@@ -11,7 +11,10 @@ import Foundation
 struct MyLine {
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
-    
+}
+
+// MARK: Method
+extension MyLine {
     // 거리, 소숫점 8자리 까지
     func distance() -> Double {
         let temp = pow(Double(pointA.x - pointB.x), 2.0) + pow(Double(pointA.y - pointB.y), 2.0)
