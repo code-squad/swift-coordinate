@@ -4,9 +4,10 @@ let inputView = InputView()
 while(true) {
     do {
         guard let input = try inputView.readInput() else { break }
-        outputView.printPoint(point: input)
         outputView.removeText()
+        outputView.printPoint(point: input)
         outputView.drawAxis()
+        outputView.removeText()
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {

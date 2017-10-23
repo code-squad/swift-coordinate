@@ -19,6 +19,8 @@ struct OutputView {
     }
     
     func printPoint(point: MyPoint) {
-        print("x: \(point.x) y: \(point.y)")
+        let row = abs(24-point.y)+1
+        let col = 2*point.x+1
+        print("\(ANSICode.cursor.move(row: row, col: col))\(ANSICode.text.whiteBright) ⦁")
     }
 }
