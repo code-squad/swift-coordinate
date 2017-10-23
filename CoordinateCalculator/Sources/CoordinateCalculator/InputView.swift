@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     
-    func readInput() -> (Int, Int) {
+    func readInput() -> MyPoint {
         print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요.")
         let input = readLine() ?? ""
         let split = input.index(of: ",") ?? input.endIndex
@@ -19,7 +19,7 @@ struct InputView {
         
         let xNum: Int = Int(x) ?? 0
         let yNum: Int = Int(y) ?? 0
-        return (xNum, yNum)
+        return MyPoint(x: xNum, y: yNum)
     }
 
 }
