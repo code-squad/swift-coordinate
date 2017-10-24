@@ -10,6 +10,8 @@ import Foundation
 
 struct OutputView {
     
+    typealias Coordinate = (row: Int, col: Int)
+    
     private static func removeText() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
@@ -18,31 +20,45 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func printPoint(point: MyPoint) {
+    static func printPoint(_ point: MyPoint) {
         OutputView.removeText()
+        let point = calculateCoordinate(point)
+        print("\(ANSICode.cursor.move(row: point.row, col: point.col))\(ANSICode.text.whiteBright)⦁")
+        OutputView.drawAxis()
+        OutputView.removeText()
+    }
+    
+    static func printLine(_ line: MyLine) {
+        OutputView.removeText()
+        let pointA = calculateCoordinate(line.pointA)
+        print("\(ANSICode.cursor.move(row: pointA.row, col: pointA.col))\(ANSICode.text.whiteBright)⦁")
+        let pointB = calculateCoordinate(line.pointB)
+        print("\(ANSICode.cursor.move(row: pointB.row, col: pointB.col))\(ANSICode.text.whiteBright)⦁")
+        OutputView.drawAxis()
+        OutputView.removeText()
+        OutputView.printDistance(line)
+    }
+    
+    static func printTriangle(_ triangle: MyTriangle) {
+        OutputView.removeText()
+        let pointA = calculateCoordinate(triangle.lineAB.pointA)
+        print("\(ANSICode.cursor.move(row: pointA.row, col: pointA.col))\(ANSICode.text.whiteBright)⦁")
+        let pointB = calculateCoordinate(triangle.lineAB.pointB)
+        print("\(ANSICode.cursor.move(row: pointB.row, col: pointB.col))\(ANSICode.text.whiteBright)⦁")
+        let pointC = calculateCoordinate(triangle.lineBC.pointB)
+        print("\(ANSICode.cursor.move(row: pointC.row, col: pointC.col))\(ANSICode.text.whiteBright)⦁")
+        OutputView.drawAxis()
+        OutputView.removeText()
+    }
+    
+    static func calculateCoordinate(_ point: MyPoint) -> Coordinate {
         let row = abs(24-point.y)+1
         let col = 2*point.x+3
-        print("\(ANSICode.cursor.move(row: row, col: col))\(ANSICode.text.whiteBright)⦁")
-        OutputView.drawAxis()
-        OutputView.removeText()
+        return (row, col)
     }
     
-    static func printLine(line: MyLine) {
-        OutputView.removeText()
-        let rowA = abs(24-line.pointA.y)+1
-        let colA = 2*line.pointA.x+3
-        print("\(ANSICode.cursor.move(row: rowA, col: colA))\(ANSICode.text.whiteBright)⦁")
-        let rowB = abs(24-line.pointB.y)+1
-        let colB = 2*line.pointB.x+3
-        print("\(ANSICode.cursor.move(row: rowB, col: colB))\(ANSICode.text.whiteBright)⦁")
-        OutputView.drawAxis()
-        OutputView.removeText()
-        OutputView.printDistance(line: line)
-    }
-    
-    private static func printDistance(line: MyLine) {
+    private static func printDistance(_ line: MyLine) {
         print("\(ANSICode.clear)")
         print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line.distance())")
     }
-
 }
