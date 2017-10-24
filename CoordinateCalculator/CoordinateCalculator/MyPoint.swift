@@ -22,3 +22,15 @@ struct MyPoint {
         self.y = y
     }
 }
+
+extension MyPoint: Comparable {
+    
+    static func < (lhs: MyPoint, rhs: MyPoint) -> Bool {
+        if lhs.x != rhs.x { return lhs.x < rhs.x }
+        else { return lhs.y < rhs.y}
+    }
+    
+    static func == (lhs: MyPoint, rhs: MyPoint) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
+}
