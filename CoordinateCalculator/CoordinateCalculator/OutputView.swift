@@ -49,6 +49,7 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: pointC.row, col: pointC.col))\(ANSICode.text.whiteBright)⦁")
         OutputView.drawAxis()
         OutputView.removeText()
+        printAreaTriangle(triangle)
     }
     
     static func calculateCoordinate(_ point: MyPoint) -> Coordinate {
@@ -59,6 +60,11 @@ struct OutputView {
     
     private static func printDistance(_ line: MyLine) {
         print("\(ANSICode.clear)")
-        print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line.distance())")
+        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line.distance())")
+    }
+    
+    private static func printAreaTriangle(_ triangle: MyTriangle) {
+        print("\(ANSICode.clear)")
+        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 삼각형 넓이는  \(triangle.areaTriangle())")
     }
 }
