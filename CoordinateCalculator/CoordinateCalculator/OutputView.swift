@@ -53,8 +53,8 @@ struct OutputView {
     }
     
     static func calculateCoordinate(_ point: MyPoint) -> Coordinate {
-        let row = abs(24-point.y)+1
-        let col = 2*point.x+3
+        let row = Int( abs(24-point.y)+1 )
+        let col = Int ( 2*point.x+3 )
         return (row, col)
     }
     
