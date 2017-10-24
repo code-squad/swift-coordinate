@@ -9,15 +9,15 @@
 import Foundation
 
 struct MyPoint {
-    private(set) var x: Int
-    private(set) var y: Int
+    private(set) var x: Float
+    private(set) var y: Float
     
     init() {
         self.x = 0
         self.y = 0
     }
     
-    init(x: Int, y: Int) {
+    init(x: Float, y: Float) {
         self.x = x
         self.y = y
     }

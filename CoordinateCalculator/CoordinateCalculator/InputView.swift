@@ -49,8 +49,8 @@ extension InputView {
         var pointArray = [MyPoint]()
         for point in points {
             guard let xy = splitXY(point) else { throw InputError.invalidInput }
-            let xNum: Int = Int(xy.0) ?? 0
-            let yNum: Int = Int(xy.1) ?? 0
+            let xNum: Float = Float(xy.0) ?? 0
+            let yNum: Float = Float(xy.1) ?? 0
             if xNum > 24 || yNum > 24 { throw InputError.outOfNumber }
             pointArray.append(MyPoint(x: xNum, y: yNum))
         }
