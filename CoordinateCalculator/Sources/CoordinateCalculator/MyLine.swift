@@ -9,6 +9,7 @@
 import Foundation
 
 struct MyLine {
+    
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
     
