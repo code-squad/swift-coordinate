@@ -66,10 +66,13 @@ extension InputView {
     
     // x, y 로 나누기
     private func splitXY(_ point: String) -> (Substring, Substring)? {
-        guard let split = point.index(of: ",") else { return nil }
-        let x = point[point.index(point.startIndex, offsetBy: 1)..<split]
-        let y = point[point.index(split, offsetBy: 1)..<point.index(before: point.endIndex)]
-        return (x, y)
+        if point[point.startIndex] == "(" && point[point.index(before: point.endIndex)] == ")" {
+            guard let split = point.index(of: ",") else { return nil }
+            let x = point[point.index(point.startIndex, offsetBy: 1)..<split]
+            let y = point[point.index(split, offsetBy: 1)..<point.index(before: point.endIndex)]
+            return (x, y)
+        }
+        return nil
     }
     
     // 입력 스트링이 유효한지 검사
