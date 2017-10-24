@@ -4,11 +4,10 @@ var inputView = InputView()
 
 while(true) {
     do {
-        guard let input: Int = try inputView.readInput() else { break }
-        switch input {
-        case 1: OutputView.printPoint(point: inputView.point)
-        case 2: OutputView.printLine(line: inputView.line)
-        default: break
+        guard let figure = try inputView.readInput() else { break }
+        switch figure {
+        case .point : OutputView.printPoint(point: inputView.point)
+        case .line : OutputView.printLine(line: inputView.line)
         }
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")

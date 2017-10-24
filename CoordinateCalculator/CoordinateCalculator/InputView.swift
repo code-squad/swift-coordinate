@@ -8,10 +8,15 @@
 
 import Foundation
 
-public enum InputError: Error {
+enum InputError: Error {
     case emptyInput
     case invalidInput
     case outOfNumber
+}
+
+enum NumberOfPoints: Int {
+    case point = 1
+    case line
 }
 
 struct InputView {
@@ -19,7 +24,7 @@ struct InputView {
     private(set) var point: MyPoint = MyPoint()
     private(set) var line: MyLine = MyLine()
     
-    mutating func readInput() throws -> Int? {
+    mutating func readInput() throws -> NumberOfPoints? {
         print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요. (종료하려면 엔터 입력)")
         guard let input = readLine() else { throw InputError.emptyInput }
         if input == "" { return nil }
@@ -43,10 +48,10 @@ struct InputView {
         switch count {
         case 1:
             self.point = MyPoint(x: pointArray[0].x, y: pointArray[0].y)
-            return 1
+            return .point
         case 2:
             self.line = MyLine(pointA: pointArray[0], pointB: pointArray[1])
-            return 2
+            return .line
         default:
             break
         }
