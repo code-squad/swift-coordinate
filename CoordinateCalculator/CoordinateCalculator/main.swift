@@ -14,9 +14,9 @@ while(true) {
     do {
         guard let figure = try inputView.readInput() else { break }
         switch figure {
-        case .point : OutputView.printPoint(inputView.point)
-        case .line : OutputView.printLine(inputView.line)
-        case .triangle: OutputView.printTriangle(inputView.triangle)
+        case .point : OutputView.prints(point: inputView.point)
+        case .line : OutputView.prints(line: inputView.line)
+        case .triangle: OutputView.prints(triangle: inputView.triangle)
         }
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
