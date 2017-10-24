@@ -49,7 +49,7 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: pointC.row, col: pointC.col))\(ANSICode.text.whiteBright)⦁")
         OutputView.drawAxis()
         OutputView.removeText()
-        printAreaTriangle(triangle)
+        if triangle.isTriangle { printAreaTriangle(triangle) }
     }
     
     static func calculateCoordinate(_ point: MyPoint) -> Coordinate {
