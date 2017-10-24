@@ -12,21 +12,25 @@ enum InputError: Error {
     case emptyInput
     case invalidInput
     case outOfNumber
+    case outOfCoordinate
 }
 
 enum NumberOfPoints: Int {
     case point = 1
     case line
+    case triangle
 }
 
 struct InputView {
     
     private(set) var point: MyPoint
     private(set) var line: MyLine
+    private(set) var triangle: MyTriangle
     
     init() {
         point = MyPoint()
         line = MyLine()
+        triangle = MyTriangle()
     }
 }
 
@@ -41,10 +45,8 @@ extension InputView {
         if checkInvalidCharacters(input) { throw InputError.invalidInput }
 
         let points = splitInputToPoint(input)
-        let count = points.count
         
         var pointArray = [MyPoint]()
-        
         for point in points {
             guard let xy = splitXY(point) else { throw InputError.invalidInput }
             let xNum: Int = Int(xy.0) ?? 0
@@ -52,16 +54,9 @@ extension InputView {
             if xNum > 24 || yNum > 24 { throw InputError.outOfNumber }
             pointArray.append(MyPoint(x: xNum, y: yNum))
         }
-        switch count {
-        case 1:
-            self.point = MyPoint(x: pointArray[0].x, y: pointArray[0].y)
-            return .point
-        case 2:
-            self.line = MyLine(pointA: pointArray[0], pointB: pointArray[1])
-            return .line
-        default: break
-        }
-        return nil
+        
+        guard let resultFigure = assigneFigueObject(pointArray) else { throw InputError.outOfCoordinate }
+        return resultFigure
     }
 
     // "-" 기준으로 나누기
@@ -82,6 +77,30 @@ extension InputView {
         let validInput = CharacterSet.init(charactersIn: "()-,0123456789")
         let filter = input.trimmingCharacters(in: validInput)
         if !filter.isEmpty { return true } else { return false }
+    }
+    
+    // 입력에 따라 point, line, triangle 프로퍼티에 할당.
+    private mutating func assigneFigueObject(_ pointArray: [MyPoint]) -> NumberOfPoints? {
+        switch pointArray.count {
+        case 1:
+            self.point = MyPoint(
+                x: pointArray[0].x,
+                y: pointArray[0].y)
+            return .point
+        case 2:
+            self.line = MyLine(
+                pointA: pointArray[0],
+                pointB: pointArray[1])
+            return .line
+        case 3:
+            self.triangle = MyTriangle(
+                pointA: pointArray[0],
+                pointB: pointArray[1],
+                pointC: pointArray[2])
+            return .triangle
+        default: break
+        }
+        return nil
     }
 }
 
