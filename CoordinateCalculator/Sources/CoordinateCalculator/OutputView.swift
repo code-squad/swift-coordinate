@@ -20,7 +20,7 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func printPoint(_ point: MyPoint) {
+    static func prints(point: MyPoint) {
         OutputView.removeText()
         let point = calculateCoordinate(point)
         print("\(ANSICode.cursor.move(row: point.row, col: point.col))\(ANSICode.text.whiteBright)⦁")
@@ -28,7 +28,7 @@ struct OutputView {
         OutputView.removeText()
     }
     
-    static func printLine(_ line: MyLine) {
+    static func prints(line: MyLine) {
         OutputView.removeText()
         let pointA = calculateCoordinate(line.pointA)
         print("\(ANSICode.cursor.move(row: pointA.row, col: pointA.col))\(ANSICode.text.whiteBright)⦁")
@@ -39,7 +39,7 @@ struct OutputView {
         OutputView.printDistance(line)
     }
     
-    static func printTriangle(_ triangle: MyTriangle) {
+    static func prints(triangle: MyTriangle) {
         OutputView.removeText()
         let pointA = calculateCoordinate(triangle.lineAB.pointA)
         print("\(ANSICode.cursor.move(row: pointA.row, col: pointA.col))\(ANSICode.text.whiteBright)⦁")
