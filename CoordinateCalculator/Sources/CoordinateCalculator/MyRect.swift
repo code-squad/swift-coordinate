@@ -19,10 +19,8 @@ struct MyRect {
     }
         
     init(origin: MyPoint, size: CGSize) {
-        let moveX = Float(size.width/2)
-        let moveY = Float(size.height/2)
-        leftTop = MyPoint(x: origin.x-moveX, y: origin.y+moveY)
-        rightBottom = MyPoint(x: origin.x+moveX, y: origin.y-moveY)
+        leftTop = MyPoint(x: origin.x, y: origin.y)
+        rightBottom = MyPoint(x: origin.x+Int(size.width), y: origin.y-Int(size.height))
     }
 }
 
