@@ -54,8 +54,8 @@ extension InputView {
         var pointArray = [MyPoint]()
         for point in points {
             guard let xy = splitXY(point) else { throw InputError.invalidInput }
-            let xNum: Float = Float(xy.0) ?? 0
-            let yNum: Float = Float(xy.1) ?? 0
+            let xNum: Int = Int(xy.0) ?? 0
+            let yNum: Int = Int(xy.1) ?? 0
             if xNum > 24 || yNum > 24 { throw InputError.outOfNumber }
             pointArray.append(MyPoint(x: xNum, y: yNum))
         }
@@ -97,8 +97,8 @@ extension InputView {
     
     // 직 사각형 좌표인지 검사
     private func isRect(_ pointArray: [MyPoint]) -> Bool {
-        var setX = Set<Float>()
-        var setY = Set<Float>()
+        var setX = Set<Int>()
+        var setY = Set<Int>()
         for point in pointArray {
             setX.insert(point.x)
             setY.insert(point.y)
@@ -139,8 +139,8 @@ extension InputView {
             let width = pointArray[2].x-pointArray[0].x
             let height = pointArray[1].y-pointArray[0].y
             self.rect = MyRect(
-                origin: MyPoint(x: pointArray[0].x + width/2.0,
-                                y: pointArray[0].y + height/2.0),
+                origin: MyPoint(x: pointArray[1].x,
+                                y: pointArray[1].y),
                 size: CGSize(width: CGFloat(width),
                              height: CGFloat(height)))
             return .rect
