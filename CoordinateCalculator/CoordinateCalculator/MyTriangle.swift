@@ -14,17 +14,6 @@ struct MyTriangle {
     private(set) var lineBC: MyLine
     private(set) var lineAC: MyLine
     
-    var isTriangle: Bool {
-        get {
-            let a = lineAB.distance()
-            let b = lineBC.distance()
-            let c = lineAC.distance()
-            let arr: [Double] = [a,b,c].sorted()
-            if arr[0]+arr[1] > arr[2] { return true }
-            else { return false }
-        }
-    }
-    
     init() {
         lineAB = MyLine()
         lineBC = MyLine()

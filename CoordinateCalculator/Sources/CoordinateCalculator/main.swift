@@ -21,5 +21,7 @@ while(true) {
         print("좌표의 개수는 4개 이하로 입력해 주세요.")
     } catch InputError.cannotMakeRect {
         print("직 사각형 좌표만 입력 가능 합니다.")
+    }  catch InputError.cannotMakeTriangle {
+        print("삼각형 좌표만 입력 가능 합니다.")
     }
 }

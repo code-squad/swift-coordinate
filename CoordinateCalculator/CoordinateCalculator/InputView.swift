@@ -13,6 +13,7 @@ enum InputError: Error {
     case invalidInput
     case outOfNumber
     case outOfCoordinate
+    case cannotMakeTriangle
     case cannotMakeRect
 }
 
@@ -60,7 +61,12 @@ extension InputView {
         }
         let sortedPoints = pointArray.sorted()
         
-        if sortedPoints.count == 4 && !isRect(sortedPoints) { throw InputError.cannotMakeRect }
+        // 세 개 이상의 좌표가 입력된 경우
+        switch sortedPoints.count {
+        case 3: if !isTriangle(sortedPoints) { throw InputError.cannotMakeTriangle}
+        case 4: if !isRect(sortedPoints) { throw InputError.cannotMakeRect }
+        default: break
+        }
         
         guard let resultFigure = assigneFigueObject(sortedPoints) else { throw InputError.outOfCoordinate }
         return resultFigure
@@ -98,6 +104,15 @@ extension InputView {
             setY.insert(point.y)
         }
         if setX.count==2 && setY.count==2 { return true }
+        else { return false }
+    }
+    
+    private func isTriangle(_ pointArray: [MyPoint]) -> Bool {
+        let a = MyLine(pointA: pointArray[0], pointB: pointArray[1]).distance()
+        let b = MyLine(pointA: pointArray[0], pointB: pointArray[2]).distance()
+        let c = MyLine(pointA: pointArray[1], pointB: pointArray[2]).distance()
+        let arr: [Double] = [a,b,c].sorted()
+        if arr[0]+arr[1] > arr[2] { return true }
         else { return false }
     }
     
