@@ -49,7 +49,7 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: pointC.row, col: pointC.col))\(ANSICode.text.whiteBright)⦁")
         OutputView.drawAxis()
         OutputView.removeText()
-        if triangle.isTriangle { printArea(triangle: triangle) }
+        printArea(triangle: triangle)
     }
     
     static func prints(rect: MyRect) {
