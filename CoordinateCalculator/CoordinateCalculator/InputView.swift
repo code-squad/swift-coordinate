@@ -121,14 +121,14 @@ extension InputView {
                 pointC: pointArray[2])
             return .triangle
         case 4:
-            let width = pointArray[0].x-pointArray[2].x
-            let height = pointArray[0].y-pointArray[1].y
-            
+            let width = pointArray[2].x-pointArray[0].x
+            let height = pointArray[1].y-pointArray[0].y
             self.rect = MyRect(
                 origin: MyPoint(x: pointArray[0].x + width/2.0,
                                 y: pointArray[0].y + height/2.0),
                 size: CGSize(width: CGFloat(width),
                              height: CGFloat(height)))
+            return .rect
         default: break
         }
         return nil

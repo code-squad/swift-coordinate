@@ -49,8 +49,24 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: pointC.row, col: pointC.col))\(ANSICode.text.whiteBright)⦁")
         OutputView.drawAxis()
         OutputView.removeText()
-        if triangle.isTriangle { printAreaTriangle(triangle) }
+        if triangle.isTriangle { printArea(triangle: triangle) }
     }
+    
+    static func prints(rect: MyRect) {
+        OutputView.removeText()
+        let pointA = calculateCoordinate(rect.leftTop)
+        print("\(ANSICode.cursor.move(row: pointA.row, col: pointA.col))\(ANSICode.text.whiteBright)⦁")
+        let pointB = calculateCoordinate(MyPoint(x: rect.leftTop.x, y: rect.rightBottom.y) )
+        print("\(ANSICode.cursor.move(row: pointB.row, col: pointB.col))\(ANSICode.text.whiteBright)⦁")
+        let pointC = calculateCoordinate(rect.rightBottom)
+        print("\(ANSICode.cursor.move(row: pointC.row, col: pointC.col))\(ANSICode.text.whiteBright)⦁")
+        let pointD = calculateCoordinate(MyPoint(x: rect.rightBottom.x, y: rect.leftTop.y))
+        print("\(ANSICode.cursor.move(row: pointD.row, col: pointD.col))\(ANSICode.text.whiteBright)⦁")
+        OutputView.drawAxis()
+        OutputView.removeText()
+        printArea(rect: rect)
+    }
+
     
     static func calculateCoordinate(_ point: MyPoint) -> Coordinate {
         let row = Int( abs(24-point.y)+1 )
@@ -63,8 +79,13 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line.distance())")
     }
     
-    private static func printAreaTriangle(_ triangle: MyTriangle) {
+    private static func printArea(triangle: MyTriangle) {
         print("\(ANSICode.clear)")
         print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 삼각형 넓이는  \(triangle.areaTriangle())")
+    }
+    
+    private static func printArea(rect: MyRect) {
+        print("\(ANSICode.clear)")
+        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 사각형 넓이는  \(rect.areaRect())")
     }
 }
