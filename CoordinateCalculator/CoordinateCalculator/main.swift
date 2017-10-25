@@ -17,7 +17,7 @@ while(true) {
         case .point : OutputView.prints(point: inputView.point)
         case .line : OutputView.prints(line: inputView.line)
         case .triangle: OutputView.prints(triangle: inputView.triangle)
-        case .rect: break
+        case .rect: OutputView.prints(rect: inputView.rect)
         }
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
