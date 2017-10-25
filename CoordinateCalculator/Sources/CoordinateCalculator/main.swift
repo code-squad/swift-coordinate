@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
+func main(){
+    OutputView.drawAxis()
+}
 
+main()
