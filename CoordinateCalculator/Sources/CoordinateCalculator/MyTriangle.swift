@@ -31,6 +31,15 @@ struct MyTriangle {
 // MARK: Methods
 extension MyTriangle {
     
+    static func isTriangle(_ pointArray: [MyPoint]) -> Bool {
+        let a = MyLine(pointA: pointArray[0], pointB: pointArray[1]).distance()
+        let b = MyLine(pointA: pointArray[0], pointB: pointArray[2]).distance()
+        let c = MyLine(pointA: pointArray[1], pointB: pointArray[2]).distance()
+        let arr: [Double] = [a,b,c].sorted()
+        if arr[0]+arr[1] > arr[2] { return true }
+        else { return false }
+    }
+    
     func areaTriangle() -> Double {
         let a = lineAB.distance()
         let b = lineBC.distance()

@@ -63,8 +63,8 @@ extension InputView {
         
         // 세 개 이상의 좌표가 입력된 경우
         switch sortedPoints.count {
-        case 3: if !isTriangle(sortedPoints) { throw InputError.cannotMakeTriangle}
-        case 4: if !isRect(sortedPoints) { throw InputError.cannotMakeRect }
+        case 3: if !MyTriangle.isTriangle(sortedPoints) { throw InputError.cannotMakeTriangle}
+        case 4: if !MyRect.isRect(sortedPoints) { throw InputError.cannotMakeRect }
         default: break
         }
         
@@ -93,27 +93,6 @@ extension InputView {
         let validInput = CharacterSet.init(charactersIn: "()-,0123456789")
         let filter = input.trimmingCharacters(in: validInput)
         if !filter.isEmpty { return true } else { return false }
-    }
-    
-    // 직 사각형 좌표인지 검사
-    private func isRect(_ pointArray: [MyPoint]) -> Bool {
-        var setX = Set<Int>()
-        var setY = Set<Int>()
-        for point in pointArray {
-            setX.insert(point.x)
-            setY.insert(point.y)
-        }
-        if setX.count==2 && setY.count==2 { return true }
-        else { return false }
-    }
-    
-    private func isTriangle(_ pointArray: [MyPoint]) -> Bool {
-        let a = MyLine(pointA: pointArray[0], pointB: pointArray[1]).distance()
-        let b = MyLine(pointA: pointArray[0], pointB: pointArray[2]).distance()
-        let c = MyLine(pointA: pointArray[1], pointB: pointArray[2]).distance()
-        let arr: [Double] = [a,b,c].sorted()
-        if arr[0]+arr[1] > arr[2] { return true }
-        else { return false }
     }
     
     // 입력에 따라 point, line, triangle 프로퍼티에 할당.
