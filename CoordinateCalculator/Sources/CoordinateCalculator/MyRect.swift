@@ -27,6 +27,17 @@ struct MyRect {
 // MARK: Methods
 extension MyRect {
     
+    static func isRect(_ pointArray: [MyPoint]) -> Bool {
+        var setX = Set<Int>()
+        var setY = Set<Int>()
+        for point in pointArray {
+            setX.insert(point.x)
+            setY.insert(point.y)
+        }
+        if setX.count==2 && setY.count==2 { return true }
+        else { return false }
+    }
+    
     func areaRect() -> Double {
         let leftBottom = MyPoint(x: leftTop.x, y: rightBottom.y)
         let bottomLine = MyLine(pointA: leftBottom , pointB: rightBottom).distance()
