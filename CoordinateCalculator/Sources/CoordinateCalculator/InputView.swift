@@ -28,6 +28,9 @@ struct InputView {
     static func isOverAxisLimit(_ point: MyPoint)->Bool{
         var isUnderAxisLimit: Bool = false
         // ANSICode.axis.AxisLimit 을 넘으면 true 반환. 넘지 않으면 false 반환.
+        if point.x > ANSICode.axis.AxisLimit || point.y > ANSICode.axis.AxisLimit {
+            isUnderAxisLimit = true
+        }
         return isUnderAxisLimit
     }
 }
