@@ -1,16 +1,15 @@
 import Foundation
 
 var inputView = InputView()
+var figureStore = FigureStore()
 
 while(true) {
     do {
-        guard let figure = try inputView.readInput() else { break }
-        switch figure {
-        case .point : OutputView.prints(point: inputView.point)
-        case .line : OutputView.prints(line: inputView.line)
-        case .triangle: OutputView.prints(triangle: inputView.triangle)
-        case .rect: OutputView.prints(rect: inputView.rect)
-        }
+        guard let coordinates = try inputView.readInput() else { break }
+        let figure = try figureStore.convertArrayToFigure(coordinates)
+        OutputView.printFigure(figure.position(coordinates))
+        guard let resultOfCalculation = figure.calculator() else { continue }
+        OutputView.printCalculator(resultOfCalculation)
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {

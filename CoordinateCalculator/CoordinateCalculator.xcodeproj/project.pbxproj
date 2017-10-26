@@ -11,6 +11,7 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		C946D2081F9D7DC2001B6681 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C946D2071F9D7DC2001B6681 /* InputView.swift */; };
 		C94C7B071FA1B737008F6A0A /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94C7B061FA1B737008F6A0A /* Figure.swift */; };
+		C94C7B091FA1BCC0008F6A0A /* FigureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94C7B081FA1BCC0008F6A0A /* FigureStore.swift */; };
 		C952DC381F9994E700F4DF45 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952DC371F9994E700F4DF45 /* MyPoint.swift */; };
 		C952DC3A1F9994EE00F4DF45 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952DC391F9994EE00F4DF45 /* MyLine.swift */; };
 		C952DC3C1F99950400F4DF45 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952DC3B1F99950400F4DF45 /* MyTriangle.swift */; };
@@ -44,6 +45,7 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		C946D2071F9D7DC2001B6681 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C94C7B061FA1B737008F6A0A /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		C94C7B081FA1BCC0008F6A0A /* FigureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureStore.swift; sourceTree = "<group>"; };
 		C952DC371F9994E700F4DF45 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		C952DC391F9994EE00F4DF45 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		C952DC3B1F99950400F4DF45 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				C94C7B061FA1B737008F6A0A /* Figure.swift */,
+				C94C7B081FA1BCC0008F6A0A /* FigureStore.swift */,
 				C952DC371F9994E700F4DF45 /* MyPoint.swift */,
 				C952DC391F9994EE00F4DF45 /* MyLine.swift */,
 				C952DC3B1F99950400F4DF45 /* MyTriangle.swift */,
@@ -216,6 +219,7 @@
 				C952DC401F99953100F4DF45 /* OutputView.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				C952DC3A1F9994EE00F4DF45 /* MyLine.swift in Sources */,
+				C94C7B091FA1BCC0008F6A0A /* FigureStore.swift in Sources */,
 				C94C7B071FA1B737008F6A0A /* Figure.swift in Sources */,
 				C946D2081F9D7DC2001B6681 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,

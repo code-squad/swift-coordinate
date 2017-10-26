@@ -46,8 +46,8 @@ extension MyTriangle {
         let c = lineAC.distance()
         let cos = ( pow(a, 2.0) + pow(b, 2.0) - pow(c, 2.0) ) / (2.0 * a * b)
         let sin = sqrt(1.0 - pow(cos, 2.0))
-        var area = (a * b * sin) / 2
-        return area.roundToPlaces(places: 1)
+        let area = (a * b * sin) / 2
+        return area
     }
 }
 
