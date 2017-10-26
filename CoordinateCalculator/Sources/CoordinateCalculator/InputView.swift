@@ -16,13 +16,15 @@ struct InputView {
     }
     
     static func readInput(rawCoords: String)->MyPoint{
-        var userPoint = MyPoint()
-        // 좌표 정보는 괄호"(", ")"로 둘러쌓여 있으며 쉼표(,)로 x값과 y값을 구분한다. 문자열 분리한다.
-        var coordsWithBracelet = rawCoords.split(separator: ",")
-        print(rawCoords)
-        print(coordsWithBracelet)
+        // 괄호 제거.
+        let coordsWithoutParenthesis: String = rawCoords.filter{ $0 != "(" || $0 != ")" }
+        let coords: [Int] = coordsWithoutParenthesis.split(separator: ",").map{
+            // ','로 나눈 문자들에 남아있는 공백을 제거한 후, Int로 변환.
+            if let trimmedCoord = Int($0.trimmingCharacters(in: .whitespaces)){ return trimmedCoord }
+            else{ return 0 }
+        }
         // 문자열로 얻은 x,y 값으로 MyPoint 객체 생성
-        return userPoint
+        return MyPoint(x: coords[0], y: coords[1])
     }
     
     static func isOverAxisLimit(_ point: MyPoint)->Bool{

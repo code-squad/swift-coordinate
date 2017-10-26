@@ -17,6 +17,6 @@ struct OutputView{
     }
     
     static func printHeart(at userPoint: MyPoint){
-        
+        print("♥︎")
     }
 }
