@@ -25,7 +25,7 @@ func main(){
         if execCount != 1 { print(OutputView.axisErrorMessage) }
         // 실행 횟수 +1
         execCount += 1
-    }while(InputView.isOverAxisLimit(userPoint) || (userInput == "q" || userInput == "quit"))
+    }while(InputView.isOverAxisLimit(userPoint))
     
     // 정상적인 좌표값인 경우, 해당 좌표에 특수문자 표시.
     OutputView.printHeart(at: userPoint)
