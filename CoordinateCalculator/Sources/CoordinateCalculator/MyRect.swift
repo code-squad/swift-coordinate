@@ -38,10 +38,16 @@ extension MyRect {
         else { return false }
     }
     
-    func areaRect() -> Double {
+    func area() -> Double {
         let leftBottom = MyPoint(x: leftTop.x, y: rightBottom.y)
         let bottomLine = MyLine(pointA: leftBottom , pointB: rightBottom).distance()
         let height = MyLine(pointA: leftBottom, pointB: leftTop).distance()
         return bottomLine * height
+    }
+}
+
+extension MyRect: Figure {
+    func calculator() -> (String, Double)? {
+        return ("사각형 넓이는 ", area())
     }
 }

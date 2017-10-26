@@ -23,6 +23,8 @@ struct MyPoint {
     }
 }
 
+extension MyPoint: Figure { }
+
 extension MyPoint: Comparable {
     
     static func < (lhs: MyPoint, rhs: MyPoint) -> Bool {
