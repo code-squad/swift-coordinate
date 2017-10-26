@@ -17,59 +17,25 @@ enum InputError: Error {
     case cannotMakeRect
 }
 
-enum NumberOfPoints: Int {
-    case point = 1
-    case line
-    case triangle
-    case rect
-}
-
-struct InputView {
-    
-    private(set) var point: MyPoint
-    private(set) var line: MyLine
-    private(set) var triangle: MyTriangle
-    private(set) var rect: MyRect
-    
-    init() {
-        point = MyPoint()
-        line = MyLine()
-        triangle = MyTriangle()
-        rect = MyRect()
-    }
-}
+struct InputView {}
 
 // Methods
 extension InputView {
     
-    mutating func readInput() throws -> NumberOfPoints? {
+    mutating func readInput() throws -> [MyPoint]? {
         print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.clear)\(ANSICode.text.white) 좌표를 입력하세요. (종료하려면 엔터 입력)")
-        guard let input = readLine() else { throw InputError.emptyInput }
+        let input = readLine() ?? ""
+        
         if input == "" { return nil }
         
         if checkInvalidCharacters(input) { throw InputError.invalidInput }
         
         let points = splitInputToPoint(input)
         
-        var pointArray = [MyPoint]()
-        for point in points {
-            guard let xy = splitXY(point) else { throw InputError.invalidInput }
-            let xNum: Int = Int(xy.0) ?? 0
-            let yNum: Int = Int(xy.1) ?? 0
-            if xNum > 24 || yNum > 24 { throw InputError.outOfNumber }
-            pointArray.append(MyPoint(x: xNum, y: yNum))
-        }
-        let sortedPoints = pointArray.sorted()
+        let coordinates = try? splitXY(points)
         
-        // 세 개 이상의 좌표가 입력된 경우
-        switch sortedPoints.count {
-        case 3: if !MyTriangle.isTriangle(sortedPoints) { throw InputError.cannotMakeTriangle}
-        case 4: if !MyRect.isRect(sortedPoints) { throw InputError.cannotMakeRect }
-        default: break
-        }
+        return coordinates
         
-        guard let resultFigure = assigneFigueObject(sortedPoints) else { throw InputError.outOfCoordinate }
-        return resultFigure
     }
     
     // "-" 기준으로 나누기
@@ -78,14 +44,18 @@ extension InputView {
     }
     
     // x, y 로 나누기
-    private func splitXY(_ point: String) -> (Substring, Substring)? {
-        if point[point.startIndex] == "(" && point[point.index(before: point.endIndex)] == ")" {
-            guard let split = point.index(of: ",") else { return nil }
+    private func splitXY(_ points: [String]) throws -> [MyPoint] {
+        var coordinates = [MyPoint]()
+        for point in points {
+            guard let split = point.index(of: ",") else { throw InputError.invalidInput }
             let x = point[point.index(point.startIndex, offsetBy: 1)..<split]
             let y = point[point.index(split, offsetBy: 1)..<point.index(before: point.endIndex)]
-            return (x, y)
+            let xNum = Int(x) ?? 0
+            let yNum = Int(y) ?? 0
+            if xNum>24 || yNum>24 { throw InputError.outOfNumber }
+            coordinates.append(MyPoint(x: xNum, y: yNum))
         }
-        return nil
+        return coordinates
     }
     
     // 입력 스트링이 유효한지 검사
@@ -94,37 +64,5 @@ extension InputView {
         let filter = input.trimmingCharacters(in: validInput)
         if !filter.isEmpty { return true } else { return false }
     }
-    
-    // 입력에 따라 point, line, triangle 프로퍼티에 할당.
-    private mutating func assigneFigueObject(_ pointArray: [MyPoint]) -> NumberOfPoints? {
-        switch pointArray.count {
-        case 1:
-            self.point = MyPoint(
-                x: pointArray[0].x,
-                y: pointArray[0].y)
-            return .point
-        case 2:
-            self.line = MyLine(
-                pointA: pointArray[0],
-                pointB: pointArray[1])
-            return .line
-        case 3:
-            self.triangle = MyTriangle(
-                pointA: pointArray[0],
-                pointB: pointArray[1],
-                pointC: pointArray[2])
-            return .triangle
-        case 4:
-            let width = pointArray[2].x-pointArray[0].x
-            let height = pointArray[1].y-pointArray[0].y
-            self.rect = MyRect(
-                origin: MyPoint(x: pointArray[1].x,
-                                y: pointArray[1].y),
-                size: CGSize(width: CGFloat(width),
-                             height: CGFloat(height)))
-            return .rect
-        default: break
-        }
-        return nil
-    }
 }
+
