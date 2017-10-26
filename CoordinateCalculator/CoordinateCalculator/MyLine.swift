@@ -17,7 +17,7 @@ struct MyLine {
         pointB = MyPoint()
     }
     
-    init(pointA: MyPoint = MyPoint() , pointB: MyPoint = MyPoint()) {
+    init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }
@@ -30,6 +30,12 @@ extension MyLine {
         let temp = pow(Double(pointA.x - pointB.x), 2.0) + pow(Double(pointA.y - pointB.y), 2.0)
         var result = sqrt(temp)
         return result.roundToPlaces(places: 8)
+    }
+}
+
+extension MyLine: Figure {
+    func calculator() -> (String, Double)? {
+        return ("두 점 사이 거리는 ", distance() )
     }
 }
 

@@ -81,11 +81,11 @@ struct OutputView {
     
     private static func printArea(triangle: MyTriangle) {
         print("\(ANSICode.clear)")
-        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 삼각형 넓이는  \(triangle.areaTriangle())")
+        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 삼각형 넓이는  \(triangle.area())")
     }
     
     private static func printArea(rect: MyRect) {
         print("\(ANSICode.clear)")
-        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 사각형 넓이는  \(rect.areaRect())")
+        print("\(ANSICode.cursor.move(row: 2, col: 1))\(ANSICode.text.whiteBright) 사각형 넓이는  \(rect.area())")
     }
 }

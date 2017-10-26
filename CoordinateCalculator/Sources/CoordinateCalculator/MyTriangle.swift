@@ -40,7 +40,7 @@ extension MyTriangle {
         else { return false }
     }
     
-    func areaTriangle() -> Double {
+    func area() -> Double {
         let a = lineAB.distance()
         let b = lineBC.distance()
         let c = lineAC.distance()
@@ -48,5 +48,11 @@ extension MyTriangle {
         let sin = sqrt(1.0 - pow(cos, 2.0))
         var area = (a * b * sin) / 2
         return area.roundToPlaces(places: 1)
+    }
+}
+
+extension MyTriangle: Figure {
+    func calculator() -> (String, Double)? {
+        return ("삼각형 넓이는 ", area())
     }
 }
