@@ -10,6 +10,14 @@ import Foundation
 
 print("Hello, Jake!!")
 
-print("\(ANSICode.clear)\(ANSICode.home)")
+struct OutputView {
+    static func drawAxis() {
+        clearAxis()
+        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+    static private func clearAxis() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
+    }
+}
 
-print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+OutputView.drawAxis()
