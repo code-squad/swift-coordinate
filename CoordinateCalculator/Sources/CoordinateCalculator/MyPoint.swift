@@ -8,6 +8,6 @@
 import Foundation
 
 struct MyPoint{
-    var x: Int = 0
-    var y: Int = 0
+    var x: Int
+    var y: Int
 }
