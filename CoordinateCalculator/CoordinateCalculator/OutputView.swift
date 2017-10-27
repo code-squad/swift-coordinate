@@ -20,19 +20,44 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func printFigure(_ axises: [Coordinate]) {
+    private static func convertCoordinateOnAxis(_ points: [MyPoint]) -> [Coordinate] {
+        var coordinates = [Coordinate]()
+        for point in points {
+            let row = abs(24-point.y)+1
+            let col = 2*point.x+3
+            coordinates.append((row, col))
+        }
+        return coordinates
+    }
+    
+    static func printFigure(_ figure: Figure) {
         OutputView.removeText()
-        for axis in axises {
-            print("\(ANSICode.cursor.move(row: axis.row, col: axis.col))\(ANSICode.text.whiteBright)⦁")
+        let points = figure.points
+        let coordinates = OutputView.convertCoordinateOnAxis(points)
+        for coordinate in coordinates {
+            print("\(ANSICode.cursor.move(row: coordinate.row, col: coordinate.col))\(ANSICode.text.whiteBright)⦁")
         }
         OutputView.drawAxis()
         OutputView.removeText()
+        printCalculator(figure)
     }
     
-    static func printCalculator(_ calculate: (String, Double)) {
+    private static func printCalculator(_ figure: Figure) {
         print("\(ANSICode.clear)")
-        let title = calculate.0
-        let result = calculate.1
-        print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) \(title) \(result)")
+        let numberOfPoints = figure.points.count
+        switch numberOfPoints {
+        case 2:
+            let line = figure as? MyLine
+            print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line?.distance() ?? 0)")
+        case 3:
+            let triangle = figure as? MyTriangle
+            print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 삼각형 넓이는 \(triangle?.area() ?? 0)")
+        case 4:
+            let rect = figure as? MyRect
+            print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 사각형 넓이는 \(rect?.area() ?? 0)")
+        default: break
+        }
+        
     }
+    
 }
