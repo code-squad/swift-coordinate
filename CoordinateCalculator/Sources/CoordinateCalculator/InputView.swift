@@ -30,12 +30,17 @@ extension InputView {
         
         if checkInvalidCharacters(input) { throw InputError.invalidInput }
         
-        let points = splitInputToPoint(input)
+        let StringsOfPoints = splitInputToPoint(input)
         
-        let coordinates = try? splitXY(points)
-        
-        return coordinates
-        
+        var convertStringToPoints: [MyPoint] = [MyPoint]()
+        do {
+            convertStringToPoints = try splitXY(StringsOfPoints)
+            
+        } catch(let error){
+            throw error
+        }
+        return convertStringToPoints
+
     }
     
     // "-" 기준으로 나누기
@@ -47,13 +52,16 @@ extension InputView {
     private func splitXY(_ points: [String]) throws -> [MyPoint] {
         var coordinates = [MyPoint]()
         for point in points {
-            guard let split = point.index(of: ",") else { throw InputError.invalidInput }
-            let x = point[point.index(point.startIndex, offsetBy: 1)..<split]
-            let y = point[point.index(split, offsetBy: 1)..<point.index(before: point.endIndex)]
-            let xNum = Int(x) ?? 0
-            let yNum = Int(y) ?? 0
-            if xNum>24 || yNum>24 { throw InputError.outOfNumber }
-            coordinates.append(MyPoint(x: xNum, y: yNum))
+            if point[point.startIndex] == "(" && point[point.index(before: point.endIndex)] == ")" {
+                guard let split = point.index(of: ",") else { throw InputError.invalidInput }
+                let x = point[point.index(point.startIndex, offsetBy: 1)..<split]
+                let y = point[point.index(split, offsetBy: 1)..<point.index(before: point.endIndex)]
+                let xNum = Int(x) ?? 0
+                let yNum = Int(y) ?? 0
+                if xNum>24 || yNum>24 { throw InputError.outOfNumber }
+                coordinates.append(MyPoint(x: xNum, y: yNum))
+            } else { print(point)
+                throw InputError.invalidInput }
         }
         return coordinates
     }
