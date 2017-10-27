@@ -7,6 +7,7 @@ while(true) {
     do {
         guard let points = try inputView.readInput() else { break }
         let figure = try figureStore.convertArrayToFigure(points)
+        OutputView.printFigure(figure)
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {
