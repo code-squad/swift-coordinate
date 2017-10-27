@@ -8,6 +8,11 @@
 import Foundation
 
 struct MyPoint{
-    var x: Int
-    var y: Int
+    var x: Int = 0
+    var y: Int = 0
+    
+    enum PointError: String, Error{
+        case isNil = "입력값이 없습니다."
+        case outOfBounds = "좌표가 24를 넘지 않도록 입력해주세요."
+    }
 }
