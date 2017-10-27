@@ -47,7 +47,8 @@ extension MyRect {
 }
 
 extension MyRect: Figure {
-    func calculator() -> (String, Double)? {
-        return ("사각형 넓이는 ", area())
+    var points: [MyPoint] {
+        return [leftTop, MyPoint(x: leftTop.x, y: rightBottom.y), MyPoint(x: rightBottom.x, y: leftTop.y), rightBottom ]
     }
 }
+

@@ -20,7 +20,7 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func printFigure(_ axises: [Axis]) {
+    static func printFigure(_ axises: [Coordinate]) {
         OutputView.removeText()
         for axis in axises {
             print("\(ANSICode.cursor.move(row: axis.row, col: axis.col))\(ANSICode.text.whiteBright)⦁")

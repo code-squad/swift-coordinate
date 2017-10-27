@@ -23,7 +23,11 @@ struct MyPoint {
     }
 }
 
-extension MyPoint: Figure { }
+extension MyPoint: Figure {
+    var points: [MyPoint] {
+        return [self]
+    }
+}
 
 extension MyPoint: Comparable {
     

@@ -52,7 +52,7 @@ extension MyTriangle {
 }
 
 extension MyTriangle: Figure {
-    func calculator() -> (String, Double)? {
-        return ("삼각형 넓이는 ", area())
+    var points: [MyPoint] {
+        return [lineAB.pointA, lineAB.pointB, lineBC.pointB]
     }
 }

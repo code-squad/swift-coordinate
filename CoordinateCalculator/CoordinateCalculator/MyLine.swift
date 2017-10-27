@@ -32,8 +32,7 @@ extension MyLine {
 }
 
 extension MyLine: Figure {
-    func calculator() -> (String, Double)? {
-        return ("두 점 사이 거리는 ", distance() )
+    var points: [MyPoint] {
+        return [pointA, pointB]
     }
 }
-
