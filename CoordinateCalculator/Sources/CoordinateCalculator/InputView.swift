@@ -9,22 +9,18 @@ import Foundation
 
 struct InputView {
     // 문장을 입력받아 전처리.
-    static func input(message: String)->String?{
+    static func askFor(message: String)->String?{
         print(message, terminator: " ")
         guard let inputLine = readLine() else{ return nil }
         return inputLine
     }
     
     static func readInput(rawCoords: String)->MyPoint{
-        // 괄호 제거.
-        let coordsWithoutParenthesis: String = rawCoords.filter{ $0 != "(" || $0 != ")" }
-        let coords: [Int] = coordsWithoutParenthesis.split(separator: ",").map{
-            // ','로 나눈 문자들에 남아있는 공백을 제거한 후, Int로 변환.
-            if let trimmedCoord = Int($0.trimmingCharacters(in: .whitespaces)){ return trimmedCoord }
-            else{ return 0 }
-        }
+        let coordsInString = rawCoords.split(pattern: "[0-9]+")
+        // Int로 변환
+        let coords: [Int] = coordsInString.map { Int($0) ?? 0 }
         // 문자열로 얻은 x,y 값으로 MyPoint 객체 생성
-        return MyPoint(x: coords[0], y: coords[1])
+        return MyPoint(x: Int(coords[0]), y: Int(coords[1]))
     }
     
     static func isOverAxisLimit(_ point: MyPoint)->Bool{
@@ -34,5 +30,23 @@ struct InputView {
             isUnderAxisLimit = true
         }
         return isUnderAxisLimit
+    }
+}
+
+
+// 문자열에서 매칭되는 패턴을 찾아 반환.
+extension String{
+    func split(pattern: String)->[String]{
+        do {
+            let regex = try NSRegularExpression(pattern: pattern)
+            let nsTextResults = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
+            let results = nsTextResults.map({
+                return String(self[Range($0.range, in: self)!])
+            })
+            return results
+        } catch let error {
+            print("Invalid RegExp: ", error.localizedDescription)
+            return []
+        }
     }
 }
