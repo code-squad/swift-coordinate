@@ -8,30 +8,28 @@
 
 import Foundation
 
-func main(){
+func main() throws{
     // 좌표축 그림.
     OutputView.drawAxis()
     // 사용자 입력 좌표 저장 변수.
-    var userPoint: MyPoint
-    // while문 실행 횟수.
-    var execCount: Int = 1
-    var userInput: String = ""
-    
-    repeat{
-        // 첫 실행이면 에러 메시지는 스킵.
-        if execCount != 1 { print(OutputView.axisErrorMessage) }
-        // 사용자 입력 메뉴.
-        userInput = InputView.askFor(message: "좌표를 입력하세요: ")!
-        // 사용자 입력 문자열에서 x,y 값을 분리하여 MyPoint 객체로 변환.
-        userPoint = InputView.readInput(rawCoords: userInput)
-        print(userPoint)
-        // 실행 횟수 +1
-        execCount += 1
-    }while(InputView.isOverAxisLimit(userPoint))
-    
+    var userPoint: MyPoint = MyPoint()
+    // 좌표축 범위를 넘는 경우, 계속 입력받음.
+    while let userInput = try OutputView.askFor(message: "좌표를 입력하세요: ") {
+        do{// 사용자 입력을 MyPoint 객체로 변환.
+            userPoint = try InputView.readInput(rawCoords: userInput)
+        }catch MyPoint.PointError.outOfBounds{
+            // 좌표축 범위를 넘으면 관련 에러 메시지 출력.
+            OutputView.printErrorMessage(of: MyPoint.PointError.outOfBounds)
+            // while 문 다시 시작.
+            continue
+        }
+        // 정상입력 시 while 문 종료.
+        break
+    }
     // 정상적인 좌표값인 경우, 해당 좌표에 특수문자 표시.
     OutputView.printHeart(at: userPoint)
 }
 
-main()
+try main()
+
 
