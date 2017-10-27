@@ -8,25 +8,10 @@
 
 import Foundation
 
-public typealias Axis = (row: Int, col: Int)
+// Input 좌표 타입은 Mypoint로, output을 위한 좌표 타입 명은 Coordinate로 통일
+typealias Coordinate = (row: Int, col: Int)
 
 protocol Figure {
-    func position(_ points: [MyPoint]) ->  [Axis]
-    func calculator() -> (String, Double)?
+    var points: [MyPoint] { get }
 }
 
-extension Figure {
-    func calculator() -> (String, Double)? {
-        return nil
-    }
-    
-    func position(_ points: [MyPoint]) -> [Axis] {
-        var coordinates = [Axis]()
-        for point in points {
-            let row = abs(24-point.y)+1
-            let col = 2*point.x+3
-            coordinates.append((row, col))
-        }
-        return coordinates
-    }
-}

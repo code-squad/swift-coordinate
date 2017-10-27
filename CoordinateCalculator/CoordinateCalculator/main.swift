@@ -13,11 +13,8 @@ var figureStore = FigureStore()
 
 while(true) {
     do {
-        guard let coordinates = try inputView.readInput() else { break }
-        let figure = try figureStore.convertArrayToFigure(coordinates)
-        OutputView.printFigure(figure.position(coordinates))
-        guard let resultOfCalculation = figure.calculator() else { continue }
-        OutputView.printCalculator(resultOfCalculation)
+        guard let points = try inputView.readInput() else { break }
+        let figure = try figureStore.convertArrayToFigure(points)
     } catch InputError.emptyInput {
         print("입력 값이 없습니다.")
     } catch InputError.invalidInput {
