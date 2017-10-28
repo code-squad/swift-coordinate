@@ -8,14 +8,15 @@
 import Foundation
 
 struct InputView {
-    // 문자열을 MyPoint 객체로 변환.
+    // 사용자 입력값을 MyPoint 객체로 변환.
     static func readInput(rawCoords: String) throws -> MyPoint{
+        // 숫자패턴인 문자열만 추출.
         let coordsInString = rawCoords.split(pattern: "[0-9]+")
-        // Int로 변환.
+        // 문자열을 숫자타입으로 변환.
         let coords: [Int] = coordsInString.map { Int($0) ?? 0 }
-        // MyPoint로 변환.
+        // 숫자타입을 MyPoint타입으로 변환.
         let point: MyPoint = MyPoint(x: Int(coords[0]), y: Int(coords[1]))
-        // 좌표축 범위를 넘으면 에러처리.
+        // 좌표축 최대범위를 넘으면 에러처리. (에러 출력은 메인에서. 출력함수는 OutputView에 구현.)
         guard isUnderAxisLimit(point) else{ throw MyPoint.PointError.outOfBounds }
         // 문자열로 얻은 x,y 값으로 MyPoint 객체 생성.
         return point

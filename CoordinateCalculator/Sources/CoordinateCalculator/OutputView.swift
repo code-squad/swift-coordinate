@@ -21,7 +21,7 @@ struct OutputView{
         print("\(ANSICode.axis.draw())")
     }
     
-    // 사용자 입력 메뉴 출력 및 입력 메시지 반환.
+    // 사용자 입력 메뉴 출력 함수. 사용자 입력 문자열 반환.
     static func askFor(message: String) throws -> String?{
         // 요구 메시지 출력.
         print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)\(message)", terminator: " ")
@@ -31,29 +31,41 @@ struct OutputView{
     }
     
     // 에러 메시지 출력.
-    static func printErrorMessage(of type: MyPoint.PointError){
+    static func printErrorMessage(of type: MyPoint.PointError) -> [Int] {
         let errorMessage = type.rawValue
         // 에러 메시지를 좌표평면 중간에 출력하기 위한 위치 계산.
         let posYOfErrorMsg = startOfAxisY + ANSICode.axis.AxisLimit/2
         let posXOfErrorMsg = ( startOfAxisX + (ANSICode.axis.AxisLimit-errorMessage.count)/2 ) * ratioOfAxisX
-        print("\(ANSICode.cursor.move(row: posYOfErrorMsg, col: posXOfErrorMsg))\(errorMessage)")
+        // 에러 메시지를 빨간 색상으로 출력.
+        print("\(ANSICode.cursor.move(row: posYOfErrorMsg, col: posXOfErrorMsg))\(ANSICode.text.redBright)\(errorMessage)")
+        return [posYOfErrorMsg, posXOfErrorMsg]
     }
     
-    // 사용자 입력 위치에 특수문자 출력.
+    // 특정 위치부터 가로 끝까지 지움. (에러 메시지 출력 위함.)
+    static func erase(at position: [Int]){
+        print("\(ANSICode.cursor.move(row: position[0], col: position[1]))\(ANSICode.eraseEndLine)")
+    }
+    
+    // 좌표계에 특수문자 출력.
     static func printHeart(at userPoint: MyPoint){
+        // 사용자 입력 좌표의 출력 위치 계산.
         let coordX = startOfAxisX + userPoint.x*ratioOfAxisX
         let coordY = startOfAxisY + ANSICode.axis.AxisLimit - userPoint.y
+        // 빨간색 하트 출력.
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: coordY, col: coordX))♥︎")
+        // 보조선 출력.
         printAssistLine(toX: coordX, andY: coordY)
-        // 프로그램 종료 후 커서를 맨 아래에 위치. 설정 초기화.
+        // 프로그램 종료 후 커서를 맨 아래에 위치. 색상 등 설정 초기화. (프로그램 종료 후 명령문 위치 지정 위함.)
         print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.none)")
     }
     
     // 보조선 출력.
     private static func printAssistLine(toX pointX: Int, andY pointY: Int){
+        // 하트까지 x축에 평행하는 점선 출력.
         for x in startOfAxisX+1..<pointX{
             print("\(ANSICode.cursor.move(row: pointY, col: x))-")
         }
+        // 하트까지 y축에 평행하는 점선 출력.
         for y in pointY+1..<ANSICode.axis.AxisLimit+1{
             print("\(ANSICode.cursor.move(row: y, col: pointX))|")
         }
