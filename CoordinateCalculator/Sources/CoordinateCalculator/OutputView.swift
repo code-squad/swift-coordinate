@@ -64,10 +64,19 @@ struct OutputView{
         guard let userFigure = userFigure else { return }
         // userFigure의 타입에 따라 하트 출력.
         switch userFigure {
-        case let userPoint as MyPoint: printHeart(at: userPoint)
-        case let userLine as MyLine: printHeart(at: userLine.pointA, userLine.pointB)
+        case let userPoint as MyPoint:
+            printHeart(at: userPoint)
+        case let userLine as MyLine:
+            printHeart(at: userLine.pointA, userLine.pointB); reset()
+            let distance = String.init(format: "%.6f", userLine.calculateDistance())
+            print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))두 점 사이 거리는 \(distance)\(ANSICode.none)")
         default: break
         }
+    }
+    
+    private static func reset(){
+        // 프로그램 종료 후 커서를 맨 아래에 위치. 색상 등 설정 초기화. (프로그램 종료 후 명령문 위치 지정 위함.)
+        print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)")
     }
     
     // 좌표계에 특수문자 출력.
@@ -80,8 +89,6 @@ struct OutputView{
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: coordY, col: coordX))♥︎")
             // 보조선 출력.
             printAssistLine(toX: coordX, andY: coordY)
-            // 프로그램 종료 후 커서를 맨 아래에 위치. 색상 등 설정 초기화. (프로그램 종료 후 명령문 위치 지정 위함.)
-            print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.none)")
         }
     }
     
@@ -89,11 +96,11 @@ struct OutputView{
     private static func printAssistLine(toX pointX: Int, andY pointY: Int){
         // 하트까지 x축에 평행하는 점선 출력.
         for x in startOfAxisX+1..<pointX{
-            print("\(ANSICode.cursor.move(row: pointY, col: x))-")
+            print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: pointY, col: x))-")
         }
         // 하트까지 y축에 평행하는 점선 출력.
         for y in pointY+1..<ANSICode.axis.AxisLimit+1{
-            print("\(ANSICode.cursor.move(row: y, col: pointX))|")
+            print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: y, col: pointX))|")
         }
     }
 }

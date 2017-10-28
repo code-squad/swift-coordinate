@@ -13,7 +13,6 @@ struct MyLine{
     
     // 두 점 사이 거리 계산.
     func calculateDistance() -> Double{
-        let result = sqrt( Double((self.pointA.x-self.pointB.x)^2 + (self.pointA.y-self.pointB.y)^2) )
-        return result
+        return sqrt( Double( (self.pointB.x-self.pointA.x)^2 + (self.pointB.y-self.pointA.y)^2 ) )
     }
 }
