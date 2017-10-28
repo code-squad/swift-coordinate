@@ -15,6 +15,17 @@ struct OutputView{
     static let endYOfPage = ANSICode.axis.AxisLimit+3   // 화면에 보이는 페이지의 가장 마지막 줄 위치(y)
     static let startXOfCommands = 2     // 기타 명령어들이 출력되는 시작지점(x)
     
+    enum Figures{
+        case MyPoint, MyLine
+    }
+    
+    // MyPoint 구조체 관련 에러 및 에러메시지 종류.
+    enum CoordsError: String, Error{
+        case isNil = "입력값이 없습니다."                           // nil 에러.
+        case outOfBounds = "좌표가 24를 넘지 않도록 입력해주세요."      // 좌표계 최대범위 초과 에러.
+        case invalidInputPattern = "형식을 맞춰주세요. 예: (숫자,숫자)-"  // 입력 패턴 에러.
+    }
+    
     // 좌표축 출력.
     static func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
@@ -26,14 +37,14 @@ struct OutputView{
         // 요구 메시지 출력.
         print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)\(message)", terminator: " ")
         // 요구 메시지가 nil 인 경우, isNil 에러 처리.
-        guard let inputLine = readLine() else{ throw InputView.CoordsError.isNil }
+        guard let inputLine = readLine() else{ throw OutputView.CoordsError.isNil }
         return inputLine
     }
     
     // 에러 메시지 출력.
-    static func printErrorMessage(of type: InputView.CoordsError) -> [Int] {
+    static func printErrorMessage(of type: OutputView.CoordsError) -> [Int] {
         let errorMessage = type.rawValue
-        // 에러 메시지를 좌표평면 중간에 출력하기 위한 위치 계산.
+        // 에러 메시지를 좌표평면 중간에 출력하기 위한 위치 계산. - 메시지에 숫자나 특수문자가 들어가면 오차 생길 수 있음.
         let posYOfErrorMsg = startOfAxisY + ANSICode.axis.AxisLimit/2
         let posXOfErrorMsg = ( startOfAxisX + (ANSICode.axis.AxisLimit-errorMessage.count)/2 ) * ratioOfAxisX
         // 에러 메시지를 빨간 색상으로 출력.
@@ -48,8 +59,19 @@ struct OutputView{
         print("\(ANSICode.cursor.move(row: position[0], col: position[1]))\(ANSICode.eraseEndLine)")
     }
     
+    // 도형에 따라 출력.
+    static func printNumerousHearts(inShape userFigure: Any?){
+        guard let userFigure = userFigure else { return }
+        // userFigure의 타입에 따라 하트 출력.
+        switch userFigure {
+        case let userPoint as MyPoint: printHeart(at: userPoint)
+        case let userLine as MyLine: printHeart(at: userLine.pointA, userLine.pointB)
+        default: break
+        }
+    }
+    
     // 좌표계에 특수문자 출력.
-    static func printHeart(at userPoints: [MyPoint]){
+    private static func printHeart(at userPoints: MyPoint...){
         for userPoint in userPoints{
             // 사용자 입력 좌표의 출력 위치 계산.
             let coordX = startOfAxisX + userPoint.x*ratioOfAxisX

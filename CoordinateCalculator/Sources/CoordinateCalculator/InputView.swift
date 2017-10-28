@@ -13,23 +13,29 @@ struct InputView {
     
     // 사용자 입력값을 MyPoint 객체로 변환.
     static func readInput(rawCoords: String) throws -> Any{
+        // 문자열을 좌표 패턴으로 자름.
         let stringsInCoordPattern = rawCoords.split(pattern: InputView.validInputPattern)
         // 입력 패턴이 유효하지 않으면 에러처리.
         guard stringsInCoordPattern.count > 0 else { throw OutputView.CoordsError.invalidInputPattern }
+        // 좌표패턴의 문자열에서 MyPoint 생성.
         let points = generatePoints(from: stringsInCoordPattern)
         // 좌표축 최대범위를 넘으면 에러처리. (에러 출력은 메인에서. 출력함수는 OutputView에 구현.)
         guard isUnderAxisLimit(points) else{ throw OutputView.CoordsError.outOfBounds }
+        // MyPoint 갯수에 따라 각 도형 생성하여 반환.
         return generateFigures(from: points)
     }
     
+    // 도형 생성.
     private static func generateFigures(from points: [MyPoint]) -> Any{
+        // MyPoint 개수를 통해 각 도형 생성.
         switch points.count {
-        case 1: return points
+        case 1: return points[0]
         case 2: return MyLine(pointA: points[0], pointB: points[1])
-        default: return points
+        default: return points[0]
         }
     }
     
+    // 좌표패턴의 문자열들에서 숫자만 추출하여 MyPoint 객체들 생성.
     private static func generatePoints(from stringsInCoordPattern: [String]) -> [MyPoint]{
         var resultPoints: [MyPoint] = []
         // 숫자패턴인 문자열만 추출.
