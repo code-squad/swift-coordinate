@@ -32,6 +32,13 @@ struct InputView {
 
 
 extension String{
+    func isValid(observing characters: String) -> Bool{
+        let characterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: characters))
+        let range = self.rangeOfCharacter(from: characterSet, options: .regularExpression)
+        
+        return false
+    }
+    
     // 문자열에서 매칭되는 패턴을 찾아 반환.
     func split(pattern: String) -> [String]{
         do {
