@@ -18,9 +18,7 @@ struct InputView {
         // 입력 패턴이 유효하지 않으면 에러처리.
         guard stringsInCoordPattern.count > 0 else { throw OutputView.CoordsError.invalidInputPattern }
         // 좌표패턴의 문자열에서 MyPoint 생성.
-        let points = generatePoints(from: stringsInCoordPattern)
-        // 좌표축 최대범위를 넘으면 에러처리. (에러 출력은 메인에서. 출력함수는 OutputView에 구현.)
-        guard isUnderAxisLimit(points) else{ throw OutputView.CoordsError.outOfBounds }
+        let points = try generatePoints(from: stringsInCoordPattern)
         // MyPoint 갯수에 따라 각 도형 생성하여 반환.
         return generateFigures(from: points)
     }
@@ -36,7 +34,7 @@ struct InputView {
     }
     
     // 좌표패턴의 문자열들에서 숫자만 추출하여 MyPoint 객체들 생성.
-    private static func generatePoints(from stringsInCoordPattern: [String]) -> [MyPoint]{
+    private static func generatePoints(from stringsInCoordPattern: [String]) throws -> [MyPoint]{
         var resultPoints: [MyPoint] = []
         // 숫자패턴인 문자열만 추출.
         for stringLikeCoord in stringsInCoordPattern{
@@ -46,6 +44,8 @@ struct InputView {
             // 숫자타입을 MyPoint타입으로 변환.
             resultPoints.append(MyPoint(x: Int(coords[0]), y: Int(coords[1])))
         }
+        // 좌표축 최대범위를 넘으면 에러처리.
+        guard isUnderAxisLimit(resultPoints) else{ throw OutputView.CoordsError.outOfBounds }
         return resultPoints
     }
     

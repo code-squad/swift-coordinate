@@ -13,6 +13,9 @@ struct MyLine{
     
     // 두 점 사이 거리 계산.
     func calculateDistance() -> Double{
-        return sqrt( Double( (self.pointB.x-self.pointA.x)^2 + (self.pointB.y-self.pointA.y)^2 ) )
+        // 큰 값에서 작은 값을 빼지 않으면 결과가 nan으로 나옴.
+        let differenceX = (max(self.pointA.x, self.pointB.x)-min(self.pointA.x, self.pointB.x))^2
+        let differenceY = (max(self.pointA.y, self.pointB.y)-min(self.pointA.y, self.pointB.y))^2
+        return sqrt( Double((differenceX + differenceY)) )
     }
 }
