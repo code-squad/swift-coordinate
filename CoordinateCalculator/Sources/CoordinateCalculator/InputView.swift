@@ -17,7 +17,7 @@ struct InputView {
         let stringsInCoordPattern = rawCoords.split(pattern: InputView.validInputPattern)
         // 입력 패턴이 유효하지 않으면 에러처리.
         guard stringsInCoordPattern.count > 0 else { throw OutputView.CoordsError.invalidInputPattern }
-        // 좌표패턴의 문자열에서 MyPoint 생성.
+        // 좌표패턴의 문자열에서 MyPoint 생성. (좌표범위 넘으면 에러처리도 함)
         let points = try generatePoints(from: stringsInCoordPattern)
         // MyPoint 갯수에 따라 각 도형 생성하여 반환.
         return generateFigures(from: points)
