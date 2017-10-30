@@ -16,7 +16,7 @@ struct InputView {
         return getPoint(formula: formula)
     }
     
-    func getPoint(formula: String) -> MyPoint {
+    private func getPoint(formula: String) -> MyPoint {
         let point = formula.trimmingCharacters(in: ["(", ")"]).split(separator: ",")
         if !checkInputValidation(point: point) {
             print("좌표 입력이 올바르지 않습니다.")
@@ -26,7 +26,7 @@ struct InputView {
         return myPoint
     }
     
-    func checkInputValidation(point: Array<String.SubSequence>) -> Bool {
+    private func checkInputValidation(point: Array<String.SubSequence>) -> Bool {
         guard point.count == 2 else {
             return false
         }

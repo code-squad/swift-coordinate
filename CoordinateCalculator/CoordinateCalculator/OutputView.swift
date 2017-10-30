@@ -15,8 +15,8 @@ struct OutputView {
     func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
-    func drawPoint(x: Int, y: Int) {
-        print("\(ANSICode.home)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 1 - y, col: x * 2 + 3))●")
+    func drawPoint(myPoint: MyPoint) {
+        print("\(ANSICode.home)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 1 - myPoint.y, col: myPoint.x * 2 + 3))●")
     }
 }
 

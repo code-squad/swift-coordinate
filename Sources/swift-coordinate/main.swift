@@ -13,7 +13,7 @@ var outputView = OutputView()
 
 let myPoint = inputView.readInput()
 outputView.clearAxis()
-outputView.drawPoint(x: myPoint.x, y: myPoint.y)
+outputView.drawPoint(myPoint: myPoint)
 outputView.drawAxis()
 
 
