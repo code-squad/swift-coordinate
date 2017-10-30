@@ -14,6 +14,8 @@ public struct ANSICode {
     static let clear    = "\(escape)2J"
     static let home     = "\(escape)0;0H"
     static let none     = "\(escape)0;0m\(escape)1;0m"
+    static let eraseEndLine     = "\(escape)K"
+    static let eraseStartLine   = "\(escape)1K"
     
     struct text {
         static let black   = escape + "0;30m"
@@ -70,8 +72,8 @@ public struct ANSICode {
         private static func drawX() -> String {
             var result = ""
             for xLoop in 1...AxisLimit {
-                    result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
-                    result += "━━"
+                result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
+                result += "━━"
             }
             for xLoop in 1...(AxisLimit/2) {
                 result += cursor.move(row: AxisLimit+2, col: xLoop*4+1)
