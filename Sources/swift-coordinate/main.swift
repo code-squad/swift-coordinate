@@ -8,16 +8,12 @@
 
 import Foundation
 
-print("Hello, Jake!!")
+var inputView = InputView()
+var outputView = OutputView()
 
-struct OutputView {
-    static func drawAxis() {
-        clearAxis()
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
-    }
-    static private func clearAxis() {
-        print("\(ANSICode.clear)\(ANSICode.home)")
-    }
-}
+let myPoint = inputView.readInput()
+outputView.clearAxis()
+outputView.drawPoint(x: myPoint.x, y: myPoint.y)
+outputView.drawAxis()
 
-OutputView.drawAxis()
+
