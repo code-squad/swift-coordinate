@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyTriangle: Figures{
+struct MyTriangle{
     var lineAB = MyLine()
     var lineBC = MyLine()
     var lineAC = MyLine()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyLine: Figures{
+struct MyLine{
     var pointA = MyPoint()
     var pointB = MyPoint()
 }

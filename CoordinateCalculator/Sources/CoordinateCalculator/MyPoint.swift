@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct MyPoint: Figures{
+struct MyPoint{
     var x: Int = 0      // x좌표 (col)
     var y: Int = 0      // y좌표 (raw)
 }
 
+extension MyPoint: FigureCalculatable{
+    func calculate() -> Double {
+        return 0.0
+    }
+}
