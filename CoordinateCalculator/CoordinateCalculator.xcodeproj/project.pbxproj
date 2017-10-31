@@ -15,6 +15,7 @@
 		8E29783B1FA718AB00C44BEC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2978351FA7185C00C44BEC /* InputView.swift */; };
 		8E29783C1FA7195200C44BEC /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2978391FA7189700C44BEC /* MyPoint.swift */; };
 		8E2978401FA8159D00C44BEC /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29783F1FA8159D00C44BEC /* MyLine.swift */; };
+		8E2978411FA848BE00C44BEC /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E29783F1FA8159D00C44BEC /* MyLine.swift */; };
 		8EB6726F1FA716A20019F43F /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6726E1FA716A20019F43F /* CoordinateCalculatorTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EB6726F1FA716A20019F43F /* CoordinateCalculatorTests.swift in Sources */,
+				8E2978411FA848BE00C44BEC /* MyLine.swift in Sources */,
 				8E29783B1FA718AB00C44BEC /* InputView.swift in Sources */,
 				8E29783C1FA7195200C44BEC /* MyPoint.swift in Sources */,
 			);
