@@ -20,6 +20,17 @@ struct MyTriangle{
 }
 
 extension MyTriangle: FigureCalculatable{
+    func getPoints() -> [MyPoint]{
+        var owningPoints: [MyPoint] = []
+        owningPoints.append(self.lineAB.pointA)
+        owningPoints.append(self.lineAB.pointB)
+        owningPoints.append(self.lineBC.pointA)
+        owningPoints.append(self.lineBC.pointB)
+        owningPoints.append(self.lineAC.pointA)
+        owningPoints.append(self.lineAC.pointB)
+        return owningPoints
+    }
+    
     func calculate() -> Double{
         let lengthOfLineAB = self.lineAB.calculate()
         let lengthOfLineBC = self.lineBC.calculate()

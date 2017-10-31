@@ -8,13 +8,7 @@
 
 import Foundation
 
-protocol Printer{
-    static func printNumerousHearts<T>(inShape userFigure: T?)
-    static func printDescription<T>(of userInput: T)
-    static func printHeart<T>(from userInput: T)
-}
-
-struct OutputView: Printer{
+struct OutputView{
     static let startOfAxisX = 3         // X축 시작지점
     static let startOfAxisY = 1         // Y축 시작지점
     static let ratioOfAxisX = 2         // X축 화면비율
@@ -63,18 +57,15 @@ struct OutputView: Printer{
     }
     
     // 도형에 따라 출력.
-    static func printNumerousHearts<T>(inShape userFigure: T?){
+    static func printNumerousHearts(inShape userFigure: FigureCalculatable?){
         guard let userFigure = userFigure else { return }
         // userFigure의 타입에 따라 하트 출력.
-        switch userFigure {
-        case let userPoint as MyPoint: printHeart(from: userPoint); reset()
-        case let userLine as MyLine: printHeart(from: userLine); reset(); printDescription(of: userLine)
-        case let userTriangle as MyTriangle: printHeart(from: userTriangle); reset(); printDescription(of: userTriangle)
-        default: break
-        }
+        printHeart(from: userFigure)
+        reset()
+        printDescription(of: userFigure)
     }
     
-    static func printDescription<T>(of userInput: T){
+    static func printDescription(of userInput: FigureCalculatable){
         var description: String = ""
         switch userInput {
         case let userLine as MyLine:
@@ -91,19 +82,9 @@ struct OutputView: Printer{
         print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)")
     }
     
-    internal static func printHeart<T>(from userInput: T){
-        switch userInput {
-        case let userPoint as MyPoint: printHeart(at: userPoint)
-        case let userLine as MyLine: printHeart(at: userLine.pointA, userLine.pointB)
-        case let userTriangle as MyTriangle: printHeart(at: userTriangle.lineAB.pointA, userTriangle.lineAB.pointB,
-                                                        userTriangle.lineBC.pointA, userTriangle.lineBC.pointB,
-                                                        userTriangle.lineAC.pointA, userTriangle.lineAC.pointB)
-        default: break
-        }
-    }
-    
     // 좌표계에 특수문자 출력.
-    private static func printHeart(at userPoints: MyPoint...){
+    private static func printHeart(from userInput: FigureCalculatable){
+        let userPoints = userInput.getPoints()
         for userPoint in userPoints{
             // 사용자 입력 좌표의 출력 위치 계산.
             let coordX = startOfAxisX + userPoint.x*ratioOfAxisX
