@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct MyPoint{
+struct MyPoint: Figures{
     var x: Int = 0      // x좌표 (col)
     var y: Int = 0      // y좌표 (raw)
 }
+

@@ -21,8 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		EE2FCF1F1FA8346F00E7EB89 /* MyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* MyProtocols.swift */; };
-		EE2FCF201FA8346F00E7EB89 /* MyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* MyProtocols.swift */; };
+		EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
+		EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
 		EE2FCF231FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
 		OBJ_26 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -55,7 +55,7 @@
 /* Begin PBXFileReference section */
 		"CoordinateCalculator::CoordinateCalculator::Product" /* CoordinateCalculator */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CoordinateCalculator::CoordinateCalculatorTests::Product" /* CoordinateCalculatorTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoordinateCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE2FCF1E1FA8346F00E7EB89 /* MyProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProtocols.swift; sourceTree = "<group>"; };
+		EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureProtocols.swift; sourceTree = "<group>"; };
 		EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		OBJ_10 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		OBJ_11 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -119,7 +119,6 @@
 				OBJ_15 /* Tests */,
 				OBJ_18 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -140,7 +139,7 @@
 				OBJ_12 /* MyPoint.swift */,
 				OBJ_13 /* OutputView.swift */,
 				OBJ_14 /* main.swift */,
-				EE2FCF1E1FA8346F00E7EB89 /* MyProtocols.swift */,
+				EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */,
 			);
 			name = CoordinateCalculator;
 			path = Sources/CoordinateCalculator;
@@ -211,7 +210,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -238,7 +237,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_32 /* CoordinateCalculatorTests.swift in Sources */,
-				EE2FCF1F1FA8346F00E7EB89 /* MyProtocols.swift in Sources */,
+				EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
 				EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				EE2FCF201FA8346F00E7EB89 /* MyProtocols.swift in Sources */,
+				EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
 				OBJ_40 /* ANSICode.swift in Sources */,
 				OBJ_41 /* InputView.swift in Sources */,
 				OBJ_42 /* MyLine.swift in Sources */,

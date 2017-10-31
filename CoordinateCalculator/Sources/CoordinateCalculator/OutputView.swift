@@ -8,6 +8,12 @@
 
 import Foundation
 
+protocol Printer{
+    static func printNumerousHearts<T>(inShape userFigure: T?)
+    static func printDescription<T>(of userInput: T)
+    static func printHeart<T>(from userInput: T)
+}
+
 struct OutputView: Printer{
     static let startOfAxisX = 3         // X축 시작지점
     static let startOfAxisY = 1         // Y축 시작지점
