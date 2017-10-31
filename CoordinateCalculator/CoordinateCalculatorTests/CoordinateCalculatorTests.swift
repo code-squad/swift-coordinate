@@ -27,7 +27,7 @@ class CoordinateCalculatorTests: XCTestCase {
         inputView = nil
         formula = ""
     }
-    
+    /* private functions
     func testCheckInputValidataion() {
         var tmpPoint = formula.trimmingCharacters(in: ["(", ")"]).split(separator: ",")
         XCTAssertTrue(inputView.checkInputValidation(point: tmpPoint))
@@ -45,6 +45,11 @@ class CoordinateCalculatorTests: XCTestCase {
         XCTAssertEqual(point.x, 10)
         XCTAssertEqual(point.y, 10)
     }
-    
+    */
+    func testGetAvailableCharacterSet() {
+        XCTAssertEqual(0, "(10,10)-".trimmingCharacters(in: inputView.getAvailableCharacterSet(custom: "()-,")).count)
+        XCTAssertEqual(0, "(10,10)-(14,15)".trimmingCharacters(in: inputView.getAvailableCharacterSet(custom: "()-,")).count)
+        XCTAssertEqual(4, "(10,10)-test".trimmingCharacters(in: inputView.getAvailableCharacterSet(custom: "()-,")).count)
+    }
 }
 
