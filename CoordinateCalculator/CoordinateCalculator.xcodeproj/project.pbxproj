@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"CoordinateCalculator::CoordinateCalculatorPackageTests::ProductTarget" /* CoordinateCalculatorPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_42 /* Build configuration list for PBXAggregateTarget "CoordinateCalculatorPackageTests" */;
+			buildConfigurationList = OBJ_48 /* Build configuration list for PBXAggregateTarget "CoordinateCalculatorPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_45 /* PBXTargetDependency */,
+				OBJ_51 /* PBXTargetDependency */,
 			);
 			name = CoordinateCalculatorPackageTests;
 			productName = CoordinateCalculatorPackageTests;
@@ -21,26 +21,27 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		EE7F9FEB1FA1B11C003F5D3F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F9FEA1FA1B11C003F5D3F /* InputView.swift */; };
-		EE7F9FEC1FA1B11C003F5D3F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F9FEA1FA1B11C003F5D3F /* InputView.swift */; };
-		EE7F9FEE1FA1B521003F5D3F /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F9FED1FA1B521003F5D3F /* MyPoint.swift */; };
-		EE7F9FEF1FA1B521003F5D3F /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F9FED1FA1B521003F5D3F /* MyPoint.swift */; };
-		OBJ_23 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_29 /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* CoordinateCalculatorTests.swift */; };
-		OBJ_37 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
-		OBJ_38 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* OutputView.swift */; };
-		OBJ_39 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* main.swift */; };
+		EE2FCF1F1FA8346F00E7EB89 /* FigureCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */; };
+		EE2FCF201FA8346F00E7EB89 /* FigureCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */; };
+		OBJ_26 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_32 /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CoordinateCalculatorTests.swift */; };
+		OBJ_40 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
+		OBJ_41 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* InputView.swift */; };
+		OBJ_42 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyLine.swift */; };
+		OBJ_43 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MyPoint.swift */; };
+		OBJ_44 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* OutputView.swift */; };
+		OBJ_45 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EE7F9FE21FA16DF8003F5D3F /* PBXContainerItemProxy */ = {
+		EE2FCF191FA831AD00E7EB89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CoordinateCalculator::CoordinateCalculator";
 			remoteInfo = CoordinateCalculator;
 		};
-		EE7F9FE31FA16DFA003F5D3F /* PBXContainerItemProxy */ = {
+		EE2FCF1A1FA831AD00E7EB89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -52,24 +53,26 @@
 /* Begin PBXFileReference section */
 		"CoordinateCalculator::CoordinateCalculator::Product" /* CoordinateCalculator */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CoordinateCalculator::CoordinateCalculatorTests::Product" /* CoordinateCalculatorTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoordinateCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE7F9FEA1FA1B11C003F5D3F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		EE7F9FED1FA1B521003F5D3F /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
-		OBJ_10 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		OBJ_11 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		OBJ_14 /* CoordinateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculatorTests.swift; sourceTree = "<group>"; };
+		EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCalculate.swift; sourceTree = "<group>"; };
+		OBJ_10 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		OBJ_11 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		OBJ_12 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		OBJ_13 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		OBJ_14 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_17 /* CoordinateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculatorTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_30 /* Frameworks */ = {
+		OBJ_33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_40 /* Frameworks */ = {
+		OBJ_46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -79,24 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_12 /* Tests */ = {
+		OBJ_15 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_13 /* CoordinateCalculatorTests */,
+				OBJ_16 /* CoordinateCalculatorTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_13 /* CoordinateCalculatorTests */ = {
+		OBJ_16 /* CoordinateCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* CoordinateCalculatorTests.swift */,
+				OBJ_17 /* CoordinateCalculatorTests.swift */,
 			);
 			name = CoordinateCalculatorTests;
 			path = Tests/CoordinateCalculatorTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_15 /* Products */ = {
+		OBJ_18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"CoordinateCalculator::CoordinateCalculatorTests::Product" /* CoordinateCalculatorTests.xctest */,
@@ -105,14 +108,15 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_12 /* Tests */,
-				OBJ_15 /* Products */,
+				OBJ_15 /* Tests */,
+				OBJ_18 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -127,10 +131,12 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* ANSICode.swift */,
-				OBJ_10 /* OutputView.swift */,
-				EE7F9FEA1FA1B11C003F5D3F /* InputView.swift */,
-				EE7F9FED1FA1B521003F5D3F /* MyPoint.swift */,
-				OBJ_11 /* main.swift */,
+				OBJ_10 /* InputView.swift */,
+				OBJ_11 /* MyLine.swift */,
+				OBJ_12 /* MyPoint.swift */,
+				OBJ_13 /* OutputView.swift */,
+				OBJ_14 /* main.swift */,
+				EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */,
 			);
 			name = CoordinateCalculator;
 			path = Sources/CoordinateCalculator;
@@ -141,10 +147,10 @@
 /* Begin PBXNativeTarget section */
 		"CoordinateCalculator::CoordinateCalculator" /* CoordinateCalculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_33 /* Build configuration list for PBXNativeTarget "CoordinateCalculator" */;
+			buildConfigurationList = OBJ_36 /* Build configuration list for PBXNativeTarget "CoordinateCalculator" */;
 			buildPhases = (
-				OBJ_36 /* Sources */,
-				OBJ_40 /* Frameworks */,
+				OBJ_39 /* Sources */,
+				OBJ_46 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,15 +163,15 @@
 		};
 		"CoordinateCalculator::CoordinateCalculatorTests" /* CoordinateCalculatorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_25 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorTests" */;
+			buildConfigurationList = OBJ_28 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorTests" */;
 			buildPhases = (
-				OBJ_28 /* Sources */,
-				OBJ_30 /* Frameworks */,
+				OBJ_31 /* Sources */,
+				OBJ_33 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_31 /* PBXTargetDependency */,
+				OBJ_34 /* PBXTargetDependency */,
 			);
 			name = CoordinateCalculatorTests;
 			productName = CoordinateCalculatorTests;
@@ -174,9 +180,9 @@
 		};
 		"CoordinateCalculator::SwiftPMPackageDescription" /* CoordinateCalculatorPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_19 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorPackageDescription" */;
+			buildConfigurationList = OBJ_22 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorPackageDescription" */;
 			buildPhases = (
-				OBJ_22 /* Sources */,
+				OBJ_25 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -201,8 +207,8 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_15 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -215,53 +221,54 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_22 /* Sources */ = {
+		OBJ_25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				EE7F9FEB1FA1B11C003F5D3F /* InputView.swift in Sources */,
-				OBJ_23 /* Package.swift in Sources */,
-				EE7F9FEE1FA1B521003F5D3F /* MyPoint.swift in Sources */,
+				OBJ_26 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_28 /* Sources */ = {
+		OBJ_31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_29 /* CoordinateCalculatorTests.swift in Sources */,
+				OBJ_32 /* CoordinateCalculatorTests.swift in Sources */,
+				EE2FCF1F1FA8346F00E7EB89 /* FigureCalculate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_36 /* Sources */ = {
+		OBJ_39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				EE7F9FEF1FA1B521003F5D3F /* MyPoint.swift in Sources */,
-				OBJ_37 /* ANSICode.swift in Sources */,
-				EE7F9FEC1FA1B11C003F5D3F /* InputView.swift in Sources */,
-				OBJ_38 /* OutputView.swift in Sources */,
-				OBJ_39 /* main.swift in Sources */,
+				EE2FCF201FA8346F00E7EB89 /* FigureCalculate.swift in Sources */,
+				OBJ_40 /* ANSICode.swift in Sources */,
+				OBJ_41 /* InputView.swift in Sources */,
+				OBJ_42 /* MyLine.swift in Sources */,
+				OBJ_43 /* MyPoint.swift in Sources */,
+				OBJ_44 /* OutputView.swift in Sources */,
+				OBJ_45 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_31 /* PBXTargetDependency */ = {
+		OBJ_34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CoordinateCalculator::CoordinateCalculator" /* CoordinateCalculator */;
-			targetProxy = EE7F9FE21FA16DF8003F5D3F /* PBXContainerItemProxy */;
+			targetProxy = EE2FCF191FA831AD00E7EB89 /* PBXContainerItemProxy */;
 		};
-		OBJ_45 /* PBXTargetDependency */ = {
+		OBJ_51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CoordinateCalculator::CoordinateCalculatorTests" /* CoordinateCalculatorTests */;
-			targetProxy = EE7F9FE31FA16DFA003F5D3F /* PBXContainerItemProxy */;
+			targetProxy = EE2FCF1A1FA831AD00E7EB89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_20 /* Debug */ = {
+		OBJ_23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -270,7 +277,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_21 /* Release */ = {
+		OBJ_24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -279,7 +286,7 @@
 			};
 			name = Release;
 		};
-		OBJ_26 /* Debug */ = {
+		OBJ_29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -296,24 +303,6 @@
 				TARGET_NAME = CoordinateCalculatorTests;
 			};
 			name = Debug;
-		};
-		OBJ_27 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = CoordinateCalculator.xcodeproj/CoordinateCalculatorTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = CoordinateCalculatorTests;
-			};
-			name = Release;
 		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -337,7 +326,25 @@
 			};
 			name = Debug;
 		};
-		OBJ_34 /* Debug */ = {
+		OBJ_30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = CoordinateCalculator.xcodeproj/CoordinateCalculatorTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = CoordinateCalculatorTests;
+			};
+			name = Release;
+		};
+		OBJ_37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -356,7 +363,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_35 /* Release */ = {
+		OBJ_38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -395,13 +402,13 @@
 			};
 			name = Release;
 		};
-		OBJ_43 /* Debug */ = {
+		OBJ_49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_44 /* Release */ = {
+		OBJ_50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -410,15 +417,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_19 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_20 /* Debug */,
-				OBJ_21 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		OBJ_2 /* Build configuration list for PBXProject "CoordinateCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -428,29 +426,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_25 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorTests" */ = {
+		OBJ_22 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_26 /* Debug */,
-				OBJ_27 /* Release */,
+				OBJ_23 /* Debug */,
+				OBJ_24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_33 /* Build configuration list for PBXNativeTarget "CoordinateCalculator" */ = {
+		OBJ_28 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_34 /* Debug */,
-				OBJ_35 /* Release */,
+				OBJ_29 /* Debug */,
+				OBJ_30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_42 /* Build configuration list for PBXAggregateTarget "CoordinateCalculatorPackageTests" */ = {
+		OBJ_36 /* Build configuration list for PBXNativeTarget "CoordinateCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_43 /* Debug */,
-				OBJ_44 /* Release */,
+				OBJ_37 /* Debug */,
+				OBJ_38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_48 /* Build configuration list for PBXAggregateTarget "CoordinateCalculatorPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_49 /* Debug */,
+				OBJ_50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
