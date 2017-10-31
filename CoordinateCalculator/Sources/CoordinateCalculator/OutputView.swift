@@ -15,9 +15,6 @@ struct OutputView{
     static let endYOfPage = ANSICode.axis.AxisLimit+3   // 화면에 보이는 페이지의 가장 마지막 줄 위치(y)
     static let startXOfCommands = 2     // 기타 명령어들이 출력되는 시작지점(x)
     
-    enum Figures{
-        case MyPoint, MyLine
-    }
     
     // MyPoint 구조체 관련 에러 및 에러메시지 종류.
     enum CoordsError: String, Error{
@@ -64,19 +61,39 @@ struct OutputView{
         guard let userFigure = userFigure else { return }
         // userFigure의 타입에 따라 하트 출력.
         switch userFigure {
-        case let userPoint as MyPoint:
-            printHeart(at: userPoint)
-        case let userLine as MyLine:
-            printHeart(at: userLine.pointA, userLine.pointB); reset()
-            let distance = String(format: "%.6f", userLine.calculate())
-            print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))두 점 사이 거리는 \(distance)\(ANSICode.none)")
+        case let userPoint as MyPoint: printHeart(from: userPoint); reset()
+        case let userLine as MyLine: printHeart(from: userLine); reset(); printDescription(of: userLine)
+        case let userTriangle as MyTriangle: printHeart(from: userTriangle); reset(); printDescription(of: userTriangle)
         default: break
         }
+    }
+    
+    static func printDescription(of userInput: Any){
+        var description: String = ""
+        switch userInput {
+        case let userLine as MyLine:
+            description = "두 점 사이 거리는 " + String(format: "%.6f", userLine.calculate())
+        case let userTriangle as MyTriangle:
+            description = "삼각형 넓이는 " + String(format: "%.6f", userTriangle.calculate())
+        default: break
+        }
+        print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(description)\(ANSICode.none)")
     }
     
     private static func reset(){
         // 프로그램 종료 후 커서를 맨 아래에 위치. 색상 등 설정 초기화. (프로그램 종료 후 명령문 위치 지정 위함.)
         print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)")
+    }
+    
+    private static func printHeart(from userInput: Any){
+        switch userInput {
+        case let userPoint as MyPoint: printHeart(at: userPoint)
+        case let userLine as MyLine: printHeart(at: userLine.pointA, userLine.pointB)
+        case let userTriangle as MyTriangle: printHeart(at: userTriangle.lineAB.pointA, userTriangle.lineAB.pointB,
+                                                        userTriangle.lineBC.pointA, userTriangle.lineBC.pointB,
+                                                        userTriangle.lineAC.pointA, userTriangle.lineAC.pointB)
+        default: break
+        }
     }
     
     // 좌표계에 특수문자 출력.
@@ -95,11 +112,11 @@ struct OutputView{
     // 보조선 출력.
     private static func printAssistLine(toX pointX: Int, andY pointY: Int){
         // 하트까지 x축에 평행하는 점선 출력.
-        for x in startOfAxisX+1..<pointX{
+        for x in startOfAxisX+1..<pointX {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: pointY, col: x))-")
         }
         // 하트까지 y축에 평행하는 점선 출력.
-        for y in pointY+1..<ANSICode.axis.AxisLimit+1{
+        for y in pointY+1..<ANSICode.axis.AxisLimit+1 {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: y, col: pointX))|")
         }
     }
