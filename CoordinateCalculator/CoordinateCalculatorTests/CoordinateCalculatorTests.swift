@@ -45,11 +45,23 @@ class CoordinateCalculatorTests: XCTestCase {
         XCTAssertEqual(point.x, 10)
         XCTAssertEqual(point.y, 10)
     }
-    */
+ 
     func testGetAvailableCharacterSet() {
         XCTAssertEqual(0, "(10,10)-".trimmingCharacters(in: inputView.getAvailableCharacterSet(custom: "()-,")).count)
         XCTAssertEqual(0, "(10,10)-(14,15)".trimmingCharacters(in: inputView.getAvailableCharacterSet(custom: "()-,")).count)
         XCTAssertEqual(4, "(10,10)-test".trimmingCharacters(in: inputView.getAvailableCharacterSet(custom: "()-,")).count)
+    }
+    */
+    func testGetLine() {
+        let line = inputView.getLine(formulas: ["(10,10)","(14,15)"])
+        XCTAssertEqual(line.pointA.x, 10)
+        XCTAssertEqual(line.pointB.y, 15)
+    }
+    func testGetPoints() {
+        var points = inputView.getPoints(points: ["(10,10)","(14,15)"])
+        XCTAssertTrue(points is MyLine)
+        points = inputView.getPoints(points: ["(10,10)"])
+        XCTAssertTrue(points is MyPoint)
     }
 }
 

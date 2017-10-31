@@ -10,18 +10,34 @@ import Foundation
 
 struct InputView {
     
-    func readInput() -> MyPoint {
+    func readInput() -> Any {
         print("좌표를 입력하세요.")
         let formula = readLine() ?? ""
-        return getPoint(formula: formula)
-    }
-    
-    private func getPoint(formula: String) -> MyPoint {
-        let point = formula.trimmingCharacters(in: ["(", ")"]).split(separator: ",")
         if !checkAvailableCharacterSet(formula: formula) {
-            print("입력값에 유효하지 않는 문자 혹은 기호가 들어가 있습니다.")
+            print("입력값에 유효하지 않은 문자 혹은 기호가 들어가 있습니다.")
             return readInput()
         }
+        let points = formula.split(separator: "-").map({String($0)})
+        return getPoints(points: points)
+    }
+    
+    func getPoints(points: [String]) -> Any {
+        switch points.count {
+        case 2:
+            return getLine(formulas: points)
+        default:
+            return getPoint(formula: points.joined())
+        }
+    }
+    
+    func getLine(formulas: [String]) -> MyLine {
+        let pointA : MyPoint = getPoint(formula: formulas[0]) as! MyPoint
+        let pointB : MyPoint = getPoint(formula: formulas[1]) as! MyPoint
+        return MyLine.init(pointA: pointA, pointB: pointB)
+    }
+    
+    private func getPoint(formula: String) -> Any {
+        let point = formula.trimmingCharacters(in: ["(", ")"]).split(separator: ",")
         if !checkInputValidation(point: point) {
             print("좌표 입력이 올바르지 않습니다.")
             return readInput()

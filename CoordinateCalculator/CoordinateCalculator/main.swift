@@ -11,9 +11,9 @@ import Foundation
 var inputView = InputView()
 var outputView = OutputView()
 
-let myPoint = inputView.readInput()
+let points = inputView.readInput()
 outputView.clearAxis()
-outputView.drawPoint(myPoint: myPoint)
+outputView.drawPoints(points: points)
 outputView.drawAxis()
 
 
