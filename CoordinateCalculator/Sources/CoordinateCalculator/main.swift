@@ -12,7 +12,7 @@ func main() throws{
     // 좌표축 그림.
     OutputView.drawAxis()
     // 사용자 입력 좌표 저장 변수.
-    var userFigure: InputView.ItemType?
+    var userFigure: FigureCalculatable?
     // 에러 메시지 출력 위치 저장 변수.
     var posOfErrorMsg: [Int]?
     // 좌표축 범위를 넘는 경우, 계속 입력받음.

@@ -8,13 +8,11 @@
 import Foundation
 
 struct InputView {
-    typealias ItemType = FigureCalculatable
-    
     // 입력 가능한 문자열 패턴. ex. (3,5)- 형식 가능.
     static let validInputPattern: String = "\\([0-9]+,[0-9]+\\)-?"
     
     // 사용자 입력값을 MyPoint 객체로 변환.
-    static func readInput(rawCoords: String) throws -> ItemType{
+    static func readInput(rawCoords: String) throws -> FigureCalculatable{
         // 문자열을 좌표 패턴으로 자름.
         let stringsInCoordPattern = rawCoords.split(pattern: InputView.validInputPattern)
         // 입력 패턴이 유효하지 않으면 에러처리.
@@ -27,7 +25,7 @@ struct InputView {
     
     
     // 도형 생성.
-    static func getFigure(from points: [MyPoint]) -> ItemType{
+    static func getFigure(from points: [MyPoint]) -> FigureCalculatable{
         // MyPoint 개수를 통해 각 도형 생성.
         switch points.count {
         case 1: return MyPoint(x: points[0].x, y: points[1].y)
