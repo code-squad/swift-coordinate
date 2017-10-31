@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OutputView{
+struct OutputView: Printer{
     static let startOfAxisX = 3         // X축 시작지점
     static let startOfAxisY = 1         // Y축 시작지점
     static let ratioOfAxisX = 2         // X축 화면비율
@@ -57,7 +57,7 @@ struct OutputView{
     }
     
     // 도형에 따라 출력.
-    static func printNumerousHearts(inShape userFigure: Any?){
+    static func printNumerousHearts<T>(inShape userFigure: T?){
         guard let userFigure = userFigure else { return }
         // userFigure의 타입에 따라 하트 출력.
         switch userFigure {
@@ -68,7 +68,7 @@ struct OutputView{
         }
     }
     
-    static func printDescription(of userInput: Any){
+    static func printDescription<T>(of userInput: T){
         var description: String = ""
         switch userInput {
         case let userLine as MyLine:
@@ -85,7 +85,7 @@ struct OutputView{
         print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)")
     }
     
-    private static func printHeart(from userInput: Any){
+    internal static func printHeart<T>(from userInput: T){
         switch userInput {
         case let userPoint as MyPoint: printHeart(at: userPoint)
         case let userLine as MyLine: printHeart(at: userLine.pointA, userLine.pointB)
