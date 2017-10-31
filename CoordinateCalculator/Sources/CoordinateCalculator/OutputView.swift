@@ -111,6 +111,8 @@ struct OutputView{
     
     // 보조선 출력.
     private static func printAssistLine(toX pointX: Int, andY pointY: Int){
+        // x 또는 y 좌표가 0이면 보조선 그리지 않고 탈출. (0,0) = (3,25)
+        guard pointX > startOfAxisX && pointY < 25 else { return }
         // 하트까지 x축에 평행하는 점선 출력.
         for x in startOfAxisX+1..<pointX {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: pointY, col: x))-")
