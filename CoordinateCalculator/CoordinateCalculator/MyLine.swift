@@ -11,4 +11,9 @@ import Foundation
 struct MyLine {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
+    
+    func getDistance() -> Double {
+        return sqrt(pow(Double(self.pointA.x - self.pointB.x), 2) + pow(Double(self.pointA.y - self.pointB.y), 2))
+    }
+    
 }

@@ -21,7 +21,7 @@ struct InputView {
         return getPoints(points: points)
     }
     
-    func getPoints(points: [String]) -> Any {
+    private func getPoints(points: [String]) -> Any {
         switch points.count {
         case 2:
             return getLine(formulas: points)
@@ -30,7 +30,7 @@ struct InputView {
         }
     }
     
-    func getLine(formulas: [String]) -> MyLine {
+    private func getLine(formulas: [String]) -> MyLine {
         let pointA : MyPoint = getPoint(formula: formulas[0]) as! MyPoint
         let pointB : MyPoint = getPoint(formula: formulas[1]) as! MyPoint
         return MyLine.init(pointA: pointA, pointB: pointB)
