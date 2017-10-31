@@ -68,7 +68,7 @@ struct OutputView{
             printHeart(at: userPoint)
         case let userLine as MyLine:
             printHeart(at: userLine.pointA, userLine.pointB); reset()
-            let distance = String(format: "%.6f", userLine.calculateDistance())
+            let distance = String(format: "%.6f", userLine.calculate())
             print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))두 점 사이 거리는 \(distance)\(ANSICode.none)")
         default: break
         }
