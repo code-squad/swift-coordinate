@@ -9,11 +9,12 @@
 import Foundation
 
 var inputView = InputView()
-var outputView = OutputView()
-
 let points = inputView.readInput()
+
+var outputView = OutputView(points: points)
 outputView.clearAxis()
-outputView.drawPoints(points: points)
+outputView.drawPoints()
 outputView.drawAxis()
+outputView.getCalculateResult()
 
 
