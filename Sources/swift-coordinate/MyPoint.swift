@@ -8,9 +8,15 @@
 
 import Foundation
 
-struct MyPoint {
-    var x = 0
-    var y = 0
+struct MyPoint : Points {
+    private(set) var x = 0
+    private(set) var y = 0
+    private(set) var points: [MyPoint] = []
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+        self.points = [self]
+    }
 }
 
 
