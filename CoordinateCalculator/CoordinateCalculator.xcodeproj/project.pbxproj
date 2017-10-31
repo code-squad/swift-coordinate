@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		EE2FCF1F1FA8346F00E7EB89 /* FigureCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */; };
 		EE2FCF201FA8346F00E7EB89 /* FigureCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */; };
+		EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
+		EE2FCF231FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
 		OBJ_26 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_32 /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CoordinateCalculatorTests.swift */; };
 		OBJ_40 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
@@ -54,6 +56,7 @@
 		"CoordinateCalculator::CoordinateCalculator::Product" /* CoordinateCalculator */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CoordinateCalculator::CoordinateCalculatorTests::Product" /* CoordinateCalculatorTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoordinateCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2FCF1E1FA8346F00E7EB89 /* FigureCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCalculate.swift; sourceTree = "<group>"; };
+		EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		OBJ_10 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		OBJ_11 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		OBJ_12 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 				OBJ_9 /* ANSICode.swift */,
 				OBJ_10 /* InputView.swift */,
 				OBJ_11 /* MyLine.swift */,
+				EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */,
 				OBJ_12 /* MyPoint.swift */,
 				OBJ_13 /* OutputView.swift */,
 				OBJ_14 /* main.swift */,
@@ -235,6 +239,7 @@
 			files = (
 				OBJ_32 /* CoordinateCalculatorTests.swift in Sources */,
 				EE2FCF1F1FA8346F00E7EB89 /* FigureCalculate.swift in Sources */,
+				EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +254,7 @@
 				OBJ_43 /* MyPoint.swift in Sources */,
 				OBJ_44 /* OutputView.swift in Sources */,
 				OBJ_45 /* main.swift in Sources */,
+				EE2FCF231FA835C500E7EB89 /* MyTriangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
