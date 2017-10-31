@@ -13,6 +13,12 @@ struct MyPoint{
 }
 
 extension MyPoint: FigureCalculatable{
+    func getPoints() -> [MyPoint] {
+        var owningPoints: [MyPoint] = []
+        owningPoints.append(self)
+        return owningPoints
+    }
+    
     func calculate() -> Double {
         return 0.0
     }

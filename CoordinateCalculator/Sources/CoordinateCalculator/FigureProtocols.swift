@@ -9,4 +9,5 @@ import Foundation
 
 protocol FigureCalculatable{
     func calculate() -> Double
+    func getPoints() -> [MyPoint]
 }

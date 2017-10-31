@@ -13,6 +13,13 @@ struct MyLine{
 }
 
 extension MyLine: FigureCalculatable{
+    func getPoints() -> [MyPoint]{
+        var owningPoints: [MyPoint] = []
+        owningPoints.append(self.pointA)
+        owningPoints.append(self.pointB)
+        return owningPoints
+    }
+    
     // 두 점 사이 거리 계산.
     func calculate() -> Double{
         // 큰 값에서 작은 값을 빼지 않으면 결과가 nan으로 나옴.
