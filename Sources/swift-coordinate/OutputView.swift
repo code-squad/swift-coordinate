@@ -9,9 +9,9 @@
 import Foundation
 
 struct OutputView {
-    var points : Any?
+    var points : Points?
     
-    init(points: Any) {
+    init(points: Points) {
         if points is MyPoint {
             self.points = points as! MyPoint
         } else if points is MyLine {

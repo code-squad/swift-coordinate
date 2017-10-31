@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     
-    func readInput() -> Any {
+    func readInput() -> Points {
         print("좌표를 입력하세요.")
         let formula = readLine() ?? ""
         if !checkAvailableCharacterSet(formula: formula) {
@@ -21,7 +21,7 @@ struct InputView {
         return getPoints(points: points)
     }
     
-    private func getPoints(points: [String]) -> Any {
+    private func getPoints(points: [String]) -> Points {
         switch points.count {
         case 2:
             return getLine(formulas: points)
@@ -30,13 +30,13 @@ struct InputView {
         }
     }
     
-    private func getLine(formulas: [String]) -> MyLine {
+    private func getLine(formulas: [String]) -> Points {
         let pointA : MyPoint = getPoint(formula: formulas[0]) as! MyPoint
         let pointB : MyPoint = getPoint(formula: formulas[1]) as! MyPoint
         return MyLine.init(pointA: pointA, pointB: pointB)
     }
     
-    private func getPoint(formula: String) -> Any {
+    private func getPoint(formula: String) -> Points {
         let point = formula.trimmingCharacters(in: ["(", ")"]).split(separator: ",")
         if !checkInputValidation(point: point) {
             print("좌표 입력이 올바르지 않습니다.")
