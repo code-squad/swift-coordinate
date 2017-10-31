@@ -29,6 +29,7 @@ struct InputView {
         switch points.count {
         case 1: return points[0]
         case 2: return MyLine(pointA: points[0], pointB: points[1])
+        case 3: return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default: return points[0]
         }
     }
