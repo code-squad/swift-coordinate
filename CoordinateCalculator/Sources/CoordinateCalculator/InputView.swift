@@ -8,7 +8,7 @@
 import Foundation
 
 struct InputView {
-    typealias ItemType = Figures
+    typealias ItemType = FigureCalculatable
     
     // 입력 가능한 문자열 패턴. ex. (3,5)- 형식 가능.
     static let validInputPattern: String = "\\([0-9]+,[0-9]+\\)-?"
