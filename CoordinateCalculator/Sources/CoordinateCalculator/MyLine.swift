@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct MyLine: FigureCalculate{
+struct MyLine: Figures{
     var pointA = MyPoint()
     var pointB = MyPoint()
-    
+}
+
+extension MyLine: FigureCalculatable{
     // 두 점 사이 거리 계산.
     func calculate() -> Double{
         // 큰 값에서 작은 값을 빼지 않으면 결과가 nan으로 나옴.
@@ -19,3 +21,4 @@ struct MyLine: FigureCalculate{
         return sqrt( Double((differenceX + differenceY)) )
     }
 }
+

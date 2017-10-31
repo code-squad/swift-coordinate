@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyTriangle: FigureCalculate{
+struct MyTriangle: Figures{
     var lineAB = MyLine()
     var lineBC = MyLine()
     var lineAC = MyLine()
@@ -17,7 +17,9 @@ struct MyTriangle: FigureCalculate{
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
         self.lineAC = MyLine(pointA: pointA, pointB: pointC)
     }
-    
+}
+
+extension MyTriangle: FigureCalculatable{
     func calculate() -> Double{
         let lengthOfLineAB = self.lineAB.calculate()
         let lengthOfLineBC = self.lineBC.calculate()
@@ -28,3 +30,4 @@ struct MyTriangle: FigureCalculate{
         return 1/2 * lengthOfLineAB * lengthOfLineBC * sinB
     }
 }
+
