@@ -23,6 +23,12 @@
 /* Begin PBXBuildFile section */
 		EE212C361FA9874D00B46F08 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
 		EE212C371FA9874D00B46F08 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
+		EE212C381FA9C4D900B46F08 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
+		EE212C391FA9C4DD00B46F08 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyLine.swift */; };
+		EE212C3A1FA9C4E000B46F08 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* InputView.swift */; };
+		EE212C3B1FA9C4E300B46F08 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MyPoint.swift */; };
+		EE212C3C1FA9C4E900B46F08 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* OutputView.swift */; };
+		EE212C3D1FA9C4EC00B46F08 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* main.swift */; };
 		EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
@@ -240,10 +246,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				EE212C3B1FA9C4E300B46F08 /* MyPoint.swift in Sources */,
 				OBJ_32 /* CoordinateCalculatorTests.swift in Sources */,
+				EE212C3A1FA9C4E000B46F08 /* InputView.swift in Sources */,
+				EE212C391FA9C4DD00B46F08 /* MyLine.swift in Sources */,
+				EE212C381FA9C4D900B46F08 /* ANSICode.swift in Sources */,
 				EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
+				EE212C3D1FA9C4EC00B46F08 /* main.swift in Sources */,
 				EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */,
 				EE212C361FA9874D00B46F08 /* MyRect.swift in Sources */,
+				EE212C3C1FA9C4E900B46F08 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +294,7 @@
 		OBJ_23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
@@ -291,6 +304,7 @@
 		OBJ_24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
