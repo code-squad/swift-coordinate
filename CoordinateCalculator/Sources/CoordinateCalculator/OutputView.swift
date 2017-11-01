@@ -51,12 +51,6 @@ struct OutputView{
         return [posYOfErrorMsg, posXOfErrorMsg]
     }
     
-    // 특정 위치부터 가로 끝까지 지움. (에러 메시지 출력 위함.)
-    static func erase(at position: [Int]?){
-        guard let position = position else{ return }
-        print("\(ANSICode.cursor.move(row: position[0], col: position[1]))\(ANSICode.eraseEndLine)")
-    }
-    
     // 도형에 따라 출력.
     static func printNumerousHearts(inShape userFigure: FigureCalculatable?){
         guard let userFigure = userFigure else { return }
@@ -64,23 +58,6 @@ struct OutputView{
         printHeart(from: userFigure)
         reset()
         printDescription(of: userFigure)
-    }
-    
-    static func printDescription(of userInput: FigureCalculatable){
-        var description: String = ""
-        switch userInput {
-        case let userLine as MyLine:
-            description = "두 점 사이 거리는 " + String(format: "%.6f", userLine.calculate())
-        case let userTriangle as MyTriangle:
-            description = "삼각형 넓이는 " + String(format: "%.6f", userTriangle.calculate())
-        default: break
-        }
-        print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(description)\(ANSICode.none)")
-    }
-    
-    private static func reset(){
-        // 프로그램 종료 후 커서를 맨 아래에 위치. 색상 등 설정 초기화. (프로그램 종료 후 명령문 위치 지정 위함.)
-        print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)")
     }
     
     // 좌표계에 특수문자 출력.
@@ -109,6 +86,29 @@ struct OutputView{
         for y in pointY+1..<ANSICode.axis.AxisLimit+1 {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: y, col: pointX))|")
         }
+    }
+    
+    static func printDescription(of userInput: FigureCalculatable){
+        var description: String = ""
+        switch userInput {
+        case let userLine as MyLine:
+            description = "두 점 사이 거리는 " + String(format: "%.6f", userLine.calculate())
+        case let userTriangle as MyTriangle:
+            description = "삼각형 넓이는 " + String(format: "%.6f", userTriangle.calculate())
+        default: break
+        }
+        print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(description)\(ANSICode.none)")
+    }
+    
+    // 특정 위치부터 가로 끝까지 지움. (에러 메시지 출력 위함.)
+    static func erase(at position: [Int]?){
+        guard let position = position else{ return }
+        print("\(ANSICode.cursor.move(row: position[0], col: position[1]))\(ANSICode.eraseEndLine)")
+    }
+    
+    private static func reset(){
+        // 프로그램 종료 후 커서를 맨 아래에 위치. 색상 등 설정 초기화. (프로그램 종료 후 명령문 위치 지정 위함.)
+        print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)")
     }
 }
 
