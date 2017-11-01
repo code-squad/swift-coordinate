@@ -25,9 +25,18 @@ struct InputView {
         switch points.count {
         case 2:
             return getLine(formulas: points)
+        case 3:
+            return getTriangle(formulas: points)
         default:
             return getPoint(formula: points.joined())
         }
+    }
+    
+    private func getTriangle(formulas: [String]) -> Points {
+        let pointA : MyPoint = getPoint(formula: formulas[0]) as! MyPoint
+        let pointB : MyPoint = getPoint(formula: formulas[1]) as! MyPoint
+        let pointC : MyPoint = getPoint(formula: formulas[2]) as! MyPoint
+        return MyTriangle.init(pointA: pointA, pointB: pointB, pointC: pointC)
     }
     
     private func getLine(formulas: [String]) -> Points {
