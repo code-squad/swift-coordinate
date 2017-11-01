@@ -16,3 +16,15 @@ struct MyRect{
         self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y - Int(size.height))
     }
 }
+
+extension MyRect: FigureCalculatable{
+    func getPoints() -> [MyPoint] {
+        return []
+    }
+    
+    func calculate() -> Double {
+        let width = self.rightBottom.x - self.leftTop.x
+        let height = self.leftTop.y - self.rightBottom.y
+        return Double(width * height)
+    }
+}
