@@ -18,9 +18,10 @@ struct OutputView{
     
     // MyPoint 구조체 관련 에러 및 에러메시지 종류.
     enum CoordsError: String, Error{
-        case isNil = "입력값이 없습니다."                           // nil 에러.
-        case outOfBounds = "좌표가 24를 넘지 않도록 입력해주세요."      // 좌표계 최대범위 초과 에러.
+        case isNil = "입력값이 없습니다."                              // nil 에러.
+        case outOfBounds = "좌표가 24를 넘지 않도록 입력해주세요."         // 좌표계 최대범위 초과 에러.
         case invalidInputPattern = "형식을 맞춰주세요. 예: (숫자,숫자)-"  // 입력 패턴 에러.
+        case invalidRectPoints = "직사각형 좌표를 입력해주세요."     // 직사각형 외 에러.
     }
     
     // 좌표축 출력.
