@@ -28,7 +28,7 @@ struct InputView {
     static func getFigure(from points: [MyPoint]) throws -> FigureCalculatable{
         // MyPoint 개수를 통해 각 도형 생성.
         switch points.count {
-        case 1: return MyPoint(x: points[0].x, y: points[1].y)
+        case 1: return points[0]
         case 2: return MyLine(pointA: points[0], pointB: points[1])
         case 3: return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         case 4:
@@ -36,15 +36,15 @@ struct InputView {
             let leftTop = MyRect.calculateLeftTop(in: points)
             let size = MyRect.calculateSize(of: points)
             return MyRect(origin: leftTop, size: size)
-        default: return MyPoint(x: points[0].x, y: points[1].y)
+        default: return points[0]
         }
     }
     
     // 좌표패턴의 문자열들에서 숫자만 추출하여 MyPoint 객체들 생성.
     private static func generatePoints(from stringsInCoordPattern: [String]) throws -> [MyPoint]{
         var resultPoints: [MyPoint] = []
-        // 숫자패턴인 문자열만 추출.
         for stringLikeCoord in stringsInCoordPattern{
+            // 숫자패턴인 문자열만 추출.
             let coordsInString = stringLikeCoord.split(pattern: "[0-9]+")
             // 문자열을 숫자타입으로 변환.
             let coords: [Int] = coordsInString.map { Int($0) ?? 0 }

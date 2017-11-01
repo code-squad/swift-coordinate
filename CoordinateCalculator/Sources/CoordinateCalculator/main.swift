@@ -15,6 +15,7 @@ func main() throws{
     var userFigure: FigureCalculatable?
     // 에러 메시지 출력 위치 저장 변수.
     var posOfErrorMsg: [Int]?
+    
     // 좌표축 범위를 넘는 경우, 계속 입력받음.
     while let userInput = try OutputView.askFor(message: "좌표를 입력하세요: ") {
         do{// 사용자 입력을 MyPoint 객체로 변환.
