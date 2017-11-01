@@ -12,11 +12,18 @@ struct InputView {
     
     private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
     
+    enum MessageGuide : String {
+        case pointInput = "좌표를 입력하세요."
+        case invalidInput = "입력값에 유효하지 않은 문자 혹은 기호가 들어가 있습니다."
+        case wrongPoint = "좌표 입력이 올바르지 않습니다."
+        case pointRange = "숫자는 1부터 24까지 가능합니다."
+    }
+    
     func readInput() -> Points {
-        print("좌표를 입력하세요.")
+        print(MessageGuide.pointInput.rawValue)
         let formula = readLine() ?? ""
         if !checkAvailableCharacterSet(formula: formula) {
-            print("입력값에 유효하지 않은 문자 혹은 기호가 들어가 있습니다.")
+            print(MessageGuide.invalidInput.rawValue)
             return readInput()
         }
         let points = formula.split(separator: "-").map({String($0)})
@@ -50,7 +57,7 @@ struct InputView {
     private func getPoint(formula: String) -> Points {
         let point = formula.trimmingCharacters(in: customCharacterSet).split(separator: ",")
         if !checkInputValidation(point: point) {
-            print("좌표 입력이 올바르지 않습니다.")
+            print(MessageGuide.wrongPoint.rawValue)
             return readInput()
         }
         let myPoint = MyPoint.init(x: Int(point[0])!, y: Int(point[1])!)
@@ -65,7 +72,7 @@ struct InputView {
             return false
         }
         if Int(point[0])! <= 0 || Int(point[0])! > 24  || Int(point[1])! <= 0 || Int(point[1])! > 24 {
-            print("숫자는 1부터 24까지 가능합니다.")
+            print(MessageGuide.pointRange.rawValue)
             return false
         }
         return true
