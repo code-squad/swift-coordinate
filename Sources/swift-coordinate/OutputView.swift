@@ -9,7 +9,8 @@
 import Foundation
 
 struct OutputView {
-    var points : Points?
+    
+    private(set) var points : Points?
     
     init(points: Points) {
         if points is MyPoint {
@@ -20,22 +21,28 @@ struct OutputView {
             self.points = points as! MyTriangle
         }
     }
+    func drawAll() {
+        clearAxis()
+        drawPoints()
+        drawAxis()
+        getCalculateResult()
+    }
     
-    func drawAxis() {
+    private func drawAxis() {
         print("\(ANSICode.text.blueBright)\(ANSICode.axis.draw())")
     }
-    func clearAxis() {
+    private func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    func drawPoints() {
+    private func drawPoints() {
         var result : String = "\(ANSICode.text.redBright)"
         for point in (self.points?.points)! {
             result += "\(ANSICode.home)\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 1 - point.y, col: point.x * 2 + 3))●"
         }
         print(result)
     }
-    func getCalculateResult() {
+    private func getCalculateResult() {
         if self.points is MyPoint {
             print()
         } else if self.points is MyLine {

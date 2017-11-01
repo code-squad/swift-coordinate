@@ -12,9 +12,4 @@ var inputView = InputView()
 let points = inputView.readInput()
 
 var outputView = OutputView(points: points)
-outputView.clearAxis()
-outputView.drawPoints()
-outputView.drawAxis()
-outputView.getCalculateResult()
-
-
+outputView.drawAll()
