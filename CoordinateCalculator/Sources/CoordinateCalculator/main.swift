@@ -26,6 +26,10 @@ func main() throws{
             // 좌표축 범위를 넘으면 관련 에러 메시지 출력.
             posOfErrorMsg = OutputView.printErrorMessage(of: OutputView.CoordsError.outOfBounds)
             continue    // while 문 다시 시작.
+        }catch OutputView.CoordsError.invalidRectPoints{
+            // 직사각형에 맞지 않는 좌표 입력 시 에러 메시지 출력.
+            posOfErrorMsg = OutputView.printErrorMessage(of: OutputView.CoordsError.invalidRectPoints)
+            continue
         }
         break           // 정상입력 시 while 문 종료.
     }
