@@ -95,6 +95,8 @@ struct OutputView{
             description = "두 점 사이 거리는 " + String(format: "%.6f", userLine.calculate())
         case let userTriangle as MyTriangle:
             description = "삼각형 넓이는 " + String(format: "%.6f", userTriangle.calculate())
+        case let userRect as MyRect:
+            description = "사각형 넓이는 " + String(Int(userRect.calculate()))
         default: break
         }
         print("\(ANSICode.text.green)\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(description)\(ANSICode.none)")

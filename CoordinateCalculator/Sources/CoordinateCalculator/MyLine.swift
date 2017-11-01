@@ -8,8 +8,8 @@
 import Foundation
 
 struct MyLine{
-    var pointA = MyPoint()
-    var pointB = MyPoint()
+    private(set) var pointA = MyPoint()
+    private(set) var pointB = MyPoint()
 }
 
 extension MyLine: FigureCalculatable{
