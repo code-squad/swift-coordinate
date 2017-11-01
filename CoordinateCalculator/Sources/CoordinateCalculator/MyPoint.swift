@@ -8,8 +8,8 @@
 import Foundation
 
 struct MyPoint{
-    var x: Int = 0      // x좌표 (col)
-    var y: Int = 0      // y좌표 (raw)
+    private(set) var x: Int = 0      // x좌표 (col)
+    private(set) var y: Int = 0      // y좌표 (raw)
 }
 
 extension MyPoint: FigureCalculatable{
