@@ -20,17 +20,22 @@ struct InputView {
         // 좌표패턴의 문자열에서 MyPoint 생성. (좌표범위 넘으면 에러처리도 함)
         let points = try generatePoints(from: stringsInCoordPattern)
         // MyPoint 갯수에 따라 각 도형 생성하여 반환.
-        return getFigure(from: points)
+        return try getFigure(from: points)
     }
     
     
     // 도형 생성.
-    static func getFigure(from points: [MyPoint]) -> FigureCalculatable{
+    static func getFigure(from points: [MyPoint]) throws -> FigureCalculatable{
         // MyPoint 개수를 통해 각 도형 생성.
         switch points.count {
         case 1: return MyPoint(x: points[0].x, y: points[1].y)
         case 2: return MyLine(pointA: points[0], pointB: points[1])
         case 3: return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+        case 4:
+            guard MyRect.isRectangle(by: points) else { throw OutputView.CoordsError.invalidRectPoints }
+            let leftTop = MyRect.calculateLeftTop(in: points)
+            let size = MyRect.calculateSize(of: points)
+            return MyRect(origin: leftTop, size: size)
         default: return MyPoint(x: points[0].x, y: points[1].y)
         }
     }
