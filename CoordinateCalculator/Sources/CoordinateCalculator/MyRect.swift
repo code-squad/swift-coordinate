@@ -19,7 +19,12 @@ struct MyRect{
 
 extension MyRect: FigureCalculatable{
     func getPoints() -> [MyPoint] {
-        return []
+        var owningPoints: [MyPoint] = []
+        owningPoints.append(self.leftTop)
+        owningPoints.append(self.rightBottom)
+        owningPoints.append(MyPoint(x: self.leftTop.x, y: self.rightBottom.y))
+        owningPoints.append(MyPoint(x: self.rightBottom.x, y: self.leftTop.y))
+        return owningPoints
     }
     
     func calculate() -> Double {

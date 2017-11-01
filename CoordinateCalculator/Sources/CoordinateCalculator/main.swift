@@ -20,6 +20,7 @@ func main() throws{
         do{// 사용자 입력을 MyPoint 객체로 변환.
             userFigure = try InputView.readInput(rawCoords: userInput)
         }catch OutputView.CoordsError.invalidInputPattern{
+            // 좌표 패턴에 맞지 않게 입력 시 에러 메시지 출력.
             posOfErrorMsg = OutputView.printErrorMessage(of: OutputView.CoordsError.invalidInputPattern)
             continue    // while 문 다시 시작.
         }catch OutputView.CoordsError.outOfBounds{
