@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		EE212C361FA9874D00B46F08 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
+		EE212C371FA9874D00B46F08 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
 		EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
@@ -55,6 +57,7 @@
 /* Begin PBXFileReference section */
 		"CoordinateCalculator::CoordinateCalculator::Product" /* CoordinateCalculator */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		"CoordinateCalculator::CoordinateCalculatorTests::Product" /* CoordinateCalculatorTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoordinateCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE212C351FA9874D00B46F08 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureProtocols.swift; sourceTree = "<group>"; };
 		EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		OBJ_10 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 				OBJ_11 /* MyLine.swift */,
 				EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */,
 				OBJ_12 /* MyPoint.swift */,
+				EE212C351FA9874D00B46F08 /* MyRect.swift */,
 				OBJ_13 /* OutputView.swift */,
 				OBJ_14 /* main.swift */,
 				EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */,
@@ -239,6 +243,7 @@
 				OBJ_32 /* CoordinateCalculatorTests.swift in Sources */,
 				EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
 				EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */,
+				EE212C361FA9874D00B46F08 /* MyRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +252,7 @@
 			buildActionMask = 0;
 			files = (
 				EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
+				EE212C371FA9874D00B46F08 /* MyRect.swift in Sources */,
 				OBJ_40 /* ANSICode.swift in Sources */,
 				OBJ_41 /* InputView.swift in Sources */,
 				OBJ_42 /* MyLine.swift in Sources */,
