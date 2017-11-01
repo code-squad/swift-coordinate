@@ -10,6 +10,8 @@ import Foundation
 
 struct InputView {
     
+    private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
+    
     func readInput() -> Points {
         print("좌표를 입력하세요.")
         let formula = readLine() ?? ""
@@ -46,7 +48,7 @@ struct InputView {
     }
     
     private func getPoint(formula: String) -> Points {
-        let point = formula.trimmingCharacters(in: ["(", ")"]).split(separator: ",")
+        let point = formula.trimmingCharacters(in: customCharacterSet).split(separator: ",")
         if !checkInputValidation(point: point) {
             print("좌표 입력이 올바르지 않습니다.")
             return readInput()
@@ -70,13 +72,13 @@ struct InputView {
     }
     
     private func checkAvailableCharacterSet(formula: String) -> Bool {
-        guard formula.trimmingCharacters(in: getAvailableCharacterSet(custom: "()-,")).count == 0 else {
+        guard formula.trimmingCharacters(in: getAvailableCharacterSet()).count == 0 else {
             return false
         }
         return true
     }
-    private func getAvailableCharacterSet(custom: String) -> CharacterSet {
-        var availableCharacterSet : CharacterSet = CharacterSet.init(charactersIn: custom)
+    private func getAvailableCharacterSet() -> CharacterSet {
+        var availableCharacterSet : CharacterSet = customCharacterSet
         availableCharacterSet.formUnion(CharacterSet.decimalDigits)
         return availableCharacterSet
     }
