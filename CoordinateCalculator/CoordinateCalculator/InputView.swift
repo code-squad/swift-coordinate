@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     
-    let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
+    private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
     
     func readInput() throws -> Points {
         let formula = readLine() ?? ""
@@ -18,7 +18,10 @@ struct InputView {
             throw CustomErrors.InputError.invalidCharacter
         }
         let inputPoints = formula.split(separator: "-").map({String($0)})
-        return try getPoints(inputPoints: inputPoints)
+        let points = try getPoints(inputPoints: inputPoints)
+        let pointInvalidationChecker = PointInvalidationChecker()
+        try pointInvalidationChecker.checkPointInvalidation(points: points)
+        return points
     }
     
     private func getPoints(inputPoints: [String]) throws -> Points {
