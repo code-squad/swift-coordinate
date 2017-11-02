@@ -20,9 +20,8 @@ struct MyTriangle{
 }
 
 extension MyTriangle: FigureCalculatable{
-    // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
-    static func _init(from points: [MyPoint]) throws -> FigureCalculatable{
-        return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+    init(from points: [MyPoint]) {
+        self = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
     }
     
     // 생성된 구조체의 모든 점 반환.

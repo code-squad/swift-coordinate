@@ -19,11 +19,11 @@ struct MyRect{
 
 extension MyRect: FigureCalculatable{
     // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
-    static func _init(from points: [MyPoint]) throws -> FigureCalculatable{
+    init(from points: [MyPoint]) throws {
         guard MyRect.isRectangle(by: points) else { throw OutputView.CoordsError.invalidRectPoints }
         let leftTop = MyRect.calculateLeftTop(in: points)
         let size = MyRect.calculateSize(of: points)
-        return MyRect(origin: leftTop, size: size)
+        self = MyRect(origin: leftTop, size: size)
     }
     
     // 생성된 구조체의 모든 점 반환.
