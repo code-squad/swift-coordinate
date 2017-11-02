@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     
-    private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
+    let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
     
     enum MessageGuide : String {
         case pointInput = "좌표를 입력하세요."
@@ -26,32 +26,16 @@ struct InputView {
             print(MessageGuide.invalidInput.rawValue)
             return readInput()
         }
-        let points = formula.split(separator: "-").map({String($0)})
-        return getPoints(points: points)
+        let inputPoints = formula.split(separator: "-").map({String($0)})
+        return getPoints(inputPoints: inputPoints)
     }
     
-    private func getPoints(points: [String]) -> Points {
-        switch points.count {
-        case 2:
-            return getLine(formulas: points)
-        case 3:
-            return getTriangle(formulas: points)
-        default:
-            return getPoint(formula: points.joined())
+    private func getPoints(inputPoints: [String]) -> Points {
+        var points : Points = []
+        for inputPoint in inputPoints {
+            points.append(contentsOf: getPoint(formula: inputPoint))
         }
-    }
-    
-    private func getTriangle(formulas: [String]) -> Points {
-        let pointA : MyPoint = getPoint(formula: formulas[0]) as! MyPoint
-        let pointB : MyPoint = getPoint(formula: formulas[1]) as! MyPoint
-        let pointC : MyPoint = getPoint(formula: formulas[2]) as! MyPoint
-        return MyTriangle.init(pointA: pointA, pointB: pointB, pointC: pointC)
-    }
-    
-    private func getLine(formulas: [String]) -> Points {
-        let pointA : MyPoint = getPoint(formula: formulas[0]) as! MyPoint
-        let pointB : MyPoint = getPoint(formula: formulas[1]) as! MyPoint
-        return MyLine.init(pointA: pointA, pointB: pointB)
+        return points
     }
     
     private func getPoint(formula: String) -> Points {
@@ -60,8 +44,8 @@ struct InputView {
             print(MessageGuide.wrongPoint.rawValue)
             return readInput()
         }
-        let myPoint = MyPoint.init(x: Int(point[0])!, y: Int(point[1])!)
-        return myPoint
+        let points : Points = [(x: Int(point[0])!, y: Int(point[1])!)]
+        return points
     }
     
     private func checkInputValidation(point: Array<String.SubSequence>) -> Bool {

@@ -1,13 +1,13 @@
 //
-//  Points.swift
+//  Figure.swift
 //  CoordinateCalculator
 //
-//  Created by TaeHyeonLee on 2017. 10. 31..
+//  Created by TaeHyeonLee on 2017. 11. 2..
 //  Copyright © 2017년 Codesquad Inc. All rights reserved.
 //
 
 import Foundation
 
-protocol Points {
+protocol Figure {
     var points : [MyPoint] { get }
 }

@@ -10,15 +10,15 @@ import Foundation
 
 struct OutputView {
     
-    private(set) var points : Points?
+    private(set) var figure : Figure?
     
-    init(points: Points) {
-        if points is MyPoint {
-            self.points = points as! MyPoint
-        } else if points is MyLine {
-            self.points = points as! MyLine
-        } else if points is MyTriangle {
-            self.points = points as! MyTriangle
+    init(figure: Figure) {
+        if figure is MyPoint {
+            self.figure = figure as! MyPoint
+        } else if figure is MyLine {
+            self.figure = figure as! MyLine
+        } else if figure is MyTriangle {
+            self.figure = figure as! MyTriangle
         }
     }
     func drawAll() {
@@ -28,28 +28,30 @@ struct OutputView {
         getCalculateResult()
     }
     
-    private func drawAxis() {
-        print("\(ANSICode.text.blueBright)\(ANSICode.axis.draw())")
-    }
     private func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
     private func drawPoints() {
         var result : String = "\(ANSICode.text.redBright)"
-        for point in (self.points?.points)! {
+        for point in (self.figure?.points)! {
             result += "\(ANSICode.home)\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 1 - point.y, col: point.x * 2 + 3))●"
         }
         print(result)
     }
+    
+    private func drawAxis() {
+        print("\(ANSICode.text.blueBright)\(ANSICode.axis.draw())")
+    }
+    
     private func getCalculateResult() {
-        if self.points is MyPoint {
+        if self.figure is MyPoint {
             print()
-        } else if self.points is MyLine {
-            let line = self.points as! MyLine
+        } else if self.figure is MyLine {
+            let line = self.figure as! MyLine
             print("\n두 점 사이 거리는 \(line.getDistance())\n")
-        } else if self.points is MyTriangle {
-            let triangle = self.points as! MyTriangle
+        } else if self.figure is MyTriangle {
+            let triangle = self.figure as! MyTriangle
             print("\n삼각형의 넓이는 \(triangle.getArea())\n")
         }
     }
