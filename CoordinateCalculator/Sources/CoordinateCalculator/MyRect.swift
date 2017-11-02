@@ -18,6 +18,13 @@ struct MyRect{
 }
 
 extension MyRect: FigureCalculatable{
+    static func makeOne(from points: [MyPoint]) throws -> FigureCalculatable{
+        guard MyRect.isRectangle(by: points) else { throw OutputView.CoordsError.invalidRectPoints }
+        let leftTop = MyRect.calculateLeftTop(in: points)
+        let size = MyRect.calculateSize(of: points)
+        return MyRect(origin: leftTop, size: size)
+    }
+    
     func getPoints() -> [MyPoint] {
         var owningPoints: [MyPoint] = []
         owningPoints.append(self.leftTop)
