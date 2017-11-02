@@ -21,20 +21,20 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		EE212C361FA9874D00B46F08 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
 		EE212C371FA9874D00B46F08 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
-		EE212C381FA9C4D900B46F08 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
-		EE212C391FA9C4DD00B46F08 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyLine.swift */; };
-		EE212C3A1FA9C4E000B46F08 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* InputView.swift */; };
-		EE212C3B1FA9C4E300B46F08 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MyPoint.swift */; };
-		EE212C3C1FA9C4E900B46F08 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* OutputView.swift */; };
-		EE212C3D1FA9C4EC00B46F08 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* main.swift */; };
-		EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
-		EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
 		EE2FCF231FA835C500E7EB89 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
+		EE6ACDB01FAAB08C003B027D /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CoordinateCalculatorTests.swift */; };
+		EE6ACDB11FAAB1B1003B027D /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CoordinateCalculatorTests.swift */; };
+		EE6ACDB21FAAB1EC003B027D /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
+		EE6ACDB31FAAB1EF003B027D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* InputView.swift */; };
+		EE6ACDB41FAAB1F2003B027D /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyLine.swift */; };
+		EE6ACDB51FAAB1F4003B027D /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF211FA835C500E7EB89 /* MyTriangle.swift */; };
+		EE6ACDB61FAAB1F7003B027D /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MyPoint.swift */; };
+		EE6ACDB71FAAB1FA003B027D /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE212C351FA9874D00B46F08 /* MyRect.swift */; };
+		EE6ACDB81FAAB1FC003B027D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* OutputView.swift */; };
+		EE6ACDBA1FAAB202003B027D /* FigureProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FCF1E1FA8346F00E7EB89 /* FigureProtocols.swift */; };
 		OBJ_26 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_32 /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CoordinateCalculatorTests.swift */; };
 		OBJ_40 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* ANSICode.swift */; };
 		OBJ_41 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* InputView.swift */; };
 		OBJ_42 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyLine.swift */; };
@@ -44,13 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EE2FCF191FA831AD00E7EB89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "CoordinateCalculator::CoordinateCalculator";
-			remoteInfo = CoordinateCalculator;
-		};
 		EE2FCF1A1FA831AD00E7EB89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -184,7 +177,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_34 /* PBXTargetDependency */,
 			);
 			name = CoordinateCalculatorTests;
 			productName = CoordinateCalculatorTests;
@@ -246,16 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				EE212C3B1FA9C4E300B46F08 /* MyPoint.swift in Sources */,
-				OBJ_32 /* CoordinateCalculatorTests.swift in Sources */,
-				EE212C3A1FA9C4E000B46F08 /* InputView.swift in Sources */,
-				EE212C391FA9C4DD00B46F08 /* MyLine.swift in Sources */,
-				EE212C381FA9C4D900B46F08 /* ANSICode.swift in Sources */,
-				EE2FCF1F1FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
-				EE212C3D1FA9C4EC00B46F08 /* main.swift in Sources */,
-				EE2FCF221FA835C500E7EB89 /* MyTriangle.swift in Sources */,
-				EE212C361FA9874D00B46F08 /* MyRect.swift in Sources */,
-				EE212C3C1FA9C4E900B46F08 /* OutputView.swift in Sources */,
+				EE6ACDB51FAAB1F4003B027D /* MyTriangle.swift in Sources */,
+				EE6ACDB31FAAB1EF003B027D /* InputView.swift in Sources */,
+				EE6ACDB61FAAB1F7003B027D /* MyPoint.swift in Sources */,
+				EE6ACDB41FAAB1F2003B027D /* MyLine.swift in Sources */,
+				EE6ACDBA1FAAB202003B027D /* FigureProtocols.swift in Sources */,
+				EE6ACDB11FAAB1B1003B027D /* CoordinateCalculatorTests.swift in Sources */,
+				EE6ACDB21FAAB1EC003B027D /* ANSICode.swift in Sources */,
+				EE6ACDB71FAAB1FA003B027D /* MyRect.swift in Sources */,
+				EE6ACDB81FAAB1FC003B027D /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +257,7 @@
 				EE2FCF201FA8346F00E7EB89 /* FigureProtocols.swift in Sources */,
 				EE212C371FA9874D00B46F08 /* MyRect.swift in Sources */,
 				OBJ_40 /* ANSICode.swift in Sources */,
+				EE6ACDB01FAAB08C003B027D /* CoordinateCalculatorTests.swift in Sources */,
 				OBJ_41 /* InputView.swift in Sources */,
 				OBJ_42 /* MyLine.swift in Sources */,
 				OBJ_43 /* MyPoint.swift in Sources */,
@@ -278,11 +270,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_34 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "CoordinateCalculator::CoordinateCalculator" /* CoordinateCalculator */;
-			targetProxy = EE2FCF191FA831AD00E7EB89 /* PBXContainerItemProxy */;
-		};
 		OBJ_51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CoordinateCalculator::CoordinateCalculatorTests" /* CoordinateCalculatorTests */;
