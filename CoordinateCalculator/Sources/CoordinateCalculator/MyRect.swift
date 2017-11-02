@@ -18,6 +18,7 @@ struct MyRect{
 }
 
 extension MyRect: FigureCalculatable{
+    // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
     static func makeOne(from points: [MyPoint]) throws -> FigureCalculatable{
         guard MyRect.isRectangle(by: points) else { throw OutputView.CoordsError.invalidRectPoints }
         let leftTop = MyRect.calculateLeftTop(in: points)
@@ -25,6 +26,7 @@ extension MyRect: FigureCalculatable{
         return MyRect(origin: leftTop, size: size)
     }
     
+    // 생성된 구조체의 모든 점 반환.
     func getPoints() -> [MyPoint] {
         var owningPoints: [MyPoint] = []
         owningPoints.append(self.leftTop)
@@ -34,6 +36,7 @@ extension MyRect: FigureCalculatable{
         return owningPoints
     }
     
+    // 사각형 넓이 계산.
     func calculate() -> Double {
         let width = self.rightBottom.x - self.leftTop.x
         let height = self.leftTop.y - self.rightBottom.y

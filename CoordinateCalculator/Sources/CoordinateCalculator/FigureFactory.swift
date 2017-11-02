@@ -8,6 +8,7 @@
 import Foundation
 
 struct FigureFactory{
+    // 각 도형들의 꼭지점 갯수
     enum Figures: Int{
         case point = 1
         case line = 2
@@ -15,6 +16,7 @@ struct FigureFactory{
         case rect = 4
     }
     
+    // 꼭지점 갯수에 따라 각 도형 구조체 생성하여 반환.
     static func createFigure(from points: [MyPoint]) throws -> FigureCalculatable{
         switch points.count {
         case Figures.point.rawValue: return try MyPoint.makeOne(from: points)
