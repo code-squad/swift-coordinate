@@ -88,6 +88,7 @@ struct OutputView{
         }
     }
     
+    // 좌표축 아래에 거리, 넓이 등 기타 정보 출력.
     static func printDescription(of userInput: FigureCalculatable){
         var description: String = ""
         switch userInput {

@@ -13,10 +13,12 @@ struct MyLine{
 }
 
 extension MyLine: FigureCalculatable{
+    // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
     static func makeOne(from points: [MyPoint]) throws -> FigureCalculatable{
         return MyLine(pointA: points[0], pointB: points[1])
     }
     
+    // 생성된 구조체의 모든 점 반환.
     func getPoints() -> [MyPoint]{
         var owningPoints: [MyPoint] = []
         owningPoints.append(self.pointA)
