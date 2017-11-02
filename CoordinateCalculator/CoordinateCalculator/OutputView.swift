@@ -13,14 +13,9 @@ struct OutputView {
     private(set) var figure : Figure?
     
     init(figure: Figure) {
-        if figure is MyPoint {
-            self.figure = figure as! MyPoint
-        } else if figure is MyLine {
-            self.figure = figure as! MyLine
-        } else if figure is MyTriangle {
-            self.figure = figure as! MyTriangle
-        }
+        self.figure = figure
     }
+    
     func drawAll() {
         clearAxis()
         drawPoints()
