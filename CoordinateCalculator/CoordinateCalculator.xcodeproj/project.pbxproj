@@ -24,6 +24,7 @@
 		8E7044F31FAAC3AD00275CE4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8E7044F41FAAC3B100275CE4 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044EB1FAAB77600275CE4 /* Figure.swift */; };
 		8E7044F51FAAC3B500275CE4 /* FigureCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044ED1FAABF8500275CE4 /* FigureCreator.swift */; };
+		8E7044F71FAAE54500275CE4 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044F61FAAE54500275CE4 /* CustomErrors.swift */; };
 		8EB6726F1FA716A20019F43F /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6726E1FA716A20019F43F /* CoordinateCalculatorTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		8E7044EB1FAAB77600275CE4 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		8E7044ED1FAABF8500275CE4 /* FigureCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCreator.swift; sourceTree = "<group>"; };
 		8E7044F11FAAC31400275CE4 /* FigureCreatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCreatorTest.swift; sourceTree = "<group>"; };
+		8E7044F61FAAE54500275CE4 /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		8EB6726C1FA716A20019F43F /* CoordinateCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB6726E1FA716A20019F43F /* CoordinateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculatorTests.swift; sourceTree = "<group>"; };
 		8EB672701FA716A20019F43F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				8E2978441FA9624D00C44BEC /* MyTriangle.swift */,
 				8E7044EB1FAAB77600275CE4 /* Figure.swift */,
 				8E7044ED1FAABF8500275CE4 /* FigureCreator.swift */,
+				8E7044F61FAAE54500275CE4 /* CustomErrors.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7044EE1FAABF8500275CE4 /* FigureCreator.swift in Sources */,
+				8E7044F71FAAE54500275CE4 /* CustomErrors.swift in Sources */,
 				8E29783A1FA7189700C44BEC /* MyPoint.swift in Sources */,
 				8E2978401FA8159D00C44BEC /* MyLine.swift in Sources */,
 				8E2978361FA7185C00C44BEC /* InputView.swift in Sources */,
