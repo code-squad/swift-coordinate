@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FigureCalculatable{
-    static func makeOne(from points: [MyPoint]) throws -> FigureCalculatable
+    static func _init(from points: [MyPoint]) throws -> FigureCalculatable
     func getPoints() -> [MyPoint]
     func calculate() -> Double
 }
