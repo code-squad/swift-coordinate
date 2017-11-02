@@ -45,4 +45,4 @@
 - return type이 제네릭 타입인 경우, 한 함수에 여러 리턴 타입이 있으면 ‘as! T’를 붙여준다. 하지만 제네릭 타입은 들어오는 모든 타입이 동일하게 동작하는 경우에 사용하는 것이 좋다.
 - **해결방법**: MyPoint, MyLine, MyTriangle가 동시에 준수하는 프로토콜 타입을 리턴타입으로 사용.
 - **유닛테스트 문제점**: Module ‘~~’ was not compiled for testing
-- **해결방법**: 테스트 파일의 오른쪽 유틸리티 메뉴-Target Membership에서 테스트할  모듈 체크
+- **해결방법**: swift package manager를 썼기 때문에 @testable import CoordinateCalculator 를 선언할 필요가 없었다. (같은 모듈로 취급하기 때문인 듯하다)
