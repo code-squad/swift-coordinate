@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle : Points {
+struct MyTriangle : Figure {
     
     private(set) var lineAB : MyLine
     private(set) var lineBC : MyLine

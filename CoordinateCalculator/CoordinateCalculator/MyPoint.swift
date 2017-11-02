@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint : Points {
+struct MyPoint : Figure {
     private(set) var x = 0
     private(set) var y = 0
     private(set) var points: [MyPoint] = []

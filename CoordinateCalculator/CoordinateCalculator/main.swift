@@ -8,8 +8,14 @@
 
 import Foundation
 
-var inputView = InputView()
+typealias Points = [(x: Int, y: Int)]
+
+let inputView = InputView()
 let points = inputView.readInput()
 
-var outputView = OutputView(points: points)
+let figureCreator = FigureCreator()
+let figure = figureCreator.createFigure(points: points)
+
+let outputView = OutputView(figure: figure)
 outputView.drawAll()
+
