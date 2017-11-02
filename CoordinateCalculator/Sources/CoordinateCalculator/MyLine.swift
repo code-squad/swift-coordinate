@@ -28,4 +28,3 @@ extension MyLine: FigureCalculatable{
         return sqrt( Double((differenceX + differenceY)) )
     }
 }
-
