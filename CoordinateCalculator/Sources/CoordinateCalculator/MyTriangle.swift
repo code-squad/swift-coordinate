@@ -20,6 +20,10 @@ struct MyTriangle{
 }
 
 extension MyTriangle: FigureCalculatable{
+    static func makeOne(from points: [MyPoint]) throws -> FigureCalculatable{
+        return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+    }
+    
     func getPoints() -> [MyPoint]{
         var owningPoints: [MyPoint] = []
         owningPoints.append(self.lineAB.pointA)

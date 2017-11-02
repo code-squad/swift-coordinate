@@ -13,6 +13,10 @@ struct MyLine{
 }
 
 extension MyLine: FigureCalculatable{
+    static func makeOne(from points: [MyPoint]) throws -> FigureCalculatable{
+        return MyLine(pointA: points[0], pointB: points[1])
+    }
+    
     func getPoints() -> [MyPoint]{
         var owningPoints: [MyPoint] = []
         owningPoints.append(self.pointA)
