@@ -25,7 +25,7 @@ struct InputView {
         var dotPoint: MyPoint = MyPoint()
         points.remove(at: points.startIndex)
         points.remove(at: points.index(before: points.endIndex))
-        let separatePoint = points.components(separatedBy: ",").flatMap{Int($0)}
+        let separatePoint = points.components(separatedBy: ",").flatMap{ Int($0) }
         if confirm(points: separatePoint) {
             dotPoint.x = separatePoint[0]
             dotPoint.y = separatePoint[1]
@@ -33,8 +33,9 @@ struct InputView {
         }
         throw InputViewError.invalidPoint
     }
+    
     private func confirm(points: [Int]) -> Bool {
-        if points.isEmpty{
+        if points.isEmpty {
             print("다시입력해주세요. 괄호안에는 정수가 와야합니다. :)")
             return false
         }
