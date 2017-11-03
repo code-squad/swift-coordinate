@@ -8,23 +8,26 @@
 
 import Foundation
 
-func executeCoordinatesCalculator() -> Bool {
+func executeCoordinatesCalculator() {
     var inputView = InputView()
     let outView = OutputView()
     var pointInfo = MyPoint()
-    inputView.readInput()
-    do {
-        pointInfo = try inputView.extract()
-        outView.draw(point: pointInfo)
-        return true
-    } catch InputViewError.invalidPoint {
-        return false
-    } catch {
-        return false
+    var checkError = false
+    while !checkError {
+        inputView.readInput()
+        func checkErrorBeforeDrawing() -> Bool {
+            do {
+                pointInfo = try inputView.extract()
+                outView.draw(point: pointInfo)
+                return true
+            } catch InputViewError.invalidPoint {
+                return false
+            } catch {
+                return false
+            }
+        }
+        checkError = checkErrorBeforeDrawing()
     }
 }
 
-var result = true
-repeat {
-    result = executeCoordinatesCalculator()
-} while !result
+executeCoordinatesCalculator()
