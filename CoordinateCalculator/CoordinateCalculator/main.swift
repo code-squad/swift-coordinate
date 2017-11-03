@@ -8,7 +8,7 @@
 
 import Foundation
 
-func executeCoordinatesCalculator() -> Bool{
+func executeCoordinatesCalculator() -> Bool {
     var inputView = InputView()
     let outView = OutputView()
     var pointInfo = MyPoint()
@@ -27,4 +27,4 @@ func executeCoordinatesCalculator() -> Bool{
 var result = true
 repeat {
     result = executeCoordinatesCalculator()
-}while !result
+} while !result
