@@ -29,8 +29,11 @@ extension MyLine: FigureCalculatable{
     // 두 점 사이 거리 계산.
     func calculate() -> Double{
         // 큰 값에서 작은 값을 빼지 않으면 결과가 nan으로 나옴.
-        let differenceX = (max(self.pointA.x, self.pointB.x)-min(self.pointA.x, self.pointB.x))^2
-        let differenceY = (max(self.pointA.y, self.pointB.y)-min(self.pointA.y, self.pointB.y))^2
-        return sqrt( Double((differenceX + differenceY)) )
+//        let differenceX = (max(self.pointA.x, self.pointB.x)-min(self.pointA.x, self.pointB.x))^2
+//        let differenceY = (max(self.pointA.y, self.pointB.y)-min(self.pointA.y, self.pointB.y))^2
+        let differenceX = pow(Decimal(self.pointA.x-self.pointB.x), 2)
+        let differenceY = pow(Decimal(self.pointA.y-self.pointB.y), 2)
+        let sum: Double = NSDecimalNumber(decimal: differenceX + differenceY).doubleValue
+        return sqrt(sum)
     }
 }
