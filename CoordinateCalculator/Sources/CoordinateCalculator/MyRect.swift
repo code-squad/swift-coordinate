@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyRect{
+struct MyRect {
     private(set) var leftTop = MyPoint()
     private(set) var rightBottom = MyPoint()
     
@@ -17,10 +17,11 @@ struct MyRect{
     }
 }
 
-extension MyRect: FigureCalculatable{
+extension MyRect: FigureCalculatable {
+    
     // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
     init(from points: [MyPoint]) throws {
-        guard MyRect.isRectangle(by: points) else { throw OutputView.CoordsError.invalidRectPoints }
+        guard MyRect.isRectangle(by: points) else { throw FigureFactory.CoordsError.invalidRectPoints }
         let leftTop = MyRect.calculateLeftTop(in: points)
         let size = MyRect.calculateSize(of: points)
         self = MyRect(origin: leftTop, size: size)
@@ -42,11 +43,13 @@ extension MyRect: FigureCalculatable{
         let height = self.leftTop.y - self.rightBottom.y
         return Double(width * height)
     }
+    
 }
 
 extension MyRect {
+    
     // 직사각형 형태인지 판별.
-    static func isRectangle(by points: [MyPoint]) -> Bool{
+    static func isRectangle(by points: [MyPoint]) -> Bool {
         // 네 점의 x, y 좌표 세트를 받아옴.
         let (xSet, ySet) = FigureFactory.getCoordSets(in: points)
         // Set 타입은 중복 허용 안 함. 직사각형은 x 또는 y 좌표가 2개 수로 한정됨. 2개가 아닌 경우 false 반환.
@@ -55,15 +58,16 @@ extension MyRect {
     }
     
     // 좌상단의 점을 반환.
-    static func calculateLeftTop(in points: [MyPoint]) -> MyPoint{
+    static func calculateLeftTop(in points: [MyPoint]) -> MyPoint {
         // 좌상단 점의 값은 x좌표 중 가장 작은 값, y좌표중 가장 큰 값이 됨.
         return MyPoint(x: FigureFactory.getCoordSets(in: points).0.min()!, y: FigureFactory.getCoordSets(in: points).1.max()!)
     }
     
     // 사각형의 가로, 세로 길이 반환.
-    static func calculateSize(of points: [MyPoint]) -> CGSize{
+    static func calculateSize(of points: [MyPoint]) -> CGSize {
         // x,y 좌표별로 큰 값에서 작은 값을 뺌.
         return CGSize(width: FigureFactory.getCoordSets(in: points).0.max()! - FigureFactory.getCoordSets(in: points).0.min()!,
                       height: FigureFactory.getCoordSets(in: points).1.max()! - FigureFactory.getCoordSets(in: points).1.min()!)
     }
+    
 }

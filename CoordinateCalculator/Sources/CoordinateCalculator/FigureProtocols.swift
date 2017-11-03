@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FigureCalculatable{
+protocol FigureCalculatable {
     func getPoints() -> [MyPoint]
     func calculate() -> Double
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyTriangle{
+struct MyTriangle {
     private(set) var lineAB = MyLine()
     private(set) var lineBC = MyLine()
     private(set) var lineAC = MyLine()
@@ -19,13 +19,14 @@ struct MyTriangle{
     }
 }
 
-extension MyTriangle: FigureCalculatable{
+extension MyTriangle: FigureCalculatable {
+    
     init(from points: [MyPoint]) {
         self = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
     }
     
     // 생성된 구조체의 모든 점 반환.
-    func getPoints() -> [MyPoint]{
+    func getPoints() -> [MyPoint] {
         var owningPoints: [MyPoint] = []
         owningPoints.append(self.lineAB.pointA)
         owningPoints.append(self.lineAB.pointB)
@@ -37,7 +38,7 @@ extension MyTriangle: FigureCalculatable{
     }
     
     // 삼각형 넓이 계산.
-    func calculate() -> Double{
+    func calculate() -> Double {
         let lengthOfLineAB = self.lineAB.calculate()
         let lengthOfLineBC = self.lineBC.calculate()
         let lengthOfLineAC = self.lineAC.calculate()
@@ -46,12 +47,15 @@ extension MyTriangle: FigureCalculatable{
         let sinB = sqrt(Double(1-cosB^2))
         return 1/2 * lengthOfLineAB * lengthOfLineBC * sinB
     }
+    
 }
 
 extension MyTriangle{
+    
     // 삼각형에서 같은 세 점이 있는 경우
-    static func containsSameCoords(_ points: [MyPoint]) -> Bool{
+    static func containsSameCoords(_ points: [MyPoint]) -> Bool {
         guard points[0] == points[1] || points[1] == points[2] || points[2] == points[0] else{ return false }
         return true
     }
+    
 }
