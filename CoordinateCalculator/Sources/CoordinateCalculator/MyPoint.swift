@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct MyPoint{
+struct MyPoint {
     private(set) var x: Int = 0      // x좌표 (col)
     private(set) var y: Int = 0      // y좌표 (raw)
 }
 
-extension MyPoint: FigureCalculatable{
+extension MyPoint: FigureCalculatable {
+    
     // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
     init(from points: [MyPoint]) {
         self = points[0]
@@ -28,10 +29,13 @@ extension MyPoint: FigureCalculatable{
     func calculate() -> Double {
         return 0.0
     }
+    
 }
 
-extension MyPoint: Equatable{
+extension MyPoint: Equatable {
+    
     static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
         return (lhs.x == rhs.x) && (lhs.y == rhs.y)
     }
+    
 }
