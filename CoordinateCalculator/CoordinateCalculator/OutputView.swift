@@ -11,10 +11,12 @@ import Foundation
 struct OutputView {
     func draw(point: MyPoint) {
         var points = point
+        
         func offsetPoint() {
             points.x = (points.x * 2) + 3
             points.y = (points.y - 25) * -1
         }
+        
         func drawAxis() {
             print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
         }
