@@ -15,18 +15,15 @@ func executeCoordinatesCalculator() {
     var checkError = false
     while !checkError {
         inputView.readInput()
-        func checkErrorBeforeDrawing() -> Bool {
-            do {
-                pointInfo = try inputView.extract()
-                outView.draw(point: pointInfo)
-                return true
-            } catch InputViewError.invalidPoint {
-                return false
-            } catch {
-                return false
-            }
+        do {
+            pointInfo = try inputView.extract()
+            outView.draw(point: pointInfo)
+            checkError = true
+        } catch InputViewError.invalidPoint {
+            checkError = false
+        } catch {
+            checkError = false
         }
-        checkError = checkErrorBeforeDrawing()
     }
 }
 
