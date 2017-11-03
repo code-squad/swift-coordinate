@@ -10,6 +10,33 @@ import Foundation
 
 struct PointInvalidationChecker {
     
+    private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
+    
+    func checkInputValidation(formula: String) throws -> Array<String.SubSequence> {
+        let point = formula.trimmingCharacters(in: customCharacterSet).split(separator: ",")
+        guard point.count == 2 else {
+            throw CustomErrors.InputError.wrongPoint
+        }
+        if Int(point[0]) == nil || Int(point[1]) == nil {
+            throw CustomErrors.InputError.wrongPoint
+        }
+        if Int(point[0])! <= 0 || Int(point[0])! > 24  || Int(point[1])! <= 0 || Int(point[1])! > 24 {
+            throw CustomErrors.InputError.invalidRange
+        }
+        return point
+    }
+    
+    func checkAvailableCharacterSet(formula: String) throws {
+        if formula.trimmingCharacters(in: getAvailableCharacterSet()).count != 0 {
+            throw CustomErrors.InputError.invalidCharacter
+        }
+    }
+    private func getAvailableCharacterSet() -> CharacterSet {
+        var availableCharacterSet : CharacterSet = customCharacterSet
+        availableCharacterSet.formUnion(CharacterSet.decimalDigits)
+        return availableCharacterSet
+    }
+    
     func checkPointInvalidation(points: Points) throws {
         try checkSamePoint(points: points)
         if points.count == 4 {
@@ -17,48 +44,51 @@ struct PointInvalidationChecker {
         }
     }
     
-    func checkSamePoint(points: Points) throws {
+    private func checkSamePoint(points: Points) throws {
         for i in 0..<points.count {
-            for j in (i+1)..<points.count {
-                if points[i].x == points[j].x && points[i].y == points[j].y {
-                    throw CustomErrors.InputError.samePoint
-                }
+            try comparePoint(points: points, pointIndex: i)
+        }
+    }
+    private func comparePoint(points: Points, pointIndex: Int) throws {
+        for j in (pointIndex+1)..<points.count {
+            if points[pointIndex].x == points[j].x && points[pointIndex].y == points[j].y {
+                throw CustomErrors.InputError.samePoint
             }
         }
     }
     
-    func checkRectShape(points: Points) throws {
-        try checkRectX(points: points)
-        try checkRectY(points: points)
+    private func checkRectShape(points: Points) throws {
+        try countRectX(points: points)
+        try countRectY(points: points)
     }
-    func checkRectX(points: Points) throws {
-        var xChecker : [Int:Int] = [:]
+    private func countRectX(points: Points) throws {
+        var xCounter : [Int:Int] = [:]
         for point in points {
-            if xChecker[point.x] == nil {
-                xChecker[point.x] = 1
-            } else {
-                xChecker[point.x]! += 1
+            if xCounter[point.x] == nil {
+                xCounter[point.x] = 1
+                continue
             }
+            xCounter[point.x]! += 1
         }
-        for value in xChecker.values {
+        try checkCounter(counter: xCounter)
+    }
+    private func countRectY(points: Points) throws {
+        var yCounter : [Int:Int] = [:]
+        for point in points {
+            if yCounter[point.y] == nil {
+                yCounter[point.y] = 1
+                continue
+            }
+            yCounter[point.y]! += 1
+        }
+        try checkCounter(counter: yCounter)
+    }
+    private func checkCounter(counter: [Int:Int]) throws {
+        for value in counter.values {
             if value != 2 {
                 throw CustomErrors.InputError.invalidRect
             }
         }
     }
-    func checkRectY(points: Points) throws {
-        var yChecker : [Int:Int] = [:]
-        for point in points {
-            if yChecker[point.y] == nil {
-                yChecker[point.y] = 1
-            } else {
-                yChecker[point.y]! += 1
-            }
-        }
-        for value in yChecker.values {
-            if value != 2 {
-                throw CustomErrors.InputError.invalidRect
-            }
-        }
-    }
+    
 }
