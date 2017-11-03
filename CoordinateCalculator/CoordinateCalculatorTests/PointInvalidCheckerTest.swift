@@ -12,7 +12,6 @@ import XCTest
 
 class PointInvalidCheckerTest: XCTestCase {
     var pointInvalidationChecker : PointInvalidationChecker!
-    
     override func setUp() {
         super.setUp()
         pointInvalidationChecker = PointInvalidationChecker()
@@ -22,7 +21,6 @@ class PointInvalidCheckerTest: XCTestCase {
         super.tearDown()
         pointInvalidationChecker = nil
     }
-    
     /* private functions
     func testCheckInputValidataion() {
         var formula = "(10,10)"
@@ -56,12 +54,12 @@ class PointInvalidCheckerTest: XCTestCase {
         points = [(1,2), (4,2), (1,5), (4,5)]
         XCTAssertNoThrow(try pointInvalidationChecker.countRectX(points: points))
     }
+     
     func testCheckRectY() {
         var points = [(1,2), (4,2), (1,5), (4,6)]
         XCTAssertThrowsError(try pointInvalidationChecker.countRectY(points: points))
         points = [(1,2), (4,2), (1,5), (4,5)]
         XCTAssertNoThrow(try pointInvalidationChecker.countRectY(points: points))
     }
- */
-    
+     */
 }

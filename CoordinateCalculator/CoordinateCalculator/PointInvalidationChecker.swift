@@ -10,7 +10,6 @@ import Foundation
 
 struct PointInvalidationChecker {
     private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
-    
     func checkInputValidation(formula: String) throws -> Array<String.SubSequence> {
         let point = formula.trimmingCharacters(in: customCharacterSet).split(separator: ",")
         guard point.count == 2 else {
@@ -94,5 +93,4 @@ struct PointInvalidationChecker {
             }
         }
     }
-    
 }

@@ -12,7 +12,6 @@ import XCTest
 
 class FigureCreatorTest: XCTestCase {
     var figureCreator : FigureCreator!
-    
     override func setUp() {
         super.setUp()
         figureCreator = FigureCreator()

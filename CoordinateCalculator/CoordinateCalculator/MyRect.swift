@@ -25,5 +25,4 @@ struct MyRect : Figure {
     func getArea() -> Int {
         return Int(size.width) * Int(size.height)
     }
-    
 }
