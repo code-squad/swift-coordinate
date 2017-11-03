@@ -9,10 +9,10 @@
 import Foundation
 
 struct MyRect : Figure {
-    var leftTop : MyPoint
-    var rightBottom : MyPoint
-    var size : CGSize
-    var points: [MyPoint]
+    private(set) var leftTop : MyPoint
+    private(set) var rightBottom : MyPoint
+    private(set) var size : CGSize
+    private(set) var points: [MyPoint]
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin

@@ -10,7 +10,7 @@ import Foundation
 
 struct InputView {
     
-    let pointInvalidationChecker = PointInvalidationChecker()
+    private let pointInvalidationChecker = PointInvalidationChecker()
     
     func readInput() throws -> Points {
         let formula = readLine() ?? ""
