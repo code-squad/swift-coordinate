@@ -33,6 +33,7 @@
 		8EF8AACE1FAC5596002D11AD /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044F61FAAE54500275CE4 /* CustomErrors.swift */; };
 		8EF8AACF1FAC5999002D11AD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2978371FA7188100C44BEC /* OutputView.swift */; };
 		8EF8AAD01FAC59A4002D11AD /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		8EF8AAD11FAC7E2A002D11AD /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044F81FAAFCB900275CE4 /* MyRect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -250,6 +251,7 @@
 				8E7044F21FAAC31400275CE4 /* FigureCreatorTest.swift in Sources */,
 				8E7044F41FAAC3B100275CE4 /* Figure.swift in Sources */,
 				8EF8AACD1FAC557C002D11AD /* PointInvalidCheckerTest.swift in Sources */,
+				8EF8AAD11FAC7E2A002D11AD /* MyRect.swift in Sources */,
 				8E7044FE1FAB0EE200275CE4 /* PointInvalidationChecker.swift in Sources */,
 				8E7044F31FAAC3AD00275CE4 /* main.swift in Sources */,
 				8E2978461FA96A6100C44BEC /* MyTriangle.swift in Sources */,
