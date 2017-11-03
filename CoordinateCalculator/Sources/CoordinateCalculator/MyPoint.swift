@@ -29,3 +29,9 @@ extension MyPoint: FigureCalculatable{
         return 0.0
     }
 }
+
+extension MyPoint: Equatable{
+    static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
+        return (lhs.x == rhs.x) && (lhs.y == rhs.y)
+    }
+}
