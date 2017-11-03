@@ -48,6 +48,9 @@ struct OutputView {
         } else if self.figure is MyTriangle {
             let triangle = self.figure as! MyTriangle
             print("\n삼각형의 넓이는 \(triangle.getArea())\n")
+        } else if self.figure is MyRect {
+            let rect = self.figure as! MyRect
+            print("\n사각형의 넓이는 \(rect.getArea())\n")
         }
     }
 }
