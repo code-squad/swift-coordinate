@@ -8,4 +8,23 @@
 
 import Foundation
 
-OutputView.drawAxis()
+func executeCoordinatesCalculator() -> Bool{
+    var inputView = InputView()
+    let outView = OutputView()
+    var pointInfo = MyPoint()
+    inputView.readInput()
+    do {
+        pointInfo = try inputView.extract()
+        outView.draw(point: pointInfo)
+        return true
+    } catch InputViewError.invalidPoint {
+        return false
+    } catch {
+        return false
+    }
+}
+
+var result = true
+repeat {
+    result = executeCoordinatesCalculator()
+}while !result
