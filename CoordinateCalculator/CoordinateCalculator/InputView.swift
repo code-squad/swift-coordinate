@@ -35,7 +35,7 @@ struct InputView {
     }
     
     private func confirm(points: [Int]) -> Bool {
-        if points.isEmpty {
+        if points.isEmpty || points.count == 1{
             print("다시입력해주세요. 괄호안에는 정수가 와야합니다. :)")
             return false
         }
