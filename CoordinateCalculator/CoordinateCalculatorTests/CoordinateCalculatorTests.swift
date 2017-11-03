@@ -10,7 +10,6 @@ import XCTest
 @testable import CoordinateCalculator
 
 class CoordinateCalculatorTests: XCTestCase {
-    
     var inputView : InputView!
     var formula : String = ""
     
@@ -26,7 +25,6 @@ class CoordinateCalculatorTests: XCTestCase {
         formula = ""
     }
     /* private functions
-    
     func testGetPoint() {
         let point = inputView.getPoint(formula: formula)
         XCTAssertEqual(point[0].x, 10)

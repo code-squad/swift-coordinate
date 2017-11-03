@@ -11,7 +11,6 @@ import XCTest
 @testable import CoordinateCalculator
 
 class FigureCreatorTest: XCTestCase {
-    
     var figureCreator : FigureCreator!
     
     override func setUp() {

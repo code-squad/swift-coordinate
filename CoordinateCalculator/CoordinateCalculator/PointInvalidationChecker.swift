@@ -9,7 +9,6 @@
 import Foundation
 
 struct PointInvalidationChecker {
-    
     private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
     
     func checkInputValidation(formula: String) throws -> Array<String.SubSequence> {
@@ -31,6 +30,7 @@ struct PointInvalidationChecker {
             throw CustomErrors.InputError.invalidCharacter
         }
     }
+    
     private func getAvailableCharacterSet() -> CharacterSet {
         var availableCharacterSet : CharacterSet = customCharacterSet
         availableCharacterSet.formUnion(CharacterSet.decimalDigits)
@@ -49,6 +49,7 @@ struct PointInvalidationChecker {
             try comparePoint(points: points, pointIndex: i)
         }
     }
+    
     private func comparePoint(points: Points, pointIndex: Int) throws {
         for j in (pointIndex+1)..<points.count {
             if points[pointIndex].x == points[j].x && points[pointIndex].y == points[j].y {
@@ -61,6 +62,7 @@ struct PointInvalidationChecker {
         try countRectX(points: points)
         try countRectY(points: points)
     }
+    
     private func countRectX(points: Points) throws {
         var xCounter : [Int:Int] = [:]
         for point in points {
@@ -72,6 +74,7 @@ struct PointInvalidationChecker {
         }
         try checkCounter(counter: xCounter)
     }
+    
     private func countRectY(points: Points) throws {
         var yCounter : [Int:Int] = [:]
         for point in points {
@@ -83,6 +86,7 @@ struct PointInvalidationChecker {
         }
         try checkCounter(counter: yCounter)
     }
+    
     private func checkCounter(counter: [Int:Int]) throws {
         for value in counter.values {
             if value != 2 {

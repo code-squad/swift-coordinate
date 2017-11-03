@@ -11,7 +11,6 @@ import XCTest
 @testable import CoordinateCalculator
 
 class PointInvalidCheckerTest: XCTestCase {
-    
     var pointInvalidationChecker : PointInvalidationChecker!
     
     override func setUp() {

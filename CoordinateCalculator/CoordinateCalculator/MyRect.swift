@@ -13,7 +13,6 @@ struct MyRect : Figure {
     private(set) var rightBottom : MyPoint
     private(set) var size : CGSize
     private(set) var points: [MyPoint]
-    
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
         self.rightBottom = MyPoint.init(x: (origin.x + Int(size.width)), y: (origin.y - Int(size.height)))
@@ -26,4 +25,5 @@ struct MyRect : Figure {
     func getArea() -> Int {
         return Int(size.width) * Int(size.height)
     }
+    
 }
