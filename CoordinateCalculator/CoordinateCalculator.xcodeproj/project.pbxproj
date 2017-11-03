@@ -29,6 +29,10 @@
 		8E7044FB1FAB06D600275CE4 /* PointInvalidationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044FA1FAB06D600275CE4 /* PointInvalidationChecker.swift */; };
 		8E7044FE1FAB0EE200275CE4 /* PointInvalidationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044FA1FAB06D600275CE4 /* PointInvalidationChecker.swift */; };
 		8EB6726F1FA716A20019F43F /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6726E1FA716A20019F43F /* CoordinateCalculatorTests.swift */; };
+		8EF8AACD1FAC557C002D11AD /* PointInvalidCheckerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8AACC1FAC557C002D11AD /* PointInvalidCheckerTest.swift */; };
+		8EF8AACE1FAC5596002D11AD /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7044F61FAAE54500275CE4 /* CustomErrors.swift */; };
+		8EF8AACF1FAC5999002D11AD /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2978371FA7188100C44BEC /* OutputView.swift */; };
+		8EF8AAD01FAC59A4002D11AD /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +65,7 @@
 		8EB6726C1FA716A20019F43F /* CoordinateCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB6726E1FA716A20019F43F /* CoordinateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculatorTests.swift; sourceTree = "<group>"; };
 		8EB672701FA716A20019F43F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF8AACC1FAC557C002D11AD /* PointInvalidCheckerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInvalidCheckerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,7 @@
 		8EB6726D1FA716A20019F43F /* CoordinateCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				8EF8AACC1FAC557C002D11AD /* PointInvalidCheckerTest.swift */,
 				8E7044F11FAAC31400275CE4 /* FigureCreatorTest.swift */,
 				8EB6726E1FA716A20019F43F /* CoordinateCalculatorTests.swift */,
 				8EB672701FA716A20019F43F /* Info.plist */,
@@ -237,9 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF8AACF1FAC5999002D11AD /* OutputView.swift in Sources */,
+				8EF8AAD01FAC59A4002D11AD /* ANSICode.swift in Sources */,
 				8E7044F51FAAC3B500275CE4 /* FigureCreator.swift in Sources */,
+				8EF8AACE1FAC5596002D11AD /* CustomErrors.swift in Sources */,
 				8E7044F21FAAC31400275CE4 /* FigureCreatorTest.swift in Sources */,
 				8E7044F41FAAC3B100275CE4 /* Figure.swift in Sources */,
+				8EF8AACD1FAC557C002D11AD /* PointInvalidCheckerTest.swift in Sources */,
 				8E7044FE1FAB0EE200275CE4 /* PointInvalidationChecker.swift in Sources */,
 				8E7044F31FAAC3AD00275CE4 /* main.swift in Sources */,
 				8E2978461FA96A6100C44BEC /* MyTriangle.swift in Sources */,

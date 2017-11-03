@@ -10,16 +10,13 @@ import Foundation
 
 struct InputView {
     
-    private let customCharacterSet : CharacterSet = CharacterSet.init(charactersIn: "()-,")
+    let pointInvalidationChecker = PointInvalidationChecker()
     
     func readInput() throws -> Points {
         let formula = readLine() ?? ""
-        if !checkAvailableCharacterSet(formula: formula) {
-            throw CustomErrors.InputError.invalidCharacter
-        }
+        try pointInvalidationChecker.checkAvailableCharacterSet(formula: formula)
         let inputPoints = formula.split(separator: "-").map({String($0)})
         let points = try getPoints(inputPoints: inputPoints)
-        let pointInvalidationChecker = PointInvalidationChecker()
         try pointInvalidationChecker.checkPointInvalidation(points: points)
         return points
     }
@@ -33,34 +30,9 @@ struct InputView {
     }
     
     private func getPoint(formula: String) throws -> Points {
-        let point = formula.trimmingCharacters(in: customCharacterSet).split(separator: ",")
-        try checkInputValidation(point: point)
+        let point = try pointInvalidationChecker.checkInputValidation(formula: formula)
         let points : Points = [(x: Int(point[0])!, y: Int(point[1])!)]
         return points
-    }
-    
-    private func checkInputValidation(point: Array<String.SubSequence>) throws {
-        guard point.count == 2 else {
-            throw CustomErrors.InputError.wrongPoint
-        }
-        if Int(point[0]) == nil || Int(point[1]) == nil {
-            throw CustomErrors.InputError.wrongPoint
-        }
-        if Int(point[0])! <= 0 || Int(point[0])! > 24  || Int(point[1])! <= 0 || Int(point[1])! > 24 {
-            throw CustomErrors.InputError.invalidRange
-        }
-    }
-    
-    private func checkAvailableCharacterSet(formula: String) -> Bool {
-        guard formula.trimmingCharacters(in: getAvailableCharacterSet()).count == 0 else {
-            return false
-        }
-        return true
-    }
-    private func getAvailableCharacterSet() -> CharacterSet {
-        var availableCharacterSet : CharacterSet = customCharacterSet
-        availableCharacterSet.formUnion(CharacterSet.decimalDigits)
-        return availableCharacterSet
     }
     
 }
