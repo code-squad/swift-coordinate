@@ -11,4 +11,3 @@ import Foundation
 enum InputViewError: Error {
     case invalidPoint
 }
-
