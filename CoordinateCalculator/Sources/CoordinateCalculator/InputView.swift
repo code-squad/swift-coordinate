@@ -36,6 +36,10 @@ struct InputView {
         }
         // 좌표축 최대범위를 넘으면 에러처리.
         guard isUnderAxisLimit(resultPoints) else{ throw OutputView.CoordsError.outOfBounds }
+        // 삼각형 입력 시 같은 포인트가 있으면 에러처리.
+        if resultPoints.count == FigureFactory.Figures.triangle.rawValue && MyTriangle.containsSameCoords(resultPoints){
+            throw OutputView.CoordsError.zeroException
+        }
         return resultPoints
     }
     
