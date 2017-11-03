@@ -56,6 +56,7 @@ struct FigureCreator {
         }
         return origin
     }
+    
     private func getSizeForRect(points: Points) -> CGSize {
         var size : CGSize = CGSize.init(width: 0, height: 0)
         let origin : (x: Int, y: Int) = (points[0].x, points[0].y)
