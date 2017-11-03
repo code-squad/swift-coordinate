@@ -9,7 +9,6 @@
 import Foundation
 
 struct FigureCreator {
-    
     func createFigure(points: Points) -> Figure {
         switch points.count {
         case 2:
@@ -70,5 +69,4 @@ struct FigureCreator {
         }
         return size
     }
-    
 }

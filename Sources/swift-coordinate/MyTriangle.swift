@@ -9,12 +9,10 @@
 import Foundation
 
 struct MyTriangle : Figure {
-    
     private(set) var lineAB : MyLine
     private(set) var lineBC : MyLine
     private(set) var lineAC : MyLine
     private(set) var points : [MyPoint]
-    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
@@ -25,5 +23,4 @@ struct MyTriangle : Figure {
     func getArea() -> Double {
         return sqrt(Double(1) - pow((pow(self.lineBC.getDistance(), 2) + pow(self.lineAB.getDistance(), 2) - pow(self.lineAC.getDistance(), 2)) / (2 * self.lineBC.getDistance() * self.lineAB.getDistance()), 2)) * self.lineBC.getDistance() * self.lineAB.getDistance() / 2
     }
-
 }

@@ -9,9 +9,7 @@
 import Foundation
 
 struct InputView {
-    
     private let pointInvalidationChecker = PointInvalidationChecker()
-    
     func readInput() throws -> Points {
         let formula = readLine() ?? ""
         try pointInvalidationChecker.checkAvailableCharacterSet(formula: formula)
@@ -34,7 +32,6 @@ struct InputView {
         let points : Points = [(x: Int(point[0])!, y: Int(point[1])!)]
         return points
     }
-    
 }
 
 

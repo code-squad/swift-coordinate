@@ -36,4 +36,3 @@ let figure = figureCreator.createFigure(points: points)
 
 let outputView = OutputView(figure: figure)
 outputView.drawAll()
-

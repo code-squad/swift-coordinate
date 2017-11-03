@@ -9,9 +9,7 @@
 import Foundation
 
 struct OutputView {
-    
     private(set) var figure : Figure?
-    
     init(figure: Figure) {
         self.figure = figure
     }

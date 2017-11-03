@@ -12,7 +12,6 @@ import XCTest
 class CoordinateCalculatorTests: XCTestCase {
     var inputView : InputView!
     var formula : String = ""
-    
     override func setUp() {
         super.setUp()
         inputView = InputView()
