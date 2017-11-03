@@ -15,13 +15,13 @@ struct OutputView{
     static let endYOfPage = ANSICode.axis.AxisLimit+3   // 화면에 보이는 페이지의 가장 마지막 줄 위치(y)
     static let startXOfCommands = 2     // 기타 명령어들이 출력되는 시작지점(x)
     
-    
     // MyPoint 구조체 관련 에러 및 에러메시지 종류.
-    enum CoordsError: String, Error{
+    enum CoordsError: String, Error, Equatable{
         case isNil = "입력값이 없습니다."                              // nil 에러.
         case outOfBounds = "좌표가 24를 넘지 않도록 입력해주세요."         // 좌표계 최대범위 초과 에러.
         case invalidInputPattern = "형식을 맞춰주세요. 예: (숫자,숫자)-"  // 입력 패턴 에러.
         case invalidRectPoints = "직사각형 좌표를 입력해주세요."          // 직사각형 외 에러.
+        case zeroException = "서로 다른 세 점을 입력해주세요."            // 삼각형 넓이 구할 시 분모 0 에러.
     }
     
     // 좌표축 출력.
@@ -52,7 +52,7 @@ struct OutputView{
     }
     
     // 도형에 따라 출력.
-    static func printNumerousHearts(inShape userFigure: FigureCalculatable?){
+    static func printNumerousHearts(inShape userFigure: FigureCalculatable?) {
         guard let userFigure = userFigure else { return }
         // userFigure의 타입에 따라 하트 출력.
         printHeart(from: userFigure)
