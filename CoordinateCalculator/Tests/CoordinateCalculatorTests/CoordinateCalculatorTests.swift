@@ -2,17 +2,9 @@ import XCTest
 
 class CoordinateCalculatorTests: XCTestCase {
 
-    func testInvalidInputPattern() {
-        do{
-            try InputView.readInput(rawCoords: "(,,)(1,)")
-        }catch{
-            XCTAssertNoThrow(FigureFactory.CoordsError.invalidInputPattern)
-        }
-    }
-    
     func testOutOfCoordSystemBounds() {
         do{
-            try InputView.readInput(rawCoords: "(47,9)")
+            try FigureFactory.produceFigure(from: [MyPoint(x: 47, y: 9)])
         }catch{
             XCTAssertNoThrow(FigureFactory.CoordsError.outOfBounds)
         }
@@ -20,7 +12,7 @@ class CoordinateCalculatorTests: XCTestCase {
     
     func testInvalidRectPoints() {
         do{
-            try InputView.readInput(rawCoords: "(3,5)-(1,7)-(8,5)-(9,0)")
+            try FigureFactory.produceFigure(from: [MyPoint(x: 3, y: 5), MyPoint(x: 1, y: 7), MyPoint(x: 8, y: 5), MyPoint(x: 9, y: 0)])
         }catch{
             XCTAssertNoThrow(FigureFactory.CoordsError.invalidRectPoints)
         }
@@ -28,7 +20,7 @@ class CoordinateCalculatorTests: XCTestCase {
     
     func testZeroException() {
         do{
-            try InputView.readInput(rawCoords: "(6,5-(6,5)-(2,8)")
+            try FigureFactory.produceFigure(from: [MyPoint(x: 6, y: 5), MyPoint(x: 6, y: 5), MyPoint(x: 2, y: 8)])
         }catch{
             XCTAssertNoThrow(FigureFactory.CoordsError.zeroException)
         }

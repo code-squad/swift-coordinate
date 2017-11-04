@@ -15,31 +15,12 @@ struct FigureFactory {
         self.product = try FigureFactory.produceFigure(from: inputView.userInput)
     }
     
-    private static func produceFigure(from userInput: String) throws -> FigureCalculatable {
-        let stringsInCoordPattern: [String] = try FigureFactory.makeIntoCoordPattern(from: userInput)
-        // 좌표패턴의 문자열에서 MyPoint 생성. (좌표범위 넘으면 에러처리도 함)
-        let points: [MyPoint] = try FigureFactory.generatePoints(from: stringsInCoordPattern)
-        // MyPoint 갯수에 따라 각 도형 생성하여 반환.
-        return try FigureFactory.produceFigure(from: points)
-    }
-    
     // 각 도형들의 꼭지점 갯수
     enum Figures: Int{
         case point = 1
         case line = 2
         case triangle = 3
         case rect = 4
-    }
-    
-    // 꼭지점 갯수에 따라 각 도형 구조체 생성하여 반환.
-    static func produceFigure(from points: [MyPoint]) throws -> FigureCalculatable {
-        switch points.count {
-        case Figures.point.rawValue: return MyPoint(from: points)
-        case Figures.line.rawValue: return MyLine(from: points)
-        case Figures.triangle.rawValue: return MyTriangle(from: points)
-        case Figures.rect.rawValue: return try MyRect(from: points)
-        default: return MyPoint(from: points)
-        }
     }
     
     // 에러 메시지 종류.
@@ -53,6 +34,25 @@ struct FigureFactory {
     
     // 입력 가능한 문자열 패턴. ex. (3,5)- 형식 가능.
     private static let validInputPattern: String = "\\([0-9]+,[0-9]+\\)-?"
+    
+    private static func produceFigure(from userInput: String) throws -> FigureCalculatable {
+        let stringsInCoordPattern: [String] = try FigureFactory.makeIntoCoordPattern(from: userInput)
+        // 좌표패턴의 문자열에서 MyPoint 생성. (좌표범위 넘으면 에러처리도 함)
+        let points: [MyPoint] = try FigureFactory.generatePoints(from: stringsInCoordPattern)
+        // MyPoint 갯수에 따라 각 도형 생성하여 반환.
+        return try FigureFactory.produceFigure(from: points)
+    }
+    
+    // 꼭지점 갯수에 따라 각 도형 구조체 생성하여 반환.
+    static func produceFigure(from points: [MyPoint]) throws -> FigureCalculatable {
+        switch points.count {
+        case Figures.point.rawValue: return MyPoint(from: points)
+        case Figures.line.rawValue: return MyLine(from: points)
+        case Figures.triangle.rawValue: return MyTriangle(from: points)
+        case Figures.rect.rawValue: return try MyRect(from: points)
+        default: return MyPoint(from: points)
+        }
+    }
     
     // 문자열을 좌표패턴 기준으로 나누어 문자열 배열로 반환.
     private static func makeIntoCoordPattern(from inputLine: String) throws -> [String] {
