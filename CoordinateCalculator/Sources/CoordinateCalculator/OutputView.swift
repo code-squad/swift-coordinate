@@ -15,6 +15,15 @@ struct OutputView {
     static let ratioOfAxisX = 2         // X축 화면비율
     static let endYOfPage = ANSICode.axis.AxisLimit+3   // 화면에 보이는 페이지의 가장 마지막 줄 위치(y)
     static let startXOfCommands = 2     // 기타 명령어들이 출력되는 시작지점(x)
+    static let posYOfErrorMsg = startOfAxisY + ANSICode.axis.AxisLimit/2
+    
+    init?(_ factory: FigureFactory?) {
+        guard let factory = factory else { return nil }
+        // 좌표계 중앙에 출력된 에러메시지 지움.
+        OutputView.eraseErrorMessage()
+        // 정상적인 좌표값인 경우, 해당 좌표에 특수문자 표시.
+        OutputView.printNumerousHearts(inShape: factory.product)
+    }
     
     // 좌표축 출력.
     static func drawAxis() {
@@ -22,25 +31,14 @@ struct OutputView {
         print("\(ANSICode.axis.draw())")
     }
     
-    // 사용자 입력 메뉴 출력 함수. 사용자 입력 문자열 반환.
-    static func askFor(message: String) throws -> String? {
-        // 요구 메시지 출력.
-        print("\(ANSICode.cursor.move(row: endYOfPage, col: startXOfCommands))\(ANSICode.eraseEndLine)\(ANSICode.none)\(message)", terminator: " ")
-        // 요구 메시지가 nil 인 경우, isNil 에러 처리.
-        guard let inputLine = readLine() else{ throw FigureFactory.CoordsError.isNil }
-        return inputLine
-    }
-    
     // 에러 메시지 출력.
-    static func printErrorMessage(of type: FigureFactory.CoordsError) -> [Int] {
+    static func printErrorMessage(of type: FigureFactory.CoordsError) {
         let errorMessage = type.rawValue
         // 에러 메시지를 좌표평면 중간에 출력하기 위한 위치 계산. - 메시지에 숫자나 특수문자가 들어가면 오차 생길 수 있음.
         let posYOfErrorMsg = startOfAxisY + ANSICode.axis.AxisLimit/2
         let posXOfErrorMsg = ( startOfAxisX + (ANSICode.axis.AxisLimit-errorMessage.count)/2 ) * ratioOfAxisX
         // 에러 메시지를 빨간 색상으로 출력.
         print("\(ANSICode.cursor.move(row: posYOfErrorMsg, col: posXOfErrorMsg))\(ANSICode.text.redBright)\(errorMessage)")
-        // 메시지 지울 때 사용하기 위해 메시지 시작좌표 반환.
-        return [posYOfErrorMsg, posXOfErrorMsg]
     }
     
     // 도형에 따라 출력.
@@ -57,7 +55,7 @@ struct OutputView {
         let userPoints = userInput.getPoints()
         for userPoint in userPoints{
             // 사용자 입력 좌표의 출력 위치 계산.
-            let coordX = startOfAxisX + userPoint.x*ratioOfAxisX
+            let coordX = startOfAxisX + userPoint.x * ratioOfAxisX
             let coordY = startOfAxisY + ANSICode.axis.AxisLimit - userPoint.y
             // 빨간색 하트 출력.
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: coordY, col: coordX))♥︎")
@@ -96,9 +94,8 @@ struct OutputView {
     }
     
     // 특정 위치부터 가로 끝까지 지움. (에러 메시지 출력 위함.)
-    static func erase(at position: [Int]?) {
-        guard let position = position else{ return }
-        print("\(ANSICode.cursor.move(row: position[0], col: position[1]))\(ANSICode.eraseEndLine)")
+    static func eraseErrorMessage() {
+        print("\(ANSICode.cursor.move(row: posYOfErrorMsg, col: startOfAxisX+1))\(ANSICode.eraseEndLine)")
     }
     
     private static func reset() {
