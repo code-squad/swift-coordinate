@@ -50,7 +50,7 @@ extension MyTriangle: FigureCalculatable {
     
 }
 
-extension MyTriangle{
+extension MyTriangle {
     
     // 삼각형에서 같은 세 점이 있는 경우
     static func containsSameCoords(_ points: [MyPoint]) -> Bool {

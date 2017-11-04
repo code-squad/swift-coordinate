@@ -14,7 +14,7 @@ struct InputView {
     init?() throws {
         self.userInput = try InputView.askFor(message: "좌표를 입력하세요: ")
         // q 또는 quit 입력 시 종료.
-        if self.userInput == "q" || self.userInput == "quit" { return nil }
+        guard self.userInput != "q" && self.userInput != "quit" else { return nil }
     }
     
     // 사용자 입력 메뉴 출력. 사용자 입력값을 '(Int,Int)-' 패턴으로 잘라서 반환.

@@ -8,7 +8,8 @@
 import Foundation
 
 protocol FigureCalculatable {
+
     func getPoints() -> [MyPoint]
     func calculate() -> Double
+ 
 }
-
