@@ -15,7 +15,7 @@ func main() throws {
     var factory: FigureFactory?
     
     // 사용자 입력. 에러나면 반복.
-    while let inputView = try InputView(){
+    while let inputView = try InputView() {
         do{
             // 좌표계 중앙에 출력된 에러메시지 지움.
             OutputView.eraseErrorMessage()

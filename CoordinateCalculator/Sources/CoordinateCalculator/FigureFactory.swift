@@ -16,7 +16,7 @@ struct FigureFactory {
     }
     
     // 각 도형들의 꼭지점 갯수
-    enum Figures: Int{
+    enum Figures: Int {
         case point = 1
         case line = 2
         case triangle = 3
@@ -66,7 +66,7 @@ struct FigureFactory {
     // 좌표패턴의 문자열들에서 숫자만 추출하여 MyPoint 객체들 생성.
     private static func generatePoints(from stringsInCoordPattern: [String]) throws -> [MyPoint] {
         var resultPoints: [MyPoint] = []
-        for stringLikeCoord in stringsInCoordPattern{
+        for stringLikeCoord in stringsInCoordPattern {
             // 숫자패턴인 문자열만 추출.
             let coordsInString = stringLikeCoord.split(pattern: "[0-9]+")
             // 문자열을 숫자타입으로 변환.
@@ -75,9 +75,9 @@ struct FigureFactory {
             resultPoints.append(MyPoint(x: Int(coords[0]), y: Int(coords[1])))
         }
         // 좌표축 최대범위를 넘으면 에러처리.
-        guard isUnderAxisLimit(resultPoints) else{ throw FigureFactory.CoordsError.outOfBounds }
+        guard isUnderAxisLimit(resultPoints) else { throw FigureFactory.CoordsError.outOfBounds }
         // 삼각형 입력 시 같은 포인트가 있으면 에러처리.
-        if resultPoints.count == FigureFactory.Figures.triangle.rawValue && MyTriangle.containsSameCoords(resultPoints){
+        if resultPoints.count == FigureFactory.Figures.triangle.rawValue && MyTriangle.containsSameCoords(resultPoints) {
             throw FigureFactory.CoordsError.zeroException
         }
         return resultPoints
@@ -85,7 +85,7 @@ struct FigureFactory {
     
     // 좌표축 최대값 넘는지 여부 반환.
     private static func isUnderAxisLimit(_ points: [MyPoint]) -> Bool {
-        for point in points{
+        for point in points {
             // 한 좌표라도 범위를 넘으면 false 반환.
             guard point.x <= ANSICode.axis.AxisLimit && point.y <= ANSICode.axis.AxisLimit else { return false }
         }
@@ -111,7 +111,7 @@ extension FigureFactory {
     
 }
 
-extension String{
+extension String {
     
     // 문자열에서 매칭되는 패턴을 찾아 반환.
     func split(pattern: String) -> [String] {
@@ -120,11 +120,11 @@ extension String{
             let regex = try NSRegularExpression(pattern: pattern)
             // 현재 문자열(self)에서 패턴에 매칭되는 결과 반환. (NSTextCheckingResult 배열타입)
             let nsTextResults = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
-            let results = nsTextResults.map({
+            let results = nsTextResults.map{
                 // NSTextCheckingResult 타입에는 패턴이 매칭되는 문자열 범위 등의 정보가 들어있음.
                 // 현재 문자열(self)에서 해당 범위 만큼(Substring)을 String으로 반환.
                 return String(self[Range($0.range, in: self)!])
-            })
+            }
             return results
         } catch let error {
             print(error.localizedDescription)
