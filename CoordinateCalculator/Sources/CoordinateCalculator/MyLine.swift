@@ -13,7 +13,6 @@ struct MyLine {
 }
 
 extension MyLine: FigureCalculatable {
-    
     // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
     init(from points: [MyPoint]) {
         self = MyLine(pointA: points[0], pointB: points[1])

@@ -20,7 +20,6 @@ struct MyTriangle {
 }
 
 extension MyTriangle: FigureCalculatable {
-    
     init(from points: [MyPoint]) {
         self = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
     }
