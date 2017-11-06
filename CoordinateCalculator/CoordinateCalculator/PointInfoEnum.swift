@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  PointInfoEnum.swift
 //  CoordinateCalculator
 //
 //  Created by Mrlee on 2017. 11. 6..
@@ -8,9 +8,7 @@
 
 import Foundation
 
-struct MyLine {
-    var pointA = MyPoint(x: 0, y: 0)
-    var pointB = MyPoint(x: 0, y: 0)
-    
-    
+enum PointsInfo {
+    case point
+    case line
 }
