@@ -8,15 +8,6 @@
 import Foundation
 
 struct FigureFactory {
-    var userFigure: FigureCalculatable
-    
-    init() {
-        self.userFigure = MyPoint()
-    }
-    
-    init(with userData: UserData) throws {
-        self.userFigure = try FigureFactory.produceFigure(from: userData)
-    }
     
     // 각 도형들의 꼭지점 갯수
     enum Figures: Int {
@@ -56,7 +47,9 @@ struct FigureFactory {
             throw FigureFactory.CoordsError.zeroException
         }
         // 사각형 입력 시 직사각형 형태가 아니면 에러처리.
-        guard points.count == FigureFactory.Figures.rect.rawValue && MyRect.isRectangle(by: points) else { throw FigureFactory.CoordsError.invalidRectPoints }
+        if points.count == FigureFactory.Figures.rect.rawValue && !MyRect.isRectangle(by: points) {
+            throw FigureFactory.CoordsError.invalidRectPoints
+        }
     }
     
     // 좌표축 최대값 넘는지 여부 반환.
