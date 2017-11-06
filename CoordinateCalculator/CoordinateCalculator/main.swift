@@ -14,12 +14,14 @@ func executeCoordinatesCalculator() {
     var pointInfo = MyPoint()
     var checkError = false
     while !checkError {
-        inputView.readInput()
         do {
+            try inputView.readInput()
             pointInfo = try inputView.extract()
             outView.draw(point: pointInfo)
             checkError = true
         } catch InputViewError.invalidPoint {
+            checkError = false
+        } catch InputViewError.invalidCharacterSet {
             checkError = false
         } catch {
             checkError = false

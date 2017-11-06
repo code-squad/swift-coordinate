@@ -9,26 +9,44 @@
 import Foundation
 
 struct InputView {
-    private var points: String = ""
+    private var inputCoordinateValue: String = ""
+    private let validCharacterSet: Set<Character> = ["0","1","2","3","4",
+                                                     "5","6","7","8","9",
+                                                     "(",")",",","-"]
     
-    mutating func readInput() {
+    mutating func readInput() throws {
         print("좌표를 입력하세요.")
         let inputData = readLine()
-        guard let points = inputData else {
+        guard let inputCoordinateValue = inputData else {
             print("다시입력해주세요.")
             return
         }
-        self.points = points
+        if divideAndInterSection(inputCoordinateValue) {
+            print("입력가능한 문자는 ( , ) - 와 0~9인 숫자입니다. :)")
+            throw InputViewError.invalidCharacterSet
+        }
+        self.inputCoordinateValue = inputCoordinateValue
+    }
+    
+    //입력가능한 CharacterSet과 입력 value를 교집합한 갯수가 value각각의 갯수보다 작으면 입력가능한 셋에 없는 캐릭터가 있어서 오류전달.
+    func divideAndInterSection(_ value: String) -> Bool {
+        var disassembleValue: [Character] = []
+        for valueIndex in 0..<value.count {
+            disassembleValue.append(value[value.index(value.startIndex, offsetBy: valueIndex)])
+        }
+        let disassembleSetOfValue: Set<Character> = Set(disassembleValue)
+        let checkValueSet = validCharacterSet.isDisjoint(with: disassembleSetOfValue)
+        return checkValueSet
     }
     
     mutating func extract() throws -> MyPoint {
         var dotPoint: MyPoint = MyPoint()
-        points.remove(at: points.startIndex)
-        points.remove(at: points.index(before: points.endIndex))
-        let separatePoint = points.components(separatedBy: ",").flatMap{ Int($0) }
-        if confirm(points: separatePoint) {
-            dotPoint.x = separatePoint[0]
-            dotPoint.y = separatePoint[1]
+        inputCoordinateValue.remove(at: inputCoordinateValue.startIndex)
+        inputCoordinateValue.remove(at: inputCoordinateValue.index(before: inputCoordinateValue.endIndex))
+        let separateAxisValue = inputCoordinateValue.components(separatedBy: ",").flatMap{ Int($0) }
+        if confirm(points: separateAxisValue) {
+            dotPoint.x = separateAxisValue[0]
+            dotPoint.y = separateAxisValue[1]
             return dotPoint
         }
         throw InputViewError.invalidPoint
