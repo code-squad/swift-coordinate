@@ -17,10 +17,8 @@ struct MyRect {
 }
 
 extension MyRect: FigureCalculatable {
-    
     // 파라미터로 받은 점을 이용해 구조체 생성하여 반환.
     init(from points: [MyPoint]) throws {
-        guard MyRect.isRectangle(by: points) else { throw FigureFactory.CoordsError.invalidRectPoints }
         let leftTop = MyRect.calculateLeftTop(in: points)
         let size = MyRect.calculateSize(of: points)
         self = MyRect(origin: leftTop, size: size)
@@ -46,7 +44,7 @@ extension MyRect: FigureCalculatable {
 }
 
 extension MyRect {
-    
+
     // 직사각형 형태인지 판별.
     static func isRectangle(by points: [MyPoint]) -> Bool {
         // 네 점의 x, y 좌표 세트를 받아옴.

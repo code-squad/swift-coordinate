@@ -11,15 +11,16 @@ import Foundation
 func main() throws {
     // 좌표축 그림.
     OutputView.drawAxis()
-    // 도형 생산 객체. 사용자 입력에 따라 있을수도 있을수도 있기 때문에 옵셔널 처리. (예: q, quit)
-    var factory: FigureFactory?
+    var userData = UserData()
+    var figureFactory = FigureFactory()
     
     // 사용자 입력. 에러나면 반복.
-    while let inputView = try InputView() {
+    while let userInput = try InputView.askFor(message: "좌표를 입력하세요: ") {
         do{
             // 좌표계 중앙에 출력된 에러메시지 지움.
             OutputView.eraseErrorMessage()
-            factory = try FigureFactory(inputView)
+            userData = try InputView(with: userInput).userData
+            figureFactory = try FigureFactory(with: userData)
         }catch let e as FigureFactory.CoordsError{
             // 도형 생산 시 발생하는 에러 출력. 에러 출력 위치 저장.
             OutputView.printErrorMessage(of: e)
@@ -28,7 +29,7 @@ func main() throws {
         break           // 정상입력 시 while 문 종료.
     }
     // 에러가 난 경우, 에러를 지우고 결과 출력.
-    OutputView(factory)
+    OutputView(figureFactory.userFigure)
 }
 
 try main()

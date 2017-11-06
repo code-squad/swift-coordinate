@@ -4,7 +4,8 @@ class CoordinateCalculatorTests: XCTestCase {
 
     func testOutOfCoordSystemBounds() {
         do{
-            try FigureFactory.produceFigure(from: [MyPoint(x: 47, y: 9)])
+            let userData = UserData(inputData: [MyPoint(x: 47, y: 9)])
+            try FigureFactory.produceFigure(from: userData)
         }catch{
             XCTAssertNoThrow(FigureFactory.CoordsError.outOfBounds)
         }
@@ -12,7 +13,8 @@ class CoordinateCalculatorTests: XCTestCase {
     
     func testInvalidRectPoints() {
         do{
-            try FigureFactory.produceFigure(from: [MyPoint(x: 3, y: 5), MyPoint(x: 1, y: 7), MyPoint(x: 8, y: 5), MyPoint(x: 9, y: 0)])
+            let userData = UserData(inputData: [MyPoint(x: 3, y: 5), MyPoint(x: 1, y: 7), MyPoint(x: 8, y: 5), MyPoint(x: 9, y: 0)])
+            try FigureFactory.produceFigure(from: userData)
         }catch{
             XCTAssertNoThrow(FigureFactory.CoordsError.invalidRectPoints)
         }
@@ -20,7 +22,8 @@ class CoordinateCalculatorTests: XCTestCase {
     
     func testZeroException() {
         do{
-            try FigureFactory.produceFigure(from: [MyPoint(x: 6, y: 5), MyPoint(x: 6, y: 5), MyPoint(x: 2, y: 8)])
+            let userData = UserData(inputData: [MyPoint(x: 6, y: 5), MyPoint(x: 6, y: 5), MyPoint(x: 2, y: 8)])
+            try FigureFactory.produceFigure(from: userData)
         }catch{
             XCTAssertNoThrow(FigureFactory.CoordsError.zeroException)
         }

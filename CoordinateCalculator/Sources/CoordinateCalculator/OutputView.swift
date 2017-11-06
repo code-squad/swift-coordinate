@@ -17,12 +17,12 @@ struct OutputView {
     static let startXOfCommands = 2     // 기타 명령어들이 출력되는 시작지점(x)
     static let posYOfErrorMsg = startOfAxisY + ANSICode.axis.AxisLimit/2
     
-    init?(_ factory: FigureFactory?) {
-        guard let factory = factory else { return nil }
+    init?(_ userFigure: FigureCalculatable?) {
+        guard let userFigure = userFigure else { return nil }
         // 좌표계 중앙에 출력된 에러메시지 지움.
         OutputView.eraseErrorMessage()
         // 정상적인 좌표값인 경우, 해당 좌표에 특수문자 표시.
-        OutputView.printNumerousHearts(inShape: factory.product)
+        OutputView.printNumerousHearts(inShape: userFigure)
     }
     
     // 좌표축 출력.
