@@ -8,18 +8,34 @@
 
 import Foundation
 
+func sortAndMakePoints(_ points: [MyPoint], _ pointsValue: PointsInfo) -> pointAndValue {
+    switch pointsValue{
+    case .point:
+        return (points, nil)
+    case .line:
+        let line = MyLine(pointA: points[0], pointB: points[1])
+        let lineDistance = line.calcurateDistanceTwoPoints()
+        return (points, lineDistance)
+    }
+}
+
 func executeCoordinatesCalculator() {
     var inputView = InputView()
-    var outputView = OutputView()
+    let outputView = OutputView()
     var userPoints = [MyPoint()]
-    var userPointsValue: PointsInfo
+    var pointsValue: PointsInfo
+    var pointAndValue: (point: [MyPoint], value: Double?)
+    var coordinateInfo = CoordinateModel()
     var checkError = false
+    
     while !checkError {
         do {
             try inputView.readInput()
-            userPointsValue = inputView.countPointsValue()
+            pointsValue = inputView.countPointsValue()
             userPoints = try inputView.extract()
-            outputView.draw(point: sortAndMakePoints(userPoints, userPointsValue))
+            pointAndValue = sortAndMakePoints(userPoints, pointsValue)
+            coordinateInfo = CoordinateModel(pointData: userPoints, info: pointsValue, trixInfo: pointAndValue)
+            outputView.draw(coordinateInfo)
             checkError = true
         } catch InputViewError.invalidPoint {
             checkError = false
@@ -28,17 +44,6 @@ func executeCoordinatesCalculator() {
         } catch {
             checkError = false
         }
-    }
-}
-
-func sortAndMakePoints(_ points: [MyPoint], _ pointsValue: PointsInfo) -> [MyPoint] {
-    switch pointsValue{
-    case .point:
-        return points
-    case .line:
-        let line = MyLine(pointA: points[0], pointB: points[1])
-        line.calcurateDistanceTwoPoints()
-        return points
     }
 }
 

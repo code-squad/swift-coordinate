@@ -9,11 +9,12 @@
 import Foundation
 
 struct OutputView {
-    func draw(point: [MyPoint]) {
-        var points = point
+    func draw(_ info:CoordinateModel) {
+        var points = info.userPoints
         print("\(ANSICode.clear)\(ANSICode.home)")
+        
         func offsetPoint() {
-            for pointsIndex in 0..<point.count {
+            for pointsIndex in 0..<points.count {
                 points[pointsIndex].x = (points[pointsIndex].x * 2) + 3
                 points[pointsIndex].y = (points[pointsIndex].y - 25) * -1
                 print("\(ANSICode.cursor.move(row: points[pointsIndex].y, col: points[pointsIndex].x))\(ANSICode.text.redBright)\u{00B7}")
@@ -26,5 +27,15 @@ struct OutputView {
         
         offsetPoint()
         drawAxis()
+        printTrixInfo(info)
+    }
+    
+    func printTrixInfo(_ info: CoordinateModel) {
+        switch info.pointsInfo {
+        case .point:
+            return
+        case .line:
+            print("두점사이의 거리 \(info.trixInfo.value ?? 0.0)")
+        }
     }
 }
