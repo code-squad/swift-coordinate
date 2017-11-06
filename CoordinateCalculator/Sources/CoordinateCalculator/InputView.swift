@@ -9,12 +9,6 @@ import Foundation
 
 struct InputView {
     
-    var userData: UserData
-    
-    init(with userInput: String) throws {
-        self.userData = try InputView.makeUserData(from: userInput)
-    }
-    
     // 입력 가능한 문자열 패턴. ex. (3,5)- 형식 가능.
     private static let validInputPattern: String = "\\([0-9]+,[0-9]+\\)-?"
     
