@@ -9,20 +9,22 @@
 import Foundation
 
 struct OutputView {
-    func draw(point: MyPoint) {
+    func draw(point: [MyPoint]) {
         var points = point
-        
+        print("\(ANSICode.clear)\(ANSICode.home)")
         func offsetPoint() {
-            points.x = (points.x * 2) + 3
-            points.y = (points.y - 25) * -1
+            for pointsIndex in 0..<point.count {
+                points[pointsIndex].x = (points[pointsIndex].x * 2) + 3
+                points[pointsIndex].y = (points[pointsIndex].y - 25) * -1
+                print("\(ANSICode.cursor.move(row: points[pointsIndex].y, col: points[pointsIndex].x))\(ANSICode.text.redBright)\u{00B7}")
+            }
         }
         
         func drawAxis() {
             print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
         }
+        
         offsetPoint()
-        print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.cursor.move(row: points.y, col: points.x))\(ANSICode.text.redBright)\u{00B7}")
         drawAxis()
     }
 }

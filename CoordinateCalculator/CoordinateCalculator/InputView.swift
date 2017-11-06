@@ -9,16 +9,11 @@
 import Foundation
 
 struct InputView {
-    private var separatePointInfo: PointsInfo
     private var inputCoordinateValue: String = ""
     private let validCharacterSet: Set<Character> = ["0","1","2","3","4",
                                                      "5","6","7","8","9",
                                                      "(",")",",","-"]
-    
-    enum PointsInfo {
-        case point
-        case line
-    }
+    private var separatePoints: [String] = []
     
     mutating func readInput() throws {
         print("좌표를 입력하세요.")
@@ -27,7 +22,7 @@ struct InputView {
             print("다시입력해주세요.")
             return
         }
-        if divideAndInterSection(inputCoordinateValue) {
+        if divideAndCheck(inputCoordinateValue) {
             print("입력가능한 문자는 ( , ) - 와 0~9인 숫자입니다. :)")
             throw InputViewError.invalidCharacterSet
         }
@@ -50,7 +45,7 @@ struct InputView {
     
     //입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.
     //validCharacterSet에 포함된 값이라면 false 를 반환하는 메소드다.
-     private func divideAndInterSection(_ value: String) -> Bool {
+     private func divideAndCheck(_ value: String) -> Bool {
         var disassembleValue: [Character] = []
         for valueIndex in 0..<value.count {
             disassembleValue.append(value[value.index(value.startIndex, offsetBy: valueIndex)])
@@ -60,35 +55,39 @@ struct InputView {
         return checkValueSet
     }
     
-    mutating func countPointsValue() {
-        let separatePoint = inputCoordinateValue.components(separatedBy: "-")
+    mutating func countPointsValue() -> PointsInfo {
+        separatePoints = inputCoordinateValue.components(separatedBy: "-")
         var separatePointInfo: PointsInfo {
             get {
-                switch separatePoint.count{
-                case 0:
-                    return PointsInfo.point
+                switch separatePoints.count{
                 case 1:
+                    return PointsInfo.point
+                case 2:
                     return PointsInfo.line
                 default:
                     return PointsInfo.point
                 }
             }
         }
-        self.separatePointInfo = separatePointInfo
+        return separatePointInfo
     }
     
-    
-    
-    mutating func extract() throws -> MyPoint {
-        var dotPoint: MyPoint = MyPoint()
-        inputCoordinateValue.remove(at: inputCoordinateValue.startIndex)
-        inputCoordinateValue.remove(at: inputCoordinateValue.index(before: inputCoordinateValue.endIndex))
-        let separateAxisValue = inputCoordinateValue.components(separatedBy: ",").flatMap{ Int($0) }
-        if confirm(points: separateAxisValue) {
-            dotPoint.x = separateAxisValue[0]
-            dotPoint.y = separateAxisValue[1]
-            return dotPoint
+    mutating func extract() throws -> [MyPoint] {
+        var dotPoints: [MyPoint] = [MyPoint()]
+        dotPoints.remove(at: 0)
+        for pointsIndex in 0..<separatePoints.count {
+            separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].startIndex)
+            separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].index(before: separatePoints[pointsIndex].endIndex))
+            let separateAxisValue = separatePoints[pointsIndex].components(separatedBy: ",").flatMap{ Int($0) }
+            if confirm(points: separateAxisValue) {
+                var dotPoint = MyPoint()
+                dotPoint.x = separateAxisValue[0]
+                dotPoint.y = separateAxisValue[1]
+                dotPoints.append(dotPoint)
+            }else{
+                throw InputViewError.invalidPoint
+            }
         }
-        throw InputViewError.invalidPoint
+        return dotPoints
     }
 }
