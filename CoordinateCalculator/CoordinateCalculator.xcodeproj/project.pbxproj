@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40351F2C1FB005AB00533920 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
 		4079E9631FAABBD2003615D5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9621FAABBD2003615D5 /* OutputView.swift */; };
 		4079E9661FAB04B7003615D5 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9651FAB04B7003615D5 /* MyPoint.swift */; };
 		4079E9681FAB0532003615D5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9671FAB0532003615D5 /* InputView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		40351F2B1FB005AB00533920 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		4079E9621FAABBD2003615D5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		4079E9651FAB04B7003615D5 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		4079E9671FAB0532003615D5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				4079E9651FAB04B7003615D5 /* MyPoint.swift */,
+				40351F2B1FB005AB00533920 /* MyLine.swift */,
 				4079E9671FAB0532003615D5 /* InputView.swift */,
 				4079E9621FAABBD2003615D5 /* OutputView.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
@@ -137,6 +140,7 @@
 			files = (
 				4079E9661FAB04B7003615D5 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				40351F2C1FB005AB00533920 /* MyLine.swift in Sources */,
 				4079E9681FAB0532003615D5 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				4079E9631FAABBD2003615D5 /* OutputView.swift in Sources */,
