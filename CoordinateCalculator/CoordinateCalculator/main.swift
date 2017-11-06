@@ -37,6 +37,7 @@ func sortAndMakePoints(_ points: [MyPoint], _ pointsValue: PointsInfo) -> [MyPoi
         return points
     case .line:
         let line = MyLine(pointA: points[0], pointB: points[1])
+        line.calcurateDistanceTwoPoints()
         return points
     }
 }
