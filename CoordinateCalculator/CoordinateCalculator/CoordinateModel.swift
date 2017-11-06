@@ -12,11 +12,10 @@ struct CoordinateModel {
     var userPoints: [MyPoint] = []
     var pointsInfo: PointsInfo = PointsInfo.point
     var trixInfo: pointAndValue = ([MyPoint()], 0.0)
-    init(){}
+    init() {}
     init(pointData: [MyPoint], info: PointsInfo, trixInfo: pointAndValue) {
         self.userPoints = pointData
         self.pointsInfo = info
         self.trixInfo = trixInfo
     }
-    
 }
