@@ -84,10 +84,11 @@ struct InputView {
                 dotPoint.x = separateAxisValue[0]
                 dotPoint.y = separateAxisValue[1]
                 dotPoints.append(dotPoint)
-            }else{
+            } else {
                 throw InputViewError.invalidPoint
             }
         }
         return dotPoints
     }
+    
 }

@@ -27,7 +27,6 @@ func executeCoordinatesCalculator() {
     var pointAndValue: (point: [MyPoint], value: Double?)
     var coordinateInfo = CoordinateModel()
     var checkError = false
-    
     while !checkError {
         do {
             try inputView.readInput()
