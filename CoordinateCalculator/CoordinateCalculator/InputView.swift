@@ -13,8 +13,6 @@ struct InputView {
     private let validCharacterSet: Set<Character> = ["0","1","2","3","4",
                                                      "5","6","7","8","9",
                                                      "(",")",",","-"]
-    private var separatePoints: [String] = []
-    
     mutating func readInput() throws {
         print("좌표를 입력하세요.")
         let inputPoints = readLine()
@@ -45,7 +43,7 @@ struct InputView {
     
     //입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.
     //validCharacterSet에 포함된 값이라면 false 를 반환하는 메소드다.
-     private func divideAndCheck(_ value: String) -> Bool {
+    private func divideAndCheck(_ value: String) -> Bool {
         var disassembleValue: [Character] = []
         for valueIndex in 0..<value.count {
             disassembleValue.append(value[value.index(value.startIndex, offsetBy: valueIndex)])
@@ -55,8 +53,8 @@ struct InputView {
         return checkValueSet
     }
     
-   private mutating func countPointsValue() -> PointsInfo {
-        separatePoints = inputCoordinateValue.components(separatedBy: "-")
+    private mutating func countPointsValue() -> (info: PointsInfo, points: [String]) {
+        var separatePoints = inputCoordinateValue.components(separatedBy: "-")
         var separatePointInfo: PointsInfo {
             get {
                 switch separatePoints.count{
@@ -69,11 +67,12 @@ struct InputView {
                 }
             }
         }
-        return separatePointInfo
+        return (separatePointInfo, separatePoints)
     }
     
     mutating func extract(_ pointModel: CoordinateModel) throws {
-        pointModel.pointsKind = countPointsValue()
+        pointModel.pointsKind = countPointsValue().info
+        var separatePoints = countPointsValue().points
         var dotPoints: [MyPoint] = [MyPoint()]
         dotPoints.remove(at: 0)
         for pointsIndex in 0..<separatePoints.count {

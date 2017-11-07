@@ -9,7 +9,7 @@
 import Foundation
 typealias PointAndValue = (point: [MyPoint], value: Double?)
 
-class CoordinateModel {
+final class CoordinateModel {
     var pointsKind: PointsInfo
     var trixInfo: PointAndValue
     
