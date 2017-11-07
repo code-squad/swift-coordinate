@@ -83,6 +83,43 @@
 			path = CoorinateCalculatorUnitTest;
 			sourceTree = "<group>";
 		};
+		4035996F1FB197AD00346688 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				403599581FB0884900346688 /* CoordinateModel.swift */,
+				4079E9651FAB04B7003615D5 /* MyPoint.swift */,
+				40351F2B1FB005AB00533920 /* MyLine.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		403599701FB197E100346688 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		403599711FB197FE00346688 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
+				407A11CD1FAC388700413E0D /* ErrorEnum.swift */,
+				403599561FB0480600346688 /* PointInfo.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		403599721FB1982700346688 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4079E9671FAB0532003615D5 /* InputView.swift */,
+				4079E9621FAABBD2003615D5 /* OutputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8377CC451F8B6F7E007F7335 = {
 			isa = PBXGroup;
 			children = (
@@ -104,15 +141,10 @@
 		8377CC501F8B6F7E007F7335 /* CoordinateCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
-				403599581FB0884900346688 /* CoordinateModel.swift */,
-				4079E9651FAB04B7003615D5 /* MyPoint.swift */,
-				40351F2B1FB005AB00533920 /* MyLine.swift */,
-				407A11CD1FAC388700413E0D /* ErrorEnum.swift */,
-				403599561FB0480600346688 /* PointInfo.swift */,
-				4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */,
-				4079E9671FAB0532003615D5 /* InputView.swift */,
-				4079E9621FAABBD2003615D5 /* OutputView.swift */,
+				403599711FB197FE00346688 /* Utility */,
+				4035996F1FB197AD00346688 /* Model */,
+				403599721FB1982700346688 /* View */,
+				403599701FB197E100346688 /* Controller */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 			);
 			path = CoordinateCalculator;
