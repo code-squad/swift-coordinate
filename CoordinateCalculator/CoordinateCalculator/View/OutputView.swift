@@ -9,6 +9,7 @@
 import Foundation
 
 struct OutputView {
+    
     func draw(_ info: CoordinateModel) {
         var points = info.trixInfo.point
         print("\(ANSICode.clear)\(ANSICode.home)")
@@ -37,5 +38,6 @@ struct OutputView {
         case .line:
             print("두점사이의 거리 \(info.trixInfo.value ?? 0.0)")
         }
+        
     }
 }

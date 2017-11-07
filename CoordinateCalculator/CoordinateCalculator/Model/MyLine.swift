@@ -18,4 +18,5 @@ struct MyLine {
         let resultDistance = sqrt(Double(pow(differentialX, 2) + pow(differentialY, 2)))
         return resultDistance
     }
+    
 }

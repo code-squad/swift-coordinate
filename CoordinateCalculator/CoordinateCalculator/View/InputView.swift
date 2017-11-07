@@ -13,6 +13,7 @@ struct InputView {
     private let validCharacterSet: Set<Character> = ["0","1","2","3","4",
                                                      "5","6","7","8","9",
                                                      "(",")",",","-"]
+    
     mutating func readInput() throws {
         print("좌표를 입력하세요.")
         let inputPoints = readLine()
@@ -28,7 +29,7 @@ struct InputView {
     }
     
     private func confirm(points: [Int]) -> Bool {
-        if points.isEmpty || points.count == 1{
+        if points.isEmpty || points.count == 1 {
             print("다시입력해주세요. 괄호안에는 정수가 와야합니다. :)")
             return false
         }
@@ -41,8 +42,8 @@ struct InputView {
         return true
     }
     
-    //입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.
-    //validCharacterSet에 포함된 값이라면 false 를 반환하는 메소드다.
+    // 입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.
+    // validCharacterSet에 포함된 값이라면 false 를 반환하는 메소드다.
     private func divideAndCheck(_ value: String) -> Bool {
         var disassembleValue: [Character] = []
         for valueIndex in 0..<value.count {
