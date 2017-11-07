@@ -30,7 +30,7 @@ struct OutputView {
         printTrixInfo(info)
     }
     
-    func printTrixInfo(_ info: CoordinateModel) {
+    private func printTrixInfo(_ info: CoordinateModel) {
         switch info.pointsInfo {
         case .point:
             return
