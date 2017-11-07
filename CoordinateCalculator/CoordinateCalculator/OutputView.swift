@@ -9,8 +9,8 @@
 import Foundation
 
 struct OutputView {
-    func draw(_ info:CoordinateModel) {
-        var points = info.userPoints
+    func draw(_ info: CoordinateModel) {
+        var points = info.trixInfo.point
         print("\(ANSICode.clear)\(ANSICode.home)")
         
         func offsetPoint() {
@@ -31,7 +31,7 @@ struct OutputView {
     }
     
     private func printTrixInfo(_ info: CoordinateModel) {
-        switch info.pointsInfo {
+        switch info.pointsKind {
         case .point:
             return
         case .line:

@@ -10,6 +10,7 @@
 		40351F2C1FB005AB00533920 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
 		403599571FB0480600346688 /* PointInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* PointInfoEnum.swift */; };
 		403599591FB0884900346688 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599581FB0884900346688 /* CoordinateModel.swift */; };
+		4035995B1FB176AF00346688 /* CoordinateTrixCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */; };
 		4079E9631FAABBD2003615D5 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9621FAABBD2003615D5 /* OutputView.swift */; };
 		4079E9661FAB04B7003615D5 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9651FAB04B7003615D5 /* MyPoint.swift */; };
 		4079E9681FAB0532003615D5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9671FAB0532003615D5 /* InputView.swift */; };
@@ -34,6 +35,7 @@
 		40351F2B1FB005AB00533920 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		403599561FB0480600346688 /* PointInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoEnum.swift; sourceTree = "<group>"; };
 		403599581FB0884900346688 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
+		4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateTrixCalculator.swift; sourceTree = "<group>"; };
 		4079E9621FAABBD2003615D5 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		4079E9651FAB04B7003615D5 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		4079E9671FAB0532003615D5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -77,11 +79,12 @@
 				403599581FB0884900346688 /* CoordinateModel.swift */,
 				4079E9651FAB04B7003615D5 /* MyPoint.swift */,
 				40351F2B1FB005AB00533920 /* MyLine.swift */,
+				407A11CD1FAC388700413E0D /* ErrorEnum.swift */,
+				403599561FB0480600346688 /* PointInfoEnum.swift */,
+				4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */,
 				4079E9671FAB0532003615D5 /* InputView.swift */,
 				4079E9621FAABBD2003615D5 /* OutputView.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
-				407A11CD1FAC388700413E0D /* ErrorEnum.swift */,
-				403599561FB0480600346688 /* PointInfoEnum.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				4079E9681FAB0532003615D5 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				4079E9631FAABBD2003615D5 /* OutputView.swift in Sources */,
+				4035995B1FB176AF00346688 /* CoordinateTrixCalculator.swift in Sources */,
 				407A11CE1FAC388700413E0D /* ErrorEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
