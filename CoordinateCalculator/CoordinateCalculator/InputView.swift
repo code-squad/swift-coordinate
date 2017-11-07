@@ -55,7 +55,7 @@ struct InputView {
         return checkValueSet
     }
     
-    mutating func countPointsValue() -> PointsInfo {
+   private mutating func countPointsValue() -> PointsInfo {
         separatePoints = inputCoordinateValue.components(separatedBy: "-")
         var separatePointInfo: PointsInfo {
             get {
@@ -72,7 +72,8 @@ struct InputView {
         return separatePointInfo
     }
     
-    mutating func extract() throws -> [MyPoint] {
+    mutating func extract(_ pointModel: CoordinateModel) throws {
+        pointModel.pointsKind = countPointsValue()
         var dotPoints: [MyPoint] = [MyPoint()]
         dotPoints.remove(at: 0)
         for pointsIndex in 0..<separatePoints.count {
@@ -88,7 +89,7 @@ struct InputView {
                 throw InputViewError.invalidPoint
             }
         }
-        return dotPoints
+        pointModel.trixInfo.point = dotPoints
     }
     
 }

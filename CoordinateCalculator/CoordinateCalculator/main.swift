@@ -17,8 +17,7 @@ func executeCoordinatesCalculator() {
     while !checkError {
         do {
             try inputView.readInput()
-            coordinateModel.pointsKind = inputView.countPointsValue()
-            coordinateModel.trixInfo.point = try inputView.extract()
+            try inputView.extract(coordinateModel)
             coordinateCalculator.sortAndMakePoints(coordinateModel)
             outputView.draw(coordinateModel)
             checkError = true
