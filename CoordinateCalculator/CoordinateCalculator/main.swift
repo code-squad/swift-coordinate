@@ -8,33 +8,19 @@
 
 import Foundation
 
-func sortAndMakePoints(_ points: [MyPoint], _ pointsValue: PointsInfo) -> pointAndValue {
-    switch pointsValue{
-    case .point:
-        return (points, nil)
-    case .line:
-        let line = MyLine(pointA: points[0], pointB: points[1])
-        let lineDistance = line.calcurateDistanceTwoPoints()
-        return (points, lineDistance)
-    }
-}
-
 func executeCoordinatesCalculator() {
     var inputView = InputView()
     let outputView = OutputView()
-    var userPoints = [MyPoint()]
-    var pointsValue: PointsInfo
-    var pointAndValue: (point: [MyPoint], value: Double?)
-    var coordinateInfo = CoordinateModel()
+    let coordinateModel = CoordinateModel()
+    let coordinateCalculator = Calculator()
     var checkError = false
     while !checkError {
         do {
             try inputView.readInput()
-            pointsValue = inputView.countPointsValue()
-            userPoints = try inputView.extract()
-            pointAndValue = sortAndMakePoints(userPoints, pointsValue)
-            coordinateInfo = CoordinateModel(pointData: userPoints, info: pointsValue, trixInfo: pointAndValue)
-            outputView.draw(coordinateInfo)
+            coordinateModel.pointsKind = inputView.countPointsValue()
+            coordinateModel.trixInfo.point = try inputView.extract()
+            coordinateCalculator.sortAndMakePoints(coordinateModel)
+            outputView.draw(coordinateModel)
             checkError = true
         } catch InputViewError.invalidPoint {
             checkError = false

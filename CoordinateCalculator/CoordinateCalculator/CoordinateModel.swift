@@ -7,15 +7,14 @@
 //
 
 import Foundation
-typealias pointAndValue = (point: [MyPoint], value: Double?)
-struct CoordinateModel {
-    var userPoints: [MyPoint] = []
-    var pointsInfo: PointsInfo = PointsInfo.point
-    var trixInfo: pointAndValue = ([MyPoint()], 0.0)
-    init() {}
-    init(pointData: [MyPoint], info: PointsInfo, trixInfo: pointAndValue) {
-        self.userPoints = pointData
-        self.pointsInfo = info
-        self.trixInfo = trixInfo
+typealias PointAndValue = (point: [MyPoint], value: Double?)
+
+class CoordinateModel {
+    var pointsKind: PointsInfo
+    var trixInfo: PointAndValue
+    
+    init() {
+        self.pointsKind = PointsInfo.point
+        self.trixInfo = ([MyPoint()], 0.0)
     }
 }
