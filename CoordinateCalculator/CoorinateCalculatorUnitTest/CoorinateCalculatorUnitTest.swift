@@ -38,6 +38,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertNotNil(myPointTest)
         XCTAssertNotNil(myLineTest)
         XCTAssertNotNil(calculatorTest)
+        XCTAssertNotNil(inputViewTest)
     }
     
     func testCalculateMethod() {
