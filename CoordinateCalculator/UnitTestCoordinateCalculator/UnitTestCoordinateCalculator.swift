@@ -11,7 +11,7 @@ import XCTest
 @testable import CoordinateCalculator
 
 class UnitTestCoordinateCalculator: XCTestCase {
-    var myPoint: MyPonit? = MyPonit(x: 20, y: 10)
+    var myPoint: MyPoint! = MyPoint(x: 24, y: 10)
     
     override func setUp() {
         super.setUp()
@@ -23,28 +23,14 @@ class UnitTestCoordinateCalculator: XCTestCase {
     }
     
     func testSuccessInInputValueSeperation() {
-        let inputValue: String = "(20,10)"
-        XCTAssertEqual(try InputView().splitInputValue(inputValue), ["(20", "10)"])
+        let inputValue: String = "(24,10)"
+        let inputView: MyPoint! = try! InputView().splitCoordinates(inputValue)
+        XCTAssertEqual(inputView.x, myPoint.x)
+        XCTAssertEqual(inputView.y, myPoint.y)
     }
     
     func testFaildInInputValueSeperationIsDueToEmptyValue() {
         let inputValue: String = "()"
-        XCTAssertThrowsError(try InputView().splitInputValue(inputValue))
-    }
-    
-    func testSuccessInCoordinateSerperation() {
-        let inputValue: [String] = ["(20", "10)"]
-        XCTAssertEqual(try InputView().splitXYCoordinates(inputValue)?.x, myPoint!.x)
-        XCTAssertEqual(try InputView().splitXYCoordinates(inputValue)?.y, myPoint!.y)
-    }
-    
-    func testFailedInCoordinateSerperationIsDueToEmptyValue() {
-        let inputValue: [String] = []
-        XCTAssertThrowsError(try InputView().splitXYCoordinates(inputValue))
-    }
-    
-    func testFailedInCoordinateSerperationIsDueToOutOfRange() {
-        let inputValue: [String] = ["(10","100)"]
-        XCTAssertThrowsError(try InputView().splitXYCoordinates(inputValue))
+        XCTAssertThrowsError(try InputView().splitCoordinates(inputValue))
     }
 }

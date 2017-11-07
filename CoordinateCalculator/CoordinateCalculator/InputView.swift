@@ -8,58 +8,30 @@
 
 import Foundation
 
-enum InputViewError: Error {
-    case emptyValue
-    case outOfRangeCoordinate
-}
-
 struct InputView {
-    func readInput() throws -> MyPonit? {
+    func readInput() throws -> MyPoint? {
         print("좌표를 입력하세요.", terminator: "\n")
         
         guard let inputValue = readLine() else {
-            throw InputViewError.emptyValue
+            throw CoordinatesError.emptyValue
         }
                 
-        return try splitXYCoordinates(splitInputValue(inputValue))
+        return try splitCoordinates(inputValue)
     }
     
-    func splitInputValue(_ inputValue: String) throws -> [String] {
-        guard inputValue.contains(",") else {
-            throw InputViewError.emptyValue
+    func splitCoordinates(_ inputValue: String) throws -> MyPoint? {
+        guard inputValue.match(for: "\\([0-9]*\\,[0-9]*\\)") else {
+            throw CoordinatesError.notFormattedValue
         }
         
-        return inputValue.characters.split(separator: ",").map(String.init)
-    }
-    
-    func splitXYCoordinates(_ value: [String]) throws -> MyPonit? {
-        guard value.count > 0 else {
-            throw InputViewError.emptyValue
-        }
-        
-        let coordinates = value.map({ (s: String) -> (Int) in
-            return Int(s.components(separatedBy: ["(", ")"]).joined()) ?? 0
-        })
-        
-        guard coordinates.count > 0 else {
-            throw InputViewError.emptyValue
-        }
+        let coordinates = inputValue.trim().splitXY()
         
         for coordinate in coordinates {
-            guard isExceedNumber(coordinate) else {
-                throw InputViewError.outOfRangeCoordinate
+            guard coordinate.match(for: "^([0-9]|[1][0-9]|[2][0-4])$") else {
+                throw CoordinatesError.outOfRangeCoordinate
             }
         }
-
-        return MyPonit(x: coordinates[0], y: coordinates[1])
-    }
-    
-    func isExceedNumber(_ value: Int) -> Bool {
-        switch value {
-        case 0...24 :
-            return true
-        default:
-            return false
-        }
+        
+        return MyPoint(x: Int(coordinates[0]) ?? 0, y: Int(coordinates[1]) ?? 0)
     }
 }

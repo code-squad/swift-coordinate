@@ -17,7 +17,7 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func moveCoordinate(_ myPoint: MyPonit?) {
+    static func moveCoordinate(_ myPoint: MyPoint?) {
         guard let point = myPoint else {
             return
         }
@@ -25,7 +25,7 @@ struct OutputView {
         drawCoordinates(point)
     }
     
-    static func drawCoordinates(_ point: MyPonit) {
+    static func drawCoordinates(_ point: MyPoint) {
         clearAxis()
         print("\(ANSICode.cursor.move(row: point.coordinates.y, col: point.coordinates.x)).")
         drawAxis()

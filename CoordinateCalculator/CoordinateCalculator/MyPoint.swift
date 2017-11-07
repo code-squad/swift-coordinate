@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct MyPonit {
+struct MyPoint {
     private(set) var x: Int = 0
     private(set) var y: Int = 0
     
-    var coordinates: MyPonit {
+    var coordinates: MyPoint {
         get {
-            return MyPonit(x: self.x * 2 + 3, y: abs(self.y - 24) + 1)
+            return MyPoint(x: self.x * 2 + 3, y: abs(self.y - 24) + 1)
         }
     }
 }
