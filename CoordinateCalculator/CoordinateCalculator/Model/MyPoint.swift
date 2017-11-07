@@ -11,7 +11,6 @@ import Foundation
 struct MyPoint {
     var x: Int
     var y: Int
-    
     init() {
         self.x = 0
         self.y = 0

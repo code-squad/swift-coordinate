@@ -9,6 +9,7 @@
 import Foundation
 
 struct Calculator {
+    
     func sortAndMakePoints(_ coordinateModel: CoordinateModel) {
         switch coordinateModel.pointsKind{
         case .point:
@@ -18,5 +19,6 @@ struct Calculator {
             let lineDistance = line.calcurateDistanceTwoPoints()
             coordinateModel.trixInfo.value = lineDistance
         }
+        
     }
 }

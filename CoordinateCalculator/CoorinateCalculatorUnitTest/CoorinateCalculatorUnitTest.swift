@@ -15,7 +15,6 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     var myPointTestB = MyPoint()
     var myLineTest = MyLine()
     var calculatorTest = Calculator()
-    
     var inputViewTest = InputView()
     
     override func setUp() {
@@ -64,4 +63,5 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testMyLineDistance() {
      XCTAssertEqual(myLineTest.calcurateDistanceTwoPoints(), 10)
     }
+    
 }
