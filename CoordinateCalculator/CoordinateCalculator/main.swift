@@ -8,6 +8,11 @@
 
 import Foundation
 
-var outputView = OutputView()
-outputView.drawAxis()
+var inputView = InputView()
+inputView.readInput()
+var myPoint = inputView.separateCoordinateNumber()
 
+var outputView = OutputView()
+outputView.drawClear()
+outputView.printMyPoint(myPoint: myPoint)
+outputView.drawAxis()
