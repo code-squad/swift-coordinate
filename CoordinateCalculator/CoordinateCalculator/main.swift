@@ -9,7 +9,7 @@
 import Foundation
 
 func executeCoordinatesCalculator() {
-    var inputView = InputView()
+    let inputView = InputView()
     let outputView = OutputView()
     let coordinateModel = CoordinateModel()
     let coordinateController = Calculator()
@@ -19,7 +19,6 @@ func executeCoordinatesCalculator() {
         do {
             try inputView.readInput(coordinateModel)
             try coordinateController.extract(coordinateModel)
-            coordinateController.sortAndMakePoints(coordinateModel)
             outputView.draw(coordinateModel)
             checkError = true
         } catch InputViewError.invalidPoint {

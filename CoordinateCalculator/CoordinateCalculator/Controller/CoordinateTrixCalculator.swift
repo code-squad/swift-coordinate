@@ -10,6 +10,30 @@ import Foundation
 
 struct Calculator {
     
+    func extract(_ pointModel: CoordinateModel) throws {
+        let kindOfInputAndPoints = countPointsValue(pointModel.inputCoordinateValue)
+        pointModel.pointsKind = kindOfInputAndPoints.pointsKind
+        var separatePoints = kindOfInputAndPoints.points
+        var dotPoints: [MyPoint] = [MyPoint()]
+        dotPoints.remove(at: 0)
+        
+        for pointsIndex in 0..<separatePoints.count {
+            separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].startIndex)
+            separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].index(before: separatePoints[pointsIndex].endIndex))
+            let separateAxisValue = separatePoints[pointsIndex].components(separatedBy: ",").flatMap{ Int($0) }
+            if confirm(points: separateAxisValue) {
+                var dotPoint = MyPoint()
+                dotPoint.x = separateAxisValue[0]
+                dotPoint.y = separateAxisValue[1]
+                dotPoints.append(dotPoint)
+            } else {
+                throw InputViewError.invalidPoint
+            }
+        }
+        pointModel.trixInfo.point = dotPoints
+        sortAndMakePoints(pointModel)
+    }
+    
     private func countPointsValue(_ coordinateValue: String) -> (pointsKind: PointsInfo, points: [String]) {
         var separatePoints = coordinateValue.components(separatedBy: "-")
         var separatePointInfo: PointsInfo {
@@ -41,30 +65,7 @@ struct Calculator {
         return true
     }
     
-    func extract(_ pointModel: CoordinateModel) throws {
-        let kindOfInputAndPoints = countPointsValue(pointModel.inputCoordinateValue)
-        pointModel.pointsKind = kindOfInputAndPoints.pointsKind
-        var separatePoints = kindOfInputAndPoints.points
-        var dotPoints: [MyPoint] = [MyPoint()]
-        dotPoints.remove(at: 0)
-        
-        for pointsIndex in 0..<separatePoints.count {
-            separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].startIndex)
-            separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].index(before: separatePoints[pointsIndex].endIndex))
-            let separateAxisValue = separatePoints[pointsIndex].components(separatedBy: ",").flatMap{ Int($0) }
-            if confirm(points: separateAxisValue) {
-                var dotPoint = MyPoint()
-                dotPoint.x = separateAxisValue[0]
-                dotPoint.y = separateAxisValue[1]
-                dotPoints.append(dotPoint)
-            } else {
-                throw InputViewError.invalidPoint
-            }
-        }
-        pointModel.trixInfo.point = dotPoints
-    }
-    
-    func sortAndMakePoints(_ coordinateModel: CoordinateModel) {
+    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) {
         switch coordinateModel.pointsKind{
         case .point:
             coordinateModel.pointsKind = .point
@@ -74,5 +75,5 @@ struct Calculator {
             coordinateModel.trixInfo.value = lineDistance
         }
     }
-    
+
 }
