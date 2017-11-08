@@ -38,6 +38,6 @@ struct OutputView {
         case .line:
             print("두점사이의 거리 \(info.trixInfo.value ?? 0.0)")
         }
-        
     }
+    
 }
