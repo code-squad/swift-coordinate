@@ -9,7 +9,7 @@
 import Foundation
 
 var inputView = InputView()
-inputView.readInput()
+var inputValue = inputView.readInput()
 var myPoint = inputView.separateCoordinateNumber()
 
 var outputView = OutputView()

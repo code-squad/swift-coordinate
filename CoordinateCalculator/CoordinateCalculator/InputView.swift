@@ -9,13 +9,14 @@
 import Foundation
 
 struct InputView {
-    var inputCoordinate = ""
+    private var inputCoordinate = ""
     
-    mutating func readInput() {
+    mutating func readInput() -> String {
         print("좌표를 입력하세요.")
         if let inputCoordinate = readLine(){
             self.inputCoordinate = inputCoordinate
         }
+        return inputCoordinate
     }
     mutating func separateCoordinateNumber() -> MyPoint {
         var inputValue = inputCoordinate
