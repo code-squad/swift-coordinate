@@ -12,11 +12,10 @@ struct MyPoint {
     var x: Int
     var y: Int
     init() {
-        self.x = 0
-        self.y = 0
+        self.init(x: 0, y: 0)
     }
     
-    init(x: Int, y: Int) {
+    convenience init(x: Int, y: Int) {
         self.x = x
         self.y = y
     }
