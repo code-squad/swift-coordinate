@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		40351F2C1FB005AB00533920 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
-		403599571FB0480600346688 /* PointInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* PointInfo.swift */; };
+		403599571FB0480600346688 /* Generatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* Generatrix.swift */; };
 		403599591FB0884900346688 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599581FB0884900346688 /* CoordinateModel.swift */; };
 		4035995B1FB176AF00346688 /* CoordinateTrixCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */; };
 		403599631FB183BE00346688 /* CoorinateCalculatorUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599621FB183BE00346688 /* CoorinateCalculatorUnitTest.swift */; };
 		403599681FB18BF400346688 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599581FB0884900346688 /* CoordinateModel.swift */; };
 		403599691FB18BF400346688 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9651FAB04B7003615D5 /* MyPoint.swift */; };
 		4035996A1FB18BF400346688 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
-		4035996B1FB18CF800346688 /* PointInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* PointInfo.swift */; };
+		4035996B1FB18CF800346688 /* Generatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* Generatrix.swift */; };
 		4035996C1FB18D7200346688 /* CoordinateTrixCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */; };
 		4035996D1FB1902000346688 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079E9671FAB0532003615D5 /* InputView.swift */; };
 		4035996E1FB1905800346688 /* ErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A11CD1FAC388700413E0D /* ErrorEnum.swift */; };
@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		40351F2B1FB005AB00533920 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
-		403599561FB0480600346688 /* PointInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfo.swift; sourceTree = "<group>"; };
+		403599561FB0480600346688 /* Generatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generatrix.swift; sourceTree = "<group>"; };
 		403599581FB0884900346688 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
 		4035995A1FB176AF00346688 /* CoordinateTrixCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateTrixCalculator.swift; sourceTree = "<group>"; };
 		403599601FB183BE00346688 /* CoorinateCalculatorUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoorinateCalculatorUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +106,7 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				407A11CD1FAC388700413E0D /* ErrorEnum.swift */,
-				403599561FB0480600346688 /* PointInfo.swift */,
+				403599561FB0480600346688 /* Generatrix.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 				4035996E1FB1905800346688 /* ErrorEnum.swift in Sources */,
 				4035996D1FB1902000346688 /* InputView.swift in Sources */,
 				4035996C1FB18D7200346688 /* CoordinateTrixCalculator.swift in Sources */,
-				4035996B1FB18CF800346688 /* PointInfo.swift in Sources */,
+				4035996B1FB18CF800346688 /* Generatrix.swift in Sources */,
 				403599681FB18BF400346688 /* CoordinateModel.swift in Sources */,
 				403599691FB18BF400346688 /* MyPoint.swift in Sources */,
 				4035996A1FB18BF400346688 /* MyLine.swift in Sources */,
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4079E9661FAB04B7003615D5 /* MyPoint.swift in Sources */,
-				403599571FB0480600346688 /* PointInfo.swift in Sources */,
+				403599571FB0480600346688 /* Generatrix.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				403599591FB0884900346688 /* CoordinateModel.swift in Sources */,
 				40351F2C1FB005AB00533920 /* MyLine.swift in Sources */,

@@ -20,7 +20,7 @@ struct InputView {
             print("다시입력해주세요.")
             return
         }
-        if divideAndCheck(inputCoordinateValue) {
+        if divide(inputCoordinateValue) {
             print("입력가능한 문자는 ( , ) - 와 0~9인 숫자입니다. :)")
             throw InputViewError.invalidCharacterSet
         }
@@ -29,7 +29,7 @@ struct InputView {
     
     // 입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.
     // validCharacterSet에 포함된 값이라면 false 를 반환하는 메소드다.
-    private func divideAndCheck(_ value: String) -> Bool {
+    private func divide(_ value: String) -> Bool {
         var disassembleValue: [Character] = []
         for valueIndex in 0..<value.count {
             disassembleValue.append(value[value.index(value.startIndex, offsetBy: valueIndex)])

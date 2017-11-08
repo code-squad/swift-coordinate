@@ -7,9 +7,8 @@
 //
 
 import Foundation
-typealias PointAndValue = (point: [MyPoint], value: Double?)
 
-enum PointsInfo {
+enum Generatrixs {
     case point
     case line
 }

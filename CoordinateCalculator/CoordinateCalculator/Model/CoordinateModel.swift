@@ -7,15 +7,15 @@
 //
 
 import Foundation
-
 final class CoordinateModel {
-    var pointsKind: PointsInfo
-    var trixInfo: PointAndValue
+    typealias PointsAndParticularResult = (point: [MyPoint], value: Double?)
+    var generatrix: Generatrixs
+    var pointsAndResult: PointsAndParticularResult
     var inputCoordinateValue: String
     
     init() {
-        self.pointsKind = PointsInfo.point
-        self.trixInfo = ([MyPoint()], 0.0)
+        self.generatrix = Generatrixs.point
+        self.pointsAndResult = ([MyPoint()], 0.0)
         self.inputCoordinateValue = ""
     }
 }
