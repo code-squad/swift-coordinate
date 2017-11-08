@@ -12,13 +12,14 @@ func executeCoordinatesCalculator() {
     var inputView = InputView()
     let outputView = OutputView()
     let coordinateModel = CoordinateModel()
-    let coordinateCalculator = Calculator()
+    let coordinateController = Calculator()
     var checkError = false
+    
     while !checkError {
         do {
-            try inputView.readInput()
-            try inputView.extract(coordinateModel)
-            coordinateCalculator.sortAndMakePoints(coordinateModel)
+            try inputView.readInput(coordinateModel)
+            try coordinateController.extract(coordinateModel)
+            coordinateController.sortAndMakePoints(coordinateModel)
             outputView.draw(coordinateModel)
             checkError = true
         } catch InputViewError.invalidPoint {

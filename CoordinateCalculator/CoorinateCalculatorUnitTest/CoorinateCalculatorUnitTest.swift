@@ -48,18 +48,6 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, 10)
     }
     
-    func testInputMethod() {
-//        do {
-//            try inputViewTest.extract(coordinateModelTest)
-//        } catch InputViewError.invalidPoint {
-//            print("invalidPoint")
-//        } catch InputViewError.invalidCharacterSet {
-//            print("invalidCharacterSet")
-//        } catch {
-//            print("defalut catch...")
-//        }
-    }
-    
     func testMyLineDistance() {
      XCTAssertEqual(myLineTest.calcurateDistanceTwoPoints(), 10)
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+typealias PointAndValue = (point: [MyPoint], value: Double?)
 
 enum PointsInfo {
     case point

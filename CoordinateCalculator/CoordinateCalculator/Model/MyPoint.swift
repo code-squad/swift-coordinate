@@ -15,7 +15,7 @@ struct MyPoint {
         self.init(x: 0, y: 0)
     }
     
-    convenience init(x: Int, y: Int) {
+    init(x: Int, y: Int) {
         self.x = x
         self.y = y
     }
