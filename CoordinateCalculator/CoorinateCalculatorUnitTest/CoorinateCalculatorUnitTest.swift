@@ -32,11 +32,11 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     func testStoreProperty() {
-        coordinateModelTest.trixInfo.point = [myPointTest]
-        XCTAssertEqual(coordinateModelTest.pointsKind, PointsInfo.point)
-        XCTAssertEqual(coordinateModelTest.trixInfo.value, 0.0)
-        XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, 0)
-        XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, 0)
+        coordinateModelTest.pointsAndResult.point = [myPointTest]
+        XCTAssertEqual(coordinateModelTest.generatrix, Generatrixs.point)
+        XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 0.0)
+        XCTAssertEqual(coordinateModelTest.pointsAndResult.point[0].x, 0)
+        XCTAssertEqual(coordinateModelTest.pointsAndResult.point[0].y, 0)
     }
     
     func testCalculatePointMethod() {
@@ -45,8 +45,8 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         myPointTest.y = 10
         do{
             try calculatorTest.extract(coordinateModelTest)
-            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, myPointTest.x)
-            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, myPointTest.y)
+            XCTAssertEqual(coordinateModelTest.pointsAndResult.point[0].x, myPointTest.x)
+            XCTAssertEqual(coordinateModelTest.pointsAndResult.point[0].y, myPointTest.y)
         } catch InputViewError.invalidPoint {
             print("input point Error...")
         } catch InputViewError.invalidCharacterSet {
@@ -64,10 +64,10 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         myPointTestB.y = 20
         do{
             try calculatorTest.extract(coordinateModelTest)
-            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, myPointTest.x)
-            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, myPointTest.y)
-            XCTAssertEqual(coordinateModelTest.trixInfo.point[1].x, myPointTestB.x)
-            XCTAssertEqual(coordinateModelTest.trixInfo.point[1].y, myPointTestB.y)
+            XCTAssertEqual(coordinateModelTest.pointsAndResult.point[0].x, myPointTest.x)
+            XCTAssertEqual(coordinateModelTest.pointsAndResult.point[0].y, myPointTest.y)
+            XCTAssertEqual(coordinateModelTest.pointsAndResult.point[1].x, myPointTestB.x)
+            XCTAssertEqual(coordinateModelTest.pointsAndResult.point[1].y, myPointTestB.y)
         } catch InputViewError.invalidPoint {
             print("input point Error...")
         } catch InputViewError.invalidCharacterSet {

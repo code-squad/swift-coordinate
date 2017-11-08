@@ -11,7 +11,7 @@ import Foundation
 struct OutputView {
     
     func draw(_ info: CoordinateModel) {
-        var points = info.trixInfo.point
+        var points = info.pointsAndResult.point
         print("\(ANSICode.clear)\(ANSICode.home)")
         
         func offsetPoint() {
@@ -32,11 +32,11 @@ struct OutputView {
     }
     
     private func printTrixInfo(_ info: CoordinateModel) {
-        switch info.pointsKind {
+        switch info.generatrix {
         case .point:
             return
         case .line:
-            print("두점사이의 거리 \(info.trixInfo.value ?? 0.0)")
+            print("두점사이의 거리 \(info.pointsAndResult.value ?? 0.0)")
         }
     }
     

@@ -12,7 +12,7 @@ struct Calculator {
     
     func extract(_ pointModel: CoordinateModel) throws {
         let kindOfInputAndPoints = countPointsValue(pointModel.inputCoordinateValue)
-        pointModel.pointsKind = kindOfInputAndPoints.pointsKind
+        pointModel.generatrix = kindOfInputAndPoints.generatrix
         var separatePoints = kindOfInputAndPoints.points
         var dotPoints: [MyPoint] = [MyPoint()]
         dotPoints.remove(at: 0)
@@ -30,21 +30,21 @@ struct Calculator {
                 throw InputViewError.invalidPoint
             }
         }
-        pointModel.trixInfo.point = dotPoints
+        pointModel.pointsAndResult.point = dotPoints
         sortAndMakePoints(pointModel)
     }
     
-    private func countPointsValue(_ coordinateValue: String) -> (pointsKind: PointsInfo, points: [String]) {
+    private func countPointsValue(_ coordinateValue: String) -> (generatrix: Generatrixs, points: [String]) {
         var separatePoints = coordinateValue.components(separatedBy: "-")
-        var separatePointInfo: PointsInfo {
+        var separatePointInfo: Generatrixs {
             get {
                 switch separatePoints.count{
                 case 1:
-                    return PointsInfo.point
+                    return Generatrixs.point
                 case 2:
-                    return PointsInfo.line
+                    return Generatrixs.line
                 default:
-                    return PointsInfo.point
+                    return Generatrixs.point
                 }
             }
         }
@@ -66,13 +66,13 @@ struct Calculator {
     }
     
     private func sortAndMakePoints(_ coordinateModel: CoordinateModel) {
-        switch coordinateModel.pointsKind{
+        switch coordinateModel.generatrix{
         case .point:
-            coordinateModel.pointsKind = .point
+            coordinateModel.generatrix = .point
         case .line:
-            let line = MyLine(pointA: coordinateModel.trixInfo.point[0], pointB: coordinateModel.trixInfo.point[1])
+            let line = MyLine(pointA: coordinateModel.pointsAndResult.point[0], pointB: coordinateModel.pointsAndResult.point[1])
             let lineDistance = line.calcurateDistanceTwoPoints()
-            coordinateModel.trixInfo.value = lineDistance
+            coordinateModel.pointsAndResult.value = lineDistance
         }
     }
 
