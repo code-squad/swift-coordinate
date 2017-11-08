@@ -15,17 +15,9 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     var myPointTestB = MyPoint()
     var myLineTest = MyLine()
     var calculatorTest = Calculator()
-    var inputViewTest = InputView()
     
     override func setUp() {
         super.setUp()
-        myPointTest.x = 10
-        myPointTest.y = 10
-        myPointTestB.x = 10
-        myPointTestB.y = 20
-        myLineTest.pointA = myPointTest
-        myLineTest.pointB = myPointTestB
-        coordinateModelTest.trixInfo.point = [myPointTest]
     }
     
     override func tearDown() {
@@ -37,19 +29,62 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertNotNil(myPointTest)
         XCTAssertNotNil(myLineTest)
         XCTAssertNotNil(calculatorTest)
-        XCTAssertNotNil(inputViewTest)
     }
     
-    func testCalculateMethod() {
-        calculatorTest.sortAndMakePoints(coordinateModelTest)
+    func testStoreProperty() {
+        coordinateModelTest.trixInfo.point = [myPointTest]
         XCTAssertEqual(coordinateModelTest.pointsKind, PointsInfo.point)
         XCTAssertEqual(coordinateModelTest.trixInfo.value, 0.0)
-        XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, 10)
-        XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, 10)
+        XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, 0)
+        XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, 0)
+    }
+    
+    func testCalculatePointMethod() {
+        coordinateModelTest.inputCoordinateValue = "(10,10)"
+        myPointTest.x = 10
+        myPointTest.y = 10
+        do{
+            try calculatorTest.extract(coordinateModelTest)
+            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, myPointTest.x)
+            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, myPointTest.y)
+        } catch InputViewError.invalidPoint {
+            print("input point Error...")
+        } catch InputViewError.invalidCharacterSet {
+            print("input characterSet Error...")
+        } catch {
+            print("What kind of error..?")
+        }
+    }
+    
+    func testCalculateLineMethod() {
+        coordinateModelTest.inputCoordinateValue = "(10,10)-(20,20)"
+        myPointTest.x = 10
+        myPointTest.y = 10
+        myPointTestB.x = 20
+        myPointTestB.y = 20
+        do{
+            try calculatorTest.extract(coordinateModelTest)
+            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].x, myPointTest.x)
+            XCTAssertEqual(coordinateModelTest.trixInfo.point[0].y, myPointTest.y)
+            XCTAssertEqual(coordinateModelTest.trixInfo.point[1].x, myPointTestB.x)
+            XCTAssertEqual(coordinateModelTest.trixInfo.point[1].y, myPointTestB.y)
+        } catch InputViewError.invalidPoint {
+            print("input point Error...")
+        } catch InputViewError.invalidCharacterSet {
+            print("input characterSet Error...")
+        } catch {
+            print("What kind of error..?")
+        }
     }
     
     func testMyLineDistance() {
-     XCTAssertEqual(myLineTest.calcurateDistanceTwoPoints(), 10)
+        myPointTest.x = 10
+        myPointTest.y = 10
+        myPointTestB.x = 10
+        myPointTestB.y = 20
+        myLineTest.pointA = myPointTest
+        myLineTest.pointB = myPointTestB
+        XCTAssertEqual(myLineTest.calcurateDistanceTwoPoints(), 10)
     }
     
 }
