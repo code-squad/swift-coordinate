@@ -10,7 +10,7 @@ import Foundation
 
 var inputView = InputView()
 var inputValue = inputView.readInput()
-var myPoint = inputView.separateCoordinateNumber()
+var myPoint = inputView.separateCoordinateNumber(inputValue: inputValue)
 
 var outputView = OutputView()
 outputView.drawClear()
