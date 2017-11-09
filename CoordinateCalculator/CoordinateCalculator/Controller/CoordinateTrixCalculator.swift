@@ -72,11 +72,11 @@ struct Calculator {
         case .point:
             coordinateModel.generatrix = .point
         case .line:
-            let line = MyLine(pointA: coordinateModel.pointsAndResult.point[0], pointB: coordinateModel.pointsAndResult.point[1])
+            let line = MyLine(pointA: coordinateModel[0], pointB: coordinateModel[1])
             let lineDistance = line.calcurateDistanceTwoPoints()
             coordinateModel.pointsAndResult.value = lineDistance
         case .triangle:
-            let triangle = MyTriangle(pointA: coordinateModel.pointsAndResult.point[0], pointB: coordinateModel.pointsAndResult.point[1], pointC: coordinateModel.pointsAndResult.point[2])
+            let triangle = MyTriangle(pointA: coordinateModel[0], pointB: coordinateModel[1], pointC: coordinateModel[2])
             let triangleArea = triangle.calculateTriangleArea()
             coordinateModel.pointsAndResult.value = triangleArea
         }
