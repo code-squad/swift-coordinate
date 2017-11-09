@@ -20,7 +20,6 @@ struct MyTriangle {
         self.lineAC.pointA = pointA
         self.lineAC.pointB = pointC
     }
-    
     func calculateTriangleArea() -> Double {
         let triangle = calculateCosBAndLineA()
         let sinB = sqrt(1 - pow(triangle.cosineB, 2))
