@@ -12,4 +12,5 @@ enum Generatrixs {
     case point
     case line
     case triangle
+    case rectangle
 }

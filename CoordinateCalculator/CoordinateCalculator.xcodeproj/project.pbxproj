@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		40007ABE1FB3FF95007C351E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007ABD1FB3FF95007C351E /* MyTriangle.swift */; };
 		40007ABF1FB422A5007C351E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007ABD1FB3FF95007C351E /* MyTriangle.swift */; };
+		40007AC11FB457D6007C351E /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007AC01FB457D6007C351E /* MyRect.swift */; };
 		40351F2C1FB005AB00533920 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
 		403599571FB0480600346688 /* Generatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* Generatrix.swift */; };
 		403599591FB0884900346688 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599581FB0884900346688 /* CoordinateModel.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		40007ABD1FB3FF95007C351E /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		40007AC01FB457D6007C351E /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		40351F2B1FB005AB00533920 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		403599561FB0480600346688 /* Generatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generatrix.swift; sourceTree = "<group>"; };
 		403599581FB0884900346688 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				4079E9651FAB04B7003615D5 /* MyPoint.swift */,
 				40351F2B1FB005AB00533920 /* MyLine.swift */,
 				40007ABD1FB3FF95007C351E /* MyTriangle.swift */,
+				40007AC01FB457D6007C351E /* MyRect.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				403599591FB0884900346688 /* CoordinateModel.swift in Sources */,
 				40351F2C1FB005AB00533920 /* MyLine.swift in Sources */,
 				4079E9681FAB0532003615D5 /* InputView.swift in Sources */,
+				40007AC11FB457D6007C351E /* MyRect.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				4079E9631FAABBD2003615D5 /* OutputView.swift in Sources */,
 				4035995B1FB176AF00346688 /* CoordinateTrixCalculator.swift in Sources */,

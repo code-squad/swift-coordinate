@@ -79,6 +79,8 @@ struct Calculator {
             let triangle = MyTriangle(pointA: coordinateModel[0], pointB: coordinateModel[1], pointC: coordinateModel[2])
             let triangleArea = triangle.calculateTriangleArea()
             coordinateModel.pointsAndResult.value = triangleArea
+        case .rectangle:
+            coordinateModel.generatrix = .rectangle
         }
     }
 
