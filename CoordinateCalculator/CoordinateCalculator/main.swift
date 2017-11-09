@@ -25,6 +25,8 @@ func executeCoordinatesCalculator() {
             checkError = false
         } catch InputViewError.invalidCharacterSet {
             checkError = false
+        } catch InputViewError.invalidRectangle {
+            checkError = false
         } catch {
             checkError = false
         }
