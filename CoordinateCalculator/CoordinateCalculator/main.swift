@@ -10,7 +10,7 @@ import Foundation
 
 while(true) {
     do {
-        try OutputView.moveCoordinate(InputView().readInput()!)
+        try OutputView.moveCoordinate(InputView().readInput())
     } catch let error as CoordinatesError {
         print(error.description)
     }

@@ -17,17 +17,13 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func moveCoordinate(_ myPoint: MyPoint?) {
-        guard let point = myPoint else {
-            return
-        }
-    
-        drawCoordinates(point)
+    static func moveCoordinate(_ myPoint: MyPoint) {
+        drawCoordinates(myPoint.calculateCoordinatesToDraw())
     }
     
-    static func drawCoordinates(_ point: MyPoint) {
+    private static func drawCoordinates(_ coordinatesToDraw: MyPoint) {
         clearAxis()
-        print("\(ANSICode.cursor.move(row: point.coordinates.y, col: point.coordinates.x)).")
+        print("\(ANSICode.cursor.move(row: coordinatesToDraw.y, col: coordinatesToDraw.x)).")
         drawAxis()
     }
 }

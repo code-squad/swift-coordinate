@@ -16,7 +16,8 @@ extension String {
     }
     
     func trim() -> String {
-        return self.trimmingCharacters(in: .whitespaces)
+        // 앞뒤로 공백을 짜름 : return self.trimmingCharacters(in: )
+        return self.replacingOccurrences(of: " ", with: "")
     }
     
     func match(for regex: String) -> Bool {
