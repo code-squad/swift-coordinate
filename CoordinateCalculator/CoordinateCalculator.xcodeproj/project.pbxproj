@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40007ABE1FB3FF95007C351E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007ABD1FB3FF95007C351E /* MyTriangle.swift */; };
+		40007ABF1FB422A5007C351E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007ABD1FB3FF95007C351E /* MyTriangle.swift */; };
 		40351F2C1FB005AB00533920 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
 		403599571FB0480600346688 /* Generatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* Generatrix.swift */; };
 		403599591FB0884900346688 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599581FB0884900346688 /* CoordinateModel.swift */; };
@@ -243,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40007ABF1FB422A5007C351E /* MyTriangle.swift in Sources */,
 				4035996E1FB1905800346688 /* ErrorEnum.swift in Sources */,
 				4035996D1FB1902000346688 /* InputView.swift in Sources */,
 				4035996C1FB18D7200346688 /* CoordinateTrixCalculator.swift in Sources */,

@@ -38,7 +38,7 @@ struct OutputView {
         case .line:
             print("두점사이의 거리 \(info.pointsAndResult.value ?? 0.0)")
         case .triangle:
-            return 
+            print("삼각형의 넓이는 \(info.pointsAndResult.value ?? 0.0)")
         }
     }
     
