@@ -25,7 +25,9 @@ struct InputView {
                 do {
                     return try separateByComma(rangeOfNumber: String(inputValue[rangeOfNumber]))
                 } catch CoordinateError.inputValueError {
-                    print("입력값 에러")
+                    print("입력값 형식 에러")
+                } catch CoordinateError.outOfAvailableInputValue {
+                    print("입력값 범위 에러")
                 }
             }else {
                 throw CoordinateError.noCommaError
@@ -44,6 +46,9 @@ struct InputView {
         }else {
             myPoint.x = values[0]
             myPoint.y = values[1]
+            if myPoint.x > 24 || myPoint.y > 24 {
+                throw CoordinateError.outOfAvailableInputValue
+            }
         }
         return myPoint
     }
