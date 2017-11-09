@@ -110,6 +110,45 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         }
     }
     
+    func testCalculateRectMethod() {
+        var myPointTestA = MyPoint()
+        var myPointTestB = MyPoint()
+        var myPointTestC = MyPoint()
+        var myPointTestD = MyPoint()
+        let coordinateModelTest = CoordinateModel()
+        XCTAssertNotNil(coordinateModelTest)
+        let calculatorTest = Calculator()
+        
+        coordinateModelTest.inputCoordinateValue = "(10,10)-(22,10)-(22,18)-(10,18)"
+        myPointTestA.x = 10
+        myPointTestA.y = 10
+        myPointTestB.x = 22
+        myPointTestB.y = 10
+        myPointTestC.x = 22
+        myPointTestC.y = 18
+        myPointTestD.x = 10
+        myPointTestD.y = 18
+        do{
+            try calculatorTest.extract(coordinateModelTest)
+            XCTAssertEqual(coordinateModelTest[0].x, myPointTestA.x)
+            XCTAssertEqual(coordinateModelTest[0].y, myPointTestA.y)
+            XCTAssertEqual(coordinateModelTest[1].x, myPointTestB.x)
+            XCTAssertEqual(coordinateModelTest[1].y, myPointTestB.y)
+            XCTAssertEqual(coordinateModelTest[2].x, myPointTestC.x)
+            XCTAssertEqual(coordinateModelTest[2].y, myPointTestC.y)
+            XCTAssertEqual(coordinateModelTest[3].x, myPointTestD.x)
+            XCTAssertEqual(coordinateModelTest[3].y, myPointTestD.y)
+        } catch InputViewError.invalidPoint {
+            print("input point Error...")
+        } catch InputViewError.invalidCharacterSet {
+            print("input characterSet Error...")
+        } catch InputViewError.invalidRectangle {
+            print("input Rect is not a rectangle.")
+        } catch {
+            print("What kind of error..?")
+        }
+    }
+
     func testMyLineDistance() {
         var myPointTestA = MyPoint()
         var myPointTestB = MyPoint()
@@ -133,4 +172,12 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 29.0)
     }
     
+    func testMyRectangleArea() {
+        let coordinateModelTest = CoordinateModel()
+        XCTAssertNotNil(coordinateModelTest)
+        let calculatorTest = Calculator()
+        coordinateModelTest.inputCoordinateValue = "(10,10)-(22,10)-(22,18)-(10,18)"
+        try! calculatorTest.extract(coordinateModelTest)
+        XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 96.0)
+    }
 }
