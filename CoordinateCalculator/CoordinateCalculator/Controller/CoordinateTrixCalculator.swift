@@ -30,8 +30,14 @@ struct Calculator {
                 throw InputViewError.invalidPoint
             }
         }
+        
         pointModel.pointsAndResult.point = dotPoints
-        sortAndMakePoints(pointModel)
+        
+        do {
+            try sortAndMakePoints(pointModel)
+        } catch InputViewError.invalidRectangle {
+            throw InputViewError.invalidRectangle
+        }
     }
     
     private func countPointsValue(_ coordinateValue: String) -> (generatrix: Generatrixs, points: [String]) {
@@ -45,6 +51,8 @@ struct Calculator {
                     return Generatrixs.line
                 case 3:
                     return Generatrixs.triangle
+                case 4:
+                    return Generatrixs.rectangle
                 default:
                     return Generatrixs.point
                 }
@@ -67,7 +75,18 @@ struct Calculator {
         return true
     }
     
-    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) {
+    private func checkRectPoints(_ coordinateModel: CoordinateModel) -> Bool {
+        if coordinateModel[0].x != coordinateModel[3].x ||
+            coordinateModel[0].y != coordinateModel[1].y ||
+            coordinateModel[1].x != coordinateModel[2].x ||
+            coordinateModel[2].y != coordinateModel[3].y {
+            print("다시입력해주세요. 마름모는 입력하실 수 없습니다. :)")
+            return false
+        }
+        return true
+    }
+    
+    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) throws {
         switch coordinateModel.generatrix{
         case .point:
             coordinateModel.generatrix = .point
@@ -79,7 +98,14 @@ struct Calculator {
             let triangle = MyTriangle(pointA: coordinateModel[0], pointB: coordinateModel[1], pointC: coordinateModel[2])
             let triangleArea = triangle.calculateTriangleArea()
             coordinateModel.pointsAndResult.value = triangleArea
+        case .rectangle:
+            if !checkRectPoints(coordinateModel){
+                throw InputViewError.invalidRectangle
+            }
+            let rectValue = MyRect.calculateOriginOfRectAndSize(coordinateModel)
+            let rect = MyRect(origin: rectValue.points, size: rectValue.size)
+            let rectArea = rect.calculateRectArea()
+            coordinateModel.pointsAndResult.value = rectArea
         }
     }
-
 }
