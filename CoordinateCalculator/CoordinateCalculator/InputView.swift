@@ -11,49 +11,32 @@ import Foundation
 struct InputView {
     private var inputCoordinate = ""
     
-    mutating func readInput() {
+    mutating func readInput() -> String {
         print("좌표를 입력하세요.")
-        if let inputCoordinate = readLine(){
+        if let inputCoordinate = readLine() {
             self.inputCoordinate = inputCoordinate
         }
+        return inputCoordinate
     }
     func separateCoordinateNumber(inputValue: String) -> MyPoint {
-        var isStart: Bool = false
-        var stackOfNumber: [Int] = []
-        var countOfStack = 0
-        var indexOfNumber = 0
-        var x = 0, y = 0
-        
-        for i in 0..<inputValue.count {
-            let indexOfValue = inputValue.index(inputValue.startIndex, offsetBy: i)
-            print(inputValue[indexOfValue])
-            if inputValue[indexOfValue] == "(" {
-                isStart = true
-                continue
-            }else if isStart {
-                if inputValue[indexOfValue] >= "0" && inputValue[indexOfValue] <= "9" {
-                    stackOfNumber.append(Int(String(inputValue[indexOfValue]))!)
-                    countOfStack += 1
-                }else if inputValue[indexOfValue] == "," {
-                    for index in 0..<countOfStack {
-                        x = (stackOfNumber[indexOfNumber] + Int(truncating: NSDecimalNumber(decimal: pow(10.0, index))))
-                        indexOfNumber += 1
-                    }
-                }else if inputValue[indexOfValue] == ")" {
-                    for index in 0..<(countOfStack-indexOfNumber) {
-                        y = (stackOfNumber[indexOfNumber] + Int(truncating: NSDecimalNumber(decimal: pow(10.0, index))))
-                        indexOfNumber += 1
-                    }
-                    isStart = false
-                }else {
-                    print("input value is not number")
-                }
+        if inputValue.hasPrefix("(") && inputValue.hasSuffix(")") {
+            let rangeOfNumber = inputValue.index(after: inputValue.startIndex)..<inputValue.index(before: inputValue.endIndex)
+            if inputValue[rangeOfNumber].range(of: ",") != nil {
+                return separateByComma(rangeOfNumber: String(inputValue[rangeOfNumber]))
             }else {
-                print("input word is not (decimal,decimal) type")
+                print("형식에 맞지 않는 입력값입니다. ,로 구분하지 않은 값")
             }
+        }else {
+            print("형식에 맞지 않는 입력값입니다. ()로 감싸지 않은 값")
         }
-        let myPoint = MyPoint(x: x, y: y)
+        return myPoint
+    }
+    func separateByComma(rangeOfNumber: String) -> MyPoint{
+        var myPoint = MyPoint(x: 0, y: 0)
+        let values = rangeOfNumber.split(separator: ",").flatMap({Int($0)})
+        print("(x,y): ",values[0], values[1])
+        myPoint.x = values[0]
+        myPoint.y = values[1]
         return myPoint
     }
 }
-
