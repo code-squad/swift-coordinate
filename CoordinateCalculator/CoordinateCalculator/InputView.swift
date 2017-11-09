@@ -16,6 +16,6 @@ struct InputView {
             throw CoordinatesError.emptyValue
         }
                 
-        return try UtilSet.splitInputValue(in: inputValue)
+        return try Utility.splitInputValue(in: inputValue)
     }
 }
