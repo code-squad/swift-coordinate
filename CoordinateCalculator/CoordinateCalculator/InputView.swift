@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    mutating func readInput() -> String {
+    func readInput() -> String {
         print("좌표를 입력하세요.")
         if let inputCoordinate = readLine() {
             return inputCoordinate
