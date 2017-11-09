@@ -9,8 +9,13 @@
 import Foundation
 
 struct MyLine {
-    var pointA = MyPoint(x: 0, y: 0)
-    var pointB = MyPoint(x: 0, y: 0)
+    var pointA: MyPoint
+    var pointB: MyPoint
+    
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
 
     func calcurateDistanceTwoPoints() -> Double {
         let differentialX = Double(pointA.x - pointB.x)

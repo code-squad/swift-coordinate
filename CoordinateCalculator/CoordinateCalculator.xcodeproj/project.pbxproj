@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40007ABE1FB3FF95007C351E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007ABD1FB3FF95007C351E /* MyTriangle.swift */; };
 		40351F2C1FB005AB00533920 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40351F2B1FB005AB00533920 /* MyLine.swift */; };
 		403599571FB0480600346688 /* Generatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599561FB0480600346688 /* Generatrix.swift */; };
 		403599591FB0884900346688 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403599581FB0884900346688 /* CoordinateModel.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		40007ABD1FB3FF95007C351E /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		40351F2B1FB005AB00533920 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		403599561FB0480600346688 /* Generatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generatrix.swift; sourceTree = "<group>"; };
 		403599581FB0884900346688 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				403599581FB0884900346688 /* CoordinateModel.swift */,
 				4079E9651FAB04B7003615D5 /* MyPoint.swift */,
 				40351F2B1FB005AB00533920 /* MyLine.swift */,
+				40007ABD1FB3FF95007C351E /* MyTriangle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4079E9661FAB04B7003615D5 /* MyPoint.swift in Sources */,
+				40007ABE1FB3FF95007C351E /* MyTriangle.swift in Sources */,
 				403599571FB0480600346688 /* Generatrix.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				403599591FB0884900346688 /* CoordinateModel.swift in Sources */,
