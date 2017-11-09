@@ -11,6 +11,7 @@ import Foundation
 var inputView = InputView()
 var inputValue = inputView.readInput()
 var myPoint = inputView.separateCoordinateNumber(inputValue: inputValue)
+print("x,y: ",myPoint.x, myPoint.y)
 
 var outputView = OutputView()
 outputView.drawClear()
