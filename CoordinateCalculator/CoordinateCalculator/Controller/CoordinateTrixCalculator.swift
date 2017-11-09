@@ -76,7 +76,9 @@ struct Calculator {
             let lineDistance = line.calcurateDistanceTwoPoints()
             coordinateModel.pointsAndResult.value = lineDistance
         case .triangle:
-            coordinateModel.generatrix = .triangle
+            let triangle = MyTriangle(pointA: coordinateModel.pointsAndResult.point[0], pointB: coordinateModel.pointsAndResult.point[1], pointC: coordinateModel.pointsAndResult.point[2])
+            let triangleArea = triangle.calculateTriangleArea()
+            coordinateModel.pointsAndResult.value = triangleArea
         }
     }
 

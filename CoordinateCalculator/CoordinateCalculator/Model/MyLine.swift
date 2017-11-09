@@ -11,6 +11,10 @@ import Foundation
 struct MyLine {
     var pointA: MyPoint
     var pointB: MyPoint
+    // init() 생성자 만들기
+    init() {
+        self.init(pointA: MyPoint(), pointB: MyPoint())
+    }
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
