@@ -12,7 +12,6 @@ struct MyTriangle {
     var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB.pointA = pointA
         self.lineAB.pointB = pointB
@@ -29,11 +28,12 @@ struct MyTriangle {
         return triangleArea
     }
     
-    private func calculateCosBAndLineA() -> (cosineB: Double, lineA: Double, lineC: Double){
+    private func calculateCosBAndLineA() -> (cosineB: Double, lineA: Double, lineC: Double) {
         let lineDistanceA = lineBC.calcurateDistanceTwoPoints()
         let lineDistanceB = lineAC.calcurateDistanceTwoPoints()
         let lineDistanceC = lineAB.calcurateDistanceTwoPoints()
         let cosB = (pow(lineDistanceA, 2) + pow(lineDistanceC, 2) - pow(lineDistanceB, 2)) / (2 * lineDistanceA * lineDistanceC)
         return (cosB, lineDistanceA, lineDistanceC)
     }
+    
 }
