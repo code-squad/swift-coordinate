@@ -11,4 +11,5 @@ import Foundation
 enum Generatrixs {
     case point
     case line
+    case triangle
 }

@@ -43,6 +43,8 @@ struct Calculator {
                     return Generatrixs.point
                 case 2:
                     return Generatrixs.line
+                case 3:
+                    return Generatrixs.triangle
                 default:
                     return Generatrixs.point
                 }
@@ -73,6 +75,8 @@ struct Calculator {
             let line = MyLine(pointA: coordinateModel.pointsAndResult.point[0], pointB: coordinateModel.pointsAndResult.point[1])
             let lineDistance = line.calcurateDistanceTwoPoints()
             coordinateModel.pointsAndResult.value = lineDistance
+        case .triangle:
+            coordinateModel.generatrix = .triangle
         }
     }
 
