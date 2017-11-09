@@ -32,9 +32,10 @@ struct Calculator {
         }
         
         pointModel.pointsAndResult.point = dotPoints
-        sortAndMakePoints(pointModel)
         
-        if !checkRectPoints(pointModel) {
+        do {
+            try sortAndMakePoints(pointModel)
+        } catch InputViewError.invalidRectangle {
             throw InputViewError.invalidRectangle
         }
     }
@@ -79,15 +80,13 @@ struct Calculator {
             coordinateModel[0].y != coordinateModel[1].y ||
             coordinateModel[1].x != coordinateModel[2].x ||
             coordinateModel[2].y != coordinateModel[3].y {
-            
             print("다시입력해주세요. 마름모는 입력하실 수 없습니다. :)")
             return false
-        } else {
-            return true
         }
+        return true
     }
     
-    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) {
+    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) throws {
         switch coordinateModel.generatrix{
         case .point:
             coordinateModel.generatrix = .point
@@ -100,6 +99,9 @@ struct Calculator {
             let triangleArea = triangle.calculateTriangleArea()
             coordinateModel.pointsAndResult.value = triangleArea
         case .rectangle:
+            if !checkRectPoints(coordinateModel){
+                throw InputViewError.invalidRectangle
+            }
             let rectValue = MyRect.calculateOriginOfRectAndSize(coordinateModel)
             let rect = MyRect(origin: rectValue.points, size: rectValue.size)
             let rectArea = rect.calculateRectArea()
