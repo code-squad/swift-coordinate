@@ -18,4 +18,8 @@ final class CoordinateModel {
         self.pointsAndResult = ([MyPoint()], 0.0)
         self.inputCoordinateValue = ""
     }
+    
+    subscript(index: Int) -> MyPoint{
+       return pointsAndResult.point[index]
+    }
 }
