@@ -23,13 +23,13 @@ class UnitTestCoordinateCalculator: XCTestCase {
     
     func testSuccessInInputValueSeperation() {
         let inputValue = "(24, 10)"
-        let splitInputValue = try! UtilSet.splitInputValue(in: inputValue)
+        let splitInputValue = try! Utility.splitInputValue(in: inputValue)
         XCTAssertEqual(splitInputValue.x, myPoint.x)
         XCTAssertEqual(splitInputValue.y, myPoint.y)
     }
 
     func testFaildInInputValueSeperationIsDueToEmptyValue() {
         let inputValue = "()"
-        XCTAssertThrowsError(try UtilSet.splitInputValue(in: inputValue))
+        XCTAssertThrowsError(try Utility.splitInputValue(in: inputValue))
     }
 }

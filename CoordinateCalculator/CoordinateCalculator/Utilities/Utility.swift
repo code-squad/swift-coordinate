@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UtilSet {
+struct Utility {
     static func splitInputValue(in input: String) throws -> MyPoint {
         let inputValue = input.trim()
         
