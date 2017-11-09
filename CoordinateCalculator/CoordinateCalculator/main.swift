@@ -8,19 +8,23 @@
 
 import Foundation
 
-var inputView = InputView()
-var inputValue = inputView.readInput()
+var isNotCorrectInputValue = true
 var myPoint = MyPoint(x: 0,y: 0)
+repeat {
+    let inputView = InputView()
+    let inputValue = inputView.readInput()
 
-do {
-    try myPoint = inputView.separateCoordinateNumber(inputValue: inputValue)
-} catch CoordinateError.noCommaError {
-    print("콤마가 없음")
-} catch CoordinateError.noBracketError {
-    print("괄호가 없음")
-} catch CoordinateError.theRestError {
-    print("그 외의 에러")
-}
+    do {
+        try myPoint = inputView.separateCoordinateNumber(inputValue: inputValue)
+        isNotCorrectInputValue = false
+    } catch CoordinateError.noCommaError {
+        print("콤마가 없음")
+    } catch CoordinateError.noBracketError {
+        print("괄호가 없음")
+    } catch CoordinateError.theRestError {
+        print("그 외의 에러")
+    }
+} while(isNotCorrectInputValue)
 
 var outputView = OutputView()
 outputView.drawClear()
