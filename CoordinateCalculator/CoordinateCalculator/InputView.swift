@@ -9,38 +9,42 @@
 import Foundation
 
 struct InputView {
-    private var inputCoordinate = ""
     mutating func readInput() -> String {
         print("좌표를 입력하세요.")
         if let inputCoordinate = readLine() {
-            self.inputCoordinate = inputCoordinate
+            return inputCoordinate
         }
-        return inputCoordinate
+        return ""
     }
     
-    func separateCoordinateNumber(inputValue: String) -> MyPoint {
+    func separateCoordinateNumber(inputValue: String) throws -> MyPoint {
+        
         if inputValue.hasPrefix("(") && inputValue.hasSuffix(")") {
             let rangeOfNumber = inputValue.index(after: inputValue.startIndex)..<inputValue.index(before: inputValue.endIndex)
             if inputValue[rangeOfNumber].range(of: ",") != nil {
-                return separateByComma(rangeOfNumber: String(inputValue[rangeOfNumber]))
+                do {
+                    return try separateByComma(rangeOfNumber: String(inputValue[rangeOfNumber]))
+                } catch CoordinateError.inputValueError {
+                    print("입력값 에러")
+                }
             }else {
-                print("형식에 맞지 않는 입력값입니다. ,로 구분하지 않은 값")
+                throw CoordinateError.noCommaError
             }
         }else {
-            print("형식에 맞지 않는 입력값입니다. ()로 감싸지 않은 값")
+            throw CoordinateError.noBracketError
         }
-        return MyPoint(x: 0, y: 0)
+        throw CoordinateError.theRestError
     }
     
-    func separateByComma(rangeOfNumber: String) -> MyPoint {
+    func separateByComma(rangeOfNumber: String) throws -> MyPoint {
         var myPoint = MyPoint(x: 0, y: 0)
         let values = rangeOfNumber.split(separator: ",").flatMap({Int($0)})
         if values.count != 2 {
-            print("입력된 숫자 갯수가 2개가 아니거나 아니거나 숫자가 아닙니다.")
-            return myPoint
+            throw CoordinateError.inputValueError
+        }else {
+            myPoint.x = values[0]
+            myPoint.y = values[1]
         }
-        myPoint.x = values[0]
-        myPoint.y = values[1]
         return myPoint
     }
 }
