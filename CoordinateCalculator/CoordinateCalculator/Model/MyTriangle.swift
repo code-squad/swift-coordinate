@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyTriangle {
-    var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    var lineAB = MyLine()
+    var lineBC = MyLine()
+    var lineAC = MyLine()
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB.pointA = pointA
         self.lineAB.pointB = pointB
