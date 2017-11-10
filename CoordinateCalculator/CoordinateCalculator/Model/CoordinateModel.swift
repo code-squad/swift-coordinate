@@ -8,18 +8,19 @@
 
 import Foundation
 final class CoordinateModel {
-    typealias PointsAndParticularResult = (point: [MyPoint], value: Double?)
     var generatrix: Generatrixs
-    var pointsAndResult: PointsAndParticularResult
+    var points: [MyPoint]
+    var resultOfGeneratix: Double?
     var inputCoordinateValue: String
     
     init() {
         self.generatrix = Generatrixs.point
-        self.pointsAndResult = ([MyPoint()], 0.0)
+        self.points = [MyPoint()]
+        self.resultOfGeneratix = 0.0
         self.inputCoordinateValue = ""
     }
     
     subscript(index: Int) -> MyPoint{
-       return pointsAndResult.point[index]
+       return points[index]
     }
 }
