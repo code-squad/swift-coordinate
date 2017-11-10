@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45EB72C81FB5501F0020DE7C /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB72C71FB5501F0020DE7C /* MyShape.swift */; };
+		45EB72CA1FB589300020DE7C /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB72C91FB589300020DE7C /* Figure.swift */; };
 		45F55E8D1FB02305001D579F /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E8C1FB02305001D579F /* OutputView.swift */; };
 		45F55E8F1FB0446E001D579F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E8E1FB0446E001D579F /* InputView.swift */; };
 		45F55E911FB044A6001D579F /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E901FB044A6001D579F /* MyPoint.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		45EB72C71FB5501F0020DE7C /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
+		45EB72C91FB589300020DE7C /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		45F55E8C1FB02305001D579F /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		45F55E8E1FB0446E001D579F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		45F55E901FB044A6001D579F /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -70,12 +74,14 @@
 			isa = PBXGroup;
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
+				45EB72C91FB589300020DE7C /* Figure.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				45F55E8C1FB02305001D579F /* OutputView.swift */,
 				45F55E8E1FB0446E001D579F /* InputView.swift */,
 				45F55E901FB044A6001D579F /* MyPoint.swift */,
 				45FC7BAC1FB41D8D00398D20 /* CoordinateError.swift */,
 				45FC7BB01FB4379D00398D20 /* MyLine.swift */,
+				45EB72C71FB5501F0020DE7C /* MyShape.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -143,8 +149,10 @@
 				45F55E8F1FB0446E001D579F /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				45F55E8D1FB02305001D579F /* OutputView.swift in Sources */,
+				45EB72CA1FB589300020DE7C /* Figure.swift in Sources */,
 				45FC7BB11FB4379D00398D20 /* MyLine.swift in Sources */,
 				45FC7BAD1FB41D8D00398D20 /* CoordinateError.swift in Sources */,
+				45EB72C81FB5501F0020DE7C /* MyShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

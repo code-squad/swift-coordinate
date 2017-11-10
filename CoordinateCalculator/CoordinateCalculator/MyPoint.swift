@@ -8,7 +8,16 @@
 
 import Foundation
 
-struct MyPoint {
-    var x = 0
-    var y = 0
+struct MyPoint: MyShape {
+    var type: Figure
+    private var x = 0
+    private var y = 0
+    
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    init(pointA: MyPoint, pointB: MyPoint) {
+        
+    }
 }
