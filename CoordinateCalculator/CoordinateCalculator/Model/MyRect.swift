@@ -13,15 +13,15 @@ struct MyRect {
     var rightBottom = MyPoint()
     var origin = MyPoint()
     var size: CGSize
-    // 입력받은값 4개의 점으로 원점과 밑변과 높이를 구하기위해 필요한 함수...Rect
-    static func calculateOriginOfRectAndSize(_ coordinateModel: CoordinateModel) -> (points: MyPoint, size: CGSize) {
+
+    init(_ coordinateModel: CoordinateModel) {
         var origin = MyPoint()
         var size: CGSize = CGSize.zero
         origin.x = (coordinateModel[1].x - coordinateModel[0].x) + coordinateModel[0].x
         origin.y = (coordinateModel[3].y - coordinateModel[0].y) + coordinateModel[0].y
         size.width = CGFloat(coordinateModel[1].x - coordinateModel[0].x)
         size.height = CGFloat(coordinateModel[3].y - coordinateModel[0].y)
-        return (origin, size)
+        self.init(origin: origin, size: size)
     }
     
     init(origin: MyPoint, size: CGSize) {

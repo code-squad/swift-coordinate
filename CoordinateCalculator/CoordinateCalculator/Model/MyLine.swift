@@ -16,6 +16,10 @@ struct MyLine {
         self.init(pointA: MyPoint(), pointB: MyPoint())
     }
     
+    init(_ cooridnateModel: CoordinateModel) {
+        self.init(pointA: cooridnateModel[0], pointB: cooridnateModel[1])
+    }
+    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
