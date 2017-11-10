@@ -23,9 +23,9 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let coordinateModelTest = CoordinateModel()
         XCTAssertNotNil(coordinateModelTest)
         
-        coordinateModelTest.pointsAndResult.point = [myPointTestA]
+        coordinateModelTest.points = [myPointTestA]
         XCTAssertEqual(coordinateModelTest.generatrix, Generatrixs.point)
-        XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 0.0)
+        XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 0.0)
         XCTAssertEqual(coordinateModelTest[0].x, 0)
         XCTAssertEqual(coordinateModelTest[0].y, 0)
     }
@@ -169,7 +169,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let calculatorTest = Calculator()
         coordinateModelTest.inputCoordinateValue = "(10,10)-(14,15)-(20,8)"
         try! calculatorTest.extract(coordinateModelTest)
-        XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 29.0)
+        XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 29.0)
     }
     
     func testMyRectangleArea() {
@@ -178,7 +178,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let calculatorTest = Calculator()
         coordinateModelTest.inputCoordinateValue = "(10,10)-(22,10)-(22,18)-(10,18)"
         try! calculatorTest.extract(coordinateModelTest)
-        XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 96.0)
+        XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 96.0)
     }
     
 }
