@@ -10,14 +10,12 @@ import Foundation
 
 struct MyPoint: MyShape {
     var type: Figure
-    private var x = 0
-    private var y = 0
+    var x = 0
+    var y = 0
     
     init(x: Int, y: Int) {
+        self.type = Figure.point
         self.x = x
         self.y = y
-    }
-    init(pointA: MyPoint, pointB: MyPoint) {
-        
     }
 }

@@ -23,7 +23,8 @@ struct OutputView {
     }
     
     func printMyLine(myLine: MyLine) {
-        
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myLine.pointA.y, col: (myLine.pointA.x * 2) + 3))\(ANSICode.text.dot)")
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myLine.pointB.y, col: (myLine.pointB.x * 2) + 3))\(ANSICode.text.dot)")
     }
 
 }
