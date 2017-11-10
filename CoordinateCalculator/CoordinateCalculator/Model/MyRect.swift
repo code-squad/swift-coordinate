@@ -13,7 +13,6 @@ struct MyRect {
     var rightBottom = MyPoint()
     var origin = MyPoint()
     var size: CGSize
-    
     // 입력받은값 4개의 점으로 원점과 밑변과 높이를 구하기위해 필요한 함수...Rect
     static func calculateOriginOfRectAndSize(_ coordinateModel: CoordinateModel) -> (points: MyPoint, size: CGSize) {
         var origin = MyPoint()
@@ -38,4 +37,5 @@ struct MyRect {
     func calculateRectArea() -> Double {
         return Double(size.width * size.height)
     }
+    
 }

@@ -99,7 +99,7 @@ struct Calculator {
             let triangleArea = triangle.calculateTriangleArea()
             coordinateModel.pointsAndResult.value = triangleArea
         case .rectangle:
-            if !checkRectPoints(coordinateModel){
+            if !checkRectPoints(coordinateModel) {
                 throw InputViewError.invalidRectangle
             }
             let rectValue = MyRect.calculateOriginOfRectAndSize(coordinateModel)
