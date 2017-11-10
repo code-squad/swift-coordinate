@@ -29,7 +29,7 @@ struct Calculator {
             }
         }
         
-        pointModel.pointsAndResult.point = dotPoints
+        pointModel.points = dotPoints
         
         do {
             try sortAndMakePoints(pointModel)
@@ -89,21 +89,20 @@ struct Calculator {
         case .point:
             coordinateModel.generatrix = .point
         case .line:
-            let line = MyLine(pointA: coordinateModel[0], pointB: coordinateModel[1])
+            let line = MyLine(coordinateModel)
             let lineDistance = line.calcurateDistanceTwoPoints()
-            coordinateModel.pointsAndResult.value = lineDistance
+            coordinateModel.resultOfGeneratix = lineDistance
         case .triangle:
-            let triangle = MyTriangle(pointA: coordinateModel[0], pointB: coordinateModel[1], pointC: coordinateModel[2])
+            let triangle = MyTriangle(coordinateModel)
             let triangleArea = triangle.calculateTriangleArea()
-            coordinateModel.pointsAndResult.value = triangleArea
+            coordinateModel.resultOfGeneratix = triangleArea
         case .rectangle:
             if !checkRectPoints(coordinateModel) {
                 throw InputViewError.invalidRectangle
             }
-            let rectValue = MyRect.calculateOriginOfRectAndSize(coordinateModel)
-            let rect = MyRect(origin: rectValue.points, size: rectValue.size)
+            let rect = MyRect(coordinateModel)
             let rectArea = rect.calculateRectArea()
-            coordinateModel.pointsAndResult.value = rectArea
+            coordinateModel.resultOfGeneratix = rectArea
         }
     }
 }
