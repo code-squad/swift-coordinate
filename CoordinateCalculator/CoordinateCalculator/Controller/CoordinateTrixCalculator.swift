@@ -12,7 +12,7 @@ struct Calculator {
     
     func extract(_ pointModel: CoordinateModel) throws {
         let kindOfInputAndPoints = countPointsValue(pointModel.inputCoordinateValue)
-        pointModel.generatrix = kindOfInputAndPoints.generatrix
+        pointModel.insertGenaratrix(kindOfInputAndPoints.generatrix)
         var separatePoints = kindOfInputAndPoints.points
         var dotPoints: [MyPoint] = [MyPoint()]
         dotPoints.remove(at: 0)
@@ -29,7 +29,7 @@ struct Calculator {
             }
         }
         
-        pointModel.points = dotPoints
+        pointModel.insertPoints(dotPoints)
         
         do {
             try sortAndMakePoints(pointModel)
@@ -85,24 +85,24 @@ struct Calculator {
     }
     
     private func sortAndMakePoints(_ coordinateModel: CoordinateModel) throws {
-        switch coordinateModel.generatrix{
+        switch coordinateModel.generatrix {
         case .point:
-            coordinateModel.generatrix = .point
+            coordinateModel.insertGenaratrix(.point)
         case .line:
             let line = MyLine(coordinateModel)
             let lineDistance = line.calcurateDistanceTwoPoints()
-            coordinateModel.resultOfGeneratix = lineDistance
+            coordinateModel.insertResultOfGeneratix(lineDistance)
         case .triangle:
             let triangle = MyTriangle(coordinateModel)
             let triangleArea = triangle.calculateTriangleArea()
-            coordinateModel.resultOfGeneratix = triangleArea
+            coordinateModel.insertResultOfGeneratix(triangleArea)
         case .rectangle:
             if !checkRectPoints(coordinateModel) {
                 throw InputViewError.invalidRectangle
             }
             let rect = MyRect(coordinateModel)
             let rectArea = rect.calculateRectArea()
-            coordinateModel.resultOfGeneratix = rectArea
+            coordinateModel.insertResultOfGeneratix(rectArea)
         }
     }
 }
