@@ -13,18 +13,19 @@ struct InputView {
                                                      "5","6","7","8","9",
                                                      "(",")",",","-"]
     
-    func readInput(_ pointModel: CoordinateModel) throws {
+    func readInput() throws -> RawCoordinate {
         print("좌표를 입력하세요.")
         let inputPoints = readLine()
-        guard let inputCoordinateValue = inputPoints else {
+        guard let coordinateValue = inputPoints else {
             print("다시입력해주세요.")
-            return
+            throw InputViewError.invalidPoint
         }
-        if divide(inputCoordinateValue) {
+        if divide(coordinateValue) {
             print("입력가능한 문자는 ( , ) - 와 0~9인 숫자입니다. :)")
             throw InputViewError.invalidCharacterSet
         }
-        pointModel.insertCoordinateValue(inputCoordinateValue)
+        let paser = RawCoordinate(coordinateValue)
+        return paser
     }
     
     // 입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.

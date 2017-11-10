@@ -11,15 +11,16 @@ import Foundation
 func executeCoordinatesCalculator() {
     let inputView = InputView()
     let outputView = OutputView()
-    let coordinateModel = CoordinateModel()
-    let coordinateController = Calculator()
+    var model = CoordinateModel()
+    var rawPoints = RawCoordinate()
+    let controller = Calculator()
     var checkError = false
     
     while !checkError {
         do {
-            try inputView.readInput(coordinateModel)
-            try coordinateController.extract(coordinateModel)
-            outputView.draw(coordinateModel)
+            try rawPoints = inputView.readInput()
+            try model = controller.extract(rawPoints)
+            outputView.draw(model)
             checkError = true
         } catch InputViewError.invalidPoint {
             checkError = false
