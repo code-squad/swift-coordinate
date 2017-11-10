@@ -11,7 +11,7 @@ import Foundation
 struct OutputView {
     
     func draw(_ info: CoordinateModel) {
-        var points = info.pointsAndResult.point
+        var points = info.points
         print("\(ANSICode.clear)\(ANSICode.home)")
         
         func offsetPoint() {
@@ -36,11 +36,11 @@ struct OutputView {
         case .point:
             return
         case .line:
-            print("두점사이의 거리 \(info.pointsAndResult.value ?? 0.0)")
+            print("두점사이의 거리 \(info.resultOfGeneratix ?? 0.0)")
         case .triangle:
-            print("삼각형의 넓이는 \(info.pointsAndResult.value ?? 0.0)")
+            print("삼각형의 넓이는 \(info.resultOfGeneratix ?? 0.0)")
         case .rectangle:
-            print("사각형의 넓이는 \(info.pointsAndResult.value ?? 0.0)")
+            print("사각형의 넓이는 \(info.resultOfGeneratix ?? 0.0)")
         }
     }
     
