@@ -9,5 +9,10 @@
 import Foundation
 
 enum CoordinateError: Error {
-    case noCommaError, noBracketError, inputValueError, theRestError, outOfAvailableInputValue
+    case noCommaError
+    case noBracketError
+    case inputValueError
+    case theRestError
+    case outOfAvailableInputValue
+    case inputValuesOfLineError
 }

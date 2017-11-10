@@ -20,6 +20,10 @@ struct OutputView {
     
     func printMyPoint(myPoint: MyPoint) {
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myPoint.y, col: (myPoint.x * 2) + 3))\(ANSICode.text.dot)")
-     }
+    }
+    
+    func printMyLine(myLine: MyLine) {
+        
+    }
 
 }
