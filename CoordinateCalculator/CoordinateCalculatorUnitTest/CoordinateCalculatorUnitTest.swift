@@ -180,4 +180,5 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         try! calculatorTest.extract(coordinateModelTest)
         XCTAssertEqual(coordinateModelTest.pointsAndResult.value, 96.0)
     }
+    
 }
