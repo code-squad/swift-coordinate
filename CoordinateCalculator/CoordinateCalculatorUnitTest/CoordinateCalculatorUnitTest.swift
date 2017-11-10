@@ -23,7 +23,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let coordinateModelTest = CoordinateModel()
         XCTAssertNotNil(coordinateModelTest)
         
-        coordinateModelTest.points = [myPointTestA]
+        coordinateModelTest.insertPoints([myPointTestA])
         XCTAssertEqual(coordinateModelTest.generatrix, Generatrixs.point)
         XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 0.0)
         XCTAssertEqual(coordinateModelTest[0].x, 0)
@@ -36,7 +36,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
 
-        coordinateModelTest.inputCoordinateValue = "(10,10)"
+        coordinateModelTest.insertCoordinateValue("(10,10)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         do{
@@ -58,7 +58,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let coordinateModelTest = CoordinateModel()
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
-        coordinateModelTest.inputCoordinateValue = "(10,10)-(20,20)"
+        coordinateModelTest.insertCoordinateValue("(10,10)-(20,20)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         myPointTestB.x = 20
@@ -86,7 +86,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
 
-        coordinateModelTest.inputCoordinateValue = "(10,10)-(14,15)-(20,8)"
+        coordinateModelTest.insertCoordinateValue("(10,10)-(14,15)-(20,8)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         myPointTestB.x = 14
@@ -119,7 +119,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
         
-        coordinateModelTest.inputCoordinateValue = "(10,10)-(22,10)-(22,18)-(10,18)"
+        coordinateModelTest.insertCoordinateValue("(10,10)-(22,10)-(22,18)-(10,18)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         myPointTestB.x = 22
@@ -167,7 +167,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let coordinateModelTest = CoordinateModel()
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
-        coordinateModelTest.inputCoordinateValue = "(10,10)-(14,15)-(20,8)"
+        coordinateModelTest.insertCoordinateValue("(10,10)-(14,15)-(20,8)")
         try! calculatorTest.extract(coordinateModelTest)
         XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 29.0)
     }
@@ -176,7 +176,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let coordinateModelTest = CoordinateModel()
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
-        coordinateModelTest.inputCoordinateValue = "(10,10)-(22,10)-(22,18)-(10,18)"
+        coordinateModelTest.insertCoordinateValue("(10,10)-(22,10)-(22,18)-(10,18)")
         try! calculatorTest.extract(coordinateModelTest)
         XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 96.0)
     }

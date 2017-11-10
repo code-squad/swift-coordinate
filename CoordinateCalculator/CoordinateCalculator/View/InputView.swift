@@ -24,7 +24,7 @@ struct InputView {
             print("입력가능한 문자는 ( , ) - 와 0~9인 숫자입니다. :)")
             throw InputViewError.invalidCharacterSet
         }
-        pointModel.inputCoordinateValue = inputCoordinateValue
+        pointModel.insertCoordinateValue(inputCoordinateValue)
     }
     
     // 입력된 값을 쪼개어 Set<Character>로 변환후 isDisjoint 메소드를 이용하여 입력가능한 Set인지 구별한다.
