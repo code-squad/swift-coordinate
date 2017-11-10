@@ -22,7 +22,6 @@ struct InputView {
         let hasDash = CharacterSet.init(charactersIn: "-")
         var coordinateValue: [String] = []
         var points: [MyPoint] = []
-        var myShape: MyShape
         if (inputValue.rangeOfCharacter(from: hasDash) != nil) {
             coordinateValue = inputValue.split(separator: "-").map(String.init)
         }else {
@@ -33,12 +32,14 @@ struct InputView {
         } catch CoordinateError.inputValuesOfLineError {
             print("두 개의 입력값 형식 에러")
         }
-        if points.count == 1 {
-            myShape = MyPoint(x: points[0].x, y: points[0].y)
-        }else if points.count == 2 {
-            myShape = MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y)) as! MyShape
+        
+        //points의 숫자에 따라 myLine, myPoint 나누기
+        if points.count == 1 { //point
+            return MyPoint(x: points[0].x, y: points[0].y)
+        }else if points.count == 2 { //line
+            return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
         }
-        return myShape
+        throw CoordinateError.theRestError
     }
     
     func separateEachCoordinate(coordinateValue: [String]) throws -> [MyPoint] {

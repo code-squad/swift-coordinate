@@ -9,13 +9,12 @@
 import Foundation
 
 var isNotCorrectInputValue = true
-var myShape: MyShape
-var myPoint: MyShape
+var myShape: MyShape? = nil
 repeat {
     let inputView = InputView()
     let inputValue = inputView.readInput()
     do {
-        try myPoint = inputView.checkCountOfInputValue(inputValue: inputValue) as! MyPoint
+        try myShape = inputView.checkCountOfInputValue(inputValue: inputValue) as! MyPoint
         isNotCorrectInputValue = false
     } catch CoordinateError.inputValuesOfLineError {
         print("두 개의 입력값 형식 에러")
@@ -24,5 +23,9 @@ repeat {
 
 var outputView = OutputView()
 outputView.drawClear()
-outputView.printMyPoint(myPoint: myPoint as! MyPoint)
+if myShape?.type == Figure.point {
+    outputView.printMyPoint(myPoint: myShape as! MyPoint )
+} else {
+    outputView.printMyLine(myLine: myShape as! MyLine)
+}
 outputView.drawAxis()

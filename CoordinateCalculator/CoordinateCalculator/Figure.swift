@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Figure{
+enum Figure {
     case point
     case line
 }

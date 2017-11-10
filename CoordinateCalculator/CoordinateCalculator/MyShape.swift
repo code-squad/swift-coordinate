@@ -9,10 +9,5 @@
 import Foundation
 
 protocol MyShape {
-    var type: Figure
-    init(x: Int, y: Int)
-    init(pointA: MyPoint, pointB: MyPoint)
-    
-    func getType()
-    func setType()
+    var type: Figure { get set }
 }

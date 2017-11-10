@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct MyLine {
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
-    
+struct MyLine: MyShape {
+    var type: Figure
+    var pointA = MyPoint(x: 0, y: 0)
+    var pointB = MyPoint(x: 0, y: 0)
+
     init(pointA: MyPoint, pointB: MyPoint) {
+        self.type = Figure.line
         self.pointA = pointA
         self.pointB = pointB
     }
