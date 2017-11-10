@@ -22,9 +22,7 @@ struct Calculator {
             separatePoints[pointsIndex].remove(at: separatePoints[pointsIndex].index(before: separatePoints[pointsIndex].endIndex))
             let separateAxisValue = separatePoints[pointsIndex].components(separatedBy: ",").flatMap{ Int($0) }
             if confirm(points: separateAxisValue) {
-                var dotPoint = MyPoint()
-                dotPoint.x = separateAxisValue[0]
-                dotPoint.y = separateAxisValue[1]
+                let dotPoint = MyPoint(x: separateAxisValue[0], y: separateAxisValue[1])
                 dotPoints.append(dotPoint)
             } else {
                 throw InputViewError.invalidPoint
