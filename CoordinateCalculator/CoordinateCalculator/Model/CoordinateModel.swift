@@ -7,36 +7,47 @@
 //
 
 import Foundation
-final class CoordinateModel {
+
+struct CoordinateModel {
     private (set) var generatrix: Generatrixs
     private (set) var points: [MyPoint]
     private (set) var resultOfGeneratix: Double?
-    private (set) var inputCoordinateValue: String
     
     init() {
         self.generatrix = Generatrixs.point
         self.points = [MyPoint()]
         self.resultOfGeneratix = 0.0
-        self.inputCoordinateValue = ""
     }
     
-    func insertGenaratrix(_ value: Generatrixs) {
-        self.generatrix = value
-    }
-    
-    func insertPoints(_ points: [MyPoint]) {
+    init(points: [MyPoint]) {
+        self.init()
         self.points = points
     }
     
-    func insertCoordinateValue(_ coordinateValue: String) {
-        self.inputCoordinateValue = coordinateValue
+    init(trixValue: Generatrixs) {
+        self.init()
+        self.generatrix = trixValue
     }
     
-    func insertResultOfGeneratix(_ result: Double?) {
-        self.resultOfGeneratix = result
+    init(trixValue: Generatrixs, points: [MyPoint]) {
+        self.init()
+        self.generatrix = trixValue
+        self.points = points
+    }
+    
+    init(trixValue: Generatrixs, points: [MyPoint], typeResult: Double?) {
+        self.init()
+        self.generatrix = trixValue
+        self.points = points
+        self.resultOfGeneratix = typeResult
+    }
+    
+    init(typeResult: Double?, model: CoordinateModel) {
+        self.init(trixValue: model.generatrix, points: model.points, typeResult: model.resultOfGeneratix)
+        self.resultOfGeneratix = typeResult
     }
     
     subscript(index: Int) -> MyPoint{
-       return points[index]
+        return points[index]
     }
 }

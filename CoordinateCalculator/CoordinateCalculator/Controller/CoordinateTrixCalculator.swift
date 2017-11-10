@@ -10,9 +10,8 @@ import Foundation
 
 struct Calculator {
     
-    func extract(_ pointModel: CoordinateModel) throws {
-        let kindOfInputAndPoints = countPointsValue(pointModel.inputCoordinateValue)
-        pointModel.insertGenaratrix(kindOfInputAndPoints.generatrix)
+    func extract(_ pointParser: RawCoordinate) throws -> CoordinateModel {
+        let kindOfInputAndPoints = countPointsValue(pointParser.inputCoordinateValue)
         var separatePoints = kindOfInputAndPoints.points
         var dotPoints: [MyPoint] = [MyPoint()]
         dotPoints.remove(at: 0)
@@ -29,10 +28,10 @@ struct Calculator {
             }
         }
         
-        pointModel.insertPoints(dotPoints)
+        let pointModel = CoordinateModel(trixValue: kindOfInputAndPoints.generatrix, points: dotPoints)
         
         do {
-            try sortAndMakePoints(pointModel)
+           return try sortAndMakePoints(pointModel)
         } catch InputViewError.invalidRectangle {
             throw InputViewError.invalidRectangle
         }
@@ -84,25 +83,30 @@ struct Calculator {
         return true
     }
     
-    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) throws {
+    private func sortAndMakePoints(_ coordinateModel: CoordinateModel) throws -> CoordinateModel {
+        var pointModel = coordinateModel
         switch coordinateModel.generatrix {
         case .point:
-            coordinateModel.insertGenaratrix(.point)
+            return pointModel
         case .line:
             let line = MyLine(coordinateModel)
             let lineDistance = line.calcurateDistanceTwoPoints()
-            coordinateModel.insertResultOfGeneratix(lineDistance)
+            pointModel = CoordinateModel(typeResult: lineDistance, model: coordinateModel)
+            return pointModel
         case .triangle:
             let triangle = MyTriangle(coordinateModel)
             let triangleArea = triangle.calculateTriangleArea()
-            coordinateModel.insertResultOfGeneratix(triangleArea)
+            pointModel = CoordinateModel(typeResult: triangleArea, model: coordinateModel)
+            return pointModel
         case .rectangle:
             if !checkRectPoints(coordinateModel) {
                 throw InputViewError.invalidRectangle
             }
             let rect = MyRect(coordinateModel)
             let rectArea = rect.calculateRectArea()
-            coordinateModel.insertResultOfGeneratix(rectArea)
+            pointModel = CoordinateModel(typeResult: rectArea, model: coordinateModel)
+            return pointModel
         }
+        
     }
 }

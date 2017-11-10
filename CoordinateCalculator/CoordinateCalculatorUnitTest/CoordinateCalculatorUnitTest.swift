@@ -20,10 +20,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     
     func testStoreProperty() {
         let myPointTestA = MyPoint()
-        let coordinateModelTest = CoordinateModel()
-        XCTAssertNotNil(coordinateModelTest)
-        
-        coordinateModelTest.insertPoints([myPointTestA])
+        let coordinateModelTest = CoordinateModel(points: [myPointTestA])
         XCTAssertEqual(coordinateModelTest.generatrix, Generatrixs.point)
         XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 0.0)
         XCTAssertEqual(coordinateModelTest[0].x, 0)
@@ -32,15 +29,14 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     
     func testCalculatePointMethod() {
         var myPointTestA = MyPoint()
-        let coordinateModelTest = CoordinateModel()
-        XCTAssertNotNil(coordinateModelTest)
+        var coordinateModelTest = CoordinateModel()
+        let parserTest = RawCoordinate("(10,10)")
         let calculatorTest = Calculator()
-
-        coordinateModelTest.insertCoordinateValue("(10,10)")
         myPointTestA.x = 10
         myPointTestA.y = 10
+        
         do{
-            try calculatorTest.extract(coordinateModelTest)
+            coordinateModelTest = try calculatorTest.extract(parserTest)
             XCTAssertEqual(coordinateModelTest[0].x, myPointTestA.x)
             XCTAssertEqual(coordinateModelTest[0].y, myPointTestA.y)
         } catch InputViewError.invalidPoint {
@@ -55,16 +51,16 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testCalculateLineMethod() {
         var myPointTestA = MyPoint()
         var myPointTestB = MyPoint()
-        let coordinateModelTest = CoordinateModel()
+        var coordinateModelTest = CoordinateModel()
+        let parserTest = RawCoordinate("(10,10)-(20,20)")
         XCTAssertNotNil(coordinateModelTest)
         let calculatorTest = Calculator()
-        coordinateModelTest.insertCoordinateValue("(10,10)-(20,20)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         myPointTestB.x = 20
         myPointTestB.y = 20
         do{
-            try calculatorTest.extract(coordinateModelTest)
+            coordinateModelTest = try calculatorTest.extract(parserTest)
             XCTAssertEqual(coordinateModelTest[0].x, myPointTestA.x)
             XCTAssertEqual(coordinateModelTest[0].y, myPointTestA.y)
             XCTAssertEqual(coordinateModelTest[1].x, myPointTestB.x)
@@ -82,11 +78,10 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         var myPointTestA = MyPoint()
         var myPointTestB = MyPoint()
         var myPointTestC = MyPoint()
-        let coordinateModelTest = CoordinateModel()
-        XCTAssertNotNil(coordinateModelTest)
+        var coordinateModelTest = CoordinateModel()
+        let parserTest = RawCoordinate("(10,10)-(14,15)-(20,8)")
         let calculatorTest = Calculator()
 
-        coordinateModelTest.insertCoordinateValue("(10,10)-(14,15)-(20,8)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         myPointTestB.x = 14
@@ -94,7 +89,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         myPointTestC.x = 20
         myPointTestC.y = 8
         do{
-            try calculatorTest.extract(coordinateModelTest)
+            coordinateModelTest = try calculatorTest.extract(parserTest)
             XCTAssertEqual(coordinateModelTest[0].x, myPointTestA.x)
             XCTAssertEqual(coordinateModelTest[0].y, myPointTestA.y)
             XCTAssertEqual(coordinateModelTest[1].x, myPointTestB.x)
@@ -115,11 +110,10 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         var myPointTestB = MyPoint()
         var myPointTestC = MyPoint()
         var myPointTestD = MyPoint()
-        let coordinateModelTest = CoordinateModel()
-        XCTAssertNotNil(coordinateModelTest)
+        var coordinateModelTest = CoordinateModel()
+        let parserTest = RawCoordinate("(10,10)-(22,10)-(22,18)-(10,18)")
         let calculatorTest = Calculator()
         
-        coordinateModelTest.insertCoordinateValue("(10,10)-(22,10)-(22,18)-(10,18)")
         myPointTestA.x = 10
         myPointTestA.y = 10
         myPointTestB.x = 22
@@ -129,7 +123,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         myPointTestD.x = 10
         myPointTestD.y = 18
         do{
-            try calculatorTest.extract(coordinateModelTest)
+            coordinateModelTest = try calculatorTest.extract(parserTest)
             XCTAssertEqual(coordinateModelTest[0].x, myPointTestA.x)
             XCTAssertEqual(coordinateModelTest[0].y, myPointTestA.y)
             XCTAssertEqual(coordinateModelTest[1].x, myPointTestB.x)
@@ -164,20 +158,18 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     func testMyTriangleArea() {
-        let coordinateModelTest = CoordinateModel()
-        XCTAssertNotNil(coordinateModelTest)
+        var coordinateModelTest = CoordinateModel()
+        let parserTest = RawCoordinate("(10,10)-(14,15)-(20,8)")
         let calculatorTest = Calculator()
-        coordinateModelTest.insertCoordinateValue("(10,10)-(14,15)-(20,8)")
-        try! calculatorTest.extract(coordinateModelTest)
+        coordinateModelTest = try! calculatorTest.extract(parserTest)
         XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 29.0)
     }
     
     func testMyRectangleArea() {
-        let coordinateModelTest = CoordinateModel()
-        XCTAssertNotNil(coordinateModelTest)
+        var coordinateModelTest = CoordinateModel()
+        let parserTest = RawCoordinate("(10,10)-(22,10)-(22,18)-(10,18)")
         let calculatorTest = Calculator()
-        coordinateModelTest.insertCoordinateValue("(10,10)-(22,10)-(22,18)-(10,18)")
-        try! calculatorTest.extract(coordinateModelTest)
+        coordinateModelTest = try! calculatorTest.extract(parserTest)
         XCTAssertEqual(coordinateModelTest.resultOfGeneratix, 96.0)
     }
     
