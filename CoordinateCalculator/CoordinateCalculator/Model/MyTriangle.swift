@@ -12,6 +12,10 @@ struct MyTriangle {
     var lineAB = MyLine()
     var lineBC = MyLine()
     var lineAC = MyLine()
+    init(_ coordinateModel: CoordinateModel) {
+        self.init(pointA: coordinateModel[0], pointB: coordinateModel[1], pointC: coordinateModel[2])
+    }
+    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB.pointA = pointA
         self.lineAB.pointB = pointB
@@ -20,6 +24,7 @@ struct MyTriangle {
         self.lineAC.pointA = pointA
         self.lineAC.pointB = pointC
     }
+    
     func calculateTriangleArea() -> Double {
         let triangle = calculateCosBAndLineA()
         let sinB = sqrt(1 - pow(triangle.cosineB, 2))
