@@ -12,7 +12,6 @@ struct MyPoint: MyShape {
     var type: Figure
     var x = 0
     var y = 0
-    
     init(x: Int, y: Int) {
         self.type = Figure.point
         self.x = x
