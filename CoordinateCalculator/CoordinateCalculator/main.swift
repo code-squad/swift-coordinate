@@ -23,11 +23,7 @@ repeat {
 
 var outputView = OutputView()
 outputView.drawClear()
-if myShape?.type == Figure.point {
-    outputView.printMyPoint(myPoint: myShape as! MyPoint )
-} else {
-    outputView.printMyLine(myLine: myShape as! MyLine)
-    outputView.printValueOfResult(myShape: myShape as! MyLine)
-}
+outputView.printMyShape(myShape: myShape)
+
 outputView.drawAxis()
 

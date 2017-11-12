@@ -18,6 +18,15 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
+    func printMyShape(myShape: MyShape?) {
+        if myShape?.type == Figure.point {
+            printMyPoint(myPoint: myShape as! MyPoint )
+        } else {
+            printMyLine(myLine: myShape as! MyLine)
+            printValueOfResult(myShape: myShape as! MyLine)
+        }
+    }
+    
     func printMyPoint(myPoint: MyPoint) {
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myPoint.y, col: (myPoint.x * 2) + 3))\(ANSICode.text.dot)")
     }
