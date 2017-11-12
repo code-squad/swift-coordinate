@@ -22,7 +22,7 @@ struct InputView {
         let hasDash = CharacterSet.init(charactersIn: "-")
         var coordinateValue: [String] = []
         var points: [MyPoint] = []
-        if (inputValue.rangeOfCharacter(from: hasDash) != nil) {
+        if inputValue.rangeOfCharacter(from: hasDash) != nil {
             coordinateValue = inputValue.split(separator: "-").map(String.init)
         }else {
             coordinateValue = [inputValue]
@@ -33,10 +33,9 @@ struct InputView {
             print("두 개의 입력값 형식 에러")
         }
         
-        //points의 숫자에 따라 myLine, myPoint 나누기
-        if points.count == 1 { //point
+        if points.count == 1 { // point
             return MyPoint(x: points[0].x, y: points[0].y)
-        }else if points.count == 2 { //line
+        }else if points.count == 2 { // line
             return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
         }
         throw CoordinateError.theRestError
@@ -61,9 +60,9 @@ struct InputView {
     func separateCoordinateNumber(inputValue: String) throws -> MyPoint {
         let hasBracket = CharacterSet.init(charactersIn: "()")
         let hasComma = CharacterSet.init(charactersIn: ",")
-        if (inputValue.rangeOfCharacter(from: hasBracket) != nil) {
+        if inputValue.rangeOfCharacter(from: hasBracket) != nil {
             let rangeOfNumber = inputValue.index(after: inputValue.startIndex)..<inputValue.index(before: inputValue.endIndex)
-            if (inputValue.rangeOfCharacter(from: hasComma) != nil) {
+            if inputValue.rangeOfCharacter(from: hasComma) != nil {
                 do {
                     return try separateByComma(rangeOfNumber: String(inputValue[rangeOfNumber]))
                 } catch CoordinateError.inputValueError {
@@ -94,4 +93,5 @@ struct InputView {
         }
         return myPoint
     }
+    
 }

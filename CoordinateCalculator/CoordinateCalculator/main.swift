@@ -19,11 +19,9 @@ repeat {
     } catch CoordinateError.inputValuesOfLineError {
         print("두 개의 입력값 형식 에러")
     }
-} while(!isCorrectInputValue)
+} while !isCorrectInputValue
 
 var outputView = OutputView()
 outputView.drawClear()
 outputView.printMyShape(myShape: myShape)
-
 outputView.drawAxis()
-
