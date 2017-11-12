@@ -8,18 +8,18 @@
 
 import Foundation
 
-var isNotCorrectInputValue = true
+var isCorrectInputValue = false
 var myShape: MyShape? = nil
 repeat {
     let inputView = InputView()
     let inputValue = inputView.readInput()
     do {
         try myShape = inputView.checkCountOfInputValue(inputValue: inputValue)
-        isNotCorrectInputValue = false
+        isCorrectInputValue = true
     } catch CoordinateError.inputValuesOfLineError {
         print("두 개의 입력값 형식 에러")
     }
-} while(isNotCorrectInputValue)
+} while(!isCorrectInputValue)
 
 var outputView = OutputView()
 outputView.drawClear()
