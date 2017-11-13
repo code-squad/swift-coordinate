@@ -10,7 +10,7 @@ import Foundation
 
 struct Utility {
     static func splitInputValue(in input: String) throws -> [MyPoint] {
-        let inputValue = input.trim()
+        let inputValue = input.removeWhitespace()
         
         return try inputValue.split(separator: "-").map({ (s: String.SubSequence) -> (MyPoint) in
             guard String(s).match(for: "\\([0-9]*\\,[0-9]*\\)") else {

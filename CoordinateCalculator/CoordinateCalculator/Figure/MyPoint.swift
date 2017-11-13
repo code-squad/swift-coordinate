@@ -11,7 +11,7 @@ import Foundation
 struct MyPoint: Figurable {
     private(set) var x: Int = 0
     private(set) var y: Int = 0
-    var points: [MyPoint]
+    private(set) var points: [MyPoint]
     
     init(x: Int, y: Int) {
         self.x = x

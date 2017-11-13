@@ -17,7 +17,7 @@ struct InputView {
         }
         
         if inputValue == "q" || inputValue == "quit" {
-            throw CoordinatesError.exitProgram
+            return []
         }
                 
         return try Utility.splitInputValue(in: inputValue)
