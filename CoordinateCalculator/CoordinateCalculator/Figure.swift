@@ -12,3 +12,4 @@ enum Figure {
     case point
     case line
 }
+

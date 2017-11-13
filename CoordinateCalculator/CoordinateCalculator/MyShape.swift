@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MyShape {
-    var type: Figure { get set }
+    var type: OutputView.Figure { get set }
     
     func calculateOfPosition() -> String
 }
