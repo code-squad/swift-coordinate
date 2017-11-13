@@ -11,5 +11,5 @@ import Foundation
 protocol MyShape {
     var type: Figure { get set }
     
-    func calculatorOfPosition() -> String
+    func calculateOfPosition() -> String
 }

@@ -23,7 +23,7 @@ struct OutputView {
             printMyPoint(myPoint: myShape as! MyPoint )
         } else {
             printMyLine(myLine: myShape as! MyLine)
-            printValueOfResult(myShape: myShape as! MyLine)
+            printValueOfResult(myLine: myShape as! MyLine)
         }
     }
     
@@ -32,8 +32,11 @@ struct OutputView {
     }
     
     func printMyLine(myLine: MyLine) {
-        print("\(myLine.calculatorOfPosition())")
-        print("\(myLine.printValueOfResult())")
+        print("\(myLine.calculateOfPosition())")
     }
 
+    func printValueOfResult(myLine: MyLine) {
+        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)  두 점 사이 거리는 \(myLine.calculateOfLength())")
+    }
+    
 }
