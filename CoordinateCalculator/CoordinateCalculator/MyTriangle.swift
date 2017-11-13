@@ -28,7 +28,6 @@ struct MyTriangle: MyShape {
     
     func calculateOfPosition() -> String {
         return "\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointA.y, col: (pointA.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointB.y, col: (pointB.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointC.y, col: (pointC.x * 2) + 3))\(ANSICode.text.dot)"
-
     }
 
     func calculateOfArea() -> Double {

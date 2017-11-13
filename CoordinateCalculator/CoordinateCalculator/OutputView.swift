@@ -9,7 +9,6 @@
 import Foundation
 
 struct OutputView {
-    
     enum Figure {
         case point
         case line

@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct InputView {
-    
+struct InputView {    
     enum CoordinateError: Error {
         case noComma
         case noBracket
