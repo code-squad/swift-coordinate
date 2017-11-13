@@ -14,7 +14,7 @@ struct Utility {
         
         return try inputValue.split(separator: "-").map({ (s: String.SubSequence) -> (MyPoint) in
             guard String(s).match(for: "\\([0-9]*\\,[0-9]*\\)") else {
-                throw CoordinatesError.notFormattedValue
+                throw InputViewError.notFormattedValue
             }
             
             return try splitCoordinates(String(s))
@@ -26,7 +26,7 @@ struct Utility {
         
         for coordinate in coordinates {
             guard coordinate.match(for: "^([0-9]|[1][0-9]|[2][0-4])$") else {
-                throw CoordinatesError.outOfRangeCoordinate
+                throw InputViewError.outOfRangeCoordinate
             }
         }
         
