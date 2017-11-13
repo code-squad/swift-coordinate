@@ -80,18 +80,15 @@ struct InputView {
     }
     
     func separateByComma(rangeOfNumber: String) throws -> MyPoint {
-        var myPoint = MyPoint(x: 0, y: 0)
         let values = rangeOfNumber.split(separator: ",").flatMap({Int($0)})
         if values.count != 2 {
             throw CoordinateError.inputValueError
         }else {
-            myPoint.x = values[0]
-            myPoint.y = values[1]
-            if myPoint.x > 24 || myPoint.y > 24 {
+            if values[0] > 24 || values[1] > 24 {
                 throw CoordinateError.outOfAvailableInputValue
             }
         }
-        return myPoint
+        return MyPoint(x: values[0], y: values[1])
     }
     
 }

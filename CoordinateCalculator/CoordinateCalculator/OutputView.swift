@@ -28,17 +28,12 @@ struct OutputView {
     }
     
     func printMyPoint(myPoint: MyPoint) {
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myPoint.y, col: (myPoint.x * 2) + 3))\(ANSICode.text.dot)")
+        print("\(myPoint.calculatorOfPosition())")
     }
     
     func printMyLine(myLine: MyLine) {
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myLine.pointA.y, col: (myLine.pointA.x * 2) + 3))\(ANSICode.text.dot)")
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - myLine.pointB.y, col: (myLine.pointB.x * 2) + 3))\(ANSICode.text.dot)")
-    }
-    
-    func printValueOfResult(myShape: MyLine) {
-        let result = sqrt(abs(pow(Double(myShape.pointA.x - myShape.pointB.x),2) + pow(Double(myShape.pointA.y - myShape.pointB.y),2)))
-        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)  두 점 사이 거리는 \(result)")
+        print("\(myLine.calculatorOfPosition())")
+        print("\(myLine.printValueOfResult())")
     }
 
 }

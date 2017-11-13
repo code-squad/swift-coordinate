@@ -10,11 +10,15 @@ import Foundation
 
 struct MyPoint: MyShape {
     var type: Figure
-    var x = 0
-    var y = 0
+    private(set) var x = 0
+    private(set) var y = 0
     init(x: Int, y: Int) {
         self.type = Figure.point
         self.x = x
         self.y = y
+    }
+    
+    func calculatorOfPosition() -> String{
+        return "\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - y, col: (x * 2) + 3))\(ANSICode.text.dot)"
     }
 }
