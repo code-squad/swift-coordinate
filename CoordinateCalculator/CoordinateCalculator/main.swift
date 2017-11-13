@@ -19,7 +19,7 @@ while(true) {
         
         try OutputView.moveCoordinates(in: inputValue)
         
-    } catch let error as CoordinatesError {
+    } catch let error as InputViewError {
         print(error.rawValue)
     }
 }

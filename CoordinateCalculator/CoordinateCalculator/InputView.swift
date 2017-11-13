@@ -13,7 +13,7 @@ struct InputView {
         print("좌표를 입력하세요.", terminator: "\n")
         
         guard let inputValue = readLine() else {
-            throw CoordinatesError.emptyValue
+            throw InputViewError.emptyValue
         }
         
         if inputValue == "q" || inputValue == "quit" {

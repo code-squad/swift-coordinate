@@ -19,7 +19,7 @@ struct OutputView {
     
     static func moveCoordinates(in points: [MyPoint]) throws {
         guard let figure = Figure().getFigureModel(in: points) else {
-            throw CoordinatesError.emptyValue
+            throw InputViewError.emptyValue
         }
         
         printCoordinates(in: figure)
