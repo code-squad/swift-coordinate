@@ -10,6 +10,15 @@ import Foundation
 
 struct InputView {
     
+    enum CoordinateError: Error {
+        case noCommaError
+        case noBracketError
+        case inputValueError
+        case theRestError
+        case outOfAvailableInputValue
+        case inputValuesOfLineError
+    }
+    
     func readInput() -> String {
         print("좌표를 입력하세요.")
         if let inputCoordinate = readLine() {

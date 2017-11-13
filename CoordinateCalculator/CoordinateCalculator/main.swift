@@ -16,7 +16,7 @@ repeat {
     do {
         try myShape = inputView.checkCountOfInputValue(inputValue: inputValue)
         isCorrectInputValue = true
-    } catch CoordinateError.inputValuesOfLineError {
+    } catch InputView.CoordinateError.inputValuesOfLineError {
         print("두 개의 입력값 형식 에러")
     }
 } while !isCorrectInputValue

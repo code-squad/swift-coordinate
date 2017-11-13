@@ -10,6 +10,11 @@ import Foundation
 
 struct OutputView {
     
+    enum Figure {
+        case point
+        case line
+    }
+    
     func drawClear() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
@@ -28,7 +33,7 @@ struct OutputView {
     }
     
     func printMyPoint(myPoint: MyPoint) {
-        print("\(myPoint.calculatorOfPosition())")
+        print("\(myPoint.calculateOfPosition())")
     }
     
     func printMyLine(myLine: MyLine) {
