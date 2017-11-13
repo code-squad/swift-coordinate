@@ -10,7 +10,7 @@ import Foundation
 
 protocol Figurable {
     func calculate() -> Double
-    var points: [MyPoint] { get set }
+    var points: [MyPoint] { get }
 }
 
 extension Figurable {

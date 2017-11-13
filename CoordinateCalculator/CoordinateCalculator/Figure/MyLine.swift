@@ -11,7 +11,7 @@ import Foundation
 struct MyLine: Figurable {
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
-    var points: [MyPoint]
+    private(set) var points: [MyPoint]
     
     init(points: [MyPoint]) {
         self.pointA = points[0]

@@ -9,10 +9,18 @@
 import Foundation
 
 while(true) {
-    do {    
-        try OutputView.moveCoordinates(in: InputView().readInput())
+    do {
+        let inputValue = try InputView().readInput()
+        
+        guard inputValue.count > 0 else {
+            print("프로그램이 종료되었습니다.")
+            break
+        }
+        
+        try OutputView.moveCoordinates(in: inputValue)
+        
     } catch let error as CoordinatesError {
-        print(error.description)
+        print(error.rawValue)
     }
 }
 
