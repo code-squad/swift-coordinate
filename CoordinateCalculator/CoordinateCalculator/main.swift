@@ -21,6 +21,8 @@ while(true) {
         
     } catch let error as InputView.Errors {
         print(error.rawValue)
+    } catch let error as OutputView.Errors {
+        print(error.rawValue)
     }
 }
 

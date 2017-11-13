@@ -32,6 +32,8 @@ struct Figure {
             return convertMyPoint(points)
         case 2:
             return convertMyLine(points)
+        case 3:
+            return convertMyTriangle(points)
         default:
             return nil
         }
@@ -43,5 +45,9 @@ struct Figure {
     
     private func convertMyLine(_ points: [MyPoint]) -> MyLine {
         return MyLine(points: points)
+    }
+    
+    private func convertMyTriangle(_ points: [MyPoint]) -> MyTriangle {
+        return MyTriangle(points: points)
     }
 }
