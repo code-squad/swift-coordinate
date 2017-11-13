@@ -27,9 +27,11 @@ struct OutputView {
     func printMyShape(myShape: MyShape?) {
         if myShape?.type == Figure.point {
             printMyPoint(myPoint: myShape as! MyPoint )
-        } else {
+        } else if myShape?.type == Figure.line {
             printMyLine(myLine: myShape as! MyLine)
             printValueOfResult(myLine: myShape as! MyLine)
+        } else if myShape?.type == Figure.triangle {
+            printMyTriangle(myTriangle: myShape as! MyTriangle)
         }
     }
     
@@ -39,6 +41,10 @@ struct OutputView {
     
     func printMyLine(myLine: MyLine) {
         print("\(myLine.calculateOfPosition())")
+    }
+    
+    func printMyTriangle(myTriangle: MyTriangle) {
+        print("\(myTriangle.calculateOfPosition())")
     }
 
     func printValueOfResult(myLine: MyLine) {
