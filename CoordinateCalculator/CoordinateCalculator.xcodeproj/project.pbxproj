@@ -19,7 +19,6 @@
 		871D5E6A1FB03158009AE672 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8795920F1FAAFB16009FB49E /* OutputView.swift */; };
 		871D5E701FB04A64009AE672 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5E6F1FB04A64009AE672 /* String.swift */; };
 		871D5E711FB04D19009AE672 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5E6F1FB04A64009AE672 /* String.swift */; };
-		871D5E731FB04DB1009AE672 /* CoordinatesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5E721FB04DB1009AE672 /* CoordinatesError.swift */; };
 		877D33D71FB02AB100F590C2 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D33D51FB02AB100F590C2 /* InputView.swift */; };
 		877D33D81FB02AB100F590C2 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D33D61FB02AB100F590C2 /* MyPoint.swift */; };
 		877D33E01FB02AED00F590C2 /* UnitTestCoordinateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D33DF1FB02AED00F590C2 /* UnitTestCoordinateCalculator.swift */; };
@@ -27,7 +26,6 @@
 		87BC4E6A1FB3E72900844672 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D1D621FB1937F003EAD22 /* Utility.swift */; };
 		87BC4E6F1FB41B7300844672 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D33D61FB02AB100F590C2 /* MyPoint.swift */; };
 		87BC4E731FB425FF00844672 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC4E721FB425FF00844672 /* Figure.swift */; };
-		87D93A071FB0580100AABA5A /* CoordinatesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5E721FB04DB1009AE672 /* CoordinatesError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,7 +47,6 @@
 		871869C41FB5742800B436D8 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		871D1D621FB1937F003EAD22 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		871D5E6F1FB04A64009AE672 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		871D5E721FB04DB1009AE672 /* CoordinatesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesError.swift; sourceTree = "<group>"; };
 		877D33D51FB02AB100F590C2 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		877D33D61FB02AB100F590C2 /* MyPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		877D33DD1FB02AED00F590C2 /* UnitTestCoordinateCalculator.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestCoordinateCalculator.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				87BC4E6C1FB41B1500844672 /* Figure */,
-				87D93A091FB06C7F00AABA5A /* Error */,
-				87BC4E6B1FB3FB8900844672 /* Utilities */,
+				87BC4E6B1FB3FB8900844672 /* Utility */,
 				87D93A081FB06C6800AABA5A /* Extension */,
 				877D33D51FB02AB100F590C2 /* InputView.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
@@ -118,13 +114,13 @@
 			path = UnitTestCoordinateCalculator;
 			sourceTree = "<group>";
 		};
-		87BC4E6B1FB3FB8900844672 /* Utilities */ = {
+		87BC4E6B1FB3FB8900844672 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				871D1D621FB1937F003EAD22 /* Utility.swift */,
 			);
-			path = Utilities;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		87BC4E6C1FB41B1500844672 /* Figure */ = {
@@ -143,14 +139,6 @@
 				871D5E6F1FB04A64009AE672 /* String.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		87D93A091FB06C7F00AABA5A /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				871D5E721FB04DB1009AE672 /* CoordinatesError.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +239,6 @@
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				877D33D71FB02AB100F590C2 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
-				871D5E731FB04DB1009AE672 /* CoordinatesError.swift in Sources */,
 				879592101FAAFB16009FB49E /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +251,6 @@
 				871869C31FB5536A00B436D8 /* Figure.swift in Sources */,
 				87BC4E6F1FB41B7300844672 /* MyPoint.swift in Sources */,
 				87BC4E6A1FB3E72900844672 /* Utility.swift in Sources */,
-				87D93A071FB0580100AABA5A /* CoordinatesError.swift in Sources */,
 				871D5E661FB03158009AE672 /* InputView.swift in Sources */,
 				871D5E681FB03158009AE672 /* ANSICode.swift in Sources */,
 				871D5E691FB03158009AE672 /* main.swift in Sources */,
