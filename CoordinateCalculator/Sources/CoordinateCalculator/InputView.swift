@@ -8,58 +8,24 @@
 
 import Foundation
 
-enum InputViewError: Error {
-    case emptyValue
-    case outOfRangeCoordinate
+enum InputViewError: String, Error {
+    case emptyValue = "입력값이 없습니다."
+    case outOfRangeCoordinate = "입력값이 범위를 벗어났습니다. 0-24 사이값으로 입력하세요."
+    case notFormattedValue = "입력형식이 유효하지 않습니다."
 }
 
 struct InputView {
-    func readInput() throws -> MyPonit? {
+    func readInput() throws -> [MyPoint] {
         print("좌표를 입력하세요.", terminator: "\n")
         
         guard let inputValue = readLine() else {
             throw InputViewError.emptyValue
         }
+        
+        if inputValue == "q" || inputValue == "quit" {
+            return []
+        }
                 
-        return try splitXYCoordinates(splitInputValue(inputValue))
-    }
-    
-    func splitInputValue(_ inputValue: String) throws -> [String] {
-        guard inputValue.contains(",") else {
-            throw InputViewError.emptyValue
-        }
-        
-        return inputValue.characters.split(separator: ",").map(String.init)
-    }
-    
-    func splitXYCoordinates(_ value: [String]) throws -> MyPonit? {
-        guard value.count > 0 else {
-            throw InputViewError.emptyValue
-        }
-        
-        let coordinates = value.map({ (s: String) -> (Int) in
-            return Int(s.components(separatedBy: ["(", ")"]).joined()) ?? 0
-        })
-        
-        guard coordinates.count > 0 else {
-            throw InputViewError.emptyValue
-        }
-        
-        for coordinate in coordinates {
-            guard isExceedNumber(coordinate) else {
-                throw InputViewError.outOfRangeCoordinate
-            }
-        }
-
-        return MyPonit(x: coordinates[0], y: coordinates[1])
-    }
-    
-    func isExceedNumber(_ value: Int) -> Bool {
-        switch value {
-        case 0...24 :
-            return true
-        default:
-            return false
-        }
+        return try Utility.splitInputValue(in: inputValue)
     }
 }

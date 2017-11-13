@@ -9,25 +9,47 @@
 import Foundation
 
 struct OutputView {
-    static func clearAxis() {
+    private static func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    static func drawAxis() {
+    private static func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func moveCoordinate(_ myPoint: MyPonit?) {
-        guard let point = myPoint else {
-            return
+    static func moveCoordinates(in points: [MyPoint]) throws {
+        guard let figure = Figure().getFigureModel(in: points) else {
+            throw InputViewError.emptyValue
         }
-    
-        drawCoordinates(point)
+        
+        printCoordinates(in: figure)
+        printResultToCalculate(in: figure)
     }
     
-    static func drawCoordinates(_ point: MyPonit) {
+    private static func printCoordinates(in figure: Figurable) {
         clearAxis()
-        print("\(ANSICode.cursor.move(row: point.coordinates.y, col: point.coordinates.x)).")
+        
+        for point in figure.getPoints {
+            drawCoordinate(calculateCoordiantesToDraw(point))
+        }
+        
         drawAxis()
+    }
+    
+    private static func printResultToCalculate(in figure: Figurable) {
+        switch figure.getPoints.count {
+        case 2:
+            print("\(ANSICode.text.whiteBright)두 점 사이의 거리는 \(figure.calculate())")
+        default:
+            print("")
+        }
+    }
+    
+    private static func drawCoordinate(_ coordinatesToDraw: (x: Int, y: Int)) {
+        print("\(ANSICode.cursor.move(row: coordinatesToDraw.y, col: coordinatesToDraw.x)).")
+    }
+    
+    private static func calculateCoordiantesToDraw(_ point: MyPoint) -> (Int, Int){
+        return (point.x * 2 + 3, abs(point.y - 24) + 1)
     }
 }
