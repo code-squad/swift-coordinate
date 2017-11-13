@@ -13,6 +13,7 @@ struct OutputView {
     enum Figure {
         case point
         case line
+        case triangle
     }
     
     func drawClear() {
