@@ -16,7 +16,8 @@ extension String {
     }
     
     func trim() -> String {
-        // 앞뒤로 공백을 짜름 : return self.trimmingCharacters(in: )
+        // 앞뒤 공백만 짜름, 중간 공백 처리를 하지 못함
+        // return self.trimmingCharacters(in: )
         return self.replacingOccurrences(of: " ", with: "")
     }
     

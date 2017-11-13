@@ -11,8 +11,6 @@ import XCTest
 @testable import CoordinateCalculator
 
 class UnitTestCoordinateCalculator: XCTestCase {
-    var myPoint: MyPoint = MyPoint(x: 24, y: 10)
-    
     override func setUp() {
         super.setUp()
     }
@@ -21,15 +19,37 @@ class UnitTestCoordinateCalculator: XCTestCase {
         super.tearDown()
     }
     
-    func testSuccessInInputValueSeperation() {
+    func testSuccessInInputValueSeperationToMyPoint() {
+        let myPoint: MyPoint = MyPoint(x: 24, y: 10)
         let inputValue = "(24, 10)"
         let splitInputValue = try! Utility.splitInputValue(in: inputValue)
-        XCTAssertEqual(splitInputValue.x, myPoint.x)
-        XCTAssertEqual(splitInputValue.y, myPoint.y)
+        XCTAssertEqual(splitInputValue[0].x, myPoint.x)
+        XCTAssertEqual(splitInputValue[0].y, myPoint.y)
     }
 
-    func testFaildInInputValueSeperationIsDueToEmptyValue() {
+    func testFaildInInputValueSeperationIsDueToEmptyValueToMyPoint() {
         let inputValue = "()"
         XCTAssertThrowsError(try Utility.splitInputValue(in: inputValue))
+    }
+    
+    func testSuccessInInputValueSeperationToMyLine() {
+        let inputValue = "(1,2)-(10,20)"
+        let splitInputValue = try! Utility.splitInputValue(in: inputValue)
+        let myLine = MyLine(points: splitInputValue)
+        XCTAssertNotNil(myLine)
+    }
+    
+    func testSuccessInMyLineToGetFigure() {
+        let inputValue = "(1,2)-(10,20)"
+        let splitInputValue = try! Utility.splitInputValue(in: inputValue)
+        let figure = Figure().getFigureModel(in: splitInputValue)
+        XCTAssertNotNil(figure)
+    }
+    
+    func testCalculateDistanceBetweenLines() {
+        let inputValue = "(1,2)-(10,20)"
+        let splitInputValue = try! Utility.splitInputValue(in: inputValue)
+        let figure = Figure().getFigureModel(in: splitInputValue)
+        XCTAssertTrue(figure!.calculate() > 0)
     }
 }
