@@ -11,12 +11,12 @@ import Foundation
 struct InputView {
     
     enum CoordinateError: Error {
-        case noCommaError
-        case noBracketError
-        case inputValueError
-        case theRestError
+        case noComma
+        case noBracket
+        case inputValue
+        case theRest
         case outOfAvailableInputValue
-        case inputValuesOfLineError
+        case inputValuesOfLine
     }
     
     func readInput() -> String {
@@ -38,7 +38,7 @@ struct InputView {
         }
         do {
             try points = separateEachCoordinate(coordinateValue: coordinateValue)
-        } catch CoordinateError.inputValuesOfLineError {
+        } catch CoordinateError.inputValuesOfLine {
             print("두 개의 입력값 형식 에러")
         }
         
@@ -47,7 +47,7 @@ struct InputView {
         }else if points.count == 2 { // line
             return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
         }
-        throw CoordinateError.theRestError
+        throw CoordinateError.theRest
     }
     
     func separateEachCoordinate(coordinateValue: [String]) throws -> [MyPoint] {
@@ -55,11 +55,11 @@ struct InputView {
         for value in coordinateValue {
             do {
                 try points.append(separateCoordinateNumber(inputValue: value))
-            } catch CoordinateError.noCommaError {
+            } catch CoordinateError.noComma {
                 print("콤마가 없음")
-            } catch CoordinateError.noBracketError {
+            } catch CoordinateError.noBracket {
                 print("괄호가 없음")
-            } catch CoordinateError.theRestError {
+            } catch CoordinateError.theRest {
                 print("그 외의 에러")
             }
         }
@@ -74,24 +74,24 @@ struct InputView {
             if inputValue.rangeOfCharacter(from: hasComma) != nil {
                 do {
                     return try separateByComma(rangeOfNumber: String(inputValue[rangeOfNumber]))
-                } catch CoordinateError.inputValueError {
+                } catch CoordinateError.inputValue {
                     print("입력값 형식 에러")
                 } catch CoordinateError.outOfAvailableInputValue {
                     print("입력값 범위 에러")
                 }
             }else {
-                throw CoordinateError.noCommaError
+                throw CoordinateError.noComma
             }
         }else {
-            throw CoordinateError.noBracketError
+            throw CoordinateError.noBracket
         }
-        throw CoordinateError.theRestError
+        throw CoordinateError.theRest
     }
     
     func separateByComma(rangeOfNumber: String) throws -> MyPoint {
         let values = rangeOfNumber.split(separator: ",").flatMap({Int($0)})
         if values.count != 2 {
-            throw CoordinateError.inputValueError
+            throw CoordinateError.inputValue
         }else {
             if values[0] > 24 || values[1] > 24 {
                 throw CoordinateError.outOfAvailableInputValue
