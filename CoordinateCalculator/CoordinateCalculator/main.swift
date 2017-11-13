@@ -9,8 +9,8 @@
 import Foundation
 
 while(true) {
-    do {
-        try OutputView.moveCoordinate(InputView().readInput())
+    do {    
+        try OutputView.moveCoordinates(in: InputView().readInput())
     } catch let error as CoordinatesError {
         print(error.description)
     }

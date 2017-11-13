@@ -9,14 +9,16 @@
 import Foundation
 
 struct Utility {
-    static func splitInputValue(in input: String) throws -> MyPoint {
+    static func splitInputValue(in input: String) throws -> [MyPoint] {
         let inputValue = input.trim()
         
-        guard inputValue.match(for: "\\([0-9]*\\,[0-9]*\\)") else {
-            throw CoordinatesError.notFormattedValue
-        }
-        
-        return try splitCoordinates(inputValue)
+        return try inputValue.split(separator: "-").map({ (s: String.SubSequence) -> (MyPoint) in
+            guard String(s).match(for: "\\([0-9]*\\,[0-9]*\\)") else {
+                throw CoordinatesError.notFormattedValue
+            }
+            
+            return try splitCoordinates(String(s))
+        })
     }
     
     private static func splitCoordinates(_ inputValue: String) throws -> MyPoint {
@@ -30,5 +32,4 @@ struct Utility {
         
         return MyPoint(x: Int(coordinates[0]) ?? 0, y: Int(coordinates[1]) ?? 0)
     }
-    
 }

@@ -9,11 +9,15 @@
 import Foundation
 
 struct InputView {
-    func readInput() throws -> MyPoint {
+    func readInput() throws -> [MyPoint] {
         print("좌표를 입력하세요.", terminator: "\n")
         
         guard let inputValue = readLine() else {
             throw CoordinatesError.emptyValue
+        }
+        
+        if inputValue == "q" || inputValue == "quit" {
+            throw CoordinatesError.exitProgram
         }
                 
         return try Utility.splitInputValue(in: inputValue)
