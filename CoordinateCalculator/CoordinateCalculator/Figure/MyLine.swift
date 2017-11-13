@@ -13,6 +13,12 @@ struct MyLine: Figurable {
     private(set) var pointB: MyPoint
     private(set) var points: [MyPoint]
     
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+        self.points = []
+    }
+    
     init(points: [MyPoint]) {
         self.pointA = points[0]
         self.pointB = points[1]

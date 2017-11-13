@@ -9,6 +9,11 @@
 import Foundation
 
 struct OutputView {
+    enum Errors: String, Error {
+        case emptyValue = "입력값이 없습니다."
+        case notCalculatedValue = "계산 결과값이 없습니다."
+    }
+    
     private static func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
@@ -19,7 +24,11 @@ struct OutputView {
     
     static func moveCoordinates(in points: [MyPoint]) throws {
         guard let figure = Figure().getFigureModel(in: points) else {
-            throw InputView.Errors.emptyValue
+            throw OutputView.Errors.emptyValue
+        }
+        
+        guard figure.calculate() > 0 else {
+            throw OutputView.Errors.notCalculatedValue
         }
         
         printCoordinates(in: figure)
@@ -40,6 +49,8 @@ struct OutputView {
         switch figure.getPoints.count {
         case 2:
             print("\(ANSICode.text.whiteBright)두 점 사이의 거리는 \(figure.calculate())")
+        case 3:
+            print("\(ANSICode.text.whiteBright)삼각형 넓이는 \(figure.calculate())")
         default:
             print("")
         }

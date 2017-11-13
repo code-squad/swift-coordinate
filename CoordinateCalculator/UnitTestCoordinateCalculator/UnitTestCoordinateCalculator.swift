@@ -19,7 +19,7 @@ class UnitTestCoordinateCalculator: XCTestCase {
         super.tearDown()
     }
     
-    func testSuccessInInputValueSeperationToMyPoint() {
+    func testInputValueSeperationToMyPoint() {
         let myPoint: MyPoint = MyPoint(x: 24, y: 10)
         let inputValue = "(24, 10)"
         let splitInputValue = try! Utility.splitInputValue(in: inputValue)
@@ -27,7 +27,7 @@ class UnitTestCoordinateCalculator: XCTestCase {
         XCTAssertEqual(splitInputValue[0].y, myPoint.y)
     }
 
-    func testFaildInInputValueSeperationIsDueToEmptyValueToMyPoint() {
+    func testInputValueSeperationIsDueToEmptyValueToMyPoint() {
         let inputValue = "()"
         XCTAssertThrowsError(try Utility.splitInputValue(in: inputValue))
     }
@@ -46,10 +46,24 @@ class UnitTestCoordinateCalculator: XCTestCase {
         XCTAssertNotNil(figure)
     }
     
-    func testCalculateDistanceBetweenLines() {
+    func testSuccessInDistanceBetweenLinesToCalculate() {
         let inputValue = "(1,2)-(10,20)"
         let splitInputValue = try! Utility.splitInputValue(in: inputValue)
         let figure = Figure().getFigureModel(in: splitInputValue)
         XCTAssertTrue(figure!.calculate() > 0)
+    }
+    
+    func testSuccessInTriangleAreaToCalculate() {
+        let inputValue = "(10,10)-(14,15)-(20,8)"
+        let splitInputValue = try! Utility.splitInputValue(in: inputValue)
+        let figure = Figure().getFigureModel(in: splitInputValue)
+        XCTAssertTrue(figure!.calculate() == 29)
+    }
+    
+    func testTriangleAreaIsZero() {
+        let inputValue = "(10,10)-(11,11)-(12,12)"
+        let splitInputValue = try! Utility.splitInputValue(in: inputValue)
+        let figure = Figure().getFigureModel(in: splitInputValue)
+        XCTAssertThrowsError(try OutputView.moveCoordinates(in: figure!.getPoints))
     }
 }
