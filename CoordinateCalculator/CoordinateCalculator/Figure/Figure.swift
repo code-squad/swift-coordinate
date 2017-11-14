@@ -14,12 +14,6 @@ protocol Figurable {
 }
 
 extension Figurable {
-    var getPoints: [MyPoint] {
-        get {
-            return points
-        }
-    }
-    
     subscript(i: Int) -> MyPoint {
         return points[i]
     }

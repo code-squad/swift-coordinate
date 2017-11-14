@@ -8,24 +8,23 @@
 
 import Foundation
 
-struct MyTriangle: Figurable {
+struct MyTriangle {
     private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())  //좌변
     private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())  //우변
     private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())  //밑변
-    private(set) var points: [MyPoint] = []
     
     init(lineAB: MyLine, lineBC: MyLine, lineAC: MyLine) {
         self.lineAB = lineAB
         self.lineAC = lineAC
         self.lineBC = lineBC
-        self.points = []
     }
-    
+}
+
+extension MyTriangle: Figurable {
     init(points: [MyPoint]) {
         self.lineAB = MyLine(pointA: points[0], pointB: points[1])
         self.lineAC = MyLine(pointA: points[0], pointB: points[2])
         self.lineBC = MyLine(pointA: points[1], pointB: points[2])
-        self.points = points
     }
     
     func calculate() -> Double {
@@ -42,5 +41,9 @@ struct MyTriangle: Figurable {
         let y3: Int = points[2].y
         let sum = abs((x1*y2 + x2*y3 + x3*y1) - (x1*y3 + x3*y2 + x2*y1))
         return Double(sum) / 2
+    }
+    
+    var points: [MyPoint] {
+        return [lineAB.pointA, lineAB.pointB, lineAC.pointB]
     }
 }

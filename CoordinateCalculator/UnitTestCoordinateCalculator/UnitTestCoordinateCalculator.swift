@@ -64,6 +64,6 @@ class UnitTestCoordinateCalculator: XCTestCase {
         let inputValue = "(10,10)-(11,11)-(12,12)"
         let splitInputValue = try! Utility.splitInputValue(in: inputValue)
         let figure = Figure().getFigureModel(in: splitInputValue)
-        XCTAssertThrowsError(try OutputView.moveCoordinates(in: figure!.getPoints))
+        XCTAssertThrowsError(try OutputView.moveCoordinates(in: figure!.points))
     }
 }
