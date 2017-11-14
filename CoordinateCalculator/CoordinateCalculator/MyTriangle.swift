@@ -9,12 +9,10 @@
 import Foundation
 
 struct MyTriangle: MyShape {
-    var type: OutputView.Figure
     private var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        self.type = OutputView.Figure.triangle
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
         self.lineAC = MyLine(pointA: pointC, pointB: pointA)
@@ -29,6 +27,10 @@ struct MyTriangle: MyShape {
         let sinX = sqrt(1-pow(cosX, 2))
         let S = 1/2 * (lineBC.calculateOfLength() * lineAB.calculateOfLength() * sinX)
         return S
+    }
+    
+    func resultOfMyShape() -> (position: String, comment: String) {
+        return ("\(calculateOfPosition)", "\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)  삼각형의 넓이는 \(calculateOfArea())")
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MyShape {
-    var type: OutputView.Figure { get set }    
+protocol MyShape {    
     func calculateOfPosition() -> String
+    func resultOfMyShape() -> (position: String, comment: String)
 }

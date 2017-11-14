@@ -9,11 +9,9 @@
 import Foundation
 
 struct MyLine: MyShape {
-    var type: OutputView.Figure
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
     init(pointA: MyPoint, pointB: MyPoint) {
-        self.type = OutputView.Figure.line
         self.pointA = pointA
         self.pointB = pointB
     }
@@ -24,6 +22,10 @@ struct MyLine: MyShape {
     
     func calculateOfLength() -> Double {
         return sqrt(abs(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2)))
+    }
+    
+    func resultOfMyShape() -> (position: String, comment: String) {
+        return ("\(calculateOfPosition)", "\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)  두 점 사이 거리는 \(calculateOfLength())")
     }
     
 }
