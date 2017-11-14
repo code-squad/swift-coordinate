@@ -9,6 +9,7 @@
 import Foundation
 
 protocol MyShape {    
-    func calculateOfPosition() -> String
-    func resultOfMyShape() -> (position: String, comment: String)
+    func calculateOfPosition() -> [MyPoint]
+    func resultOfMyShape() -> Double
+    var resultDescription: String { get }
 }

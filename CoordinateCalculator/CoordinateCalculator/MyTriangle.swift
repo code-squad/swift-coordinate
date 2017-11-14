@@ -18,8 +18,12 @@ struct MyTriangle: MyShape {
         self.lineAC = MyLine(pointA: pointC, pointB: pointA)
     }
     
-    func calculateOfPosition() -> String {
-        return "\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - lineAB.pointA.y, col: (lineAB.pointA.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - lineBC.pointA.y, col: (lineBC.pointA.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - lineAC.pointA.y, col: (lineAC.pointA.x * 2) + 3))\(ANSICode.text.dot)"
+    func getPointA(myLine: MyLine) -> MyPoint {
+        return MyPoint(x: myLine.pointA.x, y: myLine.pointA.y)
+    }
+    
+    func calculateOfPosition() -> [MyPoint] {
+        return [getPointA(myLine: lineAB), getPointA(myLine: lineBC), getPointA(myLine: lineAC)]
     }
 
     func calculateOfArea() -> Double {
@@ -29,8 +33,12 @@ struct MyTriangle: MyShape {
         return S
     }
     
-    func resultOfMyShape() -> (position: String, comment: String) {
-        return ("\(calculateOfPosition)", "\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)  삼각형의 넓이는 \(calculateOfArea())")
+    func resultOfMyShape() -> Double {
+        return calculateOfArea()
     }
     
+    var resultDescription: String = {
+        return "넓이"
+    }()
+
 }

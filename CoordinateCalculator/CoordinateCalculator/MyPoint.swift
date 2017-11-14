@@ -16,12 +16,15 @@ struct MyPoint: MyShape {
         self.y = y
     }
     
-    func calculateOfPosition() -> String {
-        return "\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - y, col: (x * 2) + 3))\(ANSICode.text.dot)"
+    func calculateOfPosition() -> [MyPoint] {
+        return [MyPoint(x: x, y: y)]
     }
  
-    func resultOfMyShape() -> (position: String, comment: String) {
-        return ("\(calculateOfPosition)", "")
+    func resultOfMyShape() -> Double {
+        return 0
     }
-
+    
+    var resultDescription: String = {
+        return ""
+    }()
 }
