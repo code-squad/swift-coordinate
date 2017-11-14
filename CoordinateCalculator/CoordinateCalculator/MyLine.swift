@@ -12,7 +12,6 @@ struct MyLine: MyShape {
     var type: OutputView.Figure
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
-
     init(pointA: MyPoint, pointB: MyPoint) {
         self.type = OutputView.Figure.line
         self.pointA = pointA

@@ -9,7 +9,6 @@
 import Foundation
 
 struct MyPoint: MyShape {
-    
     var type: OutputView.Figure
     private(set) var x = 0
     private(set) var y = 0
