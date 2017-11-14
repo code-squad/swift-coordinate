@@ -17,7 +17,7 @@ struct MyTriangle: MyShape {
         self.type = OutputView.Figure.triangle
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
-        self.lineAC = MyLine(pointA: pointA, pointB: pointC)
+        self.lineAC = MyLine(pointA: pointC, pointB: pointA)
     }
     
     func calculateOfPosition() -> String {
