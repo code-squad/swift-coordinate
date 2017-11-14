@@ -13,21 +13,15 @@ struct MyTriangle: MyShape {
     private var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
-    private var pointC = MyPoint(x: 0, y: 0)
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.type = OutputView.Figure.triangle
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
         self.lineAC = MyLine(pointA: pointA, pointB: pointC)
-        self.pointA = pointA
-        self.pointB = pointB
-        self.pointC = pointC
     }
     
     func calculateOfPosition() -> String {
-        return "\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointA.y, col: (pointA.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointB.y, col: (pointB.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointC.y, col: (pointC.x * 2) + 3))\(ANSICode.text.dot)"
+        return "\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - lineAB.pointA.y, col: (lineAB.pointA.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - lineBC.pointA.y, col: (lineBC.pointA.x * 2) + 3))\(ANSICode.text.dot)\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - lineAC.pointA.y, col: (lineAC.pointA.x * 2) + 3))\(ANSICode.text.dot)"
     }
 
     func calculateOfArea() -> Double {
