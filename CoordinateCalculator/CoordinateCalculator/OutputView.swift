@@ -27,8 +27,10 @@ struct OutputView {
             throw OutputView.Errors.emptyValue
         }
         
-        guard figure.calculate() > 0 else {
-            throw OutputView.Errors.notCalculatedValue
+        if figure.points.count > 1 {
+            guard figure.calculate() > 0 else {
+                throw OutputView.Errors.notCalculatedValue
+            }
         }
         
         printCoordinates(in: figure)
@@ -38,7 +40,7 @@ struct OutputView {
     private static func printCoordinates(in figure: Figurable) {
         clearAxis()
         
-        for point in figure.getPoints {
+        for point in figure.points {
             drawCoordinate(calculateCoordiantesToDraw(point))
         }
         
@@ -46,7 +48,7 @@ struct OutputView {
     }
     
     private static func printResultToCalculate(in figure: Figurable) {
-        switch figure.getPoints.count {
+        switch figure.points.count {
         case 2:
             print("\(ANSICode.text.whiteBright)두 점 사이의 거리는 \(figure.calculate())")
         case 3:
