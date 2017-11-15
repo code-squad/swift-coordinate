@@ -9,7 +9,6 @@
 import Foundation
 
 struct InputView {
-    
     enum CoordinateError: Error {
         case noComma
         case noBracket
@@ -46,6 +45,8 @@ struct InputView {
             return MyPoint(x: points[0].x, y: points[0].y)
         }else if points.count == 2 { // line
             return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
+        }else if points.count == 3 { // Triangle
+            return MyTriangle(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y), pointC: MyPoint(x: points[2].x, y: points[2].y))
         }
         throw CoordinateError.theRest
     }

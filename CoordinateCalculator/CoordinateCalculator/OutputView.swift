@@ -9,10 +9,10 @@
 import Foundation
 
 struct OutputView {
-    
     enum Figure {
         case point
         case line
+        case triangle
     }
     
     func drawClear() {
@@ -24,24 +24,15 @@ struct OutputView {
     }
     
     func printMyShape(myShape: MyShape?) {
-        if myShape?.type == Figure.point {
-            printMyPoint(myPoint: myShape as! MyPoint )
-        } else {
-            printMyLine(myLine: myShape as! MyLine)
-            printValueOfResult(myLine: myShape as! MyLine)
-        }
+        let myPoint = myShape?.calculateOfPosition() ?? [MyPoint(x: 0, y: 0)]
+        for point in myPoint {
+            print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - point.y, col: (point.x * 2) + 3))\(ANSICode.text.dot)")
+        }     
     }
     
-    func printMyPoint(myPoint: MyPoint) {
-        print("\(myPoint.calculateOfPosition())")
-    }
-    
-    func printMyLine(myLine: MyLine) {
-        print("\(myLine.calculateOfPosition())")
-    }
-
-    func printValueOfResult(myLine: MyLine) {
-        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)  두 점 사이 거리는 \(myLine.calculateOfLength())")
+    func printMyDescription(myShape: MyShape & MyDescription) {
+        let result = myShape.resultOfMyShape()
+        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myShape.resultDescription)\(result ?? 0)")
     }
     
 }

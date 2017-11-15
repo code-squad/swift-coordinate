@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol MyShape {
-    var type: OutputView.Figure { get set }
-    
-    func calculateOfPosition() -> String
+protocol MyShape {    
+    func calculateOfPosition() -> [MyPoint]
+    func resultOfMyShape() -> Double
 }

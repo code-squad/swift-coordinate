@@ -25,3 +25,8 @@ var outputView = OutputView()
 outputView.drawClear()
 outputView.printMyShape(myShape: myShape)
 outputView.drawAxis()
+
+if let myDescription = myShape as? (MyDescription & MyShape) {
+    outputView.printMyDescription(myShape: myDescription)
+}
+
