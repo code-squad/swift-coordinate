@@ -18,11 +18,17 @@ struct MyRect: MyShape, MyDescription {
     }
     
     func calculateOfPosition() -> [MyPoint] {
-        <#code#>
+        return [leftTop, MyPoint(x: leftTop.x, y: rightBottom.y), rightBottom, MyPoint(x: rightBottom.x, y: leftTop.y)]
+    }
+    
+    func calculateOfArea() -> Double {
+        let height = MyLine(pointA: leftTop, pointB: MyPoint(x: leftTop.x, y: rightBottom.y)).calculateOfLength()
+        let width = MyLine(pointA: MyPoint(x: leftTop.x, y: rightBottom.y), pointB: rightBottom).calculateOfLength()
+        return height * width
     }
     
     func resultOfMyShape() -> Double {
-        <#code#>
+        return calculateOfArea()
     }
     
     var resultDescription: String = {
