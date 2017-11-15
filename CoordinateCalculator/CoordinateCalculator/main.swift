@@ -18,6 +18,8 @@ repeat {
         isCorrectInputValue = true
     } catch InputView.CoordinateError.inputValuesOfLine {
         print("두 개의 입력값 형식 에러")
+    } catch InputView.CoordinateError.noRectangle {
+        print("직사각형이 아님")
     }
 } while !isCorrectInputValue
 
