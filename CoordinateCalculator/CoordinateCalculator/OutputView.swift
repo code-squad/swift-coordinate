@@ -30,9 +30,9 @@ struct OutputView {
         }     
     }
     
-    func printMyDescription(myShape: MyShape?, myDescription: MyDescription) {
-        let result = myShape?.resultOfMyShape()
-        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myDescription.resultDescription)\(result ?? 0)")
+    func printMyDescription(myShape: MyShape & MyDescription) {
+        let result = myShape.resultOfMyShape()
+        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myShape.resultDescription)\(result ?? 0)")
     }
     
 }
