@@ -27,10 +27,12 @@ struct OutputView {
         let myPoint = myShape?.calculateOfPosition() ?? [MyPoint(x: 0, y: 0)]
         for point in myPoint {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - point.y, col: (point.x * 2) + 3))\(ANSICode.text.dot)")
-        }
-        
+        }     
+    }
+    
+    func printMyDescription(myShape: MyShape?, myDescription: MyDescription) {
         let result = myShape?.resultOfMyShape()
-        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myShape?.resultDescription ?? "")\(result ?? 0)")
+        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myDescription.resultDescription)\(result ?? 0)")
     }
     
 }

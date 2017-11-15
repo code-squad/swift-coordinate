@@ -25,3 +25,6 @@ var outputView = OutputView()
 outputView.drawClear()
 outputView.printMyShape(myShape: myShape)
 outputView.drawAxis()
+var myDescription: MyDescription
+myDescription = myShape as! MyDescription
+outputView.printMyDescription(myShape: myShape, myDescription: myDescription)

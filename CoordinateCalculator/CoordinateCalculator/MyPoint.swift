@@ -23,8 +23,4 @@ struct MyPoint: MyShape {
     func resultOfMyShape() -> Double {
         return 0
     }
-    
-    var resultDescription: String = {
-        return ""
-    }()
 }

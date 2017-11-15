@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: MyShape {
+struct MyTriangle: MyShape, MyDescription {
     private var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
@@ -38,7 +38,7 @@ struct MyTriangle: MyShape {
     }
     
     var resultDescription: String = {
-        return "넓이"
+        return "삼각형의 넓이는 "
     }()
 
 }

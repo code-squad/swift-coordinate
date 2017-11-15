@@ -11,5 +11,4 @@ import Foundation
 protocol MyShape {    
     func calculateOfPosition() -> [MyPoint]
     func resultOfMyShape() -> Double
-    var resultDescription: String { get }
 }
