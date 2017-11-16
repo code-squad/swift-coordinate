@@ -8,14 +8,13 @@
 
 import Foundation
 
-struct MyRect: MyShape, MyDescription {   
+struct MyRect: MyShape, MyDescription {
     var leftTop = MyPoint(x: 0, y: 0)
     var rightBottom = MyPoint(x: 0, y: 0)
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
         self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
     }
-    
     func calculateOfPosition() -> [MyPoint] {
         return [leftTop, MyPoint(x: leftTop.x, y: rightBottom.y), rightBottom, MyPoint(x: rightBottom.x, y: leftTop.y)]
     }
