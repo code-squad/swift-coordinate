@@ -13,10 +13,7 @@ class UnitTestCoordinateCalculator: XCTestCase {
     var inputViewTest2 = InputView()
     var inputViewTest3 = InputView()
     var inputViewTest4 = InputView()
-    let x1 = 10, y1 = 10
-    let x2 = 14, y2 = 15
-    let x3 = 20, y3 = 8
-    let x4 = 10, y4 = 18
+
     override func setUp() {
         super.setUp()
     }
