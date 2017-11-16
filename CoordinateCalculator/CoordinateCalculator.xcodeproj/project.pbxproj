@@ -28,6 +28,8 @@
 		87BC4E6A1FB3E72900844672 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D1D621FB1937F003EAD22 /* Utility.swift */; };
 		87BC4E6F1FB41B7300844672 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D33D61FB02AB100F590C2 /* MyPoint.swift */; };
 		87BC4E731FB425FF00844672 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC4E721FB425FF00844672 /* Figure.swift */; };
+		87E122271FBACE7100304D05 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E122261FBACE7100304D05 /* MyRect.swift */; };
+		87E122281FBACE7C00304D05 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E122261FBACE7100304D05 /* MyRect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +59,7 @@
 		877D33E11FB02AED00F590C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8795920F1FAAFB16009FB49E /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		87BC4E721FB425FF00844672 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		87E122261FBACE7100304D05 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,7 @@
 				87BC4E721FB425FF00844672 /* Figure.swift */,
 				871869C41FB5742800B436D8 /* MyLine.swift */,
 				8778FAEE1FB9C95500937961 /* MyTriangle.swift */,
+				87E122261FBACE7100304D05 /* MyRect.swift */,
 			);
 			path = Figure;
 			sourceTree = "<group>";
@@ -236,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871D5E701FB04A64009AE672 /* String.swift in Sources */,
+				87E122271FBACE7100304D05 /* MyRect.swift in Sources */,
 				871869C51FB5742800B436D8 /* MyLine.swift in Sources */,
 				877D33D81FB02AB100F590C2 /* MyPoint.swift in Sources */,
 				871D1D631FB1937F003EAD22 /* Utility.swift in Sources */,
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E122281FBACE7C00304D05 /* MyRect.swift in Sources */,
 				8778FAF01FB9CA8500937961 /* MyTriangle.swift in Sources */,
 				871869C61FB574F600B436D8 /* MyLine.swift in Sources */,
 				871869C31FB5536A00B436D8 /* Figure.swift in Sources */,
