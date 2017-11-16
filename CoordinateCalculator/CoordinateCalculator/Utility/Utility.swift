@@ -46,16 +46,14 @@ struct Utility {
     }
     
     static func sortPoints(this: MyPoint, that: MyPoint) -> Bool {
-        var result: Bool = false
-        
         if this.x < that.x {
-            result = true
-        } else if this.x == that.x {
+            return true
+        } else {
             if this.y < that.y {
-                result = true
+                return true
             }
         }
         
-        return result
+        return false
     }
 }

@@ -8,18 +8,18 @@
 
 import Foundation
 
-enum InputViewError: String, Error {
-    case emptyValue = "입력값이 없습니다."
-    case outOfRangeCoordinate = "입력값이 범위를 벗어났습니다. 0-24 사이값으로 입력하세요."
-    case notFormattedValue = "입력형식이 유효하지 않습니다."
-}
-
 struct InputView {
+    enum Errors: String, Error {
+        case emptyValue = "입력값이 없습니다."
+        case outOfRangeCoordinate = "입력값이 범위를 벗어났습니다. 0-24 사이값으로 입력하세요."
+        case notFormattedValue = "입력형식이 유효하지 않습니다."
+    }
+    
     func readInput() throws -> [MyPoint] {
         print("좌표를 입력하세요.", terminator: "\n")
         
         guard let inputValue = readLine() else {
-            throw InputViewError.emptyValue
+            throw InputView.Errors.emptyValue
         }
         
         if inputValue == "q" || inputValue == "quit" {

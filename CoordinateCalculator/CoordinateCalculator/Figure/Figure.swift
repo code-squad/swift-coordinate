@@ -10,6 +10,7 @@ import Foundation
 
 protocol Figurable {
     func calculate() -> Double
+    func messageToCalculate() -> String
     var points: [MyPoint] { get }
 }
 

@@ -14,7 +14,7 @@ struct Utility {
         
         return try inputValue.split(separator: "-").map({ (s: String.SubSequence) -> (MyPoint) in
             guard String(s).match(for: "\\([0-9]*\\,[0-9]*\\)") else {
-                throw InputViewError.notFormattedValue
+                throw InputView.Errors.notFormattedValue
             }
             
             return try splitCoordinates(String(s))
@@ -26,10 +26,34 @@ struct Utility {
         
         for coordinate in coordinates {
             guard coordinate.match(for: "^([0-9]|[1][0-9]|[2][0-4])$") else {
-                throw InputViewError.outOfRangeCoordinate
+                throw InputView.Errors.outOfRangeCoordinate
             }
         }
         
         return MyPoint(x: Int(coordinates[0]) ?? 0, y: Int(coordinates[1]) ?? 0)
+    }
+    
+    static func isRectangle(in points: [MyPoint]) -> Bool {
+        guard points[0].x == points[1].x && points[0].y == points[2].y else {
+            return false
+        }
+        
+        guard points[2].x == points[3].x && points[1].y == points[3].y else {
+            return false
+        }
+        
+        return true
+    }
+    
+    static func sortPoints(this: MyPoint, that: MyPoint) -> Bool {
+        if this.x < that.x {
+            return true
+        } else {
+            if this.y < that.y {
+                return true
+            }
+        }
+        
+        return false
     }
 }

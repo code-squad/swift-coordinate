@@ -9,6 +9,12 @@
 import Foundation
 
 struct OutputView {
+    enum Errors: String, Error {
+        case emptyValue = "입력값이 없습니다."
+        case notCalculatedValue = "계산 결과값이 없습니다."
+        case notRectagle = "직사각형이 아닙니다."
+    }
+    
     private static func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
@@ -18,8 +24,14 @@ struct OutputView {
     }
     
     static func moveCoordinates(in points: [MyPoint]) throws {
-        guard let figure = Figure().getFigureModel(in: points) else {
-            throw InputViewError.emptyValue
+        guard let figure = try Figure().getFigureModel(in: points) else {
+            throw OutputView.Errors.emptyValue
+        }
+        
+        if figure.points.count > 1 {
+            guard figure.calculate() > 0 else {
+                throw OutputView.Errors.notCalculatedValue
+            }
         }
         
         printCoordinates(in: figure)
@@ -29,7 +41,7 @@ struct OutputView {
     private static func printCoordinates(in figure: Figurable) {
         clearAxis()
         
-        for point in figure.getPoints {
+        for point in figure.points {
             drawCoordinate(calculateCoordiantesToDraw(point))
         }
         
@@ -37,12 +49,7 @@ struct OutputView {
     }
     
     private static func printResultToCalculate(in figure: Figurable) {
-        switch figure.getPoints.count {
-        case 2:
-            print("\(ANSICode.text.whiteBright)두 점 사이의 거리는 \(figure.calculate())")
-        default:
-            print("")
-        }
+        print("\(ANSICode.text.whiteBright)\(figure.messageToCalculate())\(figure.calculate())")
     }
     
     private static func drawCoordinate(_ coordinatesToDraw: (x: Int, y: Int)) {
