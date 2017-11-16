@@ -13,6 +13,7 @@ struct OutputView {
         case point
         case line
         case triangle
+        case rectangle
     }
     
     func drawClear() {
@@ -32,7 +33,7 @@ struct OutputView {
     
     func printMyDescription(myShape: MyShape & MyDescription) {
         let result = myShape.resultOfMyShape()
-        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myShape.resultDescription)\(result ?? 0)")
+        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.black)\(myShape.resultDescription)\(result)")
     }
     
 }

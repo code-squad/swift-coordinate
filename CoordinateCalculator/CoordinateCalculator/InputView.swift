@@ -16,6 +16,7 @@ struct InputView {
         case theRest
         case outOfAvailableInputValue
         case inputValuesOfLine
+        case noRectangle
     }
     
     func readInput() -> String {
@@ -47,8 +48,23 @@ struct InputView {
             return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
         }else if points.count == 3 { // Triangle
             return MyTriangle(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y), pointC: MyPoint(x: points[2].x, y: points[2].y))
+        }else if points.count == 4 { // Rectangle
+            guard checkRectangle(points: points) else {
+                throw CoordinateError.noRectangle
+            }
+            let size = CGSize(width: MyLine(pointA: points[0], pointB: points[1]).calculateOfLength(), height: MyLine(pointA: points[1], pointB: points[2]).calculateOfLength())
+            return MyRect(origin: points[0], size: size)
         }
         throw CoordinateError.theRest
+    }
+    
+    func checkRectangle(points: [MyPoint]) -> Bool {
+        let d = MyLine(pointA: points[0], pointB: points[2]).calculateOfLength()
+        let pythagoras = sqrt(pow(MyLine(pointA: points[0], pointB: points[1]).calculateOfLength(),2) +  pow(MyLine(pointA: points[1], pointB: points[2]).calculateOfLength(),2))
+        guard d == pythagoras else{
+            return false
+        }
+        return true
     }
     
     func separateEachCoordinate(coordinateValue: [String]) throws -> [MyPoint] {
