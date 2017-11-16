@@ -10,28 +10,27 @@ import Foundation
 
 protocol Figurable {
     func calculate() -> Double
+    func messageToCalculate() -> String
     var points: [MyPoint] { get }
 }
 
 extension Figurable {
-    var getPoints: [MyPoint] {
-        get {
-            return points
-        }
-    }
-    
     subscript(i: Int) -> MyPoint {
         return points[i]
     }
 }
 
 struct Figure {
-    func getFigureModel(in points: [MyPoint]) -> Figurable? {
+    func getFigureModel(in points: [MyPoint]) throws -> Figurable? {
         switch points.count {
         case 1:
             return convertMyPoint(points)
         case 2:
             return convertMyLine(points)
+        case 3:
+            return convertMyTriangle(points)
+        case 4:
+            return try convertMyRect(points)
         default:
             return nil
         }
@@ -43,5 +42,19 @@ struct Figure {
     
     private func convertMyLine(_ points: [MyPoint]) -> MyLine {
         return MyLine(points: points)
+    }
+    
+    private func convertMyTriangle(_ points: [MyPoint]) -> MyTriangle {
+        return MyTriangle(points: points)
+    }
+    
+    private func convertMyRect(_ points: [MyPoint]) throws -> MyRect {
+        let sortedPoints = points.sorted(by: Utility.sortPoints)
+        
+        guard Utility.isRectangle(in: sortedPoints) else {
+            throw OutputView.Errors.notRectagle
+        }
+        
+        return MyRect(points: sortedPoints)
     }
 }

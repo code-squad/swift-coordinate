@@ -37,4 +37,8 @@ extension MyLine: Figurable {
     var points: [MyPoint] {
         return [pointA, pointB]
     }
+    
+    func messageToCalculate() -> String {
+        return "두 직선의 길이는 "
+    }
 }

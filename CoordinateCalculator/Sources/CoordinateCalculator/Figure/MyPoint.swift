@@ -8,24 +8,33 @@
 
 import Foundation
 
-struct MyPoint: Figurable {
+struct MyPoint {
     private(set) var x: Int = 0
     private(set) var y: Int = 0
-    private(set) var points: [MyPoint]
+    
+    init() {}
     
     init(x: Int, y: Int) {
         self.x = x
         self.y = y
-        self.points = []
     }
-    
+}
+
+extension MyPoint: Figurable {
     init(points: [MyPoint]) {
         self.x = points[0].x
         self.y = points[0].y
-        self.points = points
     }
     
     func calculate() -> Double {
         return 0
+    }
+    
+    var points: [MyPoint] {
+        return [MyPoint(x: self.x, y:self.y)]
+    }
+    
+    func messageToCalculate() -> String {
+        return ""
     }
 }

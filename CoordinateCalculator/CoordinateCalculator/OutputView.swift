@@ -49,16 +49,7 @@ struct OutputView {
     }
     
     private static func printResultToCalculate(in figure: Figurable) {
-        switch figure.points.count {
-        case 2:
-            print("\(ANSICode.text.whiteBright)두 점 사이의 거리는 \(figure.calculate())")
-        case 3:
-            print("\(ANSICode.text.whiteBright)삼각형 넓이는 \(figure.calculate())")
-        case 4:
-            print("\(ANSICode.text.whiteBright)사각형 넓이는 \(figure.calculate())")
-        default:
-            break
-        }
+        print("\(ANSICode.text.whiteBright)\(figure.messageToCalculate())\(figure.calculate())")
     }
     
     private static func drawCoordinate(_ coordinatesToDraw: (x: Int, y: Int)) {
