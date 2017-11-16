@@ -16,6 +16,7 @@ public struct ANSICode {
     static let none     = "\(escape)0;0m\(escape)1;0m"
     
     struct text {
+        static let dot     = escape + "\u{00B7}"
         static let black   = escape + "0;30m"
         static let red     = escape + "0;31m"
         static let green   = escape + "0;32m"
