@@ -12,12 +12,6 @@ struct MyTriangle {
     private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())  //좌변
     private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())  //우변
     private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())  //밑변
-    
-    init(lineAB: MyLine, lineBC: MyLine, lineAC: MyLine) {
-        self.lineAB = lineAB
-        self.lineAC = lineAC
-        self.lineBC = lineBC
-    }
 }
 
 extension MyTriangle: Figurable {

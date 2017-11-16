@@ -12,6 +12,7 @@ struct OutputView {
     enum Errors: String, Error {
         case emptyValue = "입력값이 없습니다."
         case notCalculatedValue = "계산 결과값이 없습니다."
+        case notRectagle = "직사각형이 아닙니다."
     }
     
     private static func clearAxis() {
@@ -23,7 +24,7 @@ struct OutputView {
     }
     
     static func moveCoordinates(in points: [MyPoint]) throws {
-        guard let figure = Figure().getFigureModel(in: points) else {
+        guard let figure = try Figure().getFigureModel(in: points) else {
             throw OutputView.Errors.emptyValue
         }
         
@@ -53,8 +54,10 @@ struct OutputView {
             print("\(ANSICode.text.whiteBright)두 점 사이의 거리는 \(figure.calculate())")
         case 3:
             print("\(ANSICode.text.whiteBright)삼각형 넓이는 \(figure.calculate())")
+        case 4:
+            print("\(ANSICode.text.whiteBright)사각형 넓이는 \(figure.calculate())")
         default:
-            print("")
+            break
         }
     }
     
