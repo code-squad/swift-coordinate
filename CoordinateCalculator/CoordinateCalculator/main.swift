@@ -12,13 +12,14 @@ var isCorrectInputValue = false
 var myShape: MyShape? = nil
 repeat {
     let inputView = InputView()
+    let myShapeCreator = MyShapeCreator()
     let inputValue = inputView.readInput()
     do {
-        try myShape = inputView.checkCountOfInputValue(inputValue: inputValue)
+        try myShape = myShapeCreator.checkCountOfInputValue(inputValue: inputValue)
         isCorrectInputValue = true
-    } catch InputView.CoordinateError.inputValuesOfLine {
+    } catch MyShapeCreator.CoordinateError.inputValuesOfLine {
         print("두 개의 입력값 형식 에러")
-    } catch InputView.CoordinateError.noRectangle {
+    } catch MyShapeCreator.CoordinateError.noRectangle {
         print("직사각형이 아님")
     }
 } while !isCorrectInputValue
@@ -31,4 +32,3 @@ outputView.drawAxis()
 if let myDescription = myShape as? (MyDescription & MyShape) {
     outputView.printMyDescription(myShape: myDescription)
 }
-
