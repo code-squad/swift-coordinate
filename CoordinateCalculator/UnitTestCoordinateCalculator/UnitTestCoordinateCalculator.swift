@@ -22,14 +22,14 @@ class UnitTestCoordinateCalculator: XCTestCase {
     }
     
     func testCheckingPrintMyPointPosition() {
-        let myValue = try! myShapeCreatorTest1.checkCountOfInputValue(inputValue: "(10,10)")
+        let myValue = try! myShapeCreatorTest1.createMyShape(inputValue: "(10,10)")
         let myShape = myValue.calculateOfPosition()
         XCTAssertEqual(10, myShape[0].x)
         XCTAssertEqual(10, myShape[0].y)
     }
     
     func testMyLineCheckError() {
-        let myValue = try! myShapeCreatorTest2.checkCountOfInputValue(inputValue: "(10,10)-(14,15)")
+        let myValue = try! myShapeCreatorTest2.createMyShape(inputValue: "(10,10)-(14,15)")
         let myShape = myValue.calculateOfPosition()
         XCTAssertEqual(10, myShape[0].x)
         XCTAssertEqual(10, myShape[0].y)
@@ -38,7 +38,7 @@ class UnitTestCoordinateCalculator: XCTestCase {
     }
     
     func testMyTriangleCheckError() {
-        let myValue = try! myShapeCreatorTest3.checkCountOfInputValue(inputValue: "(10,10)-(14,15)-(20,8)")
+        let myValue = try! myShapeCreatorTest3.createMyShape(inputValue: "(10,10)-(14,15)-(20,8)")
         let myShape = myValue.calculateOfPosition()
         XCTAssertEqual(10, myShape[0].x)
         XCTAssertEqual(10, myShape[0].y)
@@ -49,7 +49,7 @@ class UnitTestCoordinateCalculator: XCTestCase {
     }
     
     func testMyRectCheckError() {
-        let myValue = try! myShapeCreatorTest4.checkCountOfInputValue(inputValue: "(10,10)-(22,10)-(22,18)-(10,18)")
+        let myValue = try! myShapeCreatorTest4.createMyShape(inputValue: "(10,10)-(22,10)-(22,18)-(10,18)")
         let myShape = myValue.calculateOfPosition()
         XCTAssertEqual(10, myShape[0].x)
         XCTAssertEqual(10, myShape[0].y)
