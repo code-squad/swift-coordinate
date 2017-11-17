@@ -40,8 +40,11 @@ extension MyTriangle: Figurable {
     var points: [MyPoint] {
         return [lineAB.pointA, lineAB.pointB, lineAC.pointB]
     }
-    
-    func messageToCalculate() -> String {
+}
+
+
+extension MyTriangle: Printable {
+    var printMessage: String {
         return "삼각형의 넓이는 "
     }
 }

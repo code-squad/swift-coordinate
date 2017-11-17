@@ -35,7 +35,10 @@ struct OutputView {
         }
         
         printCoordinates(in: figure)
-        printResultToCalculate(in: figure)
+        
+        if figure is Figurable & Printable {
+             printResultToCalculate(in: figure as! Figurable & Printable)
+        }
     }
     
     private static func printCoordinates(in figure: Figurable) {
@@ -48,8 +51,8 @@ struct OutputView {
         drawAxis()
     }
     
-    private static func printResultToCalculate(in figure: Figurable) {
-        print("\(ANSICode.text.whiteBright)\(figure.messageToCalculate())\(figure.calculate())")
+    private static func printResultToCalculate(in figure: Figurable & Printable) {
+        print("\(ANSICode.text.whiteBright)\(figure.printMessage)\(figure.calculate())")
     }
     
     private static func drawCoordinate(_ coordinatesToDraw: (x: Int, y: Int)) {

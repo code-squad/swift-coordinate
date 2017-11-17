@@ -33,8 +33,4 @@ extension MyPoint: Figurable {
     var points: [MyPoint] {
         return [MyPoint(x: self.x, y:self.y)]
     }
-    
-    func messageToCalculate() -> String {
-        return ""
-    }
 }
