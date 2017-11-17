@@ -38,8 +38,10 @@ extension MyRect: Figurable {
     var points: [MyPoint] {
         return [MyPoint(x: leftTop.x, y: rightBottom.y), leftTop, rightBottom, MyPoint(x: rightBottom.x, y: leftTop.y)]
     }
-    
-    func messageToCalculate() -> String {
+}
+
+extension MyRect: Printable {
+    var printMessage: String {
         return "사각형의 넓이는 "
     }
 }

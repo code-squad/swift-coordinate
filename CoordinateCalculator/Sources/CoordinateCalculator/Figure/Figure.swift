@@ -10,7 +10,6 @@ import Foundation
 
 protocol Figurable {
     func calculate() -> Double
-    func messageToCalculate() -> String
     var points: [MyPoint] { get }
 }
 
@@ -18,6 +17,10 @@ extension Figurable {
     subscript(i: Int) -> MyPoint {
         return points[i]
     }
+}
+
+protocol Printable {
+    var printMessage: String { get }
 }
 
 struct Figure {
