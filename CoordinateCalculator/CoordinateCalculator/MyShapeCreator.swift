@@ -19,7 +19,7 @@ struct MyShapeCreator {
         case noRectangle
     }
     
-    func checkCountOfInputValue(inputValue: String) throws -> MyShape {
+    func createMyShape(inputValue: String) throws -> MyShape {
         let hasDash = CharacterSet.init(charactersIn: "-")
         var coordinateValue: [String] = []
         var points: [MyPoint] = []

@@ -15,7 +15,7 @@ repeat {
     let myShapeCreator = MyShapeCreator()
     let inputValue = inputView.readInput()
     do {
-        try myShape = myShapeCreator.checkCountOfInputValue(inputValue: inputValue)
+        try myShape = myShapeCreator.createMyShape(inputValue: inputValue)
         isCorrectInputValue = true
     } catch MyShapeCreator.CoordinateError.inputValuesOfLine {
         print("두 개의 입력값 형식 에러")

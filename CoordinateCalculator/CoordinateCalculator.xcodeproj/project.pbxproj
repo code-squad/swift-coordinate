@@ -21,11 +21,11 @@
 		45EE02131FBD2A080051C9DE /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E901FB044A6001D579F /* MyPoint.swift */; };
 		45EFFA3A1FBC25B900F97F0B /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EFFA391FBC25B900F97F0B /* MyRect.swift */; };
 		45F12E381FBADBB10054A288 /* MyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F12E371FBADBB10054A288 /* MyDescription.swift */; };
+		45F1D70F1FBE882D00124D11 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E8E1FB0446E001D579F /* InputView.swift */; };
 		45F2605A1FBDE62C000EA81A /* MyShapeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F260591FBDE62C000EA81A /* MyShapeCreator.swift */; };
 		45F2605B1FBDE743000EA81A /* MyShapeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F260591FBDE62C000EA81A /* MyShapeCreator.swift */; };
 		45F46C5F1FB9CF3D00D7C521 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F46C5E1FB9CF3D00D7C521 /* MyTriangle.swift */; };
 		45F55E8D1FB02305001D579F /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E8C1FB02305001D579F /* OutputView.swift */; };
-		45F55E8F1FB0446E001D579F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E8E1FB0446E001D579F /* InputView.swift */; };
 		45F55E911FB044A6001D579F /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F55E901FB044A6001D579F /* MyPoint.swift */; };
 		45FC7BB11FB4379D00398D20 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC7BB01FB4379D00398D20 /* MyLine.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
@@ -234,9 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F1D70F1FBE882D00124D11 /* InputView.swift in Sources */,
 				45F55E911FB044A6001D579F /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
-				45F55E8F1FB0446E001D579F /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				45F55E8D1FB02305001D579F /* OutputView.swift in Sources */,
 				45F46C5F1FB9CF3D00D7C521 /* MyTriangle.swift in Sources */,
