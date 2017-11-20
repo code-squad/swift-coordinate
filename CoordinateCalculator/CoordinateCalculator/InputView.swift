@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct InputView {
+    func readInput () -> String? {
+         print ("좌표를 입력해주세요")
+        if let coordinates = readLine() {
+            return coordinates
+        } else {
+            return nil
+        }
+    }
+}

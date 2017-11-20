@@ -16,4 +16,8 @@ struct OutputView {
     static func deleteAxis () {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
+    
+    static func drawPoint () {
+        
+    }
 }
