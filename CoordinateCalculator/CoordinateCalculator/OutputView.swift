@@ -19,7 +19,7 @@ struct OutputView {
     
     static func drawPoint (_ input: MyPoint) {
         deleteAxis()
-        print("\(ANSICode.cursor.move(row: input.coordinates.y, col: input.coordinates.x))\(ANSICode.text.redBright).")
+        print("\(ANSICode.cursor.move(row: input.coordinateOfXY.y, col: input.coordinateOfXY.x))\(ANSICode.text.redBright).")
         drawAxis()
     }
 }

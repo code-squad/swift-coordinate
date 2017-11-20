@@ -13,7 +13,7 @@ struct MyPoint {
     private (set) var x = 0
     private (set) var y = 0
 
-    var coordinates: MyPoint {
+    var coordinateOfXY: MyPoint {
         get {
             return MyPoint(x: self.x * 2 + 3, y:  abs(self.y - 24) + 1)
         }
