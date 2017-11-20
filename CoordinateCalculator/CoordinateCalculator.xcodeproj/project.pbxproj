@@ -10,6 +10,9 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
+		C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
+		C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
+		C327CFF91FC2B53A00C7B33A /* Checking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF81FC2B53A00C7B33A /* Checking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,9 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		C327CFCB1FBD79CF00C7B33A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		C327CFF41FC2A8A700C7B33A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		C327CFF61FC2A8B300C7B33A /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		C327CFF81FC2B53A00C7B33A /* Checking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				C327CFF41FC2A8A700C7B33A /* InputView.swift */,
+				C327CFF81FC2B53A00C7B33A /* Checking.swift */,
+				C327CFF61FC2A8B300C7B33A /* MyPoint.swift */,
 				C327CFCB1FBD79CF00C7B33A /* OutputView.swift */,
 			);
 			path = CoordinateCalculator;
@@ -126,9 +135,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */,
+				C327CFF91FC2B53A00C7B33A /* Checking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
