@@ -8,9 +8,14 @@
 
 import Foundation
 
+// 좌표 속성값을 갖으면서 입력에 따라 찍히는 위치를 get으로 추가
 struct MyPoint {
-   var x = 0
-    var y = 0
+    private (set) var x = 0
+    private (set) var y = 0
+    
+    var coordinates: MyPoint {
+        return MyPoint(x: self.x * 2 + 3, y:  abs(self.y - 24) + 1)
+    }
     
 }
 
