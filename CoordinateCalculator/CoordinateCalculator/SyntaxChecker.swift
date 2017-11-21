@@ -21,9 +21,9 @@ struct SyntaxChecker {
         guard let temp = eliminateParenthesis(input) else { throw ErrorMessage.ofInValidInputedValue }
         guard let validValues = splitInputValueByComma(temp) else { throw ErrorMessage.ofNonexistenceComma }
         guard let valueOfInt = converToInt(validValues) else { throw ErrorMessage.ofValueIsNotInt}
-        guard let validValuesHasComma = checkisNotExceed(valueOfInt) else { throw ErrorMessage.ofExceedValidInput}
-        let values = MyPoint(x: validValuesHasComma[0], y: validValuesHasComma[1])
-        return values
+        guard isLessThanLimit(valueOfInt) else { throw ErrorMessage.ofExceedValidInput}
+        let myPoint = MyPoint(x: valueOfInt[0], y: valueOfInt[1])
+        return myPoint
     }
     
     // 좌우 괄호 제거 : nil이면 입력값이 없다는거고 ofEmptedInput 출력
@@ -55,11 +55,10 @@ struct SyntaxChecker {
     }
     
     // 24를 초과했는지 체크
-    private func checkisNotExceed (_ input: Array<Int>) -> Array<Int>? {
+    private func isLessThanLimit (_ input: Array<Int>) -> Bool {
         for index in 0 ..< input.count {
-            guard input[index] <= 24 else { return nil }
+            guard input[index] <= 24 else { return false }
         }
-        return input
+        return true
     }
 }
-
