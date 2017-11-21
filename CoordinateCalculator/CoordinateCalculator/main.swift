@@ -10,21 +10,25 @@ import Foundation
 
 let inputView = InputView()
 let checkingInput = CheckingInput()
-let adjustPoint = AdjustPoint()
 let outputView = OutputView()
-var myPointOutput : MyPointOutput
+let generateMyPoint = GenerateMyPoint()
+var myPoint : MyPoint
+let userInput = inputView.readInput()
 
 do {
-    try myPointOutput =  adjustPoint.adjusting(checkingInput.checkInputError(inputView.readInput()))
+    let checkError = try checkingInput.checkInputError(userInput)
+    myPoint =  generateMyPoint.generate(checkError)
     outputView.drawClear()
-    outputView.drawPoint(myPointOutput)
+    outputView.drawPoint(myPoint)
     outputView.drawAxis()
-} catch CheckingInput.InputError.emptyInput {
-    print(CheckingInput.InputError.emptyInput.rawValue)
-} catch CheckingInput.InputError.wrongInput {
-    print(CheckingInput.InputError.wrongInput.rawValue)
-} catch CheckingInput.InputError.overNumPoint {
-    print(CheckingInput.InputError.overNumPoint.rawValue)
+} catch CheckingInput.ErrorCase.emptyInput {
+    print(CheckingInput.ErrorCase.emptyInput.rawValue)
+} catch CheckingInput.ErrorCase.wrongForm {
+    print(CheckingInput.ErrorCase.wrongForm.rawValue)
+} catch CheckingInput.ErrorCase.overNumPoint {
+    print(CheckingInput.ErrorCase.overNumPoint.rawValue)
+} catch CheckingInput.ErrorCase.lessNumPoint {
+    print(CheckingInput.ErrorCase.lessNumPoint.rawValue)
 }
 
 

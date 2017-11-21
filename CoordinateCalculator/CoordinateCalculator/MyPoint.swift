@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct MyPoint {
     var x = 0
     var y = 0

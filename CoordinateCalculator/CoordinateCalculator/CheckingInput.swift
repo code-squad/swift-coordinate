@@ -10,20 +10,21 @@ import Foundation
 
 struct CheckingInput {
     
-    enum InputError: String, Error {
+    enum ErrorCase: String, Error {
         case emptyInput = "좌표값을 반드시 입력해주세요."
-        case wrongInput = "입력 형태는 (,)입니다."
+        case wrongForm = "입력 형태는 (,)입니다."
         case overNumPoint = "좌표값은 24이하로 입력하세요."
+        case lessNumPoint = "좌표값은 0이상으로 입력하세요."
     }
     
-    func checkInputError (_ inputValue: String?) throws -> MyPoint {
+    func checkInputError (_ inputValue: String?) throws -> (Int, Int) {
         var userPointX = 0
         var userPointY = 0
         let userInput = inputValue ?? ""
         
         // 1. 사용자 입력이 공백일 경우 에러체크
         if userInput == "" {
-            throw InputError.emptyInput
+            throw ErrorCase.emptyInput
         }
         
         // 2. 사용자 입력이 (,) 형태가 아닐경우 에러체크, 형태가 맞다면 사용자 좌표값 MyPoint 매칭
@@ -34,19 +35,24 @@ struct CheckingInput {
                 userPointX = Int(userPoints[0])! //괄호 잘라줘야함
                 userPointY = Int(userPoints[1])!
             } else {
-                throw InputError.wrongInput
+                throw ErrorCase.wrongForm
             }
         } else {
-            throw InputError.wrongInput
+            throw ErrorCase.wrongForm
         }
        
         // 3. 사용자 입력 좌표값이 24가 넘을경우 에러체크
         if userPointX >= 24 || userPointY >= 24 {
-            throw InputError.overNumPoint
+            throw ErrorCase.overNumPoint
         }
         
-        let myPoint = MyPoint(x: userPointX, y: userPointY)
-        return myPoint
+        // 4. 사용자 입력 좌표값이 0 이하일 경우 에러체크
+        if userPointX <= 0 || userPointY <= 0 {
+            throw ErrorCase.lessNumPoint
+        }
+        
+        let pointValue = (x: userPointX, y: userPointY)
+        return pointValue
     }
     
 }
