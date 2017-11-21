@@ -10,10 +10,11 @@ import Foundation
 
 while (true) {
     do {
-        let checkedValue = try SyntaxChecker().makeCheckedValues(InputView().readInput())
-        if checkedValue.x == 0 && checkedValue.y == 0 {
+        let inputValue = InputView().readInput()
+        if inputValue == "q" {
             break
         }
+        let checkedValue = try SyntaxChecker().makeCheckedValues(inputValue)
         OutputView.drawPoint(checkedValue)
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)

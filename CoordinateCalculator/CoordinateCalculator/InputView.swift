@@ -12,9 +12,8 @@ struct InputView {
     func readInput () -> String {
         print ("좌표를 입력해주세요 [ex : (12,23)]")
         if let coordinates = readLine() {
-            return coordinates
-        } else {
-            return ""
+            guard coordinates.contains("q") || coordinates.contains("quit") else { return coordinates}
         }
+        return "q"
     }
 }
