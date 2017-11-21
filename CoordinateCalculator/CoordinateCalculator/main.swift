@@ -10,14 +10,14 @@ import Foundation
 
 while (true) {
     do {
-        let checkedValue = try Checking().returnCheckedValues(InputView().readInput())
+        let checkedValue = try SyntaxChecker().makeCheckedValues(InputView().readInput())
         if checkedValue.x == 0 && checkedValue.y == 0 {
             break
         }
         OutputView.drawPoint(checkedValue)
-    } catch let error as Checking.ErrorMessage {
+    } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
     } catch {
-        print (Checking.ErrorMessage.ofUnKnownError.rawValue)
+        print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
     }
 }
