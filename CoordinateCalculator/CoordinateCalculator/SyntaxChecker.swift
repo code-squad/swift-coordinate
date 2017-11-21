@@ -37,7 +37,7 @@ struct SyntaxChecker {
         }
     }
     
-    // 좌우 괄호제거후 콤마가 있는지 체크라도 콤마가 있다면 콤마기준으로 배열로 나눠서 저장
+    // 좌우 괄호제거후 콤마가 있는지 체크하고 콤마가 있다면 콤마기준으로 배열로 나눠서 저장
     private func splitInputValueByComma (_ input: String) -> Array<String>? {
         var temp = Array<String>()
         guard input.contains(",") else { return nil }
