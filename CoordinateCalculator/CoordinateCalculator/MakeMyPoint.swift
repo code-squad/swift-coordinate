@@ -1,5 +1,5 @@
 //
-//  GenerateMyPoint.swift
+//  MakeMyPoint.swift
 //  CoordinateCalculator
 //
 //  Created by YOUTH on 2017. 11. 21..
@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct GenerateMyPoint {
+struct MakeMyPoint {
 
-    func generate (_ pointValue: (x: Int,y: Int)) -> MyPoint {
+    func make (_ pointValue: (x: Int,y: Int)) -> MyPoint {
         let myPoint = MyPoint(x: pointValue.x, y: pointValue.y)
         return myPoint
     }
-    
+
 }

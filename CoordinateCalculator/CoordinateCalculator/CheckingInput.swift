@@ -9,7 +9,7 @@
 import Foundation
 
 struct CheckingInput {
-    
+
     enum ErrorCase: String, Error {
         case emptyInput = "좌표값을 반드시 입력해주세요."
         case wrongForm = "입력 형태는 (,)입니다."
@@ -17,7 +17,7 @@ struct CheckingInput {
         case lessNumPoint = "좌표값은 0이상으로 입력하세요."
     }
     
-    func checkInputError (_ inputValue: String?) throws -> (Int, Int) {
+    func checkError (_ inputValue: String?) throws -> (Int, Int) {
         var userPointX = 0
         var userPointY = 0
         let userInput = inputValue ?? ""
@@ -32,7 +32,7 @@ struct CheckingInput {
             let noBlanks = userInput.trimmingCharacters(in: ["(", ")"])
             if noBlanks.contains(",") {
                 var userPoints = noBlanks.split(separator: ",")
-                userPointX = Int(userPoints[0])! //괄호 잘라줘야함
+                userPointX = Int(userPoints[0])!
                 userPointY = Int(userPoints[1])!
             } else {
                 throw ErrorCase.wrongForm

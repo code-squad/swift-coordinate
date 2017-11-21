@@ -9,4 +9,6 @@
     - AdjustPoint와 MyPointOutput객체는 필요 이상으로 객체를 분리한 것이라서 제거하고, 터미널 출력을 위해 값을 조정하는건 OutPutView에서 바로 조정해서 출력. 그래서 OutputView의 drawPoint ()함수도 MyPoint를 매개변수로 받는 것으로 수정.
     - CheckingInput이 책임이 다른 일을 같이 하고있어서 역할이 모호해서, 에러체크를 완료한 정상적인 (Int,Int) 튜플값을 GenerateMyPoint에 넘기고 GenerateMyPoint는 그 튜플값으로 MyPont를 만드는 역할로 분리.
     - CheckingInput에 사용자가 (0,0)을 입력했을때의 에러케이스 추가함.
+    - GenerateMyPoint를 Make - 로 바꿈. 
+    - ChekingInput의 인스턴스 이름과 함수이름, main.swift에서의 리턴값 변수명을 문맥에맞게/중복이없게 변경함
 
