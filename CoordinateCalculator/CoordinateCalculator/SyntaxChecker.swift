@@ -26,7 +26,7 @@ struct SyntaxChecker {
         return myPoint
     }
     
-    // 좌우 괄호 제거 : nil이면 입력값이 없다는거고 ofEmptedInput 출력
+    // 좌우 괄호 제거 : 입력형태가 잘못됐다면 nil반환
     private func eliminateParenthesis (_ input: String) -> String? {
         var input = input
         if input.contains("(") && input.contains(")") {
@@ -37,7 +37,7 @@ struct SyntaxChecker {
         }
     }
     
-    // 좌우 괄호제거후 콤마가 있는지 체크하고 콤마가 있다면 콤마기준으로 배열로 나눠서 저장
+    // 콤마가 있는지 체크하고 콤마가 있다면 콤마기준으로 배열로 나눠서 저장, 없다면 nil반환
     private func splitInputValueByComma (_ input: String) -> Array<String>? {
         var temp = Array<String>()
         guard input.contains(",") else { return nil }
@@ -45,7 +45,7 @@ struct SyntaxChecker {
         return temp
     }
     
-    // 인트로 바꾸기
+    // flatmap사용해서 인트로변환이 안되면 배열의 길이가 달라지게 해서, 길이가 같지 않다면 nil 반환
     private func converToInt (_ input: Array<String>) -> Array<Int>? {
         let temp = input.flatMap{ tempValue in Int(tempValue) }
         if temp.count != input.count {
@@ -54,7 +54,7 @@ struct SyntaxChecker {
         return temp
     }
     
-    // 24를 초과했는지 체크
+    // 24를 초과했는지 체크해서 불값 리턴(초과하지 않으면 트루, 초과하면 폴스)
     private func isLessThanLimit (_ input: Array<Int>) -> Bool {
         for index in 0 ..< input.count {
             guard input[index] <= 24 else { return false }
