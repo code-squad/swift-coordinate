@@ -17,7 +17,7 @@ struct SyntaxChecker {
         case ofUnKnownError = "알려지지 않은 에러입니다. 관리자에게 문의하세요."
     }
     
-    func returnCheckedValues (_ input: String) throws -> MyPoint {
+    func makeCheckedValues (_ input: String) throws -> MyPoint {
         guard let temp = elimateParenthesis(input) else { throw ErrorMessage.ofInValidInputedValue }
         guard let validValues = checkCommaInInputs(temp) else { throw ErrorMessage.ofNonexistenceComma }
         guard let valueOfInt = converToInt(validValues) else { throw ErrorMessage.ofValueIsNotInt}
