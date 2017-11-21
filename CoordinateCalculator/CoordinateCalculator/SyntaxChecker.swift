@@ -18,8 +18,8 @@ struct SyntaxChecker {
     }
     
     func makeCheckedValues (_ input: String) throws -> MyPoint {
-        guard let temp = elimateParenthesis(input) else { throw ErrorMessage.ofInValidInputedValue }
-        guard let validValues = checkCommaInInputs(temp) else { throw ErrorMessage.ofNonexistenceComma }
+        guard let temp = eliminateParenthesis(input) else { throw ErrorMessage.ofInValidInputedValue }
+        guard let validValues = splitInputValueByComma(temp) else { throw ErrorMessage.ofNonexistenceComma }
         guard let valueOfInt = converToInt(validValues) else { throw ErrorMessage.ofValueIsNotInt}
         guard let validValuesHasComma = checkisNotExceed(valueOfInt) else { throw ErrorMessage.ofExceedValidInput}
         let values = MyPoint(x: validValuesHasComma[0], y: validValuesHasComma[1])
@@ -27,7 +27,7 @@ struct SyntaxChecker {
     }
     
     // 좌우 괄호 제거 : nil이면 입력값이 없다는거고 ofEmptedInput 출력
-    private func elimateParenthesis (_ input: String) -> String? {
+    private func eliminateParenthesis (_ input: String) -> String? {
         var input = input
         if input.contains("(") && input.contains(")") {
             input = input.trimmingCharacters(in: ["(", ")"])
@@ -38,7 +38,7 @@ struct SyntaxChecker {
     }
     
     // 좌우 괄호제거후 콤마가 있는지 체크라도 콤마가 있다면 콤마기준으로 배열로 나눠서 저장
-    private func checkCommaInInputs (_ input: String) -> Array<String>? {
+    private func splitInputValueByComma (_ input: String) -> Array<String>? {
         var temp = Array<String>()
         guard input.contains(",") else { return nil }
         temp = input.split(separator: ",").map(String.init)
