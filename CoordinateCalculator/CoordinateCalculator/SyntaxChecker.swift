@@ -1,5 +1,5 @@
 //
-//  Checking.swift
+//  SyntaxChecker.swift
 //  CoordinateCalculator
 //
 //  Created by Choi Jeong Hoon on 2017. 11. 20..
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Checking {
+struct SyntaxChecker {
     enum ErrorMessage: String, Error {
         case ofInValidInputedValue = "(x,y)형태로 입력해야 합니다."
         case ofNonexistenceComma = "x와 y의 값은 콤마로 구분되어야 합니다."
