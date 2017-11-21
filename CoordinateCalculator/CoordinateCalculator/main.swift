@@ -17,7 +17,7 @@ let userInput = inputView.readInput()
 
 do {
     let checkedInput = try checking.checkError(userInput)
-    myPoint = factory.myPointMaker(checkedInput)
+    myPoint = factory.makeMyPoint(checkedInput)
     outputView.drawClear()
     outputView.drawPoint(myPoint)
     outputView.drawAxis()

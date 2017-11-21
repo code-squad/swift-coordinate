@@ -10,7 +10,7 @@ import Foundation
 
 struct FactoryMyPoint {
 
-    func myPointMaker (_ pointValue: (x: Int,y: Int)) -> MyPoint {
+    func makeMyPoint (_ pointValue: (x: Int,y: Int)) -> MyPoint {
         let myPoint = MyPoint(x: pointValue.x, y: pointValue.y)
         return myPoint
     }
