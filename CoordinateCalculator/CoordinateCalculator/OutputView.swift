@@ -10,16 +10,16 @@ import Foundation
 
 struct OutputView {
     static func drawAxis () {
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+        print("\(ANSICode.text.cyan)\(ANSICode.axis.draw())")
     }
     
     static func deleteAxis () {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
-    
     static func drawPoint (_ input: MyPoint) {
         deleteAxis()
-        print("\(ANSICode.cursor.move(row: input.coordinateOfXY.y, col: input.coordinateOfXY.x))\(ANSICode.text.redBright).")
         drawAxis()
+        print("\(ANSICode.cursor.move(row: input.coordinateOfXY.y, col: input.coordinateOfXY.x))\(ANSICode.text.redBright).")
+        print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
 }
