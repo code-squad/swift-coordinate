@@ -1,5 +1,5 @@
 //
-//  MakeMyPoint.swift
+//  FactoryMyPoint.swift
 //  CoordinateCalculator
 //
 //  Created by YOUTH on 2017. 11. 21..
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct MakeMyPoint {
+struct FactoryMyPoint {
 
-    func make (_ pointValue: (x: Int,y: Int)) -> MyPoint {
+    func myPointMaker (_ pointValue: (x: Int,y: Int)) -> MyPoint {
         let myPoint = MyPoint(x: pointValue.x, y: pointValue.y)
         return myPoint
     }

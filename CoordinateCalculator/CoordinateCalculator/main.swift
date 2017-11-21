@@ -11,13 +11,13 @@ import Foundation
 let inputView = InputView()
 let checking = CheckingInput()
 let outputView = OutputView()
-let makeMyPoint = MakeMyPoint()
+let factory = FactoryMyPoint()
 var myPoint : MyPoint
 let userInput = inputView.readInput()
 
 do {
     let checkedInput = try checking.checkError(userInput)
-    myPoint =  makeMyPoint.make(checkedInput)
+    myPoint = factory.myPointMaker(checkedInput)
     outputView.drawClear()
     outputView.drawPoint(myPoint)
     outputView.drawAxis()
@@ -30,4 +30,3 @@ do {
 } catch CheckingInput.ErrorCase.lessNumPoint {
     print(CheckingInput.ErrorCase.lessNumPoint.rawValue)
 }
-
