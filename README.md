@@ -11,4 +11,9 @@
     - CheckingInput에 사용자가 (0,0)을 입력했을때의 에러케이스 추가함.
     - GenerateMyPoint를 Make - 로 바꿈. 
     - ChekingInput의 인스턴스 이름과 함수이름, main.swift에서의 리턴값 변수명을 문맥에맞게/중복이없게 변경함
+- 2017.11.23 - main.swift, CheckingInput수정, MyLine객체 추가
+    - main.swift에서 에러 캐치하는 부분을 줄임. `let` `as` 키워드를 사용해서 같은 enum타입의 에러 케이스들이 여러 문장에서 중복되어서 사용되는 것을 줄임.
+    - CheckingInput에 checkPointNums()함수를 추가해서 복수의 좌표가 입력되는 상황을 추가. 에러체크하는 부분도 복수의 좌표값을 받아서 체크하고 정상값을 리턴해야하기 때문에 `[String]` 타입을 받아서 에러처리하고 `[(Int,Int)]`타입을 리턴.
+    - MyPoint객체를 두 개 가지고있는 MyLine객체를 추가.
+
 
