@@ -11,7 +11,9 @@ import Foundation
 struct FactoryMyPoint {
 
     func makeMyPoint (_ pointValue: (x: Int,y: Int)) -> MyPoint {
+        //var myPoints : [MyPoint] = []
         let myPoint = MyPoint(x: pointValue.x, y: pointValue.y)
+        //myPoints.append(myPoint)
         return myPoint
     }
 

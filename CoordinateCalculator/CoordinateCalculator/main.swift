@@ -21,12 +21,7 @@ do {
     outputView.drawClear()
     outputView.drawPoint(myPoint)
     outputView.drawAxis()
-} catch CheckingInput.ErrorCase.emptyInput {
-    print(CheckingInput.ErrorCase.emptyInput.rawValue)
-} catch CheckingInput.ErrorCase.wrongForm {
-    print(CheckingInput.ErrorCase.wrongForm.rawValue)
-} catch CheckingInput.ErrorCase.overNumPoint {
-    print(CheckingInput.ErrorCase.overNumPoint.rawValue)
-} catch CheckingInput.ErrorCase.lessNumPoint {
-    print(CheckingInput.ErrorCase.lessNumPoint.rawValue)
+} catch let error as CheckingInput.ErrorCase {
+    print (error.rawValue)
 }
+

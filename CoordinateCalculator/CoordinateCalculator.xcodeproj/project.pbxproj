@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		E8004D8A1FC6B1B500956D72 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8004D891FC6B1B500956D72 /* MyLine.swift */; };
 		E8071BE01FBD75AD004D5F17 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8071BDF1FBD75AD004D5F17 /* OutputView.swift */; };
 		E842E1C21FBEB6F500EC5ACC /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C11FBEB6F500EC5ACC /* MyPoint.swift */; };
 		E842E1C41FBEB70800EC5ACC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C31FBEB70800EC5ACC /* InputView.swift */; };
@@ -32,6 +33,7 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		E8004D891FC6B1B500956D72 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		E8071BDF1FBD75AD004D5F17 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		E842E1C11FBEB6F500EC5ACC /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		E842E1C31FBEB70800EC5ACC /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				E842E1C31FBEB70800EC5ACC /* InputView.swift */,
 				E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */,
 				E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */,
+				E8004D891FC6B1B500956D72 /* MyLine.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				E8AE63AE1FC3D0740025D111 /* FactoryMyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				E842E1C41FBEB70800EC5ACC /* InputView.swift in Sources */,
+				E8004D8A1FC6B1B500956D72 /* MyLine.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				E8071BE01FBD75AD004D5F17 /* OutputView.swift in Sources */,
 			);
