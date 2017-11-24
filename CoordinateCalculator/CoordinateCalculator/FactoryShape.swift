@@ -17,10 +17,10 @@ struct FactoryShape {
         case 2:
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         default:
-            return MyPoint(x: myPoints[0].x, y: myPoints[1].y)        }
+            return MyPoint(x: myPoints[0].x, y: myPoints[1].y)}
     }
 }
 
 protocol MyShape {
-    func calculate()
+    func calculate() -> Double
 }

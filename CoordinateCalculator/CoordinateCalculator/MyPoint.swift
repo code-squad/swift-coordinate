@@ -14,7 +14,7 @@ struct MyPoint {
 }
 
 extension MyPoint: MyShape {
-    func calculate() {
-        
+    func calculate() -> Double {
+        return 0
     }
 }
