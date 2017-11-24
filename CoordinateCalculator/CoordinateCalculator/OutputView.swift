@@ -15,7 +15,12 @@ struct OutputView{
     }
 
     //[MyPoint]를 파라미터로 받고 for문안에서 프린트
-    func drawPoint (_ point: MyPoint) {
+    func drawPoint (_ shape: MyShape) {
+        switch shape {
+        case shape is MyPoint: break
+        default:
+            <#code#>
+        }
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - point.y, col: (point.x * 2) + 3))\(ANSICode.text.dot)")
     }
     

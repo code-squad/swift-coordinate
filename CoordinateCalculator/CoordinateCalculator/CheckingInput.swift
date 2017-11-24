@@ -17,6 +17,8 @@ struct CheckingInput {
         case lessNumPoint = "좌표값은 0이상으로 입력하세요."
     }
     
+    let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
+    
     func checkPointNums (_ inputValue: String?) throws -> [String] {
         let userInput = inputValue ?? ""
         var pointsForShapes : [String] = []
@@ -24,6 +26,12 @@ struct CheckingInput {
         // 1. 사용자 입력이 공백일 경우 에러체크
         if userInput == "" {
             throw ErrorCase.emptyInput
+        }
+        
+        // 2. CharacterSet에 있는 문자 이외의 것이 들어있는지 에러체크
+        let filter = userInput.trimmingCharacters(in: validCharacters)
+        if !filter.isEmpty {
+            throw ErrorCase.wrongForm
         }
         
         // "-"의 유무에 따라서 입력좌표 리스트 구하기
@@ -34,8 +42,7 @@ struct CheckingInput {
             pointsForShapes.append(userInput)
         }
         
-        // 입력한 좌표가 공백일 경우 에러체크 - map이나 filter로 바꾸기
-        
+        // 3. 입력한 좌표가 공백일 경우 에러체크 - map이나 filter로 바꾸기
         for point in pointsForShapes {
             if point == "" {
                 throw ErrorCase.emptyInput
@@ -44,12 +51,11 @@ struct CheckingInput {
         return pointsForShapes
     }
     
-    //여기는 정상값만 들어와서 체크릏 해야함..
     func checkError (_ inputValues: [String]) throws -> [(Int, Int)] {
         var pointValues : [(Int, Int)] = []
         var userPoints : [Int] = []
         
-        // 2. 사용자 입력이 (,) 형태가 아닐경우 에러체크, 형태가 맞다면 사용자 좌표값 MyPoint 매칭
+        // 4. 사용자 입력이 (,) 형태가 아닐경우 에러체크, 형태가 맞다면 사용자 좌표값 MyPoint 매칭
         for inputValue in inputValues {
             if inputValue.hasPrefix("(") && inputValue.hasSuffix(")") {
                 let noBlanks = inputValue.trimmingCharacters(in: ["(", ")"])
@@ -59,11 +65,11 @@ struct CheckingInput {
                     throw ErrorCase.wrongForm }
             } else {
                 throw ErrorCase.wrongForm }
-            // 3. 사용자 입력 좌표값이 24가 넘을경우 에러체크
+            // 5. 사용자 입력 좌표값이 24가 넘을경우 에러체크
             if userPoints[0] >= 24 || userPoints[1] >= 24 {
                 throw ErrorCase.overNumPoint
             }
-            // 4. 사용자 입력 좌표값이 0 이하일 경우 에러체크
+            // 6. 사용자 입력 좌표값이 0 이하일 경우 에러체크
             if userPoints[0] <= 0 || userPoints[1] <= 0 {
                 throw ErrorCase.lessNumPoint
             }
@@ -71,5 +77,5 @@ struct CheckingInput {
         pointValues.append((userPoints[0], userPoints[1]))
         return pointValues
     }
-    
-}
+ 
+    }

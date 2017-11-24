@@ -10,11 +10,12 @@ import Foundation
 
 struct FactoryMyPoint {
 
-    func makeMyPoint (_ pointValue: (x: Int,y: Int)) -> MyPoint {
-        //var myPoints : [MyPoint] = []
-        let myPoint = MyPoint(x: pointValue.x, y: pointValue.y)
-        //myPoints.append(myPoint)
-        return myPoint
+    func makeMyPoint (_ pointValues: [(Int, Int)]) -> [MyPoint] {
+        var myPoints : [MyPoint] = []
+        for pointValue in pointValues {
+        let myPoint = MyPoint(x: pointValue.0, y: pointValue.1)
+            myPoints.append(myPoint)
+        }
+        return myPoints
     }
-
 }
