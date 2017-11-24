@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct MyLine {
+struct MyLine: MyShape {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
+}
+
+extension MyLine {
+    func calculate() {
+        <#code#>
+    }
 }

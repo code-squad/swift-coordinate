@@ -15,6 +15,7 @@
 		E842E1C41FBEB70800EC5ACC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C31FBEB70800EC5ACC /* InputView.swift */; };
 		E842E1C61FBEB72100EC5ACC /* CheckingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */; };
 		E8AE63AE1FC3D0740025D111 /* FactoryMyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */; };
+		E8F7C6ED1FC808CE0065AD57 /* FactoryShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7C6EC1FC808CE0065AD57 /* FactoryShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		E842E1C31FBEB70800EC5ACC /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingInput.swift; sourceTree = "<group>"; };
 		E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMyPoint.swift; sourceTree = "<group>"; };
+		E8F7C6EC1FC808CE0065AD57 /* FactoryShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */,
 				E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */,
 				E8004D891FC6B1B500956D72 /* MyLine.swift */,
+				E8F7C6EC1FC808CE0065AD57 /* FactoryShape.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				E842E1C61FBEB72100EC5ACC /* CheckingInput.swift in Sources */,
 				E842E1C21FBEB6F500EC5ACC /* MyPoint.swift in Sources */,
 				E8AE63AE1FC3D0740025D111 /* FactoryMyPoint.swift in Sources */,
+				E8F7C6ED1FC808CE0065AD57 /* FactoryShape.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				E842E1C41FBEB70800EC5ACC /* InputView.swift in Sources */,
 				E8004D8A1FC6B1B500956D72 /* MyLine.swift in Sources */,
