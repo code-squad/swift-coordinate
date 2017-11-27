@@ -11,9 +11,19 @@
     - CheckingInput에 사용자가 (0,0)을 입력했을때의 에러케이스 추가함.
     - GenerateMyPoint를 Make - 로 바꿈. 
     - ChekingInput의 인스턴스 이름과 함수이름, main.swift에서의 리턴값 변수명을 문맥에맞게/중복이없게 변경함
-- 2017.11.23 - main.swift, CheckingInput수정, MyLine객체 추가
+- 2017.11.23 - step3 직선 입력과 출력 단계 시작 main.swift, CheckingInput수정, MyLine객체 추가
     - main.swift에서 에러 캐치하는 부분을 줄임. `let` `as` 키워드를 사용해서 같은 enum타입의 에러 케이스들이 여러 문장에서 중복되어서 사용되는 것을 줄임.
     - CheckingInput에 checkPointNums()함수를 추가해서 복수의 좌표가 입력되는 상황을 추가. 에러체크하는 부분도 복수의 좌표값을 받아서 체크하고 정상값을 리턴해야하기 때문에 `[String]` 타입을 받아서 에러처리하고 `[(Int,Int)]`타입을 리턴.
     - MyPoint객체를 두 개 가지고있는 MyLine객체를 추가.
+    - 2017.11.24 ~ 25 - FactoryShape객체 추가, FactoryMyPoint객체의 리턴값 변경, OutputView의 drawPoint() 수정, MyLine객체 수정, CheckingInput에러처리 케이스 추가
+        - FactoryShape에 MyShape 프로토콜을 정의해서 어떤 도형이나 직선을 입력받더라도 MyShape객체로 묶음 (MyPoint와 MyLine은 MyShape를 준수함)
+        - FactoryMyPoint는 좌표점의 수에 따라 `[MyPoint]`를 리턴
+        - drawPoint() 또한 `[MyPoint]`수에 따라 print하는 private함수를 호출
+        - 각 도형의 객체는 해당하는 도형의 계산식을 구현하는 함수가 있다. MyLine객체도 두 점 사이의 거리를 계산하는 함수 있음.
+    - 2017.11.27 - CheckingInput의 checkError()수정, MyLine calculate() 수정, 유닛테스트 추가
+        - checkError()에서 Mypoint객체를 만들기 위한 `[(Int,Int)]`를 추가하는 과정에서 마지막 값만 좌표값으로 추가되는 문제 (`for`문 scope밖에서 `.append`를 했던 문제..) 수정.
+        - calculate() 함수에서 절대값을 구하는 프로퍼티 `magnitude`사용.
+        - 첫번째 에러를 디버깅하는 용도로 여러 유닛테스트 코드 추가... 해결!
 
+        
 

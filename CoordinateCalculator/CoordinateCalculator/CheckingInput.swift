@@ -20,8 +20,9 @@ struct CheckingInput {
     let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
     
     func checkPointNums (_ inputValue: String?) throws -> [String] {
-        let userInput = inputValue ?? ""
-        var pointsForShapes : [String] = []
+        //let userInput = inputValue ?? ""
+        guard let userInput = inputValue else { return [] }
+        var inputPoints : [String] = []
         
         // 1. 사용자 입력이 공백일 경우 에러체크
         if userInput == "" {
@@ -33,26 +34,26 @@ struct CheckingInput {
         if !filter.isEmpty {
             throw ErrorCase.wrongForm
         }
-        
+       
         // "-"의 유무에 따라서 입력좌표 리스트 구하기
         if userInput.contains("-") {
            let points = userInput.split(separator: "-")
-            pointsForShapes = points.map({(value: String.SubSequence) -> String in String(value)})
+            inputPoints = points.map({(value: String.SubSequence) -> String in String(value)})
         } else {
-            pointsForShapes.append(userInput)
+            inputPoints.append(userInput)
         }
         
         // 3. 입력한 좌표가 공백일 경우 에러체크 - map이나 filter로 바꾸기
-        for point in pointsForShapes {
+        for point in inputPoints {
             if point == "" {
                 throw ErrorCase.emptyInput
             }
         }
-        return pointsForShapes
+        return inputPoints
     }
     
     func checkError (_ inputValues: [String]) throws -> [(Int, Int)] {
-        var pointValues : [(Int, Int)] = []
+        var checkedValues : [(Int, Int)] = []
         var userPoints : [Int] = []
         
         // 4. 사용자 입력이 (,) 형태가 아닐경우 에러체크, 형태가 맞다면 사용자 좌표값 MyPoint 매칭
@@ -73,9 +74,9 @@ struct CheckingInput {
             if userPoints[0] <= 0 || userPoints[1] <= 0 {
                 throw ErrorCase.lessNumPoint
             }
+            checkedValues.append((userPoints[0], userPoints[1]))
         }
-        pointValues.append((userPoints[0], userPoints[1]))
-        return pointValues
+        return checkedValues
     }
- 
-    }
+
+}
