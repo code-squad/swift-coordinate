@@ -8,16 +8,17 @@
 
 import Foundation
 
-// MYPoing객체에 get으로 입력된 좌표값이 연산되어 읽기전용 속성을 갖게함
-struct MyPoint {
+struct MyPoint:  MyShape{
+    var type: SyntaxChecker.Shape
+    
     private (set) var x = 0
     private (set) var y = 0
-
-    var coordinateOfXY: MyPoint {
-        get {
-            return MyPoint(x: self.x * 2 + 3, y:  abs(self.y - 24) + 1)
-        }
+    init(x: Int, y: Int) {
+        self.type = SyntaxChecker.Shape.point
+        self.x = x * 2 + 3
+        self.y = abs(y - 24) + 1
     }
     
+    
+    
 }
-
