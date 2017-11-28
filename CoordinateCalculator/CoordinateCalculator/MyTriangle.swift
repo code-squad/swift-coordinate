@@ -8,7 +8,7 @@
 
 import Foundation
 struct MyTriangle {
-
+    
     var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
@@ -17,9 +17,24 @@ struct MyTriangle {
         self.lineAB = MyLine(pointA: tripointA, pointB: tripointB) // MyLine의 프로퍼티 이름: init의 파라미터이름! pointA : trianglePointA, pointB : trianglePointB
         self.lineBC = MyLine(pointA: tripointB, pointB: tripointC)
         self.lineAC = MyLine(pointA: tripointA, pointB: tripointC)
-    }
-}
     
+    }
+
+    //var pointA = lineAB.pointA
+
+    func getPointA () -> MyPoint {
+       let pointA = lineAB.pointA
+        return pointA
+    }
+    
+    func getPointB () -> MyPoint {
+        let pointB = lineAB.pointB
+        return pointB
+    }
+
+}
+
+
 extension MyTriangle: MyShape, Result {
 
     func calculate() -> Double {
