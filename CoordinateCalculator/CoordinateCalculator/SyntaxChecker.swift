@@ -35,15 +35,15 @@ struct SyntaxChecker {
         }
     }
     
-    func checkedValue (_ input: String) throws -> Array<MyPoint> {
+    private func checkedValue (_ input: String) throws -> Array<MyPoint> {
         var userPoints : [MyPoint] = []
         let  temps = checkDashInInput(input)
         for index in temps {
-            guard let temp2 = checkValid(index) else { throw ErrorMessage.ofValueIsNotInt}
-            guard let temp = eliminateParenthesis(temp2) else { throw ErrorMessage.ofInValidInputedValue }
-            guard let validValues = splitInputValueByComma(temp) else { throw ErrorMessage.ofNonexistenceComma }
-            guard let valueOfInt = converToInt(validValues) else { throw ErrorMessage.ofExceedValidInput }
-            userPoints.append(valueOfInt)
+            guard let supportedValue = isSupportedValues(index) else { throw ErrorMessage.ofValueIsNotInt}
+            guard let valueWithoutParenthesis = eliminateParenthesis(supportedValue) else { throw ErrorMessage.ofInValidInputedValue }
+            guard let valueSplitedByComma = splitInputValueByComma(valueWithoutParenthesis) else { throw ErrorMessage.ofNonexistenceComma }
+            guard let checkedValue = converToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
+            userPoints.append(checkedValue)
         }
         return userPoints
     }
@@ -58,7 +58,7 @@ struct SyntaxChecker {
         return temp
     }
     
-    private func checkValid (_ input: String) -> String? {
+    private func isSupportedValues (_ input: String) -> String? {
         let supportedCharacters = CharacterSet.init(charactersIn: "-(),0123456789")
         let filteredValue = input.trimmingCharacters(in: supportedCharacters)
         guard filteredValue.isEmpty else { return nil }
