@@ -9,6 +9,12 @@
 import Foundation
 
 struct SyntaxChecker {
+    
+    enum Shape {
+        case point
+        case line
+    }
+    
     enum ErrorMessage: String, Error {
         case ofInValidInputedValue = "(x,y)형태로 입력해야 합니다."
         case ofNonexistenceComma = "x와 y의 값은 콤마로 구분되어야 합니다."
@@ -17,16 +23,43 @@ struct SyntaxChecker {
         case ofUnKnownError = "알려지지 않은 에러입니다. 관리자에게 문의하세요."
     }
     
-    func makeCheckedValues (_ input: String) throws -> MyPoint {
-        guard let temp = eliminateParenthesis(input) else { throw ErrorMessage.ofInValidInputedValue }
-        guard let validValues = splitInputValueByComma(temp) else { throw ErrorMessage.ofNonexistenceComma }
-        guard let valueOfInt = converToInt(validValues) else { throw ErrorMessage.ofValueIsNotInt}
-        guard isLessThanLimit(valueOfInt) else { throw ErrorMessage.ofExceedValidInput}
-        let myPoint = MyPoint(x: valueOfInt[0], y: valueOfInt[1])
-        return myPoint
+    func makeCheckedValues (_ input: String) throws -> MyShape {
+        var userPoints : [MyPoint] = []
+        let  temps = checkDashInInput(input)
+        for index in temps {
+            guard let temp2 = checkValid(index) else { throw ErrorMessage.ofValueIsNotInt}
+            guard let temp = eliminateParenthesis(temp2) else { throw ErrorMessage.ofInValidInputedValue }
+            guard let validValues = splitInputValueByComma(temp) else { throw ErrorMessage.ofNonexistenceComma }
+            guard let valueOfInt = converToInt(validValues) else { throw ErrorMessage.ofExceedValidInput }
+            userPoints.append(valueOfInt)
+        }
+        if userPoints.count == 1 {
+            print(userPoints)
+            return userPoints[0]
+        } else if userPoints.count == 2 {
+            return MyLine(pointA: userPoints[0], pointB: userPoints[1])
+        } else {
+            throw ErrorMessage.ofUnKnownError
+        }
     }
     
-    // 좌우 괄호 제거 : 입력형태가 잘못됐다면 nil반환
+    private func checkDashInInput (_ input: String) -> Array<String> {
+        var temp = Array<String>()
+        if input.contains("-") {
+            temp = input.split(separator: "-").map(String.init)
+        } else {
+            temp.append(input)
+        }
+        return temp
+    }
+    
+    private func checkValid (_ input: String) -> String? {
+        let supportedCharacters = CharacterSet.init(charactersIn: "-(),0123456789")
+        let filteredValue = input.trimmingCharacters(in: supportedCharacters)
+        guard filteredValue.isEmpty else { return nil }
+        return input
+    }
+    
     private func eliminateParenthesis (_ input: String) -> String? {
         var input = input
         if input.contains("(") && input.contains(")") {
@@ -37,7 +70,6 @@ struct SyntaxChecker {
         }
     }
     
-    // 콤마가 있는지 체크하고 콤마가 있다면 콤마기준으로 배열로 나눠서 저장, 없다면 nil반환
     private func splitInputValueByComma (_ input: String) -> Array<String>? {
         var temp = Array<String>()
         guard input.contains(",") else { return nil }
@@ -45,20 +77,11 @@ struct SyntaxChecker {
         return temp
     }
     
-    // flatmap사용해서 인트로변환이 안되면 배열의 길이가 달라지게 해서, 길이가 같지 않다면 nil 반환
-    private func converToInt (_ input: Array<String>) -> Array<Int>? {
+    private func converToInt (_ input: Array<String>) -> MyPoint? {
         let temp = input.flatMap{ tempValue in Int(tempValue) }
-        if temp.count != input.count {
-            return nil
+        for index in 0 ..< temp.count {
+            guard temp[index] <= 24 else { return nil }
         }
-        return temp
-    }
-    
-    // 24를 초과했는지 체크해서 불값 리턴(초과하지 않으면 트루, 초과하면 폴스)
-    private func isLessThanLimit (_ input: Array<Int>) -> Bool {
-        for index in 0 ..< input.count {
-            guard input[index] <= 24 else { return false }
-        }
-        return true
+        return MyPoint(x: temp[0], y: temp[1])
     }
 }

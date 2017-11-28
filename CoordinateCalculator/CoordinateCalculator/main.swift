@@ -2,7 +2,7 @@
 //  main.swift
 //  CoordinateCalculator
 //
-//  Created by JK on 09/10/2017.
+//  Created by Choi Jeong Hoon on 2017. 11. 27..
 //  Copyright © 2017 Codesquad Inc. All rights reserved.
 //
 
@@ -15,10 +15,11 @@ while (true) {
             break
         }
         let checkedValue = try SyntaxChecker().makeCheckedValues(inputValue)
-        OutputView.drawPoint(checkedValue)
+        OutputView().printShape(checkedValue)
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
     } catch {
         print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
     }
 }
+

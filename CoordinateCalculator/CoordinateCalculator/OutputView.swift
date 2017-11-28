@@ -2,24 +2,45 @@
 //  OutputView.swift
 //  CoordinateCalculator
 //
-//  Created by Choi Jeong Hoon on 2017. 11. 16..
+//  Created by Choi Jeong Hoon on 2017. 11. 27..
 //  Copyright © 2017년 Codesquad Inc. All rights reserved.
 //
 
 import Foundation
 
 struct OutputView {
-    static func drawAxis () {
+    
+    func printShape (_ input: MyShape) {
+        deleteAxis()
+        drawAxis()
+        switch input {
+        case  is MyPoint :
+            drawPoint(myPoint: input as! MyPoint)
+        case is MyLine :
+            drawLine(myLine: input as! MyLine)
+            printDistancesBetweenPoints(myLine: input as! MyLine)
+        default :
+            print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
+        }
+        print("\(ANSICode.cursor.move(row: 27, col: 0))")
+    }
+    
+    private func drawPoint(myPoint: MyPoint) {
+        print("\(ANSICode.cursor.move(row: myPoint.y , col: myPoint.x))\(ANSICode.text.greenBright).")
+    }
+    private func drawLine(myLine: MyLine) {
+        print("\(ANSICode.cursor.move(row: myLine.pointA.y, col: myLine.pointA.x))\(ANSICode.text.greenBright).\(ANSICode.cursor.move(row: myLine.pointB.y, col: myLine.pointB.x))\(ANSICode.text.greenBright).")
+    }
+    
+    private func printDistancesBetweenPoints(myLine: MyLine) {
+        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)두점 사이의 거리는 \(myLine.calculateOfLength()) 입니다.")
+    }
+    
+    private func drawAxis () {
         print("\(ANSICode.text.cyan)\(ANSICode.axis.draw())")
     }
     
-    static func deleteAxis () {
+    private func deleteAxis () {
         print("\(ANSICode.clear)\(ANSICode.home)")
-    }
-    static func drawPoint (_ input: MyPoint) {
-        deleteAxis()
-        drawAxis()
-        print("\(ANSICode.cursor.move(row: input.coordinateOfXY.y, col: input.coordinateOfXY.x))\(ANSICode.text.redBright).")
-        print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
 }

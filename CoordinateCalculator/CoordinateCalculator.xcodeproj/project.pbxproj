@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32067191FC6ABA5003CE6F3 /* MyLine.swift */; };
+		C320671C1FC6C760003CE6F3 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320671B1FC6C760003CE6F3 /* MyShape.swift */; };
 		C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
 		C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
 		C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
@@ -31,6 +33,8 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		C32067191FC6ABA5003CE6F3 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		C320671B1FC6C760003CE6F3 /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
 		C327CFCB1FBD79CF00C7B33A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C327CFF41FC2A8A700C7B33A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C327CFF61FC2A8B300C7B33A /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -71,7 +75,9 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				C327CFF41FC2A8A700C7B33A /* InputView.swift */,
 				C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */,
+				C320671B1FC6C760003CE6F3 /* MyShape.swift */,
 				C327CFF61FC2A8B300C7B33A /* MyPoint.swift */,
+				C32067191FC6ABA5003CE6F3 /* MyLine.swift */,
 				C327CFCB1FBD79CF00C7B33A /* OutputView.swift */,
 			);
 			path = CoordinateCalculator;
@@ -140,7 +146,9 @@
 				C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */,
+				C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */,
 				C327CFF91FC2B53A00C7B33A /* SyntaxChecker.swift in Sources */,
+				C320671C1FC6C760003CE6F3 /* MyShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
