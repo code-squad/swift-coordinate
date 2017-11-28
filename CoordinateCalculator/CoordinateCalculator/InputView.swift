@@ -16,7 +16,7 @@ struct InputView {
          2. 점두개 : (12,24)-(14,20)
          """)
         if let coordinates = readLine() {
-            guard coordinates.contains("q") || coordinates.contains("quit") else { return coordinates}
+            guard coordinates.contains("q")  else { return coordinates}
         }
         return "q"
     }
