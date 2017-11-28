@@ -19,8 +19,8 @@ var myPoints : [MyPoint]
 let userInput = inputView.readInput()
 
 do {
-    let checkedInput = try checking.checkPointNums(userInput)
-    let checkedPoints = try checking.checkError(checkedInput)
+    let checkedInput = try checking.checkUserInput(userInput)
+    let checkedPoints = try checking.checkEachPoints(checkedInput)
     myPoints = factoryPoint.makeMyPoint(checkedPoints)
     myShape = factoryShape.makeShape(myPoints)
     
