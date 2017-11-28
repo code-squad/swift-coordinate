@@ -19,6 +19,7 @@ struct MyLine: MyShape {
         self.pointB = pointB
     }
     
+    // 좌표간의 거리를 MyLine구조체에 추가
     func calculateOfLength() -> Double {
         let firstPoint = pow(Double(abs(pointA.x - pointB.x)), 2)
         let secondPoint = pow(Double(abs(pointA.y - pointB.y)), 2)

@@ -10,6 +10,7 @@ import Foundation
 
 struct OutputView {
     
+    // MyShape객체를 받아 해당 객체의 타입을 분류하여 타입에 맞는 케이스를 출력하는 함수
     func printShape (_ input: MyShape) {
         deleteAxis()
         drawAxis()
@@ -25,13 +26,17 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: 27, col: 0))")
     }
     
+    // 포인트를 출력하는 함수
     private func drawPoint(myPoint: MyPoint) {
         print("\(ANSICode.cursor.move(row: myPoint.y , col: myPoint.x))\(ANSICode.text.greenBright).")
     }
+    
+    // 라인을 출력하는 함수
     private func drawLine(myLine: MyLine) {
         print("\(ANSICode.cursor.move(row: myLine.pointA.y, col: myLine.pointA.x))\(ANSICode.text.greenBright).\(ANSICode.cursor.move(row: myLine.pointB.y, col: myLine.pointB.x))\(ANSICode.text.greenBright).")
     }
     
+    // 거리를 출력하는 함수
     private func printDistancesBetweenPoints(myLine: MyLine) {
         print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)두점 사이의 거리는 \(myLine.calculateOfLength()) 입니다.")
     }
