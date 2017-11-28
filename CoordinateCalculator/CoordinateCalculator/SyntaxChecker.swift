@@ -23,7 +23,19 @@ struct SyntaxChecker {
         case ofUnKnownError = "알려지지 않은 에러입니다. 관리자에게 문의하세요."
     }
     
-    func makeCheckedValues (_ input: String) throws -> [MyShape] {
+    func makeCheckedValues (_ input: String) throws -> MyShape {
+        var userPoints = try checkedValue(input)
+        if userPoints.count == 1 {
+            print(userPoints)
+            return userPoints[0]
+        } else if userPoints.count == 2 {
+            return MyLine(pointA: userPoints[0], pointB: userPoints[1])
+        } else {
+            throw ErrorMessage.ofUnKnownError
+        }
+    }
+    
+    func checkedValue (_ input: String) throws -> Array<MyPoint> {
         var userPoints : [MyPoint] = []
         let  temps = checkDashInInput(input)
         for index in temps {
@@ -34,15 +46,6 @@ struct SyntaxChecker {
             userPoints.append(valueOfInt)
         }
         return userPoints
-    }
-    
-    func createShape (_ userPoints: [MyShape]) -> MyShape {
-        if userPoints.count == 1 {
-            print(userPoints)
-            return userPoints[0]
-        } else  {
-            return MyLine(pointA: userPoints[0] as! MyPoint, pointB: userPoints[1] as! MyPoint)
-        }
     }
     
     private func checkDashInInput (_ input: String) -> Array<String> {
