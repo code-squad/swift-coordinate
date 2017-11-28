@@ -12,44 +12,44 @@ import XCTest
 class CoorinateCalculatorUnitTest: XCTestCase {
     
     func testcheckIsSupportedValuesMethod () {
-        let input = "(aa,gg)-(ㄹㄹ-20)"
-        XCTAssertThrowsError(try SyntaxChecker().checkValue(input))
+        let unSupportedValue = "(aa,gg)-(ㄹㄹ-20)"
+        XCTAssertThrowsError(try SyntaxChecker().checkValue(unSupportedValue))
     }
     
     func testEliminateParenthesisMethod () {
-        let input = "(15,25-12-20)"
-        XCTAssertThrowsError(try SyntaxChecker().checkValue(input))
+        let withoutParenthesis = "(15,25-12-20)"
+        XCTAssertThrowsError(try SyntaxChecker().checkValue(withoutParenthesi))
     }
     
     func testsplitInputValueByCommaMethod () {
-        let input = "(15 25)-(12-20)"
-        XCTAssertThrowsError(try SyntaxChecker().checkValue(input))
+        let withoutComma = "(15 25)-(12-20)"
+        XCTAssertThrowsError(try SyntaxChecker().checkValue(withoutComma))
     }
     
     func testOfExceedValidInput () {
-        let input = "(15,25)-(12-20)"
-        XCTAssertThrowsError(try SyntaxChecker().checkValue(input))
+        let exceedNum = "(15,25)-(12-20)"
+        XCTAssertThrowsError(try SyntaxChecker().checkValue(exceedNum))
     }
     
     func testIsSuccessMakingMyPointInstance () {
-        let inputValue = "(24,10)-(15,10)"
-        let splitInputValue = try! SyntaxChecker().checkValue(inputValue)
-        XCTAssertNotNil(splitInputValue)
+        let valinInputValue = "(24,10)-(15,10)"
+        let instanceOfMyPoint = try! SyntaxChecker().checkValue(valinInputValue)
+        XCTAssertNotNil(instanceOfMyPoint)
     }
     
-    func test () {
+    func testPointCoordinate () {
         let input = ["11","12"]
-        let x = Int(input[0])! * 2 + 3
-        let y = abs(Int(input[1])! - 24) + 1
-        let inputValue = SyntaxChecker().converToInt(input)!
-        XCTAssertEqual(inputValue.x, x)
-        XCTAssertEqual(inputValue.y, y)
+        let testX = Int(input[0])! * 2 + 3
+        let testY = abs(Int(input[1])! - 24) + 1
+        let computedValue = SyntaxChecker().converToInt(input)!
+        XCTAssertEqual(computedValue.x, testX)
+        XCTAssertEqual(computedValue.y, testY)
     }
     
     func testIsSuccessMakingMyShapeInstance () {
-        let inputValue = "(24,10)-(15,10)"
-        let splitInputValue = try! SyntaxChecker().makeCheckedValues(inputValue)
-        XCTAssertNotNil(splitInputValue)
+        let valinInputValue = "(24,10)-(15,10)"
+        let instanceOfMyShape = try! SyntaxChecker().makeCheckedValues(valinInputValue)
+        XCTAssertNotNil(instanceOfMyShape)
     }
 }
 
