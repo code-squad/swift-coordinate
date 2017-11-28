@@ -47,7 +47,6 @@ struct SyntaxChecker {
             guard let checkedValue = converToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
             userPoints.append(checkedValue)
         }
-        print(userPoints)
         return userPoints
     }
     
@@ -95,7 +94,6 @@ struct SyntaxChecker {
         for index in 0 ..< temp.count {
             guard temp[index] <= 24 else { return nil }
         }
-        print(MyPoint(x: temp[0], y: temp[1]))
         return MyPoint(x: temp[0], y: temp[1])
     }
 }
