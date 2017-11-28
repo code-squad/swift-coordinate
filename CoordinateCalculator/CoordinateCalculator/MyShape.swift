@@ -8,6 +8,7 @@
 
 import Foundation
 
+// line과 point를 타입으로 갖는 프로토콜 선언
 protocol MyShape {
     var type: SyntaxChecker.Shape { get set }
 }
