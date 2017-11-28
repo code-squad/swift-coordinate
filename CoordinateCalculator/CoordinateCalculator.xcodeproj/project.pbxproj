@@ -16,6 +16,14 @@
 		C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
 		C327CFF91FC2B53A00C7B33A /* SyntaxChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */; };
 		C361D7881FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D7871FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift */; };
+		C361D7901FCD2CE300DBD926 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		C361D7911FCD2CE300DBD926 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		C361D7921FCD2CE300DBD926 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
+		C361D7931FCD2CE300DBD926 /* SyntaxChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */; };
+		C361D7941FCD2CE300DBD926 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320671B1FC6C760003CE6F3 /* MyShape.swift */; };
+		C361D7951FCD2CE300DBD926 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
+		C361D7961FCD2CE300DBD926 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32067191FC6ABA5003CE6F3 /* MyLine.swift */; };
+		C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -210,6 +218,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C361D7901FCD2CE300DBD926 /* ANSICode.swift in Sources */,
+				C361D7911FCD2CE300DBD926 /* main.swift in Sources */,
+				C361D7921FCD2CE300DBD926 /* InputView.swift in Sources */,
+				C361D7931FCD2CE300DBD926 /* SyntaxChecker.swift in Sources */,
+				C361D7941FCD2CE300DBD926 /* MyShape.swift in Sources */,
+				C361D7951FCD2CE300DBD926 /* MyPoint.swift in Sources */,
+				C361D7961FCD2CE300DBD926 /* MyLine.swift in Sources */,
+				C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */,
 				C361D7881FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
