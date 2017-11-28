@@ -20,7 +20,7 @@ struct CheckingInput {
     
     let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
     
-    func checkPointNums (_ inputValue: String?) throws -> [String] {
+    func checkUserInput (_ inputValue: String?) throws -> [String] {
         //let userInput = inputValue ?? ""
         guard let userInput = inputValue else { return [] }
         var inputPoints : [String] = []
@@ -53,7 +53,7 @@ struct CheckingInput {
         return inputPoints
     }
     
-    func checkError (_ inputValues: [String]) throws -> [(Int, Int)] {
+    func checkEachPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
         var checkedValues : [(Int, Int)] = []
         var userPoints : [Int] = []
         

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct MyTriangle: MyShape {
+struct MyTriangle {
 
     var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
@@ -18,7 +18,10 @@ struct MyTriangle: MyShape {
         self.lineBC = MyLine(pointA: tripointB, pointB: tripointC)
         self.lineAC = MyLine(pointA: tripointA, pointB: tripointC)
     }
+}
     
+extension MyTriangle: MyShape, Result {
+
     func calculate() -> Double {
         let lengthAB = lineAB.calculate()
         let lengthBC = lineBC.calculate()
@@ -30,6 +33,9 @@ struct MyTriangle: MyShape {
         
         return triSquare
     }
-    
-   
+ 
+    func messageByShape() -> String {
+        return "삼각형의 넓이는? -> "
+    }
+
 }
