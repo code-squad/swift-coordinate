@@ -19,6 +19,7 @@ struct FactoryMyShape {
     }
 }
 
+
 protocol MyShape {
     func calculate() -> Double
 }

@@ -15,6 +15,8 @@ struct FactoryMyPoint {
         
         for pointValue in pointValues {
             let myPoint = MyPoint(x: pointValue.0, y: pointValue.1)
+            
+            
             myPoints.append(myPoint)
         }
         return myPoints
