@@ -15,6 +15,7 @@ struct CheckingInput {
         case wrongForm = "입력 형태는 (x,y)-(x,y)입니다."
         case overNumPoint = "좌표값은 24이하로 입력하세요."
         case lessNumPoint = "좌표값은 0이상으로 입력하세요."
+        //case samePoints = "같은 좌표값을 입력할 수 없습니다."
     }
     
     let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
