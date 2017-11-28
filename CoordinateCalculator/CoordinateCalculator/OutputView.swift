@@ -14,10 +14,10 @@ struct OutputView {
         deleteAxis()
         drawAxis()
         switch input {
-        case  is MyPoint :
-            drawPoint(myPoint: input as! MyPoint)
-        case is MyLine :
-            drawLine(myLine: input as! MyLine)
+        case  let point as MyPoint :
+            drawPoint(myPoint: point)
+        case let line as MyLine :
+            drawLine(myLine: line)
             printDistancesBetweenPoints(myLine: input as! MyLine)
         default :
             print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
