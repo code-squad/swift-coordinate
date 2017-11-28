@@ -41,8 +41,8 @@ struct SyntaxChecker {
         var userPoints : [MyPoint] = []
         let  temps = splitByDash(input)
         for index in temps {
-            guard let supportedValue = checkIsSupportedValues(index) else { throw ErrorMessage.ofValueIsNotInt}
-            guard let valueWithoutParenthesis = eliminateParenthesis(supportedValue) else { throw ErrorMessage.ofInValidInputedValue }
+            guard isSupportedValues(index) == true else { throw ErrorMessage.ofValueIsNotInt}
+            guard let valueWithoutParenthesis = eliminateParenthesis(index) else { throw ErrorMessage.ofInValidInputedValue }
             guard let valueSplitedByComma = splitInputValueByComma(valueWithoutParenthesis) else { throw ErrorMessage.ofNonexistenceComma }
             guard let myPoint = makePointInstance(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
             userPoints.append(myPoint)
@@ -62,11 +62,11 @@ struct SyntaxChecker {
     }
     
     // 지원하는 캐릭터인지 체크
-     private func checkIsSupportedValues (_ input: String) -> String? {
+     private func isSupportedValues (_ input: String) -> Bool {
         let supportedCharacters = CharacterSet.init(charactersIn: "-(),0123456789")
         let filteredValue = input.trimmingCharacters(in: supportedCharacters)
-        guard filteredValue.isEmpty else { return nil }
-        return input
+        guard filteredValue.isEmpty else { return false }
+        return true
     }
     
     // 문자열의 괄호를 제거
