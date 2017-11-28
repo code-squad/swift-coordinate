@@ -28,7 +28,6 @@ struct SyntaxChecker {
     func makeCheckedValues (_ input: String) throws -> MyShape {
         var userPoints = try checkValue(input)
         if userPoints.count == 1 {
-            print(userPoints)
             return userPoints[0]
         } else if userPoints.count == 2 {
             return MyLine(pointA: userPoints[0], pointB: userPoints[1])
@@ -38,7 +37,7 @@ struct SyntaxChecker {
     }
     
     // 값들을 체크하여 MyPoint 배열로 반환
-    private func checkValue (_ input: String) throws -> Array<MyPoint> {
+     func checkValue (_ input: String) throws -> Array<MyPoint> {
         var userPoints : [MyPoint] = []
         let  temps = splitByDash(input)
         for index in temps {
@@ -48,11 +47,12 @@ struct SyntaxChecker {
             guard let checkedValue = converToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
             userPoints.append(checkedValue)
         }
+        print(userPoints)
         return userPoints
     }
     
     // 대시를 체크하여 대시 기준으로 나눔
-    private func splitByDash (_ input: String) -> Array<String> {
+     private func splitByDash (_ input: String) -> Array<String> {
         var temp = Array<String>()
         if input.contains("-") {
             temp = input.split(separator: "-").map(String.init)
@@ -63,7 +63,7 @@ struct SyntaxChecker {
     }
     
     // 지원하는 캐릭터인지 체크
-    private func checkIsSupportedValues (_ input: String) -> String? {
+     private func checkIsSupportedValues (_ input: String) -> String? {
         let supportedCharacters = CharacterSet.init(charactersIn: "-(),0123456789")
         let filteredValue = input.trimmingCharacters(in: supportedCharacters)
         guard filteredValue.isEmpty else { return nil }
@@ -90,11 +90,12 @@ struct SyntaxChecker {
     }
     
     // 문자열로된 숫자를 인트로 바꿔서 MyPoint객체 생성
-    private func converToInt (_ input: Array<String>) -> MyPoint? {
+      func converToInt (_ input: Array<String>) -> MyPoint? {
         let temp = input.flatMap{ tempValue in Int(tempValue) }
         for index in 0 ..< temp.count {
             guard temp[index] <= 24 else { return nil }
         }
+        print(MyPoint(x: temp[0], y: temp[1]))
         return MyPoint(x: temp[0], y: temp[1])
     }
 }
