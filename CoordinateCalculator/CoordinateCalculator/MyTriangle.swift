@@ -20,7 +20,6 @@ struct MyTriangle {
     
     }
 
-    //var pointA = lineAB.pointA
 
     func getPointA () -> MyPoint {
        let pointA = lineAB.pointA
