@@ -22,5 +22,3 @@ while (true) {
         print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
     }
 }
-
-
