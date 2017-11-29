@@ -14,20 +14,22 @@ let outputView = OutputView()
 let factoryPoint = FactoryMyPoint()
 let factoryShape = FactoryMyShape()
 
-var myShape : MyShape
+var myShape : MyShape!
 var myPoints : [MyPoint]
-let userInput = inputView.readInput()
+var gameIsEnd = true
 
-do {
-    let checkedInput = try checking.checkUserInput(userInput)
-    let checkedPoints = try checking.checkEachPoints(checkedInput)
-    myPoints = factoryPoint.makeMyPoint(checkedPoints)
-    myShape = factoryShape.makeShape(myPoints)
-    
-    outputView.drawClear()
-    outputView.drawAxis()
-    outputView.drawPoint(myShape)
-} catch let error as CheckingInput.ErrorCase {
-    print (error.rawValue)
+while gameIsEnd {
+    let userInput = inputView.readInput()
+    do {
+        let checkedInput = try checking.checkUserInput(userInput)
+        let checkedPoints = try checking.checkEachPoints(checkedInput)
+        myPoints = factoryPoint.makeMyPoint(checkedPoints)
+        myShape = factoryShape.makeShape(myPoints)
+        gameIsEnd = false
+    } catch let error as CheckingInput.ErrorCase {
+        print (error.rawValue)
+    }
 }
-
+outputView.drawClear()
+outputView.drawAxis()
+outputView.drawPoint(myShape)
