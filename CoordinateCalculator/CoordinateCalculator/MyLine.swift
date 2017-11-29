@@ -12,7 +12,6 @@ struct MyLine: MyShape {
     var type: SyntaxChecker.Shape
     private (set) var pointA = MyPoint(x: 0, y: 0)
     private (set) var pointB = MyPoint(x: 0, y: 0)
-    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.type = SyntaxChecker.Shape.line
         self.pointA = pointA
@@ -25,6 +24,5 @@ struct MyLine: MyShape {
         let secondPoint = pow(Double(abs(pointA.y - pointB.y)), 2)
         return sqrt(firstPoint + secondPoint)
     }
-    
 }
 

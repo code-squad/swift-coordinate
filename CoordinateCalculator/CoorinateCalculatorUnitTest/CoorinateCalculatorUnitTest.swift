@@ -10,7 +10,6 @@ import XCTest
 @testable import CoordinateCalculator
 
 class CoorinateCalculatorUnitTest: XCTestCase {
-    
     func testcheckIsSupportedValuesMethod () {
         let unSupportedValue = "(aa,gg)-(ㄹㄹ-20)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(unSupportedValue))
@@ -52,5 +51,3 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertNotNil(instanceOfMyShape)
     }
 }
-
-

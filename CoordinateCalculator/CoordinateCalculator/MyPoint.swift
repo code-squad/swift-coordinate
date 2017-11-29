@@ -9,7 +9,7 @@
 import Foundation
 
 // 초기화 생성자를 통해 포인트의 좌표를 계산
-struct MyPoint:  MyShape{
+struct MyPoint: MyShape{
     var type: SyntaxChecker.Shape
     
     private (set) var x = 0

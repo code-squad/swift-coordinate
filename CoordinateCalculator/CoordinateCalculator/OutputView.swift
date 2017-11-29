@@ -19,7 +19,7 @@ struct OutputView {
             drawPoint(myPoint: point)
         case let line as MyLine :
             drawLine(myLine: line)
-            printDistancesBetweenPoints(myLine: input as! MyLine)
+            printDistancesBetweenPoints(myLine: line)
         default :
             print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
         }
