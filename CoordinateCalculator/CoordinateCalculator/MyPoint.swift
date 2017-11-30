@@ -14,6 +14,12 @@ struct MyPoint {
 }
 
 extension MyPoint: MyShape, Equatable {
+    
+    func getMyPoints() -> [MyPoint] {
+        let myPoints = [MyPoint(x: self.x, y: self.y)]
+        return myPoints
+    }
+    
     func inValidShape() -> Bool {
         return false
     }

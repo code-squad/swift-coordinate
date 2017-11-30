@@ -30,8 +30,6 @@
 		E8F7C6ED1FC808CE0065AD57 /* FactoryMyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */; };
 		E8F7CA4C1FCFDC80007C0C8B /* ShapeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */; };
 		E8F7CA4D1FCFDC84007C0C8B /* ShapeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */; };
-		E8F7CA501FCFEB21007C0C8B /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */; };
-		E8F7CA511FCFEB22007C0C8B /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,7 +60,6 @@
 		E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMyPoint.swift; sourceTree = "<group>"; };
 		E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMyShape.swift; sourceTree = "<group>"; };
 		E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeChecker.swift; sourceTree = "<group>"; };
-		E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +112,6 @@
 				E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */,
 				E80040231FCD223700FEC178 /* MyTriangle.swift */,
 				E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */,
-				E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -219,7 +215,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8F7CA501FCFEB21007C0C8B /* ErrorType.swift in Sources */,
 				E842E1C61FBEB72100EC5ACC /* InputChecker.swift in Sources */,
 				E842E1C21FBEB6F500EC5ACC /* MyPoint.swift in Sources */,
 				E8AE63AE1FC3D0740025D111 /* FactoryMyPoint.swift in Sources */,
@@ -238,7 +233,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8F7CA511FCFEB22007C0C8B /* ErrorType.swift in Sources */,
 				E8D2365E1FCBA19D00A26685 /* MyPoint.swift in Sources */,
 				E8B126DC1FCD346B004F481E /* MyTriangle.swift in Sources */,
 				E8F7CA4D1FCFDC84007C0C8B /* ShapeChecker.swift in Sources */,
