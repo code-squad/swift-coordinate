@@ -20,14 +20,12 @@ struct OutputView{
         for point in myPoints {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - point.y, col: (point.x * 2) + 3))\(ANSICode.text.dot)")
         }
-        
         print("\(ANSICode.text.cyanBright)\(ANSICode.cursor.move(row: 28, col: 3)) \(shape.messageByShape())\(shape.calculate())")
     }
     
     func drawAxis () {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
-
+    
 }
-
 
