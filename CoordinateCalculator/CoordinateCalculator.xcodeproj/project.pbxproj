@@ -14,22 +14,24 @@
 		E8071BE01FBD75AD004D5F17 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8071BDF1FBD75AD004D5F17 /* OutputView.swift */; };
 		E842E1C21FBEB6F500EC5ACC /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C11FBEB6F500EC5ACC /* MyPoint.swift */; };
 		E842E1C41FBEB70800EC5ACC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C31FBEB70800EC5ACC /* InputView.swift */; };
-		E842E1C61FBEB72100EC5ACC /* CheckingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */; };
+		E842E1C61FBEB72100EC5ACC /* InputChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C51FBEB72100EC5ACC /* InputChecker.swift */; };
 		E857AFAC1FCBD9C8005D66C4 /* UnitTestCoordinate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86672DF1FCB088400B6E36A /* UnitTestCoordinate2.swift */; };
 		E86672E61FCB09F000B6E36A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		E8AE63AE1FC3D0740025D111 /* FactoryMyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */; };
 		E8B126DB1FCD3468004F481E /* FactoryMyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */; };
 		E8B126DC1FCD346B004F481E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80040231FCD223700FEC178 /* MyTriangle.swift */; };
-		E8B126DE1FCD4BFB004F481E /* ResultMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B126DD1FCD4BFB004F481E /* ResultMessage.swift */; };
-		E8B126DF1FCD4C00004F481E /* ResultMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B126DD1FCD4BFB004F481E /* ResultMessage.swift */; };
 		E8D2365C1FCBA19200A26685 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		E8D2365D1FCBA19900A26685 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8071BDF1FBD75AD004D5F17 /* OutputView.swift */; };
 		E8D2365E1FCBA19D00A26685 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C11FBEB6F500EC5ACC /* MyPoint.swift */; };
 		E8D2365F1FCBA1A100A26685 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C31FBEB70800EC5ACC /* InputView.swift */; };
-		E8D236601FCBA1A500A26685 /* CheckingInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */; };
+		E8D236601FCBA1A500A26685 /* InputChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E1C51FBEB72100EC5ACC /* InputChecker.swift */; };
 		E8D236611FCBA1AA00A26685 /* FactoryMyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */; };
 		E8D236621FCBA1AD00A26685 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8004D891FC6B1B500956D72 /* MyLine.swift */; };
 		E8F7C6ED1FC808CE0065AD57 /* FactoryMyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */; };
+		E8F7CA4C1FCFDC80007C0C8B /* ShapeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */; };
+		E8F7CA4D1FCFDC84007C0C8B /* ShapeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */; };
+		E8F7CA501FCFEB21007C0C8B /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */; };
+		E8F7CA511FCFEB22007C0C8B /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,13 +55,14 @@
 		E8071BDF1FBD75AD004D5F17 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		E842E1C11FBEB6F500EC5ACC /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		E842E1C31FBEB70800EC5ACC /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingInput.swift; sourceTree = "<group>"; };
+		E842E1C51FBEB72100EC5ACC /* InputChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChecker.swift; sourceTree = "<group>"; };
 		E86672DD1FCB088400B6E36A /* UnitTestCoordinate2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestCoordinate2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86672DF1FCB088400B6E36A /* UnitTestCoordinate2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoordinate2.swift; sourceTree = "<group>"; };
 		E86672E11FCB088400B6E36A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMyPoint.swift; sourceTree = "<group>"; };
-		E8B126DD1FCD4BFB004F481E /* ResultMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMessage.swift; sourceTree = "<group>"; };
 		E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMyShape.swift; sourceTree = "<group>"; };
+		E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeChecker.swift; sourceTree = "<group>"; };
+		E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +109,13 @@
 				E8071BDF1FBD75AD004D5F17 /* OutputView.swift */,
 				E842E1C11FBEB6F500EC5ACC /* MyPoint.swift */,
 				E842E1C31FBEB70800EC5ACC /* InputView.swift */,
-				E842E1C51FBEB72100EC5ACC /* CheckingInput.swift */,
+				E842E1C51FBEB72100EC5ACC /* InputChecker.swift */,
 				E8AE63AD1FC3D0740025D111 /* FactoryMyPoint.swift */,
 				E8004D891FC6B1B500956D72 /* MyLine.swift */,
 				E8F7C6EC1FC808CE0065AD57 /* FactoryMyShape.swift */,
 				E80040231FCD223700FEC178 /* MyTriangle.swift */,
-				E8B126DD1FCD4BFB004F481E /* ResultMessage.swift */,
+				E8F7CA4B1FCFDC80007C0C8B /* ShapeChecker.swift */,
+				E8F7CA4E1FCFEACB007C0C8B /* ErrorType.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -215,16 +219,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E842E1C61FBEB72100EC5ACC /* CheckingInput.swift in Sources */,
+				E8F7CA501FCFEB21007C0C8B /* ErrorType.swift in Sources */,
+				E842E1C61FBEB72100EC5ACC /* InputChecker.swift in Sources */,
 				E842E1C21FBEB6F500EC5ACC /* MyPoint.swift in Sources */,
 				E8AE63AE1FC3D0740025D111 /* FactoryMyPoint.swift in Sources */,
 				E8F7C6ED1FC808CE0065AD57 /* FactoryMyShape.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				E80040241FCD223700FEC178 /* MyTriangle.swift in Sources */,
 				E842E1C41FBEB70800EC5ACC /* InputView.swift in Sources */,
-				E8B126DE1FCD4BFB004F481E /* ResultMessage.swift in Sources */,
 				E8004D8A1FC6B1B500956D72 /* MyLine.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				E8F7CA4C1FCFDC80007C0C8B /* ShapeChecker.swift in Sources */,
 				E8071BE01FBD75AD004D5F17 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,15 +238,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F7CA511FCFEB22007C0C8B /* ErrorType.swift in Sources */,
 				E8D2365E1FCBA19D00A26685 /* MyPoint.swift in Sources */,
 				E8B126DC1FCD346B004F481E /* MyTriangle.swift in Sources */,
+				E8F7CA4D1FCFDC84007C0C8B /* ShapeChecker.swift in Sources */,
 				E86672E61FCB09F000B6E36A /* main.swift in Sources */,
 				E8B126DB1FCD3468004F481E /* FactoryMyShape.swift in Sources */,
 				E8D2365C1FCBA19200A26685 /* ANSICode.swift in Sources */,
 				E8D2365F1FCBA1A100A26685 /* InputView.swift in Sources */,
-				E8B126DF1FCD4C00004F481E /* ResultMessage.swift in Sources */,
 				E8D2365D1FCBA19900A26685 /* OutputView.swift in Sources */,
-				E8D236601FCBA1A500A26685 /* CheckingInput.swift in Sources */,
+				E8D236601FCBA1A500A26685 /* InputChecker.swift in Sources */,
 				E8D236621FCBA1AD00A26685 /* MyLine.swift in Sources */,
 				E857AFAC1FCBD9C8005D66C4 /* UnitTestCoordinate2.swift in Sources */,
 				E8D236611FCBA1AA00A26685 /* FactoryMyPoint.swift in Sources */,

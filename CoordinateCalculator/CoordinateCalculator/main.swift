@@ -9,10 +9,11 @@
 import Foundation
 
 let inputView = InputView()
-let checking = CheckingInput()
+let inputChecker = InputChecker()
 let outputView = OutputView()
 let factoryPoint = FactoryMyPoint()
 let factoryShape = FactoryMyShape()
+let shapeChecker = ShapeChecker()
 
 var myShape : MyShape!
 var myPoints : [MyPoint]
@@ -21,12 +22,14 @@ var gameIsEnd = true
 while gameIsEnd {
     let userInput = inputView.readInput()
     do {
-        let checkedInput = try checking.checkUserInput(userInput)
-        let checkedPoints = try checking.checkEachPoints(checkedInput)
+        let checkedInput = try inputChecker.validateInput(userInput)
+        let checkedPoints = try inputChecker.filterValidPoints(checkedInput)
         myPoints = factoryPoint.makeMyPoint(checkedPoints)
-        myShape = factoryShape.makeShape(myPoints)
+        myShape = try shapeChecker.validShape(factoryShape.makeShape(myPoints))
         gameIsEnd = false
-    } catch let error as CheckingInput.ErrorCase {
+    } catch let error as ErrorType.InputCase {
+        print (error.rawValue)
+    } catch let error as ErrorType.ShapeCase {
         print (error.rawValue)
     }
 }

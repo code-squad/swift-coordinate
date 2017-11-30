@@ -8,31 +8,24 @@
 
 import Foundation
 
-struct CheckingInput {
-
-    enum ErrorCase: String, Error {
-        case emptyInput = "좌표값을 반드시 입력해주세요."
-        case wrongForm = "입력 형태는 (x,y)-(x,y)입니다."
-        case overNumPoint = "좌표값은 24이하로 입력하세요."
-        case lessNumPoint = "좌표값은 0이상으로 입력하세요."
-    }
+struct InputChecker {
     
     let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
     
-    func checkUserInput (_ inputValue: String?) throws -> [String] {
+    func validateInput (_ inputValue: String?) throws -> [String] {
         //let userInput = inputValue ?? ""
         guard let userInput = inputValue else { return [] }
         var inputPoints : [String] = []
         
         // 1. 사용자 입력이 공백일 경우 에러체크
         if userInput == "" {
-            throw ErrorCase.emptyInput
+            throw ErrorType.InputCase.emptyInput
         }
         
         // 2. CharacterSet에 있는 문자 이외의 것이 들어있는지 에러체크
         let filter = userInput.trimmingCharacters(in: validCharacters)
         if !filter.isEmpty {
-            throw ErrorCase.wrongForm
+            throw ErrorType.InputCase.wrongForm
         }
        
         // "-"의 유무에 따라서 입력좌표 리스트 구하기
@@ -46,13 +39,14 @@ struct CheckingInput {
         // 3. 입력한 좌표가 공백일 경우 에러체크 - map이나 filter로 바꾸기
         for point in inputPoints {
             if point == "" {
-                throw ErrorCase.emptyInput
+                throw ErrorType.InputCase.emptyInput
             }
         }
         return inputPoints
     }
     
-    func checkEachPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
+
+    func filterValidPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
         var checkedValues : [(Int, Int)] = []
         var userPoints : [Int] = []
         
@@ -63,16 +57,18 @@ struct CheckingInput {
                 if noBlanks.contains(",") {
                     userPoints = noBlanks.split(separator: ",").map({(value: String.SubSequence) -> Int in Int(value)!})
                 } else {
-                    throw ErrorCase.wrongForm }
+                    throw ErrorType.InputCase.wrongForm }
             } else {
-                throw ErrorCase.wrongForm }
+                throw ErrorType.InputCase.wrongForm }
+            
             // 5. 사용자 입력 좌표값이 24가 넘을경우 에러체크
             if userPoints[0] >= 24 || userPoints[1] >= 24 {
-                throw ErrorCase.overNumPoint
+                throw ErrorType.InputCase.overNumPoint
             }
+            
             // 6. 사용자 입력 좌표값이 0 이하일 경우 에러체크
             if userPoints[0] <= 0 || userPoints[1] <= 0 {
-                throw ErrorCase.lessNumPoint
+                throw ErrorType.InputCase.lessNumPoint
             }
             checkedValues.append((userPoints[0], userPoints[1]))
         }
