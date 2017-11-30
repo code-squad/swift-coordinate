@@ -15,6 +15,12 @@ struct MyLine {
 
 extension MyLine: MyShape, Equatable {
     
+    func getMyPoints() -> [MyPoint] {
+        let myPoints = [MyPoint(x: pointA.x, y: pointA.y),
+                        MyPoint(x: pointB.x, y: pointB.y)]
+        return myPoints
+    }
+    
     func inValidShape() -> Bool {
         if pointA == pointB {
             return true

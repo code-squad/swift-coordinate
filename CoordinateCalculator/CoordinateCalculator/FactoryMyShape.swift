@@ -10,6 +10,7 @@ import Foundation
 
 struct FactoryMyShape {
 
+    // [MyPoint]를 그대로 생성자에 넘기는걸 생각해보기
     func makeShape (_ myPoints: [MyPoint]) -> MyShape {
         switch myPoints.count {
         case 1: return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
@@ -20,11 +21,11 @@ struct FactoryMyShape {
     }
 }
 
-
 protocol MyShape {
     func calculate() -> Double
     func printPoints()
     func messageByShape() -> String
     func inValidShape() -> Bool
+    func getMyPoints() -> [MyPoint]
 }
 

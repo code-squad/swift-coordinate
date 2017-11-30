@@ -39,6 +39,12 @@ struct MyTriangle {
 
 
 extension MyTriangle: MyShape {
+    func getMyPoints() -> [MyPoint]  {
+        let myPoints = [MyPoint(x: getPointA().x, y: getPointA().y),
+                        MyPoint(x: getPointB().x, y: getPointB().y),
+                        MyPoint(x: getPointC().x, y: getPointC().y)]
+        return myPoints
+    }
 
     func inValidShape() -> Bool {
         if getPointA() == getPointB() || getPointB() == getPointC() || getPointA() == getPointC() {
