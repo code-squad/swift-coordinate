@@ -24,7 +24,6 @@
     - checkError()에서 Mypoint객체를 만들기 위한 `[(Int,Int)]`를 추가하는 과정에서 마지막 값만 좌표값으로 추가되는 문제 (`for`문 scope밖에서 `.append`를 했던 문제..) 수정.
     - calculate() 함수에서 절대값을 구하는 프로퍼티 `magnitude`사용.
     - 첫번째 에러를 디버깅하는 용도로 여러 유닛테스트 코드 추가... 해결!
-
 - 2017.11.28 - MyTriangle객체 구현, ResultMessage 프로토콜 구현, ,drawPoint수정, MyPoint에 Equatable프로토콜 구현.
   - 삼각형 좌표를 출력하고 삼각형의 넓이 구하는 기능 구현.
   - ResultMessage 프로토콜을 구현하고 각 도형 객체가 준수하게 설계해서, 도형마다 출력되는 결과 문장이 다르게 구현.
@@ -32,3 +31,10 @@
   - 좌표값 MyPoint를 여러개 입력받았을때 좌표값이 같을 에러를 대비해서 Equatable프로토콜을 준수하도록 코드를 추가함. 추후 `FactoryMyPoint`에서 `MyPoint`를 만들때 활용할 예정.
 - 2017.11.29 - main.swift에 while문 추가
   - 에러를 `catch`했을때 에러메시지를 출력하고 프로그램이 끝나는 것을 수정하기위해 반복문 추가.
+- 2017.11.30 - 에러케이스 추가, ShapeChecker객체 추가, Equatable프로토콜 구현, 게임종료옵션 추가, MyShape프로토콜 수정, drawPoint수정
+    - ShapeChecker를 추가하고 직선, 도형이 만들어지는 조건을 체크하는 로직을 추가.
+    - ShapeChecker에서 체크되는 새로운 에러 케이스들을 추가.
+    - 문자열 "quit"을 입력하면 게임이 종료되는 옵션 추가 (이로써 게임은 좌표를 옳은 값으로 입력해서 그래프까지 출력될때, 사용자가 "quit"을 입력했을때의 두 가지 종료조건을 갖는다)
+    - MyPoint와 MyLine에 Equatable프로토콜을 구현해서 직선과 도형 구조체에서 좌표값이나 직선값이 서로 같은지 판단하는데 사용하도록 개선.
+    - MyShape프로토콜에 getMyPoints() 함수 추가 구현. 각 도형 객체의 프로퍼티인 Mypoint값을 Array로 리턴
+    - MyShape타입의 getMyPoints를 이용해서, outputView에서는 MyShape만 가지고 좌표점을 출력하도록 개선.  
