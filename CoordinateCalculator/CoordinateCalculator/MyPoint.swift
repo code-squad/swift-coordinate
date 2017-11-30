@@ -14,8 +14,20 @@ struct MyPoint {
 }
 
 extension MyPoint: MyShape, Equatable {
+    func inValidShape() -> Bool {
+        return false
+    }
+    
    func calculate() -> Double {
-        return 0
+        return 0.0
+    }
+    
+    func printPoints() {
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - y, col: (x * 2) + 3))\(ANSICode.text.dot)")
+    }
+    
+    func messageByShape() -> String {
+        return "< 입력한 좌표점 : (\(x),\(y)) >"
     }
     
     static func == (pointA: MyPoint, pointB: MyPoint) -> Bool {

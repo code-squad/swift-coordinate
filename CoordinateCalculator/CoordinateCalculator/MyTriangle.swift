@@ -1,5 +1,5 @@
 //
-//  MyTriangle.swift/Users/jeonmijin/Documents/swift-coordinate/swift-coordinate/CoordinateCalculator/CoordinateCalculator/MyTriangle.swift
+//  MyTriangle.swift
 //  CoordinateCalculator
 //
 //  Created by YOUTH on 2017. 11. 28..
@@ -20,7 +20,6 @@ struct MyTriangle {
     
     }
 
-
     func getPointA () -> MyPoint {
        let pointA = lineAB.pointA
         return pointA
@@ -31,10 +30,32 @@ struct MyTriangle {
         return pointB
     }
 
+    func getPointC () -> MyPoint {
+        let pointC = lineBC.pointB
+        return pointC
+    }
+    
 }
 
 
-extension MyTriangle: MyShape, Result {
+extension MyTriangle: MyShape {
+
+    func inValidShape() -> Bool {
+        if getPointA() == getPointB() || getPointB() == getPointC() || getPointA() == getPointC() {
+            return true
+        }
+        if lineAB == lineBC || lineBC == lineAC || lineAB == lineAC{
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func printPoints() {
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - getPointA().y, col: (getPointA().x * 2) + 3))\(ANSICode.text.dot)") //tripointA
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - getPointB().y, col: (getPointB().x * 2) + 3))\(ANSICode.text.dot)") //tripointB
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - getPointC().y, col: (getPointC().x * 2) + 3))\(ANSICode.text.dot)") //tripointC
+    }
 
     func calculate() -> Double {
         let lengthAB = lineAB.calculate()
@@ -51,5 +72,6 @@ extension MyTriangle: MyShape, Result {
     func messageByShape() -> String {
         return "삼각형의 넓이는? -> "
     }
-
+    
+    
 }

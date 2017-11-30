@@ -13,7 +13,8 @@ struct FactoryMyShape {
     func makeShape (_ myPoints: [MyPoint]) -> MyShape {
         switch myPoints.count {
         case 1: return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
-        case 2: return MyLine(pointA: myPoints[0], pointB: myPoints[1])
+        case 2:
+            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         case 3: return MyTriangle(tripointA: myPoints[0], tripointB: myPoints[1], tripointC: myPoints[2])
         default: return MyPoint(x: myPoints[0].x, y: myPoints[0].y)}
     }
@@ -22,5 +23,8 @@ struct FactoryMyShape {
 
 protocol MyShape {
     func calculate() -> Double
+    func printPoints()
+    func messageByShape() -> String
+    func inValidShape() -> Bool
 }
 

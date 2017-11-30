@@ -13,7 +13,20 @@ struct MyLine {
     var pointB = MyPoint(x: 0, y: 0)
 }
 
-extension MyLine: MyShape, Result {
+extension MyLine: MyShape, Equatable {
+    
+    func inValidShape() -> Bool {
+        if pointA == pointB {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    func printPoints() {
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointA.y, col: (pointA.x * 2) + 3))\(ANSICode.text.dot)")
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointB.y, col: (pointB.x * 2) + 3))\(ANSICode.text.dot)")
+    }
 
     func calculate() -> Double {
         let subtractX = (pointA.x - pointB.x).magnitude
@@ -22,8 +35,12 @@ extension MyLine: MyShape, Result {
         let distance = sqrt(cal)
         return distance
     }
-    
+
     func messageByShape() -> String {
         return "두 점 사이의 거리는? -> "
+    }
+    
+    static func == (lineA: MyLine, lineB: MyLine) -> Bool {
+        return (lineA.pointA == lineB.pointA && lineA.pointB == lineB.pointB)
     }
 }
