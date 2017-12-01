@@ -35,19 +35,10 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let instanceOfMyPoint = try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
         XCTAssertNotNil(instanceOfMyPoint)
     }
-    
-    func testPointCoordinate () {
-        let input = ["11","12"]
-        let testX = Int(input[0])! * 2 + 3
-        let testY = abs(Int(input[1])! - 24) + 1
-        let computedValue = SyntaxChecker().makePointInstance(input)!
-        XCTAssertEqual(computedValue.x, testX)
-        XCTAssertEqual(computedValue.y, testY)
-    }
-    
+   
     func testIsSuccessMakingMyShapeInstance () {
         let valinInputValue = "(24,10)-(15,10)"
-        let instanceOfMyShape = try! SyntaxChecker().makeShapeInstance(valinInputValue)
+        let instanceOfMyShape = try! MakingMyShape().makeShapeInstance(valinInputValue)
         XCTAssertNotNil(instanceOfMyShape)
     }
 }

@@ -26,27 +26,27 @@ struct SyntaxChecker {
     
     // 값들을 체크하여 Int 배열로 반환
      func getErrorChekcedValue (_ input: String) throws -> Array<(Int, Int)> {
-        var checkedValues : [(Int, Int)] = []
-        let  temps = splitByDash(input)
-        for index in temps {
-            guard isSupportedValues(index) == true else { throw ErrorMessage.ofValueIsNotInt}
-            guard let valueWithoutParenthesis = eliminateParenthesis(index) else { throw ErrorMessage.ofInValidInputedValue }
+        var numericValues : [(Int, Int)] = []
+        let  stringCoords = splitByDash(input)
+        for stringCoord in stringCoords {
+            guard isSupportedValues(stringCoord) == true else { throw ErrorMessage.ofValueIsNotInt}
+            guard let valueWithoutParenthesis = eliminateParenthesis(stringCoord) else { throw ErrorMessage.ofInValidInputedValue }
             guard let valueSplitedByComma = splitInputValueByComma(valueWithoutParenthesis) else { throw ErrorMessage.ofNonexistenceComma }
-            guard let myPoint = convertToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
-            checkedValues.append((myPoint[0],myPoint[1]))
+            guard let numericValue = convertToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
+            numericValues.append(numericValue)
         }
-        return checkedValues
+        return numericValues
     }
     
     // 대시를 체크하여 대시 기준으로 나눔
      private func splitByDash (_ input: String) -> Array<String> {
-        var temp = Array<String>()
+        var stringCoords = Array<String>()
         if input.contains("-") {
-            temp = input.split(separator: "-").map(String.init)
+            stringCoords = input.split(separator: "-").map(String.init)
         } else {
-            temp.append(input)
+            stringCoords.append(input)
         }
-        return temp
+        return stringCoords
     }
     
     // 지원하는 캐릭터인지 체크
@@ -58,11 +58,11 @@ struct SyntaxChecker {
     }
     
     // 문자열의 괄호를 제거
-    private func eliminateParenthesis (_ input: String) -> String? {
-        var input = input
-        if input.contains("(") && input.contains(")") {
-            input = input.trimmingCharacters(in: ["(", ")"])
-            return input
+    private func eliminateParenthesis (_ stringCoord: String) -> String? {
+        let stringCoord = stringCoord
+        if stringCoord.contains("(") && stringCoord.contains(")") {
+            let valueWithoutParenthesis = stringCoord.trimmingCharacters(in: ["(", ")"])
+            return valueWithoutParenthesis
         } else {
             return nil
         }
@@ -70,18 +70,19 @@ struct SyntaxChecker {
     
     // 콤마 기준으로 나눔
     private func splitInputValueByComma (_ input: String) -> Array<String>? {
-        var temp = Array<String>()
+        var valueSplitedByComma = Array<String>()
         guard input.contains(",") else { return nil }
-        temp = input.split(separator: ",").map(String.init)
-        return temp
+        valueSplitedByComma = input.split(separator: ",").map(String.init)
+        return valueSplitedByComma
     }
     
     // 문자열로된 숫자를 인트로 바꿈
-      func convertToInt (_ input: Array<String>) -> Array<Int>? {
-        let temp = input.flatMap{ tempValue in Int(tempValue) }
-        for index in 0 ..< temp.count {
-            guard temp[index] <= 24 else { return nil }
+      func convertToInt (_ stringCoords: Array<String>) -> (Int, Int)? {
+        let intValues = stringCoords.flatMap{ stringValue in Int(stringValue) }
+        for index in 0 ..< intValues.count {
+            if intValues[index] > 24 { return nil }
         }
-        return temp
+        let numericValue = (intValues[0], intValues[1])
+        return numericValue
     }
 }
