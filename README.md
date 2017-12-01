@@ -38,3 +38,9 @@
     - MyPoint와 MyLine에 Equatable프로토콜을 구현해서 직선과 도형 구조체에서 좌표값이나 직선값이 서로 같은지 판단하는데 사용하도록 개선.
     - MyShape프로토콜에 getMyPoints() 함수 추가 구현. 각 도형 객체의 프로퍼티인 Mypoint값을 Array로 리턴
     - MyShape타입의 getMyPoints를 이용해서, outputView에서는 MyShape만 가지고 좌표점을 출력하도록 개선.  
+- 2017.12.01 - ResultByShape 프로토콜 구현, drawPoint()수정, 유효한 도형체크 함수 추가, main.swift수정
+    - ResultByShape 프로토콜 - 출력되는 결과값의 유무가 각 도형마다 달라서 MyShape가 결과 출력과 관련된 함수를 갖고있는게 적절치 않았음. 결과 출력을 하는 함수만 따로 ResultByShape에 정의하고 결과를 출력할 필요가 있는 도형객체만 준수하게 구현.
+    - drawPoint()함수의 파라미터는 프로토콜 컴포지션을 받는 것으로 수정. 좌표점을 찍는 기능과 결과메시지를 출력하는 기능 private 함수로 분리. 
+        - 결과메시지를 출력하는 기능은 프로토콜 컴포지션`(MyShape & ResultByShape)`로 파라미터를 받음 
+    - MyTriangle객체에 삼각형이 형성되는 조건 체크하는 기능 추가. MyPoint 프로퍼티를 연산형프로퍼티로 구성함 `getter`
+    - main.swift에서 `do-try-catch`를 에러가 발생하는 객체에 따라서 두 단락으로 분리
