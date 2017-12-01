@@ -51,7 +51,6 @@ struct InputChecker {
         }
         return inputPoints
     }
-    
 
     func filterValidPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
         var checkedValues : [(Int, Int)] = []

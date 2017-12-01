@@ -14,10 +14,10 @@ struct MyLine {
 }
 
 extension MyLine: MyShape, Equatable {
-    
-    func getMyPoints() -> [MyPoint] {
-        let myPoints = [MyPoint(x: pointA.x, y: pointA.y),
-                        MyPoint(x: pointB.x, y: pointB.y)]
+
+    func getMyPoints() -> [(Int,Int)] {
+        let myPoints = [(x: pointA.x, y: pointA.y),
+                        (x: pointB.x, y: pointB.y)]
         return myPoints
     }
     
@@ -28,6 +28,14 @@ extension MyLine: MyShape, Equatable {
             return false
         }
     }
+
+    static func == (lineA: MyLine, lineB: MyLine) -> Bool {
+        return (lineA.pointA == lineB.pointA && lineA.pointB == lineB.pointB)
+    }
+    
+}
+
+extension MyLine: ResultByShape {
 
     func calculate() -> Double {
         let subtractX = (pointA.x - pointB.x).magnitude
@@ -41,7 +49,5 @@ extension MyLine: MyShape, Equatable {
         return "두 점 사이의 거리는? -> "
     }
     
-    static func == (lineA: MyLine, lineB: MyLine) -> Bool {
-        return (lineA.pointA == lineB.pointA && lineA.pointB == lineB.pointB)
-    }
+    
 }

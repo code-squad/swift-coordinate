@@ -22,9 +22,12 @@ struct FactoryMyShape {
 }
 
 protocol MyShape {
-    func calculate() -> Double
-    func messageByShape() -> String
     func inValidShape() -> Bool
-    func getMyPoints() -> [MyPoint]
+    func getMyPoints() -> [(Int,Int)]
+}
+
+protocol ResultByShape {
+    func messageByShape() -> String
+    func calculate() -> Double
 }
 
