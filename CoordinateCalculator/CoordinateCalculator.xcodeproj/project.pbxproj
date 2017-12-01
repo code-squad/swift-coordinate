@@ -10,7 +10,6 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32067191FC6ABA5003CE6F3 /* MyLine.swift */; };
-		C320671C1FC6C760003CE6F3 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320671B1FC6C760003CE6F3 /* MyShape.swift */; };
 		C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
 		C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
 		C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
@@ -20,10 +19,11 @@
 		C361D7911FCD2CE300DBD926 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		C361D7921FCD2CE300DBD926 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
 		C361D7931FCD2CE300DBD926 /* SyntaxChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */; };
-		C361D7941FCD2CE300DBD926 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320671B1FC6C760003CE6F3 /* MyShape.swift */; };
 		C361D7951FCD2CE300DBD926 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
 		C361D7961FCD2CE300DBD926 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32067191FC6ABA5003CE6F3 /* MyLine.swift */; };
 		C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
+		C361D79E1FD14ABB00DBD926 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79D1FD14ABB00DBD926 /* MyShape.swift */; };
+		C361D7A01FD14B1F00DBD926 /* MakingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79F1FD14B1F00DBD926 /* MakingShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,7 +43,6 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		C32067191FC6ABA5003CE6F3 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
-		C320671B1FC6C760003CE6F3 /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
 		C327CFCB1FBD79CF00C7B33A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C327CFF41FC2A8A700C7B33A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C327CFF61FC2A8B300C7B33A /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -51,6 +50,8 @@
 		C361D7851FCD285500DBD926 /* CoorinateCalculatorUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoorinateCalculatorUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C361D7871FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoorinateCalculatorUnitTest.swift; sourceTree = "<group>"; };
 		C361D7891FCD285500DBD926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C361D79D1FD14ABB00DBD926 /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
+		C361D79F1FD14B1F00DBD926 /* MakingShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +97,9 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				C327CFF41FC2A8A700C7B33A /* InputView.swift */,
 				C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */,
-				C320671B1FC6C760003CE6F3 /* MyShape.swift */,
 				C327CFF61FC2A8B300C7B33A /* MyPoint.swift */,
+				C361D79D1FD14ABB00DBD926 /* MyShape.swift */,
+				C361D79F1FD14B1F00DBD926 /* MakingShape.swift */,
 				C32067191FC6ABA5003CE6F3 /* MyLine.swift */,
 				C327CFCB1FBD79CF00C7B33A /* OutputView.swift */,
 			);
@@ -210,7 +212,8 @@
 				C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */,
 				C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */,
 				C327CFF91FC2B53A00C7B33A /* SyntaxChecker.swift in Sources */,
-				C320671C1FC6C760003CE6F3 /* MyShape.swift in Sources */,
+				C361D79E1FD14ABB00DBD926 /* MyShape.swift in Sources */,
+				C361D7A01FD14B1F00DBD926 /* MakingShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +225,6 @@
 				C361D7911FCD2CE300DBD926 /* main.swift in Sources */,
 				C361D7921FCD2CE300DBD926 /* InputView.swift in Sources */,
 				C361D7931FCD2CE300DBD926 /* SyntaxChecker.swift in Sources */,
-				C361D7941FCD2CE300DBD926 /* MyShape.swift in Sources */,
 				C361D7951FCD2CE300DBD926 /* MyPoint.swift in Sources */,
 				C361D7961FCD2CE300DBD926 /* MyLine.swift in Sources */,
 				C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */,
