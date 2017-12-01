@@ -23,7 +23,8 @@ struct ShapeChecker {
             case is MyTriangle : throw ShapeCase.wrongTriangle
             default: throw ShapeCase.unexpected
             }
-        } else { return shape }
+        }
+        return shape
     }
     
 }

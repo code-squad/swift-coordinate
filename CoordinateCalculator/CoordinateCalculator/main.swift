@@ -16,6 +16,8 @@ let factoryShape = FactoryMyShape()
 let shapeChecker = ShapeChecker()
 
 var myShape : MyShape!
+var myShapeBeforeCheck : MyShape!
+var result : MyShape & ResultByShape
 var myPoints : [MyPoint]!
 var gameIsEnd = true
 
@@ -29,7 +31,8 @@ while gameIsEnd {
         let checkedInput = try inputChecker.validateInput(userInput)
         let checkedPoints = try inputChecker.filterValidPoints(checkedInput)
         myPoints = factoryPoint.makeMyPoint(checkedPoints)
-        myShape = try shapeChecker.validShape(factoryShape.makeShape(myPoints))
+        myShapeBeforeCheck = factoryShape.makeShape(myPoints)
+        myShape = try shapeChecker.validShape(myShapeBeforeCheck)
     } catch let error as InputChecker.InputCase {
         print (error.rawValue)
         continue

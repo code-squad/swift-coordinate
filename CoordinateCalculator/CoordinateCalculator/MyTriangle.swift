@@ -40,24 +40,29 @@ struct MyTriangle {
 }
 
 extension MyTriangle: MyShape {
-    func getMyPoints() -> [MyPoint]  {
-        let myPoints = [MyPoint(x: pointA.x, y: pointA.y),
-                        MyPoint(x: pointB.x, y: pointB.y),
-                        MyPoint(x: pointC.x, y: pointC.y)]
+    func getMyPoints() -> [(Int,Int)]  {
+        let myPoints = [(x: pointA.x, y: pointA.y),
+                        (x: pointB.x, y: pointB.y),
+                        (x: pointC.x, y: pointC.y)]
         return myPoints
     }
 
     func inValidShape() -> Bool {
+        let lengthOfLines = ([lineAB.calculate(), lineBC.calculate(), lineAC.calculate()]).sorted(by: >)
+        if lengthOfLines[0] > (lengthOfLines[1] + lengthOfLines[2]) {
+            return true
+        }
         if pointA == pointB || pointB == pointC || pointA == pointC {
             return true
         }
         if lineAB == lineBC || lineBC == lineAC || lineAB == lineAC{
             return true
-        } else {
-            return false
-        }
+        } else { return false }
     }
+}
 
+extension MyTriangle: ResultByShape {
+    
     func calculate() -> Double {
         let lengthAB = lineAB.calculate()
         let lengthBC = lineBC.calculate()
@@ -73,6 +78,5 @@ extension MyTriangle: MyShape {
     func messageByShape() -> String {
         return "삼각형의 넓이는? -> "
     }
-    
     
 }

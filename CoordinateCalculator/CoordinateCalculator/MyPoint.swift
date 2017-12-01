@@ -15,21 +15,13 @@ struct MyPoint {
 
 extension MyPoint: MyShape, Equatable {
     
-    func getMyPoints() -> [MyPoint] {
-        let myPoints = [MyPoint(x: self.x, y: self.y)]
+    func getMyPoints() -> [(Int,Int)] {
+        let myPoints = [(x: self.x, y: self.y)]
         return myPoints
     }
     
     func inValidShape() -> Bool {
         return false
-    }
-    
-   func calculate() -> Double {
-        return 0.0
-    }
-
-    func messageByShape() -> String {
-        return "< 입력한 좌표점 : (\(x),\(y)) >"
     }
     
     static func == (pointA: MyPoint, pointB: MyPoint) -> Bool {
