@@ -14,8 +14,8 @@ while (true) {
         if inputValue == "q" {
             break
         }
-        let checkedValue = try SyntaxChecker().makeShapeInstance(inputValue)
-        OutputView().printShape(checkedValue)
+        let values = try makingMyShape().makeShapeInstance(inputValue)
+        OutputView().printShape(values)
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
     } catch {

@@ -24,30 +24,18 @@ struct SyntaxChecker {
         case ofUnKnownError = "알려지지 않은 에러입니다. 관리자에게 문의하세요."
     }
     
-    // 체크된 값을 받아 Myshape객체 생성
-    func makeShapeInstance (_ input: String) throws -> MyShape {
-        var validValue = try getErrorChekcedValue(input)
-        if validValue.count == 1 {
-            return validValue[0]
-        } else if validValue.count == 2 {
-            return MyLine(pointA: validValue[0], pointB: validValue[1])
-        } else {
-            throw ErrorMessage.ofUnKnownError
-        }
-    }
-    
-    // 값들을 체크하여 MyPoint 배열로 반환
-     func getErrorChekcedValue (_ input: String) throws -> Array<MyPoint> {
-        var userPoints : [MyPoint] = []
+    // 값들을 체크하여 Int 배열로 반환
+     func getErrorChekcedValue (_ input: String) throws -> Array<(Int, Int)> {
+        var checkedValues : [(Int, Int)] = []
         let  temps = splitByDash(input)
         for index in temps {
             guard isSupportedValues(index) == true else { throw ErrorMessage.ofValueIsNotInt}
             guard let valueWithoutParenthesis = eliminateParenthesis(index) else { throw ErrorMessage.ofInValidInputedValue }
             guard let valueSplitedByComma = splitInputValueByComma(valueWithoutParenthesis) else { throw ErrorMessage.ofNonexistenceComma }
-            guard let myPoint = makePointInstance(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
-            userPoints.append(myPoint)
+            guard let myPoint = convertToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
+            checkedValues.append((myPoint[0],myPoint[1]))
         }
-        return userPoints
+        return checkedValues
     }
     
     // 대시를 체크하여 대시 기준으로 나눔
@@ -88,12 +76,12 @@ struct SyntaxChecker {
         return temp
     }
     
-    // 문자열로된 숫자를 인트로 바꿔서 MyPoint객체 생성
-      func makePointInstance (_ input: Array<String>) -> MyPoint? {
+    // 문자열로된 숫자를 인트로 바꿈
+      func convertToInt (_ input: Array<String>) -> Array<Int>? {
         let temp = input.flatMap{ tempValue in Int(tempValue) }
         for index in 0 ..< temp.count {
             guard temp[index] <= 24 else { return nil }
         }
-        return MyPoint(x: temp[0], y: temp[1])
+        return temp
     }
 }
