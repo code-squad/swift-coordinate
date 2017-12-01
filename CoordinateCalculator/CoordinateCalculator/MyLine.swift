@@ -29,11 +29,6 @@ extension MyLine: MyShape, Equatable {
         }
     }
 
-    func printPoints() {
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointA.y, col: (pointA.x * 2) + 3))\(ANSICode.text.dot)")
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointB.y, col: (pointB.x * 2) + 3))\(ANSICode.text.dot)")
-    }
-
     func calculate() -> Double {
         let subtractX = (pointA.x - pointB.x).magnitude
         let subtractY = (pointA.y - pointB.y).magnitude

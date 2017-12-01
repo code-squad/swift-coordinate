@@ -57,12 +57,6 @@ extension MyTriangle: MyShape {
             return false
         }
     }
-    
-    func printPoints() {
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointA.y, col: (pointA.x * 2) + 3))\(ANSICode.text.dot)") //tripointA
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointB.y, col: (pointB.x * 2) + 3))\(ANSICode.text.dot)") //tripointB
-        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: 25 - pointC.y, col: (pointC.x * 2) + 3))\(ANSICode.text.dot)") //tripointC
-    }
 
     func calculate() -> Double {
         let lengthAB = lineAB.calculate()
