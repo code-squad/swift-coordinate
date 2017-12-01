@@ -11,10 +11,10 @@ import Foundation
 struct OutputView {
     
     // MyShape객체를 받아 해당 객체의 타입을 분류하여 타입에 맞는 케이스를 출력하는 함수
-    func printShape (_ input: MyShape) {
+    func printShape (_ myShapes: MyShape) {
         deleteAxis()
         drawAxis()
-        switch input {
+        switch myShapes {
         case  let point as MyPoint :
             drawPoint(myPoint: point)
         case let line as MyLine :

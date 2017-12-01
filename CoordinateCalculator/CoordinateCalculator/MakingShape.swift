@@ -8,26 +8,27 @@
 
 import Foundation
 
-// line과 point를 타입으로 갖는 프로토콜 선언
+// MyShape객체를 생성하는 메소드를 갖는 구조체
 struct MakingMyShape {
+    
     func makeShapeInstance (_ input: String) throws -> MyShape {
-        let validValue = try SyntaxChecker().getErrorChekcedValue(input)
-        let temp = makePointInstance(validValue)
-        if validValue.count == 1 {
-            return temp[0]
-        } else if validValue.count == 2 {
-            return MyLine(pointA: temp[0], pointB: temp[1])
+        let numericValues = try SyntaxChecker().getErrorChekcedValue(input)
+        let myPoints = makePointInstance(numericValues)
+        if myPoints.count == 1 {
+            return myPoints[0]
+        } else if myPoints.count == 2 {
+            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         } else {
             throw SyntaxChecker.ErrorMessage.ofUnKnownError
         }
     }
     
-    private func makePointInstance (_ input: Array<(Int, Int)> ) ->  Array<MyPoint> {
-        var temp = Array<MyPoint>()
-        for index in input {
-            let tempPoint = MyPoint(x: index.0, y: index.1)
-            temp.append(tempPoint)
+    private func makePointInstance (_ numericValues: Array<(Int, Int)> ) ->  Array<MyPoint> {
+        var myPoints = Array<MyPoint>()
+        for numericValue in numericValues {
+            let myPoint = MyPoint(x: numericValue.0, y: numericValue.1)
+            myPoints.append(myPoint)
         }
-        return temp
+        return myPoints
     }
 }

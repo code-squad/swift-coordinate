@@ -10,12 +10,12 @@ import Foundation
 
 while (true) {
     do {
-        let inputValue = InputView().readInput()
-        if inputValue == "q" {
+        let stringCoords = InputView().readInput()
+        if stringCoords == "q" {
             break
         }
-        let values = try makingMyShape().makeShapeInstance(inputValue)
-        OutputView().printShape(values)
+        let shapes = try MakingMyShape().makeShapeInstance(stringCoords)
+        OutputView().printShape(shapes)
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
     } catch {
