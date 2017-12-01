@@ -27,15 +27,19 @@ while gameIsEnd {
         print("=== 게임 종료 ===")
         break
     }
+    let checkedInput : [String]
+    let checkedPoints : [(Int,Int)]
     do {
-        let checkedInput = try inputChecker.validateInput(userInput)
-        let checkedPoints = try inputChecker.filterValidPoints(checkedInput)
-        myPoints = factoryPoint.makeMyPoint(checkedPoints)
-        myShapeBeforeCheck = factoryShape.makeShape(myPoints)
-        myShape = try shapeChecker.validShape(myShapeBeforeCheck)
+        checkedInput = try inputChecker.validateInput(userInput)
+        checkedPoints = try inputChecker.filterValidPoints(checkedInput)
     } catch let error as InputChecker.InputCase {
         print (error.rawValue)
         continue
+    }
+    myPoints = factoryPoint.makeMyPoint(checkedPoints)
+    myShapeBeforeCheck = factoryShape.makeShape(myPoints)
+    do {
+        myShape = try shapeChecker.validShape(myShapeBeforeCheck)
     } catch let error as ShapeChecker.ShapeCase {
         print (error.rawValue)
         continue
