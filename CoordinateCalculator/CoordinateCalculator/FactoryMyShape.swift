@@ -23,7 +23,6 @@ struct FactoryMyShape {
 
 protocol MyShape {
     func calculate() -> Double
-    func printPoints()
     func messageByShape() -> String
     func inValidShape() -> Bool
     func getMyPoints() -> [MyPoint]
