@@ -44,3 +44,7 @@
         - 결과메시지를 출력하는 기능은 프로토콜 컴포지션`(MyShape & ResultByShape)`로 파라미터를 받음 
     - MyTriangle객체에 삼각형이 형성되는 조건 체크하는 기능 추가. MyPoint 프로퍼티를 연산형프로퍼티로 구성함 `getter`
     - main.swift에서 `do-try-catch`를 에러가 발생하는 객체에 따라서 두 단락으로 분리
+- 2017.12.03 - MyRect 구조체 추가, invalidShape()수정, ShapeChecker삭제
+    - ShapeChecker 삭제 - shape팩토리의 책임과 중복되는 면이 있어서 팩토리에서 각 도형 케이스별로 에러를 체크하고 에러가 없으면 해당 도형 인스턴스를 생성하도록 변경. 
+    - invalidShape()를 `static`메서드로 변경 - 각 shape객체들이 팩토리에서 넘겨받은 좌표값을 바로 가지고 도형의 성립여부를 체크할 수 있도록 수정
+
