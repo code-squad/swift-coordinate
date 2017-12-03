@@ -15,14 +15,16 @@ struct MyPoint {
 
 extension MyPoint: MyShape, Equatable {
     
+    static func invalidShape(_ myPoints: [MyPoint]) -> Bool {
+        return false
+    }
+    
+    
     func getMyPoints() -> [(Int,Int)] {
         let myPoints = [(x: self.x, y: self.y)]
         return myPoints
     }
     
-    func inValidShape() -> Bool {
-        return false
-    }
     
     static func == (pointA: MyPoint, pointB: MyPoint) -> Bool {
         return (pointA.x == pointB.x && pointA.y == pointB.y)

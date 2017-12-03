@@ -47,17 +47,19 @@ extension MyTriangle: MyShape {
         return myPoints
     }
 
-    func inValidShape() -> Bool {
-        let lengthOfLines = ([lineAB.calculate(), lineBC.calculate(), lineAC.calculate()]).sorted(by: >)
-        if lengthOfLines[0] > (lengthOfLines[1] + lengthOfLines[2]) {
+    static func invalidShape(_ myPoints:[MyPoint]) -> Bool {
+        let lengthOfLines = [
+            MyLine(pointA: myPoints[0], pointB: myPoints[1]),
+            MyLine(pointA: myPoints[1], pointB: myPoints[2]),
+            MyLine(pointA: myPoints[0], pointB: myPoints[2])]
+        
+        if lengthOfLines[0].calculate() > (lengthOfLines[1].calculate() + lengthOfLines[2].calculate()) {
             return true
         }
-        if pointA == pointB || pointB == pointC || pointA == pointC {
+        if myPoints[0] == myPoints[1] || myPoints[1] == myPoints[2] || myPoints[0] == myPoints[2] {
             return true
         }
-        if lineAB == lineBC || lineBC == lineAC || lineAB == lineAC{
-            return true
-        } else { return false }
+        return false
     }
 }
 

@@ -21,8 +21,8 @@ extension MyLine: MyShape, Equatable {
         return myPoints
     }
     
-    func inValidShape() -> Bool {
-        if pointA == pointB {
+    static func invalidShape(_ myPoints: [MyPoint]) -> Bool {
+        if myPoints[0] == myPoints[1] {
             return true
         } else {
             return false
