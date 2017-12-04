@@ -1,57 +1,72 @@
-# 진행 방법
+## 좌표계산기
 
-- 좌표 계산기에 대한 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+#### 요구사항
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+- [좌표계산기 - 시작하기](https://nextstep.camp/courses/-KuYS6VK-enZZ_F3Jgg8/-Kv0PHggr8nTD-IwWNRe/lessons/-KvlNnfOLihtQc2WNDTu) 요구사항을 구현한 상태에서 시작한다.
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+- 사용자가 점에 대한 좌표 정보를 입력하는 메뉴를 구성한다.
+- 좌표 정보는 괄호"(", ")"로 둘러쌓여 있으며 쉼표(,)로 x값과 y값을 구분한다.
+- X, Y좌표 모두 최대 24까지만 입력할 수 있다.
+- 입력 범위를 초과할 경우 에러 문구를 출력하고 다시 입력을 받는다.
+- 정상적인 좌표값을 입력한 경우, 해당 좌표에 특수문자를 표시한다.
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
+#### 프로그래밍 요구사항
+
+- 메소드가 너무 많은 일을 하지 않도록 분리하기 위해 노력해 본다.
+
+- 각 객체의 역할과 책임을 구분하도록 노력해 본다.
+
+- 입력을 처리하는 InputView 구조체를 추가하고, 아래 실행 결과처럼 좌표값 입력하는 메뉴를 구현한다.
+
+- main에서 InputView 구조체 readInput() 함수를 호출한다.
+
+- 입력받은 좌표값 X, Y 정보를 처리하기 위한 MyPoint 구조체를 구현한다.
+
+- MyPoint 구조체는 다음과 같은 형태를 가진다.
+
+  ```swift
+  struct MyPoint {
+    var x = 0
+    var y = 0
+  }
+  ```
+
+
+- MyPoint 구조체 인스턴스를 OutputView에 넘겨서 출력하는 함수를 추가한다.
+
+- 화면 처리 유의사항
+  * 터미널 화면은 뒤집힌 1사분면으로 동작한다. 위쪽이 0이고 아래로 내려올수록 커진다.
+  * X좌표축은 화면 비율상 2를 곱해서 표현해야 한다.
+  * X좌표축 범례는 Y축으로 25만큼 떨어진 공간에 그려진다.
+  * Y좌표축은 터미널 좌표상 3만큼 떨어져서 그려진다. 
+
+#### 실행 결과
+
 ```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-laddergame
+좌표를 입력하세요.
+
+(10,10)
+
 ```
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-laddergame
-```
+![img](http://public.codesquad.kr/jk/draw-point.png)
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+#### 힌트
 
-5. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+- 출력 화면을 지우는 ANSI코드를 출력하는 방법은 다음과 같다.
+  `print("\(ANSICode.clear)\(ANSICode.home)")`
 
-6. 본인 원격 저장소에 올리기
-```
-git push origin 본인_아이디
-ex) git push origin godrm
-```
+- 
+  특정 좌표(1,1)에 커서를 옮기고 싶으면 다음 코드 조각을 활용한다.
+  `print("\(ANSICode.cursor.move(row:1, col: 1))")`
 
-7. pull request
-8. pull request는 github 서비스에서 진행할 수 있다.
-9. pull request는 반드시 original 저장소의 브랜치와 fork한 자신의 저장소 브랜치 이름이 같아야 하며, 브랜치 이름은 자신의 github 아이디여야 한다.
-10. code review 및 push
-11. pull request를 통해 피드백을 받는다.
-12. 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+- 
+  출력하려는 텍스트 컬러값을 바꾸려면 다음 코드 조각을 활용한다.
+  `print("\(ANSICode.text.redBright)"RED)`
+  `print("\(ANSICode.text.white)"WHITE)`
 
-## 앞의 코드 리뷰 과정은 [영상 보기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 를 통해 참고 가능
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+
+
+
+​    

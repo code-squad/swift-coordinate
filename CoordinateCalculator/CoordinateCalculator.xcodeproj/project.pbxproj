@@ -9,6 +9,25 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32067191FC6ABA5003CE6F3 /* MyLine.swift */; };
+		C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
+		C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
+		C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
+		C327CFF91FC2B53A00C7B33A /* SyntaxChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */; };
+		C361D7881FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D7871FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift */; };
+		C361D7901FCD2CE300DBD926 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		C361D7911FCD2CE300DBD926 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		C361D7921FCD2CE300DBD926 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF41FC2A8A700C7B33A /* InputView.swift */; };
+		C361D7931FCD2CE300DBD926 /* SyntaxChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */; };
+		C361D7951FCD2CE300DBD926 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFF61FC2A8B300C7B33A /* MyPoint.swift */; };
+		C361D7961FCD2CE300DBD926 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32067191FC6ABA5003CE6F3 /* MyLine.swift */; };
+		C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
+		C361D79E1FD14ABB00DBD926 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79D1FD14ABB00DBD926 /* MyShape.swift */; };
+		C361D7A01FD14B1F00DBD926 /* MakingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79F1FD14B1F00DBD926 /* MakingShape.swift */; };
+		C3990FBB1FD5424E00F9D4CA /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */; };
+		C3990FBC1FD5578A00F9D4CA /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */; };
+		C3E631061FD18919000A1057 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79D1FD14ABB00DBD926 /* MyShape.swift */; };
+		C3E631071FD18919000A1057 /* MakingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79F1FD14B1F00DBD926 /* MakingShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,10 +46,28 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		C32067191FC6ABA5003CE6F3 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		C327CFCB1FBD79CF00C7B33A /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		C327CFF41FC2A8A700C7B33A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		C327CFF61FC2A8B300C7B33A /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxChecker.swift; sourceTree = "<group>"; };
+		C361D7851FCD285500DBD926 /* CoorinateCalculatorUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoorinateCalculatorUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C361D7871FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoorinateCalculatorUnitTest.swift; sourceTree = "<group>"; };
+		C361D7891FCD285500DBD926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C361D79D1FD14ABB00DBD926 /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
+		C361D79F1FD14B1F00DBD926 /* MakingShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingShape.swift; sourceTree = "<group>"; };
+		C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8377CC4B1F8B6F7E007F7335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C361D7821FCD285500DBD926 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC501F8B6F7E007F7335 /* CoordinateCalculator */,
+				C361D7861FCD285500DBD926 /* CoorinateCalculatorUnitTest */,
 				8377CC4F1F8B6F7E007F7335 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */,
+				C361D7851FCD285500DBD926 /* CoorinateCalculatorUnitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,8 +100,25 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				C327CFF41FC2A8A700C7B33A /* InputView.swift */,
+				C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */,
+				C327CFF61FC2A8B300C7B33A /* MyPoint.swift */,
+				C32067191FC6ABA5003CE6F3 /* MyLine.swift */,
+				C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */,
+				C361D79D1FD14ABB00DBD926 /* MyShape.swift */,
+				C361D79F1FD14B1F00DBD926 /* MakingShape.swift */,
+				C327CFCB1FBD79CF00C7B33A /* OutputView.swift */,
 			);
 			path = CoordinateCalculator;
+			sourceTree = "<group>";
+		};
+		C361D7861FCD285500DBD926 /* CoorinateCalculatorUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				C361D7871FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift */,
+				C361D7891FCD285500DBD926 /* Info.plist */,
+			);
+			path = CoorinateCalculatorUnitTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,18 +141,39 @@
 			productReference = 8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */;
 			productType = "com.apple.product-type.tool";
 		};
+		C361D7841FCD285500DBD926 /* CoorinateCalculatorUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C361D78C1FCD285500DBD926 /* Build configuration list for PBXNativeTarget "CoorinateCalculatorUnitTest" */;
+			buildPhases = (
+				C361D7811FCD285500DBD926 /* Sources */,
+				C361D7821FCD285500DBD926 /* Frameworks */,
+				C361D7831FCD285500DBD926 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoorinateCalculatorUnitTest;
+			productName = CoorinateCalculatorUnitTest;
+			productReference = C361D7851FCD285500DBD926 /* CoorinateCalculatorUnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		8377CC461F8B6F7E007F7335 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Codesquad Inc.";
 				TargetAttributes = {
 					8377CC4D1F8B6F7E007F7335 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					C361D7841FCD285500DBD926 = {
+						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -114,17 +191,54 @@
 			projectRoot = "";
 			targets = (
 				8377CC4D1F8B6F7E007F7335 /* CoordinateCalculator */,
+				C361D7841FCD285500DBD926 /* CoorinateCalculatorUnitTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C361D7831FCD285500DBD926 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8377CC4A1F8B6F7E007F7335 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C327CFF71FC2A8B300C7B33A /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */,
+				C3990FBB1FD5424E00F9D4CA /* MyTriangle.swift in Sources */,
+				C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */,
+				C327CFF91FC2B53A00C7B33A /* SyntaxChecker.swift in Sources */,
+				C361D79E1FD14ABB00DBD926 /* MyShape.swift in Sources */,
+				C361D7A01FD14B1F00DBD926 /* MakingShape.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C361D7811FCD285500DBD926 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3990FBC1FD5578A00F9D4CA /* MyTriangle.swift in Sources */,
+				C3E631061FD18919000A1057 /* MyShape.swift in Sources */,
+				C3E631071FD18919000A1057 /* MakingShape.swift in Sources */,
+				C361D7901FCD2CE300DBD926 /* ANSICode.swift in Sources */,
+				C361D7911FCD2CE300DBD926 /* main.swift in Sources */,
+				C361D7921FCD2CE300DBD926 /* InputView.swift in Sources */,
+				C361D7931FCD2CE300DBD926 /* SyntaxChecker.swift in Sources */,
+				C361D7951FCD2CE300DBD926 /* MyPoint.swift in Sources */,
+				C361D7961FCD2CE300DBD926 /* MyLine.swift in Sources */,
+				C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */,
+				C361D7881FCD285500DBD926 /* CoorinateCalculatorUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +369,32 @@
 			};
 			name = Release;
 		};
+		C361D78A1FCD285500DBD926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CoorinateCalculatorUnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjh.CoorinateCalculatorUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C361D78B1FCD285500DBD926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CoorinateCalculatorUnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cjh.CoorinateCalculatorUnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -272,6 +412,15 @@
 			buildConfigurations = (
 				8377CC561F8B6F7E007F7335 /* Debug */,
 				8377CC571F8B6F7E007F7335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C361D78C1FCD285500DBD926 /* Build configuration list for PBXNativeTarget "CoorinateCalculatorUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C361D78A1FCD285500DBD926 /* Debug */,
+				C361D78B1FCD285500DBD926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
