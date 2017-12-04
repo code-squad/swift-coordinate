@@ -10,12 +10,16 @@ import Foundation
 
 // 초기화 생성자를 통해 포인트의 좌표를 계산
 struct MyPoint: MyShape{
-    var type: SyntaxChecker.Shape
     private (set) var x = 0
     private (set) var y = 0
     init(x: Int, y: Int) {
-        self.type = SyntaxChecker.Shape.point
         self.x = x * 2 + 3
         self.y = abs(y - 24) + 1
     }
+    
+    func makeCoordinates() -> [(Int, Int)] {
+        let myPoints = [(x: self.x, y: self.y)]
+        return myPoints
+    }
+    
 }

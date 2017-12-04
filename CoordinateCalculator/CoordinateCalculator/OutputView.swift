@@ -9,36 +9,31 @@
 import Foundation
 
 struct OutputView {
-    
     // MyShape객체를 받아 해당 객체의 타입을 분류하여 타입에 맞는 케이스를 출력하는 함수
-    func printShape (_ myShapes: MyShape) {
-        deleteAxis()
-        drawAxis()
-        switch myShapes {
-        case  let point as MyPoint :
-            drawPoint(myPoint: point)
-        case let line as MyLine :
-            drawLine(myLine: line)
-            printDistancesBetweenPoints(myLine: line)
+    func printShape (_ shapes: MyShape) {
+        let myShapes = shapes.makeCoordinates()
+        deleteAxis ()
+        drawAxis ()
+        switch shapes {
+        case  is MyPoint :
+            printPoints(myShapes)
         default :
-            print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
+            printPoints(myShapes)
+            printCalculation(myLine: shapes as! MyShape & ShapeCalculation)
         }
         print("\(ANSICode.cursor.move(row: 27, col: 0))")
     }
     
-    // 포인트를 출력하는 함수
-    private func drawPoint(myPoint: MyPoint) {
-        print("\(ANSICode.cursor.move(row: myPoint.y , col: myPoint.x))\(ANSICode.text.greenBright).")
+    // 점을 출력하는 함수
+    func printPoints (_ numericValues: [(Int, Int)]) {
+        for numericValue in numericValues {
+            print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: numericValue.1, col: numericValue.0 ))\(ANSICode.text.greenBright).")
+        }
     }
     
-    // 라인을 출력하는 함수
-    private func drawLine(myLine: MyLine) {
-        print("\(ANSICode.cursor.move(row: myLine.pointA.y, col: myLine.pointA.x))\(ANSICode.text.greenBright).\(ANSICode.cursor.move(row: myLine.pointB.y, col: myLine.pointB.x))\(ANSICode.text.greenBright).")
-    }
-    
-    // 거리를 출력하는 함수
-    private func printDistancesBetweenPoints(myLine: MyLine) {
-        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)두점 사이의 거리는 \(myLine.calculateOfLength()) 입니다.")
+    // 도형의 연산내용을 출력하는 함수
+    private func printCalculation(myLine: MyShape & ShapeCalculation) {
+        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)\(myLine.resultDescription)\(myLine.calculate())")
     }
     
     private func drawAxis () {
