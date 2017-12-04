@@ -18,27 +18,27 @@ while gameIsEnd {
         break
     }
     
-    let inputChecker = InputChecker()
     let checkedPoints : [(Int,Int)]
     do {
+        let inputChecker = InputChecker()
         checkedPoints = try inputChecker.validInput(userInput)
     } catch let error as InputChecker.InputError {
         print (error.rawValue)
         continue
     }
     
-    let factoryPoint = FactoryMyPoint()
-    let factoryShape = FactoryMyShape()
-    var myShape : MyShape!
     var myPoints : [MyPoint]!
-    
     do {
+        let factoryPoint = FactoryMyPoint()
         myPoints = try factoryPoint.makeMyPoint(checkedPoints)
     } catch let error as FactoryMyPoint.PointError {
         print (error.rawValue)
         continue
     }
+    
+    var myShape : MyShape!
     do {
+        let factoryShape = FactoryMyShape()
         myShape = try factoryShape.makeShape(myPoints)
     } catch let error as FactoryMyShape.ShapeError {
         print (error.rawValue)
