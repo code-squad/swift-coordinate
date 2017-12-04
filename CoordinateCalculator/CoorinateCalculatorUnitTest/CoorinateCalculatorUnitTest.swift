@@ -11,27 +11,27 @@ import XCTest
 
 class CoorinateCalculatorUnitTest: XCTestCase {
     func testcheckIsSupportedValuesMethod () {
-        let unSupportedValue = "(aa,gg)-(ㄹㄹ-20)"
+        let unSupportedValue = "(aa,gg)-(ㄹㄹ-20)-(11,15)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(unSupportedValue))
     }
     
     func testEliminateParenthesisMethod () {
-        let withoutParenthesis = "(15,25-12-20)"
+        let withoutParenthesis = "(15,25-12-20)-(11,15)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(withoutParenthesis))
     }
     
     func testsplitInputValueByCommaMethod () {
-        let withoutComma = "(15 25)-(12-20)"
+        let withoutComma = "(15 25)-(12-20)-(11,15)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(withoutComma))
     }
     
     func testOfExceedValidInput () {
-        let exceedNum = "(15,25)-(12-20)"
+        let exceedNum = "(15,25)-(12-20)-(11,15)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(exceedNum))
     }
     
     func testIsPerpectLine () {
-        let sameCoords = "(24,10)-(24,10)"
+        let sameCoords = "(24,10)-(24,10)-(11,15)"
         XCTAssertThrowsError(try MakingMyShape().makeShapeInstance(sameCoords))
     }
     
@@ -47,7 +47,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
    
     func testIsSuccessMakingMyShapeInstance () {
-        let valinInputValue = "(24,10)-(15,10)"
+        let valinInputValue = "(24,10)-(15,10)-(7,6)"
         let instanceOfMyShape = try! MakingMyShape().makeShapeInstance(valinInputValue)
         XCTAssertNotNil(instanceOfMyShape)
     }
