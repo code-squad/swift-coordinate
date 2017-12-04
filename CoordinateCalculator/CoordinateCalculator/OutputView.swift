@@ -25,7 +25,7 @@ struct OutputView {
     }
     
     // 점을 출력하는 함수
-    func printPoints (_ numericValues: [(Int, Int)]) {
+    private func printPoints (_ numericValues: [(Int, Int)]) {
         for numericValue in numericValues {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: numericValue.1, col: numericValue.0 ))\(ANSICode.text.greenBright).")
         }
