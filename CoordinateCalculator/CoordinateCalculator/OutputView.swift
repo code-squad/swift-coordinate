@@ -15,7 +15,7 @@ struct OutputView {
         deleteAxis()
         drawAxis()
         for numericValue in numericValues {
-            print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: numericValue.1, col: numericValue.0 ))\(ANSICode.text.greenBright).")
+            print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: numericValue.y, col: numericValue.x ))\(ANSICode.text.greenBright).")
         }
         print("\(ANSICode.cursor.move(row: 27, col: 0))")
     }
