@@ -24,6 +24,8 @@
 		C361D7971FCD2CE300DBD926 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327CFCB1FBD79CF00C7B33A /* OutputView.swift */; };
 		C361D79E1FD14ABB00DBD926 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79D1FD14ABB00DBD926 /* MyShape.swift */; };
 		C361D7A01FD14B1F00DBD926 /* MakingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79F1FD14B1F00DBD926 /* MakingShape.swift */; };
+		C3990FBB1FD5424E00F9D4CA /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */; };
+		C3990FBC1FD5578A00F9D4CA /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */; };
 		C3E631061FD18919000A1057 /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79D1FD14ABB00DBD926 /* MyShape.swift */; };
 		C3E631071FD18919000A1057 /* MakingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361D79F1FD14B1F00DBD926 /* MakingShape.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,7 @@
 		C361D7891FCD285500DBD926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C361D79D1FD14ABB00DBD926 /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
 		C361D79F1FD14B1F00DBD926 /* MakingShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakingShape.swift; sourceTree = "<group>"; };
+		C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 				C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */,
 				C327CFF61FC2A8B300C7B33A /* MyPoint.swift */,
 				C32067191FC6ABA5003CE6F3 /* MyLine.swift */,
+				C3990FBA1FD5424E00F9D4CA /* MyTriangle.swift */,
 				C361D79D1FD14ABB00DBD926 /* MyShape.swift */,
 				C361D79F1FD14B1F00DBD926 /* MakingShape.swift */,
 				C327CFCB1FBD79CF00C7B33A /* OutputView.swift */,
@@ -212,6 +216,7 @@
 				C327CFF51FC2A8A700C7B33A /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				C327CFCC1FBD79CF00C7B33A /* OutputView.swift in Sources */,
+				C3990FBB1FD5424E00F9D4CA /* MyTriangle.swift in Sources */,
 				C320671A1FC6ABA5003CE6F3 /* MyLine.swift in Sources */,
 				C327CFF91FC2B53A00C7B33A /* SyntaxChecker.swift in Sources */,
 				C361D79E1FD14ABB00DBD926 /* MyShape.swift in Sources */,
@@ -223,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3990FBC1FD5578A00F9D4CA /* MyTriangle.swift in Sources */,
 				C3E631061FD18919000A1057 /* MyShape.swift in Sources */,
 				C3E631071FD18919000A1057 /* MakingShape.swift in Sources */,
 				C361D7901FCD2CE300DBD926 /* ANSICode.swift in Sources */,
