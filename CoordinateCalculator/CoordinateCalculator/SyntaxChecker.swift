@@ -59,7 +59,6 @@ struct SyntaxChecker {
     
     // 문자열의 괄호를 제거
     private func eliminateParenthesis (_ stringCoord: String) -> String? {
-        let stringCoord = stringCoord
         if stringCoord.contains("(") && stringCoord.contains(")") {
             let valueWithoutParenthesis = stringCoord.trimmingCharacters(in: ["(", ")"])
             return valueWithoutParenthesis
@@ -70,15 +69,14 @@ struct SyntaxChecker {
     
     // 콤마 기준으로 나눔
     private func splitInputValueByComma (_ input: String) -> Array<String>? {
-        var valueSplitedByComma = Array<String>()
         guard input.contains(",") else { return nil }
-        valueSplitedByComma = input.split(separator: ",").map(String.init)
+        let valueSplitedByComma = input.split(separator: ",").map(String.init)
         return valueSplitedByComma
     }
     
     // 문자열로된 숫자를 인트로 바꿈
       func convertToInt (_ stringCoords: Array<String>) -> (Int, Int)? {
-        let intValues = stringCoords.flatMap{ stringValue in Int(stringValue) }
+        let intValues = stringCoords.flatMap() { Int($0) }
         for index in 0 ..< intValues.count {
             if intValues[index] > 24 { return nil }
         }

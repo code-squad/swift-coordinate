@@ -100,9 +100,9 @@
 				C327CFF41FC2A8A700C7B33A /* InputView.swift */,
 				C327CFF81FC2B53A00C7B33A /* SyntaxChecker.swift */,
 				C327CFF61FC2A8B300C7B33A /* MyPoint.swift */,
+				C32067191FC6ABA5003CE6F3 /* MyLine.swift */,
 				C361D79D1FD14ABB00DBD926 /* MyShape.swift */,
 				C361D79F1FD14B1F00DBD926 /* MakingShape.swift */,
-				C32067191FC6ABA5003CE6F3 /* MyLine.swift */,
 				C327CFCB1FBD79CF00C7B33A /* OutputView.swift */,
 			);
 			path = CoordinateCalculator;
