@@ -17,39 +17,43 @@ struct InputChecker {
     
     let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
     
-    func validateInput (_ inputValue: String?) throws -> [String] {
-        //let userInput = inputValue ?? ""
-        guard let userInput = inputValue else { return [] }
-        var inputPoints : [String] = []
-        
-        // 1. 사용자 입력이 공백일 경우 에러체크
+    func validInput (_ inputValue: String?) throws -> [String]{
+        let inputCheckedNil = try inputIsNil(inputValue)
+        let inputValidChars = try hasValidChars(inputCheckedNil)
+        let inputPoints = try splitIntoPoints(inputValidChars)
+        return inputPoints
+    }
+    
+    // 1
+    private func inputIsNil (_ inputValue: String?) throws -> String {
+        let userInput = inputValue ?? ""
         if userInput == "" {
             throw InputError.emptyInput
         }
-        
-        // 2. CharacterSet에 있는 문자 이외의 것이 들어있는지 에러체크
+        return userInput
+    }
+    
+    // 2
+    private func hasValidChars (_ userInput: String) throws -> String {
         let filter = userInput.trimmingCharacters(in: validCharacters)
-        if !filter.isEmpty {
-            throw InputError.wrongForm
+        if filter.isEmpty {
+            return userInput
         }
-       
-        // "-"의 유무에 따라서 입력좌표 리스트 구하기
+        throw InputError.wrongForm
+    }
+    
+    // 3
+    private func splitIntoPoints (_ userInput: String) throws -> [String]{
+        var inputPoints : [String] = []
         if userInput.contains("-") {
-           let points = userInput.split(separator: "-")
+            let points = userInput.split(separator: "-")
             inputPoints = points.map({(value: String.SubSequence) -> String in String(value)})
         } else {
             inputPoints.append(userInput)
         }
-        
-        // 3. 입력한 좌표가 공백일 경우 에러체크 - map이나 filter로 바꾸기
-        for point in inputPoints {
-            if point == "" {
-                throw InputError.emptyInput
-            }
-        }
         return inputPoints
     }
-
+    
     func filterValidPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
         var checkedValues : [(Int, Int)] = []
         var userPoints : [Int] = []
@@ -64,10 +68,10 @@ struct InputChecker {
                     throw InputError.wrongForm }
             } else {
                 throw InputError.wrongForm }
-   
+            
             checkedValues.append((userPoints[0], userPoints[1]))
         }
         return checkedValues
     }
-
+    
 }
