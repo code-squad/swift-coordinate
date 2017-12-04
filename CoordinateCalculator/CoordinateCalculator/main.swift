@@ -30,11 +30,16 @@ while gameIsEnd {
     do {
         checkedInput = try inputChecker.validateInput(userInput)
         checkedPoints = try inputChecker.filterValidPoints(checkedInput)
-    } catch let error as InputChecker.InputCase {
+    } catch let error as InputChecker.InputError {
         print (error.rawValue)
         continue
     }
-    myPoints = factoryPoint.makeMyPoint(checkedPoints)
+    do {
+        myPoints = try factoryPoint.makeMyPoint(checkedPoints)
+    } catch let error as FactoryMyPoint.PointError {
+        print (error.rawValue)
+        continue
+    }
     do {
         myShape = try factoryShape.makeShape(myPoints)
     } catch let error as FactoryMyShape.ShapeError {
