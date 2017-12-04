@@ -13,8 +13,8 @@ struct MyPoint: MyShape{
     private (set) var x = 0
     private (set) var y = 0
     init(x: Int, y: Int) {
-        self.x = x * 2 + 3
-        self.y = abs(y - 24) + 1
+        self.x = x
+        self.y = y
     }
     
     func makeCoordinates() -> [MyPoint] {

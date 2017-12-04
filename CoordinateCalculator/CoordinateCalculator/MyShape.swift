@@ -13,6 +13,10 @@ protocol MyShape {
     func makeCoordinates () -> [MyPoint]
 }
 
+protocol ImperfectShapes {
+    func isPerpectShape () -> [MyPoint]
+}
+
 protocol ShapeCalculation {
     func calculate () -> Double
      var resultDescription: String { get }

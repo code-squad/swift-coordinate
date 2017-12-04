@@ -13,12 +13,11 @@ struct MakingMyShape {
     func makeShapeInstance (_ input: String) throws -> MyShape {
         let numericValues = try SyntaxChecker().getErrorChekcedValue(input)
         let myPoints = makePointInstance(numericValues)
-        if myPoints.count == 1 {
-            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
-        } else if myPoints.count == 2 {
-            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
-        } else {
-            throw SyntaxChecker.ErrorMessage.ofUnKnownError
+        switch myPoints.count {
+        case 1 : return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
+        case 2 : return MyLine(pointA: myPoints[0], pointB: myPoints[1])
+        case 3 : return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
+        default: throw SyntaxChecker.ErrorMessage.ofUnKnownError
         }
     }
     
