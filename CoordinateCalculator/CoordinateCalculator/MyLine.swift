@@ -17,9 +17,8 @@ struct MyLine: MyShape, ShapeCalculation {
     }
     
     func makeCoordinates() -> [MyPoint] {
-        let myPoints = [MyPoint(x: self.pointA.x, y: self.pointA.y),
-                                       MyPoint(x: self.pointB.x, y: self.pointB.y)]
-        return myPoints
+        return [MyPoint(x: self.pointA.x, y: self.pointA.y),
+                        MyPoint(x: self.pointB.x, y: self.pointB.y)]
     }
     
     // 좌표간의 거리를 MyLine구조체에 추가
@@ -32,6 +31,12 @@ struct MyLine: MyShape, ShapeCalculation {
     var resultDescription: String = {
         return "두 점 사이 거리 : "
     }()
+    
+    static func isPerpectLine (_ points: [MyPoint]) -> Bool{
+        if points[0].x == points[1].x && points[0].y == points[1].y
+        {return false}
+        return true
+    }
 }
 
 

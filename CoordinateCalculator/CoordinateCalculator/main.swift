@@ -21,6 +21,8 @@ while (true) {
         }
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
+    } catch let error as MakingMyShape.ErrorMessage {
+        print (error.rawValue)
     } catch {
         print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
     }

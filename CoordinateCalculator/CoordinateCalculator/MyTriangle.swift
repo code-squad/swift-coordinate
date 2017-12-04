@@ -15,24 +15,33 @@ struct MyTriangle: MyShape, ShapeCalculation {
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         lineAB = MyLine(pointA: pointA, pointB: pointB)
         lineBC = MyLine(pointA: pointB, pointB: pointC)
-        lineAC = MyLine(pointA: pointA, pointB: pointC)
+        lineAC = MyLine(pointA: pointC, pointB: pointA)
     }
     
     private func getLine (_ line: MyLine) -> MyPoint {
-        return MyPoint(x: line.pointA.x, y: line.pointB.y)
+        return MyPoint(x: line.pointA.x, y: line.pointA.y)
     }
     
     func makeCoordinates() -> [MyPoint] {
-        return [getLine(lineAB), getLine(lineBC), getLine(lineAC)]
+        return [getLine(lineAB),
+                         getLine(lineBC),
+                         getLine(lineAC)]
     }
     
     func calculate() -> Double {
-        return sqrt(Double(1) - pow((pow(self.lineBC.calculate(), 2) + pow(self.lineAB.calculate(), 2) - pow(self.lineAC.calculate(), 2))
-            / (2 * self.lineBC.calculate() * self.lineAB.calculate()), 2)) * self.lineBC.calculate() * self.lineAB.calculate() / 2
+        return sqrt(Double(1) - pow((pow(lineBC.calculate(), 2) + pow(lineAB.calculate(), 2) - pow(lineAC.calculate(), 2))
+            / (2 * lineBC.calculate() * lineAB.calculate()), 2)) * lineBC.calculate() * lineAB.calculate() / 2
     }
     
     var resultDescription: String = {
         return "삼각형의 면적은 : "
     }()
     
+    static func isPerpectTriangle(_ points: [MyPoint]) -> Bool {
+        if (points[0].x == points[1].x && points[0].y == points[1].y) ||
+              (points[1].x == points[2].x && points[1].y == points[2].y) ||
+              (points[2].x == points[0].x && points[2].y == points[0].y)
+        { return false }
+        return true
+    }
 }
