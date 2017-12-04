@@ -17,8 +17,8 @@ struct MyPoint: MyShape{
         self.y = abs(y - 24) + 1
     }
     
-    func makeCoordinates() -> [(Int, Int)] {
-        let myPoints = [(x: self.x, y: self.y)]
+    func makeCoordinates() -> [MyPoint] {
+        let myPoints = [MyPoint(x: self.x, y: self.y)]
         return myPoints
     }
     
