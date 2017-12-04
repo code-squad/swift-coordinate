@@ -9,7 +9,7 @@
 import XCTest
 
 class UnitTestCoordinate2: XCTestCase {
- 
+ /*
     func testMakeMyLine() {
         let pointValues = [(3,4),(10,15)]
         let factoryMyPoint = FactoryMyPoint()
@@ -46,8 +46,8 @@ class UnitTestCoordinate2: XCTestCase {
     }
  
     func testCheckPointNum() throws {
-        let checking = CheckingInput()
-        let checkedInput = try checking.checkError(["(3,4)", "(10,15)"])
+        let checking = InputChecker()
+        let checkedInput = try checking.InputError(["(3,4)", "(10,15)"])
         XCTAssertEqual(checkedInput[0].0, 3)
         XCTAssertEqual(checkedInput[0].1, 4)
         XCTAssertEqual(checkedInput[1].0, 10)
@@ -55,13 +55,27 @@ class UnitTestCoordinate2: XCTestCase {
     }
     
     func testCheckPointNum2() throws {
-        let checking = CheckingInput()
-        let checkedInput = try checking.checkError(["(3,4)", "(10,15)"])
+        let checking = InputChecker()
+        let checkedInput = try checking.InputError(["(3,4)", "(10,15)"])
         XCTAssertEqual(checkedInput[0].0, 3)
         XCTAssertEqual(checkedInput[0].1, 4)
         XCTAssertEqual(checkedInput[1].0, 10)
         XCTAssertEqual(checkedInput[1].1, 15)
     }
-
+*/
+    
+    func testEmptyPoint() throws {
+        let checking = InputChecker()
+        let userInput = "(2,3)-(4,5)-"
+        let inputsArray = try checking.splitIntoPoints(userInput)
+        XCTAssertEqual(inputsArray.count, 2)
+    }
+    
+    func testEmptyPoint2() throws {
+        let checking = InputChecker()
+        let userInput = "(2,3)-(4,5)-("
+        let inputsArray = try checking.splitIntoPoints(userInput)
+        XCTAssertEqual(inputsArray.count, 3)
+    }
     
 }
