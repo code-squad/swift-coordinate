@@ -30,6 +30,16 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(exceedNum))
     }
     
+    func testIsPerpectLine () {
+        let sameCoords = "(24,10)-(24,10)"
+        XCTAssertThrowsError(try MakingMyShape().makeShapeInstance(sameCoords))
+    }
+    
+    func testIsPerpectTriangle () {
+        let sameCoords = "(24,10)-(16,19)-(24,10)"
+        XCTAssertThrowsError(try MakingMyShape().makeShapeInstance(sameCoords))
+    }
+    
     func testIsSuccessMakingMyPointInstance () {
         let valinInputValue = "(24,10)-(15,10)"
         let instanceOfMyPoint = try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
