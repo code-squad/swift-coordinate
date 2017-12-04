@@ -17,14 +17,15 @@ struct InputChecker {
     
     let validCharacters = CharacterSet.init(charactersIn: "0123456789,()-")
     
-    func validInput (_ inputValue: String?) throws -> [String]{
+    func validInput (_ inputValue: String?) throws -> [(Int, Int)]{
         let inputCheckedNil = try inputIsNil(inputValue)
         let inputValidChars = try hasValidChars(inputCheckedNil)
         let inputPoints = try splitIntoPoints(inputValidChars)
-        return inputPoints
+        let validPoints = try filterValidPoints(inputPoints)
+        return validPoints
     }
     
-    // 1
+    // 1. 사용자 입력이 공백일 경우 에러체크
     private func inputIsNil (_ inputValue: String?) throws -> String {
         let userInput = inputValue ?? ""
         if userInput == "" {
@@ -33,7 +34,7 @@ struct InputChecker {
         return userInput
     }
     
-    // 2
+    // 2. CharacterSet에 있는 문자 이외의 것이 들어있는지 에러체크
     private func hasValidChars (_ userInput: String) throws -> String {
         let filter = userInput.trimmingCharacters(in: validCharacters)
         if filter.isEmpty {
@@ -42,7 +43,7 @@ struct InputChecker {
         throw InputError.wrongForm
     }
     
-    // 3
+    // 3. "-"의 유무에 따라서 입력좌표 리스트 구하기
     private func splitIntoPoints (_ userInput: String) throws -> [String]{
         var inputPoints : [String] = []
         if userInput.contains("-") {
@@ -54,11 +55,11 @@ struct InputChecker {
         return inputPoints
     }
     
-    func filterValidPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
+    // 4. 사용자 입력이 (,) 형태가 아닐경우 에러체크, 형태가 맞다면 사용자 좌표값 MyPoint 매칭
+    private func filterValidPoints (_ inputValues: [String]) throws -> [(Int, Int)] {
         var checkedValues : [(Int, Int)] = []
         var userPoints : [Int] = []
         
-        // 4. 사용자 입력이 (,) 형태가 아닐경우 에러체크, 형태가 맞다면 사용자 좌표값 MyPoint 매칭
         for inputValue in inputValues {
             if inputValue.hasPrefix("(") && inputValue.hasSuffix(")") {
                 let noBlanks = inputValue.trimmingCharacters(in: ["(", ")"])
@@ -68,7 +69,6 @@ struct InputChecker {
                     throw InputError.wrongForm }
             } else {
                 throw InputError.wrongForm }
-            
             checkedValues.append((userPoints[0], userPoints[1]))
         }
         return checkedValues
