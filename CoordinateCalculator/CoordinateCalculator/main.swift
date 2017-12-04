@@ -15,7 +15,10 @@ while (true) {
             break
         }
         let shapes = try MakingMyShape().makeShapeInstance(stringCoords)
-        OutputView().printShape(shapes)
+        OutputView().printPoints(shapes)
+        if let calculatableShapes = shapes as? (ShapeCalculation & MyShape) {
+            OutputView().printCalculation(myShape: calculatableShapes)
+        }
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
     } catch {

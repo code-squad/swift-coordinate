@@ -10,30 +10,14 @@ import Foundation
 
 struct OutputView {
     // MyShape객체를 받아 해당 객체의 타입을 분류하여 타입에 맞는 케이스를 출력하는 함수
-    func printShape (_ shapes: MyShape) {
-        let myShapes = shapes.makeCoordinates()
-        deleteAxis ()
-        drawAxis ()
-        switch shapes {
-        case  is MyPoint :
-            printPoints(myShapes)
-        default :
-            printPoints(myShapes)
-            printCalculation(myLine: shapes as! MyShape & ShapeCalculation)
-        }
-        print("\(ANSICode.cursor.move(row: 27, col: 0))")
-    }
-    
-    // 점을 출력하는 함수
-    private func printPoints (_ numericValues: [(Int, Int)]) {
+     func printPoints (_ shapes: MyShape) {
+        let numericValues = shapes.makeCoordinates()
+        deleteAxis()
+        drawAxis()
         for numericValue in numericValues {
             print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: numericValue.1, col: numericValue.0 ))\(ANSICode.text.greenBright).")
         }
-    }
-    
-    // 도형의 연산내용을 출력하는 함수
-    private func printCalculation(myLine: MyShape & ShapeCalculation) {
-        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)\(myLine.resultDescription)\(myLine.calculate())")
+        print("\(ANSICode.cursor.move(row: 27, col: 0))")
     }
     
     private func drawAxis () {
@@ -43,4 +27,12 @@ struct OutputView {
     private func deleteAxis () {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
+    
+    func printCalculation(myShape: MyShape & ShapeCalculation) {
+        let result = myShape.calculate()
+        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)\(myShape.resultDescription)\(result)")
+    }
+
 }
+
+
