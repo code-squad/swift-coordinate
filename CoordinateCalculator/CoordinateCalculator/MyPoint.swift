@@ -21,5 +21,4 @@ struct MyPoint: MyShape{
         let myPoints = [MyPoint(x: self.x, y: self.y)]
         return myPoints
     }
-    
 }
