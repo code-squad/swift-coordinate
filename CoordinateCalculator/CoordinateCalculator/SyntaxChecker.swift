@@ -10,11 +10,6 @@ import Foundation
 
 struct SyntaxChecker {
     
-    enum Shape {
-        case point
-        case line
-    }
-    
     // 에러 메세지를 갖는 enum선언
     enum ErrorMessage: String, Error {
         case ofInValidInputedValue = "(x,y)형태로 입력해야 합니다."
@@ -25,7 +20,7 @@ struct SyntaxChecker {
     }
     
     // 값들을 체크하여 Int 배열로 반환
-     func getErrorChekcedValue (_ input: String) throws -> Array<(Int, Int)> {
+    func getErrorChekcedValue (_ input: String) throws -> Array<(Int, Int)> {
         var numericValues : [(Int, Int)] = []
         let  stringCoords = splitByDash(input)
         for stringCoord in stringCoords {
@@ -39,7 +34,7 @@ struct SyntaxChecker {
     }
     
     // 대시를 체크하여 대시 기준으로 나눔
-     private func splitByDash (_ input: String) -> Array<String> {
+    private func splitByDash (_ input: String) -> Array<String> {
         var stringCoords = Array<String>()
         if input.contains("-") {
             stringCoords = input.split(separator: "-").map(String.init)
@@ -50,7 +45,7 @@ struct SyntaxChecker {
     }
     
     // 지원하는 캐릭터인지 체크
-     private func isSupportedValues (_ input: String) -> Bool {
+    private func isSupportedValues (_ input: String) -> Bool {
         let supportedCharacters = CharacterSet.init(charactersIn: "-(),0123456789")
         let filteredValue = input.trimmingCharacters(in: supportedCharacters)
         guard filteredValue.isEmpty else { return false }
@@ -75,7 +70,7 @@ struct SyntaxChecker {
     }
     
     // 문자열로된 숫자를 인트로 바꿈
-      func convertToInt (_ stringCoords: Array<String>) -> (Int, Int)? {
+    func convertToInt (_ stringCoords: Array<String>) -> (Int, Int)? {
         let intValues = stringCoords.flatMap() { Int($0) }
         for index in 0 ..< intValues.count {
             if intValues[index] > 24 { return nil }

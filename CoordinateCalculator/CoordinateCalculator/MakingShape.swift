@@ -10,12 +10,11 @@ import Foundation
 
 // MyShape객체를 생성하는 메소드를 갖는 구조체
 struct MakingMyShape {
-    
     func makeShapeInstance (_ input: String) throws -> MyShape {
         let numericValues = try SyntaxChecker().getErrorChekcedValue(input)
         let myPoints = makePointInstance(numericValues)
         if myPoints.count == 1 {
-            return myPoints[0]
+            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         } else if myPoints.count == 2 {
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         } else {
