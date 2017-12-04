@@ -22,7 +22,7 @@ struct FactoryMyPoint {
             myPoints.append(myPoint)
         }
         
-        guard !MyPoint.isValidShape(myPoints) else{
+        guard MyPoint.isValidShape(myPoints) else{
             throw PointError.wrongPoint
         }
         return myPoints
