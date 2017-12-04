@@ -23,19 +23,19 @@ struct FactoryMyShape {
         case 1: return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
             
         case 2:
-            if MyLine.invalidShape(myPoints) {
+            if !MyLine.isValidShape(myPoints) {
                 throw ShapeError.wrongLine
             }
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
        
         case 3:
-            if MyTriangle.invalidShape(myPoints) {
+            if !MyTriangle.isValidShape(myPoints) {
                throw ShapeError.wrongTriangle
             }
             return MyTriangle(tripointA: myPoints[0], tripointB: myPoints[1], tripointC: myPoints[2])
         
         case 4:
-            if MyRect.invalidShape(myPoints) {
+            if !MyRect.isValidShape(myPoints) {
                 throw ShapeError.wrongRect
             }
             let rectWidth = abs(myPoints[2].x - myPoints[0].x)
@@ -50,7 +50,7 @@ struct FactoryMyShape {
 }
 
 protocol MyShape {
-    static func invalidShape(_ myPoints:[MyPoint]) -> Bool
+    static func isValidShape(_ myPoints:[MyPoint]) -> Bool
     func getMyPoints() -> [(Int,Int)]
 }
 

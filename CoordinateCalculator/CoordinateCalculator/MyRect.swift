@@ -19,12 +19,12 @@ struct MyRect {
 }
 
 extension MyRect: MyShape {
-    static func invalidShape(_ myPoints: [MyPoint]) -> Bool {
+    static func isValidShape(_ myPoints: [MyPoint]) -> Bool {
         let diagonalA = MyLine(pointA: myPoints[0], pointB: myPoints[2])
         let diagonalB = MyLine(pointA: myPoints[1], pointB: myPoints[3])
  
         if diagonalA.calculate() != diagonalB.calculate() {
-            return true
+            return false
         }
      
         if myPoints[0] == myPoints[1] ||
@@ -33,15 +33,15 @@ extension MyRect: MyShape {
            myPoints[1] == myPoints[2] ||
            myPoints[1] == myPoints[3] ||
            myPoints[2] == myPoints[3]
-        { return true }
+        { return false }
             
         let verticalLine = MyLine(pointA: myPoints[0], pointB: myPoints[1])
         let horizontalLine = MyLine(pointA: myPoints[1], pointB: myPoints[2])
         
         if verticalLine.calculate() == horizontalLine.calculate() {
-            return true
+            return false
         }
-        return false
+        return true
     }
     
     func getMyPoints() -> [(Int, Int)] {

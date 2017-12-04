@@ -15,16 +15,16 @@ struct MyPoint {
 
 extension MyPoint: MyShape, Equatable {
     
-    static func invalidShape(_ myPoints: [MyPoint]) -> Bool {
+    static func isValidShape(_ myPoints: [MyPoint]) -> Bool {
         for point in myPoints {
             if point.x >= 24 || point.y >= 24 {
-                return true
+                return false
             }
             if point.x <= 0 || point.y <= 0 {
-                return true
+                return false
             }
         }
-        return false
+        return true
     }
     
     func getMyPoints() -> [(Int,Int)] {

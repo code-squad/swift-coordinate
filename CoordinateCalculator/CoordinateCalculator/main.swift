@@ -25,11 +25,9 @@ while gameIsEnd {
         print("=== 게임 종료 ===")
         break
     }
-    let checkedInput : [String]
     let checkedPoints : [(Int,Int)]
     do {
-        checkedInput = try inputChecker.validateInput(userInput)
-        checkedPoints = try inputChecker.filterValidPoints(checkedInput)
+        checkedPoints = try inputChecker.validInput(userInput)
     } catch let error as InputChecker.InputError {
         print (error.rawValue)
         continue

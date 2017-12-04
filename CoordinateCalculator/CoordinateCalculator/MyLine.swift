@@ -21,12 +21,11 @@ extension MyLine: MyShape, Equatable {
         return myPoints
     }
     
-    static func invalidShape(_ myPoints: [MyPoint]) -> Bool {
+    static func isValidShape(_ myPoints: [MyPoint]) -> Bool {
         if myPoints[0] == myPoints[1] {
-            return true
-        } else {
             return false
         }
+        return true
     }
 
     static func == (lineA: MyLine, lineB: MyLine) -> Bool {
