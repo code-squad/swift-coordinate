@@ -17,7 +17,8 @@ struct MyLine: MyShape, ShapeCalculation {
     }
     
     func makeCoordinates() -> [MyPoint] {
-        let myPoints = [MyPoint(x: self.pointA.x, y: self.pointA.y), MyPoint(x: self.pointB.x, y: self.pointB.y)]
+        let myPoints = [MyPoint(x: self.pointA.x, y: self.pointA.y),
+                                       MyPoint(x: self.pointB.x, y: self.pointB.y)]
         return myPoints
     }
     

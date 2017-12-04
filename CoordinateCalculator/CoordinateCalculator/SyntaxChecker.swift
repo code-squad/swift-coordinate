@@ -9,7 +9,6 @@
 import Foundation
 
 struct SyntaxChecker {
-    
     // 에러 메세지를 갖는 enum선언
     enum ErrorMessage: String, Error {
         case ofInValidInputedValue = "(x,y)형태로 입력해야 합니다."
