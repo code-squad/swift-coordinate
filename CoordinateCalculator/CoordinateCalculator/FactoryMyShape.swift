@@ -23,19 +23,19 @@ struct FactoryMyShape {
         case 1: return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
             
         case 2:
-            guard !MyLine.isValidShape(myPoints) else {
+            guard MyLine.isValidShape(myPoints) else {
                 throw ShapeError.wrongLine
             }
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
        
         case 3:
-            guard !MyTriangle.isValidShape(myPoints) else {
+            guard MyTriangle.isValidShape(myPoints) else {
                throw ShapeError.wrongTriangle
             }
             return MyTriangle(tripointA: myPoints[0], tripointB: myPoints[1], tripointC: myPoints[2])
         
         case 4:
-            guard !MyRect.isValidShape(myPoints) else{
+            guard MyRect.isValidShape(myPoints) else{
                 throw ShapeError.wrongRect
             }
             let rectWidth = abs(myPoints[2].x - myPoints[0].x)
