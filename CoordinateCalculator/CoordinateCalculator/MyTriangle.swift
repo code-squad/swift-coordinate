@@ -18,6 +18,12 @@ struct MyTriangle: MyShape, ShapeCalculation {
         lineAC = MyLine(pointA: pointC, pointB: pointA)
     }
     
+    init (points: [MyPoint]) {
+        lineAB = MyLine(pointA: points[0], pointB: points[1])
+        lineBC = MyLine(pointA: points[1], pointB: points[2])
+        lineAC = MyLine(pointA: points[2], pointB: points[0])
+    }
+    
     private func getLine (_ line: MyLine) -> MyPoint {
         return MyPoint(x: line.pointA.x, y: line.pointA.y)
     }
