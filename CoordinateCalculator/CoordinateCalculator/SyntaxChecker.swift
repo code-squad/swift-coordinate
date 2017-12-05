@@ -11,10 +11,10 @@ import Foundation
 struct SyntaxChecker {
     // 에러 메세지를 갖는 enum선언
     enum ErrorMessage: String, Error {
-        case ofInValidInputedValue = "(x,y)형태로 입력해야 합니다."
+        case ofValueIsNotInt = "입력된 좌표가 숫자가 아닙니다."
+        case ofNonexistentParenthesis = "(x,y)형태로 입력해야 합니다."
         case ofNonexistenceComma = "x와 y의 값은 콤마로 구분되어야 합니다."
         case ofExceedValidInput = "x,y 각각 최대 입력가능한 값은 24입니다."
-        case ofValueIsNotInt = "입력된 좌표가 숫자가 아닙니다."
         case ofUnKnownError = "알려지지 않은 에러입니다. 관리자에게 문의하세요."
     }
     
@@ -24,7 +24,7 @@ struct SyntaxChecker {
         let  stringCoords = splitByDash(input)
         for stringCoord in stringCoords {
             guard isSupportedValues(stringCoord) == true else { throw ErrorMessage.ofValueIsNotInt}
-            guard let valueWithoutParenthesis = eliminateParenthesis(stringCoord) else { throw ErrorMessage.ofInValidInputedValue }
+            guard let valueWithoutParenthesis = eliminateParenthesis(stringCoord) else { throw ErrorMessage.ofNonexistentParenthesis }
             guard let valueSplitedByComma = splitInputValueByComma(valueWithoutParenthesis) else { throw ErrorMessage.ofNonexistenceComma }
             guard let numericValue = convertToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
             numericValues.append(numericValue)
