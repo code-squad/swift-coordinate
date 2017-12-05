@@ -24,7 +24,7 @@ struct MyTriangle: MyShape, ShapeCalculation {
         lineAC = MyLine(pointA: points[2], pointB: points[0])
     }
     
-    private func getLine (_ line: MyLine) -> MyPoint {
+    private func getPoint (_ line: MyLine) -> MyPoint {
         return MyPoint(x: line.pointA.x, y: line.pointA.y)
     }
     
