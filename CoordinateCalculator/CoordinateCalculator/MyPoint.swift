@@ -17,6 +17,11 @@ struct MyPoint: MyShape{
         self.y = y
     }
     
+    init (points: [MyPoint]) {
+        x = points[0].x
+        y = points[0].y
+    }
+    
     func makeCoordinates() -> [MyPoint] {
         let myPoints = [MyPoint(x: self.x, y: self.y)]
         return myPoints

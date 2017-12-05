@@ -19,8 +19,9 @@ struct SyntaxChecker {
     }
     
     // 값들을 체크하여 Int 배열로 반환
-    func getErrorChekcedValue (_ input: String) throws -> Array<(Int, Int)> {
+    func getErrorChekcedValue (_ input: String) throws -> Array<MyPoint> {
         var numericValues : [(Int, Int)] = []
+        var points = [MyPoint]()
         let  stringCoords = splitByDash(input)
         for stringCoord in stringCoords {
             guard isSupportedValues(stringCoord) == true else { throw ErrorMessage.ofValueIsNotInt}
@@ -28,8 +29,9 @@ struct SyntaxChecker {
             guard let valueSplitedByComma = splitInputValueByComma(valueWithoutParenthesis) else { throw ErrorMessage.ofNonexistenceComma }
             guard let numericValue = convertToInt(valueSplitedByComma) else { throw ErrorMessage.ofExceedValidInput }
             numericValues.append(numericValue)
+            points = makePointInstance(numericValues)
         }
-        return numericValues
+        return points
     }
     
     // 대시를 체크하여 대시 기준으로 나눔
@@ -76,5 +78,14 @@ struct SyntaxChecker {
         }
         let numericValue = (intValues[0], intValues[1])
         return numericValue
+    }
+    
+    private func makePointInstance (_ numericValues: Array<(Int, Int)> ) ->  Array<MyPoint> {
+        var myPoints = Array<MyPoint>()
+        for numericValue in numericValues {
+            let myPoint = MyPoint(x: numericValue.0, y: numericValue.1)
+            myPoints.append(myPoint)
+        }
+        return myPoints
     }
 }

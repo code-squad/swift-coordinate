@@ -14,7 +14,8 @@ while (true) {
         if stringCoords == "q" {
             break
         }
-        let shapes = try MakingMyShape().makeShapeInstance(stringCoords)
+        let checked = try SyntaxChecker().getErrorChekcedValue(stringCoords)
+        let shapes = try MakingMyShape().makeShapeInstance(checked)
         OutputView().printPoints(shapes)
         if let calculatableShapes = shapes as? (ShapeCalculation & MyShape) {
             OutputView().printCalculation(myShape: calculatableShapes)

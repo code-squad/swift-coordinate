@@ -42,20 +42,21 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         }
     }
     
+    
     // 같은 좌표 입력시의 에러가 정상적으로 에러체크 되는가
     func testIsPerpectLine () {
         let sameCoords = "(24,10)-(24,10)"
-        XCTAssertThrowsError(try MakingMyShape().makeShapeInstance(sameCoords)) { (error) -> Void in
-            XCTAssertEqual(error as? MakingMyShape.ErrorMessage , MakingMyShape.ErrorMessage.ofImperfectLine)
-        }
+        let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
+        let myShape = MakingMyShape()
+        XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
     }
     
     // 같은 좌표 입력시의 에러가 정상적으로 에러체크 되는가
     func testIsPerpectTriangle () {
         let sameCoords = "(24,10)-(16,19)-(24,10)"
-        XCTAssertThrowsError(try MakingMyShape().makeShapeInstance(sameCoords)) { (error) -> Void in
-            XCTAssertEqual(error as? MakingMyShape.ErrorMessage , MakingMyShape.ErrorMessage.ofImperfectTriangle)
-        }
+        let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
+        let myShape = MakingMyShape()
+        XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
     }
     
     // 정상좌표 입력시 shape(라인)인스턴스가 생성되는가
@@ -64,11 +65,14 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         let instanceOfMyPoint = try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
         XCTAssertNotNil(instanceOfMyPoint)
     }
-   
+    
     // 정상좌표 입력시 인스턴스가 생성되는가
     func testIsSuccessMakingMyShapeInstance () {
         let valinInputValue = "(24,10)-(15,10)-(7,6)"
-        let instanceOfMyShape = try! MakingMyShape().makeShapeInstance(valinInputValue)
+        let valinInput =  try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
+        let myShape = MakingMyShape()
+        let instanceOfMyShape = try! myShape.makeShapeInstance(valinInput)
         XCTAssertNotNil(instanceOfMyShape)
     }
+ 
 }
