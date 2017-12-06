@@ -43,7 +43,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     
-    // 같은 좌표 입력시의 에러가 정상적으로 에러체크 되는가
+    // 같은 좌표 입력시 직선생성 에러가 정상적으로 에러체크 되는가
     func testIsPerpectLine () {
         let sameCoords = "(24,10)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
@@ -51,9 +51,17 @@ class CoorinateCalculatorUnitTest: XCTestCase {
         XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
     }
     
-    // 같은 좌표 입력시의 에러가 정상적으로 에러체크 되는가
+    // 같은 좌표 입력시 삼각형생성 에러가 정상적으로 에러체크 되는가
     func testIsPerpectTriangle () {
         let sameCoords = "(24,10)-(16,19)-(24,10)"
+        let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
+        let myShape = MakingMyShape()
+        XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
+    }
+    
+    // 위아래 변의 길이가 같지 않을때 사각형생성 에러가 정상적으로 에러체크 되는가
+    func testIsPerpectRectangle () {
+        let sameCoords = "(5,5)-(20,5)-(20,16)-(5,18)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
         let myShape = MakingMyShape()
         XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
@@ -68,7 +76,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     
     // 정상좌표 입력시 인스턴스가 생성되는가
     func testIsSuccessMakingMyShapeInstance () {
-        let valinInputValue = "(24,10)-(15,10)-(7,6)"
+        let valinInputValue = "(5,5)-(20,5)-(20,18)-(5,18)"
         let valinInput =  try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
         let myShape = MakingMyShape()
         let instanceOfMyShape = try! myShape.makeShapeInstance(valinInput)

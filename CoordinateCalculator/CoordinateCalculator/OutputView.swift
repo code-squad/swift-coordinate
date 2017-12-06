@@ -20,6 +20,11 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: 27, col: 0))")
     }
     
+    func printCalculation(myShape: MyShape & ShapeCalculation) {
+        let result = myShape.calculate()
+        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)\(myShape.resultDescription)\(result)")
+    }
+    
     private func drawAxis () {
         print("\(ANSICode.text.cyan)\(ANSICode.axis.draw())")
     }
@@ -28,10 +33,7 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    func printCalculation(myShape: MyShape & ShapeCalculation) {
-        let result = myShape.calculate()
-        print("\(ANSICode.cursor.move(row: 27, col: 0))\(ANSICode.text.greenBright)\(myShape.resultDescription)\(result)")
-    }
+    
 
 }
 
