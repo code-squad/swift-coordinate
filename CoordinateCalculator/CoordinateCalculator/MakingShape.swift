@@ -11,8 +11,8 @@ import Foundation
 struct MakingMyShape {
     enum ErrorMessage: String, Error {
         case ofImperfectLine = "같은좌표는 직선을 생성할 수 없습니다."
-        case ofImperfectTriangle = "같은좌표는 삼각형을 생성할 수 없습니다."
-        case ofImperfectRectangle = "입력된 좌표는 직사각형을 생성할 수 없습니다."
+        case ofImperfectTriangle = "삼각형을 생성할 수 없는 좌표입니다."
+        case ofImperfectRectangle = "직사각형을 생성할 수 없는 좌표입니다."
     }
     
     func makeShapeInstance (_ myPoints: [MyPoint]) throws -> MyShape {
