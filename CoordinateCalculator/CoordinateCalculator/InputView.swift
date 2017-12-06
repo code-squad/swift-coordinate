@@ -13,8 +13,9 @@ struct InputView {
         print ("""
          <좌표계산기> 아래와같은 형태로 좌표를 입력해주세요
          1. 점한개 : (12,24)
-         2. 점두개 : (12,24)-(14,20)
-         3. 점세개 : (12,23)-(11,10)-(15,20)
+         2. 직 선 : (12,24)-(14,20)
+         3. 삼각형 : (12,23)-(11,10)-(15,20)
+         4. 사각형 : (5,5)-(20,5)-(20,18)-(5,18)
          """)
         if let coordinates = readLine() {
             guard coordinates.contains("q")  else { return coordinates}

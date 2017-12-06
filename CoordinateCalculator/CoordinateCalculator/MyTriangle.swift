@@ -12,12 +12,6 @@ struct MyTriangle: MyShape, ShapeCalculation {
     private var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
-    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        lineAB = MyLine(pointA: pointA, pointB: pointB)
-        lineBC = MyLine(pointA: pointB, pointB: pointC)
-        lineAC = MyLine(pointA: pointC, pointB: pointA)
-    }
-    
     init (points: [MyPoint]) {
         lineAB = MyLine(pointA: points[0], pointB: points[1])
         lineBC = MyLine(pointA: points[1], pointB: points[2])
@@ -29,9 +23,9 @@ struct MyTriangle: MyShape, ShapeCalculation {
     }
     
     func makeCoordinates() -> [MyPoint] {
-        return [getLine(lineAB),
-                         getLine(lineBC),
-                         getLine(lineAC)]
+        return [getPoint(lineAB),
+                         getPoint(lineBC),
+                         getPoint(lineAC)]
     }
     
     func calculate() -> Double {

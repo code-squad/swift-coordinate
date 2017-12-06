@@ -13,18 +13,22 @@ struct MakingMyShape {
     enum ErrorMessage: String, Error {
         case ofImperfectLine = "같은좌표는 직선을 생성할 수 없습니다."
         case ofImperfectTriangle = "같은좌표는 삼각형을 생성할 수 없습니다."
+        case ofImperfectRectangle = "입력된 좌표는 직사각형을 생성할 수 없습니다."
     }
     
-    func makeShapeInstance (_ input: [MyPoint]) throws -> MyShape {
-        switch input.count {
+    func makeShapeInstance (_ myPoints: [MyPoint]) throws -> MyShape {
+        switch myPoints.count {
         case 1 :
-            return MyPoint(points: input)
+            return MyPoint(points: myPoints)
         case 2 :
-            if MyLine.isPerpectLine(input) == false { throw ErrorMessage.ofImperfectLine}
-            return MyPoint(points: input)
+            if MyLine.isPerpectLine(myPoints) == false { throw ErrorMessage.ofImperfectLine }
+            return MyLine(points: myPoints)
         case 3 :
-            if MyTriangle.isPerpectTriangle(input) == false { throw ErrorMessage.ofImperfectTriangle}
-            return MyTriangle(points: input)
+            if MyTriangle.isPerpectTriangle(myPoints) == false { throw ErrorMessage.ofImperfectTriangle }
+            return MyTriangle(points: myPoints)
+        case 4 :
+            if MyRect.isPerpectRectangle(myPoints) == false { throw ErrorMessage.ofImperfectRectangle }
+            return MyRect(points: myPoints)
         default: throw SyntaxChecker.ErrorMessage.ofUnKnownError
         }
     }
