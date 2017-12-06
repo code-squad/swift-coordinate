@@ -61,10 +61,10 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     
     // 위아래 변의 길이가 같지 않을때 사각형생성 에러가 정상적으로 에러체크 되는가
     func testIsPerpectRectangle () {
-        let sameCoords = "(5,5)-(20,5)-(20,16)-(5,18)"
-        let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
+        let notEqualInLength = "(5,5)-(20,5)-(20,16)-(5,18)"
+        let unequalInLength =  try! SyntaxChecker().getErrorChekcedValue(notEqualInLength)
         let myShape = MakingMyShape()
-        XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
+        XCTAssertThrowsError(try myShape.makeShapeInstance(unequalInLength))
     }
     
     // 정상좌표 입력시 shape(라인)인스턴스가 생성되는가
