@@ -51,4 +51,5 @@ struct MyRect: MyShape, ShapeCalculation {
         guard lengthOfBottomLine == lengthOfTopLine else { return false }
         return true
     }
+    
 }

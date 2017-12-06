@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 // MyShape객체를 생성하는 메소드를 갖는 구조체 (생성시 도형 불완전성 체크)
 struct MakingMyShape {
     enum ErrorMessage: String, Error {
@@ -21,13 +20,19 @@ struct MakingMyShape {
         case 1 :
             return MyPoint(points: myPoints)
         case 2 :
-            if MyLine.isPerpectLine(myPoints) == false { throw ErrorMessage.ofImperfectLine }
+            if MyLine.isPerpectLine(myPoints) == false {
+                throw ErrorMessage.ofImperfectLine
+            }
             return MyLine(points: myPoints)
         case 3 :
-            if MyTriangle.isPerpectTriangle(myPoints) == false { throw ErrorMessage.ofImperfectTriangle }
+            if MyTriangle.isPerpectTriangle(myPoints) == false {
+                throw ErrorMessage.ofImperfectTriangle
+            }
             return MyTriangle(points: myPoints)
         case 4 :
-            if MyRect.isPerpectRectangle(myPoints) == false { throw ErrorMessage.ofImperfectRectangle }
+            if MyRect.isPerpectRectangle(myPoints) == false {
+                throw ErrorMessage.ofImperfectRectangle
+            }
             return MyRect(points: myPoints)
         default: throw SyntaxChecker.ErrorMessage.ofUnKnownError
         }
