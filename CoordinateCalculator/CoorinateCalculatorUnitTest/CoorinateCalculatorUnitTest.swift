@@ -47,7 +47,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testErrorOfSameCoordinatesInLine () {
         let sameCoords = "(24,10)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
-        let myShape = MakingMyShape()
+        let myShape = ShapeFactory()
         XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
     }
     
@@ -55,7 +55,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testErrorOfSameCoordinatesInTriangle () {
         let sameCoords = "(24,10)-(16,19)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
-        let myShape = MakingMyShape()
+        let myShape = ShapeFactory()
         XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
     }
     
@@ -63,7 +63,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testErrorSameLengthOfTopBottomSide () {
         let notEqualInLength = "(5,5)-(20,5)-(20,16)-(5,18)"
         let unequalInLength =  try! SyntaxChecker().getErrorChekcedValue(notEqualInLength)
-        let myShape = MakingMyShape()
+        let myShape = ShapeFactory()
         XCTAssertThrowsError(try myShape.makeShapeInstance(unequalInLength))
     }
     
@@ -78,7 +78,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testIsSuccessMakingMyShapeInstance () {
         let valinInputValue = "(5,5)-(20,5)-(20,18)-(5,18)"
         let valinInput =  try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
-        let myShape = MakingMyShape()
+        let myShape = ShapeFactory()
         let instanceOfMyShape = try! myShape.makeShapeInstance(valinInput)
         XCTAssertNotNil(instanceOfMyShape)
     }

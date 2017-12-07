@@ -71,7 +71,7 @@ struct SyntaxChecker {
     }
     
     // 문자열로된 숫자를 인트로 바꿈
-    func convertToInt (_ stringCoords: Array<String>) -> (Int, Int)? {
+    private func convertToInt (_ stringCoords: Array<String>) -> (Int, Int)? {
         let intValues = stringCoords.flatMap() { Int($0) }
         for index in 0 ..< intValues.count {
             if intValues[index] > 24 { return nil }
