@@ -19,7 +19,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     // 괄호가 없이 입력되었을때의 에러가 정상적으로 에러체크 되는가
-    func testEliminateParenthesisMethod () {
+    func testErrorOfNoParenthesis () {
         let withoutParenthesis = "(15,25-12-20)-(11,15)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(withoutParenthesis)) { (error) -> Void in
             XCTAssertEqual(error as? SyntaxChecker.ErrorMessage , SyntaxChecker.ErrorMessage.ofNonexistentParenthesis)
@@ -27,7 +27,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     // 콤마가 없을때의 에러가 정상적으로 출력되는가
-    func testsplitInputValueByCommaMethod () {
+    func testErrorOfNoComma () {
         let withoutComma = "(2410)-(15,10)-(7,6)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(withoutComma)) { (error) -> Void in
             XCTAssertEqual(error as? SyntaxChecker.ErrorMessage , SyntaxChecker.ErrorMessage.ofNonexistenceComma)
@@ -35,7 +35,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     // 지정한 범위 24를 초과시의 에러가 정상적으로 에러체크 되는가
-    func testOfExceedValidInput () {
+    func testErrorOfExceedValidInput () {
         let exceedNum = "(15,25)-(12,20)-(11,15)"
         XCTAssertThrowsError(try SyntaxChecker().getErrorChekcedValue(exceedNum)) { (error) -> Void in
             XCTAssertEqual(error as? SyntaxChecker.ErrorMessage , SyntaxChecker.ErrorMessage.ofExceedValidInput)
@@ -44,7 +44,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     
     
     // 같은 좌표 입력시 직선생성 에러가 정상적으로 에러체크 되는가
-    func testIsPerpectLine () {
+    func testErrorOfSameCoordinatesInLine () {
         let sameCoords = "(24,10)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
         let myShape = MakingMyShape()
@@ -52,7 +52,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     // 같은 좌표 입력시 삼각형생성 에러가 정상적으로 에러체크 되는가
-    func testIsPerpectTriangle () {
+    func testErrorOfSameCoordinatesInTriangle () {
         let sameCoords = "(24,10)-(16,19)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
         let myShape = MakingMyShape()
@@ -60,7 +60,7 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     }
     
     // 위아래 변의 길이가 같지 않을때 사각형생성 에러가 정상적으로 에러체크 되는가
-    func testIsPerpectRectangle () {
+    func testErrorSameLengthOfTopBottomSide () {
         let notEqualInLength = "(5,5)-(20,5)-(20,16)-(5,18)"
         let unequalInLength =  try! SyntaxChecker().getErrorChekcedValue(notEqualInLength)
         let myShape = MakingMyShape()
