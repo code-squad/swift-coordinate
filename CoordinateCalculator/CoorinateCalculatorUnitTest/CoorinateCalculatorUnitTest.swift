@@ -47,40 +47,37 @@ class CoorinateCalculatorUnitTest: XCTestCase {
     func testErrorOfSameCoordinatesInLine () {
         let sameCoords = "(24,10)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
-        let myShape = ShapeFactory()
-        XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
+        XCTAssertThrowsError(try ShapeFactory.makeShapeInstance(samecoord))
     }
     
     // 같은 좌표 입력시 삼각형생성 에러가 정상적으로 에러체크 되는가
     func testErrorOfSameCoordinatesInTriangle () {
         let sameCoords = "(24,10)-(16,19)-(24,10)"
         let samecoord =  try! SyntaxChecker().getErrorChekcedValue(sameCoords)
-        let myShape = ShapeFactory()
-        XCTAssertThrowsError(try myShape.makeShapeInstance(samecoord))
+        XCTAssertThrowsError(try ShapeFactory.makeShapeInstance(samecoord))
     }
     
     // 위아래 변의 길이가 같지 않을때 사각형생성 에러가 정상적으로 에러체크 되는가
     func testErrorSameLengthOfTopBottomSide () {
         let notEqualInLength = "(5,5)-(20,5)-(20,16)-(5,18)"
         let unequalInLength =  try! SyntaxChecker().getErrorChekcedValue(notEqualInLength)
-        let myShape = ShapeFactory()
-        XCTAssertThrowsError(try myShape.makeShapeInstance(unequalInLength))
+        XCTAssertThrowsError(try ShapeFactory.makeShapeInstance(unequalInLength))
     }
     
-    // 정상좌표 입력시 shape(라인)인스턴스가 생성되는가
-    func testIsSuccessMakingMyPointInstance () {
+    // 직선 정상좌표 인스턴스가 생성되는가
+    func testIsSuccessMakingLine () {
         let valinInputValue = "(24,10)-(15,10)"
-        let instanceOfMyPoint = try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
-        XCTAssertNotNil(instanceOfMyPoint)
+        let myPoints = try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
+        let line = try! ShapeFactory.makeShapeInstance(myPoints)
+        XCTAssertNotNil(line)
     }
     
-    // 정상좌표 입력시 인스턴스가 생성되는가
-    func testIsSuccessMakingMyShapeInstance () {
+    // 사각형 정상좌표 입력시 인스턴스가 생성되는가
+    func testIsSuccessMakingRectangle () {
         let valinInputValue = "(5,5)-(20,5)-(20,18)-(5,18)"
-        let valinInput =  try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
-        let myShape = ShapeFactory()
-        let instanceOfMyShape = try! myShape.makeShapeInstance(valinInput)
-        XCTAssertNotNil(instanceOfMyShape)
+        let myPoints =  try! SyntaxChecker().getErrorChekcedValue(valinInputValue)
+        let rectangle = try! ShapeFactory.makeShapeInstance(myPoints)
+        XCTAssertNotNil(rectangle)
     }
  
 }
