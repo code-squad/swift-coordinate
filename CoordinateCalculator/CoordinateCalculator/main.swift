@@ -15,14 +15,14 @@ while (true) {
             break
         }
         let checked = try SyntaxChecker().getErrorChekcedValue(stringCoords)
-        let shapes = try MakingMyShape().makeShapeInstance(checked)
+        let shapes = try ShapeFactory.makeShapeInstance(checked)
         OutputView().printPoints(shapes)
         if let calculatableShapes = shapes as? (ShapeCalculation & MyShape) {
             OutputView().printCalculation(myShape: calculatableShapes)
         }
     } catch let error as SyntaxChecker.ErrorMessage {
         print (error.rawValue)
-    } catch let error as MakingMyShape.ErrorMessage {
+    } catch let error as ShapeFactory.ErrorMessage {
         print (error.rawValue)
     } catch {
         print (SyntaxChecker.ErrorMessage.ofUnKnownError.rawValue)
