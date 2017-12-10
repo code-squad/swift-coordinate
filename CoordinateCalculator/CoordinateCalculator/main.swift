@@ -10,3 +10,5 @@ import Foundation
 
 OutputView().clearConsole()
 OutputView().drawAxis()
+
+InputView().readInput()
