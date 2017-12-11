@@ -9,7 +9,6 @@
 import Foundation
 
 struct InputView {
-    
     func readInput() -> String {
         print("좌표를 입력하세요.")
         let userCoordinate = readLine()
@@ -21,7 +20,7 @@ struct InputView {
     
     // 입력 문자열에서 하나의 문자를 제거하고, 그 문자열을 반환하는 함수
     
-    func sliceMark (_ fullString : String, mark : Character) -> String {
+    private func sliceMark (_ fullString : String, mark : Character) -> String {
         var temp = ""
         let stringsWithoutMark : [String] = fullString.split(separator: mark).map(String.init)
         for index in 0..<stringsWithoutMark.count {
@@ -30,9 +29,8 @@ struct InputView {
         return temp
     }
     
-    //입력받은 문자열에서 좌표를 반환해주는 함수
-    
-    func seperateCoordinates (userInput : String) -> MyPoint {
+    // 입력받은 문자열에서 좌표를 반환해주는 함수
+    func seperateCoordinates (userInput : String) -> [Int] {
         var coordinates : [Int] = [0,0]
         let userInputWithoutLeftBracket = sliceMark(userInput, mark: "(")
         let userInputWithoutRightBracket = sliceMark(userInputWithoutLeftBracket, mark: ")")
@@ -41,8 +39,8 @@ struct InputView {
         for index in 0..<temp.count {
             coordinates[index] = Int(temp[index]) ?? 0
         }
-        let userPoints : MyPoint = MyPoint.init(x: coordinates[0], y: coordinates[1])
-        return userPoints
+        
+        return coordinates
     }
 
 }

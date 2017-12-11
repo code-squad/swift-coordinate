@@ -18,11 +18,11 @@ struct OutputView {
         drawAxis()
     }
     
-    func drawAxis() {
+    private func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    func clearConsole() {
+    private func clearConsole() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
 }
