@@ -9,6 +9,7 @@
 import Foundation
 
 struct OutputView {
+    
     func drawPoint(inputPoints : MyPoint) {
         clearConsole()
         let xPoint = inputPoints.x * 2 + 3
