@@ -12,6 +12,7 @@ var runCoordinatesCalculator : Bool = true
 mainLoop : while runCoordinatesCalculator == true {
     let inputView : InputView = InputView()
     let userInput = inputView.readInput()
+    guard userInput != "q" else {break}
     let userPoints = inputView.seperateCoordinates(userInput: userInput)
     
     let myPoint : MyPoint = MyPoint.init(userPoints)
