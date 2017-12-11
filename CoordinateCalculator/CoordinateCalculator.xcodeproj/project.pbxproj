@@ -66,8 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
-				04E125511FDA9A61002FE7DD /* MyPoint.swift */,
 				04E1254F1FDA9980002FE7DD /* InputView.swift */,
+				04E125511FDA9A61002FE7DD /* MyPoint.swift */,
 				04E1254D1FDA8A36002FE7DD /* OutputView.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 			);
