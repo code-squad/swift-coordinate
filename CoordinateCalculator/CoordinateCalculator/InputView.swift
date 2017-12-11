@@ -9,6 +9,7 @@
 import Foundation
 
 struct InputView {
+    
     func readInput() -> String {
         print("좌표를 입력하세요.")
         let userCoordinate = readLine()
@@ -30,6 +31,7 @@ struct InputView {
     }
     
     // 입력받은 문자열에서 좌표를 반환해주는 함수
+    
     func seperateCoordinates (userInput : String) -> [Int] {
         var coordinates : [Int] = [0,0]
         let userInputWithoutLeftBracket = sliceMark(userInput, mark: "(")
