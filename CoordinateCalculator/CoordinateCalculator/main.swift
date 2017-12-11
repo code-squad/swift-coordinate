@@ -15,10 +15,9 @@ mainLoop : while runCoordinatesCalculator == true {
     let userPoints = inputView.seperateCoordinates(userInput: userInput)
     
     let myPoint : MyPoint = MyPoint.init(userPoints)
-    guard myPoint.x <= 24 || myPoint.y <= 24 else {
+    if myPoint.x > 24 || myPoint.y > 24 {
         print("X 또는 Y좌표가 24보다 값이 큽니다. 다시 입력해주세요.")
         continue
     }
-    
     OutputView().drawPoint(inputPoints: myPoint)
 }
