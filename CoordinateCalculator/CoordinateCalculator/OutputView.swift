@@ -14,7 +14,7 @@ struct OutputView {
         clearConsole()
         let xPoint = inputPoints.x * 2 + 3
         let yPoint = (inputPoints.y - 25) * -1
-        print("\(ANSICode.cursor.move(row : yPoint, col : xPoint ))\(ANSICode.text.redBright)*")
+        print("\(ANSICode.cursor.move(row : yPoint, col : xPoint ))\(ANSICode.text.redBright)●")
         drawAxis()
     }
     
