@@ -11,7 +11,7 @@ import Foundation
 struct InputView {
     
     func readInput() -> String {
-        print("좌표를 입력하세요.")
+        print("좌표를 입력하세요. 종료를 원하시면 q를 입력해주세요.")
         let userCoordinate = readLine()
         guard let input = userCoordinate else {
             return ""
