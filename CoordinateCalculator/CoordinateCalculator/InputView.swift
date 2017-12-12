@@ -34,7 +34,7 @@ struct InputView {
         for oneCoordinate in coordinates {
                 return checkOneLimit(point: oneCoordinate) == true
             }
-        return true
+        return false
     }
     
     private func checkOneLimit (point : [Int]) -> Bool {
