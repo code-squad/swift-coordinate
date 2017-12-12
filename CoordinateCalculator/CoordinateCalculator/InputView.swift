@@ -30,11 +30,11 @@ struct InputView {
         return input
     }
     
-    private func checkOneLimit (point : [Int]) -> Bool {
-        return point[0] <= 24 && point[1] <= 24
+    private func checkOneLimit (point : MyPoint) -> Bool {
+        return point.x <= 24 && point.y <= 24
     }
     
-    func checkLimitCondition(coordinates : [[Int]]) -> Bool {
+    func checkLimitCondition(coordinates : [MyPoint]) -> Bool {
         var limitVal : Bool = true
         for index in 0..<coordinates.count {
             if checkOneLimit(point: coordinates[index]) == false {
@@ -44,16 +44,16 @@ struct InputView {
         return limitVal
     }
 
-    func seperateCoordinates (userInput : String) -> [[Int]] {
+    func seperateCoordinates (userInput : String) -> [MyPoint] {
         let temp : [String] = userInput.split(separator: "-").map(String.init)
-        var coordinates : [[Int]] = Array(repeatElement([0,0], count: temp.count))
+        var coordinates : [MyPoint] = Array(repeatElement(MyPoint.init([0,0]), count: temp.count))
         for indexOfCoordinate in 0..<temp.count {
             coordinates[indexOfCoordinate] = seperateOneCoordinate(oneCoordinate: temp[indexOfCoordinate])
         }
         return coordinates
     }
     
-    private func seperateOneCoordinate (oneCoordinate : String) -> [Int] {
+    private func seperateOneCoordinate (oneCoordinate : String) -> MyPoint {
         var coordinates : [Int] = [0,0]
         let userInputWithoutLeftBracket = sliceMark(oneCoordinate, mark: "(")
         let userInputWithoutRightBracket = sliceMark(userInputWithoutLeftBracket, mark: ")")
@@ -62,8 +62,7 @@ struct InputView {
         for index in 0..<temp.count {
             coordinates[index] = Int(temp[index]) ?? 0
         }
-        
-        return coordinates
+        return MyPoint.init(coordinates)
     }
     
     private func sliceMark (_ fullString : String, mark : Character) -> String {
