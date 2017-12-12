@@ -24,7 +24,7 @@ struct MyLine {
         self.pointB.x = points[1][0]
         self.pointB.y = points[1][1]
     }
-    // 두 점 사이의 거리를 계산하는 함수를 구현
+    
     func calculateDistance() -> Double{
         let gapOfX = Double(self.pointA.x - self.pointB.x)
         let gapOfY = Double(self.pointA.y - self.pointB.y)

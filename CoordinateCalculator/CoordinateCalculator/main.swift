@@ -18,7 +18,7 @@ mainLoop : while runCoordinatesCalculator == true {
         continue
     }
     let userPoints = inputView.seperateCoordinates(userInput: userInput)
-    guard inputView.checkLimitCondition(coordinates: userPoints) == true else {
+    if inputView.checkLimitCondition(coordinates: userPoints) == false {
         print("다시 입력해주세요. X 또는 Y가 24보다 큰 값이 있습니다.")
         continue
     }
