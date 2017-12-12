@@ -11,25 +11,27 @@ import Foundation
 struct OutputView {
     
     func drawPoint(inputPoints : MyPoint) {
+        let consoleCoordinate = makeConsolePoint(onePoint: inputPoints)
         clearConsole()
-        let xPoint = inputPoints.x * 2 + 3
-        let yPoint = (inputPoints.y - 25) * -1
-        print("\(ANSICode.cursor.move(row : yPoint, col : xPoint ))\(ANSICode.text.redBright)●")
+        print("\(ANSICode.cursor.move(row : consoleCoordinate.y, col : consoleCoordinate.x ))\(ANSICode.text.redBright)●")
         drawAxis()
     }
     
     func drawLine(inputLine : MyLine) {
+        let firstCoordinate = makeConsolePoint(onePoint: inputLine.pointA)
+        let secondCoordinate = makeConsolePoint(onePoint: inputLine.pointB)
         clearConsole()
-        let firstXpoint = inputLine.pointA.x * 2 + 3
-        let firstYpoint = (inputLine.pointA.y - 25) * -1
-        let secondXpoint = inputLine.pointB.x * 2 + 3
-        let secondYpoint = (inputLine.pointB.y - 25) * -1
-        print("\(ANSICode.cursor.move(row : firstYpoint, col : firstXpoint ))\(ANSICode.text.redBright)●")
-        print("\(ANSICode.cursor.move(row : secondYpoint, col : secondXpoint ))\(ANSICode.text.redBright)●")
+        print("\(ANSICode.cursor.move(row : firstCoordinate.y, col : firstCoordinate.x ))\(ANSICode.text.redBright)●")
+        print("\(ANSICode.cursor.move(row : secondCoordinate.y, col : secondCoordinate.x ))\(ANSICode.text.redBright)●")
         drawAxis()
         let distance = inputLine.calculateDistance()
         print("두 점 사이의 거리는 \(distance)")
-
+    }
+    
+    private func makeConsolePoint(onePoint : MyPoint) -> (x : Int,y : Int) {
+        let consoleXpoint = onePoint.x * 2 + 3
+        let consoleYpoint = (onePoint.y - 25) * -1
+        return (consoleXpoint, consoleYpoint)
     }
     
     private func drawAxis() {
