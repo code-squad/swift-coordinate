@@ -30,17 +30,20 @@ struct InputView {
         return input
     }
     
-    func checkLimitCondition(coordinates : [[Int]]) -> Bool {
-        for oneCoordinate in coordinates {
-                return checkOneLimit(point: oneCoordinate) == true
-            }
-        return false
-    }
-    
     private func checkOneLimit (point : [Int]) -> Bool {
-        return point[0] <= 24 || point[1] <= 24
+        return point[0] <= 24 && point[1] <= 24
     }
     
+    func checkLimitCondition(coordinates : [[Int]]) -> Bool {
+        var limitVal : Bool = true
+        for index in 0..<coordinates.count {
+            if checkOneLimit(point: coordinates[index]) == false {
+                limitVal = false
+            }
+        }
+        return limitVal
+    }
+
     func seperateCoordinates (userInput : String) -> [[Int]] {
         let temp : [String] = userInput.split(separator: "-").map(String.init)
         var coordinates : [[Int]] = Array(repeatElement([0,0], count: temp.count))
