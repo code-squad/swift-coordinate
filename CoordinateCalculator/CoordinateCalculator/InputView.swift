@@ -9,6 +9,17 @@
 import Foundation
 
 struct InputView {
+    //입력가능한 CharacterSet : "(", ")", ",", "-", "숫자"
+    let validCharacters = CharacterSet.init(charactersIn: "(),-").union(CharacterSet.decimalDigits)
+    
+    //가능한 문자인지 확인
+    func checkValidCharacters (userInput : String) -> Bool {
+        let inValidCharacters = userInput.components(separatedBy: validCharacters).filter { $0 != "" }
+        if inValidCharacters.count == 0 {
+            return true
+        }
+        return false
+    }
     
     func readInput() -> String {
         print("좌표를 입력하세요. 종료를 원하시면 q를 입력해주세요.")
@@ -19,22 +30,29 @@ struct InputView {
         return input
     }
     
-    // 입력 문자열에서 하나의 문자를 제거하고, 그 문자열을 반환하는 함수
-    
-    private func sliceMark (_ fullString : String, mark : Character) -> String {
-        var temp = ""
-        let stringsWithoutMark : [String] = fullString.split(separator: mark).map(String.init)
-        for index in 0..<stringsWithoutMark.count {
-            temp += stringsWithoutMark[index]
-        }
-        return temp
+    func checkLimitCondition(coordinates : [[Int]]) -> Bool {
+        for oneCoordinate in coordinates {
+                return checkOneLimit(point: oneCoordinate) == true
+            }
+        return true
     }
     
-    // 입력받은 문자열에서 좌표를 반환해주는 함수
+    private func checkOneLimit (point : [Int]) -> Bool {
+        return point[0] <= 24 || point[1] <= 24
+    }
     
-    func seperateCoordinates (userInput : String) -> [Int] {
+    func seperateCoordinates (userInput : String) -> [[Int]] {
+        let temp : [String] = userInput.split(separator: "-").map(String.init)
+        var coordinates : [[Int]] = Array(repeatElement([0,0], count: temp.count))
+        for indexOfCoordinate in 0..<temp.count {
+            coordinates[indexOfCoordinate] = seperateOneCoordinate(oneCoordinate: temp[indexOfCoordinate])
+        }
+        return coordinates
+    }
+    
+    private func seperateOneCoordinate (oneCoordinate : String) -> [Int] {
         var coordinates : [Int] = [0,0]
-        let userInputWithoutLeftBracket = sliceMark(userInput, mark: "(")
+        let userInputWithoutLeftBracket = sliceMark(oneCoordinate, mark: "(")
         let userInputWithoutRightBracket = sliceMark(userInputWithoutLeftBracket, mark: ")")
         
         var temp = userInputWithoutRightBracket.split(separator: ",").map(String.init)
@@ -44,5 +62,13 @@ struct InputView {
         
         return coordinates
     }
-
+    
+    private func sliceMark (_ fullString : String, mark : Character) -> String {
+        var temp = ""
+        let stringsWithoutMark : [String] = fullString.split(separator: mark).map(String.init)
+        for index in 0..<stringsWithoutMark.count {
+            temp += stringsWithoutMark[index]
+        }
+        return temp
+    }
 }

@@ -13,13 +13,21 @@ mainLoop : while runCoordinatesCalculator == true {
     let inputView : InputView = InputView()
     let userInput = inputView.readInput()
     guard userInput != "q" else {break}
-    let userPoints = inputView.seperateCoordinates(userInput: userInput)
-    if userPoints[0] > 24 || userPoints[1] > 24 {
-        print("X 또는 Y좌표가 24보다 값이 큽니다. 다시 입력해주세요.")
+    if inputView.checkValidCharacters(userInput: userInput) == false {
+        print("다시 입력해주세요. 좌표값 형태가 아닙니다. ")
         continue
     }
-    
-    let myPoint : MyPoint = MyPoint.init(userPoints)
-
-    OutputView().drawPoint(inputPoints: myPoint)
+    let userPoints = inputView.seperateCoordinates(userInput: userInput)
+    guard inputView.checkLimitCondition(coordinates: userPoints) == true else {
+        print("다시 입력해주세요. X 또는 Y가 24보다 큰 값이 있습니다.")
+        continue
+    }
+    switch userPoints.count {
+    case 2 :
+        let myLine : MyLine = MyLine.init(points: userPoints)
+        OutputView().drawLine(inputLine: myLine)
+    default :
+        let myPoint : MyPoint = MyPoint.init(userPoints[0])
+        OutputView().drawPoint(inputPoints: myPoint)
+    }
 }
