@@ -17,12 +17,9 @@ struct MyLine {
         self.pointB = pointB
     }
     
-    init(points : [[Int]]) {
-        self.pointA.x = points[0][0]
-        self.pointA.y = points[0][1]
-        
-        self.pointB.x = points[1][0]
-        self.pointB.y = points[1][1]
+    init(points : [MyPoint]) {
+        self.pointA = points[0]
+        self.pointB = points[1]
     }
     
     func calculateDistance() -> Double{

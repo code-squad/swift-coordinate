@@ -2,7 +2,7 @@
 //  main.swift
 //  CoordinateCalculator
 //
-//  Created by JK on 09/10/2017.
+//  Created by jack on 2017. 12. 08
 //  Copyright © 2017 Codesquad Inc. All rights reserved.
 //
 
@@ -22,12 +22,6 @@ mainLoop : while runCoordinatesCalculator == true {
         print("다시 입력해주세요. X 또는 Y가 24보다 큰 값이 있습니다.")
         continue
     }
-    switch userPoints.count {
-    case 2 :
-        let myLine : MyLine = MyLine.init(points: userPoints)
-        OutputView().drawLine(inputLine: myLine)
-    default :
-        let myPoint : MyPoint = MyPoint.init(userPoints[0])
-        OutputView().drawPoint(inputPoints: myPoint)
-    }
+    
+    OutputView().printShape(userPoints)
 }

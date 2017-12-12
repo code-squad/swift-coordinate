@@ -10,14 +10,25 @@ import Foundation
 
 struct OutputView {
     
-    func drawPoint(inputPoints : MyPoint) {
+    func printShape (_ userCoordinates : [MyPoint]) {
+        switch userCoordinates.count {
+        case 2:
+            let line : MyLine = MyLine.init(points: userCoordinates)
+            drawLine(inputLine: line)
+        default:
+            let point : MyPoint = MyPoint.init(x: userCoordinates[0].x, y: userCoordinates[0].y)
+            drawPoint(inputPoints: point)
+        }
+    }
+    
+    private func drawPoint(inputPoints : MyPoint) {
         let consoleCoordinate = makeConsolePoint(onePoint: inputPoints)
         clearConsole()
         print("\(ANSICode.cursor.move(row : consoleCoordinate.y, col : consoleCoordinate.x ))\(ANSICode.text.redBright)●")
         drawAxis()
     }
     
-    func drawLine(inputLine : MyLine) {
+    private func drawLine(inputLine : MyLine) {
         let firstCoordinate = makeConsolePoint(onePoint: inputLine.pointA)
         let secondCoordinate = makeConsolePoint(onePoint: inputLine.pointB)
         clearConsole()
