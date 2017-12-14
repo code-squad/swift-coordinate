@@ -10,14 +10,12 @@ import Foundation
 
 struct OutputView {
     
-    func printShape (_ userCoordinates : [MyPoint]) {
-        switch userCoordinates.count {
-        case 2:
-            let line : MyLine = MyLine.init(points: userCoordinates)
-            drawLine(inputLine: line)
+    func printShape (_ userCoordinates : MyShape) {
+        switch userCoordinates.currentShape {
+        case "line":
+            drawLine(inputLine: userCoordinates.line)
         default:
-            let point : MyPoint = MyPoint.init(x: userCoordinates[0].x, y: userCoordinates[0].y)
-            drawPoint(inputPoints: point)
+            drawPoint(inputPoints: userCoordinates.point)
         }
     }
     

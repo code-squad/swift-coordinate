@@ -43,11 +43,23 @@ struct InputView {
         }
         return limitVal
     }
-
+    
+    func selectShape(points : [MyPoint]) -> MyShape {
+        switch points.count {
+        case 2:
+            let line : MyShape = MyShape.init(pointsOfline: points)
+            return line
+        default:
+            let point : MyShape = MyShape.init(point: points)
+            return point
+        }
+    }
+    
     func seperateCoordinates (userInput : String) -> [MyPoint] {
         let temp : [String] = userInput.split(separator: "-").map(String.init)
-        var coordinates : [MyPoint] = Array(repeatElement(MyPoint.init([0,0]), count: temp.count))
+        var coordinates : [MyPoint] = []
         for indexOfCoordinate in 0..<temp.count {
+            coordinates.append(MyPoint.init([0,0]))
             coordinates[indexOfCoordinate] = seperateOneCoordinate(oneCoordinate: temp[indexOfCoordinate])
         }
         return coordinates
