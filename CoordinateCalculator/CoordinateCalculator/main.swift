@@ -22,6 +22,7 @@ mainLoop : while runCoordinatesCalculator == true {
         print("다시 입력해주세요. X 또는 Y가 24보다 큰 값이 있습니다.")
         continue
     }
+    let userShape = inputView.selectShape(points: userPoints)
     
-    OutputView().printShape(userPoints)
+    OutputView().printShape(userShape)
 }
