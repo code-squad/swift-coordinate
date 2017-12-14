@@ -18,6 +18,7 @@ struct InputView {
         if inValidCharacters.count == 0 {
             return true
         }
+        print("다시 입력해주세요. 좌표값 형태가 아닙니다. ")
         return false
     }
     
@@ -41,7 +42,11 @@ struct InputView {
                 limitVal = false
             }
         }
-        return limitVal
+        if limitVal == false {
+            print("다시 입력해주세요. X 또는 Y가 24보다 큰 값이 있습니다.")
+            return false
+        }
+        return true
     }
     
     func selectShape(points : [MyPoint]) -> MyShape {
