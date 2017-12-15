@@ -64,20 +64,19 @@ struct InputView {
         let temp : [String] = userInput.split(separator: "-").map(String.init)
         var coordinates : [MyPoint] = []
         for indexOfCoordinate in 0..<temp.count {
-            coordinates.append(MyPoint.init([0,0]))
-            coordinates[indexOfCoordinate] = seperateOneCoordinate(oneCoordinate: temp[indexOfCoordinate])
+            coordinates.append(seperateOneCoordinate(oneCoordinate: temp[indexOfCoordinate]))
         }
         return coordinates
     }
     
     private func seperateOneCoordinate (oneCoordinate : String) -> MyPoint {
-        var coordinates : [Int] = [0,0]
+        var coordinates : [Int] = []
         let userInputWithoutLeftBracket = sliceMark(oneCoordinate, mark: "(")
         let userInputWithoutRightBracket = sliceMark(userInputWithoutLeftBracket, mark: ")")
         
         var temp = userInputWithoutRightBracket.split(separator: ",").map(String.init)
         for index in 0..<temp.count {
-            coordinates[index] = Int(temp[index]) ?? 0
+            coordinates.append(Int(temp[index]) ?? 0)
         }
         return MyPoint.init(coordinates)
     }
