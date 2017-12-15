@@ -21,20 +21,10 @@ struct OutputView {
         clearConsole()
         printPoints(points: consoleCoordinates)
         drawAxis()
-        printResultOfCalculation(userCoordinates)
-    }
-    
-    private func printResultOfCalculation(_ userShape : MyShape) {
-        switch userShape.currentShape {
-        case "rect" :
-            print("사각형의 넓이는 \(userShape.calculateShape())")
-        case "triangle" :
-            print("삼각형의 넓이는 \(userShape.calculateShape())")
-        case "line":
-            print("두 점 사이 의 거리는 \(userShape.calculateShape())")
-        default:
-            break
+        guard userCoordinates.currentShape != "point" else {
+            return
         }
+        print(userCoordinates.messageOfShape + String(userCoordinates.calculateShape()))
     }
 
     private func printPoints(points : [MyPoint]) {
