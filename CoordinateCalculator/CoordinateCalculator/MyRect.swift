@@ -9,10 +9,11 @@
 import Foundation
 
 struct MyRect : MyShape {
+    
     var leftTop : MyPoint = MyPoint.init(x: 0, y: 0)
     var rightBottom : MyPoint = MyPoint.init(x: 0, y: 0)
     var currentShape: String = "rect"
-    var messageOfShape: String = "사각형의 넓이는 "
+     
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
@@ -41,6 +42,10 @@ struct MyRect : MyShape {
     
     func calculateShape() -> Double {
         return Double((self.rightBottom.y - self.leftTop.y) * (self.rightBottom.x - self.leftTop.x)).magnitude
+    }
+    
+    func messageOfShape() -> String {
+        return "사각형의 넓이는 "
     }
     
     private func checkOneRectPoint(leftTop : MyPoint, rightBottom : MyPoint, onePoint : MyPoint) -> Bool {

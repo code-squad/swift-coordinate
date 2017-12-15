@@ -12,7 +12,7 @@ struct MyLine : MyShape {
     var pointA = MyPoint(x : 0, y : 0)
     var pointB = MyPoint(x : 0, y : 0)
     var currentShape: String = "line"
-    var messageOfShape: String = "두 점 사이의 거리는 "
+    
     
     init(pointA : MyPoint, pointB : MyPoint) {
         self.pointA = pointA
@@ -36,4 +36,8 @@ struct MyLine : MyShape {
         let distance = sqrt(Double(pow(gapOfX, 2) + Double(pow(gapOfY, 2))))
         return distance
     }
+    func messageOfShape() -> String {
+        return "두 점 사이의 거리는 "
+    }
+    
 }
