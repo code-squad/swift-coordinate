@@ -11,45 +11,43 @@ import Foundation
 struct OutputView {
     
     func printShape (_ userCoordinates : MyShape) {
-        switch userCoordinates.currentShape {
-        case "triangle" :
-            drawTriangle(inputTriangle: userCoordinates.triangle)
-        case "line":
-            drawLine(inputLine: userCoordinates.line)
+        switch userCoordinates.generateCoordinate().count {
+        case 3 :
+            drawTriangle(inputTriangle: userCoordinates.generateCoordinate())
+            print("삼각형의 넓이는 \(userCoordinates.calculateShape())")
+        case 2:
+            drawLine(inputLine: userCoordinates.generateCoordinate())
+            print("두 점 사이 의 거리는 \(userCoordinates.calculateShape())")
         default:
-            drawPoint(inputPoints: userCoordinates.point)
+            drawPoint(inputPoints: userCoordinates.generateCoordinate())
         }
     }   
     
-    private func drawPoint(inputPoints : MyPoint) {
-        let consoleCoordinate = makeConsolePoint(onePoint: inputPoints)
+    private func drawPoint(inputPoints : [MyPoint]) {
+        let consoleCoordinate = makeConsolePoint(onePoint: inputPoints[0])
         clearConsole()
         print("\(ANSICode.cursor.move(row : consoleCoordinate.y, col : consoleCoordinate.x ))\(ANSICode.text.redBright)●")
         drawAxis()
     }
     
-    private func drawLine(inputLine : MyLine) {
-        let firstCoordinate = makeConsolePoint(onePoint: inputLine.pointA)
-        let secondCoordinate = makeConsolePoint(onePoint: inputLine.pointB)
+    private func drawLine(inputLine : [MyPoint]) {
+        let firstCoordinate = makeConsolePoint(onePoint: inputLine[0])
+        let secondCoordinate = makeConsolePoint(onePoint: inputLine[1])
         clearConsole()
         print("\(ANSICode.cursor.move(row : firstCoordinate.y, col : firstCoordinate.x ))\(ANSICode.text.redBright)●")
         print("\(ANSICode.cursor.move(row : secondCoordinate.y, col : secondCoordinate.x ))\(ANSICode.text.redBright)●")
         drawAxis()
-        let distance = inputLine.calculateDistance()
-        print("두 점 사이의 거리는 \(distance)")
     }
     
-    private func drawTriangle(inputTriangle : MyTriangle) {
-        let firstCoordinate = makeConsolePoint(onePoint: inputTriangle.lineAB.pointA)
-        let secondCoordinate = makeConsolePoint(onePoint: inputTriangle.lineAB.pointB)
-        let thirdCoordinate = makeConsolePoint(onePoint: inputTriangle.lineAC.pointB)
+    private func drawTriangle(inputTriangle : [MyPoint]) {
+        let firstCoordinate = makeConsolePoint(onePoint: inputTriangle[0])
+        let secondCoordinate = makeConsolePoint(onePoint: inputTriangle[1])
+        let thirdCoordinate = makeConsolePoint(onePoint: inputTriangle[2])
         clearConsole()
         print("\(ANSICode.cursor.move(row : firstCoordinate.y, col : firstCoordinate.x ))\(ANSICode.text.redBright)●")
         print("\(ANSICode.cursor.move(row : secondCoordinate.y, col : secondCoordinate.x ))\(ANSICode.text.redBright)●")
         print("\(ANSICode.cursor.move(row : thirdCoordinate.y, col : thirdCoordinate.x ))\(ANSICode.text.redBright)●")
         drawAxis()
-        let area = inputTriangle.calculateArea()
-        print("삼각형의 넓이는 \(area)")
     }
     
     private func makeConsolePoint(onePoint : MyPoint) -> (x : Int,y : Int) {

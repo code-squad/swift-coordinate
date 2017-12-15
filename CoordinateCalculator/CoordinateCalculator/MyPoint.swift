@@ -8,18 +8,27 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : MyShape {
+    
     var x = 0
-    var y = 0
+     var y = 0
     
     init(x : Int, y : Int) {
         self.x = x
         self.y = y
     }
     
-    init(_ points : [Int]) {
-        self.x = points[0]
-        self.y = points[1]
+    init(_ points : [MyPoint]) {
+        self.x = points[0].x
+        self.y = points[0].y
     }
     
+    func generateCoordinate() -> [MyPoint] {
+        let onePoint = [MyPoint.init(x: self.x, y: self.y)]
+        return onePoint
+    }
+    
+    func calculateShape() -> Double {
+        return 0
+    }
 }

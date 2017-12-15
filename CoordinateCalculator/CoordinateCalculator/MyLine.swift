@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine {
+struct MyLine : MyShape {
     var pointA = MyPoint(x : 0, y : 0)
     var pointB = MyPoint(x : 0, y : 0)
     
@@ -22,7 +22,13 @@ struct MyLine {
         self.pointB = points[1]
     }
     
-    func calculateDistance() -> Double{
+    func generateCoordinate() -> [MyPoint] {
+        let twoPoints = [MyPoint.init(x: self.pointA.x, y: self.pointA.y),
+                         MyPoint.init(x: self.pointB.x, y: self.pointB.y)]
+        return twoPoints
+    }
+    
+    func calculateShape() -> Double {
         let gapOfX = Double(self.pointA.x - self.pointB.x)
         let gapOfY = Double(self.pointA.y - self.pointB.y)
         let distance = sqrt(Double(pow(gapOfX, 2) + Double(pow(gapOfY, 2))))

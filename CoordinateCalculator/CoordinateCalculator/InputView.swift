@@ -52,13 +52,13 @@ struct InputView {
     func selectShape(points : [MyPoint]) -> MyShape {
         switch points.count {
         case 3 :
-            let triangle : MyShape = MyShape.init(pointsOfTriangle: points)
+            let triangle : MyTriangle = MyTriangle.init(points: points)
             return triangle
         case 2:
-            let line : MyShape = MyShape.init(pointsOfLine: points)
+            let line : MyLine = MyLine.init(points: points)
             return line
         default:
-            let point : MyShape = MyShape.init(point: points)
+            let point : MyPoint = MyPoint.init(points)
             return point
         }
     }
@@ -73,15 +73,12 @@ struct InputView {
     }
     
     private func seperateOneCoordinate (oneCoordinate : String) -> MyPoint {
-        var coordinates : [Int] = []
         let userInputWithoutLeftBracket = sliceMark(oneCoordinate, mark: "(")
         let userInputWithoutRightBracket = sliceMark(userInputWithoutLeftBracket, mark: ")")
         
         var temp = userInputWithoutRightBracket.split(separator: ",").map(String.init)
-        for index in 0..<temp.count {
-            coordinates.append(Int(temp[index]) ?? 0)
-        }
-        return MyPoint.init(coordinates)
+        let coordinates : MyPoint = MyPoint.init(x: Int(temp[0]) ?? 0, y: Int(temp[1]) ?? 0)
+        return coordinates
     }
     
     private func sliceMark (_ fullString : String, mark : Character) -> String {
