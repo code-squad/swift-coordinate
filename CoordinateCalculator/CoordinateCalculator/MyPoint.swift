@@ -9,10 +9,10 @@
 import Foundation
 
 struct MyPoint : MyShape {
+    
     var x = 0
     var y = 0
     var currentShape: String = "point"
-    var messageOfShape: String = ""
     
     init(x : Int, y : Int) {
         self.x = x
@@ -31,5 +31,9 @@ struct MyPoint : MyShape {
     
     func calculateShape() -> Double {
         return 0
+    }
+    
+    func messageOfShape() -> String {
+        return ""
     }
 }

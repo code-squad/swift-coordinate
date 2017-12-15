@@ -9,11 +9,11 @@
 import Foundation
 
 struct MyTriangle : MyShape {
+    
     var lineAB = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var lineBC = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var lineAC = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var currentShape: String = "triangle"
-    var messageOfShape: String = "삼각형의 넓이는 "
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
@@ -43,5 +43,9 @@ struct MyTriangle : MyShape {
         let sinB = sqrt(1 - pow(cosB, 2))
         let areaOfTriangle = 0.5 * a * c * sinB
         return areaOfTriangle
+    }
+    
+    func messageOfShape() -> String {
+        return "삼각형의 넓이는 "
     }
 }

@@ -21,10 +21,8 @@ struct OutputView {
         clearConsole()
         printPoints(points: consoleCoordinates)
         drawAxis()
-        guard userCoordinates.currentShape != "point" else {
-            return
-        }
-        print(userCoordinates.messageOfShape + String(userCoordinates.calculateShape()))
+        guard userCoordinates.currentShape != "point" else { return }
+        print(userCoordinates.messageOfShape() + "\(userCoordinates.calculateShape())")
     }
 
     private func printPoints(points : [MyPoint]) {

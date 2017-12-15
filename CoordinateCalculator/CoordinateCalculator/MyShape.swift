@@ -10,8 +10,8 @@ import Foundation
 
 protocol MyShape {
     var currentShape : String {get set}
-    var messageOfShape : String {get set}
     
     func generateCoordinate() -> [MyPoint]
     func calculateShape() -> Double
+    func messageOfShape() -> String
 }
