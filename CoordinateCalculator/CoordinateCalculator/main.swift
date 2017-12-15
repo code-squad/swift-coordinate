@@ -20,5 +20,5 @@ mainLoop : while runCoordinatesCalculator == true {
     
     let userShape = inputView.selectShape(points: userPoints)
     
-    OutputView().printShape(userShape)
+    OutputView().drawShape(userShape)
 }
