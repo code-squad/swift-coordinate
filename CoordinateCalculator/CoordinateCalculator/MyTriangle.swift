@@ -12,7 +12,7 @@ struct MyTriangle : MyShape {
     var lineAB = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var lineBC = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var lineAC = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
-    
+    var currentShape: String = "triangle"
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)

@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyPoint : MyShape {
-    
     var x = 0
-     var y = 0
+    var y = 0
+    var currentShape: String = "point"
     
     init(x : Int, y : Int) {
         self.x = x
