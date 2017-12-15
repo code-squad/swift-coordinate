@@ -13,6 +13,7 @@ struct MyTriangle : MyShape {
     var lineBC = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var lineAC = MyLine(pointA: MyPoint(x : 0, y : 0), pointB: MyPoint(x : 0, y : 0))
     var currentShape: String = "triangle"
+    var messageOfShape: String = "삼각형의 넓이는 "
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)

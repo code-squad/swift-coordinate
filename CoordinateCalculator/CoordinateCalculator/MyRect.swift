@@ -12,6 +12,7 @@ struct MyRect : MyShape {
     var leftTop : MyPoint = MyPoint.init(x: 0, y: 0)
     var rightBottom : MyPoint = MyPoint.init(x: 0, y: 0)
     var currentShape: String = "rect"
+    var messageOfShape: String = "사각형의 넓이는 "
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin

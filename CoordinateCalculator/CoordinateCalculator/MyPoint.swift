@@ -12,6 +12,7 @@ struct MyPoint : MyShape {
     var x = 0
     var y = 0
     var currentShape: String = "point"
+    var messageOfShape: String = ""
     
     init(x : Int, y : Int) {
         self.x = x
