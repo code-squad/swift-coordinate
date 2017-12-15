@@ -12,12 +12,14 @@ struct OutputView {
     
     func printShape (_ userCoordinates : MyShape) {
         switch userCoordinates.currentShape {
+        case "triangle" :
+            drawTriangle(inputTriangle: userCoordinates.triangle)
         case "line":
             drawLine(inputLine: userCoordinates.line)
         default:
             drawPoint(inputPoints: userCoordinates.point)
         }
-    }
+    }   
     
     private func drawPoint(inputPoints : MyPoint) {
         let consoleCoordinate = makeConsolePoint(onePoint: inputPoints)
@@ -35,6 +37,19 @@ struct OutputView {
         drawAxis()
         let distance = inputLine.calculateDistance()
         print("두 점 사이의 거리는 \(distance)")
+    }
+    
+    private func drawTriangle(inputTriangle : MyTriangle) {
+        let firstCoordinate = makeConsolePoint(onePoint: inputTriangle.lineAB.pointA)
+        let secondCoordinate = makeConsolePoint(onePoint: inputTriangle.lineAB.pointB)
+        let thirdCoordinate = makeConsolePoint(onePoint: inputTriangle.lineAC.pointB)
+        clearConsole()
+        print("\(ANSICode.cursor.move(row : firstCoordinate.y, col : firstCoordinate.x ))\(ANSICode.text.redBright)●")
+        print("\(ANSICode.cursor.move(row : secondCoordinate.y, col : secondCoordinate.x ))\(ANSICode.text.redBright)●")
+        print("\(ANSICode.cursor.move(row : thirdCoordinate.y, col : thirdCoordinate.x ))\(ANSICode.text.redBright)●")
+        drawAxis()
+        let area = inputTriangle.calculateArea()
+        print("삼각형의 넓이는 \(area)")
     }
     
     private func makeConsolePoint(onePoint : MyPoint) -> (x : Int,y : Int) {
