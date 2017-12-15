@@ -11,6 +11,12 @@ import Foundation
 struct OutputView {
     
     func drawShape (_ userCoordinates : MyShape) {
+        if userCoordinates.currentShape == "notRect" {
+            clearConsole()
+            drawAxis()
+            print("입력하신 사각형이 직사각형이 아닙니다. 다시 입력해 주세요")
+            return
+        }
         let consoleCoordinates = makeConsolePoints(points: userCoordinates.generateCoordinate())
         clearConsole()
         printPoints(points: consoleCoordinates)
@@ -20,6 +26,8 @@ struct OutputView {
     
     private func printResultOfCalculation(_ userShape : MyShape) {
         switch userShape.currentShape {
+        case "rect" :
+            print("사각형의 넓이는 \(userShape.calculateShape())")
         case "triangle" :
             print("삼각형의 넓이는 \(userShape.calculateShape())")
         case "line":
