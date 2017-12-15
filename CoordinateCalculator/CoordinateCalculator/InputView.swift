@@ -51,8 +51,11 @@ struct InputView {
     
     func selectShape(points : [MyPoint]) -> MyShape {
         switch points.count {
+        case 3 :
+            let triangle : MyShape = MyShape.init(pointsOfTriangle: points)
+            return triangle
         case 2:
-            let line : MyShape = MyShape.init(pointsOfline: points)
+            let line : MyShape = MyShape.init(pointsOfLine: points)
             return line
         default:
             let point : MyShape = MyShape.init(point: points)
