@@ -11,18 +11,27 @@ import Foundation
 struct OutputView {
     
     func drawShape (_ userCoordinates : MyShape) {
-        if userCoordinates.currentShape == "notRect" {
-            clearConsole()
-            drawAxis()
-            print("입력하신 사각형이 직사각형이 아닙니다. 다시 입력해 주세요")
-            return
-        }
+        guard isNotRect(userCoordinates) == false else { return }
         let consoleCoordinates = makeConsolePoints(points: userCoordinates.generateCoordinate())
         clearConsole()
         printPoints(points: consoleCoordinates)
         drawAxis()
         guard userCoordinates.currentShape != "point" else { return }
-        print(userCoordinates.messageOfShape() + "\(userCoordinates.calculateShape())")
+        if let userShape = userCoordinates as? MyShape & canCalculate {
+            printCalculation(userShape: userShape)
+        }
+    }
+    
+    private func isNotRect (_ userShape : MyShape) -> Bool {
+        guard userShape.currentShape != "notRect" else { return true }
+        clearConsole()
+        drawAxis()
+        print("입력하신 사각형이 직사각형이 아닙니다. 다시 입력해 주세요")
+        return false
+    }
+    
+    private func printCalculation(userShape : MyShape & canCalculate) {
+        print("\(userShape.messageOfShape())\(userShape.calculateShape())")
     }
 
     private func printPoints(points : [MyPoint]) {

@@ -28,12 +28,4 @@ struct MyPoint : MyShape {
         let onePoint = [MyPoint.init(x: self.x, y: self.y)]
         return onePoint
     }
-    
-    func calculateShape() -> Double {
-        return 0
-    }
-    
-    func messageOfShape() -> String {
-        return ""
-    }
 }
