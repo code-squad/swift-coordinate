@@ -16,14 +16,14 @@ struct OutputView {
         clearConsole()
         printPoints(points: consoleCoordinates)
         drawAxis()
-        guard userCoordinates.currentShape != "point" else { return }
+        guard userCoordinates.generateCoordinate().count != 1 else { return }
         if let userShape = userCoordinates as? MyShape & canCalculate {
             printCalculation(userShape: userShape)
         }
     }
     
     private func isNotRect (_ userShape : MyShape) -> Bool {
-        guard userShape.currentShape == "notRect" else { return false }
+        guard userShape.generateCoordinate()[0].x == -1 else { return false }
         clearConsole()
         drawAxis()
         print("입력하신 사각형이 직사각형이 아닙니다. 다시 입력해 주세요")

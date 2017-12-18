@@ -12,7 +12,6 @@ struct MyRect : MyShape, canCalculate {
     
     var leftTop : MyPoint = MyPoint.init(x: 0, y: 0)
     var rightBottom : MyPoint = MyPoint.init(x: 0, y: 0)
-    var currentShape: String = "rect"
      
     
     init(origin: MyPoint, size: CGSize) {
@@ -28,7 +27,7 @@ struct MyRect : MyShape, canCalculate {
         
         if checkOneRectPoint(leftTop: sortedPoints[0], rightBottom: sortedPoints[3], onePoint: sortedPoints[1]) == false ||
             checkOneRectPoint(leftTop: sortedPoints[0], rightBottom: sortedPoints[3], onePoint: sortedPoints[2]) == false {
-            self.currentShape = "notRect"
+            self.leftTop = MyPoint.init(x: -1, y: 0)
         }
     }
     

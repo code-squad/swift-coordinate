@@ -9,7 +9,6 @@
 import Foundation
 
 protocol MyShape {
-    var currentShape : String {get set}
     func generateCoordinate() -> [MyPoint]
 }
 

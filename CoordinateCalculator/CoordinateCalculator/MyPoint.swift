@@ -12,7 +12,6 @@ struct MyPoint : MyShape {
     
     var x = 0
     var y = 0
-    var currentShape: String = "point"
     
     init(x : Int, y : Int) {
         self.x = x
@@ -26,6 +25,6 @@ struct MyPoint : MyShape {
     
     func generateCoordinate() -> [MyPoint] {
         let onePoint = [MyPoint.init(x: self.x, y: self.y)]
-        return onePoint
+        return onePoint //return self
     }
 }
