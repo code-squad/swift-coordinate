@@ -20,7 +20,7 @@ struct OutputView {
         clearConsole()
         printPoints(points: consoleCoordinates)
         drawAxis()
-        guard coordinates.generateCoordinate().count != 1 else { return }
+        if coordinates is MyPoint { return }
         if let userShape = userCoordinates as? MyShape & canCalculate {
             printCalculation(userShape: userShape)
         }
