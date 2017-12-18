@@ -12,22 +12,20 @@ struct MyRect : MyShape, canCalculate {
     
     var leftTop : MyPoint = MyPoint.init(x: 0, y: 0)
     var rightBottom : MyPoint = MyPoint.init(x: 0, y: 0)
-     
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
         self.rightBottom = MyPoint.init(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
     }
     
-    init(points : [MyPoint]) {
+    init?(points : [MyPoint]) {
         let sortedPoints : [MyPoint] = points.sorted(by: {$0.x < $1.x})
         
         self.leftTop = sortedPoints[0]
         self.rightBottom = sortedPoints[3]
         
-        if checkOneRectPoint(leftTop: sortedPoints[0], rightBottom: sortedPoints[3], onePoint: sortedPoints[1]) == false ||
-            checkOneRectPoint(leftTop: sortedPoints[0], rightBottom: sortedPoints[3], onePoint: sortedPoints[2]) == false {
-            self.leftTop = MyPoint.init(x: -1, y: 0)
+        guard self.checkRectCondition(fourPoints: points) == true else {
+            return nil
         }
     }
     
@@ -47,9 +45,17 @@ struct MyRect : MyShape, canCalculate {
         return "사각형의 넓이는 "
     }
     
-    private func checkOneRectPoint(leftTop : MyPoint, rightBottom : MyPoint, onePoint : MyPoint) -> Bool {
-        let isHorizontal : Bool = (leftTop.x <= onePoint.x) && (onePoint.x <= rightBottom.x)
-        let isVertical : Bool = (leftTop.y <= onePoint.y) && (onePoint.y <= rightBottom.y)
+    func checkRectCondition(fourPoints : [MyPoint]) -> Bool {
+        let sortedPoints : [MyPoint] = fourPoints.sorted(by: {$0.x < $1.x})
+        if checkOneRectPoint(onePoint: sortedPoints[1]) == false || checkOneRectPoint(onePoint: sortedPoints[2]) == false {
+            return false
+        }
+        return true
+    }
+    
+    private func checkOneRectPoint(onePoint : MyPoint) -> Bool {
+        let isHorizontal : Bool = (self.leftTop.x <= onePoint.x) && (onePoint.x <= self.rightBottom.x)
+        let isVertical : Bool = (self.leftTop.y <= onePoint.y) && (onePoint.y <= self.rightBottom.y)
         return isHorizontal && isVertical
     }
 }

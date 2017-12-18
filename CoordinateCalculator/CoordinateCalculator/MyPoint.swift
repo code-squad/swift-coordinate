@@ -24,7 +24,6 @@ struct MyPoint : MyShape {
     }
     
     func generateCoordinate() -> [MyPoint] {
-        let onePoint = [MyPoint.init(x: self.x, y: self.y)]
-        return onePoint //return self
+        return [self]
     }
 }

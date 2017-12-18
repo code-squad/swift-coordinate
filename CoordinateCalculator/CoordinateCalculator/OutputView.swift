@@ -10,24 +10,26 @@ import Foundation
 
 struct OutputView {
     
-    func drawShape (_ userCoordinates : MyShape) {
-        guard isNotRect(userCoordinates) == false else { return }
-        let consoleCoordinates = makeConsolePoints(points: userCoordinates.generateCoordinate())
+    func drawShape (_ userCoordinates : MyShape?) {
+        guard userCoordinates != nil else {
+            isNotRect()
+            return
+        }
+        guard let coordinates = userCoordinates else { return }
+        let consoleCoordinates = makeConsolePoints(points: coordinates.generateCoordinate())
         clearConsole()
         printPoints(points: consoleCoordinates)
         drawAxis()
-        guard userCoordinates.generateCoordinate().count != 1 else { return }
+        guard coordinates.generateCoordinate().count != 1 else { return }
         if let userShape = userCoordinates as? MyShape & canCalculate {
             printCalculation(userShape: userShape)
         }
     }
     
-    private func isNotRect (_ userShape : MyShape) -> Bool {
-        guard userShape.generateCoordinate()[0].x == -1 else { return false }
+    private func isNotRect () {
         clearConsole()
         drawAxis()
         print("입력하신 사각형이 직사각형이 아닙니다. 다시 입력해 주세요")
-        return true
     }
     
     private func printCalculation(userShape : MyShape & canCalculate) {
