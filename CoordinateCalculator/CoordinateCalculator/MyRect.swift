@@ -19,14 +19,13 @@ struct MyRect : MyShape, canCalculate {
     }
     
     init?(points : [MyPoint]) {
+        guard self.checkRectCondition(fourPoints: points) == true else {
+            return nil
+        }
         let sortedPoints : [MyPoint] = points.sorted(by: {$0.x < $1.x})
         
         self.leftTop = sortedPoints[0]
         self.rightBottom = sortedPoints[3]
-        
-        guard self.checkRectCondition(fourPoints: points) == true else {
-            return nil
-        }
     }
     
     func generateCoordinate() -> [MyPoint] {
