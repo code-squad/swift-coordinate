@@ -12,7 +12,7 @@ struct OutputView {
     
     func drawShape (_ userCoordinates : MyShape?) {
         guard userCoordinates != nil else {
-            isNotRect()
+            printNotrect()
             return
         }
         guard let coordinates = userCoordinates else { return }
@@ -26,7 +26,7 @@ struct OutputView {
         }
     }
     
-    private func isNotRect () {
+    private func printNotrect () {
         clearConsole()
         drawAxis()
         print("입력하신 사각형이 직사각형이 아닙니다. 다시 입력해 주세요")
