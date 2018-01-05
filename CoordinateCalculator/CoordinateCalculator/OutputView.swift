@@ -9,7 +9,7 @@
 import Foundation
 
 public struct OutputView {
-    
+
     func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
