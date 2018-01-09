@@ -10,6 +10,8 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		D6D99D791FFF4ACA00E39CED /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D99D781FFF4ACA00E39CED /* OutputView.swift */; };
+		D6F44C8320048CDF003A8EEC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F44C8220048CDF003A8EEC /* InputView.swift */; };
+		D6F44C8520048CFC003A8EEC /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F44C8420048CFC003A8EEC /* MyPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		D6D99D781FFF4ACA00E39CED /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D6F44C8220048CDF003A8EEC /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		D6F44C8420048CFC003A8EEC /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,9 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				D6F44C8220048CDF003A8EEC /* InputView.swift */,
 				D6D99D781FFF4ACA00E39CED /* OutputView.swift */,
+				D6F44C8420048CFC003A8EEC /* MyPoint.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -126,7 +132,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F44C8520048CFC003A8EEC /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				D6F44C8320048CDF003A8EEC /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				D6D99D791FFF4ACA00E39CED /* OutputView.swift in Sources */,
 			);
