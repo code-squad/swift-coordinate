@@ -9,8 +9,9 @@
 import Foundation
 
 struct InputView {
-    
-    func readInput() -> String {
+
+    func readInput(_ message: String) -> String {
+        print(message)
         let input = readLine()
         guard let inputCoodinates = input else { return "" }
         return inputCoodinates

@@ -9,8 +9,8 @@
 import Foundation
 
 while true {
-    print("좌표를 입력하세요 ex)(10,10) " )
-    let input = InputView().readInput()
+    let message = "좌표를 입력하세요 ex)(10,10)"
+    let input = InputView().readInput(message)
     let inputCoodinates = InputView().separateInput(input)
     guard let coodinates = InputView().createPoint(inputCoodinates) else { continue }
     guard coodinates.x < 25 && coodinates.y < 25 else {
