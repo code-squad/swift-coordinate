@@ -9,12 +9,20 @@
 import Foundation
 
 struct InputView {
+    
+    let validCharacter = CharacterSet.init(charactersIn: "(),-").union(CharacterSet.decimalDigits)
 
     func readInput(_ message: String) -> String {
         print(message)
         let input = readLine()
         guard let inputCoodinates = input else { return "" }
         return inputCoodinates
+    }
+
+    func checkInput(_ input: String) -> Bool {
+        let check = input.components(separatedBy: validCharacter).filter{ $0 != "" }
+        if check.count == 0 { return true } 
+        return false
     }
     
     func separateInput(_ input: String) -> Array<String> {
