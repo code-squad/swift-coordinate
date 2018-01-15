@@ -9,15 +9,17 @@
 import Foundation
 
 while true {
-    let message = "좌표를 입력하세요 ex)(10,10)"
+    let message = "좌표를 입력하세요 ex)(10,10)-(14,15)"
     let input = InputView().readInput(message)
-    let check = InputView().checkInput(input)
-    guard check == true else { print("좌표값 형태로 다시 입력해 주세요."); continue }
-    let inputCoodinates = InputView().separateInput(input)
-    guard let coodinates = InputView().createPoint(inputCoodinates) else { continue }
-    guard coodinates.x < 25 && coodinates.y < 25 else {
+    let checkVaildValue = InputView().checkInput(input)
+    guard checkVaildValue == true else {
+        print("좌표값 형태로 다시 입력해 주세요.")
+        continue }
+    guard let inputCoodinates = InputView().separateInput(input) else { continue }
+    guard InputView().checkMaxValue(inputCoodinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
-    OutputView().drawCoordinates(coodinates)
+    let points = InputView().selectPoint(inputCoodinates)
+    OutputView().drawLine(points)
     break
 }
