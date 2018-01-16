@@ -10,32 +10,11 @@ import Foundation
 
 struct InputView {
 
-    let validCharacter = CharacterSet.init(charactersIn: "(),-").union(CharacterSet.decimalDigits)
-    
     func readInput(_ message: String) -> String {
         print(message)
         let input = readLine()
         guard let inputCoodinates = input else { return "" }
         return inputCoodinates
-    }
-    
-    func checkInput(_ input: String) -> Bool {
-        let check = input.components(separatedBy: validCharacter).filter{ $0 != "" }
-        if check.count == 0 { return true }
-        return false
-    }
-    
-    func checkNumber(_ point: MyPoint) -> Bool {
-        return point.x <= 24 && point.y <= 24
-    }
-    
-    func checkMaxValue(_ value: [MyPoint]) -> Bool {
-        var maxValue: Bool = true
-        for index in 0..<value.count {
-            guard checkNumber(value[index]) != false else{ maxValue = false; return false }
-        }
-        guard maxValue == true else { return false }
-        return true
     }
     
     //(10,10)-(20,20) "-" 기준으로 분리
@@ -60,5 +39,3 @@ struct InputView {
     }
     
 }
-
-
