@@ -15,11 +15,17 @@ while true {
     guard checkVaildValue == true else {
         print("좌표값 형태로 다시 입력해 주세요.")
         continue }
-    guard let inputCoodinates = InputView().separateInput(input) else { continue }
+    guard let inputCoodinates =  InputView().separateInput(input) else { continue }
     guard InputView().checkMaxValue(inputCoodinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
-    let points = InputView().selectPoint(inputCoodinates)
-    OutputView().drawLine(points)
+    switch inputCoodinates.count {
+    case 2: //Line
+        let line: MyLine = MyLine.init(inputCoodinates)
+        OutputView().drawLine(line)
+    default: //point
+        let point: MyPoint = inputCoodinates[0]
+        OutputView().drawCoordinates(point)
+    }
     break
 }
