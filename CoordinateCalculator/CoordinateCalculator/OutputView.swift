@@ -17,14 +17,14 @@ public struct OutputView {
         drawAxis()
     }
     
-    func drawLine(_ point: MyLine) {
-        let firstCoordinate = calculateCoordinates(point.pointA)
-        let secondCoordinate = calculateCoordinates(point.pointB)
+    func drawLine(_ line: MyLine) {
+        let firstCoordinate = calculateCoordinates(line.pointA)
+        let secondCoordinate = calculateCoordinates(line.pointB)
         clearAxis()
         print("\(ANSICode.cursor.move(row: firstCoordinate.y, col: firstCoordinate.x))\(ANSICode.text.white)●")
         print("\(ANSICode.cursor.move(row: secondCoordinate.y, col: secondCoordinate.x))\(ANSICode.text.white)●")
         drawAxis()
-        let distance = point.calculateDistance()
+        let distance = line.calculateDistance()
         print("두 점 사이의 거리는 \(distance)")
     }
     
