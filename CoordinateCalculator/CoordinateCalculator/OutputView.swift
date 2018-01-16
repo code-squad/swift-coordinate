@@ -9,7 +9,14 @@
 import Foundation
 
 public struct OutputView {
-
+    
+    func drawCoordinates(_ point: MyPoint) {
+        let pointCoordinate = calculateCoordinates(point)
+        clearAxis()
+        print("\(ANSICode.cursor.move(row: pointCoordinate.y, col: pointCoordinate.x))\(ANSICode.text.white)●")
+        drawAxis()
+    }
+    
     func drawLine(_ point: MyLine) {
         let firstCoordinate = calculateCoordinates(point.pointA)
         let secondCoordinate = calculateCoordinates(point.pointB)
@@ -20,20 +27,21 @@ public struct OutputView {
         let distance = point.calculateDistance()
         print("두 점 사이의 거리는 \(distance)")
     }
-
+    
     func  calculateCoordinates(_ point: MyPoint) -> (x: Int, y: Int) {
         let x = point.x * 2 + 3
         let y = (point.y - 25) * -1
         return (x, y)
     }
-
+    
     func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
-
+    
     func clearAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
-
+    
 }
+
 
