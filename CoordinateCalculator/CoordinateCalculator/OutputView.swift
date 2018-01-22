@@ -26,6 +26,8 @@ public struct OutputView {
         print("\(ANSICode.cursor.move(row: pointB.y, col: pointB.x))\(ANSICode.text.white)●")
         print("\(ANSICode.cursor.move(row: pointC.y, col: pointC.x))\(ANSICode.text.white)●")
         drawAxis()
+        let area = triangle.calculateArea()
+        print("삼각형 넓이는 \(area)")
     }
     
     func drawLine(_ line: MyLine) {
