@@ -24,4 +24,15 @@ struct MyTriangle {
         self.lineBC = MyLine(pointA: points[1], pointB: points[2])
         self.lineAC = MyLine(pointA: points[0], pointB: points[2])
     }
+    
+    func calculateArea() -> Double {
+        let a = self.lineBC.calculateDistance()
+        let b = self.lineAC.calculateDistance()
+        let c = self.lineAB.calculateDistance()
+        let cos = (pow(a, 2) + pow(c, 2) - pow(b, 2)) / (2 * a * c)
+        let sin = sqrt(1 - pow(cos, 2))
+        let area = 0.5 * a * c * sin
+        return area
+    }
 }
+
