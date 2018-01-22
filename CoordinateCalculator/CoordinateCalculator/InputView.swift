@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-
+    
     func readInput(_ message: String) -> String {
         print(message)
         let input = readLine()
@@ -39,3 +39,5 @@ struct InputView {
     }
     
 }
+
+

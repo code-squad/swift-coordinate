@@ -11,8 +11,13 @@ import Foundation
 struct MyLine {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
-
-    init(_ coordinates : [MyPoint]) {
+    
+    init(pointA: MyPoint, pointB: MyPoint){
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
+    init(_ coordinates: [MyPoint]) {
         self.pointA = coordinates[0]
         self.pointB = coordinates[1]
     }
@@ -24,3 +29,5 @@ struct MyLine {
         return distance
     }
 }
+
+
