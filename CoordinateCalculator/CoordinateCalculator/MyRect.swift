@@ -27,5 +27,15 @@ struct MyRect {
         self.leftBottom = points[2]
         self.rightBottom = points[3]
     }
-
+    
+    func isRectangle() -> Bool {
+        if self.leftTop.x != self.rightBottom.x && self.rightTop.x != self.leftBottom.x {
+            return false
+        }
+        if self.leftTop.y != self.rightTop.y && self.rightBottom.y != self.leftBottom.y {
+            return false
+        }
+        return true
+    }
 }
+
