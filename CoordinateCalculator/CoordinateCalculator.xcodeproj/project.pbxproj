@@ -15,6 +15,7 @@
 		D6F44C8B200C97AA003A8EEC /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F44C8A200C97AA003A8EEC /* MyLine.swift */; };
 		D6F44C8F200D9C56003A8EEC /* GrammarChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F44C8E200D9C56003A8EEC /* GrammarChecker.swift */; };
 		D6F44C952015C720003A8EEC /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F44C942015C720003A8EEC /* MyTriangle.swift */; };
+		D6F44C9920170968003A8EEC /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F44C9820170968003A8EEC /* MyRect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		D6F44C8A200C97AA003A8EEC /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		D6F44C8E200D9C56003A8EEC /* GrammarChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarChecker.swift; sourceTree = "<group>"; };
 		D6F44C942015C720003A8EEC /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		D6F44C9820170968003A8EEC /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				D6F44C8220048CDF003A8EEC /* InputView.swift */,
 				D6F44C8E200D9C56003A8EEC /* GrammarChecker.swift */,
 				D6D99D781FFF4ACA00E39CED /* OutputView.swift */,
+				D6F44C9820170968003A8EEC /* MyRect.swift */,
 				D6F44C8420048CFC003A8EEC /* MyPoint.swift */,
 				D6F44C8A200C97AA003A8EEC /* MyLine.swift */,
 				D6F44C942015C720003A8EEC /* MyTriangle.swift */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6F44C8F200D9C56003A8EEC /* GrammarChecker.swift in Sources */,
+				D6F44C9920170968003A8EEC /* MyRect.swift in Sources */,
 				D6F44C8520048CFC003A8EEC /* MyPoint.swift in Sources */,
 				D6F44C8B200C97AA003A8EEC /* MyLine.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,

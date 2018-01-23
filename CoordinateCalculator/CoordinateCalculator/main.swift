@@ -9,26 +9,30 @@
 import Foundation
 
 while true {
-    let message = "좌표를 입력하세요 ex)(10,10)-(14,15)-(20,8)"
+    let message = "좌표를 입력하세요 ex)(10,10)-(22,10)-(22,18)-(10,18)"
     let input = InputView().readInput(message)
     let checkVaildValue = GrammarChecker().isVaildInput(input)
     guard checkVaildValue == true else {
         print("좌표값 형태로 다시 입력해 주세요.")
         continue }
-    guard let inputCoodinates = InputView().makePoints(input) else { continue }
-    guard GrammarChecker().isUnderNumber(inputCoodinates) == true else {
+    guard let inputCoordinates = InputView().makePoints(input) else { continue }
+    guard GrammarChecker().isUnderNumber(inputCoordinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
-    switch inputCoodinates.count {
+    switch inputCoordinates.count {
     case 2: //Line
-        let line: MyLine = MyLine.init(inputCoodinates)
+        let line: MyLine = MyLine.init(inputCoordinates)
         OutputView().drawLine(line)
     case 3: //Triangle
-        let triangle: MyTriangle = MyTriangle.init(inputCoodinates)
+        let triangle: MyTriangle = MyTriangle.init(inputCoordinates)
         OutputView().drawTriangle(triangle)
+    case 4: //rect
+        let rect: MyRect = MyRect.init(inputCoordinates)
+        OutputView().drawRect(rect)
     default: //point
-        let point: MyPoint = inputCoodinates[0]
+        let point: MyPoint = inputCoordinates[0]
         OutputView().drawCoordinates(point)
     }
     break
 }
+
