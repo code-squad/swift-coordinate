@@ -17,7 +17,20 @@ public struct OutputView {
         drawAxis()
     }
     
-    func drawTriangle(_ triangle: MyTriangle){
+    func drawRect(_ rect: MyRect) {
+        let pointA = calculateCoordinates(rect.leftTop)
+        let pointB = calculateCoordinates(rect.rightTop)
+        let pointC = calculateCoordinates(rect.leftBottom)
+        let pointD = calculateCoordinates(rect.rightBottom)
+        clearAxis()
+        print("\(ANSICode.cursor.move(row: pointA.y, col: pointA.x))\(ANSICode.text.white)●")
+        print("\(ANSICode.cursor.move(row: pointB.y, col: pointB.x))\(ANSICode.text.white)●")
+        print("\(ANSICode.cursor.move(row: pointC.y, col: pointC.x))\(ANSICode.text.white)●")
+        print("\(ANSICode.cursor.move(row: pointD.y, col: pointD.x))\(ANSICode.text.white)●")
+        drawAxis()
+    }
+    
+    func drawTriangle(_ triangle: MyTriangle) {
         let pointA = calculateCoordinates(triangle.lineAB.pointA)
         let pointB = calculateCoordinates(triangle.lineBC.pointA)
         let pointC = calculateCoordinates(triangle.lineAC.pointB)
