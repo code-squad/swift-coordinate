@@ -28,6 +28,11 @@ struct MyRect {
         self.rightBottom = points[3]
     }
     
+    func calculateArea() -> Double {
+        let area = Double((self.leftTop.x-self.rightTop.x) * (self.leftTop.y-self.leftBottom.y))
+        return area
+    }
+    
     func isRectangle() -> Bool {
         if self.leftTop.x != self.rightBottom.x && self.rightTop.x != self.leftBottom.x {
             return false
@@ -38,4 +43,3 @@ struct MyRect {
         return true
     }
 }
-
