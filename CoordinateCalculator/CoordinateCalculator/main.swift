@@ -19,6 +19,9 @@ while true {
     guard GrammarChecker().isUnderNumber(inputCoordinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
+    guard MyRect(inputCoordinates).isRectangle() == true else {
+        print("직사각형만 입력 가능합니다. 다시 입력해주세요")
+        continue }
     switch inputCoordinates.count {
     case 2: //Line
         let line: MyLine = MyLine.init(inputCoordinates)
@@ -35,4 +38,3 @@ while true {
     }
     break
 }
-
