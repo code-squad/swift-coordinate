@@ -28,6 +28,8 @@ public struct OutputView {
         print("\(ANSICode.cursor.move(row: pointC.y, col: pointC.x))\(ANSICode.text.white)●")
         print("\(ANSICode.cursor.move(row: pointD.y, col: pointD.x))\(ANSICode.text.white)●")
         drawAxis()
+        let area = rect.calculateArea()
+        print("사각형 넓이는 \(area)")
     }
     
     func drawTriangle(_ triangle: MyTriangle) {
