@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct MyTriangle {
-    var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
-    var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
-    var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
+struct MyTriangle: MyShape {
+    
+    private var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
+    private var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
+    private var lineAC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
@@ -34,5 +35,9 @@ struct MyTriangle {
         let area = 0.5 * a * c * sin
         return area
     }
+    
+    func drawPoint() -> [MyPoint] {
+        return [self.lineAB.pointA, self.lineBC.pointA, self.lineAC.pointB]
+    }
+    
 }
-
