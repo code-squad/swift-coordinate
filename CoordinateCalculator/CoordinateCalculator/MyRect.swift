@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct MyRect {
-    var leftTop = MyPoint(x: 0, y: 0)
-    var rightBottom = MyPoint(x: 0, y: 0)
-    var rightTop = MyPoint(x: 0, y: 0)
-    var leftBottom = MyPoint(x: 0, y: 0)
+struct MyRect: MyShape {
+    
+    private var leftTop = MyPoint(x: 0, y: 0)
+    private var rightBottom = MyPoint(x: 0, y: 0)
+    private var rightTop = MyPoint(x: 0, y: 0)
+    private var leftBottom = MyPoint(x: 0, y: 0)
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
@@ -42,4 +43,10 @@ struct MyRect {
         }
         return true
     }
+    
+    func drawPoint() -> [MyPoint] {
+        return [leftTop, rightTop,leftBottom, rightBottom]
+    }
+    
 }
+

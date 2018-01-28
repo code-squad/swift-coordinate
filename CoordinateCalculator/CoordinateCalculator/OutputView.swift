@@ -10,50 +10,32 @@ import Foundation
 
 public struct OutputView {
     
-    func drawCoordinates(_ point: MyPoint) {
-        let pointCoordinate = calculateCoordinates(point)
+    func drawCoordinates(_ point: [MyPoint]) {
         clearAxis()
-        print("\(ANSICode.cursor.move(row: pointCoordinate.y, col: pointCoordinate.x))\(ANSICode.text.white)●")
+        for index in 0..<point.count {
+            let pointCoordinate = calculateCoordinates(point[index])
+            print("\(ANSICode.cursor.move(row: pointCoordinate.y, col: pointCoordinate.x))\(ANSICode.text.white)●")
+        }
         drawAxis()
     }
     
-    func drawRect(_ rect: MyRect) {
-        let pointA = calculateCoordinates(rect.leftTop)
-        let pointB = calculateCoordinates(rect.rightTop)
-        let pointC = calculateCoordinates(rect.leftBottom)
-        let pointD = calculateCoordinates(rect.rightBottom)
-        clearAxis()
-        print("\(ANSICode.cursor.move(row: pointA.y, col: pointA.x))\(ANSICode.text.white)●")
-        print("\(ANSICode.cursor.move(row: pointB.y, col: pointB.x))\(ANSICode.text.white)●")
-        print("\(ANSICode.cursor.move(row: pointC.y, col: pointC.x))\(ANSICode.text.white)●")
-        print("\(ANSICode.cursor.move(row: pointD.y, col: pointD.x))\(ANSICode.text.white)●")
-        drawAxis()
-        let area = rect.calculateArea()
-        print("사각형 넓이는 \(area)")
-    }
-    
-    func drawTriangle(_ triangle: MyTriangle) {
-        let pointA = calculateCoordinates(triangle.lineAB.pointA)
-        let pointB = calculateCoordinates(triangle.lineBC.pointA)
-        let pointC = calculateCoordinates(triangle.lineAC.pointB)
-        clearAxis()
-        print("\(ANSICode.cursor.move(row: pointA.y, col: pointA.x))\(ANSICode.text.white)●")
-        print("\(ANSICode.cursor.move(row: pointB.y, col: pointB.x))\(ANSICode.text.white)●")
-        print("\(ANSICode.cursor.move(row: pointC.y, col: pointC.x))\(ANSICode.text.white)●")
-        drawAxis()
-        let area = triangle.calculateArea()
-        print("삼각형 넓이는 \(area)")
-    }
-    
-    func drawLine(_ line: MyLine) {
-        let firstCoordinate = calculateCoordinates(line.pointA)
-        let secondCoordinate = calculateCoordinates(line.pointB)
-        clearAxis()
-        print("\(ANSICode.cursor.move(row: firstCoordinate.y, col: firstCoordinate.x))\(ANSICode.text.white)●")
-        print("\(ANSICode.cursor.move(row: secondCoordinate.y, col: secondCoordinate.x))\(ANSICode.text.white)●")
-        drawAxis()
-        let distance = line.calculateDistance()
-        print("두 점 사이의 거리는 \(distance)")
+    func calculateShape(_ point: [MyPoint]) {
+        switch point.count {
+        case 2:
+            let line = MyLine(point)
+            let distance = line.calculateDistance()
+            print("두 점 사이의 거리는 \(distance)")
+        case 3:
+            let triangle = MyTriangle(point)
+            let area = triangle.calculateArea()
+            print("삼각형 넓이는 \(area)")
+        case 4:
+            let rect = MyRect(point)
+            let area = rect.calculateArea()
+            print("사각형 넓이는 \(area)")
+        default:
+            print("")
+        }
     }
     
     func  calculateCoordinates(_ point: MyPoint) -> (x: Int, y: Int) {

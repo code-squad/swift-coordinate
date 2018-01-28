@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint: MyShape {
+    
     var x = 0
     var y = 0
     
@@ -22,7 +23,10 @@ struct MyPoint {
         self.y = coordinates[1]
     }
     
+    func drawPoint() -> [MyPoint] {
+        return [self]
+    }
+    
 }
-
 
 

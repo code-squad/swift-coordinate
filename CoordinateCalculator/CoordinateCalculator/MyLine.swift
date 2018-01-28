@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MyLine {
+struct MyLine: MyShape {
+    
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
     
@@ -28,6 +29,10 @@ struct MyLine {
         let distance = sqrt(Double(pow(x, 2) + Double(pow(y, 2))))
         return distance
     }
+    
+    func drawPoint() -> [MyPoint] {
+        return [self.pointA, self.pointB]
+    }
+    
 }
-
 
