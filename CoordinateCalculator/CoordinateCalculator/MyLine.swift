@@ -23,11 +23,11 @@ struct MyLine: MyShape {
         self.pointB = coordinates[1]
     }
     
-    func calculateDistance() -> Double {
+    func calculate() -> (String, Double) {
         let x = Double(self.pointA.x - self.pointB.x)
         let y = Double(self.pointA.y - self.pointB.y)
         let distance = sqrt(Double(pow(x, 2) + Double(pow(y, 2))))
-        return distance
+        return ("두 점 사이의 거리는 ", distance)
     }
     
     func drawPoint() -> [MyPoint] {

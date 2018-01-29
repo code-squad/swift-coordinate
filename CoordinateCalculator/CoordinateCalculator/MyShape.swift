@@ -12,4 +12,7 @@ protocol MyShape {
     
     func drawPoint() -> [MyPoint]
     
+    func calculate() -> (String, Double)
+    
 }
+

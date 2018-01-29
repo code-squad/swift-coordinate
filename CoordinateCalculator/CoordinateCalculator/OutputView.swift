@@ -10,8 +10,9 @@ import Foundation
 
 public struct OutputView {
     
-    func drawCoordinates(_ point: [MyPoint]) {
+    func drawCoordinates(_ myShape: MyShape) {
         clearAxis()
+        let point = myShape.drawPoint()
         for index in 0..<point.count {
             let pointCoordinate = calculateCoordinates(point[index])
             print("\(ANSICode.cursor.move(row: pointCoordinate.y, col: pointCoordinate.x))\(ANSICode.text.white)●")
@@ -19,22 +20,11 @@ public struct OutputView {
         drawAxis()
     }
     
-    func calculateShape(_ point: [MyPoint]) {
-        switch point.count {
-        case 2:
-            let line = MyLine(point)
-            let distance = line.calculateDistance()
-            print("두 점 사이의 거리는 \(distance)")
-        case 3:
-            let triangle = MyTriangle(point)
-            let area = triangle.calculateArea()
-            print("삼각형 넓이는 \(area)")
-        case 4:
-            let rect = MyRect(point)
-            let area = rect.calculateArea()
-            print("사각형 넓이는 \(area)")
-        default:
-            print("")
+    func calculateShape(_ myShape: MyShape) {
+        let value = myShape.calculate()
+        let point = myShape.drawPoint()
+        if point.count != 1 {
+            print(value.0, value.1)
         }
     }
     
