@@ -23,10 +23,17 @@ struct MyPoint: MyShape {
         self.y = coordinates[1]
     }
     
+    init(_ coordinates: [MyPoint]) {
+        self.x = coordinates[0].x
+        self.y = coordinates[0].y
+    }
+    
     func drawPoint() -> [MyPoint] {
         return [self]
     }
     
+    func calculate() -> (String, Double) {
+        return ("", 0.0)
+    }
 }
-
 

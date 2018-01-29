@@ -29,9 +29,9 @@ struct MyRect: MyShape {
         self.rightBottom = points[3]
     }
     
-    func calculateArea() -> Double {
+    func calculate() -> (String, Double) {
         let area = Double((self.leftTop.x-self.rightTop.x) * (self.leftTop.y-self.leftBottom.y))
-        return area
+        return ("사각형 넓이는 ", area)
     }
     
     func isRectangle() -> Bool {
@@ -49,4 +49,3 @@ struct MyRect: MyShape {
     }
     
 }
-

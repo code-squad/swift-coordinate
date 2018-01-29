@@ -26,14 +26,14 @@ struct MyTriangle: MyShape {
         self.lineAC = MyLine(pointA: points[0], pointB: points[2])
     }
     
-    func calculateArea() -> Double {
-        let a = self.lineBC.calculateDistance()
-        let b = self.lineAC.calculateDistance()
-        let c = self.lineAB.calculateDistance()
-        let cos = (pow(a, 2) + pow(c, 2) - pow(b, 2)) / (2 * a * c)
+    func calculate() -> (String, Double) {
+        let a = self.lineBC.calculate()
+        let b = self.lineAC.calculate()
+        let c = self.lineAB.calculate()
+        let cos = (pow(a.1, 2) + pow(c.1, 2) - pow(b.1, 2)) / (2 * a.1 * c.1)
         let sin = sqrt(1 - pow(cos, 2))
-        let area = 0.5 * a * c * sin
-        return area
+        let area = 0.5 * a.1 * c.1 * sin
+        return ("삼각형 넓이는 ",area)
     }
     
     func drawPoint() -> [MyPoint] {
@@ -41,3 +41,4 @@ struct MyTriangle: MyShape {
     }
     
 }
+

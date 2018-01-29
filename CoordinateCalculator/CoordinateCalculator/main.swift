@@ -19,14 +19,21 @@ while true {
     guard GrammarChecker().isUnderNumber(inputCoordinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
-    
+
     if inputCoordinates.count == 4 {
         guard MyRect(inputCoordinates).isRectangle() == true else {
             print("직사각형만 입력 가능합니다. 다시 입력해주세요")
             continue }
     }
     
-    OutputView().drawCoordinates(inputCoordinates)
-    OutputView().calculateShape(inputCoordinates)
+    let point = MyFactory().makePoint(inputCoordinates)
+    guard let area = MyFactory().calculateArea(inputCoordinates) else { break }
+    OutputView().drawCoordinates(point)
+    OutputView().calculateShape(area)
     
 }
+
+
+
+
+
