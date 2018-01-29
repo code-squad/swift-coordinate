@@ -9,6 +9,7 @@
 import Foundation
 
 while true {
+
     let message = "좌표를 입력하세요 ex)(10,10)-(22,10)-(22,18)-(10,18)"
     let input = InputView().readInput(message)
     let checkVaildValue = GrammarChecker().isVaildInput(input)
@@ -19,21 +20,11 @@ while true {
     guard GrammarChecker().isUnderNumber(inputCoordinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
-
-    if inputCoordinates.count == 4 {
-        guard MyRect(inputCoordinates).isRectangle() == true else {
-            print("직사각형만 입력 가능합니다. 다시 입력해주세요")
-            continue }
-    }
     
     let point = MyFactory().makePoint(inputCoordinates)
     guard let area = MyFactory().calculateArea(inputCoordinates) else { break }
+    guard OutputView().checkRect(point) == true else { continue }
     OutputView().drawCoordinates(point)
     OutputView().calculateShape(area)
     
 }
-
-
-
-
-

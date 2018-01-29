@@ -28,6 +28,18 @@ public struct OutputView {
         }
     }
     
+    func checkRect(_ myShape: MyShape) -> Bool {
+        let point = myShape.drawPoint()
+        if point.count == 4 {
+            let rect = MyRect.init(point)
+            guard rect.isRectangle() == true else {
+                print("직사각형만 입력 가능합니다. 다시 입력해주세요")
+                return false
+            }
+        }
+        return true
+    }
+    
     func  calculateCoordinates(_ point: MyPoint) -> (x: Int, y: Int) {
         let x = point.x * 2 + 3
         let y = (point.y - 25) * -1
