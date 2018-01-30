@@ -24,10 +24,5 @@ struct MyFactory {
         }
         return point
     }
-    
-    func calculateArea(_ myShape: MyShape) -> MyCalculate? {
-        let calculatable = myShape as? MyCalculate
-        return calculatable
-    }
 
 }
