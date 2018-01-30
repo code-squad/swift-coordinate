@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: MyShape {
+struct MyTriangle: MyShape, MyCalculate {
     
     private var lineAB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     private var lineBC = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))

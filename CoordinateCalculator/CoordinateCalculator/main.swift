@@ -20,11 +20,12 @@ while true {
     guard GrammarChecker().isUnderNumber(inputCoordinates) == true else {
         print("좌표 최댓값은 24입니다. 다시 입력해주세요")
         continue }
-    
     let point = MyFactory().makePoint(inputCoordinates)
-    guard let area = MyFactory().calculateArea(inputCoordinates) else { break }
-    guard OutputView().checkRect(point) == true else { continue }
+    let area = MyFactory().calculateArea(point)
+    guard GrammarChecker().checkRect(point) == true else { continue }
     OutputView().drawCoordinates(point)
-    OutputView().calculateShape(area)
-    
+    if let area = area {
+        OutputView().calculateShape(area)
+    }
+
 }

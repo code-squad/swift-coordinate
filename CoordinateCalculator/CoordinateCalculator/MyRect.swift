@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyRect: MyShape {
+struct MyRect: MyShape, MyCalculate {
     
     private var leftTop = MyPoint(x: 0, y: 0)
     private var rightBottom = MyPoint(x: 0, y: 0)
