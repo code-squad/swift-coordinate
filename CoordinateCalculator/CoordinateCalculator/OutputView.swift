@@ -20,24 +20,9 @@ public struct OutputView {
         drawAxis()
     }
     
-    func calculateShape(_ myShape: MyShape) {
-        let value = myShape.calculate()
-        let point = myShape.drawPoint()
-        if point.count != 1 {
-            print(value.0, value.1)
-        }
-    }
-    
-    func checkRect(_ myShape: MyShape) -> Bool {
-        let point = myShape.drawPoint()
-        if point.count == 4 {
-            let rect = MyRect.init(point)
-            guard rect.isRectangle() == true else {
-                print("직사각형만 입력 가능합니다. 다시 입력해주세요")
-                return false
-            }
-        }
-        return true
+    func calculateShape(_ myCalculate: MyCalculate) {
+        let value = myCalculate.calculate()
+        print(value.0, value.1)
     }
     
     func  calculateCoordinates(_ point: MyPoint) -> (x: Int, y: Int) {

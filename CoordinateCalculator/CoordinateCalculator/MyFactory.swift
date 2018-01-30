@@ -13,11 +13,11 @@ struct MyFactory {
     func makePoint(_ myPoint: [MyPoint]) -> MyShape {
         var point: MyShape
         switch myPoint.count {
-        case 2 :
+        case 2:
             point = MyLine.init(myPoint)
-        case 3 :
+        case 3:
             point = MyTriangle.init(myPoint)
-        case 4 :
+        case 4:
             point = MyRect.init(myPoint)
         default:
             point = myPoint[0]
@@ -25,24 +25,9 @@ struct MyFactory {
         return point
     }
     
-    func calculateArea(_ myPoint: [MyPoint]) -> MyShape? {
-        var area: MyShape
-        switch myPoint.count {
-        case 1:
-            area = MyPoint.init(myPoint)
-        case 2:
-            area = MyLine.init(myPoint)
-            area.calculate()
-        case 3:
-            area = MyTriangle.init(myPoint)
-            area.calculate()
-        case 4:
-            area = MyRect.init(myPoint)
-            area.calculate()
-        default:
-            return nil
-        }
-        return area
+    func calculateArea(_ myShape: MyShape) -> MyCalculate? {
+        let calculatable = myShape as? MyCalculate
+        return calculatable
     }
-    
+
 }

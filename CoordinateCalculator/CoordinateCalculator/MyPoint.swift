@@ -31,9 +31,6 @@ struct MyPoint: MyShape {
     func drawPoint() -> [MyPoint] {
         return [self]
     }
-    
-    func calculate() -> (String, Double) {
-        return ("", 0.0)
-    }
+
 }
 
