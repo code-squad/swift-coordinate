@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct MyRect: MyShape, MyCalculate {
+struct MyRect: MyShape, MyCalculate, Equatable {
     
-    private var leftTop = MyPoint(x: 0, y: 0)
-    private var rightBottom = MyPoint(x: 0, y: 0)
-    private var rightTop = MyPoint(x: 0, y: 0)
-    private var leftBottom = MyPoint(x: 0, y: 0)
+    static func ==(lhs: MyRect, rhs: MyRect) -> Bool {
+        return lhs.leftTop.x == rhs.leftTop.x && lhs.leftTop.y == rhs.leftTop.y && lhs.rightBottom.x == rhs.rightBottom.x && lhs.rightBottom.y == rhs.rightBottom.y && lhs.rightTop.x == rhs.rightTop.x && lhs.rightTop.y == rhs.rightTop.y &&
+            lhs.leftBottom.x == rhs.leftBottom.x && lhs.leftBottom.y == rhs.leftBottom.y
+    }
+    
+    var leftTop = MyPoint(x: 0, y: 0)
+    var rightBottom = MyPoint(x: 0, y: 0)
+    var rightTop = MyPoint(x: 0, y: 0)
+    var leftBottom = MyPoint(x: 0, y: 0)
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
@@ -49,3 +54,4 @@ struct MyRect: MyShape, MyCalculate {
     }
     
 }
+

@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct MyLine: MyShape, MyCalculate {
+struct MyLine: MyShape, MyCalculate, Equatable {
+    
+    static func ==(lhs: MyLine, rhs: MyLine) -> Bool {
+        return lhs.pointA.x == rhs.pointA.x && lhs.pointA.y == rhs.pointA.y && lhs.pointB.x == rhs.pointB.x && lhs.pointB.y == rhs.pointB.y
+    }
     
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)

@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct MyPoint: MyShape {
+struct MyPoint: MyShape, Equatable {
+    
+    static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
     
     var x = 0
     var y = 0
@@ -31,6 +35,6 @@ struct MyPoint: MyShape {
     func drawPoint() -> [MyPoint] {
         return [self]
     }
-
+    
 }
 
