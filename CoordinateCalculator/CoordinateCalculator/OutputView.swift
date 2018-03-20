@@ -9,11 +9,11 @@
 import Foundation
 
 struct OutputView {
-    
-    static func clean(){
+    static func clean() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
-    static func drawAxis(){
+    
+    static func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
 }
