@@ -10,5 +10,5 @@ import Foundation
 
 InputView.readInput()
 OutputView.clean()
-OutputView.drawPoint(at: (10,10))
+OutputView.drawPoint(at: MyPoint(x: 10, y: 10))
 OutputView.drawAxis()
