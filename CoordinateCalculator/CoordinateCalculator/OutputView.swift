@@ -17,5 +17,5 @@ struct OutputView {
     static func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
-    
+
 }
