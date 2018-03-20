@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    
+
     static func clean() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
