@@ -8,7 +8,7 @@
 
 import Foundation
 
-
-OutputView.clean()
-OutputView.drawAxis()
 InputView.readInput()
+OutputView.clean()
+OutputView.drawPoint(at: (10,10))
+OutputView.drawAxis()

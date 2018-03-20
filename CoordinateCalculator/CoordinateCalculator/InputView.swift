@@ -14,6 +14,5 @@ struct InputView{
         guard let userInputValue = readLine() else {
             return
         }
-        print(userInputValue)
     }
 }
