@@ -19,9 +19,7 @@ struct OutputView {
     }
     
     static func drawPoint(at point:(x:Int,y:Int)){
-        let x = point.x * 2 + 3
-        let y = 25 - point.y
-        print("\(ANSICode.cursor.move(row:y, col: x))\(ANSICode.text.redBright)●")
+        print("\(ANSICode.cursor.move(row:point.y.YofCoordinates, col: point.x.XofCoordinates))\(ANSICode.text.redBright)●")
     }
     
     static func printDot(){
