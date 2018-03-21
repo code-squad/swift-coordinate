@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Int{
+extension Int {
     var XofCoordinates:Int { return self * 2 + 3 }
     var YofCoordinates:Int { return 25 - self }
 }

@@ -8,15 +8,16 @@
 
 import Foundation
 
-enum InputViewError:Error{
+enum InputViewError:Error {
     case invalidValue
     case invalidFormat
 }
 
 struct InputView{
+    
     static func readInput() throws -> MyPoint {
         print("좌표를 입력하세요.")
-        
+
         guard let rawInput = readLine(), !rawInput.isEmpty else {
            throw InputViewError.invalidValue
         }
@@ -45,10 +46,11 @@ struct InputView{
         return MyPoint(x: xOfInput, y: yOfInput)
     }
     
-    private static func checkquit(_ rawUserInputValue:String){
+    private static func checkquit(_ rawUserInputValue:String) {
         if rawUserInputValue == "q" {
             print("종료합니다.")
             exit(0)
         }
     }
+    
 }
