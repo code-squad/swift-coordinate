@@ -16,7 +16,7 @@ struct Spliter{
         
 
         guard matches.count != 0 else {
-            throw InputViewError.invalidFormat
+            throw CoordinateCalculatorError.invalidFormat
         }
 
         let replacedInput = regex.stringByReplacingMatches(in: input,
@@ -28,7 +28,7 @@ struct Spliter{
         
 
         guard let xOfInput = Int(separatedInput[0].description), let yOfInput = Int(separatedInput[1].description) else {
-            throw InputViewError.invalidValue
+            throw CoordinateCalculatorError.invalidValue
         }
         
         return (xOfInput, yOfInput)

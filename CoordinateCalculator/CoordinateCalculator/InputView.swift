@@ -8,18 +8,13 @@
 
 import Foundation
 
-enum InputViewError:Error {
-    case invalidValue
-    case invalidFormat
-}
-
 struct InputView{
     
     static func readInput() throws -> String {
         print("좌표를 입력하세요.")
 
         guard let rawInput = readLine(), !rawInput.isEmpty else {
-           throw InputViewError.invalidValue
+           throw CoordinateCalculatorError.invalidValue
         }
 
         return rawInput
