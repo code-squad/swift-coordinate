@@ -29,9 +29,7 @@ while true {
         OutputView.drawPoint(at: myPoint)
         OutputView.drawAxis()
         
-    } catch InputViewError.invalidValue {
-        print("유효하지 않은 값입니다.")
-    } catch InputViewError.invalidFormat {
-        print("유효하지 않은 형식입니다.")
+    } catch let error{
+        print("\(error.localizedDescription)")
     }
 }
