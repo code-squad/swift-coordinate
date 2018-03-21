@@ -11,7 +11,6 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		97DFF78F2060969D00CAA635 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF78E2060969D00CAA635 /* OutputView.swift */; };
 		97DFF7912060D1E900CAA635 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7902060D1E900CAA635 /* InputView.swift */; };
-		97DFF7932060F18800CAA635 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7922060F18800CAA635 /* Extension.swift */; };
 		97DFF7952060F3F300CAA635 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7942060F3F300CAA635 /* MyPoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		97DFF78E2060969D00CAA635 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		97DFF7902060D1E900CAA635 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		97DFF7922060F18800CAA635 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		97DFF7942060F3F300CAA635 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,11 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
-				8377CC511F8B6F7E007F7335 /* main.swift */,
 				97DFF78E2060969D00CAA635 /* OutputView.swift */,
+				8377CC511F8B6F7E007F7335 /* main.swift */,
 				97DFF7942060F3F300CAA635 /* MyPoint.swift */,
 				97DFF7902060D1E900CAA635 /* InputView.swift */,
-				97DFF7922060F18800CAA635 /* Extension.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -139,7 +136,6 @@
 				97DFF7912060D1E900CAA635 /* InputView.swift in Sources */,
 				97DFF7952060F3F300CAA635 /* MyPoint.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
-				97DFF7932060F18800CAA635 /* Extension.swift in Sources */,
 				97DFF78F2060969D00CAA635 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
