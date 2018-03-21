@@ -8,7 +8,7 @@
 
 import Foundation
 
-while (true) {
+while true {
     do {
         let pointOfInput = try InputView.readInput()
         OutputView.clean()
