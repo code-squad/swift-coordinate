@@ -21,8 +21,4 @@ struct OutputView {
     static func drawPoint(at point:MyPoint){
         print("\(ANSICode.cursor.move(row:point.y.YofCoordinates, col: point.x.XofCoordinates))\(ANSICode.text.redBright)●")
     }
-    
-    static func printDot(){
-        print("\(ANSICode.text.redBright)·")
-    }
 }
