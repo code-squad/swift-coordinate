@@ -10,17 +10,13 @@ import Foundation
 
 while (true) {
     do {
-        let userInputValue = try InputView.readInput()
-        
-        if userInputValue == "q"{
-            print("종료합니다.")
-            exit(0)
-        }
-        
+        let pointOfInput = try InputView.readInput()
         OutputView.clean()
-        OutputView.drawPoint(at: MyPoint(x: 10, y: 10))
+        OutputView.drawPoint(at: pointOfInput)
         OutputView.drawAxis()
     } catch InputViewError.invalidValue {
         print("유효하지 않은 값입니다.")
+    } catch InputViewError.invalidFormat {
+        print("유효하지 않은 형식입니다.")
     }
 }
