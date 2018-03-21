@@ -8,11 +8,18 @@
 
 import Foundation
 
+enum InputViewError:Error{
+    case invalidValue
+}
+
 struct InputView{
-    static func readInput(){
+    static func readInput() throws -> String {
         print("좌표를 입력하세요.")
-        guard let userInputValue = readLine() else {
-            return
+        
+        guard let rawUserInputValue = readLine(), !rawUserInputValue.isEmpty else {
+           throw InputViewError.invalidValue
         }
+        
+        return rawUserInputValue
     }
 }
