@@ -18,10 +18,17 @@ func checkQuit(_ input:String) {
 while true {
     do {
         let input = try InputView.readInput()
+        
         checkQuit(input)
+        
+        let (x,y) = try Spliter.split(input)
+        
+        let myPoint = PointCreator.creatPoint(x: x, y: y)
+        
         OutputView.clean()
-        OutputView.drawPoint(at: MyPoint(x: 10, y: 10))
+        OutputView.drawPoint(at: myPoint)
         OutputView.drawAxis()
+        
     } catch InputViewError.invalidValue {
         print("유효하지 않은 값입니다.")
     } catch InputViewError.invalidFormat {
