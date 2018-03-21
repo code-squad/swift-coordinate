@@ -8,11 +8,19 @@
 
 import Foundation
 
+func checkQuit(_ input:String) {
+    if input == "q"{
+        print("종료합니다")
+        exit(0)
+    }
+}
+
 while true {
     do {
-        let pointOfInput = try InputView.readInput()
+        let input = try InputView.readInput()
+        checkQuit(input)
         OutputView.clean()
-        OutputView.drawPoint(at: pointOfInput)
+        OutputView.drawPoint(at: MyPoint(x: 10, y: 10))
         OutputView.drawAxis()
     } catch InputViewError.invalidValue {
         print("유효하지 않은 값입니다.")
