@@ -8,13 +8,35 @@
 
 import Foundation
 
-struct PointCreator {
-    static func creatPoint(_ points:Points) -> [MyPoint] {
-        var myPoints:[MyPoint] = []
-        
-        for index in 0..<points.count{
-              myPoints.append(MyPoint(x: points[index].x, y: points[index].y))
+enum PointCreatorError:Error{
+    case notSupport
+}
+
+extension PointCreatorError:LocalizedError{
+    public var errorDescription:String? {
+        switch self {
+        case .notSupport:
+            return "지원하지 않습니다."
         }
-        return myPoints
+    }
+}
+
+struct PointCreator {
+    func creatPoint(_ points:Points) throws -> Point {
+
+        switch points.count {
+        case 1:
+            return MyPoint(x: points[0].x, y: points[0].y)
+        case 2:
+            return createMyLine(points)
+        default:
+            throw PointCreatorError.notSupport
+        }
+    }
+    
+    private func createMyLine(_ points:Points) -> MyLine{
+        let pointA = MyPoint(x: points[0].x, y: points[0].y)
+        let pointB = MyPoint(x: points[1].x, y: points[1].y)
+        return MyLine(pointA: pointA, pointB: pointB)
     }
 }
