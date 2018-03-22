@@ -17,7 +17,7 @@ func checkQuit(_ input:String) {
 
 while true {
     do {
-        let input = try InputView.readInput()
+        let input = try InputView.readInput(question: "좌표를 입력해주세요! 형식 : (5,5)")
         
         checkQuit(input)
         

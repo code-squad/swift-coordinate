@@ -10,8 +10,8 @@ import Foundation
 
 struct InputView{
     
-    static func readInput() throws -> String {
-        print("좌표를 입력하세요.")
+    static func readInput(question:String) throws -> String {
+        print(question)
 
         guard let rawInput = readLine(), !rawInput.isEmpty else {
            throw CoordinateCalculatorError.invalidValue
