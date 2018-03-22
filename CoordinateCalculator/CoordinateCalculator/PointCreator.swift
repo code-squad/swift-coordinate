@@ -26,7 +26,7 @@ struct PointCreator {
 
         switch points.count {
         case 1:
-            return MyPoint(x: points[0].x, y: points[0].y)
+            return createMyPoint(points[0].x, points[0].y)
         case 2:
             return createMyLine(points)
         default:
@@ -34,9 +34,13 @@ struct PointCreator {
         }
     }
     
+    private func createMyPoint(_ x:Int, _ y:Int) -> MyPoint{
+        return MyPoint(x: x, y: y)
+    }
+    
     private func createMyLine(_ points:Points) -> MyLine{
-        let pointA = MyPoint(x: points[0].x, y: points[0].y)
-        let pointB = MyPoint(x: points[1].x, y: points[1].y)
+        let pointA = createMyPoint(points[0].x, points[0].y)
+        let pointB = createMyPoint(points[1].x, points[1].y)
         return MyLine(pointA: pointA, pointB: pointB)
     }
 }
