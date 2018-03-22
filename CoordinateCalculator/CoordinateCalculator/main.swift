@@ -19,18 +19,22 @@ func checkQuit(_ input:String) {
 
 while true {
     do {
-        let input = try InputView.readInput(question: "좌표를 입력해주세요! 형식 : (5,5)")
+        let input = try InputView.readInput(question: "좌표를 입력해주세요! 형식 : (5,5) 또는 (1,1)-(2,2)")
         
         checkQuit(input)
         
         var spliter = Spliter()
         try spliter.splitInRawPoint(input)
         let rawPoints = try spliter.splitInRawPoints()
-        let myPoints = PointCreator.creatPoint(rawPoints)
         
+        let pointCreator = PointCreator()
+        let myPoints = try pointCreator.creatPoint(rawPoints)
+        
+        let outputView = OutputView(myPoints: myPoints)
         OutputView.clean()
-        OutputView.drawPoint(at: myPoints)
+        outputView.drawPoints()
         OutputView.drawAxis()
+        outputView.result()
         
     } catch let error{
         print("\(error.localizedDescription)")

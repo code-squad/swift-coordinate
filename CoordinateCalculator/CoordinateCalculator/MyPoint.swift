@@ -8,9 +8,15 @@
 
 import Foundation
 
-struct MyPoint {
-    var x = 0
-    var y = 0
+struct MyPoint:Point {
+    var points: [MyPoint] = []
+    private(set) var x, y:Int
+    
+    init(x:Int, y:Int) {
+        self.x = x
+        self.y = y
+        points = [self]
+    }
     
     var xOfCorrdinates:Int { return self.x * 2 + 3}
     var yOfCoordinates:Int { return ANSICode.axis.AxisLimit + 1 - self.y }
