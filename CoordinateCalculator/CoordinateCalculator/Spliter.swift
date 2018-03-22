@@ -26,7 +26,7 @@ extension SpliterError:LocalizedError {
 
 
 struct Spliter{
-    static func split(_ input:String) throws -> (Int,Int){
+    static func split(_ input:String) throws -> Points{
         let pattern = "\\(([0-9]|1[0-9]|2[0-4]),([0-9]|1[0-9]|2[0-4])\\)"
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
         let matches = regex.matches(in: input, options: [], range: NSRange(location: 0, length: input.count))
@@ -41,13 +41,17 @@ struct Spliter{
                                                          range: NSRange(location: 0, length: input.count),
                                                          withTemplate: "$1,$2")
 
-        let separatedInput = replacedInput.split(separator: ",")
+        let separatedInputIntoPoint = replacedInput.split(separator: "-")
         
-
-        guard let xOfInput = Int(separatedInput[0].description), let yOfInput = Int(separatedInput[1].description) else {
-            throw SpliterError.invalidValue
+        var points:Points = []
+        
+        for index in 0..<separatedInputIntoPoint.count {
+            let separedInputIntoCoordinate = separatedInputIntoPoint[index].split(separator: ",")
+            guard let xOfInput = Int(separedInputIntoCoordinate[0].description), let yOfInput = Int(separedInputIntoCoordinate[1].description) else {
+                throw SpliterError.invalidValue
+            }
+            points.append((xOfInput,yOfInput))
         }
-        
-        return (xOfInput, yOfInput)
+        return points
     }
 }
