@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias Points = [(x:Int,y:Int)]
+
 func checkQuit(_ input:String) {
     if input == "q"{
         print("종료합니다")
@@ -21,9 +23,9 @@ while true {
         
         checkQuit(input)
         
-        let (x,y) = try Spliter.split(input)
+        let points = try Spliter.split(input)
         
-        let myPoint = PointCreator.creatPoint(x: x, y: y)
+        let myPoint = PointCreator.creatPoint(points)
         
         OutputView.clean()
         OutputView.drawPoint(at: myPoint)
