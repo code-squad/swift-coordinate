@@ -23,12 +23,13 @@ while true {
         
         checkQuit(input)
         
-        let points = try Spliter.split(input)
-        
-        let myPoint = PointCreator.creatPoint(points)
+        var spliter = Spliter()
+        try spliter.splitInRawPoint(input)
+        let rawPoints = try spliter.splitInRawPoints()
+        let myPoints = PointCreator.creatPoint(rawPoints)
         
         OutputView.clean()
-        OutputView.drawPoint(at: myPoint)
+        OutputView.drawPoint(at: myPoints)
         OutputView.drawAxis()
         
     } catch let error{
