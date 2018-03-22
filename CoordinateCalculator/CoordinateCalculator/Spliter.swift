@@ -8,6 +8,23 @@
 
 import Foundation
 
+enum SpliterError:Error{
+    case invalidValue
+    case invalidFormat
+}
+
+extension SpliterError:LocalizedError {
+    public var errorDescription:String? {
+        switch self {
+        case .invalidValue:
+            return "유효하지 않은 값입니다."
+        case .invalidFormat:
+            return "유효하지 않은 형식입니다."
+        }
+    }
+}
+
+
 struct Spliter{
     static func split(_ input:String) throws -> (Int,Int){
         let pattern = "\\(([0-9]|1[0-9]|2[0-4]),([0-9]|1[0-9]|2[0-4])\\)"
@@ -16,7 +33,7 @@ struct Spliter{
         
 
         guard matches.count != 0 else {
-            throw CoordinateCalculatorError.invalidFormat
+            throw SpliterError.invalidFormat
         }
 
         let replacedInput = regex.stringByReplacingMatches(in: input,
@@ -28,7 +45,7 @@ struct Spliter{
         
 
         guard let xOfInput = Int(separatedInput[0].description), let yOfInput = Int(separatedInput[1].description) else {
-            throw CoordinateCalculatorError.invalidValue
+            throw SpliterError.invalidValue
         }
         
         return (xOfInput, yOfInput)
