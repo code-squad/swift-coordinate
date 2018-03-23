@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Point{
+protocol Shape{
     var points:[MyPoint] { get }
 }

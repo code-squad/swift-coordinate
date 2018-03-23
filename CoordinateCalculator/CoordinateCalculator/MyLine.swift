@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine:Point {
+struct MyLine:Shape {
     private(set) var points: [MyPoint] = []
     
     private var pointA:MyPoint

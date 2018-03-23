@@ -18,13 +18,13 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
 
-    static func drawPoints(at myPoints:Point) {
+    static func drawPoints(at myPoints:Shape) {
         for point in myPoints.points{
             print("\(ANSICode.cursor.move(row:point.yOfCoordinates, col: point.xOfCorrdinates))\(ANSICode.text.redBright)●")
         }
     }
     
-    static func result(of myPoints:Point){
+    static func result(of myPoints:Shape){
         if myPoints is MyLine {
             let myLine = myPoints as! MyLine
             print("\(myLine.distance())")
