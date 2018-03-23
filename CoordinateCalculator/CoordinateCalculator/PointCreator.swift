@@ -22,7 +22,7 @@ extension PointCreatorError:LocalizedError{
 }
 
 struct PointCreator {
-    func creatPoint(_ points:Points) throws -> Point {
+    func creatPoint(_ points:Points) throws -> Shape {
 
         switch points.count {
         case 1:
