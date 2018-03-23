@@ -18,8 +18,8 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
 
-    static func drawPoints(at myPoints:Shape) {
-        for point in myPoints.points{
+    static func drawPoints(at shpae:Shape) {
+        for point in shpae.points{
             print("\(ANSICode.cursor.move(row:point.yOfCoordinates, col: point.xOfCorrdinates))\(ANSICode.text.redBright)●")
         }
     }
