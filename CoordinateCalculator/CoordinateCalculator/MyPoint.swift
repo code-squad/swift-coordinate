@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyPoint:Point {
-    var points: [MyPoint] = []
+    private(set) var points: [MyPoint] = []
     private(set) var x, y:Int
     
     init(x:Int, y:Int) {
