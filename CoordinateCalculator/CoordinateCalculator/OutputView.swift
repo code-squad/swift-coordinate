@@ -21,8 +21,8 @@ struct OutputView {
     }
 
     func drawPoints() {
-        for index in 0..<myPoints.points.count{
-            print("\(ANSICode.cursor.move(row:myPoints.points[index].yOfCoordinates, col: myPoints.points[index].xOfCorrdinates))\(ANSICode.text.redBright)●")
+        for point in myPoints.points{
+            print("\(ANSICode.cursor.move(row:point.yOfCoordinates, col: point.xOfCorrdinates))\(ANSICode.text.redBright)●")
         }
     }
     
