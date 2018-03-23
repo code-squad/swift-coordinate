@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyLine:Point {
-    var points: [MyPoint] = []
+    private(set) var points: [MyPoint] = []
     
     private var pointA:MyPoint
     private var pointB:MyPoint
