@@ -30,11 +30,10 @@ while true {
         let pointCreator = PointCreator()
         let myPoints = try pointCreator.creatPoint(rawPoints)
         
-        let outputView = OutputView(myPoints: myPoints)
         OutputView.clean()
-        outputView.drawPoints()
+        OutputView.drawPoints(at: myPoints)
         OutputView.drawAxis()
-        outputView.result()
+        OutputView.result(of: myPoints)
         
     } catch let error{
         print("\(error.localizedDescription)")
