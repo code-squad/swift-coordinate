@@ -14,11 +14,11 @@ struct MyTriangle: Shape, Resultable{
     private var lineBC:MyLine
     private var lineAC:MyLine
     
-    init(pointFirst:MyPoint, pointSecond:MyPoint, pointThird:MyPoint){
-        self.lineAB = MyLine(pointFirst: pointFirst, pointSecond: pointSecond)
-        self.lineBC = MyLine(pointFirst: pointSecond, pointSecond: pointThird)
-        self.lineAC = MyLine(pointFirst: pointFirst, pointSecond: pointThird)
-        self.points = [pointFirst, pointSecond, pointFirst]
+    init(_ pointFirst:MyPoint, _ pointSecond:MyPoint, _ pointThird:MyPoint){
+        self.lineAB = MyLine(pointFirst, pointSecond)
+        self.lineBC = MyLine(pointSecond, pointThird)
+        self.lineAC = MyLine(pointFirst, pointThird)
+        self.points = [pointFirst, pointSecond, pointThird]
     }
     func result() -> String {
         return "삼각형의 넓이는  \(calculateResult())"
