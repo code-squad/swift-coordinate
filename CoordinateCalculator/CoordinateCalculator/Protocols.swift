@@ -14,4 +14,5 @@ protocol Shape{
 
 protocol Resultable {
     func result() -> String
+    func calculateResult() -> Double
 }
