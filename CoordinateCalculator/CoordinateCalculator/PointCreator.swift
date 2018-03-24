@@ -39,8 +39,8 @@ struct PointCreator {
     }
     
     private func createMyLine(_ points:Points) -> MyLine{
-        let pointA = createMyPoint(points[0].x, points[0].y)
-        let pointB = createMyPoint(points[1].x, points[1].y)
-        return MyLine(pointA: pointA, pointB: pointB)
+        let pointFirst = createMyPoint(points[0].x, points[0].y)
+        let pointSecond = createMyPoint(points[1].x, points[1].y)
+        return MyLine(pointFirst: pointFirst, pointSecond: pointSecond)
     }
 }

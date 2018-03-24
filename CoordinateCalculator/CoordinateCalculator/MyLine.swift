@@ -10,16 +10,20 @@ import Foundation
 
 struct MyLine:Shape, Resultable {
     private(set) var points: [MyPoint] = []
-    private var pointA:MyPoint
-    private var pointB:MyPoint
+    private var pointFirst:MyPoint
+    private var pointSecond:MyPoint
     
-    init(pointA:MyPoint, pointB:MyPoint){
-        self.pointA = pointA
-        self.pointB = pointB
-        self.points = [self.pointA,self.pointB]
+    init(pointFirst:MyPoint, pointSecond:MyPoint){
+        self.pointFirst = pointFirst
+        self.pointSecond = pointSecond
+        points = [pointFirst,pointSecond]
     }
     
     func result() -> String {
-        return " 두 점 사이의 거리는 \(sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2)))"
+        return " 두 점 사이의 거리는 \(calculateResult())"
+    }
+    
+    func calculateResult() -> Double {
+        return sqrt(pow(Double(pointFirst.x - pointSecond.x), 2) + pow(Double(pointFirst.y - pointSecond.y), 2))
     }
 }
