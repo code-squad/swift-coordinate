@@ -27,8 +27,7 @@ while true {
         try spliter.splitInRawPoint(input)
         let rawPoints = try spliter.splitInRawPoints()
         
-        let pointCreator = PointCreator()
-        let myPoints = try pointCreator.creatPoint(rawPoints)
+        let myPoints = try ShapeCreator().creatPoint(rawPoints)
         
         OutputView.clean()
         OutputView.drawPoints(at: myPoints)

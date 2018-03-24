@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum PointCreatorError:Error{
+enum ShapeCreatorError:Error{
     case notSupport
 }
 
-extension PointCreatorError:LocalizedError{
+extension ShapeCreatorError:LocalizedError{
     public var errorDescription:String? {
         switch self {
         case .notSupport:
@@ -21,7 +21,7 @@ extension PointCreatorError:LocalizedError{
     }
 }
 
-struct PointCreator {
+struct ShapeCreator {
     func creatPoint(_ points:Points) throws -> Shape {
 
         switch points.count {
@@ -32,7 +32,7 @@ struct PointCreator {
         case 3:
             return createMyTriangle(points)
         default:
-            throw PointCreatorError.notSupport
+            throw ShapeCreatorError.notSupport
         }
     }
     

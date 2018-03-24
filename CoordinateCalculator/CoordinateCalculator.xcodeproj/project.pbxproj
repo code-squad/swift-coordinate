@@ -13,7 +13,7 @@
 		977434442063EF22003BD8AC /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977434432063EF22003BD8AC /* Protocols.swift */; };
 		97A88E712065F4B70035B259 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A88E702065F4B70035B259 /* MyTriangle.swift */; };
 		97C016CB2062836C008975DC /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CA2062836C008975DC /* Spliter.swift */; };
-		97C016CD20628A23008975DC /* PointCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CC20628A23008975DC /* PointCreator.swift */; };
+		97C016CD20628A23008975DC /* ShapeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CC20628A23008975DC /* ShapeCreator.swift */; };
 		97DFF78F2060969D00CAA635 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF78E2060969D00CAA635 /* OutputView.swift */; };
 		97DFF7912060D1E900CAA635 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7902060D1E900CAA635 /* InputView.swift */; };
 		97DFF7952060F3F300CAA635 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7942060F3F300CAA635 /* MyPoint.swift */; };
@@ -39,7 +39,7 @@
 		977434432063EF22003BD8AC /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		97A88E702065F4B70035B259 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		97C016CA2062836C008975DC /* Spliter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spliter.swift; sourceTree = "<group>"; };
-		97C016CC20628A23008975DC /* PointCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCreator.swift; sourceTree = "<group>"; };
+		97C016CC20628A23008975DC /* ShapeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCreator.swift; sourceTree = "<group>"; };
 		97DFF78E2060969D00CAA635 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		97DFF7902060D1E900CAA635 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		97DFF7942060F3F300CAA635 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 				97DFF7902060D1E900CAA635 /* InputView.swift */,
 				97C016CA2062836C008975DC /* Spliter.swift */,
 				977434412063DF6D003BD8AC /* MyLine.swift */,
-				97C016CC20628A23008975DC /* PointCreator.swift */,
+				97C016CC20628A23008975DC /* ShapeCreator.swift */,
 				977434432063EF22003BD8AC /* Protocols.swift */,
 			);
 			path = CoordinateCalculator;
@@ -150,7 +150,7 @@
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				97DFF7912060D1E900CAA635 /* InputView.swift in Sources */,
 				97DFF7952060F3F300CAA635 /* MyPoint.swift in Sources */,
-				97C016CD20628A23008975DC /* PointCreator.swift in Sources */,
+				97C016CD20628A23008975DC /* ShapeCreator.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				97A88E712065F4B70035B259 /* MyTriangle.swift in Sources */,
 				977434442063EF22003BD8AC /* Protocols.swift in Sources */,
