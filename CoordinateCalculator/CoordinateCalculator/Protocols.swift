@@ -11,3 +11,7 @@ import Foundation
 protocol Shape{
     var points:[MyPoint] { get }
 }
+
+protocol Resultable {
+    func result() -> String
+}
