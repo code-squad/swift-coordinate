@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct MyLine:Shape {
+struct MyLine:Shape, Resultable {
     private(set) var points: [MyPoint] = []
-    
     private var pointA:MyPoint
     private var pointB:MyPoint
     
@@ -20,7 +19,7 @@ struct MyLine:Shape {
         self.points = [self.pointA,self.pointB]
     }
     
-    func distance() -> String {
+    func result() -> String {
         return " 두 점 사이의 거리는 \(sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2)))"
     }
 }

@@ -24,10 +24,10 @@ struct OutputView {
         }
     }
     
-    static func result(of myPoints:Shape){
-        if myPoints is MyLine {
-            let myLine = myPoints as! MyLine
-            print("\(myLine.distance())")
+    static func result(of shape:Shape){
+        if shape is Shape & Resultable {
+           let resultAble = shape as! Shape & Resultable
+           print(resultAble.result())
         }
     }
 }
