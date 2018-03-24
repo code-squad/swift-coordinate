@@ -29,18 +29,27 @@ struct PointCreator {
             return createMyPoint(points[0].x, points[0].y)
         case 2:
             return createMyLine(points)
+        case 3:
+            return createMyTriangle(points)
         default:
             throw PointCreatorError.notSupport
         }
     }
     
     private func createMyPoint(_ x:Int, _ y:Int) -> MyPoint{
-        return MyPoint(x: x, y: y)
+        return MyPoint(x,y)
     }
     
     private func createMyLine(_ points:Points) -> MyLine{
         let pointFirst = createMyPoint(points[0].x, points[0].y)
         let pointSecond = createMyPoint(points[1].x, points[1].y)
-        return MyLine(pointFirst: pointFirst, pointSecond: pointSecond)
+        return MyLine(pointFirst, pointSecond)
+    }
+    
+    private func createMyTriangle(_ points:Points) -> MyTriangle {
+        let pointFirst = createMyPoint(points[0].x, points[0].y)
+        let pointSecond = createMyPoint(points[1].x, points[1].y)
+        let pointThird = createMyPoint(points[2].x, points[2].y)
+        return MyTriangle(pointFirst, pointSecond, pointThird)
     }
 }

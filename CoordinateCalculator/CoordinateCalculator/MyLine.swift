@@ -13,7 +13,7 @@ struct MyLine:Shape, Resultable {
     private var pointFirst:MyPoint
     private var pointSecond:MyPoint
     
-    init(pointFirst:MyPoint, pointSecond:MyPoint){
+    init(_ pointFirst:MyPoint, _ pointSecond:MyPoint){
         self.pointFirst = pointFirst
         self.pointSecond = pointSecond
         points = [pointFirst,pointSecond]
