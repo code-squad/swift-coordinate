@@ -12,7 +12,7 @@ protocol Shape{
     var points:[MyPoint] { get }
 }
 
+//calculateResult()를 내부에서 호출하기만 할꺼면 프로토콜에 넣지 않고 내부에 private으로 구현!
 protocol Resultable {
     func result() -> String
-    func calculateResult() -> Double
 }
