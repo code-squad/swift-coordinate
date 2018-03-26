@@ -27,12 +27,12 @@ while true {
         try spliter.splitInRawPoint(input)
         let rawPoints = try spliter.splitInRawPoints()
         
-        let myPoints = try ShapeCreator().creatPoint(rawPoints)
+        let shape = try ShapeCreator().creatPoint(rawPoints)
         
         OutputView.clean()
-        OutputView.drawPoints(at: myPoints)
+        OutputView.drawPoints(at: shape)
         OutputView.drawAxis()
-        OutputView.result(of: myPoints)
+        OutputView.result(of: shape)
         
     } catch let error{
         print("\(error.localizedDescription)")
