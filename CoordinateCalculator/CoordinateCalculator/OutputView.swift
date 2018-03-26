@@ -24,10 +24,7 @@ struct OutputView {
         }
     }
     
-    static func result(of shape:Shape){
-        if shape is Shape & Resultable {
-           let resultAble = shape as! Shape & Resultable
-           print(resultAble.result())
-        }
+    static func result(of shape:Resultable){
+        print(shape.result())
     }
 }

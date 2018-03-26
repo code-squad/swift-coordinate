@@ -32,7 +32,10 @@ while true {
         OutputView.clean()
         OutputView.drawPoints(at: shape)
         OutputView.drawAxis()
-        OutputView.result(of: shape)
+        
+        if shape is Resultable{
+            OutputView.result(of: shape as! Resultable)
+        }
         
     } catch let error{
         print("\(error.localizedDescription)")
