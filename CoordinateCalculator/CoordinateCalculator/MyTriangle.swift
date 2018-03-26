@@ -34,7 +34,7 @@ struct MyTriangle: Shape, Resultable{
 
     // ( points[0].x , points[0].y ) ( points[1].x , points[1], y )  ( points[2].x ) ( points[2].y ))
     
-    func calculateResult() -> Double{
+    private func calculateResult() -> Double{
         let x1 = points[0].x
         let y1 = points[0].y
         let x2 = points[1].x

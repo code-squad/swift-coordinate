@@ -23,7 +23,7 @@ struct MyLine:Shape, Resultable {
         return " 두 점 사이의 거리는 \(calculateResult())"
     }
     
-    func calculateResult() -> Double {
+    private func calculateResult() -> Double {
         return sqrt(pow(Double(pointFirst.x - pointSecond.x), 2) + pow(Double(pointFirst.y - pointSecond.y), 2))
     }
 }
