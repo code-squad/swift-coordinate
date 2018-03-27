@@ -13,6 +13,18 @@
 		977434442063EF22003BD8AC /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977434432063EF22003BD8AC /* Protocols.swift */; };
 		97A88E712065F4B70035B259 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A88E702065F4B70035B259 /* MyTriangle.swift */; };
 		97A88E752068D5E40035B259 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A88E742068D5E40035B259 /* MyRect.swift */; };
+		97BABC23206A7538008D8272 /* UnitTestCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BABC1C206A73B6008D8272 /* UnitTestCC.swift */; };
+		97BABC24206A7543008D8272 /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CA2062836C008975DC /* Spliter.swift */; };
+		97BABC25206A7543008D8272 /* ShapeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CC20628A23008975DC /* ShapeCreator.swift */; };
+		97BABC26206A79B3008D8272 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		97BABC27206A79B3008D8272 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF78E2060969D00CAA635 /* OutputView.swift */; };
+		97BABC28206A79B3008D8272 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		97BABC29206A79B3008D8272 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7942060F3F300CAA635 /* MyPoint.swift */; };
+		97BABC2A206A79B3008D8272 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A88E702065F4B70035B259 /* MyTriangle.swift */; };
+		97BABC2B206A79B3008D8272 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF7902060D1E900CAA635 /* InputView.swift */; };
+		97BABC2C206A79B3008D8272 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977434412063DF6D003BD8AC /* MyLine.swift */; };
+		97BABC2D206A79B3008D8272 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977434432063EF22003BD8AC /* Protocols.swift */; };
+		97BABC2E206A79B3008D8272 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A88E742068D5E40035B259 /* MyRect.swift */; };
 		97C016CB2062836C008975DC /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CA2062836C008975DC /* Spliter.swift */; };
 		97C016CD20628A23008975DC /* ShapeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C016CC20628A23008975DC /* ShapeCreator.swift */; };
 		97DFF78F2060969D00CAA635 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97DFF78E2060969D00CAA635 /* OutputView.swift */; };
@@ -40,6 +52,9 @@
 		977434432063EF22003BD8AC /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		97A88E702065F4B70035B259 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		97A88E742068D5E40035B259 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
+		97BABC1A206A73B5008D8272 /* UnitTestCC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestCC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97BABC1C206A73B6008D8272 /* UnitTestCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCC.swift; sourceTree = "<group>"; };
+		97BABC1E206A73B6008D8272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97C016CA2062836C008975DC /* Spliter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spliter.swift; sourceTree = "<group>"; };
 		97C016CC20628A23008975DC /* ShapeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCreator.swift; sourceTree = "<group>"; };
 		97DFF78E2060969D00CAA635 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -55,6 +70,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97BABC17206A73B5008D8272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC501F8B6F7E007F7335 /* CoordinateCalculator */,
+				97BABC1B206A73B6008D8272 /* UnitTestCC */,
 				8377CC4F1F8B6F7E007F7335 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */,
+				97BABC1A206A73B5008D8272 /* UnitTestCC.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +116,15 @@
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
 		};
+		97BABC1B206A73B6008D8272 /* UnitTestCC */ = {
+			isa = PBXGroup;
+			children = (
+				97BABC1C206A73B6008D8272 /* UnitTestCC.swift */,
+				97BABC1E206A73B6008D8272 /* Info.plist */,
+			);
+			path = UnitTestCC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,18 +145,39 @@
 			productReference = 8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */;
 			productType = "com.apple.product-type.tool";
 		};
+		97BABC19206A73B5008D8272 /* UnitTestCC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97BABC21206A73B6008D8272 /* Build configuration list for PBXNativeTarget "UnitTestCC" */;
+			buildPhases = (
+				97BABC16206A73B5008D8272 /* Sources */,
+				97BABC17206A73B5008D8272 /* Frameworks */,
+				97BABC18206A73B5008D8272 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTestCC;
+			productName = UnitTestCC;
+			productReference = 97BABC1A206A73B5008D8272 /* UnitTestCC.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		8377CC461F8B6F7E007F7335 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Codesquad Inc.";
 				TargetAttributes = {
 					8377CC4D1F8B6F7E007F7335 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					97BABC19206A73B5008D8272 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -141,9 +195,20 @@
 			projectRoot = "";
 			targets = (
 				8377CC4D1F8B6F7E007F7335 /* CoordinateCalculator */,
+				97BABC19206A73B5008D8272 /* UnitTestCC */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		97BABC18206A73B5008D8272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8377CC4A1F8B6F7E007F7335 /* Sources */ = {
@@ -161,6 +226,25 @@
 				977434422063DF6D003BD8AC /* MyLine.swift in Sources */,
 				97DFF78F2060969D00CAA635 /* OutputView.swift in Sources */,
 				97C016CB2062836C008975DC /* Spliter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97BABC16206A73B5008D8272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97BABC26206A79B3008D8272 /* ANSICode.swift in Sources */,
+				97BABC27206A79B3008D8272 /* OutputView.swift in Sources */,
+				97BABC28206A79B3008D8272 /* main.swift in Sources */,
+				97BABC29206A79B3008D8272 /* MyPoint.swift in Sources */,
+				97BABC2A206A79B3008D8272 /* MyTriangle.swift in Sources */,
+				97BABC2B206A79B3008D8272 /* InputView.swift in Sources */,
+				97BABC2C206A79B3008D8272 /* MyLine.swift in Sources */,
+				97BABC2D206A79B3008D8272 /* Protocols.swift in Sources */,
+				97BABC2E206A79B3008D8272 /* MyRect.swift in Sources */,
+				97BABC24206A7543008D8272 /* Spliter.swift in Sources */,
+				97BABC25206A7543008D8272 /* ShapeCreator.swift in Sources */,
+				97BABC23206A7538008D8272 /* UnitTestCC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +375,32 @@
 			};
 			name = Release;
 		};
+		97BABC1F206A73B6008D8272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestCC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.UnitTestCC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		97BABC20206A73B6008D8272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UnitTestCC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.UnitTestCC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -308,6 +418,15 @@
 			buildConfigurations = (
 				8377CC561F8B6F7E007F7335 /* Debug */,
 				8377CC571F8B6F7E007F7335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97BABC21206A73B6008D8272 /* Build configuration list for PBXNativeTarget "UnitTestCC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97BABC1F206A73B6008D8272 /* Debug */,
+				97BABC20206A73B6008D8272 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
