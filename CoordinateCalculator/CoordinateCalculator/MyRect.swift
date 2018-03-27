@@ -10,18 +10,19 @@ import Foundation
 struct MyRect: Shape, Resultable {
     private(set) var points: [MyPoint] = []
     private var leftTop: MyPoint
-    private var rightTop: MyPoint
-    private var leftBottom: MyPoint
-    private var rightBottom: MyPoint
     private var size:CGSize
     
     init(origin: MyPoint, size: CGSize) {
-        self.size = size
         self.leftTop = origin
-        self.rightTop = MyPoint(leftTop.x + Int(size.width), leftTop.y)
-        self.leftBottom = MyPoint(leftTop.x, leftTop.y - Int(size.height))
-        self.rightBottom = MyPoint(leftTop.x + Int(size.width), leftTop.y - Int(size.height))
-        points = [leftTop, rightTop, leftBottom, rightBottom]
+        self.size = size
+    }
+    
+    init(points:[MyPoint]){
+        let width = points[2].x - points[0].x
+        let height = points[1].y - points[0].y
+        let origin = MyPoint(points[0].x, points[0].y)
+        self.init(origin: origin, size: CGSize(width: width, height: height))
+        self.points = points
     }
     
     func result() -> String {

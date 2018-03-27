@@ -60,15 +60,14 @@ struct ShapeCreator {
     
     private func createMyRectangle(_ points:Points) throws -> MyRect{
         let sortedPoints = points.sorted{ $0.x < $1.x }
-        let leftTop = sortedPoints[0]
-        let leftBottom = sortedPoints[1]
-        let rightTop = sortedPoints[2]
+        
+        let leftTop = createMyPoint(sortedPoints[0].x, sortedPoints[0].y)
+        let leftBottom = createMyPoint(sortedPoints[1].x, sortedPoints[1].y)
+        let rightTop = createMyPoint(sortedPoints[2].x, sortedPoints[2].y)
+        let rightBottom = createMyPoint(sortedPoints[3].x, sortedPoints[3].y)
         
         if isRectangle(sortedPoints){
-            let origin = MyPoint(leftTop.x, leftTop.y)
-            let width = rightTop.x - leftTop.x
-            let height = leftBottom.y - leftTop.y
-            return MyRect(origin: origin, size: CGSize(width: width, height: height))
+            return MyRect(points:[leftTop, leftBottom, rightTop, rightBottom])
         } else {
             throw ShapeCreatorError.isNotRectangle
         }
