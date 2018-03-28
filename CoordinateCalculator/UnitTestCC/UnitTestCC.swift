@@ -46,21 +46,21 @@ class UnitTestCC: XCTestCase {
         XCTAssertEqual(rawPoints.count, 4, "Shoud be equal")
     }
     
-    func testSpliterInvalidFormatException(){
+    func testSpliterInvalidFormatExceptionWithExceedNumber(){
         var spliter = Spliter()
         XCTAssertThrowsError(try spliter.splitInRawPoint("(25,25)")) { error in
             print(error.localizedDescription)
         }
     }
     
-    func testSpliterInvalidFormatException2(){
+    func testSpliterInvalidFormatExceptionWithChracter(){
         var spliter = Spliter()
         XCTAssertThrowsError(try spliter.splitInRawPoint("(a,a)")) { error in
             print(error.localizedDescription)
         }
     }
     
-    func testSpliterInvalidFormatException3(){
+    func testSpliterInvalidFormatExceptionWithHyphen(){
         var spliter = Spliter()
         XCTAssertThrowsError(try spliter.splitInRawPoint("(1-5)")) { error in
             print(error.localizedDescription)
