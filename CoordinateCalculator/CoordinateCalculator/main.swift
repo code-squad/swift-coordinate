@@ -8,5 +8,13 @@
 
 import Foundation
 
-print("Hello, World!")
 
+func main() {
+    
+    let outputView: OutputView = OutputView()
+    
+    print("\(ANSICode.clear)\(ANSICode.home)")
+    outputView.drawAxis()
+}
+
+main()
