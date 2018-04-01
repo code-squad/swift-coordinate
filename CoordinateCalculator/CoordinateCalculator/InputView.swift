@@ -31,6 +31,4 @@ struct InputView {
         return input
     }
     
-    
-    
 }
