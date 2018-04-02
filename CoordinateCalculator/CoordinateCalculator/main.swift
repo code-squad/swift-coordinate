@@ -12,9 +12,14 @@ import Foundation
 func main() {
     
     let outputView: OutputView = OutputView()
+    let inputView: InputView = InputView()
     
-    print("\(ANSICode.clear)\(ANSICode.home)")
-    outputView.drawAxis()
+    
+    // 축 그리기
+//    print("\(ANSICode.clear)\(ANSICode.home)")
+//    outputView.drawAxis()
 }
 
 main()
+
+
