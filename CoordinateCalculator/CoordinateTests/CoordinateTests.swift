@@ -38,10 +38,12 @@ class CoordinateTests: XCTestCase {
         XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
     }
     
-    func test() {
+    func testInvalidNumberInput() {
         inputScanner = InputScanner()
         let testInputText = "(24, 10)"
         XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
     }
+    
+    
     
 }
