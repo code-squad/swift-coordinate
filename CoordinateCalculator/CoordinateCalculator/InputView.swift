@@ -10,24 +10,26 @@ import Foundation
 
 
 enum InputViewError: Error {
-    case inputIsNil
+    case nilInput
+    case invalidInput
     
     var localizedDescription: String {
         switch self {
-            
-        case .inputIsNil:
+        case .nilInput:
             return "입력을 확인해주세요."
+        case .invalidInput:
+            return "잘못된 입력입니다."
         }
     }
 }
 
 struct InputView {
     
-    func readInput() throws -> String {
+    static func readInput() throws -> String {
         print("좌표를 입력하세요.")
         
         guard let input = readLine() else {
-            throw InputViewError.inputIsNil
+            throw InputViewError.nilInput
         }
         
         return input

@@ -11,11 +11,27 @@ import Foundation
 
 func main() {
     
-    let outputView: OutputView = OutputView()
-    let inputView: InputView = InputView()
+    let inputScanner = InputScanner()
+    
+    var errorFlag = true
+    
+    while errorFlag {
+        do {
+            let input = try InputView.readInput()
+            let scanedText = try inputScanner.scan(text: input, pattern: InputScanner.validPattern)
+            errorFlag = false
+        } catch let error as InputViewError {
+            print(error.localizedDescription)
+            continue
+        } catch {
+            print("Unexpected error")
+            continue
+        }
+    }
     
     
     // 축 그리기
+//    let outputView: OutputView = OutputView()
 //    print("\(ANSICode.clear)\(ANSICode.home)")
 //    outputView.drawAxis()
 }
