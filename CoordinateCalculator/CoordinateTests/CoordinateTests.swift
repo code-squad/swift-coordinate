@@ -7,19 +7,41 @@
 //
 
 import XCTest
+@testable import CoordinateCalculator
 
 class CoordinateTests: XCTestCase {
     
+    var inputScanner: InputScanner!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        inputScanner = nil
+    }
+
+    // 정상 입력 체크
+    func testInputScan() {
+        inputScanner = InputScanner()
+        let testInputText = "(10,10)"
+        
+        let scannedText: String = try! inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern)
+        XCTAssertEqual(scannedText, testInputText)
     }
     
-    // test 
+    func testInvalidFormatInput() {
+        inputScanner = InputScanner()
+        let testInputText = "((10,10))"
+        XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
+    }
+    
+    func test() {
+        inputScanner = InputScanner()
+        let testInputText = "(24, 10)"
+        XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
+    }
     
 }
