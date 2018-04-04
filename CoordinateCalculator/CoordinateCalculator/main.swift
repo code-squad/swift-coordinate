@@ -12,6 +12,7 @@ import Foundation
 func main() {
     
     let inputScanner = InputScanner()
+    let outputView = OutputView()
     
     var errorFlag = true
     
@@ -19,11 +20,15 @@ func main() {
         do {
             let input = try InputView.readInput()
             let scanedText = try inputScanner.scan(text: input, pattern: InputScanner.validPattern)
+            let coordinate = inputScanner.getCoordinateFrom(text: scanedText)
+            let point = inputScanner.makeMyPointFrom(coordinate: coordinate)
             
-            print(inputScanner.extractCoordinate(text: scanedText))
-            
+            print("\(ANSICode.clear)\(ANSICode.home)")
+            outputView.drawPoint(point)
+            outputView.drawAxis()
             
             errorFlag = false
+            
         } catch let error as InputViewError {
             print(error.localizedDescription)
             continue
@@ -32,12 +37,6 @@ func main() {
             continue
         }
     }
-    
-    
-    // 축 그리기
-//    let outputView: OutputView = OutputView()
-//    print("\(ANSICode.clear)\(ANSICode.home)")
-//    outputView.drawAxis()
 }
 
 main()
