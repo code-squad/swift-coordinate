@@ -23,27 +23,32 @@ class CoordinateTests: XCTestCase {
         inputScanner = nil
     }
 
-    // 정상 입력 체크
     func testInputScan() {
         inputScanner = InputScanner()
-        let testInputText = "(10,10)"
+        let testText = "(10,10)"
         
         let scannedText: String = try! inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern)
-        XCTAssertEqual(scannedText, testInputText)
+        XCTAssertEqual(scannedText, testText)
     }
     
     func testInvalidFormatInput() {
         inputScanner = InputScanner()
-        let testInputText = "((10,10))"
+        let testText = "((10,10))"
         XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
     }
     
     func testInvalidNumberInput() {
         inputScanner = InputScanner()
-        let testInputText = "(24, 10)"
-        XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
+        let testText = "(24, 10)"
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
     }
     
+    func testGetCoordinate() {
+        inputScanner = InputScanner()
+        let coordinate = inputScanner.getCoordinateFrom(text: "(10,10)")
+
+        XCTAssertEqual(coordinate, [10, 10])
+    }
     
     
 }

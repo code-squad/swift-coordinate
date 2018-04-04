@@ -19,6 +19,10 @@ func main() {
         do {
             let input = try InputView.readInput()
             let scanedText = try inputScanner.scan(text: input, pattern: InputScanner.validPattern)
+            
+            print(inputScanner.extractCoordinate(text: scanedText))
+            
+            
             errorFlag = false
         } catch let error as InputViewError {
             print(error.localizedDescription)
