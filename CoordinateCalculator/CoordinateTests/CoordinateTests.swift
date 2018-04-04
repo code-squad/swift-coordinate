@@ -61,4 +61,14 @@ class CoordinateTests: XCTestCase {
         XCTAssertEqual(expectedMyPoint.y, testMyPoint.y)
     }
     
+    func testMyPointEquatable() {
+        inputScanner = InputScanner()
+        
+        let expectedMyPoint = MyPoint(x: 7, y: 7)
+        let testCoordinate = [7, 7]
+        let testMyPoint = inputScanner.makeMyPointFrom(coordinate: testCoordinate)
+        
+        XCTAssertEqual(expectedMyPoint, testMyPoint)
+    }
+    
 }
