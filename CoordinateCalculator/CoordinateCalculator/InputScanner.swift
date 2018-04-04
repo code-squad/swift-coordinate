@@ -18,14 +18,14 @@ struct InputScanner {
         guard let firstRange = regex.firstMatch(in: text,
                                                 options: [],
                                                 range: NSMakeRange(0, text.count)) else {
-            throw InputViewError.invalidInput
+            throw InputError.invalidInput
         }
         
         let matchedText: String = text[firstRange.range]
         
         // 지정한 포맷 외에 다른 포맷이 붙어있는 입력이라면 에러
         if matchedText != text {
-            throw InputViewError.invalidInput
+            throw InputError.invalidInput
         }
         
         return matchedText
