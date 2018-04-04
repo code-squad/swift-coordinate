@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint: Equatable {
     var x = 0
     var y = 0
 }

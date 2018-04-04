@@ -33,7 +33,7 @@ struct InputScanner {
 
     // text는 이미 검증이 끝난 text를 넘길것
     func getCoordinateFrom(text: String) -> [Int] {
-        let coordinate = text.split(separator: ",").map{ $0.trimmingCharacters(in: ["(", ")"]) }.flatMap{ Int($0) }
+        let coordinate = text.split(separator: ",").map{ $0.trimmingCharacters(in: ["(", ")"]) }.compactMap { Int($0) }
         
         return coordinate
     }
