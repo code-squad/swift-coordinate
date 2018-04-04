@@ -38,6 +38,13 @@ struct InputScanner {
         return coordinate
     }
     
+    func makeMyPointFrom(coordinate: [Int]) -> MyPoint {
+        var myPoint = MyPoint()
+        myPoint.x = coordinate[0]
+        myPoint.y = coordinate[1]
+        
+        return myPoint
+    }
 }
 
 

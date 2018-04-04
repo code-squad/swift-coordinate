@@ -27,14 +27,14 @@ class CoordinateTests: XCTestCase {
         inputScanner = InputScanner()
         let testText = "(10,10)"
         
-        let scannedText: String = try! inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern)
+        let scannedText: String = try! inputScanner.scan(text: testText, pattern: InputScanner.validPattern)
         XCTAssertEqual(scannedText, testText)
     }
     
     func testInvalidFormatInput() {
         inputScanner = InputScanner()
         let testText = "((10,10))"
-        XCTAssertThrowsError(try inputScanner.scan(text: testInputText, pattern: InputScanner.validPattern))
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
     }
     
     func testInvalidNumberInput() {
@@ -50,5 +50,15 @@ class CoordinateTests: XCTestCase {
         XCTAssertEqual(coordinate, [10, 10])
     }
     
+    func testMakePointFromCoordinate() {
+        inputScanner = InputScanner()
+        
+        let expectedMyPoint = MyPoint(x: 7, y: 7)
+        let testCoordinate = [7, 7]
+        let testMyPoint = inputScanner.makeMyPointFrom(coordinate: testCoordinate)
+        
+        XCTAssertEqual(expectedMyPoint.x, testMyPoint.x)
+        XCTAssertEqual(expectedMyPoint.y, testMyPoint.y)
+    }
     
 }
