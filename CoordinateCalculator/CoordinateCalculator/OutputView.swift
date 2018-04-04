@@ -10,7 +10,14 @@ import Foundation
 
 struct OutputView {
     
+    private var marker: String = "☀︎"
+    private let originPointOfAxis = MyPoint(x: 3, y: ANSICode.axis.AxisLimit + 1)
+    
+    func drawPoint(_ point: MyPoint) {
+        print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: originPointOfAxis.y - point.y , col: originPointOfAxis.x + point.x * 2))\(marker)")
+    }
+    
     func drawAxis() {
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+        print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
 }
