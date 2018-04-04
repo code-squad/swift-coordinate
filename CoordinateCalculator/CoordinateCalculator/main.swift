@@ -18,9 +18,9 @@ func main() {
     
     while errorFlag {
         do {
-            let input = try InputView.readInput()
-            let scanedText = try inputScanner.scan(text: input, pattern: InputScanner.validPattern)
-            let coordinate = inputScanner.getCoordinateFrom(text: scanedText)
+            let text: String = try InputView.readInput()
+            let coordinateText: String = try inputScanner.scan(text: text, pattern: InputScanner.validPattern)
+            let coordinate: [Int] = inputScanner.getCoordinateFrom(text: coordinateText)
             let point = inputScanner.makeMyPointFrom(coordinate: coordinate)
             
             print("\(ANSICode.clear)\(ANSICode.home)")
@@ -29,12 +29,11 @@ func main() {
             
             errorFlag = false
             
-        } catch let error as InputViewError {
+        } catch let error as InputError {
             print(error.localizedDescription)
             continue
         } catch {
-            print("Unexpected error")
-            continue
+            fatalError("Unexpected Error")
         }
     }
 }
