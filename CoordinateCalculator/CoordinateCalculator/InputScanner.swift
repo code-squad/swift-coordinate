@@ -11,6 +11,9 @@ import Foundation
 struct InputScanner {
     
     static let validPattern: String = "\\(([0-9]|1[0-9]|2[0-4]),([0-9]|1[0-9]|2[0-4])\\)"
+    private let separator: Character = ","
+    private let meaninglessCharacters: CharacterSet = ["(", ")"]
+    
     
     func scan(text: String, pattern: String) throws -> String {
         let regex = try! NSRegularExpression(pattern: pattern)
@@ -33,7 +36,7 @@ struct InputScanner {
 
     // text는 이미 검증이 끝난 text를 넘길것
     func getCoordinateFrom(text: String) -> [Int] {
-        let coordinate = text.split(separator: ",").map{ $0.trimmingCharacters(in: ["(", ")"]) }.compactMap { Int($0) }
+        let coordinate = text.split(separator: self.separator).map{ $0.trimmingCharacters(in: self.meaninglessCharacters) }.compactMap { Int($0) }
         
         return coordinate
     }
