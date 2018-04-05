@@ -20,8 +20,8 @@ func main() {
         do {
             let text: String = try InputView.readInput()
             let coordinateText: String = try inputScanner.scan(text: text, pattern: InputScanner.validPattern)
-            let coordinate: [Int] = inputScanner.getCoordinateFrom(text: coordinateText)
-            let point = inputScanner.makeMyPointFrom(coordinate: coordinate)
+            let coordinates: [Int] = inputScanner.getCoordinateFrom(text: coordinateText)
+            let point = inputScanner.makeMyPointFrom(coordinates: coordinates)
             
             print("\(ANSICode.clear)\(ANSICode.home)")
             outputView.drawPoint(point)
