@@ -10,7 +10,7 @@ import Foundation
 
 struct OutputView {
     
-    private var marker: String = "☀︎"
+    private let marker: String = "☀︎"
     private let originPointOfAxis = MyPoint(x: 3, y: ANSICode.axis.AxisLimit + 1)
     
     func drawPoint(_ point: MyPoint) {
