@@ -15,6 +15,8 @@ class CoordinateTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        inputScanner = InputScanner()
     }
     
     override func tearDown() {
@@ -24,7 +26,6 @@ class CoordinateTests: XCTestCase {
     }
 
     func testInputScan() {
-        inputScanner = InputScanner()
         let testText = "(10,10)"
         
         let scannedText: String = try! inputScanner.scan(text: testText, pattern: InputScanner.validPattern)
@@ -32,41 +33,34 @@ class CoordinateTests: XCTestCase {
     }
     
     func testInvalidFormatInput() {
-        inputScanner = InputScanner()
         let testText = "((10,10))"
         XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
     }
     
     func testInvalidNumberInput() {
-        inputScanner = InputScanner()
         let testText = "(24, 10)"
         XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
     }
     
     func testGetCoordinate() {
-        inputScanner = InputScanner()
         let coordinate = inputScanner.getCoordinateFrom(text: "(10,10)")
 
         XCTAssertEqual(coordinate, [10, 10])
     }
     
     func testMakePointFromCoordinate() {
-        inputScanner = InputScanner()
-        
         let expectedMyPoint = MyPoint(x: 7, y: 7)
         let testCoordinate = [7, 7]
-        let testMyPoint = inputScanner.makeMyPointFrom(coordinate: testCoordinate)
+        let testMyPoint = inputScanner.makeMyPointFrom(coordinates: testCoordinate)
         
         XCTAssertEqual(expectedMyPoint.x, testMyPoint.x)
         XCTAssertEqual(expectedMyPoint.y, testMyPoint.y)
     }
     
     func testMyPointEquatable() {
-        inputScanner = InputScanner()
-        
         let expectedMyPoint = MyPoint(x: 7, y: 7)
         let testCoordinate = [7, 7]
-        let testMyPoint = inputScanner.makeMyPointFrom(coordinate: testCoordinate)
+        let testMyPoint = inputScanner.makeMyPointFrom(coordinates: testCoordinate)
         
         XCTAssertEqual(expectedMyPoint, testMyPoint)
     }
