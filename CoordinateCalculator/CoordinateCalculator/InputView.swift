@@ -23,13 +23,17 @@ enum InputError: Error {
     }
 }
 
+enum Question: String {
+    case coordinate = "좌표를 입력하세요"
+}
+
 struct InputView {
     
-    static func readInput() throws -> String {
-        print("좌표를 입력하세요.")
+    static func readInput(question: String) -> String {
+       print(question)
         
         guard let input = readLine() else {
-            throw InputError.nilInput
+            return ""
         }
         
         return input

@@ -18,7 +18,7 @@ func main() {
     
     while errorFlag {
         do {
-            let text: String = try InputView.readInput()
+            let text: String = InputView.readInput(question: Question.coordinate.rawValue)
             let coordinateText: String = try inputScanner.scan(text: text, pattern: InputScanner.validPattern)
             let coordinates: [Int] = inputScanner.getCoordinateFrom(text: coordinateText)
             let point = inputScanner.makeMyPointFrom(coordinates: coordinates)
