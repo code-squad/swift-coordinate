@@ -25,23 +25,61 @@ class CoordinateTests: XCTestCase {
         inputScanner = nil
     }
 
-    func testInputScan() {
-        let testText = "(10,10)"
-        
-        let scannedText: String = try! inputScanner.scan(text: testText, pattern: InputScanner.validPattern)
-        XCTAssertEqual(scannedText, testText)
+    // Input test
+    func testMinimumInputCoordinatePassTest() {
+        let testText = "(1,1)"
+        XCTAssertEqual(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern), testText)
     }
+    
+    func testMaximumInputCoordinatePassTest() {
+        let testText = "(24,24)"
+        XCTAssertEqual(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern), testText)
+    }
+    
+    func testBiggerCoordinateXInputTest() {
+        let testText = "(25,1)"
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
+    }
+    
+    func testBiggerCoordinateYInputTest() {
+        let testText = "(1,25)"
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
+    }
+    
+    func testSmallerCoordinateXInputTest() {
+        let testText = "(0,1)"
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
+    }
+    
+    func testSmallerCoordinateYInputTest() {
+        let testText = "(1,0)"
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
+    }
+    
+    ///////////////////////////////////////////
     
     func testInvalidFormatInput() {
         let testText = "((10,10))"
         XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
     }
     
-    func testInvalidNumberInput() {
-        let testText = "(24, 10)"
+    func testInvalidBracketFormatInput() {
+        let testText = "{10,10}"
         XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
     }
     
+    func testNoBracketInput() {
+        let testText = "10,10"
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
+    }
+    
+    func testEmptyInput() {
+        let testText = ""
+        XCTAssertThrowsError(try inputScanner.scan(text: testText, pattern: InputScanner.validPattern))
+    }
+    
+    
+    // Coordinate test
     func testGetCoordinate() {
         let coordinate = inputScanner.getCoordinateFrom(text: "(10,10)")
 

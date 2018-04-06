@@ -10,7 +10,7 @@ import Foundation
 
 struct InputScanner {
     
-    static let validPattern: String = "\\(([0-9]|1[0-9]|2[0-4]),([0-9]|1[0-9]|2[0-4])\\)"
+    static let validPattern: String = "\\(([1-9]|1[0-9]|2[0-4]),([1-9]|1[0-9]|2[0-4])\\)"
     private let separator: Character = ","
     private let meaninglessCharacters: CharacterSet = ["(", ")"]
     
