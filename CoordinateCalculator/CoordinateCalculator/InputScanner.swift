@@ -16,7 +16,9 @@ struct InputScanner {
     
     
     func scan(text: String, pattern: String) throws -> String {
-        let regex = try! NSRegularExpression(pattern: pattern)
+        guard let regex = try? NSRegularExpression(pattern: pattern) else {
+            throw InputError.regexError
+        }
         
         guard let firstRange = regex.firstMatch(in: text,
                                                 options: [],
