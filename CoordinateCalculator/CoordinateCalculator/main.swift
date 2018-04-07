@@ -11,17 +11,18 @@ import Foundation
 
 func main() {
     
-    let inputScanner = InputScanner()
+    let inputChecker = InputChecker()
     let outputView = OutputView()
+    let firgureMaker = FigureMaker()
     
     var errorFlag = true
     
     while errorFlag {
         do {
             let text: String = InputView.readInput(question: Question.coordinate.rawValue)
-            let coordinateText: String = try inputScanner.scan(text: text, pattern: InputScanner.validPattern)
-            let coordinates: [Int] = inputScanner.getCoordinateFrom(text: coordinateText)
-            let point = inputScanner.makeMyPointFrom(coordinates: coordinates)
+            let coordinateText: String = try inputChecker.checkMatching(text: text, with: InputChecker.validPattern)
+            let coordinates: [Int] = firgureMaker.getCoordinateFrom(text: coordinateText)
+            let point: MyPoint = firgureMaker.makeMyPointFrom(coordinates: coordinates)
             
             print("\(ANSICode.clear)\(ANSICode.home)")
             outputView.drawPoint(point)
