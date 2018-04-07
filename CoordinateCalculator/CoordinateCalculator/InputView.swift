@@ -14,7 +14,7 @@ enum Question: String {
 
 struct InputView {
     
-    let invalidCharacters: CharacterSet = CharacterSet(charactersIn: "1234567890,-()")
+    static private let invalidCharacters: CharacterSet = CharacterSet(charactersIn: "1234567890,-()")
     
     static func readInput(question: String) -> String {
        print(question)
@@ -24,7 +24,7 @@ struct InputView {
         return input
     }
     
-    func hasInvalidCharacter(in text: String) -> Bool {
+    static func hasInvalidCharacter(in text: String) -> Bool {
         for unicode in text.unicodeScalars {
             guard self.invalidCharacters.contains(unicode) else {
                 return true
