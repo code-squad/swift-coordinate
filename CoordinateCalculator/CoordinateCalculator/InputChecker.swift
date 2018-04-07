@@ -8,14 +8,28 @@
 
 import Foundation
 
-struct InputScanner {
+enum InputError: Error {
+    case nilInput
+    case invalidInput
+    case regexError
+    
+    var localizedDescription: String {
+        switch self {
+        case .nilInput:
+            return "입력이 비었습니다."
+        case .invalidInput:
+            return "잘못된 입력입니다."
+        case .regexError:
+            return "정규표현식이 잘못되었습니다."
+        }
+    }
+}
+
+struct InputChecker {
     
     static let validPattern: String = "\\(([1-9]|1[0-9]|2[0-4]),([1-9]|1[0-9]|2[0-4])\\)"
-    private let separator: Character = ","
-    private let meaninglessCharacters: CharacterSet = ["(", ")"]
     
-    
-    func scan(text: String, pattern: String) throws -> String {
+    func checkMatching(text: String, with pattern: String) throws -> String {
         guard let regex = try? NSRegularExpression(pattern: pattern) else {
             throw InputError.regexError
         }
@@ -34,21 +48,6 @@ struct InputScanner {
         }
         
         return matchedText
-    }
-
-    // text는 이미 검증이 끝난 text를 넘길것
-    func getCoordinateFrom(text: String) -> [Int] {
-        let coordinate = text.split(separator: self.separator).map{ $0.trimmingCharacters(in: self.meaninglessCharacters) }.compactMap { Int($0) }
-        
-        return coordinate
-    }
-    
-    func makeMyPointFrom(coordinates: [Int]) -> MyPoint {
-        var myPoint = MyPoint()
-        myPoint.x = coordinates[0]
-        myPoint.y = coordinates[1]
-        
-        return myPoint
     }
 }
 
