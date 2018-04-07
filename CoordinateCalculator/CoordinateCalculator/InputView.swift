@@ -14,14 +14,22 @@ enum Question: String {
 
 struct InputView {
     
+    let invalidCharacters: CharacterSet = CharacterSet(charactersIn: "1234567890,-()")
+    
     static func readInput(question: String) -> String {
        print(question)
-        
         guard let input = readLine() else {
             return ""
         }
-        
         return input
     }
     
+    func hasInvalidCharacter(in text: String) -> Bool {
+        for unicode in text.unicodeScalars {
+            guard self.invalidCharacters.contains(unicode) else {
+                return true
+            }
+        }
+        return false
+    }
 }

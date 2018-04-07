@@ -103,4 +103,19 @@ class CoordinateTests: XCTestCase {
         XCTAssertEqual(expectedMyPoint, testMyPoint)
     }
     
+    // step3
+    func testReadInputWithInvalidCharacter() {
+        let inputView = InputView()
+        let invalidInput = "(10,10)-(14,15)*"
+        
+        XCTAssertTrue(inputView.hasInvalidCharacter(in: invalidInput))
+    }
+    
+    func testReadInputWithValidCharacter() {
+        let inputView = InputView()
+        let invalidInput = "(10,10)-(14,15)"
+        
+        XCTAssertFalse(inputView.hasInvalidCharacter(in: invalidInput))
+    }
+    
 }
