@@ -9,8 +9,22 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		F90173F7207A662A0099E092 /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90173F6207A662A0099E092 /* Spliter.swift */; };
 		F90DE5A020738CE300695ED1 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DE59F20738CE300695ED1 /* OutputView.swift */; };
-		F90DE5A82073910C00695ED1 /* UnitTestCoordinateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DE5A72073910C00695ED1 /* UnitTestCoordinateCalculator.swift */; };
+		F9BA6D6B207A32810017ECBB /* InputViewChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6A207A32810017ECBB /* InputViewChecker.swift */; };
+		F9BA6D6D207A32920017ECBB /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6C207A32920017ECBB /* InputView.swift */; };
+		F9BA6D70207A32A00017ECBB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6F207A32A00017ECBB /* Strings.swift */; };
+		F9BA6D72207A32AF0017ECBB /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D71207A32AF0017ECBB /* Errors.swift */; };
+		F9BA6D75207A32F60017ECBB /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D74207A32F60017ECBB /* MyPoint.swift */; };
+		F9E74AC5207AFCDC007A22D4 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D74207A32F60017ECBB /* MyPoint.swift */; };
+		F9E74AC6207AFCDC007A22D4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6F207A32A00017ECBB /* Strings.swift */; };
+		F9E74AC7207AFCDC007A22D4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D71207A32AF0017ECBB /* Errors.swift */; };
+		F9E74AC8207AFCDC007A22D4 /* InputViewChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6A207A32810017ECBB /* InputViewChecker.swift */; };
+		F9E74AC9207AFCDC007A22D4 /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90173F6207A662A0099E092 /* Spliter.swift */; };
+		F9E74ACA207AFCDC007A22D4 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DE59F20738CE300695ED1 /* OutputView.swift */; };
+		F9E74ACB207AFCDC007A22D4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6C207A32920017ECBB /* InputView.swift */; };
+		F9E74ACC207AFCDC007A22D4 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		F9E74ACF207AFD76007A22D4 /* UnitTestCoordinateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DE5A72073910C00695ED1 /* UnitTestCoordinateCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +43,16 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		F90173F6207A662A0099E092 /* Spliter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spliter.swift; sourceTree = "<group>"; };
 		F90DE59F20738CE300695ED1 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		F90DE5A52073910B00695ED1 /* UnitTestCoordinateCalculator.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestCoordinateCalculator.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90DE5A72073910C00695ED1 /* UnitTestCoordinateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoordinateCalculator.swift; sourceTree = "<group>"; };
 		F90DE5A92073910C00695ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9BA6D6A207A32810017ECBB /* InputViewChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewChecker.swift; sourceTree = "<group>"; };
+		F9BA6D6C207A32920017ECBB /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		F9BA6D6F207A32A00017ECBB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		F9BA6D71207A32AF0017ECBB /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		F9BA6D74207A32F60017ECBB /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,9 @@
 		8377CC451F8B6F7E007F7335 = {
 			isa = PBXGroup;
 			children = (
+				F9BA6D73207A32E90017ECBB /* Model */,
+				F9BA6D6E207A32960017ECBB /* Common */,
+				F9BA6D69207A32080017ECBB /* Inspetion */,
 				F90DE59E20738C5100695ED1 /* View */,
 				8377CC501F8B6F7E007F7335 /* CoordinateCalculator */,
 				F90DE5A62073910C00695ED1 /* UnitTestCoordinateCalculator */,
@@ -85,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				F90DE59F20738CE300695ED1 /* OutputView.swift */,
+				F9BA6D6C207A32920017ECBB /* InputView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +120,32 @@
 				F90DE5A92073910C00695ED1 /* Info.plist */,
 			);
 			path = UnitTestCoordinateCalculator;
+			sourceTree = "<group>";
+		};
+		F9BA6D69207A32080017ECBB /* Inspetion */ = {
+			isa = PBXGroup;
+			children = (
+				F9BA6D6A207A32810017ECBB /* InputViewChecker.swift */,
+				F90173F6207A662A0099E092 /* Spliter.swift */,
+			);
+			path = Inspetion;
+			sourceTree = "<group>";
+		};
+		F9BA6D6E207A32960017ECBB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F9BA6D6F207A32A00017ECBB /* Strings.swift */,
+				F9BA6D71207A32AF0017ECBB /* Errors.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F9BA6D73207A32E90017ECBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9BA6D74207A32F60017ECBB /* MyPoint.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				F9BA6D6B207A32810017ECBB /* InputViewChecker.swift in Sources */,
+				F9BA6D6D207A32920017ECBB /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				F9BA6D70207A32A00017ECBB /* Strings.swift in Sources */,
+				F90173F7207A662A0099E092 /* Spliter.swift in Sources */,
 				F90DE5A020738CE300695ED1 /* OutputView.swift in Sources */,
+				F9BA6D72207A32AF0017ECBB /* Errors.swift in Sources */,
+				F9BA6D75207A32F60017ECBB /* MyPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +254,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F90DE5A82073910C00695ED1 /* UnitTestCoordinateCalculator.swift in Sources */,
+				F9E74AC5207AFCDC007A22D4 /* MyPoint.swift in Sources */,
+				F9E74ACF207AFD76007A22D4 /* UnitTestCoordinateCalculator.swift in Sources */,
+				F9E74AC6207AFCDC007A22D4 /* Strings.swift in Sources */,
+				F9E74AC7207AFCDC007A22D4 /* Errors.swift in Sources */,
+				F9E74AC8207AFCDC007A22D4 /* InputViewChecker.swift in Sources */,
+				F9E74AC9207AFCDC007A22D4 /* Spliter.swift in Sources */,
+				F9E74ACA207AFCDC007A22D4 /* OutputView.swift in Sources */,
+				F9E74ACB207AFCDC007A22D4 /* InputView.swift in Sources */,
+				F9E74ACC207AFCDC007A22D4 /* ANSICode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -304,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
