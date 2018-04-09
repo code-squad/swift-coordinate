@@ -27,27 +27,26 @@ enum InputError: Error {
 
 struct InputChecker {
     
-    static let validPattern: String = "\\(([1-9]|1[0-9]|2[0-4]),([1-9]|1[0-9]|2[0-4])\\)"
+    private let separator: Character = ","
+    private let hyphen: Character = "-"
+    private let meaninglessCharacters: CharacterSet = ["(", ")", ",", "-"]
+    private let validPattern: String = "\\(([1-9]|1[0-9]|2[0-4]),([1-9]|1[0-9]|2[0-4])\\)-?"
     
-    func checkMatching(text: String, with pattern: String) throws -> String {
-        guard let regex = try? NSRegularExpression(pattern: pattern) else {
+    // 입력에 좌표문자열패턴이 있는지 검사
+    func checkMatching(text: String) throws -> Bool {
+        guard let regex = try? NSRegularExpression(pattern: self.validPattern) else {
             throw InputError.regexError
         }
         
-        guard let firstRange = regex.firstMatch(in: text,
-                                                options: [],
-                                                range: NSMakeRange(0, text.count)) else {
-            throw InputError.invalidInput
-        }
+        let numberOfMatches = regex.numberOfMatches(in: text, options: [],
+                                                    range: NSMakeRange(0, text.count))
         
-        let matchedText: String = text[firstRange.range]
-        
-        // 지정한 포맷 외에 다른 포맷이 붙어있는 입력이라면 에러
-        if matchedText != text {
-            throw InputError.invalidInput
-        }
-        
-        return matchedText
+        // 입력된 좌표수 체크
+        return numberOfMatches < 1 || numberOfMatches > 2
+    }
+    
+    func splitByHyphen(in text: String) -> [String] {
+        return text.split(separator: hyphen).map(String.init)
     }
 }
 

@@ -11,6 +11,14 @@ import Foundation
 
 func main() {
     
+    var userInput = String()
+    
+    userInput = InputView.readInput(question: Question.coordinate.rawValue)
+    
+    if InputView.hasInvalidCharacter(in: userInput) {
+        print("has invalid error")
+    }
+    
 }
 
 main()
