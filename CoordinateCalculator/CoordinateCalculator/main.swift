@@ -12,13 +12,13 @@ import Foundation
 func main() {
     
     var userInput = String()
+    let inputChecker = InputChecker()
     
-    userInput = InputView.readInput(question: Question.coordinate.rawValue)
-    
-    if InputView.hasInvalidCharacter(in: userInput) {
-        print("has invalid error")
-    }
-    
+    userInput = InputView.readInput(question: Question.coordinate.rawValue)    
+    let splited: [String] = inputChecker.splitByHyphen(in: userInput)
+    let coordinates: [[Int]] = inputChecker.getCoordinateFrom(textCoordinates: splited)
+    let myPoints: [MyPoint] = inputChecker.makeMyPoint(coordinates)
+    print(myPoints)
 }
 
 main()
