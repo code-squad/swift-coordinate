@@ -8,8 +8,21 @@
 
 import Foundation
 
-func main() {
-    OutputView.drawAxis()
-}
+func main() throws {
+    while true {
+        do {
+            
+            let readinput = try InputView.readInput(q: COORDINATE_START_INPUT_MESSAGE)
+            try InputViewChecker.formatChekcer(checkerFormat: readinput)
+            let coordinates = Spliter.splitSaveFormat(readinput)
+            let mypoint = MyPoint(x: coordinates[0], y: coordinates[1])
 
-main()
+            OutputView.clean()
+            OutputView.drawPoint(mypoint)
+            OutputView.drawAxis()
+        }catch let e as CoordinateError {
+            OutputView.errorMessage(of: e)
+        }
+    }
+}
+try main()
