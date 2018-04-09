@@ -9,12 +9,12 @@
 import Foundation
 
 enum Question: String {
-    case coordinate = "좌표를 입력하세요.(ex: (1,1), 좌표범위: 1~24)"
+    case coordinate = "좌표를 입력하세요."
 }
 
 struct InputView {
     
-    static private let invalidCharacters: CharacterSet = CharacterSet(charactersIn: "1234567890,-()")
+    static private let invalidCharacters = CharacterSet(charactersIn: "0123456789-,")
     
     static func readInput(question: String) -> String {
        print(question)
@@ -24,6 +24,7 @@ struct InputView {
         return input
     }
     
+    // 입력된 문자열에
     static func hasInvalidCharacter(in text: String) -> Bool {
         for unicode in text.unicodeScalars {
             guard self.invalidCharacters.contains(unicode) else {

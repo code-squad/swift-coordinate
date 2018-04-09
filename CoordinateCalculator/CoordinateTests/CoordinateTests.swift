@@ -115,5 +115,4 @@ class CoordinateTests: XCTestCase {
         
         XCTAssertFalse(InputView.hasInvalidCharacter(in: invalidInput))
     }
-    
 }
