@@ -18,7 +18,9 @@ func main() {
     let splited: [String] = inputChecker.splitByHyphen(in: userInput)
     let coordinates: [[Int]] = inputChecker.getCoordinateFrom(textCoordinates: splited)
     let myPoints: [MyPoint] = inputChecker.makeMyPoint(coordinates)
-    print(myPoints)
+    
+    let figureFactory = FigureFactory(myPoints)
+    
 }
 
 main()

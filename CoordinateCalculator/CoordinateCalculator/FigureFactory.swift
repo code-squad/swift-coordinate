@@ -8,6 +8,11 @@
 
 import Foundation
 
-struct FigureMaker {
-
+struct FigureFactory {
+    
+    private var myPoints: [MyPoint]
+    
+    init(_ myPoints: [MyPoint]) {
+        self.myPoints = myPoints
+    }
 }
