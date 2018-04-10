@@ -20,4 +20,8 @@ struct OutputView {
     func drawAxis() {
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
+    
+    func printDistance(_ distance: Double) {
+        print("두 점 사이 거리는 \(distance) 입니다.")
+    }
 }
