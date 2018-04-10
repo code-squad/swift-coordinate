@@ -19,15 +19,23 @@ struct FigureFactory: Figurable {
     func makeFigure() {
         switch self.myPoints.count {
         case 1:
-            //makeMyPoint()
+            // 한개면 점
         case 2:
-            //makeMyLine()
+            // 두개면 직선
         default:
-            makeMyPoint()
+            // 예외의 경우
         }
     }
 }
 
 protocol Figurable {
-    func calculate() -> Double
+    func calculateDistance() -> Double
+}
+
+
+// ^^는 제곱을 하는 사용자 정의 연산자
+postfix operator ^^
+
+postfix func ^^(value: Double) -> Double {
+    return value * value
 }

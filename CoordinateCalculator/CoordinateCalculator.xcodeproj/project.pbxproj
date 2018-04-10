@@ -99,11 +99,11 @@
 		8377CC501F8B6F7E007F7335 /* CoordinateCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				73E04439207361960051C571 /* MyPoint.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				73C5554E2071D06A00B6ABB1 /* InputChecker.swift */,
 				73971C0D20787C1C000C8D67 /* FigureFactory.swift */,
+				73E04439207361960051C571 /* MyPoint.swift */,
 				739262AD207C22B700008B72 /* MyLine.swift */,
 				73EA3445206E5B37003D6792 /* InputView.swift */,
 				73426639206E201500AC49E8 /* OutputView.swift */,
