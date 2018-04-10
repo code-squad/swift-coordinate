@@ -11,8 +11,8 @@ import Foundation
 
 struct MyLine: Figure {
 
-    var pointA = MyPoint(x: 0, y: 0)
-    var pointB = MyPoint(x: 0, y: 0)
+    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointB = MyPoint(x: 0, y: 0)
     
     var myPoints: [MyPoint] {
         return [self.pointA, self.pointB]
