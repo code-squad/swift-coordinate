@@ -20,12 +20,12 @@ struct FigureFactory {
         self.myPoints = myPoints
     }
     
-    func makeFigure() -> FigureCalculatable {
+    func makeFigure() -> Figure {
         switch self.myPoints.count {
         case FigureType.line.rawValue:
             return MyLine(self.myPoints)
         default:
-            return MyPoint(self.myPoints)
+            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         }
     }
 }

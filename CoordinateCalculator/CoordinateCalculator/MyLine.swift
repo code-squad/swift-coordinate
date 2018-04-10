@@ -9,10 +9,14 @@
 import Foundation
 
 
-struct MyLine: FigureCalculatable {
-    
+struct MyLine: Figure {
+
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
+    
+    var myPoints: [MyPoint] {
+        return [self.pointA, self.pointB]
+    }
     
     init(_ myPoints: [MyPoint]) {
         self.pointA = myPoints[0]
@@ -21,5 +25,9 @@ struct MyLine: FigureCalculatable {
     
     func calculateDistance() -> Double {
         return sqrt(Double(pointA.x - pointB.x)^^ + Double(pointA.y - pointB.y)^^)
+    }
+    
+    func printDistance() {
+        print("두 점 사이의 거리는 \(self.calculateDistance())입니다.")
     }
 }

@@ -11,18 +11,45 @@ import Foundation
 
 func main() {
     
-    var userInput = String()
     let inputChecker = InputChecker()
+    var inputErrorFlag = true
+    var userInput: String = ""
     
-    userInput = InputView.readInput(question: Question.coordinate.rawValue)    
+    while inputErrorFlag {
+        
+        userInput = InputView.readInput(question: Question.coordinate.rawValue)
+        
+        // 입력되지 않은 문자가 있을 경우 다시 입력받기
+        if !InputView.hasInvalidCharacter(in: userInput) {
+            inputErrorFlag = false
+        }
+
+        do {
+            // 패턴 매칭이 안될경우 다시 입력받기
+            if try !InputChecker.checkMatching(text: userInput) {
+                inputErrorFlag = false
+            }
+        } catch let error as InputError {
+            print(error.localizedDescription)
+        } catch {
+            print("Unexpected Error")
+            return
+        }
+    }
+    
     let splited: [String] = inputChecker.splitByHyphen(in: userInput)
     let coordinates: [[Int]] = inputChecker.getCoordinateFrom(textCoordinates: splited)
     let myPoints: [MyPoint] = inputChecker.makeMyPoint(coordinates)
     
     let figureFactory = FigureFactory(myPoints)
-    let figure = figureFactory.makeFigure()
+    let figure: Figure = figureFactory.makeFigure()
     
-    let figureInformation = FigureInformation(figure: figure, distance: figure.calculateDistance(), point: myPoints)
+    print("\(ANSICode.clear)\(ANSICode.home)")
+    
+    let outputView = OutputView(figure)
+    outputView.drawFigure()
+    outputView.drawAxis()
+    outputView.printDescription()
 }
 
 main()
