@@ -19,6 +19,11 @@ func main() {
         
         userInput = InputView.readInput(question: Question.coordinate.rawValue)
         
+        // 입력 없을 경우 다시 받기
+        if userInput.isEmpty {
+            continue
+        }
+        
         // 입력되지 않은 문자가 있을 경우 다시 입력받기
         if !InputView.hasInvalidCharacter(in: userInput) {
             inputErrorFlag = false
@@ -37,10 +42,7 @@ func main() {
         }
     }
     
-    let splited: [String] = inputChecker.splitByHyphen(in: userInput)
-    let coordinates: [[Int]] = inputChecker.getCoordinateFrom(textCoordinates: splited)
-    let myPoints: [MyPoint] = inputChecker.makeMyPoint(coordinates)
-    
+    let myPoints: [MyPoint] = inputChecker.getMyPoints(userInput)
     let figureFactory = FigureFactory(myPoints)
     let figure: Figure = figureFactory.makeFigure()
     
