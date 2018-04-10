@@ -12,6 +12,7 @@ import Foundation
 func main() {
     
     let inputChecker = InputChecker()
+    let pointMaker = PointMaker()
     var inputErrorFlag = true
     var userInput: String = ""
     
@@ -42,7 +43,7 @@ func main() {
         }
     }
     
-    let myPoints: [MyPoint] = inputChecker.getMyPoints(userInput)
+    let myPoints: [MyPoint] = pointMaker.getMyPoints(userInput)
     let figureFactory = FigureFactory(myPoints)
     let figure: Figure = figureFactory.makeFigure()
     
