@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct FigureFactory: Figurable {
+enum FigureType: Int {
+    case line = 2
+}
+
+struct FigureFactory {
     
     private var myPoints: [MyPoint]
     
@@ -16,26 +20,12 @@ struct FigureFactory: Figurable {
         self.myPoints = myPoints
     }
     
-    func makeFigure() {
+    func makeFigure() -> FigureCalculatable {
         switch self.myPoints.count {
-        case 1:
-            // 한개면 점
-        case 2:
-            // 두개면 직선
+        case FigureType.line.rawValue:
+            return MyLine(self.myPoints)
         default:
-            // 예외의 경우
+            return MyPoint(self.myPoints)
         }
     }
-}
-
-protocol Figurable {
-    func calculateDistance() -> Double
-}
-
-
-// ^^는 제곱을 하는 사용자 정의 연산자
-postfix operator ^^
-
-postfix func ^^(value: Double) -> Double {
-    return value * value
 }
