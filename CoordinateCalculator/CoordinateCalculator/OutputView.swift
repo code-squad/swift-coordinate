@@ -9,5 +9,6 @@
 import Foundation
 
 func drawAxis(){
+//    let ansiDrawPattern = "\u{001B}["
     
 }
