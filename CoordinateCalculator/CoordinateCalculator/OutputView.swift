@@ -9,13 +9,12 @@
 import Foundation
 
 struct OutputView {
-    
     private let marker: String = "☀︎"
     private let originPointOfAxis = MyPoint(x: 3, y: ANSICode.axis.AxisLimit + 1)
     
-    let figure: Figure
+    let figure: Figure & FigureCalculatable
     
-    init(_ figure: Figure) {
+    init(_ figure: Figure & FigureCalculatable) {
         self.figure = figure
     }
     
@@ -29,11 +28,11 @@ struct OutputView {
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: originPointOfAxis.y - point.y , col: originPointOfAxis.x + point.x * 2))\(marker)")
     }
     
-    func drawAxis() {
+    func drawAxis(_ figure: Figure) {
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
     
-    func printDescription() {
-        figure.printDistance()
+    func printDistance() {
+        self.figure.printDistance()
     }
 }

@@ -14,18 +14,48 @@ enum FigureType: Int {
 
 struct FigureFactory {
     
-    private var myPoints: [MyPoint]
+    static private let hyphen: Character = "-"
+    static private let meaninglessCharacters: CharacterSet = ["(", ")", ","]
     
-    init(_ myPoints: [MyPoint]) {
-        self.myPoints = myPoints
-    }
-    
-    func makeFigure() -> Figure {
-        switch self.myPoints.count {
+    // 직선
+    static func makeFigure(_ myPoints: [MyPoint]) -> Figure {
+        switch myPoints.count {
         case FigureType.line.rawValue:
-            return MyLine(self.myPoints)
+            return MyLine(myPoints)
         default:
             return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         }
+    }
+    
+    // 포인트
+    static func makeMyPoints(_ userInput: String) -> [MyPoint] {
+        let splited: [String] = self.splitByHyphen(in: userInput)
+        let coordinates: [[Int]] = self.getCoordinateFrom(textCoordinates: splited)
+        let myPoints: [MyPoint] = self.makeMyPoints(coordinates)
+        
+        return myPoints
+    }
+    
+    static private func splitByHyphen(in text: String) -> [String] {
+        return text.split(separator: self.hyphen).map(String.init)
+    }
+    
+    static private func getCoordinateFrom(textCoordinates: [String]) -> [[Int]] {
+        var coordinates = [[Int]]()
+        for textCoordinate in textCoordinates {
+            coordinates.append(textCoordinate.components(separatedBy: self.meaninglessCharacters).compactMap { Int($0) })
+        }
+        
+        return coordinates
+    }
+    
+    static private func makeMyPoints(_ coordinates: [[Int]]) -> [MyPoint] {
+        var myPoints = [MyPoint]()
+        
+        for coordinate in coordinates {
+            myPoints.append(MyPoint(x: coordinate[0], y: coordinate[1]))
+        }
+        
+        return myPoints
     }
 }

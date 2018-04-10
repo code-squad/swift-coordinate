@@ -12,7 +12,6 @@ import Foundation
 func main() {
     
     let inputChecker = InputChecker()
-    let pointMaker = PointMaker()
     var inputErrorFlag = true
     var userInput: String = ""
     
@@ -43,16 +42,14 @@ func main() {
         }
     }
     
-    let myPoints: [MyPoint] = pointMaker.getMyPoints(userInput)
-    let figureFactory = FigureFactory(myPoints)
-    let figure: Figure = figureFactory.makeFigure()
+    let myPoints: [MyPoint] = FigureFactory.makeMyPoints(userInput)
+    let figure: Figure = FigureFactory.makeFigure(myPoints)
+    
+    
     
     print("\(ANSICode.clear)\(ANSICode.home)")
     
-    let outputView = OutputView(figure)
-    outputView.drawFigure()
-    outputView.drawAxis()
-    outputView.printDescription()
+    
 }
 
 main()

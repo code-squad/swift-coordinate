@@ -9,7 +9,10 @@
 import Foundation
 
 protocol Figure {
-    func calculateDistance() -> Double
     var myPoints: [MyPoint] { get }
+}
+
+protocol FigureCalculatable {
+    func calculateDistance() -> Double
     func printDistance()
 }

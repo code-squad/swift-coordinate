@@ -17,14 +17,6 @@ extension MyPoint: Figure {
     var myPoints: [MyPoint] {
         return [MyPoint(x: self.x, y: self.y)]
     }
-    
-    func calculateDistance() -> Double {
-        return 0.0
-    }
-    
-    func printDistance() {
-        return
-    }
 }
 
 // ^^는 제곱을 하는 사용자 정의 연산자
