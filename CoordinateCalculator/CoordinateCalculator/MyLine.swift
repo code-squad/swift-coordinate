@@ -9,7 +9,17 @@
 import Foundation
 
 
-struct MyLine {
+struct MyLine: Figurable {
+    
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
+    
+    init(_ myPoints: [MyPoint]) {
+        self.pointA = myPoints[0]
+        self.pointB = myPoints[1]
+    }
+    
+    func calculateDistance() -> Double {
+        return sqrt(Double(pointA.x - pointB.x)^^ + Double(pointA.y - pointB.y)^^)
+    }
 }
