@@ -20,6 +20,7 @@ func main() {
     let myPoints: [MyPoint] = inputChecker.makeMyPoint(coordinates)
     
     let figureFactory = FigureFactory(myPoints)
+    let figure = figureFactory.makeFigure()
     
 }
 
