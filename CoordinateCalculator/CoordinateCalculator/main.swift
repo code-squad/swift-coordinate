@@ -22,6 +22,7 @@ func main() {
     let figureFactory = FigureFactory(myPoints)
     let figure = figureFactory.makeFigure()
     
+    let figureInformation = FigureInformation(figure: figure, distance: figure.calculateDistance(), point: myPoints)
 }
 
 main()
