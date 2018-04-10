@@ -17,7 +17,6 @@ struct FigureFactory {
     static private let hyphen: Character = "-"
     static private let meaninglessCharacters: CharacterSet = ["(", ")", ","]
     
-    // 직선
     static func makeFigure(_ myPoints: [MyPoint]) -> Figure {
         switch myPoints.count {
         case FigureType.line.rawValue:
@@ -27,7 +26,6 @@ struct FigureFactory {
         }
     }
     
-    // 포인트
     static func makeMyPoints(_ userInput: String) -> [MyPoint] {
         let splited: [String] = self.splitByHyphen(in: userInput)
         let coordinates: [[Int]] = self.getCoordinateFrom(textCoordinates: splited)

@@ -11,7 +11,6 @@ import Foundation
 
 func main() {
     
-    let inputChecker = InputChecker()
     var inputErrorFlag = true
     var userInput: String = ""
     
@@ -44,12 +43,16 @@ func main() {
     
     let myPoints: [MyPoint] = FigureFactory.makeMyPoints(userInput)
     let figure: Figure = FigureFactory.makeFigure(myPoints)
-    
-    
+    let outputView = OutputView(figure)
     
     print("\(ANSICode.clear)\(ANSICode.home)")
     
+    outputView.drawFigure()
+    outputView.drawAxis()
     
+    if let figure = figure as? FigureCalculatable {
+        OutputView.printDistance(figure)
+    }
 }
 
 main()
