@@ -26,15 +26,20 @@ func k(){
 /// 커터 구조체
 struct Cutter {
     
-    
-    
-    ///정규식으로 만들어주는 함수
+    ///입력한 문자열로 정규식을 만들어주는 함수
     func makeRegexFrom(regexTry : String)->NSRegularExpression?{
-        guard regex = try? NSRegularExpression(pattern: regexTry, options: []) else {
+        guard let regex = try? NSRegularExpression(pattern: regexTry, options: []) else {
             return nil
         }
         return regex
     }
     
+    /// 문자열과 정규식을 받아서 정규식에 맞는 문자열 배열로 리턴 
+    func cuttedLattersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
+        let originForRange = originLatters as NSString
+        return regex.matches(in : originLatters, options: [], range: NSRange(location : 0 , length : originForRange.length)).map{
+            originForRange.substring(with: $0.range)
+        }
+    }
     
 }
