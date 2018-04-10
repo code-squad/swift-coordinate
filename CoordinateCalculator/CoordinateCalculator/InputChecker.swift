@@ -44,11 +44,19 @@ struct InputChecker {
         return numberOfMatches < 1 || numberOfMatches > 2
     }
     
-    func splitByHyphen(in text: String) -> [String] {
+    func getMyPoints(_ userInput: String) -> [MyPoint] {
+        let splited: [String] = self.splitByHyphen(in: userInput)
+        let coordinates: [[Int]] = self.getCoordinateFrom(textCoordinates: splited)
+        let myPoints: [MyPoint] = self.makeMyPoint(coordinates)
+        
+        return myPoints
+    }
+    
+    private func splitByHyphen(in text: String) -> [String] {
         return text.split(separator: hyphen).map(String.init)
     }
     
-    func getCoordinateFrom(textCoordinates: [String]) -> [[Int]] {
+    private func getCoordinateFrom(textCoordinates: [String]) -> [[Int]] {
         var coordinates = [[Int]]()
         for textCoordinate in textCoordinates {
             coordinates.append(textCoordinate.components(separatedBy: self.meaninglessCharacters).compactMap { Int($0) })
@@ -57,7 +65,7 @@ struct InputChecker {
         return coordinates
     }
     
-    func makeMyPoint(_ coordinates: [[Int]]) -> [MyPoint] {
+    private func makeMyPoint(_ coordinates: [[Int]]) -> [MyPoint] {
         var myPoints = [MyPoint]()
         
         for coordinate in coordinates {
