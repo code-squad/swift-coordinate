@@ -13,17 +13,17 @@ struct MyPoint: Equatable {
     var y = 0
 }
 
-extension MyPoint {
-    
-    init(_ myPoints: [MyPoint]) {
-        self.x = myPoints[0].x
-        self.y = myPoints[0].y
+extension MyPoint: Figure {
+    var myPoints: [MyPoint] {
+        return [MyPoint(x: self.x, y: self.y)]
     }
-}
-
-extension MyPoint: FigureCalculatable {
+    
     func calculateDistance() -> Double {
         return 0.0
+    }
+    
+    func printDistance() {
+        return
     }
 }
 

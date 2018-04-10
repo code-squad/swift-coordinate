@@ -13,7 +13,19 @@ struct OutputView {
     private let marker: String = "☀︎"
     private let originPointOfAxis = MyPoint(x: 3, y: ANSICode.axis.AxisLimit + 1)
     
-    func drawPoint(_ point: MyPoint) {
+    let figure: Figure
+    
+    init(_ figure: Figure) {
+        self.figure = figure
+    }
+    
+    func drawFigure() {
+        for myPoint in self.figure.myPoints {
+            drawPoint(myPoint)
+        }
+    }
+    
+    private func drawPoint(_ point: MyPoint) {
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: originPointOfAxis.y - point.y , col: originPointOfAxis.x + point.x * 2))\(marker)")
     }
     
@@ -21,7 +33,7 @@ struct OutputView {
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
     
-    func printDistance(_ distance: Double) {
-        print("두 점 사이 거리는 \(distance) 입니다.")
+    func printDescription() {
+        figure.printDistance()
     }
 }
