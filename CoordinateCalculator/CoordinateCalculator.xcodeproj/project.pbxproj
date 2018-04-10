@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
-		D55FC83A207B5237008F67A3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC839207B5237008F67A3 /* OutputView.swift */; };
+		D55FC83D207CA599008F67A3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC83C207CA599008F67A3 /* OutputView.swift */; };
+		D55FC83F207CA8B6008F67A3 /* Cutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC83E207CA8B6008F67A3 /* Cutter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +29,8 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
-		D55FC839207B5237008F67A3 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D55FC83C207CA599008F67A3 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		D55FC83E207CA8B6008F67A3 /* Cutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cutter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,8 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
-				D55FC839207B5237008F67A3 /* OutputView.swift */,
+				D55FC83C207CA599008F67A3 /* OutputView.swift */,
+				D55FC83E207CA8B6008F67A3 /* Cutter.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -128,7 +131,8 @@
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
-				D55FC83A207B5237008F67A3 /* OutputView.swift in Sources */,
+				D55FC83F207CA8B6008F67A3 /* Cutter.swift in Sources */,
+				D55FC83D207CA599008F67A3 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
