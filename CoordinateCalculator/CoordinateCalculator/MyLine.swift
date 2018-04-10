@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct MyLine: Figure {
+struct MyLine: Figure, FigureCalculatable {
 
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
