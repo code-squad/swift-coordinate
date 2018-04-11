@@ -7,12 +7,12 @@
 //
 
 import Foundation
-ß
+
 /// 커터 구조체
 struct Cutter {
     
     /// 입력한 문자열로 정규식을 만들어주는 함수
-    private func makeRegexForm(regexTry : String)->NSRegularExpression?{
+     func makeRegexForm(regexTry : String)->NSRegularExpression?{
         guard let regex = try? NSRegularExpression(pattern: regexTry, options: []) else {
             print("잘못된 정규식 표현입니다")
             return nil
@@ -21,7 +21,7 @@ struct Cutter {
     }
     
     /// 문자열과 정규식을 받아서 정규식에 맞는 문자열 배열로 리턴
-    private func cuttingLattersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
+     func cuttingLattersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
         let originForRange = originLatters as NSString
         return regex.matches(in : originLatters, options: [], range: NSRange(location : 0 , length : originForRange.length)).map{
             originForRange.substring(with: $0.range)
