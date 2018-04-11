@@ -6,4 +6,15 @@
 //  Copyright © 2018년 Codesquad Inc. All rights reserved.
 //
 
-import Foundation
+// 프로세스 key 관리
+enum CoordKey {
+    case Point
+    case Line
+    
+    var keyNumber: Int {
+        switch self {
+        case .Point: return 1
+        case .Line: return 2
+        }
+    }
+}
