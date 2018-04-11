@@ -7,7 +7,6 @@
 //
 import Foundation
 struct OutputView {
-    
     static func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
@@ -20,14 +19,37 @@ struct OutputView {
         print(question)
     }
     
-    static func drawPoint(_ mypoint: MyPoint) {
+    static private func drawPoint(_ mypoint: MyPoint) {
         let zeropointX = 3
         let zeropointY = ANSICode.axis.AxisLimit + 1
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: zeropointY - mypoint.y , col: zeropointX + mypoint.x * 2))\(CODRDINATE_CURSOR)")
     }
     
-    static func clean() {
-        print("\(ANSICode.text.whiteBright)\(ANSICode.clear)\(ANSICode.home)")
+    static private func drawLine(_ myline: MyLine) {
+        for point in myline.getPoints() {
+            drawPoint(point)
+        }
     }
     
+    static private func twoPointDistance(_ key: CoordKey, _ myPoints: [MyPoint]) {
+        switch key {
+            case .Point: return
+            case .Line: print("\n 두 점 사이 거리는 : \(MyLine(myPoints).getDistance()) \n")
+        }
+    }
+    
+    // points : MyPoint or MyLine
+    static func draw(_ key: CoordKey, _ mypoints: [MyPoint]) {
+        switch key {
+            case .Point: drawPoint(MyPoint(mypoints[0]))
+            case .Line: drawLine(MyLine(mypoints))
+        }
+        drawAxis()
+        twoPointDistance(key, mypoints)
+    }
+    
+    static func clean() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
+    }
+
 }
