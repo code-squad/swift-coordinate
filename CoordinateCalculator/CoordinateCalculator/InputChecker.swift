@@ -30,7 +30,7 @@ struct InputChecker {
     static private let validPattern: String = "\\(([1-9]|1[0-9]|2[0-4]),([1-9]|1[0-9]|2[0-4])\\)-?"
     
     // 입력에 좌표문자열패턴이 있는지 검사
-    static func checkMatching(text: String) throws -> Bool {
+    static func hasInvalidPattern(text: String) throws -> Bool {
         guard let regex = try? NSRegularExpression(pattern: self.validPattern) else {
             throw InputError.regexError
         }
