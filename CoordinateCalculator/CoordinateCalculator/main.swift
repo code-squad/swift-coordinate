@@ -11,18 +11,14 @@ import Foundation
 func main() throws {
     while true {
         do {
-            
             let readinput = try InputView.readInput(q: COORDINATE_START_INPUT_MESSAGE)
             try InputViewChecker.formatChekcer(checkerFormat: readinput)
-            let coordinates = Spliter.splitSaveFormat(readinput)
-            let mypoint = MyPoint(x: coordinates[0], y: coordinates[1])
-
             OutputView.clean()
-            OutputView.drawPoint(mypoint)
-            OutputView.drawAxis()
+            OutputView.draw(try readinput.getProcessKey(), try Spliter.getMyPoints(readinput))
         }catch let e as CoordinateError {
             OutputView.errorMessage(of: e)
         }
     }
 }
 try main()
+
