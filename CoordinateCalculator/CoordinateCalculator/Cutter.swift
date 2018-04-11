@@ -29,7 +29,7 @@ struct Cutter {
     }
     
     /// 정규식용 문자열과 대상문자열을 받아서 정규식화 시킨 배열을 리턴
-    func makeRegexFrom(wannaBeRegex : String,originLatters : String)->Array<String>?{
+    func regexedFrom(wannaBeRegex : String,originLatters : String)->Array<String>?{
         guard let regex = makeRegexForm(regexTry: wannaBeRegex) else {
             return nil
         }
