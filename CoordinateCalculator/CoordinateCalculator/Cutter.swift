@@ -11,14 +11,6 @@ import Foundation
 /// 커터 구조체
 struct Cutter {
     
-    /// 입력한 문자열로 정규식을 만들어주는 함수
-    private func makeRegexForm(regexTry : String)->NSRegularExpression?{
-        guard let regex = try? NSRegularExpression(pattern: regexTry, options: []) else {
-            print("잘못된 정규식 표현입니다")
-            return nil
-        }
-        return regex
-    }
     
     /// 문자열과 정규식을 받아서 정규식에 맞는 문자열 배열로 리턴
     private func cuttingLattersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
@@ -35,5 +27,8 @@ struct Cutter {
         }
         return cuttingLattersFrom(originLatters: originLatters, regex: regex)
     }
+    
+    ///정규식을 통과한 한 덩이를 받아서 좌표 구조체 형태로 리턴
+    //func 
     
 }
