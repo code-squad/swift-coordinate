@@ -18,6 +18,11 @@ struct MyLine: Figure, FigureCalculatable {
         return [self.pointA, self.pointB]
     }
     
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
     init(_ myPoints: [MyPoint]) {
         self.pointA = myPoints[0]
         self.pointB = myPoints[1]
@@ -31,3 +36,4 @@ struct MyLine: Figure, FigureCalculatable {
         print("두 점 사이의 거리는 \(self.calculateDistance())입니다.")
     }
 }
+
