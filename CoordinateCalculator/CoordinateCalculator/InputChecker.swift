@@ -39,7 +39,7 @@ struct InputChecker {
                                                     range: NSMakeRange(0, text.count))
         
         // 입력된 좌표수 체크
-        return numberOfMatches < 1 || numberOfMatches > 2
+        return numberOfMatches < 1 || numberOfMatches > 3
     }
     
 }
