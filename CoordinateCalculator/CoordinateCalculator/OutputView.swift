@@ -7,9 +7,11 @@
 //
 
 import Foundation
-
-//struct OutputView(){
-//    func drawAxis(){
-//    }
-//}
+///프린트용 구조체
+struct OutputView{
+    /// 좌표축을 프린트
+    func drawAxis(){
+        print("\(ANSICode.text.cyan)\(ANSICode.axis.draw())")
+    }
+}
 

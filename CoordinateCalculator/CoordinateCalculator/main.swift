@@ -9,14 +9,9 @@
 import Foundation
 
 func main(){
-    let cutter = Cutter()
-    let testStr = ANSICode.axis.draw()
-    print(testStr)
-    let axisDrawPattern = "[0-9]{1,2};[0-9]{1,2}[ft]([━]*[\\s]*[0-9]*\\|?\\+?)"
-    guard let result = cutter.makeRegexFrom(wannaBeRegex: axisDrawPattern, originLatters: testStr) else {
-        return
-    }
-    print(result)
+    /// 프린트용 구조체 선언
+    let outputView = OutputView()
+    outputView.drawAxis()
 }
 
 main()
