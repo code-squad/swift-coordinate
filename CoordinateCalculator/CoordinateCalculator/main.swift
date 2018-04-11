@@ -15,24 +15,20 @@ func main() {
     var userInput: String = ""
     
     while inputErrorFlag {
-        
         userInput = InputView.readInput(question: Question.coordinate.rawValue)
         
-        // 입력 없을 경우 다시 받기
-        if userInput.isEmpty {
+        // 입력이 없거나, 지정한 문자 외에 입력이 있을 경우 다시 입력받기
+        if userInput.isEmpty || InputView.hasInvalidCharacter(in: userInput) {
+            print(InputView.hasInvalidCharacter(in: userInput))
             continue
         }
         
-        // 입력되지 않은 문자가 있을 경우 다시 입력받기
-        if !InputView.hasInvalidCharacter(in: userInput) {
-            inputErrorFlag = false
-        }
-
         do {
             // 패턴 매칭이 안될경우 다시 입력받기
-            if try !InputChecker.checkMatching(text: userInput) {
-                inputErrorFlag = false
+            if try InputChecker.hasInvalidPattern(text: userInput) {
+                continue
             }
+            inputErrorFlag = false
         } catch let error as InputError {
             print(error.localizedDescription)
         } catch {
