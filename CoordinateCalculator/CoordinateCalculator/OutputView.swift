@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct OutputView(){
-    func drawAxis(){
-    }
-}
+//struct OutputView(){
+//    func drawAxis(){
+//    }
+//}
+
