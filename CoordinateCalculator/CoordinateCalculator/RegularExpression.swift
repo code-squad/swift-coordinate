@@ -7,3 +7,9 @@
 //
 
 import Foundation
+struct Regex {
+    static let extractedX = "[0-9]{1,2}"
+    static let extractedY = ";[0-9]{1,2}"
+    static let extractedLatters = "[ft]([━]*[\\s]*[0-9]*[\\|\\+]?)"
+    static let extractAll = extractedX + extractedY + extractedLatters
+}
