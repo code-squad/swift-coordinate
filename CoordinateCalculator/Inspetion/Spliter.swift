@@ -9,10 +9,17 @@
 import Foundation
 
 struct Spliter {
+    typealias type = (MyPoint, MyLine)
     // "(1,1)" -> [1, 1]
-    static func splitSaveFormat(_ format: String) -> [Int]{
+    static func splitSaveFormat(_ format: String) throws -> [Int]{
         let unCapsuleFormat = deleteCapsule(format)
-        return unCapsuleFormat.split(separator: ",").map{ String($0) }.compactMap{ Int($0) }
+        let saveFormat = unCapsuleFormat.split(separator: ",").map{ String($0) }.compactMap{ Int($0) }
+        
+        guard saveFormat.count == 2 else {
+            throw CoordinateError.splitError
+        }
+        
+        return saveFormat
     }
     
     // "(1,1)" -> "1,1"
@@ -21,4 +28,12 @@ struct Spliter {
         return capsuleFormate.components(separatedBy: capsule).joined()
     }
     
+    static func getMyPoints(_ mypointStringFormat: String) throws -> [MyPoint] {
+        var mypoints: [MyPoint] = []
+        for mypoint in mypointStringFormat.splitDobulePoint() {
+            let coordinates = try splitSaveFormat(mypoint)
+            mypoints.append(MyPoint(x: coordinates[0], y: coordinates[1]))
+        }
+        return mypoints
+    }
 }
