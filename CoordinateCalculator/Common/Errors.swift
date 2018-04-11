@@ -10,4 +10,7 @@ enum CoordinateError: String, Error {
     case isNil = "입력 값이 없습니다."
     case regexError = "regex 형식을 확인 해주세요."
     case invalidInputError = "입력 형식을 지켜주세요."
+    case imPossibleStringError = "입력 할 수 없는 문자가 있습니다."
+    case splitError = "split이 형식이 아닙니다."
+    case unknownFormatKeyError = "key를 얻을 수 있는 형식이 아닙니다."
 }
