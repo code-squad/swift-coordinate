@@ -10,6 +10,7 @@ import Foundation
 
 enum FigureType: Int {
     case line = 2
+    case triangle = 3
 }
 
 struct FigureFactory {

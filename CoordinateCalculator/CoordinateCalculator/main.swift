@@ -19,7 +19,6 @@ func main() {
         
         // 입력이 없거나, 지정한 문자 외에 입력이 있을 경우 다시 입력받기
         if userInput.isEmpty || InputView.hasInvalidCharacter(in: userInput) {
-            print(InputView.hasInvalidCharacter(in: userInput))
             continue
         }
         
