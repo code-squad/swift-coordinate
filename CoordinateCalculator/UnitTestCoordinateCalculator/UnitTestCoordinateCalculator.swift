@@ -62,19 +62,86 @@ class UnitTestCoordinateCalculator: XCTestCase {
         XCTAssertThrowsError(try InputViewChecker.formatChekcer(checkerFormat: unExpectedInput))
     }
     
-     //MARK : Spliter
-    
-    // Spliter : 정상적으로 결과
-    func test_CoordinateSpliterSaveFormatPass() {
-        let expectedInput = "1,1"
-        let splitCount = Spliter.splitSaveFormat(expectedInput).count
-        XCTAssertTrue(splitCount == 2)
+    // inputVieChecker : 입력 가능한 문자
+    func test_CoordinatePossibleInput() {
+        let expetedInput = "0123456789(),-"
+        XCTAssertNoThrow(try InputViewChecker.validInputChecker(expetedInput))
     }
     
-    // Spliter : 잘 못 된 결과
+    // inputViewChecker : 입력 불가능한 문자를 포함
+    func test_CoordinateImPossibleInput() {
+        let unExpectedInput = "(1,1)-+1sdfjklseo>?:~!"
+        XCTAssertThrowsError(try InputViewChecker.validInputChecker(unExpectedInput))
+    }
+    
+    // inputViewChecker : 두 좌표 입력 형식
+    func test_CoordinateDoublePointPassFormat() {
+        let expectedInput = "(1,1)-(1,1)"
+        XCTAssertNoThrow(try InputViewChecker.formatChekcer(checkerFormat: expectedInput))
+    }
+    
+    // inputViewChecker : 두 좌표 입력 형식 x
+    func test_CoordinateDoublePointNoPassFormat() {
+        let unExpectedInput = "(1,1)-(1,1)-"
+        XCTAssertThrowsError(try InputViewChecker.formatChekcer(checkerFormat: unExpectedInput))
+    }
+    
+     //MARK : Spliter
+
+    // spliter : 정상적으로 split
+    func test_CoordinateSpliterFormatPass() {
+        let expectedInput = "1,1"
+        XCTAssertNoThrow(try Spliter.splitSaveFormat(expectedInput))
+    }
+    
+    // spliter : 비정상적인 X좌표
+    func test_CoordinateSpliterNoPassX() {
+        let unExpectedInput = "1-,1"
+        XCTAssertThrowsError(try Spliter.splitSaveFormat(unExpectedInput))
+    }
+    
+    // spliter : 비정상적인 Y좌표
+    func test_CoordinateSpliterNoPassY() {
+        let unExpectedInput = "1,1-"
+        XCTAssertThrowsError(try Spliter.splitSaveFormat(unExpectedInput))
+    }
+    
+    // Spliter : 정상적으로 결과
+    func test_CoordinateSpliterSaveFormatPass() throws {
+        let expectedInput = "1,1"
+        let splitCount = try Spliter.splitSaveFormat(expectedInput).count
+        XCTAssertTrue(splitCount == 2)
+    }
+
+    // Spliter : 비저상적인 결과
     func test_CoordinateSaveFormateNoPass() {
-        let expectedInput = "11"
-        let splitCount = Spliter.splitSaveFormat(expectedInput).count
-        XCTAssertFalse(splitCount == 2)
+        let unExpectedInput = "11"
+       XCTAssertThrowsError(try Spliter.splitSaveFormat(unExpectedInput))
+    }
+    
+    // MKEK String+
+    
+    // String+ : point key NoFormat
+    func test_CoordinateNotPointFormat() {
+        let unExpectedInput = "(1,1)-(1,1)"
+        XCTAssertNotEqual(try unExpectedInput.getProcessKey(), CoordKey.Point)
+    }
+    
+    // String+ : point key 얻기
+    func test_CoordinateGetKeyPointPass() {
+        let expectedInput = "(1,1)"
+        XCTAssertEqual(try expectedInput.getProcessKey(), CoordKey.Point)
+    }
+    
+    // String+ : Line Key 얻기
+    func test_CoordinateGetKeyLinePass() {
+        let expectedInput = "(1,1)-(1,1)"
+        XCTAssertEqual(try expectedInput.getProcessKey(), CoordKey.Line)
+    }
+    
+    // String+ : Line key NoFormat
+    func test_CoordinateNoLineForamt() {
+        let unExpectedInput = "(1,1)"
+        XCTAssertNotEqual(try unExpectedInput.getProcessKey(), CoordKey.Line)
     }
 }
