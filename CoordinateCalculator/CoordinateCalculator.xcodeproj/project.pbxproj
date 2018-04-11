@@ -11,6 +11,18 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		F90173F7207A662A0099E092 /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90173F6207A662A0099E092 /* Spliter.swift */; };
 		F90DE5A020738CE300695ED1 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DE59F20738CE300695ED1 /* OutputView.swift */; };
+		F9374B22207C65ED006D1F6B /* CoordinateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B21207C65ED006D1F6B /* CoordinateProtocol.swift */; };
+		F9374B23207C97A4006D1F6B /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ABD8B9207B3DB500028AB4 /* MyLine.swift */; };
+		F9374B24207C97A4006D1F6B /* CoordinateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B21207C65ED006D1F6B /* CoordinateProtocol.swift */; };
+		F9374B27207C9B94006D1F6B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B26207C9B94006D1F6B /* String+.swift */; };
+		F9374B29207C9C41006D1F6B /* MyPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B28207C9C41006D1F6B /* MyPoint+.swift */; };
+		F9374B2B207C9C6B006D1F6B /* MyLine+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B2A207C9C6B006D1F6B /* MyLine+.swift */; };
+		F9374B2C207CA328006D1F6B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B26207C9B94006D1F6B /* String+.swift */; };
+		F9374B2D207CA328006D1F6B /* MyPoint+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B28207C9C41006D1F6B /* MyPoint+.swift */; };
+		F9374B2E207CA328006D1F6B /* MyLine+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374B2A207C9C6B006D1F6B /* MyLine+.swift */; };
+		F97EA68F207DB7AE00735A1A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA68E207DB7AE00735A1A /* Key.swift */; };
+		F97EA690207DBD8A00735A1A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA68E207DB7AE00735A1A /* Key.swift */; };
+		F9ABD8BA207B3DB500028AB4 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ABD8B9207B3DB500028AB4 /* MyLine.swift */; };
 		F9BA6D6B207A32810017ECBB /* InputViewChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6A207A32810017ECBB /* InputViewChecker.swift */; };
 		F9BA6D6D207A32920017ECBB /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6C207A32920017ECBB /* InputView.swift */; };
 		F9BA6D70207A32A00017ECBB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BA6D6F207A32A00017ECBB /* Strings.swift */; };
@@ -48,6 +60,12 @@
 		F90DE5A52073910B00695ED1 /* UnitTestCoordinateCalculator.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestCoordinateCalculator.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90DE5A72073910C00695ED1 /* UnitTestCoordinateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCoordinateCalculator.swift; sourceTree = "<group>"; };
 		F90DE5A92073910C00695ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9374B21207C65ED006D1F6B /* CoordinateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateProtocol.swift; sourceTree = "<group>"; };
+		F9374B26207C9B94006D1F6B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		F9374B28207C9C41006D1F6B /* MyPoint+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPoint+.swift"; sourceTree = "<group>"; };
+		F9374B2A207C9C6B006D1F6B /* MyLine+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyLine+.swift"; sourceTree = "<group>"; };
+		F97EA68E207DB7AE00735A1A /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		F9ABD8B9207B3DB500028AB4 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		F9BA6D6A207A32810017ECBB /* InputViewChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewChecker.swift; sourceTree = "<group>"; };
 		F9BA6D6C207A32920017ECBB /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		F9BA6D6F207A32A00017ECBB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -122,6 +140,24 @@
 			path = UnitTestCoordinateCalculator;
 			sourceTree = "<group>";
 		};
+		F9374B20207C65BE006D1F6B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F9374B21207C65ED006D1F6B /* CoordinateProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F9374B25207C9B8A006D1F6B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F9374B26207C9B94006D1F6B /* String+.swift */,
+				F9374B28207C9C41006D1F6B /* MyPoint+.swift */,
+				F9374B2A207C9C6B006D1F6B /* MyLine+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F9BA6D69207A32080017ECBB /* Inspetion */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +170,11 @@
 		F9BA6D6E207A32960017ECBB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F9374B20207C65BE006D1F6B /* Protocol */,
+				F9374B25207C9B8A006D1F6B /* Extension */,
 				F9BA6D6F207A32A00017ECBB /* Strings.swift */,
 				F9BA6D71207A32AF0017ECBB /* Errors.swift */,
+				F97EA68E207DB7AE00735A1A /* Key.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -144,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				F9BA6D74207A32F60017ECBB /* MyPoint.swift */,
+				F9ABD8B9207B3DB500028AB4 /* MyLine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,13 +279,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				F9ABD8BA207B3DB500028AB4 /* MyLine.swift in Sources */,
 				F9BA6D6B207A32810017ECBB /* InputViewChecker.swift in Sources */,
 				F9BA6D6D207A32920017ECBB /* InputView.swift in Sources */,
+				F9374B29207C9C41006D1F6B /* MyPoint+.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				F9BA6D70207A32A00017ECBB /* Strings.swift in Sources */,
 				F90173F7207A662A0099E092 /* Spliter.swift in Sources */,
 				F90DE5A020738CE300695ED1 /* OutputView.swift in Sources */,
+				F9374B2B207C9C6B006D1F6B /* MyLine+.swift in Sources */,
 				F9BA6D72207A32AF0017ECBB /* Errors.swift in Sources */,
+				F97EA68F207DB7AE00735A1A /* Key.swift in Sources */,
+				F9374B22207C65ED006D1F6B /* CoordinateProtocol.swift in Sources */,
+				F9374B27207C9B94006D1F6B /* String+.swift in Sources */,
 				F9BA6D75207A32F60017ECBB /* MyPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F97EA690207DBD8A00735A1A /* Key.swift in Sources */,
+				F9374B2C207CA328006D1F6B /* String+.swift in Sources */,
+				F9374B2D207CA328006D1F6B /* MyPoint+.swift in Sources */,
+				F9374B2E207CA328006D1F6B /* MyLine+.swift in Sources */,
+				F9374B23207C97A4006D1F6B /* MyLine.swift in Sources */,
+				F9374B24207C97A4006D1F6B /* CoordinateProtocol.swift in Sources */,
 				F9E74AC5207AFCDC007A22D4 /* MyPoint.swift in Sources */,
 				F9E74ACF207AFD76007A22D4 /* UnitTestCoordinateCalculator.swift in Sources */,
 				F9E74AC6207AFCDC007A22D4 /* Strings.swift in Sources */,
