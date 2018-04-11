@@ -6,4 +6,9 @@
 //  Copyright © 2018년 Codesquad Inc. All rights reserved.
 //
 
-import Foundation
+// point 프로토콜을 준수
+extension MyPoint: PointProtocol {
+    func getPoints() -> [MyPoint] {
+        return [self]
+    }
+}
