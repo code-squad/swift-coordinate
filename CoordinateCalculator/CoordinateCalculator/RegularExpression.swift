@@ -7,9 +7,14 @@
 //
 
 import Foundation
+/// 정규식이 담겨있는 구조체
 struct Regex {
-    static let extractedX = "[0-9]{1,2}"
-    static let extractedY = ";[0-9]{1,2}"
+    // row 값 추출
+    static let extractedRow = "[0-9]{1,2}"
+    // ; +  col 값 추출
+    static let extractedCol = ";[0-9]{1,2}"
+    // Bool 구분자 + 본문 추출값
     static let extractedLatters = "[ft]([━]*[\\s]*[0-9]*[\\|\\+]?)"
-    static let extractAll = extractedX + extractedY + extractedLatters
+    //전체 정규식 
+    static let extractAll = extractedRow + extractedCol + extractedLatters
 }
