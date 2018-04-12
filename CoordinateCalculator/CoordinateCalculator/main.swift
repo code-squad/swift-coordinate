@@ -13,8 +13,10 @@ func main() throws {
         do {
             let readinput = try InputView.readInput(q: COORDINATE_START_INPUT_MESSAGE)
             try InputViewChecker.formatChekcer(checkerFormat: readinput)
+            let points = try Converter.getMyPoints(readinput)
+            let myModel = try Converter.getModel(points)
             OutputView.clean()
-            OutputView.draw(try readinput.getProcessKey(), try Spliter.getMyPoints(readinput))
+            try OutputView.draw(myModel)
         }catch let e as CoordinateError {
             OutputView.errorMessage(of: e)
         }
