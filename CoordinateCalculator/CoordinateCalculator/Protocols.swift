@@ -15,3 +15,7 @@ protocol Figure {
 protocol FigureCalculatable {
     func calculateDistance() -> Double
 }
+
+protocol DistancePrintable {
+    var prefixText: String { get }
+}

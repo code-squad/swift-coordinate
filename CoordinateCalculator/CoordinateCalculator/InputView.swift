@@ -24,7 +24,6 @@ struct InputView {
         return input
     }
     
-    // 입력된 문자열에
     static func hasInvalidCharacter(in text: String) -> Bool {
         for unicode in text.unicodeScalars {
             if !self.invalidCharacters.contains(unicode) {
