@@ -31,21 +31,24 @@ struct OutputView {
         }
     }
     
-    static private func twoPointDistance(_ key: CoordKey, _ myPoints: [MyPoint]) {
-        switch key {
-            case .Point: return
-            case .Line: print("\n 두 점 사이 거리는 : \(MyLine(myPoints).getDistance()) \n")
+    static private func twoPointDistance(_ myPoints: BaseProtocol) {
+        switch myPoints {
+            case let myline as MyLine: print(myline.getDistance())
+        default: return
         }
     }
     
     // points : MyPoint or MyLine
-    static func draw(_ key: CoordKey, _ mypoints: [MyPoint]) {
-        switch key {
-            case .Point: drawPoint(MyPoint(mypoints[0]))
-            case .Line: drawLine(MyLine(mypoints))
+    static func draw(_ modelType: BaseProtocol) throws {
+        
+        switch modelType {
+            case let mypoint as MyPoint: drawPoint(mypoint)
+            case let myline as MyLine: drawLine(myline)
+        default: throw CoordinateError.unknownFormatKeyError
         }
+        
         drawAxis()
-        twoPointDistance(key, mypoints)
+        twoPointDistance(modelType)
     }
     
     static func clean() {
