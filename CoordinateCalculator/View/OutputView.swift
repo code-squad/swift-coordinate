@@ -7,6 +7,7 @@
 //
 import Foundation
 struct OutputView {
+    
     static func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
@@ -19,36 +20,22 @@ struct OutputView {
         print(question)
     }
     
-    static private func drawPoint(_ mypoint: MyPoint) {
+    static func drawPoint(_ mypoint: MyPoint) {
         let zeropointX = 3
         let zeropointY = ANSICode.axis.AxisLimit + 1
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: zeropointY - mypoint.y , col: zeropointX + mypoint.x * 2))\(CODRDINATE_CURSOR)")
     }
     
-    static private func drawLine(_ myline: MyLine) {
+    static func drawLine(_ myline: MyLine) {
         for point in myline.getPoints() {
             drawPoint(point)
         }
-    }
-    
-    static private func twoPointDistance(_ myPoints: BaseProtocol) {
-        switch myPoints {
-            case let myline as MyLine: print(myline.getDistance())
-        default: return
-        }
-    }
-    
-    // points : MyPoint or MyLine
-    static func draw(_ modelType: BaseProtocol) throws {
-        
-        switch modelType {
-            case let mypoint as MyPoint: drawPoint(mypoint)
-            case let myline as MyLine: drawLine(myline)
-        default: throw CoordinateError.unknownFormatKeyError
-        }
-        
         drawAxis()
-        twoPointDistance(modelType)
+        twoPointDistance(myline)
+    }
+    
+    static private func twoPointDistance(_ myline: MyLine) {
+        print("두 점 사이 거리는 : \(myline.getDistance())")
     }
     
     static func clean() {
