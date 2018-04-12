@@ -28,8 +28,14 @@ struct MyTriangle: Figure, FigureCalculatable {
     }
     
     func calculateDistance() -> Double {
-        // 삼각형 넓이 구하기
-        return 0.0
+        let distanceOfLineAB = self.lineAB.calculateDistance()
+        let distanceOfLineBC = self.lineBC.calculateDistance()
+        let distanceOfLineAC = self.lineAC.calculateDistance()
+        
+        let cosB = (distanceOfLineBC^^ + distanceOfLineAB^^ - distanceOfLineAC^^) / (2 * distanceOfLineBC * distanceOfLineAB)
+        let sinB = sqrt(1.0 - cosB^^)
+        
+        return distanceOfLineAB * distanceOfLineBC * sinB * 0.5
     }
     
     func printDistance() {
