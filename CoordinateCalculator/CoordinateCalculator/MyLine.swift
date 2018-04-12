@@ -14,8 +14,9 @@ struct MyLine: Figure, FigureCalculatable {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     
+//    var myPoints: [MyPoint] = [MyPoint]()
     var myPoints: [MyPoint] {
-        return [self.pointA, self.pointB]
+          return [self.pointA, self.pointB]
     }
     
     init(pointA: MyPoint, pointB: MyPoint) {
