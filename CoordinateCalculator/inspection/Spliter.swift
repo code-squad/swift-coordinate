@@ -27,13 +27,4 @@ struct Spliter {
         let capsule: CharacterSet = ["(", ")"]
         return capsuleFormate.components(separatedBy: capsule).joined()
     }
-    
-    static func getMyPoints(_ mypointStringFormat: String) throws -> [MyPoint] {
-        var mypoints: [MyPoint] = []
-        for mypoint in mypointStringFormat.splitDobulePoint() {
-            let coordinates = try splitSaveFormat(mypoint)
-            mypoints.append(MyPoint(x: coordinates[0], y: coordinates[1]))
-        }
-        return mypoints
-    }
 }
