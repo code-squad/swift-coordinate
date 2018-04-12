@@ -43,7 +43,7 @@ func main() {
     print("\(ANSICode.clear)\(ANSICode.home)")
     
     outputView.drawFigure()
-    outputView.drawAxis()
+    OutputView.drawAxis()
     
     if let figure = figure as? FigureCalculatable {
         OutputView.printDistance(figure)

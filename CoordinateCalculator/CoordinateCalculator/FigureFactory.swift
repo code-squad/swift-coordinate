@@ -22,6 +22,8 @@ struct FigureFactory {
         switch myPoints.count {
         case FigureType.line.rawValue:
             return MyLine(myPoints)
+        case FigureType.triangle.rawValue:
+            return MyTriangle(myPoints)
         default:
             return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         }
