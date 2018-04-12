@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct Checker {
+    static func checkRegexedInput(userInput:String)->Bool{
+        guard let regexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forInputCheck) else {
+            return false
+        }
+        let regexedUserInput = Cutter.cuttingLattersFrom(originLatters: userInput, regex: regexForm)
+        guard regexedUserInput.count > 0 else {
+            return false
+        }
+        return true
+    }
+}
