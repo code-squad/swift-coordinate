@@ -16,7 +16,17 @@ func main() throws {
             let points = try Converter.getMyPoints(readinput)
             let myModel = try Converter.getModel(points)
             OutputView.clean()
-            try OutputView.draw(myModel)
+
+            if let mypoint = myModel as? MyPoint {
+                // Controller의 역할 : 어느 뷰를 보여줄 것인지
+                OutputView.drawPoint(mypoint)
+                OutputView.drawAxis()
+            }else if let myline = myModel as? MyLine {
+                OutputView.drawLine(myline)
+            }else {
+                throw CoordinateError.unknownCaseError
+            }
+            
         }catch let e as CoordinateError {
             OutputView.errorMessage(of: e)
         }
