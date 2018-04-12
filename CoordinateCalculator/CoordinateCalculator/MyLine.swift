@@ -14,7 +14,6 @@ struct MyLine: Figure, FigureCalculatable {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     
-//    var myPoints: [MyPoint] = [MyPoint]()
     var myPoints: [MyPoint] {
           return [self.pointA, self.pointB]
     }
@@ -31,10 +30,6 @@ struct MyLine: Figure, FigureCalculatable {
     
     func calculateDistance() -> Double {
         return sqrt(Double(pointA.x - pointB.x)^^ + Double(pointA.y - pointB.y)^^)
-    }
-    
-    func printDistance() {
-        print("두 점 사이의 거리는 \(self.calculateDistance())입니다.")
     }
 }
 

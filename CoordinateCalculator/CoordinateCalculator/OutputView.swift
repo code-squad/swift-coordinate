@@ -33,6 +33,6 @@ struct OutputView {
     }
     
     static func printDistance(_ figure: FigureCalculatable) {
-        figure.printDistance()
+        figure.calculateDistance()
     }
 }

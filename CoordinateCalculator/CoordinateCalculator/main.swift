@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 func main() {
     
     var inputErrorFlag = true
@@ -45,8 +44,13 @@ func main() {
     outputView.drawFigure()
     OutputView.drawAxis()
     
-    if let figure = figure as? FigureCalculatable {
-        OutputView.printDistance(figure)
+    switch figure {
+    case let figure as MyLine:
+        print("두 점 사이의 거리는 \(figure.calculateDistance()) 입니다.")
+    case let figure as MyTriangle:
+        print("삼각형의 넓이는 \(figure.calculateDistance())")
+    default:
+        return
     }
 }
 
