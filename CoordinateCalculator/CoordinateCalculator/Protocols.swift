@@ -14,5 +14,4 @@ protocol Figure {
 
 protocol FigureCalculatable {
     func calculateDistance() -> Double
-    func printDistance()
 }

@@ -37,9 +37,5 @@ struct MyTriangle: Figure, FigureCalculatable {
         
         return distanceOfLineAB * distanceOfLineBC * sinB * 0.5
     }
-    
-    func printDistance() {
-        print("삼각형 넓이는 \(self.calculateDistance())")
-    }
 }
 
