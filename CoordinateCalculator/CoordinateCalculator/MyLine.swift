@@ -33,3 +33,9 @@ struct MyLine: Figure, FigureCalculatable {
     }
 }
 
+extension MyLine: DistancePrintable {
+    
+    var prefixText: String {
+        return "두 점 사이의 거리는"
+    }
+}

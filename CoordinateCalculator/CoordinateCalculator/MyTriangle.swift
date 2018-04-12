@@ -39,3 +39,9 @@ struct MyTriangle: Figure, FigureCalculatable {
     }
 }
 
+extension MyTriangle: DistancePrintable {
+    
+    var prefixText: String {
+        return "삼각형의 넓이는"
+    }
+}

@@ -44,8 +44,9 @@ func main() {
     outputView.drawFigure()
     OutputView.drawAxis()
     
-    if let figure = figure as? FigureCalculatable {
-        OutputView.printDistance(figure)
+    if let figure = figure as? FigureCalculatable & DistancePrintable {
+        OutputView.printDistance(figure.prefixText,
+                                 figure.calculateDistance())
     }
 }
 
