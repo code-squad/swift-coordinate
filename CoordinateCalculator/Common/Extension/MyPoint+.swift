@@ -7,7 +7,7 @@
 //
 
 // point 프로토콜을 준수
-extension MyPoint: PointProtocol {
+extension MyPoint: BaseProtocol {
     func getPoints() -> [MyPoint] {
         return [self]
     }
