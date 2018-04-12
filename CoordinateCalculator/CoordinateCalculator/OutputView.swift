@@ -33,6 +33,13 @@ struct OutputView {
     }
     
     static func printDistance(_ figure: FigureCalculatable) {
-        figure.calculateDistance()
+        switch figure {
+        case let figure as MyLine:
+            print("두 점 사이의 거리는 \(figure.calculateDistance()) 입니다.")
+        case let figure as MyTriangle:
+            print("삼각형의 넓이는 \(figure.calculateDistance())")
+        default:
+            break
+        }
     }
 }
