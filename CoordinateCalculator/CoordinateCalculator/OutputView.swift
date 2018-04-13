@@ -32,7 +32,7 @@ struct OutputView {
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
     
-    static func printDistance(_ prefixText: String, _ distance: Double) {
-        print(prefixText, distance)
+    static func printDistance(_ figure: FigureCalculatable & DistancePrintable) {
+        print(figure.prefixText, figure.calculateDistance())
     }
 }
