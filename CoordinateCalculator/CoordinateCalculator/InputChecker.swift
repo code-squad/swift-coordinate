@@ -12,6 +12,7 @@ enum InputError: Error {
     case nilInput
     case invalidInput
     case regexError
+    case rectangleError
     
     var localizedDescription: String {
         switch self {
@@ -21,6 +22,8 @@ enum InputError: Error {
             return "잘못된 입력입니다."
         case .regexError:
             return "정규표현식이 잘못되었습니다."
+        case .rectangleError:
+            return "직사각형이 아닙니다."
         }
     }
 }

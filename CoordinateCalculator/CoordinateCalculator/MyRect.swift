@@ -10,12 +10,19 @@ import Foundation
 
 struct MyRect: Figure, FigureCalculatable {
     
-    var myPoints: [MyPoint]
-    var leftTop = MyPoint()
-    var rightBottom = MyPoint()
+    private var leftTop = MyPoint()
+    private var rightBottom = MyPoint()
     
-    init(_ myPoints: [MyPoint]) {
-        self.myPoints = myPoints
+    var myPoints: [MyPoint] {
+        let rightTop = MyPoint(x: self.rightBottom.x, y: self.leftTop.y)
+        let leftBottom = MyPoint(x: self.leftTop.x, y: self.rightBottom.y)
+        
+        return [self.leftTop, rightTop, leftBottom, self.rightBottom]
+    }
+    
+    init(origin: MyPoint, size: CGSize) {
+        self.leftTop = origin
+        self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y - Int(size.height))
     }
     
     func calculateDistance() -> Double {
