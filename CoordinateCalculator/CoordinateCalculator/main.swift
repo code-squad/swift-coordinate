@@ -26,6 +26,20 @@ func main() {
             if try InputChecker.hasInvalidPattern(text: userInput) {
                 continue
             }
+            
+            let myPoints: [MyPoint] = FigureFactory.makeMyPoints(userInput)
+            let figure: Figure = try FigureFactory.makeFigure(myPoints)
+            let outputView = OutputView(figure)
+            
+            print("\(ANSICode.clear)\(ANSICode.home)")
+            
+            outputView.drawFigure()
+            OutputView.drawAxis()
+            
+            if let figure = figure as? FigureCalculatable & DistancePrintable {
+                OutputView.printDistance(figure)
+            }
+            
             inputErrorFlag = false
         } catch let error as InputError {
             print(error.localizedDescription)
@@ -33,19 +47,6 @@ func main() {
             print("Unexpected Error")
             return
         }
-    }
-    
-    let myPoints: [MyPoint] = FigureFactory.makeMyPoints(userInput)    
-    let figure: Figure = FigureFactory.makeFigure(myPoints)
-    let outputView = OutputView(figure)
-    
-    print("\(ANSICode.clear)\(ANSICode.home)")
-    
-    outputView.drawFigure()
-    OutputView.drawAxis()
-    
-    if let figure = figure as? FigureCalculatable & DistancePrintable {
-        OutputView.printDistance(figure)
     }
 }
 

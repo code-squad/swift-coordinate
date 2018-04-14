@@ -19,17 +19,39 @@ struct FigureFactory {
     static private let hyphen: Character = "-"
     static private let meaninglessCharacters: CharacterSet = ["(", ")", ","]
     
-    static func makeFigure(_ myPoints: [MyPoint]) -> Figure {
+    static func makeFigure(_ myPoints: [MyPoint]) throws -> Figure {
         switch myPoints.count {
         case FigureType.line.rawValue:
             return MyLine(myPoints)
         case FigureType.triangle.rawValue:
             return MyTriangle(myPoints)
         case FigureType.rectangle.rawValue:
-            return MyRect(myPoints)
+            let (origin, size) = try FigureFactory.makeOriginAndSize(myPoints)
+            return MyRect(origin: origin, size: size)
         default:
             return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         }
+    }
+    
+    static func makeOriginAndSize(_ myPoints: [MyPoint]) throws -> (MyPoint, CGSize) {
+        var xSet = Set<Int>()
+        var ySet = Set<Int>()
+        
+        for myPoint in myPoints {
+            xSet.insert(myPoint.x)
+            ySet.insert(myPoint.y)
+        }
+        
+        // 직사각형만 허용
+        guard xSet.count == 2 && ySet.count == 2 else {
+            throw InputError.rectangleError
+        }
+        
+        // origin은 topLeft(x는 가장 작고 y는 가장크고)
+        let origin = MyPoint(x: xSet.min()!, y: ySet.max()!)
+        let size = CGSize(width: xSet.max()! - origin.x, height: origin.y - ySet.min()!)
+        
+        return (origin, size)
     }
     
     static func makeMyPoints(_ userInput: String) -> [MyPoint] {
