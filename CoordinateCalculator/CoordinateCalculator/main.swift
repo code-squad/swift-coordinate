@@ -35,7 +35,7 @@ func main() {
         }
     }
     
-    let myPoints: [MyPoint] = FigureFactory.makeMyPoints(userInput)
+    let myPoints: [MyPoint] = FigureFactory.makeMyPoints(userInput)    
     let figure: Figure = FigureFactory.makeFigure(myPoints)
     let outputView = OutputView(figure)
     

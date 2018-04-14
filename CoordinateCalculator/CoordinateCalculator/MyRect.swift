@@ -11,9 +11,12 @@ import Foundation
 struct MyRect: Figure, FigureCalculatable {
     
     var myPoints: [MyPoint]
-    
     var leftTop = MyPoint()
     var rightBottom = MyPoint()
+    
+    init(_ myPoints: [MyPoint]) {
+        self.myPoints = myPoints
+    }
     
     func calculateDistance() -> Double {
         let width = self.rightBottom.x - self.leftTop.x
@@ -24,7 +27,6 @@ struct MyRect: Figure, FigureCalculatable {
 }
 
 extension MyRect: DistancePrintable {
-    
     var prefixText: String {
         return "사각형 넓이는"
     }

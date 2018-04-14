@@ -11,6 +11,7 @@ import Foundation
 enum FigureType: Int {
     case line = 2
     case triangle = 3
+    case rectangle = 4
 }
 
 struct FigureFactory {
@@ -24,6 +25,8 @@ struct FigureFactory {
             return MyLine(myPoints)
         case FigureType.triangle.rawValue:
             return MyTriangle(myPoints)
+        case FigureType.rectangle.rawValue:
+            return MyRect(myPoints)
         default:
             return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         }
