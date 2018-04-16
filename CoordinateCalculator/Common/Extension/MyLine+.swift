@@ -7,16 +7,20 @@
 //
 import Foundation
 
-extension MyLine: LineProtocol {
+extension MyLine: FigureProtocol {
 
     func getPoints() -> [MyPoint] {
         return [self.pointA, self.pointB]
     }
     
-    func getDistance() -> Double {
-        let differenceX = pow(Decimal(self.pointA.x-self.pointB.x), 2)
-        let differenceY = pow(Decimal(self.pointA.y-self.pointB.y), 2)
-        let sum: Double = NSDecimalNumber(decimal: differenceX + differenceY).doubleValue
+    func figureCalculation() -> Double {
+        let differenceX = Double(self.pointA.x-self.pointB.x)^2
+        let differenceY = Double(self.pointA.y-self.pointB.y)^2
+        let sum: Double = differenceX + differenceY
         return sqrt(sum)
+    }
+    
+    var description: String {
+        return "두 점 사이 거리는 : "
     }
 }
