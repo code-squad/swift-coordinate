@@ -9,22 +9,20 @@
 import Foundation
 
 func main() throws {
+    
     while true {
         do {
             let readinput = try InputView.readInput(q: COORDINATE_START_INPUT_MESSAGE)
             try InputViewChecker.formatChekcer(checkerFormat: readinput)
             let points = try Converter.getMyPoints(readinput)
-            let myModel = try Converter.getModel(points)
-            OutputView.clean()
+            let figure = try Converter.getFigure(points)
+            let outputView =  OutputView(figure)
+            outputView.clean()
+            outputView.draw()
+            outputView.drawAxis()
 
-            if let mypoint = myModel as? MyPoint {
-                // Controller의 역할 : 어느 뷰를 보여줄 것인지
-                OutputView.drawPoint(mypoint)
-                OutputView.drawAxis()
-            }else if let myline = myModel as? MyLine {
-                OutputView.drawLine(myline)
-            }else {
-                throw CoordinateError.unknownCaseError
+            if let figure = figure as? FigureProtocol {
+                outputView.distance(figure)
             }
             
         }catch let e as CoordinateError {
@@ -32,5 +30,12 @@ func main() throws {
         }
     }
 }
-try main()
+//try main()
+
+func test() {
+    let a = 1 ^ 2
+    print(a)
+}
+
+test()
 
