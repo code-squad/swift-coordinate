@@ -119,29 +119,63 @@ class UnitTestCoordinateCalculator: XCTestCase {
        XCTAssertThrowsError(try Spliter.splitSaveFormat(unExpectedInput))
     }
     
-    // MKEK String+
+    // MAKR : Convert
     
-    // String+ : point key NoFormat
-    func test_CoordinateNotPointFormat() {
-        let unExpectedInput = "(1,1)-(1,1)"
-        XCTAssertNotEqual(try unExpectedInput.getProcessKey(), CoordKey.Point)
-    }
-    
-    // String+ : point key 얻기
-    func test_CoordinateGetKeyPointPass() {
+    // Convert : 포인트 배열 얻는 정상적인 결과
+    func test_CoordinatePassGetOnePointFormat() throws {
         let expectedInput = "(1,1)"
-        XCTAssertEqual(try expectedInput.getProcessKey(), CoordKey.Point)
+        XCTAssertNoThrow(try Converter.getMyPoints(expectedInput))
     }
     
-    // String+ : Line Key 얻기
-    func test_CoordinateGetKeyLinePass() {
+    // Convert : 투 포인트 배열 얻는 정상적인 결과
+    func test_CoordinatePassGetTwoPointFormat() throws {
         let expectedInput = "(1,1)-(1,1)"
-        XCTAssertEqual(try expectedInput.getProcessKey(), CoordKey.Line)
+        XCTAssertNoThrow(try Converter.getMyPoints(expectedInput))
     }
     
-    // String+ : Line key NoFormat
-    func test_CoordinateNoLineForamt() {
-        let unExpectedInput = "(1,1)"
-        XCTAssertNotEqual(try unExpectedInput.getProcessKey(), CoordKey.Line)
+    // Convert : 셋 포인트 배열 얻는 정상적인 결과
+    func test_CoordinatePassGetThreePointFormat() throws {
+        let expectedInput = "(1,1)-(1,1)-(1,1)"
+        XCTAssertNoThrow(try Converter.getMyPoints(expectedInput))
+    }
+    
+    // Convert : 포인트를 얻지 못하는 형태
+    func test_CoordinateNoPassForamt() {
+        let unExpectedInput = "(1,1)-(10,10,10)"
+        XCTAssertThrowsError(try Converter.getMyPoints(unExpectedInput))
+    }
+
+    // Convert : 셋 포인트 이상 부터는 얻을 수 없음
+    func test_CoordinateNoPassFigureFormat() throws {
+        let unExpectedInput = "(1,1)-(1,1)-(1,1)-(1,1)"
+        let noFigure = try Converter.getMyPoints(unExpectedInput)
+        XCTAssertThrowsError(try Converter.getFigure(noFigure))
+    }
+    
+    // Convert : figure 타입에서 point 얻기
+    func test_CoordinateGetPointPass() throws {
+        let expectedInput = "(1,1)"
+        let points = try Converter.getMyPoints(expectedInput)
+        let mypoint = try Converter.getFigure(points)
+        
+        XCTAssertEqual(mypoint as! MyPoint, MyPoint(points))
+    }
+    
+    // Convert : figure 타입에서 line 얻기
+    func test_CoordinateGetLinePass() throws {
+        let expectedInput = "(1,1)-(2,2)"
+        let points = try Converter.getMyPoints(expectedInput)
+        let myline = try Converter.getFigure(points)
+        
+        XCTAssertEqual(myline as! MyLine, MyLine(points))
+    }
+    
+    // Convert : figure 타입에서 Triangle 얻기
+    func test_CoordinateGetTriangle() throws {
+        let expectedInput = "(1,1)-(1,2)-(2,1)"
+        let points = try Converter.getMyPoints(expectedInput)
+        let mytriangle = try Converter.getFigure(points)
+        
+        XCTAssertEqual(mytriangle as! MyTriangle, MyTriangle(points))
     }
 }
