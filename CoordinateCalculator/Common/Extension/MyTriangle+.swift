@@ -1,0 +1,13 @@
+//
+//  MyTriangle+.swift
+//  CoordinateCalculator
+//
+//  Created by Jung seoung Yeo on 2018. 4. 15..
+//  Copyright © 2018년 Codesquad Inc. All rights reserved.
+//
+
+import Cocoa
+
+class MyTriangle_: NSObject {
+
+}
