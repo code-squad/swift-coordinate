@@ -30,12 +30,5 @@ func main() throws {
         }
     }
 }
-//try main()
-
-func test() {
-    let a = 1 ^ 2
-    print(a)
-}
-
-test()
+try main()
 
