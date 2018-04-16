@@ -11,6 +11,7 @@ protocol BaseProtocol {
 }
 
 // SOLID 원칙 중 인터페이스 분리 작업으로 MyPoint는 직선의거리를 구현 할 필요가 없어서 분리
-protocol LineProtocol: BaseProtocol{
-    func getDistance() -> Double
+protocol FigureProtocol: BaseProtocol{
+    func figureCalculation() -> Double
+    var description: String { get }
 }
