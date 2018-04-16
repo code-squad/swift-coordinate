@@ -6,8 +6,14 @@
 //  Copyright © 2018년 Codesquad Inc. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
-class MyRect: NSObject {
-
+struct MyRect: Equatable {
+    private(set) var leftTop = MyPoint()
+    private(set) var rightBottom = MyPoint()
+    
+    init(origin: MyPoint, size: CGSize) {
+        self.leftTop = origin
+        self.rightBottom = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y - Int(size.height))
+    }
 }
