@@ -13,4 +13,5 @@ enum CoordinateError: String, Error {
     case imPossibleStringError = "입력 할 수 없는 문자가 있습니다."
     case splitError = "split이 형식이 아닙니다."
     case unknownCaseError = "점과 선이 아닙니다."
+    case isRect = "직사각형이 아닙니다."
 }

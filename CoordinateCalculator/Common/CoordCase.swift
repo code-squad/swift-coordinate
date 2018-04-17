@@ -12,4 +12,5 @@ enum CoordCase: Int {
     case Point = 1
     case Line = 2
     case Triangle = 3
+    case Rect = 4
 }

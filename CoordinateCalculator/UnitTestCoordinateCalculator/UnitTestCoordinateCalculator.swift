@@ -139,17 +139,37 @@ class UnitTestCoordinateCalculator: XCTestCase {
         XCTAssertNoThrow(try Converter.getMyPoints(expectedInput))
     }
     
+    // Convert : 넷 포인트 배열 얻는 정상적인 결과
+    func test_CoordinatePassGetFourPointFormat() throws {
+        let expectedInput = "(1,1)-(1,1)-(1,1)-(1,1)"
+        XCTAssertNoThrow(try Converter.getMyPoints(expectedInput))
+    }
+    
+    // Convert : 다섯 포인트 배열부터 얻지 못하는 결과
+    func test_CoordinateNoPassPointFomat() throws {
+        let unExpectedInput = "(1,1)-(1,1)-(1,1)-(1,1)-(1,1)"
+        let unFigure = try Converter.getMyPoints(unExpectedInput)
+        XCTAssertThrowsError(try Converter.getFigure(unFigure))
+    }
+    
     // Convert : 포인트를 얻지 못하는 형태
     func test_CoordinateNoPassForamt() {
         let unExpectedInput = "(1,1)-(10,10,10)"
         XCTAssertThrowsError(try Converter.getMyPoints(unExpectedInput))
     }
 
-    // Convert : 셋 포인트 이상 부터는 얻을 수 없음
-    func test_CoordinateNoPassFigureFormat() throws {
+    // Convert : 직사격형 형태가 아닌 경우
+    func test_CoordinateNoPassRectFormat() throws {
         let unExpectedInput = "(1,1)-(1,1)-(1,1)-(1,1)"
         let noFigure = try Converter.getMyPoints(unExpectedInput)
         XCTAssertThrowsError(try Converter.getFigure(noFigure))
+    }
+    
+    // Convert : 직사각형 형태인 경우
+    func test_CoordinatePassRectFormat() throws {
+        let expectedInput = "(10,10)-(22,10)-(22,18)-(10,18)"
+        let rectMakeFomat = try Converter.getMyPoints(expectedInput)
+        XCTAssertNoThrow(try Converter.getFigure(rectMakeFomat))
     }
     
     // Convert : figure 타입에서 point 얻기
@@ -178,4 +198,14 @@ class UnitTestCoordinateCalculator: XCTestCase {
         
         XCTAssertEqual(mytriangle as! MyTriangle, MyTriangle(points))
     }
+    
+    // Convert : figure 타입에서 Rect 얻기
+    func test_CoordinateGetRect() throws {
+        let expectedInput = "(10,10)-(22,10)-(22,18)-(10,18)"
+        let points = try Converter.getMyPoints(expectedInput)
+        let myrect = try Converter.getFigure(points)
+        
+        XCTAssertEqual(myrect as! MyRect, MyRect(origin: MyPoint(x: 10, y: 18), size: CGSize(width: 12, height: 8)))
+    }
+    
 }
