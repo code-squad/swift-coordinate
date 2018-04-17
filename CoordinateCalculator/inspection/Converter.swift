@@ -25,13 +25,13 @@ struct Converter {
             case CoordCase.Line.rawValue: return MyLine(points)
             case CoordCase.Triangle.rawValue: return MyTriangle(points)
             case CoordCase.Rect.rawValue:
-                let (origin, size) = try getMyRactLeftPointWithSize(points)
+                let (origin, size) = try getMyRectLeftPointWithSize(points)
                 return MyRect(origin: origin, size: size)
         default: throw CoordinateError.unknownCaseError
         }
     }
     
-    static private func getMyRactLeftPointWithSize(_ mypoints: [MyPoint]) throws -> (MyPoint, CGSize) {
+    static private func getMyRectLeftPointWithSize(_ mypoints: [MyPoint]) throws -> (MyPoint, CGSize) {
         var xSet = Set<Int>()
         var ySet = Set<Int>()
         
