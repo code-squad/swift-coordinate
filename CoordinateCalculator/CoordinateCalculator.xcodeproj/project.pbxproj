@@ -11,6 +11,8 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		F90173F7207A662A0099E092 /* Spliter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90173F6207A662A0099E092 /* Spliter.swift */; };
 		F90DE5A020738CE300695ED1 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90DE59F20738CE300695ED1 /* OutputView.swift */; };
+		F920A27E20859C31002D161E /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9349A712084B52E000F3740 /* MyRect.swift */; };
+		F920A27F20859C31002D161E /* MyRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F947041F20850726007320C8 /* MyRect+.swift */; };
 		F9349A6E20847F3C000F3740 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FB79E7208195D600926CCD /* MyTriangle.swift */; };
 		F9349A6F20847F3C000F3740 /* MyTriangle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94A9938208337E600FA93DE /* MyTriangle+.swift */; };
 		F9349A7020847F3C000F3740 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9638E06207F367500739B08 /* Converter.swift */; };
@@ -323,6 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F920A27E20859C31002D161E /* MyRect.swift in Sources */,
+				F920A27F20859C31002D161E /* MyRect+.swift in Sources */,
 				F9349A6E20847F3C000F3740 /* MyTriangle.swift in Sources */,
 				F9349A6F20847F3C000F3740 /* MyTriangle+.swift in Sources */,
 				F9349A7020847F3C000F3740 /* Converter.swift in Sources */,
