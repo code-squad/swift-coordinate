@@ -11,9 +11,7 @@ import Foundation
 struct RegexFormMaker {
     /// 입력한 문자열로 정규식을 만들어주는 함수
     static func makeRegexForm(regexTry : String)->NSRegularExpression?{
-        return try? NSRegularExpression(pattern: regexTry, options: []) else {
-            print("잘못된 정규식 표현입니다")
-            return nil
-        }
-    }    
+        let regexForm = try! NSRegularExpression(pattern: regexTry, options: [])
+        return regexForm
+    }
 }
