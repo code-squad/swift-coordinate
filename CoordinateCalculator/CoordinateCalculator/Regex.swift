@@ -9,6 +9,8 @@
 import Foundation
 /// 정규식이 담겨있는 구조체
 struct Regex {
-    /// 입력한 값이 올바른 형태인지 전체체크
+    /// 정규식화용 정규식표현
     static let forInputCheck = "\\([0-9]{1,2}\\,[0-9]{1,2}\\)"
+    /// 좌표값만 추출하는 정귝식표현
+    static let forAxisCheck = "[0-9]{1,2}"
 }
