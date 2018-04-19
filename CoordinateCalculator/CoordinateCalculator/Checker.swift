@@ -9,13 +9,15 @@
 import Foundation
 
 struct Checker {
-    static func checkRegexedInput(userInput:String)->Bool{
-        guard let regexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forInputCheck) else {
-            return false
-        }
-        let regexedUserInput = Cutter.cuttingLattersFrom(originLatters: userInput, regex: regexForm)
-        guard regexedUserInput.count > 0 else {
-            return false
+    
+    /// 좌료값 범위를 체크
+    func checkAxisRange(axisList : Array<Int>)->Bool{
+        // 좌표값의 범위 체크
+        for axis in axisList {
+            guard 0 <= axis && 24 >= axis else {
+                print("범위를 벗어난 좌표값입니다")
+                return false
+            }
         }
         return true
     }
