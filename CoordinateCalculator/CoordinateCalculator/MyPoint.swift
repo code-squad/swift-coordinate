@@ -9,10 +9,13 @@
 import Foundation
 
 struct MyPoint {
+    // 좌표값
     var x = 0
     var y = 0
     init(x:Int,y:Int){
         self.x=x
         self.y=y
     }
+    // 표시용 특수문자
+    let mark = "⦿"
 }
