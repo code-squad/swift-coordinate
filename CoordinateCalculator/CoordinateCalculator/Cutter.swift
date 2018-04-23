@@ -39,18 +39,21 @@ struct Cutter {
         guard let regexedAxis = cutAxisFrom(originLatters: userAxis) else {
             return nil
         }
+        // 정규식을 통과 못하면 nil 리턴
+        guard regexedAxis.count > 0 else {
+            print("잘못된 좌표입니다.")
+            return nil
+        }
         // 정규식화 된 입력값을 숫자만 추출
         guard let regexedAxisLatters  = cutNumbersFrom(originLatters : regexedAxis[0]) else {
             return nil
         }
-        
         // 체커 선언
         let checker = Checker()
         // 숫자문자열배열을 정수형배열로 변환
         guard let axisNumbers = checker.numbersFrom(letters: regexedAxisLatters) else {
             return nil
-        }
-        
+        }        
         // 넘어온크숫자들이 기준범위 안인지 체크
         guard checker.checkAxisRange(axisList: axisNumbers) else {
             return nil
