@@ -25,18 +25,6 @@ struct Cutter {
         return cuttingLettersFrom(originLatters: originLatters, regex: numberRegexForm)
     }
     
-    /// 문자열 배열을 받아서 정수형배열로 리턴
-    func numbersFrom(letters:Array<String>)->Array<Int>?{
-        var numbers = Array<Int>()
-        for letter in letters {
-            guard let number = Int(letter) else {
-                return nil
-            }
-            numbers.append(number)
-        }
-        return numbers
-    }
-    
     /// 좌표 입력을 정규식화
     func checkInputAxis(userAxis:String,regexForm : NSRegularExpression )->Array<String>?{
         // 입력받은 문자열을 정규식에 적용시킴
