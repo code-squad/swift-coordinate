@@ -18,7 +18,7 @@ struct Cutter {
     }
     
     /// 문자열을 받아서 숫자부분만 문자배열로 리턴
-    func cutNumberLettersFrom(originLatters : String) -> Array<String>?{
+    private func cutNumbersFrom(originLatters : String) -> Array<String>?{
         guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forNumberCheck) else {
             return nil
         }
@@ -26,45 +26,35 @@ struct Cutter {
     }
     
     /// 문자열을 받아서 좌표부분만 문자배열로 리턴
-    func cutAxisFrom(originLatters : String) -> Array<String>?{
-        guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forAxisCheck) else {
+    private func cutAxisFrom(originLatters : String) -> Array<String>?{
+        guard let axisRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forAxisCheck) else {
             return nil
         }
-        return cuttingLettersFrom(originLatters: originLatters, regex: numberRegexForm)
+        return cuttingLettersFrom(originLatters: originLatters, regex: axisRegexForm)
     }
     
     /// 입력값을 받아서 정규식화 하고 검사한다
-    func cutRangeFrom()->Array<Int>?{
-        // 유저입력을 위한 변수
-        var userInput = ""
-        // 정규식 작성을 위한 정규식폼 생성
-        guard let inputRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forInputCheck) else {
+    func cutAxisFrom(userAxis:String)->Array<Int>?{
+        // 받은 유저 입력을 정규식화
+        guard let regexedAxis = cutAxisFrom(originLatters: userAxis) else {
             return nil
         }
-        // 유저입력을 받기 위해서 입력구조체 선언
-        let inputView = InputView()
+        // 정규식화 된 입력값을 숫자만 추출
+        guard let regexedAxisLatters  = cutNumbersFrom(originLatters : regexedAxis[0]) else {
+            return nil
+        }
+        
         // 체커 선언
         let checker = Checker()
-        // 반복문 체크용 변수
-        var loopChecker : Array<Int>? = nil
-        repeat {
-            // 유저입려을 받는다
-            userAxis = inputView.receiveUserInput()
-            // 받은 유저 입력을 정규식화
-            let userAxis = cuttingLettersFrom(originLatters: userAxis, regex: <#T##NSRegularExpression#>)
-            // 정규식화 된 입력값을 숫자만 추출
-            guard let numberLetter  = cutNumberLettersFrom(originLatters : regexedUserInput[0]) else {
-                continue
-            }
-            // 숫자문자열배열을 정수형배열로 변환
-            guard let numbers = numbersFrom(letters: numberLetter) else {
-                continue
-            }
-            guard checker.checkAxisRange(axisList: numbers) else {
-                continue
-            }
-            loopChecker = numbers
-        } while loopChecker == nil
-        return loopChecker
+        // 숫자문자열배열을 정수형배열로 변환
+        guard let axisNumbers = checker.numbersFrom(letters: regexedAxisLatters) else {
+            return nil
+        }
+        
+        // 넘어온크숫자들이 기준범위 안인지 체크
+        guard checker.checkAxisRange(axisList: axisNumbers) else {
+            return nil
+        }
+        return axisNumbers
     }
 }
