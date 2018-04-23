@@ -19,6 +19,14 @@ struct Cutter {
     
     /// 문자열을 받아서 숫자부분만 문자배열로 리턴
     func cutNumberLettersFrom(originLatters : String) -> Array<String>?{
+        guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forNumberCheck) else {
+            return nil
+        }
+        return cuttingLettersFrom(originLatters: originLatters, regex: numberRegexForm)
+    }
+    
+    /// 문자열을 받아서 좌표부분만 문자배열로 리턴
+    func cutAxisFrom(originLatters : String) -> Array<String>?{
         guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forAxisCheck) else {
             return nil
         }
@@ -41,11 +49,9 @@ struct Cutter {
         var loopChecker : Array<Int>? = nil
         repeat {
             // 유저입려을 받는다
-            userInput = inputView.receiveUserInput()
+            userAxis = inputView.receiveUserInput()
             // 받은 유저 입력을 정규식화
-            guard let regexedUserInput = checkInputAxis(userAxis: userInput, regexForm: inputRegexForm) else {
-                continue
-            }
+            let userAxis = cuttingLettersFrom(originLatters: userAxis, regex: <#T##NSRegularExpression#>)
             // 정규식화 된 입력값을 숫자만 추출
             guard let numberLetter  = cutNumberLettersFrom(originLatters : regexedUserInput[0]) else {
                 continue
