@@ -38,9 +38,9 @@ struct Cutter {
     }
     
     /// 좌표 입력을 정규식화
-    func checkRegexInput(userInput:String,regexForm : NSRegularExpression )->Array<String>?{
+    func checkInputAxis(userAxis:String,regexForm : NSRegularExpression )->Array<String>?{
         // 입력받은 문자열을 정규식에 적용시킴
-        let regexedUserInput = cuttingLettersFrom(originLatters: userInput, regex: regexForm)
+        let regexedUserInput = cuttingLettersFrom(originLatters: userAxis, regex: regexForm)
         // 정규식을 통과 못하면 카운트가 0
         guard regexedUserInput.count > 0 else {
             print("잘못된 좌표를 입력하셨습니다.")
@@ -67,7 +67,7 @@ struct Cutter {
             // 유저입려을 받는다
             userInput = inputView.receiveUserInput()
             // 받은 유저 입력을 정규식화
-            guard let regexedUserInput = checkRegexInput(userInput: userInput, regexForm: inputRegexForm) else {
+            guard let regexedUserInput = checkInputAxis(userAxis: userInput, regexForm: inputRegexForm) else {
                 continue
             }
             // 정규식화 된 입력값을 숫자만 추출
