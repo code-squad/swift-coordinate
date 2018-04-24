@@ -41,6 +41,7 @@ struct InputView {
             }
             myPointList = myPointListCheck
             if !cutter.isitLineIn(userAxis: userAxis) && myPointList!.count > 1 {
+                print("잘못된 좌표입니다.")
                 myPointList = nil
             }
         } while myPointList == nil
