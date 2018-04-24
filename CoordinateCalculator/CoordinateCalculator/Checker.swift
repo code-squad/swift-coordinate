@@ -22,7 +22,7 @@ struct Checker {
         return true
     }
     
-    /// 문자열 배열을 받아서 정수형배열로 리턴
+    /// 숫자로만 이루어진 문자열 배열을 받아서 정수형배열로 리턴
     func numbersFrom(letters:Array<String>)->Array<Int>?{
         var numbers = Array<Int>()
         for letter in letters {
