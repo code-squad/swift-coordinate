@@ -10,16 +10,13 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		D55FC83D207CA599008F67A3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC83C207CA599008F67A3 /* OutputView.swift */; };
-		D55FC83F207CA8B6008F67A3 /* Cutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC83E207CA8B6008F67A3 /* Cutter.swift */; };
-		D55FC843207DDC44008F67A3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC842207DDC44008F67A3 /* Regex.swift */; };
-		D55FC845207DE65F008F67A3 /* AxisContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC844207DE65F008F67A3 /* AxisContainer.swift */; };
-		D55FC847207DFC9F008F67A3 /* RegexMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC846207DFC9F008F67A3 /* RegexMaker.swift */; };
 		D55FC849207EFBF5008F67A3 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC848207EFBF5008F67A3 /* MyPoint.swift */; };
 		D55FC84B207F01B7008F67A3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC84A207F01B7008F67A3 /* InputView.swift */; };
 		D55FC84D207F030B008F67A3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC84C207F030B008F67A3 /* Regex.swift */; };
 		D55FC851207F0679008F67A3 /* RegexFormMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC850207F0679008F67A3 /* RegexFormMaker.swift */; };
 		D55FC853207F1E61008F67A3 /* Cutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC852207F1E61008F67A3 /* Cutter.swift */; };
 		D55FC855207F316A008F67A3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC854207F316A008F67A3 /* Checker.swift */; };
+		D563A051208ECBE100C7189B /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D563A050208ECBE100C7189B /* MyLine.swift */; };
 		D5719A4D2088A4BB007059ED /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5719A4C2088A4BB007059ED /* Pointer.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,16 +37,13 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		D55FC83C207CA599008F67A3 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		D55FC83E207CA8B6008F67A3 /* Cutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cutter.swift; sourceTree = "<group>"; };
-		D55FC842207DDC44008F67A3 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
-		D55FC844207DE65F008F67A3 /* AxisContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisContainer.swift; sourceTree = "<group>"; };
-		D55FC846207DFC9F008F67A3 /* RegexMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexMaker.swift; sourceTree = "<group>"; };
 		D55FC848207EFBF5008F67A3 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		D55FC84A207F01B7008F67A3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D55FC84C207F030B008F67A3 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		D55FC850207F0679008F67A3 /* RegexFormMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexFormMaker.swift; sourceTree = "<group>"; };
 		D55FC852207F1E61008F67A3 /* Cutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cutter.swift; sourceTree = "<group>"; };
 		D55FC854207F316A008F67A3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		D563A050208ECBE100C7189B /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		D5719A4C2088A4BB007059ED /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +80,9 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				D55FC83C207CA599008F67A3 /* OutputView.swift */,
-				D55FC848207EFBF5008F67A3 /* MyPoint.swift */,
 				D55FC84A207F01B7008F67A3 /* InputView.swift */,
+				D55FC848207EFBF5008F67A3 /* MyPoint.swift */,
+				D563A050208ECBE100C7189B /* MyLine.swift */,
 				D55FC84C207F030B008F67A3 /* Regex.swift */,
 				D55FC850207F0679008F67A3 /* RegexFormMaker.swift */,
 				D55FC852207F1E61008F67A3 /* Cutter.swift */,
@@ -160,7 +155,7 @@
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				D55FC84B207F01B7008F67A3 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
-
+				D563A051208ECBE100C7189B /* MyLine.swift in Sources */,
 				D5719A4D2088A4BB007059ED /* Pointer.swift in Sources */,
 				D55FC83D207CA599008F67A3 /* OutputView.swift in Sources */,
 				D55FC853207F1E61008F67A3 /* Cutter.swift in Sources */,
