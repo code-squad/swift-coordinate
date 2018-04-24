@@ -14,6 +14,8 @@ struct MyLine {
     
     /// 두 점 사이의 거리를 리턴
     func distanceBetween()->Double {
-        return sqrt(Double((self.pointA.x - self.pointB.x)^2 + (self.pointA.y - self.pointB.y)^2))
+        let width = self.pointA.x - self.pointB.x
+        let hight = self.pointA.y - self.pointB.y
+        return sqrt(Double((width * width) + (hight * hight)))
     }
 }
