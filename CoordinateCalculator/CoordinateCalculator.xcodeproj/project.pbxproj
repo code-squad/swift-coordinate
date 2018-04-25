@@ -14,7 +14,7 @@
 		D55FC84B207F01B7008F67A3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC84A207F01B7008F67A3 /* InputView.swift */; };
 		D55FC84D207F030B008F67A3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC84C207F030B008F67A3 /* Regex.swift */; };
 		D55FC851207F0679008F67A3 /* RegexFormMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC850207F0679008F67A3 /* RegexFormMaker.swift */; };
-		D55FC853207F1E61008F67A3 /* Cutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC852207F1E61008F67A3 /* Cutter.swift */; };
+		D55FC853207F1E61008F67A3 /* Extracter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC852207F1E61008F67A3 /* Extracter.swift */; };
 		D55FC855207F316A008F67A3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC854207F316A008F67A3 /* Checker.swift */; };
 		D563A051208ECBE100C7189B /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D563A050208ECBE100C7189B /* MyLine.swift */; };
 		D5719A4D2088A4BB007059ED /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5719A4C2088A4BB007059ED /* Pointer.swift */; };
@@ -41,7 +41,7 @@
 		D55FC84A207F01B7008F67A3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		D55FC84C207F030B008F67A3 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		D55FC850207F0679008F67A3 /* RegexFormMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexFormMaker.swift; sourceTree = "<group>"; };
-		D55FC852207F1E61008F67A3 /* Cutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cutter.swift; sourceTree = "<group>"; };
+		D55FC852207F1E61008F67A3 /* Extracter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extracter.swift; sourceTree = "<group>"; };
 		D55FC854207F316A008F67A3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		D563A050208ECBE100C7189B /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		D5719A4C2088A4BB007059ED /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 				D563A050208ECBE100C7189B /* MyLine.swift */,
 				D55FC84C207F030B008F67A3 /* Regex.swift */,
 				D55FC850207F0679008F67A3 /* RegexFormMaker.swift */,
-				D55FC852207F1E61008F67A3 /* Cutter.swift */,
+				D55FC852207F1E61008F67A3 /* Extracter.swift */,
 				D55FC854207F316A008F67A3 /* Checker.swift */,
 				D5719A4C2088A4BB007059ED /* Pointer.swift */,
 			);
@@ -158,7 +158,7 @@
 				D563A051208ECBE100C7189B /* MyLine.swift in Sources */,
 				D5719A4D2088A4BB007059ED /* Pointer.swift in Sources */,
 				D55FC83D207CA599008F67A3 /* OutputView.swift in Sources */,
-				D55FC853207F1E61008F67A3 /* Cutter.swift in Sources */,
+				D55FC853207F1E61008F67A3 /* Extracter.swift in Sources */,
 				D55FC855207F316A008F67A3 /* Checker.swift in Sources */,
 				D55FC84D207F030B008F67A3 /* Regex.swift in Sources */,
 			);
