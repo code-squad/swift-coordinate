@@ -8,9 +8,9 @@
 
 import Foundation
 /// 커터 구조체
-struct Cutter {
+struct Extracter {
     /// 문자열과 정규식을 받아서 정규식에 맞는 문자열 배열로 리턴
-    private func cuttingLettersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
+    private func extractLettersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
         let originForRange = originLatters as NSString
         return regex.matches(in : originLatters, options: [], range: NSRange(location : 0 , length : originForRange.length)).map{
             originForRange.substring(with: $0.range)
@@ -18,19 +18,19 @@ struct Cutter {
     }
     
     /// 문자열을 받아서 숫자부분만 문자배열로 리턴
-    private func cutNumbersFrom(originLatters : String) -> Array<String>?{
+    private func extractNumbersFrom(originLatters : String) -> Array<String>?{
         guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forNumberCheck) else {
             return nil
         }
-        return cuttingLettersFrom(originLatters: originLatters, regex: numberRegexForm)
+        return extractLettersFrom(originLatters: originLatters, regex: numberRegexForm)
     }
     
     /// 문자열을 받아서 좌표부분만 문자배열로 리턴
-    private func cutAxisFrom(originLatters : String) -> Array<String>?{
+    private func extractAxisFrom(originLatters : String) -> Array<String>?{
         guard let axisRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forAxisCheck) else {
             return nil
         }
-        return cuttingLettersFrom(originLatters: originLatters, regex: axisRegexForm)
+        return extractLettersFrom(originLatters: originLatters, regex: axisRegexForm)
     }
     
     /// 문자열을 받아서 라인부분만 문자배열로 리턴
@@ -38,13 +38,13 @@ struct Cutter {
         guard let lineRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forLineCheck) else {
             return nil
         }
-        return cuttingLettersFrom(originLatters: originLatters, regex: lineRegexForm)
+        return extractLettersFrom(originLatters: originLatters, regex: lineRegexForm)
     }
     
     /// 좌표값 한개를 받아서 정규식화 해서 배열로 리턴
-    func cutAxisFrom(userAxis:String)->Array<String>?{
+    func extractAxisFrom(userAxis:String)->Array<String>?{
         // 받은 유저 입력을 정규식화
-        guard let regexedAxis = cutAxisFrom(originLatters: userAxis) else {
+        guard let regexedAxis = extractAxisFrom(originLatters: userAxis) else {
             return nil
         }
         // 정규식을 통과 못하면 nil 리턴
