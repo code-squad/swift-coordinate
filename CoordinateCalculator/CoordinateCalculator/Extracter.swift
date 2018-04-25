@@ -26,11 +26,11 @@ struct Extracter {
     }
     
     /// 문자열을 받아서 좌표부분만 문자배열로 리턴
-    private func extractAxisFrom(originLatters : String) -> Array<String>?{
-        guard let axisRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forAxisCheck) else {
+    private func extractPointFrom(originLatters : String) -> Array<String>?{
+        guard let PointRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forPointCheck) else {
             return nil
         }
-        return extractLettersFrom(originLatters: originLatters, regex: axisRegexForm)
+        return extractLettersFrom(originLatters: originLatters, regex: PointRegexForm)
     }
     
     /// 문자열을 받아서 라인부분만 문자배열로 리턴
@@ -42,46 +42,46 @@ struct Extracter {
     }
     
     /// 좌표값 한개를 받아서 정규식화 해서 배열로 리턴
-    func extractAxisFrom(userAxis:String)->Array<String>?{
+    func extractPointFrom(userPoint:String)->Array<String>?{
         // 받은 유저 입력을 정규식화
-        guard let regexedAxis = extractAxisFrom(originLatters: userAxis) else {
+        guard let regexedPoint = extractPointFrom(originLatters: userPoint) else {
             return nil
         }
         // 정규식을 통과 못하면 nil 리턴
-        guard regexedAxis.count > 0 else {
+        guard regexedPoint.count > 0 else {
             print("잘못된 좌표입니다.")
             return nil
         }
         //마이포인트 형태로 리턴. 앞에서 두자리인지 체크 완료했음
-        return regexedAxis
+        return regexedPoint
     }
     
     /// 정규식을 통과한 문자열 1좌표를 마이포인트로 리턴
-    func makeMyPointFrom(confirmAxis:String)->MyPoint?{
+    func makeMyPointFrom(confirmPoint:String)->MyPoint?{
         // 정규식화 된 입력값을 숫자만 추출
-        guard let regexedAxisLatters  = cutNumbersFrom(originLatters : confirmAxis) else {
+        guard let regexedPointLatters  = cutNumbersFrom(originLatters : confirmPoint) else {
             return nil
         }
         // 체커 선언
         let checker = Checker()
         // 숫자문자열배열을 정수형배열로 변환
-        guard let axisNumbers = checker.numbersFrom(letters: regexedAxisLatters) else {
+        guard let pointNumbers = checker.numbersFrom(letters: regexedPointLatters) else {
             return nil
         }
         // 넘어온크숫자들이 기준범위 안인지 체크
-        guard checker.checkAxisRange(axisList: axisNumbers) else {
+        guard checker.checkPointRange(PointList: PointNumbers) else {
             return nil
         }
         //마이포인트 형태로 리턴. 앞에서 두자리인지 체크 완료했음
-        return MyPoint(x: axisNumbers[0], y: axisNumbers[1])
+        return MyPoint(x: PointNumbers[0], y: PointNumbers[1])
     }
     
     /// 정규식을 통과한 문자열 배열좌표를 마이포인트 배열로 리턴
-    func makeMyPointListFrom(confirmedAxisList:Array<String>)->Array<MyPoint>?{
+    func makeMyPointListFrom(confirmedPointList:Array<String>)->Array<MyPoint>?{
         // 리턴용 마이포인트 배열 선언
         var myPointList = Array<MyPoint>()
-        for confirmedAxis in confirmedAxisList {
-            guard let myPoint = makeMyPointFrom(confirmAxis: confirmedAxis) else {
+        for confirmedPoint in confirmedPointList {
+            guard let myPoint = makeMyPointFrom(confirmPoint: confirmedPoint) else {
                 return nil
             }
             myPointList.append(myPoint)
@@ -90,13 +90,13 @@ struct Extracter {
     }
     
     /// 라인값 한개를 받아서 정규식화 하고 좌표값검사를 부른다
-    func isitLineIn(userAxis:String)->Bool{
+    func isitLineIn(userPoint:String)->Bool{
         // 받은 유저 입력을 정규식화
-        guard let regexedAxis = cutLineFrom(originLatters: userAxis) else {
+        guard let regexedPoint = cutLineFrom(originLatters: userPoint) else {
             return false
         }
         // 라인인지 체크
-        guard regexedAxis.count > 0 else {
+        guard regexedPoint.count > 0 else {
            return false
         }
         return true
