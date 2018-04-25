@@ -18,29 +18,29 @@ struct InputView {
     }
     
     /// 정규식을 통과할때까지 유저입력을 받는 함수
-    func receiveUserAxis()->Array<MyPoint>? {
+    func receiveUserPoint()->Array<MyPoint>? {
         // 유저입력값을 저장하기 위한 변수
-        var userAxis = ""
+        var userPoint = ""
         // 결과값을 저장하기 위한 배열 선언
         var myPointList : Array<MyPoint>?
         
         // 정규식을 이용하기 위해서 커터 선언
-        let cutter = Cutter()
+        let extracter = Extracter()
         //정규식을 통과할때까지 반복
         repeat {
             // 입력을 위한 안내 메세지 출력
             print("좌표를 입력하세요. 예시: (12,4)")
             // 유저입력값을 저장
-            userAxis = receiveUserInput()
+            userPoint = receiveUserInput()
             // 1개 좌표단위로 자름
-            guard let axisList = cutter.cutAxisFrom(userAxis: userAxis) else {
+            guard let PointList = extracter.extractPointFrom(userPoint: userPoint) else {
                 continue
             }
-            guard let myPointListCheck = cutter.makeMyPointListFrom(confirmedAxisList: axisList) else {
+            guard let myPointListCheck = extracter.makeMyPointListFrom(confirmedPointList: PointList) else {
                 continue
             }
             myPointList = myPointListCheck
-            if !cutter.isitLineIn(userAxis: userAxis) && myPointList!.count > 1 {
+            if !extracter.isitLineIn(userPoint: userPoint) && myPointList!.count > 1 {
                 print("잘못된 좌표입니다.")
                 myPointList = nil
             }

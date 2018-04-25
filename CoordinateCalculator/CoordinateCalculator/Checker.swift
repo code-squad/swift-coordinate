@@ -11,10 +11,10 @@ import Foundation
 struct Checker {
     
     /// 좌료값 범위를 체크
-    func checkAxisRange(axisList : Array<Int>)->Bool{
+    func checkPointRange(pointList : Array<Int>)->Bool{
         // 좌표값의 범위 체크
-        for axis in axisList {
-            guard 0 <= axis && 24 >= axis else {
+        for point in pointList {
+            guard 0 <= point && 24 >= point else {
                 print("범위를 벗어난 좌표값입니다")
                 return false
             }
