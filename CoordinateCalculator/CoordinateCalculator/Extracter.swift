@@ -40,3 +40,15 @@ struct Extracter {
         }
         return extractLettersFrom(originLatters: originLatters, regex: lineRegexForm)
     }
+    
+    /// 숫자로만 이루어진 문자열 배열을 받아서 정수형배열로 리턴
+    static func changeNumbersFrom(letters:Array<String>)->Array<Int>?{
+        var numbers = Array<Int>()
+        for letter in letters {
+            guard let number = Int(letter) else {
+                return nil
+            }
+            numbers.append(number)
+        }
+        return numbers
+}

@@ -9,8 +9,7 @@
 import Foundation
 
 struct Checker {
-    
-    /// 숫자를 받앙서 좌료값 범위를 체크
+    /// 숫자를 받아서 좌표값 범위를 체크
     func checkPointRange(pointList : Array<Int>)->Bool{
         // 좌표값의 범위 체크
         for point in pointList {
@@ -22,16 +21,18 @@ struct Checker {
         return true
     }
     
-    /// 숫자로만 이루어진 문자열 배열을 받아서 정수형배열로 리턴
-    func numbersFrom(letters:Array<String>)->Array<Int>?{
-        var numbers = Array<Int>()
-        for letter in letters {
-            guard let number = Int(letter) else {
-                return nil
-            }
-            numbers.append(number)
+    /// 숫자가 섞인 문자열을 받아서 숫자로 변환 후 좌표 범위 체크
+    func checkPointRange(latters:String)->Bool{
+        // 입력값을 숫자만 있는 문자형 배열로 정규화
+        guard let regexedNumbers = Extracter.extractNumbersFrom(originLatters: latters) else {
+            return false
         }
-        return numbers
+        // 숫자 문자형배열을 숫자형 배열로 리턴
+        guard let numbers = Extracter.changeNumbersFrom(letters: regexedNumbers) else {
+            return false
+        }
+        // 나온 숫자들을 범위체크
+        return checkPointRange(pointList:numbers)
     }
     
     /// 문자열이 2개좌표 형태가 맞는지 체크
