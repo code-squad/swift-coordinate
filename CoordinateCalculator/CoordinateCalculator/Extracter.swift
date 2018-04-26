@@ -18,7 +18,7 @@ struct Extracter {
     }
     
     /// 문자열을 받아서 숫자부분만 문자배열로 리턴
-    private func extractNumbersFrom(originLatters : String) -> Array<String>?{
+    func extractNumbersFrom(originLatters : String) -> Array<String>?{
         guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forNumberCheck) else {
             return nil
         }
@@ -26,7 +26,7 @@ struct Extracter {
     }
     
     /// 문자열을 받아서 좌표부분만 문자배열로 리턴
-    private func extractPointFrom(originLatters : String) -> Array<String>?{
+    func extractPointFrom(originLatters : String) -> Array<String>?{
         guard let PointRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forPointCheck) else {
             return nil
         }
@@ -34,7 +34,7 @@ struct Extracter {
     }
     
     /// 문자열을 받아서 라인부분만 문자배열로 리턴
-    private func extractLineFrom(originLatters : String) -> Array<String>?{
+    func extractLineFrom(originLatters : String) -> Array<String>?{
         guard let lineRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forLineCheck) else {
             return nil
         }
