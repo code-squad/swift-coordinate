@@ -1,5 +1,5 @@
 //
-//  Cutter.swift
+//  extractter.swift
 //  CoordinateCalculator
 //
 //  Created by Yoda Codd on 2018. 4. 12..
@@ -34,7 +34,7 @@ struct Extracter {
     }
     
     /// 문자열을 받아서 라인부분만 문자배열로 리턴
-    private func cutLineFrom(originLatters : String) -> Array<String>?{
+    private func extractLineFrom(originLatters : String) -> Array<String>?{
         guard let lineRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forLineCheck) else {
             return nil
         }
@@ -55,61 +55,3 @@ struct Extracter {
         //마이포인트 형태로 리턴. 앞에서 두자리인지 체크 완료했음
         return regexedPoint
     }
-    
-    /// 정규식을 통과한 문자열 1좌표를 마이포인트로 리턴
-    func makeMyPointFrom(confirmPoint:String)->MyPoint?{
-        // 정규식화 된 입력값을 숫자만 추출
-        guard let regexedPointLatters  = cutNumbersFrom(originLatters : confirmPoint) else {
-            return nil
-        }
-        // 체커 선언
-        let checker = Checker()
-        // 숫자문자열배열을 정수형배열로 변환
-        guard let pointNumbers = checker.numbersFrom(letters: regexedPointLatters) else {
-            return nil
-        }
-        // 넘어온크숫자들이 기준범위 안인지 체크
-        guard checker.checkPointRange(PointList: PointNumbers) else {
-            return nil
-        }
-        //마이포인트 형태로 리턴. 앞에서 두자리인지 체크 완료했음
-        return MyPoint(x: PointNumbers[0], y: PointNumbers[1])
-    }
-    
-    /// 정규식을 통과한 문자열 배열좌표를 마이포인트 배열로 리턴
-    func makeMyPointListFrom(confirmedPointList:Array<String>)->Array<MyPoint>?{
-        // 리턴용 마이포인트 배열 선언
-        var myPointList = Array<MyPoint>()
-        for confirmedPoint in confirmedPointList {
-            guard let myPoint = makeMyPointFrom(confirmPoint: confirmedPoint) else {
-                return nil
-            }
-            myPointList.append(myPoint)
-        }
-        return myPointList
-    }
-    
-    /// 라인값 한개를 받아서 정규식화 하고 좌표값검사를 부른다
-    func isitLineIn(userPoint:String)->Bool{
-        // 받은 유저 입력을 정규식화
-        guard let regexedPoint = cutLineFrom(originLatters: userPoint) else {
-            return false
-        }
-        // 라인인지 체크
-        guard regexedPoint.count > 0 else {
-           return false
-        }
-        return true
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
