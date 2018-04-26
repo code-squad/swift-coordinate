@@ -40,18 +40,3 @@ struct Extracter {
         }
         return extractLettersFrom(originLatters: originLatters, regex: lineRegexForm)
     }
-    
-    /// 좌표값 한개를 받아서 정규식화 해서 배열로 리턴
-    func extractPointFrom(userPoint:String)->Array<String>?{
-        // 받은 유저 입력을 정규식화
-        guard let regexedPoint = extractPointFrom(originLatters: userPoint) else {
-            return nil
-        }
-        // 정규식을 통과 못하면 nil 리턴
-        guard regexedPoint.count > 0 else {
-            print("잘못된 좌표입니다.")
-            return nil
-        }
-        //마이포인트 형태로 리턴. 앞에서 두자리인지 체크 완료했음
-        return regexedPoint
-    }
