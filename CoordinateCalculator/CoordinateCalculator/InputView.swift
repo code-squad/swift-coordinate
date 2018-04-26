@@ -11,41 +11,12 @@ import Foundation
 struct InputView {
     /// 사용자 입력값을 받는 함수
     func receiveUserInput()->String{
+        // 입력을 위한 안내 메세지 출력
+        print("좌표를 입력하세요. 예시: (12,4) 혹은 (1,1)-(11,22)")
         guard let userInput =  readLine() else {
             return ""
         }
         return userInput
-    }
-    
-    /// 정규식을 통과할때까지 유저입력을 받는 함수
-    func receiveUserPoint()->Array<MyPoint>? {
-        // 유저입력값을 저장하기 위한 변수
-        var userPoint = ""
-        // 결과값을 저장하기 위한 배열 선언
-        var myPointList : Array<MyPoint>?
-        
-        // 정규식을 이용하기 위해서 커터 선언
-        let extracter = Extracter()
-        //정규식을 통과할때까지 반복
-        repeat {
-            // 입력을 위한 안내 메세지 출력
-            print("좌표를 입력하세요. 예시: (12,4)")
-            // 유저입력값을 저장
-            userPoint = receiveUserInput()
-            // 1개 좌표단위로 자름
-            guard let PointList = extracter.extractPointFrom(userPoint: userPoint) else {
-                continue
-            }
-            guard let myPointListCheck = extracter.makeMyPointListFrom(confirmedPointList: PointList) else {
-                continue
-            }
-            myPointList = myPointListCheck
-            if !extracter.isitLineIn(userPoint: userPoint) && myPointList!.count > 1 {
-                print("잘못된 좌표입니다.")
-                myPointList = nil
-            }
-        } while myPointList == nil
-        return myPointList
     }
 }
     
