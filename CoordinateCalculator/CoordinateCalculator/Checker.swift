@@ -73,7 +73,7 @@ struct Checker {
             return false
         }
         // 2개좌표형태가 아닌데 1개좌표가 2개 이상이면 안됨
-        if !isCorrectLine(latters: latters) || pointCount > 1 {
+        if !isCorrectLine(latters: latters) && pointCount > 1 {
             return false
         }
         // 전부 통과했으면 참 리턴
