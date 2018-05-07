@@ -8,7 +8,7 @@
 
 import Foundation
 /// 포인트 관련 함수 모음 
-struct Pointer {
+struct PointerMaker {
     /// 1좌표 배열을 받아서 마이포인트로 리턴
     func makeMyPoint(userPoint : String)-> MyPoint {
         // 문자열에서 숫자만 정규화
@@ -30,7 +30,7 @@ struct Pointer {
     }
     
     ///3좌표 배열을 받아 마이 트라이앵글 로 리턴
-    func makeMyTriangle(userPoints:Array<String>)->MyLine{
+    func makeMyTriangle(userPoints:Array<String>)->MyTriangle{
         // 마이포인트 배열 선언
         var myPoints : Array<MyPoint> = []
         // 통과한 1좌표 배열의 값을 마이포인트 배열에 추가한다
@@ -49,7 +49,7 @@ struct Pointer {
         case 2 :
             return makeMyLine(userPoints:points)
         case 3 :
-            return makeMyLine(userPoints:points)
+            return makeMyTriangle(userPoints:points)
         default : return MyPoint(x: 0, y: 0)
         }
     }
