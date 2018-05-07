@@ -24,4 +24,7 @@ struct MyLine : Points {
     func getPoints() -> [MyPoint] {
         return [self.pointA,self.pointB]
     }
+    func getMessage() -> String {
+        return distanceBetweenPonints()
+    }
 }
