@@ -21,4 +21,7 @@ struct MyPoint : Points{
     func getPoints() -> [MyPoint] {
         return [self]
     }
+    func getMessage() -> String {
+        return ""
+    }
 }

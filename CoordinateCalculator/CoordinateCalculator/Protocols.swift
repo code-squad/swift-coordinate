@@ -12,4 +12,5 @@ import Foundation
 protocol Points{
     // 좌표가 몇개든 마이포인트 배열로 리턴 
     func getPoints()->[MyPoint]
+    func getMessage()->String
 }
