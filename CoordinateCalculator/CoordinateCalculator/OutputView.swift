@@ -9,8 +9,6 @@
 import Foundation
 ///프린트용 구조체
 struct OutputView{
-    // 표시용 특수문자
-    let mark = "⦿"
     
     /// 좌표축을 프린트
     func drawAxis(){
@@ -21,22 +19,22 @@ struct OutputView{
     }
     
     /// 입력된 자표를 출력
-    private func drawPoint(myPoint : MyPoint){
+    private func drawPoint(myPoints : MyPoint){
+        // 표시용 특수문자
+        let mark = "⦿"
         // 입력받은 위치로 커서 이동
-        print("\(ANSICode.cursor.move(row:25-myPoint.y, col: myPoint.x*2+3))\(mark)")
+        print("\(ANSICode.cursor.move(row:25-myPoints.y, col: myPoints.x*2+3))\(mark)")
         // 특수문자 출력
         print("\(ANSICode.cursor.move(row:26, col: 0))")
     }
     
-    /// 마이포인트 리스트를 받아서 라인이나 포인트로 바꿔서 프린트
-    func draw(myPointList:Array<MyPoint>){
-        for myPoint in myPointList {
-            drawPoint(myPoint: myPoint)
+    /// 프로토콜을 받아서 좌표축에 포인터들을 프린트
+    func drawPoints(myPoints:Points){
+        let points =  myPoints.getPoints()
+        for point in points {
+            drawPoint(myPoints: point)
         }
-        if myPointList.count == 2 {
-            let myLine = MyLine(pointA : myPointList[0], pointB : myPointList[1])
-            print("두 점 사이 거리는 \(myLine.distanceBetween())")
-        }
+        print(myPoints.getMessage())
     }
 }
 
