@@ -13,13 +13,14 @@ struct MyLine : Points {
     var pointB = MyPoint(x: 0, y: 0)
     
     /// 두 점 사이의 거리를 리턴
-    func distanceBetween()->Double {
+    func distanceBetween()->String {
         let width = self.pointA.x - self.pointB.x
         let hight = self.pointA.y - self.pointB.y
-        return sqrt(Double((width * width) + (hight * hight)))
+        let distance = sqrt(Double((width * width) + (hight * hight)))
+        return ("두 점 사이의 거리는 \(distance)")
     }
     
-    수
+    /// 프로토콜을 준수
     func getPoints() -> [MyPoint] {
         return [self.pointA,self.pointB]
     }
