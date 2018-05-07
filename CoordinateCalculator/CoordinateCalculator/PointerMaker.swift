@@ -29,12 +29,26 @@ struct Pointer {
         return MyLine(pointA: myPoints[0], pointB: myPoints[1])
     }
     
+    ///3좌표 배열을 받아 마이 트라이앵글 로 리턴
+    func makeMyTriangle(userPoints:Array<String>)->MyLine{
+        // 마이포인트 배열 선언
+        var myPoints : Array<MyPoint> = []
+        // 통과한 1좌표 배열의 값을 마이포인트 배열에 추가한다
+        for point in userPoints {
+            myPoints.append(makeMyPoint(userPoint:point))
+        }
+        // 2좌표 배열이기때문에 2개를 뽑아서 리턴한다
+        return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
+    }
+    
     /// 마이포인트로 정규화된 문자열을 받아서 포인츠로 리턴
     func makePointersFrom(points : [String])->Points{
         switch points.count {
         case 1 :
-            return makeMyPoint(userPoint: points[0])
+            return makeMyPoint(userPoint:points[0])
         case 2 :
+            return makeMyLine(userPoints:points)
+        case 3 :
             return makeMyLine(userPoints:points)
         default : return MyPoint(x: 0, y: 0)
         }
