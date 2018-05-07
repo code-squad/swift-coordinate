@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : Points{
     // 좌표값
     var x = 0
     var y = 0
     init(x:Int,y:Int){
         self.x=x
         self.y=y
+    }
+    
+    /// 프로토콜을 준수
+    func getPoints() -> [MyPoint] {
+        return [self]
     }
 }
