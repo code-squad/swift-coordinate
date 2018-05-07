@@ -35,8 +35,8 @@ struct Checker {
         return checkPointRange(pointList:numbers)
     }
     
-    /// 문자열이 2개좌표 형태가 맞는지 체크
-    private func isCorrectLine(latters:String)->Bool {
+    /// 문자열이 2개좌표 형태가 틀린지 체크
+    private func isWrongLine(latters:String)->Bool {
         // 라인 정규식을 통과시킨다
         guard let line = Extracter.extractLineFrom(originLatters: latters) else {
             return false
@@ -44,10 +44,25 @@ struct Checker {
         // 통과한 문자열의 카운트를 체크한다
         guard line.count > 0 else {
             // 통과 못하면 2개좌표의 형태가 아니다
-            return false
+            return true
         }
         // 맞으면 참 리턴
-        return true
+        return false
+    }
+    
+    /// 문자열이 3개좌표 형태가 틀린지 체크
+    private func isWrongTriangle(latters:String)->Bool {
+        // 라인 정규식을 통과시킨다
+        guard let line = Extracter.extractTriangleFrom(originLatters: latters) else {
+            return false
+        }
+        // 통과한 문자열의 카운트를 체크한다
+        guard line.count > 0 else {
+            // 통과 못하면 2개좌표의 형태가 아니다
+            return true
+        }
+        // 맞으면 참 리턴
+        return false
     }
     
     /// 문자열이 1개좌표 형태가 몇개인지 체크
@@ -72,8 +87,11 @@ struct Checker {
         guard let pointCount = howManyPointIn(latters: latters) else {
             return false
         }
-        // 2개좌표형태가 아닌데 1개좌표가 2개 이상이면 안됨
-        if !isCorrectLine(latters: latters) && pointCount > 1 {
+        // 좌표가 2개 이상인데 라인이 아니면 체크
+        if isWrongLine(latters: latters) && pointCount <= 1 {
+            return false
+        }
+        guard isWrongTriangle(latters: latters) == false else {
             return false
         }
         // 전부 통과했으면 참 리턴
