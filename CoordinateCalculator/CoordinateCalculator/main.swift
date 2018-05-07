@@ -23,20 +23,20 @@ func main(){
         let userInput = inputView.receiveUserInput()
         // 입력한 형태가 좌표형태가 맞는지 체크
         guard checker.isCorrectPointType(latters: userInput) else {
+            // 체크 실패시 에러메세지를 출력
+            inputView.printErrorMessage()
             continue
         }
         // 좌표값이 범위 내인지 체크
         guard checker.checkPointRange(latters: userInput) else {
+            // 체크 실패시 에러메세지를 출력
+            inputView.printErrorMessage()
             continue
         }
         // 검증을 통과하면 반복을 중지한다
         repeatFlag = false
         // 검증이 끝난 입력값을 밖으로 내보냄
         userPoints = userInput
-        // 검증이 실패했을 경우 에러메세지 출력 
-        if !repeatFlag {
-            inputView.printErrorMessage()
-        }
     } while repeatFlag
     
     // 통과한 좌표값을 정규식화 한다
