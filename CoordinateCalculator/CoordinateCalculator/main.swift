@@ -33,15 +33,19 @@ func main(){
         repeatFlag = false
         // 검증이 끝난 입력값을 밖으로 내보냄
         userPoints = userInput
+        // 검증이 실패했을 경우 에러메세지 출력 
+        if !repeatFlag {
+            inputView.printErrorMessage()
+        }
     } while repeatFlag
     
     // 통과한 좌표값을 정규식화 한다
     let regexedPoints = Extracter.extractPointFrom(originLatters: userPoints)!
     
     // 포인터 선언
-    let pointer = Pointer()
+    let pointerMaker = PointerMaker()
     // 정규식화 한 좌표를 받아서 포인터로 생성
-    let points = pointer.makePointersFrom(points: regexedPoints)
+    let points = pointerMaker.makePointersFrom(points: regexedPoints)
     
     // 프린트용 구조체 선언
     let outputView = OutputView()

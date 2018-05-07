@@ -18,5 +18,9 @@ struct InputView {
         }
         return userInput
     }
+    /// 잘못된 입력일 경우 에러메세지 출력
+    func printErrorMessage(){
+        print ("잘못된 좌표 입니다")
+    }
 }
     
