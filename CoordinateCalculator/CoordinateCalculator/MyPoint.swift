@@ -16,6 +16,4 @@ struct MyPoint {
         self.x=x
         self.y=y
     }
-    // 표시용 특수문자
-    let mark = "⦿"
 }
