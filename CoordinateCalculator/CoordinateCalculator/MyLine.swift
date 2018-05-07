@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine {
+struct MyLine : Points {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
     
@@ -17,5 +17,10 @@ struct MyLine {
         let width = self.pointA.x - self.pointB.x
         let hight = self.pointA.y - self.pointB.y
         return sqrt(Double((width * width) + (hight * hight)))
+    }
+    
+    수
+    func getPoints() -> [MyPoint] {
+        return [self.pointA,self.pointB]
     }
 }
