@@ -9,6 +9,9 @@
 import Foundation
 ///프린트용 구조체
 struct OutputView{
+    // 표시용 특수문자
+    let mark = "⦿"
+    
     /// 좌표축을 프린트
     func drawAxis(){
         // 화면 지우기
@@ -20,7 +23,7 @@ struct OutputView{
     /// 입력된 자표를 출력
     private func drawPoint(myPoint : MyPoint){
         // 입력받은 위치로 커서 이동
-        print("\(ANSICode.cursor.move(row:25-myPoint.y, col: myPoint.x*2+3))\(myPoint.mark)")
+        print("\(ANSICode.cursor.move(row:25-myPoint.y, col: myPoint.x*2+3))\(mark)")
         // 특수문자 출력
         print("\(ANSICode.cursor.move(row:26, col: 0))")
     }
