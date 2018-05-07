@@ -17,8 +17,9 @@
 		D55FC853207F1E61008F67A3 /* Extracter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC852207F1E61008F67A3 /* Extracter.swift */; };
 		D55FC855207F316A008F67A3 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC854207F316A008F67A3 /* Checker.swift */; };
 		D563A051208ECBE100C7189B /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D563A050208ECBE100C7189B /* MyLine.swift */; };
-		D5719A4D2088A4BB007059ED /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5719A4C2088A4BB007059ED /* Pointer.swift */; };
+		D5719A4D2088A4BB007059ED /* PointerMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5719A4C2088A4BB007059ED /* PointerMaker.swift */; };
 		D585D20E20A016CE00D8DF02 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D20D20A016CE00D8DF02 /* Protocols.swift */; };
+		D585D21220A05FDD00D8DF02 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D21120A05FDD00D8DF02 /* MyTriangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,8 +46,9 @@
 		D55FC852207F1E61008F67A3 /* Extracter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extracter.swift; sourceTree = "<group>"; };
 		D55FC854207F316A008F67A3 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		D563A050208ECBE100C7189B /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
-		D5719A4C2088A4BB007059ED /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
+		D5719A4C2088A4BB007059ED /* PointerMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerMaker.swift; sourceTree = "<group>"; };
 		D585D20D20A016CE00D8DF02 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		D585D21120A05FDD00D8DF02 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +87,12 @@
 				D55FC84A207F01B7008F67A3 /* InputView.swift */,
 				D55FC848207EFBF5008F67A3 /* MyPoint.swift */,
 				D563A050208ECBE100C7189B /* MyLine.swift */,
+				D585D21120A05FDD00D8DF02 /* MyTriangle.swift */,
 				D55FC84C207F030B008F67A3 /* Regex.swift */,
 				D55FC850207F0679008F67A3 /* RegexFormMaker.swift */,
 				D55FC852207F1E61008F67A3 /* Extracter.swift */,
 				D55FC854207F316A008F67A3 /* Checker.swift */,
-				D5719A4C2088A4BB007059ED /* Pointer.swift */,
+				D5719A4C2088A4BB007059ED /* PointerMaker.swift */,
 				D585D20D20A016CE00D8DF02 /* Protocols.swift */,
 			);
 			path = CoordinateCalculator;
@@ -154,13 +157,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D55FC851207F0679008F67A3 /* RegexFormMaker.swift in Sources */,
+				D585D21220A05FDD00D8DF02 /* MyTriangle.swift in Sources */,
 				D55FC849207EFBF5008F67A3 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				D585D20E20A016CE00D8DF02 /* Protocols.swift in Sources */,
 				D55FC84B207F01B7008F67A3 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				D563A051208ECBE100C7189B /* MyLine.swift in Sources */,
-				D5719A4D2088A4BB007059ED /* Pointer.swift in Sources */,
+				D5719A4D2088A4BB007059ED /* PointerMaker.swift in Sources */,
 				D55FC83D207CA599008F67A3 /* OutputView.swift in Sources */,
 				D55FC853207F1E61008F67A3 /* Extracter.swift in Sources */,
 				D55FC855207F316A008F67A3 /* Checker.swift in Sources */,
