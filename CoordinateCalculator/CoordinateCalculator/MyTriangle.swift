@@ -11,9 +11,9 @@ import Foundation
 struct MyTriangle : Points {
     
     //삼각형의 세 변
-    var lineAB = MyLine(pointA: MyPoint(x:0,y:0), pointB: MyPoint(x:0,y:0))
-    var lineBC = MyLine(pointA: MyPoint(x:0,y:0), pointB: MyPoint(x:0,y:0))
-    var lineAC = MyLine(pointA: MyPoint(x:0,y:0), pointB: MyPoint(x:0,y:0))
+    private var lineAB = MyLine(pointA: MyPoint(x:0,y:0), pointB: MyPoint(x:0,y:0))
+    private var lineBC = MyLine(pointA: MyPoint(x:0,y:0), pointB: MyPoint(x:0,y:0))
+    private var lineAC = MyLine(pointA: MyPoint(x:0,y:0), pointB: MyPoint(x:0,y:0))
 
     // 생성자
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
@@ -44,7 +44,7 @@ struct MyTriangle : Points {
     /// 프로토콜을 준수
     func getPoints() -> [MyPoint] {
         // 삼각형의 출력을 위해 각 꼭지점을 배열로 리턴
-        return [self.lineAB.pointA,self.lineAB.pointB,self.lineAC.pointB]
+        return [self.lineAB.getPoints()[0],self.lineAB.getPoints()[1],self.lineAC.getPoints()[1]]
     }
     /// 삼각형의 경우는 넓이를 리턴해준다
     func getMessage() -> String {
