@@ -24,7 +24,7 @@ struct Checker {
     /// 숫자가 섞인 문자열을 받아서 숫자로 변환 후 좌표 범위 체크
     func checkPointRange(latters:String)->Bool{
         // 입력값을 숫자만 있는 문자형 배열로 정규화
-        guard let regexedNumbers = Extracter.extractNumbersFrom(originLatters: latters) else {
+        guard let regexedNumbers = Extracter.extractNumbersFrom(originLetters: latters) else {
             return false
         }
         // 숫자 문자형배열을 숫자형 배열로 리턴
@@ -38,7 +38,7 @@ struct Checker {
     /// 문자열이 2개좌표 형태가 틀린지 체크
     private func isWrongLine(latters:String)->Bool {
         // 라인 정규식을 통과시킨다
-        guard let line = Extracter.extractLineFrom(originLatters: latters) else {
+        guard let line = Extracter.extractLineFrom(originLetters: latters) else {
             return false
         }
         // 통과한 문자열의 카운트를 체크한다
@@ -53,7 +53,7 @@ struct Checker {
     /// 문자열이 3개좌표 형태가 틀린지 체크
     private func isWrongTriangle(latters:String)->Bool {
         // 라인 정규식을 통과시킨다
-        guard let line = Extracter.extractTriangleFrom(originLatters: latters) else {
+        guard let line = Extracter.extractTriangleFrom(originLetters: latters) else {
             return false
         }
         // 통과한 문자열의 카운트를 체크한다
@@ -68,7 +68,7 @@ struct Checker {
     /// 문자열이 1개좌표 형태가 몇개인지 체크
     private func howManyPointIn(latters:String)->Int? {
         // 1개좌표 정규식을 통과시킨다
-        guard let point = Extracter.extractPointFrom(originLatters: latters) else {
+        guard let point = Extracter.extractPointFrom(originLetters: latters) else {
             return nil
         }
         // 통과한 문자열의 카운트를 체크한다

@@ -10,43 +10,43 @@ import Foundation
 /// 커터 구조체
 struct Extracter {
     /// 문자열과 정규식을 받아서 정규식에 맞는 문자열 배열로 리턴
-    static func extractLettersFrom(originLatters : String, regex : NSRegularExpression) -> Array<String>{
-        let originForRange = originLatters as NSString
-        return regex.matches(in : originLatters, options: [], range: NSRange(location : 0 , length : originForRange.length)).map{
+    static func extractLettersFrom(originLetters : String, regex : NSRegularExpression) -> Array<String>{
+        let originForRange = originLetters as NSString
+        return regex.matches(in : originLetters, options: [], range: NSRange(location : 0 , length : originForRange.length)).map{
             originForRange.substring(with: $0.range)
         }
     }
     
     /// 문자열을 받아서 숫자부분만 문자배열로 리턴
-    static func extractNumbersFrom(originLatters : String) -> Array<String>?{
+    static func extractNumbersFrom(originLetters : String) -> Array<String>?{
         guard let numberRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forNumberCheck) else {
             return nil
         }
-        return extractLettersFrom(originLatters: originLatters, regex: numberRegexForm)
+        return extractLettersFrom(originLetters: originLetters, regex: numberRegexForm)
     }
     
     /// 문자열을 받아서 좌표부분만 문자배열로 리턴
-    static func extractPointFrom(originLatters : String) -> Array<String>?{
+    static func extractPointFrom(originLetters : String) -> Array<String>?{
         guard let PointRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forPointCheck) else {
             return nil
         }
-        return extractLettersFrom(originLatters: originLatters, regex: PointRegexForm)
+        return extractLettersFrom(originLetters: originLetters, regex: PointRegexForm)
     }
     
     /// 문자열을 받아서 라인부분만 문자배열로 리턴
-    static func extractLineFrom(originLatters : String) -> Array<String>?{
+    static func extractLineFrom(originLetters : String) -> Array<String>?{
         guard let lineRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forLineCheck) else {
             return nil
         }
-        return extractLettersFrom(originLatters: originLatters, regex: lineRegexForm)
+        return extractLettersFrom(originLetters: originLetters, regex: lineRegexForm)
     }
     
     /// 문자열을 받아서 삼각형부분만 문자배열로 리턴
-    static func extractTriangleFrom(originLatters : String) -> Array<String>?{
+    static func extractTriangleFrom(originLetters : String) -> Array<String>?{
         guard let lineRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forTriangle) else {
             return nil
         }
-        return extractLettersFrom(originLatters: originLatters, regex: lineRegexForm)
+        return extractLettersFrom(originLetters: originLetters, regex: lineRegexForm)
     }
     
     /// 숫자로만 이루어진 문자열 배열을 받아서 정수형배열로 리턴

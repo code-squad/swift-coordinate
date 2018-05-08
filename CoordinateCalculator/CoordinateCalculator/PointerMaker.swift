@@ -12,7 +12,7 @@ struct PointerMaker {
     /// 1좌표 배열을 받아서 마이포인트로 리턴
     func makeMyPoint(userPoint : String)-> MyPoint {
         // 문자열에서 숫자만 정규화
-        let numberLatters = Extracter.extractNumbersFrom(originLatters: userPoint)!
+        let numberLatters = Extracter.extractNumbersFrom(originLetters: userPoint)!
         let numbers = Extracter.changeNumbersFrom(letters: numberLatters)!
         return MyPoint(x: numbers[0], y: numbers[1])
     }
