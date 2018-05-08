@@ -35,34 +35,35 @@ struct Checker {
         return checkPointRange(pointList:numbers)
     }
     
-    /// 문자열이 2개좌표 형태가 틀린지 체크
-    private func isWrongLine(latters:String)->Bool {
+    /// 입력받은 문자열의 count 수가 0 이상이면 참. 아니면 거짓. 정규식을 통과시킨 결과값으로 형태가 맞는지 체크.
+    func isCountable(letters : [String])->Bool{
+        // 문자열의 카운트를 체크한다
+        guard letters.count > 0 else {
+            // 통과 못하면 2개좌표의 형태가 아니다
+            return false
+        }
+        // 맞으면 참 리턴
+        return true
+    }
+    
+    /// 문자열이 2개좌표 형태가 맞는지 체크
+    private func isCorrectLine(latters:String)->Bool {
         // 라인 정규식을 통과시킨다
         guard let line = Extracter.extractLineFrom(originLetters: latters) else {
             return false
         }
         // 통과한 문자열의 카운트를 체크한다
-        guard line.count > 0 else {
-            // 통과 못하면 2개좌표의 형태가 아니다
-            return true
-        }
-        // 맞으면 참 리턴
-        return false
+        return isCountable(letters: line)
     }
     
-    /// 문자열이 3개좌표 형태가 틀린지 체크
-    private func isWrongTriangle(latters:String)->Bool {
+    /// 문자열이 3개좌표 형태가 맞는지 체크
+    private func isCorrectTriangle(latters:String)->Bool {
         // 라인 정규식을 통과시킨다
         guard let line = Extracter.extractTriangleFrom(originLetters: latters) else {
             return false
         }
         // 통과한 문자열의 카운트를 체크한다
-        guard line.count > 0 else {
-            // 통과 못하면 2개좌표의 형태가 아니다
-            return true
-        }
-        // 맞으면 참 리턴
-        return false
+        return isCountable(letters: line)
     }
     
     /// 문자열이 1개좌표 형태가 몇개인지 체크
@@ -88,10 +89,11 @@ struct Checker {
             return false
         }
         // 좌표가 2개 이상인데 라인이 아니면 체크
-        if isWrongLine(latters: latters) && pointCount <= 1 {
+        if isCorrectLine(latters: latters)==false && pointCount <= 1 {
             return false
         }
-        guard isWrongTriangle(latters: latters) == false else {
+        // 좌표2개가 아닌데 3개인 경우를 체크
+        guard isCorrectTriangle(latters: latters) else {
             return false
         }
         // 전부 통과했으면 참 리턴
