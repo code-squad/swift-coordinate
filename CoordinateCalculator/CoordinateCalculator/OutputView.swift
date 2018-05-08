@@ -23,7 +23,7 @@ struct OutputView{
         // 표시용 특수문자
         let mark = "⦿"
         // 입력받은 위치로 커서 이동
-        print("\(ANSICode.cursor.move(row:25-myPoints.y, col: myPoints.x*2+3))\(mark)")
+        print("\(ANSICode.cursor.move(row:25-myPoints.getYAxis(), col: myPoints.getXAxis()*2+3))\(mark)")
         // 특수문자 출력
         print("\(ANSICode.cursor.move(row:26, col: 0))")
     }
