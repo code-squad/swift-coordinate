@@ -40,7 +40,7 @@ func main(){
     } while repeatFlag
     
     // 통과한 좌표값을 정규식화 한다
-    let regexedPoints = Extracter.extractPointFrom(originLatters: userPoints)!
+    let regexedPoints = Extracter.extractPointFrom(originLetters: userPoints)!
     
     // 포인터 선언
     let pointerMaker = PointerMaker()
