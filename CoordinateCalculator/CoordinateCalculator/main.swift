@@ -22,13 +22,13 @@ func main(){
         // 사용자 입력을 받는다
         let userInput = inputView.receiveUserInput()
         // 입력한 형태가 좌표형태가 맞는지 체크
-        guard checker.isCorrectPointType(latters: userInput) else {
+        guard checker.isCorrectPointType(letters: userInput) else {
             // 체크 실패시 에러메세지를 출력
             inputView.printErrorMessage()
             continue
         }
         // 좌표값이 범위 내인지 체크
-        guard checker.checkPointRange(latters: userInput) else {
+        guard checker.checkPointRange(letters: userInput) else {
             // 체크 실패시 에러메세지를 출력
             inputView.printErrorMessage()
             continue
