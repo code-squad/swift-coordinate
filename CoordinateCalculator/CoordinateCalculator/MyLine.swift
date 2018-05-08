@@ -9,13 +9,19 @@
 import Foundation
 
 struct MyLine : Points {
-    var pointA = MyPoint(x: 0, y: 0)
-    var pointB = MyPoint(x: 0, y: 0)
+    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointB = MyPoint(x: 0, y: 0)
+    
+    /// 마이포인트를 받아서 생성
+    init (pointA : MyPoint,pointB : MyPoint){
+        self.pointA = pointA
+        self.pointB = pointB
+    }    
     
     /// 두 점 사이의 거리를 리턴
     func distanceBetweenPonints()->Double {
-        let width = self.pointA.x - self.pointB.x
-        let hight = self.pointA.y - self.pointB.y
+        let width = self.pointA.getXAxis() - self.pointB.getXAxis()
+        let hight = self.pointA.getYAxis() - self.pointB.getYAxis()
         let distance = sqrt(Double((width * width) + (hight * hight)))
         return distance
     }
