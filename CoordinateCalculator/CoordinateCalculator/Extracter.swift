@@ -49,6 +49,14 @@ struct Extracter {
         return extractLettersFrom(originLetters: originLetters, regex: lineRegexForm)
     }
     
+    /// 문자열을 받아서 사각형부분만 문자배열로 리턴
+    static func extractRectangleFrom(originLetters : String) -> Array<String>?{
+        guard let lineRegexForm = RegexFormMaker.makeRegexForm(regexTry: Regex.forRectangle) else {
+            return nil
+        }
+        return extractLettersFrom(originLetters: originLetters, regex: lineRegexForm)
+    }
+    
     /// 숫자로만 이루어진 문자열 배열을 받아서 정수형배열로 리턴
     static func changeNumbersFrom(letters:Array<String>)->Array<Int>?{
         var numbers = Array<Int>()
