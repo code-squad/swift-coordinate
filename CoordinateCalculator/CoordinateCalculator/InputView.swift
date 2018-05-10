@@ -22,5 +22,10 @@ struct InputView {
     func printErrorMessage(){
         print ("잘못된 좌표 입니다")
     }
+    /// 반복문 이후의 에러의 경우 출력
+    func printAfterErrorMessage(){
+        print ("반복문 이후에 에러 발생")
+    }
+    
 }
     
