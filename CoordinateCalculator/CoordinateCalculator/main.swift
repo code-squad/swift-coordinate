@@ -13,7 +13,10 @@ func main(){
     let inputView = InputView()
     // 체크 기능을 이용하기 위해 체커 선언
     let checker = Checker()
-    // 제대로 된 값을 입력할때 까지 입력을 반복
+    // 포인터 선언
+    let pointerMaker = PointerMaker()
+    
+    // 제대로 된 값을 입력할때 까지 입력을 반복하기 위한 플래그
     var repeatFlag = true
     // 유저입력값을 반복문 밖으로 전해줄 변수
     var userPoints = ""
@@ -33,19 +36,21 @@ func main(){
             inputView.printErrorMessage()
             continue
         }
+        
         // 검증을 통과하면 반복을 중지한다
         repeatFlag = false
         // 검증이 끝난 입력값을 밖으로 내보냄
         userPoints = userInput
     } while repeatFlag
     
-    // 통과한 좌표값을 정규식화 한다
+    // 통과한 좌표값을 마이포인트로 정규식화 한다
     let regexedPoints = Extracter.extractPointFrom(originLetters: userPoints)!
     
-    // 포인터 선언
-    let pointerMaker = PointerMaker()
     // 정규식화 한 좌표를 받아서 포인터로 생성
-    let points = pointerMaker.makePointersFrom(points: regexedPoints)
+    guard let points = pointerMaker.makePointersFrom(points: regexedPoints) else {
+        inputView.printAfterErrorMessage()
+        return
+    }
     
     // 프린트용 구조체 선언
     let outputView = OutputView()
