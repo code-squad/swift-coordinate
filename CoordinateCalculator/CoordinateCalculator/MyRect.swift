@@ -18,7 +18,7 @@ struct MyRect : Points{
         // 기준점은 오리진
         self.leftTop = origin
         // 기준점 x 에 가로를 더하고 y 에 세로를 더해서 생성
-        self.rightBottom = MyPoint(x: origin.getXAxis() + Int(size.width), y: origin.getYAxis() + Int(size.height))
+        self.rightBottom = MyPoint(x: origin.getXAxis() + Int(size.width), y: origin.getYAxis() - Int(size.height))
     }
     
     /// 넓이를 계산해서 리턴
