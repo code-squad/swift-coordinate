@@ -21,6 +21,21 @@
 		D585D20E20A016CE00D8DF02 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D20D20A016CE00D8DF02 /* Protocols.swift */; };
 		D585D21220A05FDD00D8DF02 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D21120A05FDD00D8DF02 /* MyTriangle.swift */; };
 		D585D21420A183C700D8DF02 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D21320A183C700D8DF02 /* MyRect.swift */; };
+		D585D21F20A42BF400D8DF02 /* CoordinateCalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D21E20A42BF400D8DF02 /* CoordinateCalculatorTest.swift */; };
+		D585D22620A45C5700D8DF02 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		D585D22720A45C5700D8DF02 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		D585D22820A45C5700D8DF02 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC83C207CA599008F67A3 /* OutputView.swift */; };
+		D585D22920A45C5700D8DF02 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC84A207F01B7008F67A3 /* InputView.swift */; };
+		D585D22A20A45C5700D8DF02 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC84C207F030B008F67A3 /* Regex.swift */; };
+		D585D22B20A45C5700D8DF02 /* RegexFormMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC850207F0679008F67A3 /* RegexFormMaker.swift */; };
+		D585D22C20A45C5700D8DF02 /* Extracter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC852207F1E61008F67A3 /* Extracter.swift */; };
+		D585D22D20A45C5700D8DF02 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC854207F316A008F67A3 /* Checker.swift */; };
+		D585D22F20A45C5700D8DF02 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FC848207EFBF5008F67A3 /* MyPoint.swift */; };
+		D585D23020A45C5700D8DF02 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D563A050208ECBE100C7189B /* MyLine.swift */; };
+		D585D23120A45C5700D8DF02 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D21120A05FDD00D8DF02 /* MyTriangle.swift */; };
+		D585D23220A45C5700D8DF02 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D21320A183C700D8DF02 /* MyRect.swift */; };
+		D585D23320A45C5700D8DF02 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D585D20D20A016CE00D8DF02 /* Protocols.swift */; };
+		D585D23420A45C7700D8DF02 /* PointerMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5719A4C2088A4BB007059ED /* PointerMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,10 +66,20 @@
 		D585D20D20A016CE00D8DF02 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		D585D21120A05FDD00D8DF02 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		D585D21320A183C700D8DF02 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
+		D585D21C20A42BF400D8DF02 /* CoordinateCalculatorTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateCalculatorTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D585D21E20A42BF400D8DF02 /* CoordinateCalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculatorTest.swift; sourceTree = "<group>"; };
+		D585D22020A42BF400D8DF02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8377CC4B1F8B6F7E007F7335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D585D21920A42BF400D8DF02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -68,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC501F8B6F7E007F7335 /* CoordinateCalculator */,
+				D585D21D20A42BF400D8DF02 /* CoordinateCalculatorTest */,
 				8377CC4F1F8B6F7E007F7335 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */,
+				D585D21C20A42BF400D8DF02 /* CoordinateCalculatorTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +128,15 @@
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
 		};
+		D585D21D20A42BF400D8DF02 /* CoordinateCalculatorTest */ = {
+			isa = PBXGroup;
+			children = (
+				D585D21E20A42BF400D8DF02 /* CoordinateCalculatorTest.swift */,
+				D585D22020A42BF400D8DF02 /* Info.plist */,
+			);
+			path = CoordinateCalculatorTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,18 +157,39 @@
 			productReference = 8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */;
 			productType = "com.apple.product-type.tool";
 		};
+		D585D21B20A42BF400D8DF02 /* CoordinateCalculatorTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D585D22120A42BF400D8DF02 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorTest" */;
+			buildPhases = (
+				D585D21820A42BF400D8DF02 /* Sources */,
+				D585D21920A42BF400D8DF02 /* Frameworks */,
+				D585D21A20A42BF400D8DF02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoordinateCalculatorTest;
+			productName = CoordinateCalculatorTest;
+			productReference = D585D21C20A42BF400D8DF02 /* CoordinateCalculatorTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		8377CC461F8B6F7E007F7335 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Codesquad Inc.";
 				TargetAttributes = {
 					8377CC4D1F8B6F7E007F7335 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					D585D21B20A42BF400D8DF02 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -150,9 +207,20 @@
 			projectRoot = "";
 			targets = (
 				8377CC4D1F8B6F7E007F7335 /* CoordinateCalculator */,
+				D585D21B20A42BF400D8DF02 /* CoordinateCalculatorTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D585D21A20A42BF400D8DF02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8377CC4A1F8B6F7E007F7335 /* Sources */ = {
@@ -173,6 +241,28 @@
 				D55FC855207F316A008F67A3 /* Checker.swift in Sources */,
 				D55FC84D207F030B008F67A3 /* Regex.swift in Sources */,
 				D585D21420A183C700D8DF02 /* MyRect.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D585D21820A42BF400D8DF02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D585D22620A45C5700D8DF02 /* ANSICode.swift in Sources */,
+				D585D22720A45C5700D8DF02 /* main.swift in Sources */,
+				D585D22820A45C5700D8DF02 /* OutputView.swift in Sources */,
+				D585D22920A45C5700D8DF02 /* InputView.swift in Sources */,
+				D585D22A20A45C5700D8DF02 /* Regex.swift in Sources */,
+				D585D22B20A45C5700D8DF02 /* RegexFormMaker.swift in Sources */,
+				D585D22C20A45C5700D8DF02 /* Extracter.swift in Sources */,
+				D585D22D20A45C5700D8DF02 /* Checker.swift in Sources */,
+				D585D22F20A45C5700D8DF02 /* MyPoint.swift in Sources */,
+				D585D23420A45C7700D8DF02 /* PointerMaker.swift in Sources */,
+				D585D23020A45C5700D8DF02 /* MyLine.swift in Sources */,
+				D585D23120A45C5700D8DF02 /* MyTriangle.swift in Sources */,
+				D585D23220A45C5700D8DF02 /* MyRect.swift in Sources */,
+				D585D23320A45C5700D8DF02 /* Protocols.swift in Sources */,
+				D585D21F20A42BF400D8DF02 /* CoordinateCalculatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +395,36 @@
 			};
 			name = Release;
 		};
+		D585D22220A42BF400D8DF02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3AMK47TW4P;
+				INFOPLIST_FILE = CoordinateCalculatorTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.CoordinateCalculatorTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D585D22320A42BF400D8DF02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3AMK47TW4P;
+				INFOPLIST_FILE = CoordinateCalculatorTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.CoordinateCalculatorTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -322,6 +442,15 @@
 			buildConfigurations = (
 				8377CC561F8B6F7E007F7335 /* Debug */,
 				8377CC571F8B6F7E007F7335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D585D22120A42BF400D8DF02 /* Build configuration list for PBXNativeTarget "CoordinateCalculatorTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D585D22220A42BF400D8DF02 /* Debug */,
+				D585D22320A42BF400D8DF02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
