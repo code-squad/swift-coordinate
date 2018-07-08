@@ -12,45 +12,19 @@ struct InputView {
     let limit = ANSICode.axis.AxisLimit
     let outputView = OutputView.init()
     
-    public func inputFigure() {
-        print("입력 도형을 선택하세요 : (1.Point 2.Line 3.Triangle 4.Rect)")
-        let num = Int(readLine()!) ?? -1
-        inputFigure(num)
-    }
-    
-    public func inputFigure(_ num : Int) {
-        switch num {
-        case 1:
-            inputPoint()
-        case 2:
-            inputLine()
-        case 3:
-            inputTriangle()
-        case 4:
-            inputRect()
-        default:
-            printInputError()
-        }
-    }
-    
-    private func inputPoint() {
+    public func inputPoint() throws -> Figure {
         print("좌표를 입력하세요")
-        let point = parseInput(input: readLine())
-        if(point != nil && point?.count == 1) {
-            outputView.printFigure(figure: point![0])
-        } else {
-            printInputError()
+        guard let point = parseInput(input: readLine() ?? "") else {
+            throw InputError.InvalidFormat
         }
+        if(point.count == 1) {
+            return point[0]
+        }
+        throw InputError.InvalidPointCount(required: 1)
     }
     
     private func inputLine() {
-        print("좌표를 입력하세요")
-        let point = parseInput(input: readLine())
-        if(point != nil && point?.count == 2) {
-            outputView.printFigure(figure: MyFigures.MyLine(p1:point![0], p2:point![1]))
-        } else {
-            printInputError()
-        }
+        
     }
     
     private func inputTriangle() {
@@ -61,30 +35,27 @@ struct InputView {
         
     }
     
-    private func parseInput(input : String?) -> [MyFigures.MyPoint]? {
-        if(input == nil) {
-            return nil
-        }
-        
+    private func parseInput(input : String) -> [MyFigures.MyPoint]? {
         var points = [MyFigures.MyPoint]()
-        let strPoints = input?.split(separator: "-")
-        if(strPoints != nil) {
-            for strPt in strPoints! {
-                let pts = strPt.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
-                let strCoords = pts.split(separator: ",")
-                if(strCoords.count == 2) {
-                    let x = Int(strCoords[0]) ?? -1
-                    let y = Int(strCoords[1]) ?? -1
-                    points.append(MyFigures.MyPoint(x:x, y:y))
-                }
+        let strPoints = input.split(separator: "-")
+        
+        for strPt in strPoints {
+            let pts = strPt.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
+            let strCoords = pts.split(separator: ",")
+            
+            if(strCoords.count == 2) {
+                let x = Int(strCoords[0]) ?? -1
+                let y = Int(strCoords[1]) ?? -1
+                points.append(MyFigures.MyPoint(x:x, y:y))
+            } else {
+                return nil
             }
-            return points
         }
-        return nil
+        return points
     }
     
-    private func printInputError() {
-        print("잘못된 입력값입니다.")
-        inputFigure()
+    enum InputError: Error {
+        case InvalidFormat
+        case InvalidPointCount(required : Int)
     }
 }
