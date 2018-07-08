@@ -12,7 +12,7 @@ func loopMain() {
     repeat {
         OutputView.clear()
         let iv = InputView()
-        iv.inputPoint()
+        iv.inputFigure()
     } while(readLine() != "q")
 }
 
