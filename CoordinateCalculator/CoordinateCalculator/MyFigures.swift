@@ -26,18 +26,23 @@ struct MyFigures {
     
     public struct MyLine : Figure {
         public var description: String {
-            return ""
+            return "두 점 사이 거리는 \(calcDist())"
         }
         
         var p1 = MyPoint(x: 0, y: 0)
         var p2 = MyPoint(x: 0, y: 0)
         
         private func calcDist() -> Float {
-            return Float(0)
+            let diffX = Double(p1.x - p2.x)
+            let diffY = Double(p1.y - p2.y)
+            return Float(sqrt(diffX*diffX + diffY*diffY))
         }
         
         func getPoints() -> [MyFigures.MyPoint] {
-            return [MyPoint]()
+            var points = [MyPoint]()
+            points.append(p1)
+            points.append(p2)
+            return points
         }
     }
     

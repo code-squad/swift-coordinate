@@ -21,7 +21,7 @@ struct OutputView {
         
         print("\(ANSICode.cursor.move(row:AxisLimit + 3, col: 0))")
         if(isValid) {
-            print(figure.getDescription() ?? "")
+            print(figure.description)
         } else {
             print("잘못된 좌표값입니다. (0 ~ \(AxisLimit))")
         }
