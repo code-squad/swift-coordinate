@@ -136,10 +136,60 @@ public struct ANSICode {
             return result
         }
     }
+    struct MyPoint {
+        var x:Int = 0;
+        var y:Int = 0;
+        
+    }
+    struct Points{
+        private static var pArr:[MyPoint] = []
+        static func add(p : MyPoint){
+            pArr.append(p);
+        }
+        static func draw() -> String{
+            var result = "";
+            for point in pArr {
+                result += "\(ANSICode.cursor.move(row:axis.AxisLimit + 1 - point.y, col: point.x * 2 + 3))"
+                result += "@"
+            }
+            return result
+        }
+    }
     struct OutputView{
         static func drawAxis(){
             print("\(ANSICode.clear)\(ANSICode.home)")
             print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+            print("\(ANSICode.text.magentaBright)\(ANSICode.Points.draw())")
+            print("\(ANSICode.text.normal)")
+            print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit+2, col: 1))")
+        }
+    }
+    struct InputView{
+        static func readInput()->Bool{
+            print("좌 표 입 력 : x, y (입력한 좌표들 출력하려면 R)")
+            let input = readLine();
+            if (input?.isEmpty)! {
+                print("입 력 없 음")
+                return false;
+            }else if (input?.lowercased() == "r"){
+                return true;
+            }
+            var parsed = input?.components(separatedBy: ",");
+            if parsed?.count != 2 {
+                print("2 차 원 으 로")
+                return false;
+            }
+            let x = Int(parsed![0].trimmingCharacters(in: .whitespacesAndNewlines));
+            let y = Int(parsed![1].trimmingCharacters(in: .whitespacesAndNewlines));
+            if(x == nil || y == nil){
+                print("정 수 만")
+                return false;
+            }else if(x! > 24 || x! < 0 || y! > 24 || y! < 0){
+                print("0 부 터 24 까 지")
+                return false;
+            }
+            Points.add(p: MyPoint(x: x!, y: y!));
+            return false;
         }
     }
     
