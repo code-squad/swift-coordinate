@@ -8,5 +8,12 @@
 
 import Foundation
 
-print("Hello, World!")
+func loopMain() {
+    repeat {
+        OutputView.clear()
+        let iv = InputView()
+        iv.inputPoint()
+    } while(readLine() != "q")
+}
 
+loopMain()
