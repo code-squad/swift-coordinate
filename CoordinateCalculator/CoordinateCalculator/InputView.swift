@@ -12,7 +12,7 @@ struct InputView {
     let limit = ANSICode.axis.AxisLimit
     let outputView = OutputView.init()
     
-    public func inputFigure() throws -> Figure {
+    public func inputFigure() throws -> Figure? {
         print("좌표를 입력하세요")
         guard let points = parseInput(input: readLine() ?? "") else {
             throw InputError.InvalidFormat
@@ -23,7 +23,11 @@ struct InputView {
         case 2:
             return MyFigures.MyLine(p1:points[0], p2:points[1])
         case 3:
-            return MyFigures.MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+            do {
+                return try MyFigures.MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+            } catch let e {
+                throw e
+            }
         default:
             throw InputError.InvalidPointCount
         }
@@ -51,5 +55,7 @@ struct InputView {
     enum InputError: Error {
         case InvalidFormat
         case InvalidPointCount
+        case InvalidTriangle
+        case InvalidRect
     }
 }

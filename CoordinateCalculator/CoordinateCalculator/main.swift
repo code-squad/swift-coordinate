@@ -16,7 +16,7 @@ func loopMain() {
     repeat {
         do {
             let figure = try iv.inputFigure()
-            ov.printFigure(figure: figure)
+            ov.printFigure(figure: figure!)
             
             if(readLine() == "q") {
                 break
@@ -26,6 +26,8 @@ func loopMain() {
             print("형식에 맞게 입력하세요 : (x,y)-(x,y)...")
         } catch InputView.InputError.InvalidPointCount {
             print("1~4개의 좌표를 입력하세요")
+        } catch InputView.InputError.InvalidTriangle {
+            print("서로 다른 점을 입력하세요")
         } catch {
             print("Input Error")
         }
