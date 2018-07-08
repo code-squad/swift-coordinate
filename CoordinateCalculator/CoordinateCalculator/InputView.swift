@@ -14,9 +14,13 @@ struct InputView {
     
     public func inputPoint() {
         print("좌표를 입력하세요")
-        let point = parseInput(input: readLine())
-        if(point != nil && point?.count == 1) {
-            outputView.printFigure(figure: point![0])
+        
+        guard let point = parseInput(input: readLine()) else {
+            printInputError()
+            return
+        }
+        if(point.count == 1) {
+            outputView.printFigure(figure: point[0])
         } else {
             printInputError()
         }
