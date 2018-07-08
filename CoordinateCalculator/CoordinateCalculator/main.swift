@@ -8,4 +8,9 @@
 
 import Foundation
 
+var read : Bool;
+repeat{
+    read = ANSICode.InputView.readInput()
+}while(read == false)
+
 ANSICode.OutputView.drawAxis();
