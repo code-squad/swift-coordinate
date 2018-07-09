@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyFigures {
-    public struct MyPoint : Figure {
+    public struct MyPoint : Figure, Equatable {
         var x = 0
         var y = 0
         
@@ -21,6 +21,10 @@ struct MyFigures {
         
         public var description: String {
             return ""
+        }
+        
+        public static func ==(lhs: MyFigures.MyPoint, rhs: MyFigures.MyPoint) -> Bool {
+            return lhs.x == rhs.x && lhs.y == rhs.y
         }
     }
     
@@ -88,15 +92,62 @@ struct MyFigures {
         var rightBottom = MyPoint()
         
         init(origin: MyPoint, size: CGSize) {
-            //로직구현
+            leftTop = origin
+            rightBottom = MyPoint(x:origin.x + Int(size.width), y:origin.y - Int(size.height))
+        }
+        
+        static func getRectConfig(points : [MyPoint]) throws -> (MyPoint, CGSize) {
+            var left = Int.max, top = 0
+            
+            var widthSet = Set<Int>()
+            var heightSet = Set<Int>()
+            for i in 0..<points.count {
+                for j in 1..<points.count {
+                    if(i == j) {
+                        continue
+                    }
+                    if(points[i] == points[j]) {
+                        throw InputView.InputError.InvalidRect
+                    }
+                    widthSet.insert(abs(points[i].x - points[j].x))
+                    heightSet.insert(abs(points[i].y - points[j].y))
+                }
+                left = min(points[i].x, left)
+                top = max(points[i].y, top)
+            }
+            
+            guard let width = widthSet.max() else {
+                throw InputView.InputError.InvalidRect
+            }
+            if(!(widthSet.contains(0) && widthSet.count == 2)) {
+                throw InputView.InputError.InvalidRect
+            }
+            
+            guard let height = heightSet.max() else {
+                throw InputView.InputError.InvalidRect
+            }
+            if(!(heightSet.contains(0) && heightSet.count == 2)) {
+                throw InputView.InputError.InvalidRect
+            }
+            
+            return (MyPoint(x:left, y:top), CGSize(width: width, height: height))
         }
         
         func getPoints() -> [MyFigures.MyPoint] {
-            return [MyPoint]()
+            var points = [MyPoint]()
+            points.append(leftTop)
+            points.append(MyPoint(x: rightBottom.x, y: leftTop.y))
+            points.append(rightBottom)
+            points.append(MyPoint(x: leftTop.x, y: rightBottom.y))
+            return points
         }
         
         var description: String {
-            return ""
+            return "사각형 넓이는 \(calcArea())"
+        }
+        
+        private func calcArea() -> Int {
+            return (rightBottom.x - leftTop.x) * (leftTop.y - rightBottom.y)
         }
     }
 }
