@@ -13,7 +13,7 @@ repeat{
     if(inputChecked == InputView.InputType.run){
         break
     }else if(inputChecked != InputView.InputType.OK){
-        print(InputView.ErrStrDict[inputChecked]!)
+        InputView.printErr(errType: inputChecked)
         continue
     }
     let data = InputView.parseInput(input: read!)
