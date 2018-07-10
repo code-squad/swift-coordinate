@@ -22,6 +22,18 @@ public struct InputView{
         InputType.notInt : "정 수 만",
         InputType.outRange : "0 부 터 2 4 까 지"
     ];
+    static func printErr(errType : InputType){
+        var errString = "알 수 없는 에러 : \(errType)";
+        _ = ErrStrDict.contains { (key:InputType, value :String) -> Bool in
+            if(key == errType){
+                errString = ErrStrDict[errType]!
+                return true;
+            }else{
+                return false;
+            }
+        }
+        print(errString);
+    }
     static func readInput()->String?{
         print("좌 표 입 력 : x, y (입력한 좌표들 출력하려면 R)")
         return readLine();
