@@ -7,10 +7,24 @@
 //
 
 import Foundation
-
-var read : Bool;
 repeat{
-    read = ANSICode.InputView.readInput()
-}while(read == false)
+    let read = InputView.readInput()
+    let inputChecked = InputView.checkInput(input: read!);
+    if(inputChecked == InputView.InputType.run){
+        break
+    }else if(inputChecked != InputView.InputType.OK){
+        print(InputView.ErrStrDict[inputChecked]!)
+        continue
+    }
+    let data = InputView.parseInput(input: read!)
+    let dataChecked = InputView.checkData(data: data)
+    if (InputView.InputType.OK != dataChecked){
+        print(InputView.ErrStrDict[dataChecked]!)
+        continue
+    }
+    
+    ANSICode.points.add(p: ANSICode.MyPoint(x: Int(data[0])!, y: Int(data[1])!))
+    
+}while(true)
 
-ANSICode.OutputView.drawAxis();
+OutputView.drawAxis();
