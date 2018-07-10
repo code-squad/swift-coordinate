@@ -9,22 +9,28 @@
 import Foundation
 repeat{
     let read = InputView.readInput()
-    let inputChecked = InputView.checkInput(input: read!);
-    if(inputChecked == InputView.InputType.run){
-        break
-    }else if(inputChecked != InputView.InputType.OK){
-        InputView.printErr(errType: inputChecked)
+    do{
+        try InputView.checkInput(input: read)
+            if read.lowercased() == "r"{
+                break;
+            }
+        let data : [Int]
+        try data = InputView.parseInput(input: read)
+        try InputView.checkData(data: data)
+        ANSICode.points.add(p: ANSICode.MyPoint(x: data[0], y: data[1]))
+    } catch InputView.InputError.empty{
+        InputView.printErr(errType: InputView.InputError.empty)
+        continue
+    } catch InputView.InputError.not2D {
+        InputView.printErr(errType: InputView.InputError.not2D)
+        continue
+    } catch InputView.InputError.notInt{
+        InputView.printErr(errType: InputView.InputError.notInt)
+        continue
+    } catch InputView.InputError.outRange{
+        InputView.printErr(errType: InputView.InputError.outRange)
         continue
     }
-    let data = InputView.parseInput(input: read!)
-    let dataChecked = InputView.checkData(data: data)
-    if (InputView.InputType.OK != dataChecked){
-        print(InputView.ErrStrDict[dataChecked]!)
-        continue
-    }
-    
-    ANSICode.points.add(p: ANSICode.MyPoint(x: Int(data[0])!, y: Int(data[1])!))
-    
 }while(true)
 
 OutputView.drawAxis();
