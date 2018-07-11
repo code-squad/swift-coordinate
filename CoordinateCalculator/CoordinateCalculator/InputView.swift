@@ -15,23 +15,6 @@ public struct InputView{
         }
         print(errString);
     }
-    static func selectMode() -> StaticData.RunMode{
-        print("선택 : \n1. 좌표 입력과 출력 \n2. 직선 입력과 출력")
-        var m : StaticData.RunMode = StaticData.RunMode.none
-        repeat{
-            if let read = readLine(), let i = Int(read){
-                switch i {
-                case 1 :
-                    m = StaticData.RunMode.point
-                case 2:
-                    m = StaticData.RunMode.line
-                default:
-                    print("그런 모드 없음")
-                }
-            }
-        }while(m == StaticData.RunMode.none)
-        return m
-    }
     static func readInput() throws -> String{
         print("좌 표 입 력 : (x1, y1)-(x2, y2)-...-(xn, yn)")
         let read = readLine();
