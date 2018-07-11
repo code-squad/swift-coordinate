@@ -17,12 +17,14 @@ public struct StaticData{
         case not2D
         case notInt
         case outRange
+        case notRectangle
     }
     static let ErrStrDict : [InputError : String] = [
         InputError.empty : "입 력 없 음",
         InputError.not2D : "2 차 원 좌 표 만",
         InputError.notInt : "정 수 만",
-        InputError.outRange : "0 부 터 2 4 까 지"
+        InputError.outRange : "0 부 터 2 4 까 지",
+        InputError.notRectangle : "직 사 각 형 아 님"
     ];
     enum RunMode {
         case none;

@@ -26,6 +26,7 @@ mainloop : repeat{
             OutputView.drawQueue.append(ANSICode.MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
             break
         case 4:
+            try OutputView.drawQueue.append(ANSICode.MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3]))
             break
         default:
             break
@@ -42,6 +43,9 @@ mainloop : repeat{
         continue
     } catch StaticData.InputError.outRange{
         InputView.printErr(errType: StaticData.InputError.outRange)
+        continue
+    } catch StaticData.InputError.notRectangle{
+        InputView.printErr(errType: StaticData.InputError.notRectangle)
         continue
     }
 }while(true)
