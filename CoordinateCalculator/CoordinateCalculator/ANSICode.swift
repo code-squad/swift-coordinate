@@ -136,22 +136,24 @@ public struct ANSICode {
             return result
         }
     }
-    public struct MyPoint {
+    public struct MyPoint : MyDraw {
         var x:Int = 0;
         var y:Int = 0;
-    }
-    struct points{
-        private static var pArr:[MyPoint] = []
-        static func add(p : MyPoint){
-            pArr.append(p);
-        }
-        static func draw() -> String{
-            var result = "";
-            for point in pArr {
-                result += "\(ANSICode.cursor.move(row:axis.AxisLimit + 1 - point.y, col: point.x * 2 + 3))"
-                result += "O"
-            }
-            return result
+        public func draw() -> String {
+            return "\(ANSICode.cursor.move(row:axis.AxisLimit - y + 1, col: x * 2 + 3))@"
         }
     }
+    public struct MyLine : MyDraw {
+        var pointA = MyPoint(x: 0, y: 0)
+        var pointB = MyPoint(x: 0, y: 0)
+        func getLength() -> Double {
+            let deltaX = pointB.x - pointA.x
+            let deltaY = pointB.y - pointA.y
+            return sqrt( Double((deltaX*deltaX) + (deltaY*deltaY)))
+        }
+        public func draw() -> String {
+            return "\(ANSICode.cursor.move(row:axis.AxisLimit + 3, col: 0))두 점 사이의 거리는 \(getLength())"
+        }
+    }
+    
 }

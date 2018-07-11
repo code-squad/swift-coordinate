@@ -7,30 +7,40 @@
 //
 
 import Foundation
-repeat{
-    let read = InputView.readInput()
+mainloop : repeat{
+    let points : [ANSICode.MyPoint], read : String
     do{
-        try InputView.checkInput(input: read)
-            if read.lowercased() == "r"{
-                break;
-            }
-        let data : [Int]
-        try data = InputView.parseInput(input: read)
-        try InputView.checkData(data: data)
-        ANSICode.points.add(p: ANSICode.MyPoint(x: data[0], y: data[1]))
-    } catch InputView.InputError.empty{
-        InputView.printErr(errType: InputView.InputError.empty)
+        try read = InputView.readInput()
+        if read.lowercased() == "q"{
+            break;
+        }
+        try points = InputView.parseInput(input: read)
+        for point in points{
+            OutputView.drawQueue.append(point)
+        }
+        switch points.count{
+        case 2:
+            OutputView.drawQueue.append(ANSICode.MyLine(pointA: points[0], pointB: points[1]))
+            break
+        case 3:
+            break
+        case 4:
+            break
+        default:
+            break
+        }
+        OutputView.drawAxis();
+    } catch StaticData.InputError.empty{
+        InputView.printErr(errType: StaticData.InputError.empty)
         continue
-    } catch InputView.InputError.not2D {
-        InputView.printErr(errType: InputView.InputError.not2D)
+    } catch StaticData.InputError.not2D {
+        InputView.printErr(errType: StaticData.InputError.not2D)
         continue
-    } catch InputView.InputError.notInt{
-        InputView.printErr(errType: InputView.InputError.notInt)
+    } catch StaticData.InputError.notInt{
+        InputView.printErr(errType: StaticData.InputError.notInt)
         continue
-    } catch InputView.InputError.outRange{
-        InputView.printErr(errType: InputView.InputError.outRange)
+    } catch StaticData.InputError.outRange{
+        InputView.printErr(errType: StaticData.InputError.outRange)
         continue
     }
 }while(true)
-
-OutputView.drawAxis();

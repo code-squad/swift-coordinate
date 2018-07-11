@@ -8,64 +8,59 @@
 
 import Foundation
 public struct InputView{
-    enum InputError : Error {
-        case empty;
-        case not2D;
-        case notInt;
-        case outRange;
-    }
-    static let ErrStrDict : [InputError : String] = [
-        InputError.empty : "입 력 없 음",
-        InputError.not2D : "2 차 원 좌 표 만",
-        InputError.notInt : "정 수 만",
-        InputError.outRange : "0 부 터 2 4 까 지"
-    ];
-    static func printErr(errType : InputError){
+    static func printErr(errType : StaticData.InputError){
         var errString = "알 수 없는 에러 : \(errType)";
-        if let errStr = ErrStrDict[errType]{
+        if let errStr = StaticData.ErrStrDict[errType]{
             errString = errStr
         }
         print(errString);
     }
-    static func readInput()->String{
-        print("좌 표 입 력 : x, y (입력한 좌표들 출력하려면 R)")
+    static func selectMode() -> StaticData.RunMode{
+        print("선택 : \n1. 좌표 입력과 출력 \n2. 직선 입력과 출력")
+        var m : StaticData.RunMode = StaticData.RunMode.none
+        repeat{
+            if let read = readLine(), let i = Int(read){
+                switch i {
+                case 1 :
+                    m = StaticData.RunMode.point
+                case 2:
+                    m = StaticData.RunMode.line
+                default:
+                    print("그런 모드 없음")
+                }
+            }
+        }while(m == StaticData.RunMode.none)
+        return m
+    }
+    static func readInput() throws -> String{
+        print("좌 표 입 력 : (x1, y1)-(x2, y2)-...-(xn, yn)")
         let read = readLine();
         if let read = read {
             return read
         }else{
-            return ""
+            throw StaticData.InputError.unknown
         }
     }
-    static func parseInput(input:String) throws -> [Int]{
-        let parsed = input.components(separatedBy: ",");
-        var arr = [Int]();
+    static func parseInput(input:String) throws -> [ANSICode.MyPoint]{
+        guard !input.isEmpty else{
+            throw StaticData.InputError.empty
+        }
+        let parsed = input.components(separatedBy: "-")
+        var points = [ANSICode.MyPoint]()
         for item in parsed {
-            if let n = Int(item.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                arr.append(n)
+            let nums = (item.trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet.init(charactersIn: "()"))).components(separatedBy: ",")
+            guard nums.count == 2 else {
+                throw StaticData.InputError.not2D
+            }
+            if let x = Int(nums[0]), let y = Int(nums[1]) {
+                if(x > 24 || x < 0 || y > 24 || y < 0){
+                    throw StaticData.InputError.outRange
+                }
+                points.append(ANSICode.MyPoint(x: x, y: y))
             }else{
-                throw InputError.notInt
+                throw StaticData.InputError.notInt
             }
         }
-        return arr;
-    }
-    
-    static func checkInput(input:String) throws{
-        if input.isEmpty {
-            throw InputError.empty
-        }
-        return;
-    }
-    
-    static func checkData(data: [Int]) throws{
-        guard data.count == 2 else {
-            throw InputError.not2D
-        }
-        let x = data[0]
-        let y = data[1]
-        
-        if(x > 24 || x < 0 || y > 24 || y < 0){
-            throw InputError.outRange
-        }
-        
+        return points;
     }
 }
