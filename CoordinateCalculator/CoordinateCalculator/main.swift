@@ -23,6 +23,7 @@ mainloop : repeat{
             OutputView.drawQueue.append(ANSICode.MyLine(pointA: points[0], pointB: points[1]))
             break
         case 3:
+            OutputView.drawQueue.append(ANSICode.MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
             break
         case 4:
             break
