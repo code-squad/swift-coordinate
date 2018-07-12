@@ -10,6 +10,10 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		B08A195020F54ADF0012A4E6 /* StaticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A194F20F54ADF0012A4E6 /* StaticData.swift */; };
+		B08A195220F726690012A4E6 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A195120F726690012A4E6 /* MyPoint.swift */; };
+		B08A195420F7267F0012A4E6 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A195320F7267F0012A4E6 /* MyTriangle.swift */; };
+		B08A195620F726D20012A4E6 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A195520F726D20012A4E6 /* MyLine.swift */; };
+		B08A195820F727B40012A4E6 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A195720F727B40012A4E6 /* MyRect.swift */; };
 		B0D5416C20F1D8EC00B7020C /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5416B20F1D8EC00B7020C /* OutputView.swift */; };
 		B0D5416E20F1D90100B7020C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5416D20F1D90100B7020C /* InputView.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +35,10 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		B08A194F20F54ADF0012A4E6 /* StaticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticData.swift; sourceTree = "<group>"; };
+		B08A195120F726690012A4E6 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		B08A195320F7267F0012A4E6 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		B08A195520F726D20012A4E6 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		B08A195720F727B40012A4E6 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		B0D5416B20F1D8EC00B7020C /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		B0D5416D20F1D90100B7020C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +78,10 @@
 				B08A194F20F54ADF0012A4E6 /* StaticData.swift */,
 				B0D5416B20F1D8EC00B7020C /* OutputView.swift */,
 				B0D5416D20F1D90100B7020C /* InputView.swift */,
+				B08A195120F726690012A4E6 /* MyPoint.swift */,
+				B08A195320F7267F0012A4E6 /* MyTriangle.swift */,
+				B08A195520F726D20012A4E6 /* MyLine.swift */,
+				B08A195720F727B40012A4E6 /* MyRect.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -133,8 +145,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				B08A195820F727B40012A4E6 /* MyRect.swift in Sources */,
 				B0D5416E20F1D90100B7020C /* InputView.swift in Sources */,
+				B08A195220F726690012A4E6 /* MyPoint.swift in Sources */,
+				B08A195420F7267F0012A4E6 /* MyTriangle.swift in Sources */,
 				B08A195020F54ADF0012A4E6 /* StaticData.swift in Sources */,
+				B08A195620F726D20012A4E6 /* MyLine.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				B0D5416C20F1D8EC00B7020C /* OutputView.swift in Sources */,
 			);

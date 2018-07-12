@@ -20,12 +20,12 @@ public struct InputView{
         guard let read : String = readLine() else {throw StaticData.InputError.unknown}
         return read
     }
-    static func parseInput(input:String) throws -> [ANSICode.MyPoint]{
+    static func parseInput(input:String) throws -> [MyPoint]{
         guard !input.isEmpty else{
             throw StaticData.InputError.empty
         }
         let parsed = input.components(separatedBy: "-")
-        var points = [ANSICode.MyPoint]()
+        var points = [MyPoint]()
         for item in parsed {
             let nums = (item.trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet.init(charactersIn: "()"))).components(separatedBy: ",")
             guard nums.count == 2 else {
@@ -35,7 +35,7 @@ public struct InputView{
                 if(x > 24 || x < 0 || y > 24 || y < 0){
                     throw StaticData.InputError.outRange
                 }
-                points.append(ANSICode.MyPoint(x: x, y: y))
+                points.append(MyPoint(x: x, y: y))
             }else{
                 throw StaticData.InputError.notInt
             }
