@@ -17,12 +17,8 @@ public struct InputView{
     }
     static func readInput() throws -> String{
         print("좌 표 입 력 : (x1, y1)-(x2, y2)-...-(xn, yn)")
-        let read = readLine();
-        if let read = read {
-            return read
-        }else{
-            throw StaticData.InputError.unknown
-        }
+        guard let read : String = readLine() else {throw StaticData.InputError.unknown}
+        return read
     }
     static func parseInput(input:String) throws -> [ANSICode.MyPoint]{
         guard !input.isEmpty else{
