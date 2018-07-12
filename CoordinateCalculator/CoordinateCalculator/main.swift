@@ -8,7 +8,7 @@
 
 import Foundation
 mainloop : repeat{
-    let points : [ANSICode.MyPoint], read : String
+    let points : [MyPoint], read : String
     do{
         try read = InputView.readInput()
         if read.lowercased() == "q"{
@@ -20,13 +20,13 @@ mainloop : repeat{
         }
         switch points.count{
         case 2:
-            OutputView.drawQueue.append(ANSICode.MyLine(pointA: points[0], pointB: points[1]))
+            OutputView.drawQueue.append(MyLine(pointA: points[0], pointB: points[1]))
             break
         case 3:
-            OutputView.drawQueue.append(ANSICode.MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
+            OutputView.drawQueue.append(MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
             break
         case 4:
-            try OutputView.drawQueue.append(ANSICode.MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3]))
+            try OutputView.drawQueue.append(MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3]))
             break
         default:
             break
