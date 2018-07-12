@@ -7,10 +7,15 @@
 //
 
 import Foundation
-public struct MyRect : MyDraw{
-    var leftTop = MyPoint()
-    var rightBottom = MyPoint()
-    var size = CGSize()
+public struct MyRect{
+    private var leftTop = MyPoint()
+    private var rightBottom = MyPoint()
+    public var size : CGSize {
+        get {return CGSize(width: rightBottom.x - leftTop.x, height: leftTop.y - rightBottom.y)}
+    }
+    public func getCalculatedOrigin(xcal : (Int)->Int, ycal : (Int)->Int) -> (x:Int, y:Int){
+        return (xcal(leftTop.x), ycal(leftTop.y))
+    }
     private func sortPointsByX(points: [MyPoint]) -> [MyPoint]{
         var sorted = [MyPoint]()
         for point in points{
@@ -55,21 +60,14 @@ public struct MyRect : MyDraw{
             leftBottom.y != rightBottom.y {
             throw StaticData.InputError.notRectangle
         }
-        size = CGSize(width: rightBottom.x - leftTop.x, height: leftTop.y - rightBottom.y)
     }
     init(origin: MyPoint, size: CGSize) {
         leftTop = origin
         rightBottom = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y - Int(size.height))
-        self.size = size
     }
-    var measure : Int{
+    public var measure : Int{
         get{
             return Int(size.width) * Int(size.height)
         }
-    }
-    public func draw() -> String {
-        var result = rect.draw(origin: (x: leftTop.x * 2 + 3, y: axis.AxisLimit - leftTop.y + 1), size: (width: Int(size.width)*2, height: Int(size.height)), isFill: true)
-        result += "\(ANSICode.cursor.move(row:axis.AxisLimit + 3, col: 0))사각형의 면적은 \(measure)"
-        return result
     }
 }

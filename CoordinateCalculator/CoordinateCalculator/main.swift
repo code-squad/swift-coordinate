@@ -16,17 +16,18 @@ mainloop : repeat{
         }
         try points = InputView.parseInput(input: read)
         for point in points{
-            OutputView.drawQueue.append(point)
+            OutputView.drawPoint(point: point)
         }
         switch points.count{
         case 2:
-            OutputView.drawQueue.append(MyLine(pointA: points[0], pointB: points[1]))
+            OutputView.drawLine(line: MyLine(pointA: points[0], pointB: points[1]))
             break
         case 3:
-            OutputView.drawQueue.append(MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
+            OutputView.drawTriangle(triangle: MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
             break
         case 4:
-            try OutputView.drawQueue.append(MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3]))
+            let rect = try MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3])
+            OutputView.drawRect(rect: rect)
             break
         default:
             break
