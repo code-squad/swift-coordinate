@@ -33,20 +33,9 @@ mainloop : repeat{
             break
         }
         OutputView.drawAxis();
-    } catch StaticData.InputError.empty{
-        InputView.printErr(errType: StaticData.InputError.empty)
-        continue
-    } catch StaticData.InputError.not2D {
-        InputView.printErr(errType: StaticData.InputError.not2D)
-        continue
-    } catch StaticData.InputError.notInt{
-        InputView.printErr(errType: StaticData.InputError.notInt)
-        continue
-    } catch StaticData.InputError.outRange{
-        InputView.printErr(errType: StaticData.InputError.outRange)
-        continue
-    } catch StaticData.InputError.notRectangle{
-        InputView.printErr(errType: StaticData.InputError.notRectangle)
+    }catch {
+        InputView.printErr(errType: error as! StaticData.InputError)
+        OutputView.clear()
         continue
     }
 }while(true)
