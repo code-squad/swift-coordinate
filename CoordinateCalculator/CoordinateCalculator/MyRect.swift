@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct MyRect{
+public struct MyRect: MyShape{
     private var leftTop = MyPoint()
     private var rightBottom = MyPoint()
     public var size : CGSize {

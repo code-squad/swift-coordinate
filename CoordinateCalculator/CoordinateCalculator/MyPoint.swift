@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct MyPoint {
+public struct MyPoint: MyShape {
     public var x:Int = 0;
     public var y:Int = 0;
 }
