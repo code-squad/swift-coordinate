@@ -18,23 +18,25 @@ mainloop : repeat{
         for point in points{
             OutputView.drawPoint(point: point)
         }
+        let shape : MyShape?
         switch points.count{
         case 2:
-            OutputView.drawLine(line: MyLine(pointA: points[0], pointB: points[1]))
+            (shape = MyLine(pointA: points[0], pointB: points[1]))
             break
         case 3:
-            OutputView.drawTriangle(triangle: MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
+            (shape = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2]))
             break
         case 4:
-            let rect = try MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3])
-            OutputView.drawRect(rect: rect)
+            (shape = try MyRect(pointA: points[0], pointB: points[1], pointC: points[2], PointD: points[3]))
             break
         default:
+            shape = nil
             break
         }
+        if let shape = shape {(OutputView.drawShape(shape: shape))}
         OutputView.drawAxis();
-    }catch {
-        InputView.printErr(errType: error as! StaticData.InputError)
+    }catch let error as StaticData.InputError {
+        InputView.printErr(errType: error)
         OutputView.clear()
         continue
     }

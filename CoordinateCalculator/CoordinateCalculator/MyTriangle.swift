@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct MyTriangle{
+public struct MyTriangle: MyShape{
     private var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct MyLine {
+public struct MyLine: MyShape {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     public init(pointA : MyPoint, pointB : MyPoint){
