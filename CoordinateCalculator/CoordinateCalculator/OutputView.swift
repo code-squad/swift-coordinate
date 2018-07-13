@@ -18,15 +18,23 @@ public struct OutputView{
     public static func drawPoint(point : MyPoint){
         drawQueue.append("\(moveCursor(row: 1 - point.y, col: point.x * 2 + 3))@");
     }
-    public static func drawLine(line : MyLine){
-        drawQueue.append("\(moveCursor(row: 3, col: 0))두 점 사이의 거리는 \(line.length)")
-    }
-    public static func drawTriangle(triangle : MyTriangle){
-        drawQueue.append("\(moveCursor(row: 3, col: 0))삼각형의 면적은 \(triangle.measure)")
-    }
-    public static func drawRect(rect : MyRect){
-        drawQueue.append(ANSICode.rect.draw(origin: rect.getCalculatedOrigin(xcal: {$0 * 2 + 3}, ycal: {ANSICode.axis.AxisLimit - $0 + 1}), size: (width: Int(rect.size.width)*2, height: Int(rect.size.height)), isFill: true))
-        drawQueue.append("\(moveCursor(row: 3, col: 0))사각형의 면적은 \(rect.measure)")
+    public static func drawShape(shape : MyShape){
+        var res = "\(moveCursor(row: 3, col: 0))"
+        switch shape {
+        case let line as MyLine:
+            res += "두 점 사이의 거리는 \(line.length)"
+            break
+        case let triangle as MyTriangle:
+            res += "삼각형의 면적은 \(triangle.measure)"
+            break
+        case let rect as MyRect:
+            drawQueue.append(ANSICode.rect.draw(origin: rect.getCalculatedOrigin(xcal: {$0 * 2 + 3}, ycal: {ANSICode.axis.AxisLimit - $0 + 1}), size: (width: Int(rect.size.width)*2, height: Int(rect.size.height)), isFill: true))
+            res += "사각형의 면적은 \(rect.measure)"
+            break
+        default:
+            break
+        }
+        drawQueue.append(res);
     }
     public static func clear(){
         self.drawQueue.removeAll()
