@@ -7,8 +7,7 @@
 //
 
 import Foundation
-public protocol MyDraw {
-    func draw() -> String   
+public protocol MyShape {
 }
 public struct StaticData{
     enum InputError : Error {
