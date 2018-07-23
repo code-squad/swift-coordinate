@@ -12,25 +12,27 @@ struct InputView {
     static func read() -> MyPoint? {
         print("좌표를 입력하세요.")
         guard let input = readLine() else { return nil }
-        let parsed = parse(input)
-        if !isValidCoordinate(parsed) {
+        guard let validCoordinate = generateValidCoordinate(parse(input)) else {
             print("올바르지 않은 값의 형식입니다.")
             return nil
         }
-        return MyPoint(x: parsed[0], y: parsed[1])
+        return MyPoint(x: validCoordinate.x, y: validCoordinate.y)
     }
-    static private func parse(_ input:String) -> [String] { // only parsing
+    static private func parse(_ input:String) -> (x: String?, y: String?) { // only parsing
         var data = input
         data = data.replacingOccurrences(of: "(", with: "") // remove "("
         data = data.replacingOccurrences(of: ")", with: "") // remove ")"
-        return data.split(separator: ",").map {String($0)} // split + [String]
+        let splited = data.split(separator: ",").map {String($0)}
+        return splited.count == 2 ? (splited[0], splited[1]) : (nil, nil)
     }
     
-    static private func isValidCoordinate(_ coordinates: [String]) -> Bool { // check is valid coordinates
-        return !coordinates.map(isContainDigit).contains(false)
+    static private func generateValidCoordinate(_ coordinates: (x: String?, y: String?)) -> (x: String, y:String)?{ // check is valid coordinates
+        guard let x = coordinates.x else { return nil }
+        guard let y = coordinates.y else { return nil }
+        return isContainOnlyDigit(x) && isContainOnlyDigit(y) ? (x,y) : nil
     }
     
-    static private func isContainDigit(_ data: String) -> Bool { // check is contain non-digit characters
+    static private func isContainOnlyDigit(_ data: String) -> Bool { // check is contain non-digit characters
         let withoutNegative = data.replacingOccurrences(of: "-", with: "") // if "-4" -> "4"
         let digitCharacterSet = CharacterSet(charactersIn: "0123456789")
         return CharacterSet(charactersIn: withoutNegative).isSubset(of: digitCharacterSet)
