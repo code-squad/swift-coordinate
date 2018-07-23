@@ -12,13 +12,13 @@ struct InputView {
     static func read() -> MyPoint? {
         print("좌표를 입력하세요.")
         guard let input = readLine() else { return nil }
-        guard let validCoordinate = generateValidCoordinate(parse(input)) else {
+        guard let validCoordinate = generateValidCoordinate(parse(input: input)) else {
             print("올바르지 않은 값의 형식입니다.")
             return nil
         }
         return MyPoint(x: validCoordinate.x, y: validCoordinate.y)
     }
-    static private func parse(_ input:String) -> (x: String?, y: String?) { // only parsing
+    static private func parse(input:String) -> (x: String?, y: String?) { // only parsing
         var data = input
         data = data.replacingOccurrences(of: "(", with: "") // remove "("
         data = data.replacingOccurrences(of: ")", with: "") // remove ")"
@@ -26,7 +26,7 @@ struct InputView {
         return splited.count == 2 ? (splited[0], splited[1]) : (nil, nil)
     }
     
-    static private func generateValidCoordinate(_ coordinates: (x: String?, y: String?)) -> (x: String, y:String)?{ // check is valid coordinates
+    static private func generateValidCoordinate(_ coordinates: (x: String?, y: String?)) -> (x: String, y:String)? { // check is valid coordinates
         guard let x = coordinates.x else { return nil }
         guard let y = coordinates.y else { return nil }
         return isContainOnlyDigit(x) && isContainOnlyDigit(y) ? (x,y) : nil
