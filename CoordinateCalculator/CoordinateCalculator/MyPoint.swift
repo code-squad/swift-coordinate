@@ -25,4 +25,11 @@ struct MyPoint {
         guard let y = Int(y) else { return nil }
         self.init(x: x, y: y)
     }
+    
+    func draw() -> String {
+        var result = ""
+        result += ANSICode.cursor.move(row: 25-y, col: x*2 + 3)
+        result += "•"
+        return result
+    }
 }
