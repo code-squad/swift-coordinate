@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    static func read()->MyPoint? {
+    static func read() -> MyPoint? {
         print("좌표를 입력하세요.")
         guard let input = readLine() else { return nil }
         let parsed = parse(input)
@@ -19,8 +19,7 @@ struct InputView {
         }
         return MyPoint(x: parsed[0], y: parsed[1])
     }
-    
-    static private func parse(_ input:String) -> [String]{ // only parsing
+    static private func parse(_ input:String) -> [String] { // only parsing
         var data = input
         data = data.replacingOccurrences(of: "(", with: "") // remove "("
         data = data.replacingOccurrences(of: ")", with: "") // remove ")"
@@ -36,4 +35,5 @@ struct InputView {
         let digitCharacterSet = CharacterSet(charactersIn: "0123456789")
         return CharacterSet(charactersIn: withoutNegative).isSubset(of: digitCharacterSet)
     }
+    
 }
