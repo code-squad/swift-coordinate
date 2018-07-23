@@ -8,9 +8,15 @@
 
 import Foundation
 
-while true {
-    guard let point = InputView.read() else { continue }
-    let myPoint:MyPoint = point
-    OutputView.drawAxis(with: myPoint)
-    break
+struct Main {
+    static func start(){
+        while true {
+            guard let point = InputView.read() else { continue }
+            let myPoint:MyPoint = point
+            OutputView.drawAxis(with: myPoint)
+            break
+        }
+    }
 }
+
+Main.start()
