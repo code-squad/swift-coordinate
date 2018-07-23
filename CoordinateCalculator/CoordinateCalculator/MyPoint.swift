@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint {
-    var x: Int = 0
-    var y: Int = 0
+    private (set) var x: Int = 0
+    private (set) var y: Int = 0
     init?(x: Int, y: Int) {
         if x > 24 || y > 24 {
             print("좌표 값의 최대 값은 24입니다.")
