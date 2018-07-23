@@ -9,7 +9,15 @@
 import Foundation
 
 struct OutputView {
-    static func drawAxis(){
+    
+    private static func clear(){
+        print("\(ANSICode.clear)\(ANSICode.home)")
+    }
+    
+    static func drawAxis(with point: MyPoint) {
+        clear()
+        print("\(ANSICode.text.redBright)")
+        print("\(ANSICode.axis.drawPoint(point))")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
 }

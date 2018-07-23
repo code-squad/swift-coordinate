@@ -98,11 +98,18 @@ public struct ANSICode {
             return result
         }
         
+        static func drawPoint(_ point: MyPoint)-> String {
+            var result = ""
+            result += cursor.move(row: 25-point.y, col: (point.x)*2 + 3)
+            result += "•"
+            return result
+        }
+        
         static func draw() -> String {
             let result = drawX() + drawY()
             return result
         }
-}
+    }
     
     struct rect {
         static func draw(origin : (x:Int,y:Int), size : (width:Int,height:Int), isFill : Bool) -> String {

@@ -8,4 +8,9 @@
 
 import Foundation
 
-OutputView.drawAxis()
+while true {
+    guard let point = InputView.read() else { continue }
+    let myPoint:MyPoint = point
+    OutputView.drawAxis(with: myPoint)
+    break
+}
