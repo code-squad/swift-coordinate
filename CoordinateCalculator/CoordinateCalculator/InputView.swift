@@ -8,53 +8,58 @@
 
 import Foundation
 
+typealias PointTuple = (x: Int, y: Int)
+
 struct InputView {
     
     struct Validation {
-        private let target: String
+        private let target: [String]
         
         init(target: String) {
-            self.target = target
+            self.target = target.split(separator: "-").map {String($0)}
         }
         
-        func makeValidPoint()-> MyPoint? {
-            if !isValidCoordinateFormat() { return nil }
+        func makePoints()-> [MyPoint]? {
+            if !isValidFormat() { return nil }
             let parsed = parse()
-            guard let x = isContainOnlyDigit(parsed.x), let y = isContainOnlyDigit(parsed.y) else { return nil }
-            return MyPoint(x: x, y: y)
+            if parsed.contains(where : {$0 == nil}) { return nil }
+            return parsed.compactMap{$0}.map {MyPoint(x: $0.x, y: $0.y)}
         }
         
-        private func isValidCoordinateFormat() -> Bool {
-            if target.first != "(" || target.last != ")" || !target.contains(",") {
-                print("올바르지 않은 입력 형식입니다.")
-                return false
-            }
-            return true
+        private func isValidFormat() -> Bool {
+            let validations = target.map(isValidPointFormat)
+            return validations.contains(false) ? false : true
         }
         
-        private func parse() -> (x: String?, y: String?) { // only parsing
-            var data = target
-            data = data.replacingOccurrences(of: "(", with: "")
-            data = data.replacingOccurrences(of: ")", with: "")
-            let splited = data.split(separator: ",").map { String($0) }
-            return splited.count == 2 ? (splited[0], splited[1]) : (nil, nil)
+        private func isValidPointFormat(_ rawValue: String) -> Bool { // (~,~) format
+            return rawValue.first != "(" || rawValue.last != ")" || !rawValue.contains(",") ? false : true
+        }
+    
+        private func parse() -> [PointTuple?] {
+            return target.map(parsePoint)
         }
         
-        private func isContainOnlyDigit(_ element: String?) -> String? {
-            guard let element = element else { return nil }
-            let digitCharacterSet = CharacterSet(charactersIn: "0123456789")
-            if CharacterSet(charactersIn: element).isSubset(of: digitCharacterSet) {
-                return element
-            }
-            print("숫자만 입력해주세요.")
-            return nil
+        private func parsePoint(from rawValue: String) -> PointTuple? {
+            var chunk = rawValue
+            chunk = chunk.replacingOccurrences(of: "(", with: "")
+            chunk = chunk.replacingOccurrences(of: ")", with: "")
+            let splited = chunk.split(separator: ",").map {String($0)}
+            return makePointTuple(from: splited)
+        }
+        
+        private func makePointTuple(from elements: [String]) -> PointTuple? {
+            if elements.count != 2 { return nil }
+            guard let x = Int(elements[0]) else { return nil }
+            guard let y = Int(elements[1]) else { return nil }
+            if x > 24 || y > 24 || x < 0 || y < 0 { return nil }
+            return (x,y)
         }
     }
     
-    static func read() -> MyPoint? {
+    static func read() -> [MyPoint]? {
         print("좌표를 입력하세요.")
         guard let input = readLine() else { return nil }
-        guard let myPoint = Validation(target: input).makeValidPoint() else { return nil }
-        return myPoint
+        guard let points = Validation(target: input).makePoints() else { return nil }
+        return points
     }
 }
