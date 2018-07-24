@@ -54,14 +54,14 @@ struct InputView {
          2. 단위 변환하기
          3. 입력 범위 확인하기
          */
-        let dividedNumber = extractCoordinate(elements: input)
-        let convertedNumber = convertUnit(from: dividedNumber)
-        let checkValue = checkInputRange(elements: convertedNumber)
-        var result = Array<Int>()
+        let dividedNumbers = extractCoordinate(elements: input)
+        let convertedNumbers = convertUnit(from: dividedNumbers)
+        let checkValue = checkInputRange(elements: convertedNumbers)
+        var results = Array<Int>()
         if checkValue {
-            result = convertedNumber
+            results = convertedNumbers
         }
-        return result
+        return results
     }
     
 }
