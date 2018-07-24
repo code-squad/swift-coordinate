@@ -12,6 +12,15 @@ struct MyPoint {
     private (set) var x: Int = 0
     private (set) var y: Int = 0
     
+    var drawForm: MyPoint {
+        return MyPoint(x: 2*x + 3, y: 25 - y)
+    }
+    
+    private init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
     init?(x: String, y: String) {
         guard let x = Int(x) else { return nil }
         guard let y = Int(y) else { return nil }
@@ -20,15 +29,6 @@ struct MyPoint {
             print("좌표 값의 최대 값은 24입니다.")
             return nil
         }
-        
-        self.x = x
-        self.y = y
-    }
-    
-    func draw() -> String {
-        var result = ""
-        result += ANSICode.cursor.move(row: 25-y, col: x*2 + 3)
-        result += "•"
-        return result
+        self.init(x: x, y: y)
     }
 }
