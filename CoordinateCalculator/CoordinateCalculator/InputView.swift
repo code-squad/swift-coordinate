@@ -21,6 +21,7 @@ struct InputView {
     
     static private func isValidCoordinateFormat(_ format: String) -> Bool {
         if format.first != "(" || format.last != "(" || !format.contains(",") {
+            print("올바르지 않은 입력 형식입니다.")
             return false
         }
         return true
@@ -39,6 +40,10 @@ struct InputView {
         guard let data = data else { return nil }
         let withoutNegative = data.replacingOccurrences(of: "-", with: "") // if "-4" -> "4"
         let digitCharacterSet = CharacterSet(charactersIn: "0123456789")
-        return CharacterSet(charactersIn: withoutNegative).isSubset(of: digitCharacterSet) ? data : nil
+        if CharacterSet(charactersIn: withoutNegative).isSubset(of: digitCharacterSet) {
+            return data
+        }
+        print("숫자만 입력해주세요.")
+        return nil
     }
 }
