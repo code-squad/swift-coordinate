@@ -13,7 +13,7 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    static func drawPoints(_ points: [MyPoint]) -> String {
+    private static func drawPoints(_ points: [MyPoint]) -> String {
         var result = ""
         points.forEach {
             result += ANSICode.cursor.move(row: $0.row, col: $0.col)
@@ -23,7 +23,7 @@ struct OutputView {
         return result
     }
     
-    static func displayShapeValue(_ shape: MyLine) -> String {
+    private static func displayShapeValue(_ shape: MyLine) -> String {
         var result = ""
         result += ANSICode.cursor.move(row: 0, col: -2)
         result += "두 점 사이의 거리는 \(shape.distance)"
