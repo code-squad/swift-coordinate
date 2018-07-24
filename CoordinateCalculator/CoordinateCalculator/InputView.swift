@@ -42,9 +42,8 @@ struct InputView {
         
         private func isContainOnlyDigit(_ element: String?) -> String? {
             guard let element = element else { return nil }
-            let withoutNegative = element.replacingOccurrences(of: "-", with: "") // if "-4" -> "4"
             let digitCharacterSet = CharacterSet(charactersIn: "0123456789")
-            if CharacterSet(charactersIn: withoutNegative).isSubset(of: digitCharacterSet) {
+            if CharacterSet(charactersIn: element).isSubset(of: digitCharacterSet) {
                 return element
             }
             print("숫자만 입력해주세요.")
