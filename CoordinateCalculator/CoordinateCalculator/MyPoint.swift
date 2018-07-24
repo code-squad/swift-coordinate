@@ -29,8 +29,8 @@ struct MyPoint {
         guard let x = Int(x) else { return nil }
         guard let y = Int(y) else { return nil }
         
-        if x > 24 || y > 24 {
-            print("좌표 값의 최대 값은 24입니다.")
+        if x > 24 || y > 24 || x < 0 || y < 0 {
+            print("좌표 값의 최대 값의 범위는 0부터 24까지 입니다.")
             return nil
         }
         self.init(x: x, y: y)
