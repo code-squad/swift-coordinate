@@ -29,10 +29,9 @@ struct InputView {
     
     static private func parse(input:String) -> (x: String?, y: String?) { // only parsing
         var data = input
-        // "(" , ")" 제거 - 앞뒤에 있다는 것이 증명이 되었으니
-        data.remove(at: data.startIndex)
-        data.remove(at: data.endIndex)
-        let splited = data.split(separator: ",").map {String($0)}
+        data = data.replacingOccurrences(of: "(", with: "")
+        data = data.replacingOccurrences(of: ")", with: "")
+        let splited = data.split(separator: ",").map { String($0) }
         return splited.count == 2 ? (splited[0], splited[1]) : (nil, nil)
     }
     
