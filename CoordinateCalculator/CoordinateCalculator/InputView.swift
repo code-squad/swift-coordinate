@@ -9,7 +9,6 @@
 import Foundation
 
 struct InputView {
-    
     // 입력값을 x,y 좌표로 나누기
     private static func extractCoordinate(elements: String?) -> Array<String> {
         guard var element = elements else { return Array<String>() }
@@ -52,12 +51,11 @@ struct InputView {
         
         let checkX:Bool = check(element: valueX)
         let checkY:Bool = check(element: valueY)
-        
+        var result:Bool = false
         if checkX && checkY {
-            return true
-        }else{
-            return false
+            result = true
         }
+        return result
     }
     
     // 입력값 받는 함수
