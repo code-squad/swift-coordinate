@@ -9,6 +9,22 @@
 import Foundation
 
 struct MyPoint {
-    var x = 0
-    var y = 0
+    private var x:Int
+    private var y:Int
+    
+    public var valueX:Int {
+        get {
+            return x
+        }
+    }
+    public var valueY:Int {
+        get {
+            return y
+        }
+    }
+    
+    init(x: Int, y:Int) {
+        self.x = x
+        self.y = y
+    }
 }
