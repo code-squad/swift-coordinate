@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint {
-    private var x: Int = 0
-    private var y: Int = 0
+    private (set) var x: Int = 0
+    private (set) var y: Int = 0
     
     var col: Int {
         return 2 * x + 3
@@ -20,19 +20,8 @@ struct MyPoint {
         return 25 - y
     }
     
-    private init(x: Int, y: Int) {
+    init(x: Int, y: Int) {
         self.x = x
         self.y = y
-    }
-    
-    init?(x: String, y: String) {
-        guard let x = Int(x) else { return nil }
-        guard let y = Int(y) else { return nil }
-        
-        if x > 24 || y > 24 || x < 0 || y < 0 {
-            print("좌표 값의 최대 값의 범위는 0부터 24까지 입니다.")
-            return nil
-        }
-        self.init(x: x, y: y)
     }
 }
