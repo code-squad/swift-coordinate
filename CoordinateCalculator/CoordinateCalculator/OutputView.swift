@@ -13,16 +13,31 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    static func makeDrawablePoint(_ point: MyPoint) -> String {
+    static func drawPoints(_ points: [MyPoint]) -> String {
         var result = ""
-        result += ANSICode.cursor.move(row: point.row, col: point.col)
-        result += "•"
+        points.forEach {
+            result += ANSICode.cursor.move(row: $0.row, col: $0.col)
+            result += "•"
+        }
+        print(result)
         return result
     }
     
-    static func drawAxis(with point: MyPoint) {
+    static func displayShapeValue(_ shape: MyLine) -> String {
+        var result = ""
+        result += ANSICode.cursor.move(row: 0, col: -2)
+        result += "두 점 사이의 거리는 \(shape.distance)"
+        return result
+    }
+    
+    static func drawAxis(with points: [MyPoint]) {
         clear()
-        print("\(ANSICode.text.redBright)\(makeDrawablePoint(point))")
+        print("\(ANSICode.text.redBright)\(drawPoints(points))")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+    
+    static func drawAxis(with line: MyLine) {
+        drawAxis(with: line.displayablePoint)
+        print("\(displayShapeValue(line))")
     }
 }
