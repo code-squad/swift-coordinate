@@ -9,7 +9,13 @@
 import Foundation
 
 func main() {
-    let coordinate:Array<Int> = InputView.readInput()
+    print("좌표를 입력하세요.")
+    let input:String? = readLine()
+    guard let inputValue = input else {
+        print("입력값이 비어 있습니다. 다시 입력하세요.")
+        return main()
+    }
+    let coordinate:Array<Int> = InputView.readInput(input: inputValue)
     guard let valueX = coordinate.first , let valueY = coordinate.last else {
         print("입력값을 다시 입력하세요.")
         return main()

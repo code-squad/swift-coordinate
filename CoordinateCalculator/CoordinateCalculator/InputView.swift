@@ -58,16 +58,12 @@ struct InputView {
     }
     
     // 입력값 받는 함수
-    public static func readInput() -> Array<Int> {
+    public static func readInput(input:String) -> Array<Int> {
         /*
          1. 입력값 x,y 로 나누기
          2. 단위 변환하기
          3. 입력 범위 확인하기
          */
-        
-        print("좌표를 입력하세요.")
-        let input:String? = readLine()
-        
         let dividedNumber:Array<String> = extractCoordinate(elements: input)
         let convertedNumber:Array<Int> = convertUnit(from: dividedNumber)
         let checkValue:Bool = checkInputRange(elements: convertedNumber)
