@@ -9,11 +9,15 @@
 import Foundation
 
 struct MyPoint {
-    private (set) var x: Int = 0
-    private (set) var y: Int = 0
+    private var x: Int = 0
+    private var y: Int = 0
     
-    var drawForm: MyPoint {
-        return MyPoint(x: 2*x + 3, y: 25 - y)
+    var col: Int {
+        return 2 * x + 3
+    }
+    
+    var row: Int {
+        return 25 - y
     }
     
     private init(x: Int, y: Int) {

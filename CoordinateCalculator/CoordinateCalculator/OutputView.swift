@@ -15,7 +15,7 @@ struct OutputView {
     
     static func makeDrawablePoint(_ point: MyPoint) -> String {
         var result = ""
-        result += ANSICode.cursor.move(row: point.y, col: point.x)
+        result += ANSICode.cursor.move(row: point.row, col: point.col)
         result += "•"
         return result
     }
