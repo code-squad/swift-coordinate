@@ -15,7 +15,6 @@ func main() {
         return main()
     }
     let point:MyPoint = MyPoint.init(x: valueX, y: valueY)
-    
     // 좌표 기본 그리기
     OutputView.drawAxis()
     // 좌표 표시하기
