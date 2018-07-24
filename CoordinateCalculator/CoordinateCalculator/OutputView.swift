@@ -24,12 +24,8 @@ struct OutputView {
     }
     
     public static func printCoordinate(point:MyPoint) {
-//        guard let valueX:Int = point.x else { return }
-//        guard let valueY:Int = point.y else { return }
-        let valueX:Int = point.x
-        let valueY:Int = point.y
-        print("valueX : \(valueX)")
-        print("valueY : \(valueY)")
+        let valueX:Int = point.valueX
+        let valueY:Int = point.valueY
         print("\(ANSICode.cursor.move(row:25 - valueX, col: valueY * 2 + 3))\(ANSICode.text.redBright)&")
         print("\(ANSICode.cursor.move(row:26, col: 26))")
         initTextColor()

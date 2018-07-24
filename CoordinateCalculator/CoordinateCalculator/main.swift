@@ -20,7 +20,8 @@ func main() {
         print("입력값을 다시 입력하세요.")
         return main()
     }
-    let point:MyPoint = MyPoint.init(x: valueX, y: valueY)
+    let point = MyPoint.init(x: valueX, y: valueY)
+    
     // 좌표 기본 그리기
     OutputView.drawAxis()
     // 좌표 표시하기

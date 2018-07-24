@@ -35,23 +35,13 @@ struct InputView {
         return result
     }
     
-    private static func check(element:Int) -> Bool {
-        var result:Bool = false
-        if element >= 1 && element <= 24 {
-            result = true
-        }
-        return result
-    }
-    
     // 입력 범위 확인하는 함수
     private static func checkInputRange(elements: Array<Int>) -> Bool {
         guard let valueX = elements.first else { return false }
         guard let valueY = elements.last else { return false }
         
-        let checkX:Bool = check(element: valueX)
-        let checkY:Bool = check(element: valueY)
-        var result:Bool = false
-        if checkX && checkY {
+        var result = false
+        if valueX >= 1 && valueX <= 24 && valueY >= 1 && valueY <= 24 {
             result = true
         }
         return result
@@ -64,10 +54,10 @@ struct InputView {
          2. 단위 변환하기
          3. 입력 범위 확인하기
          */
-        let dividedNumber:Array<String> = extractCoordinate(elements: input)
-        let convertedNumber:Array<Int> = convertUnit(from: dividedNumber)
-        let checkValue:Bool = checkInputRange(elements: convertedNumber)
-        var result:Array<Int> = Array<Int>()
+        let dividedNumber = extractCoordinate(elements: input)
+        let convertedNumber = convertUnit(from: dividedNumber)
+        let checkValue = checkInputRange(elements: convertedNumber)
+        var result = Array<Int>()
         if checkValue {
             result = convertedNumber
         }
