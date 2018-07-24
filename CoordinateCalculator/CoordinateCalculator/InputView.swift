@@ -16,7 +16,6 @@ struct InputView {
         element.removeFirst()
         element.removeLast()
         let coordinate:Array<String> = element.components(separatedBy: ",")
-        
         return coordinate
     }
     
@@ -78,4 +77,5 @@ struct InputView {
         }
         return result
     }
+    
 }
