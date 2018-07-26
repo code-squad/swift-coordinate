@@ -11,35 +11,48 @@ import Foundation
 struct InputView {
     // 입력값을 x,y 좌표로 나누기
     private static func extractCoordinate(elements: String?) -> Array<String> {
-        guard var element = elements else { return Array<String>() }
+        var coordinates = Array<String>()
+        guard var element = elements else { return coordinates }
         if element.count < 1 {
-            return Array<String>()
+            return coordinates
         }
         // init : (x,y)
         element.removeFirst()
         element.removeLast()
-        
-        let coordinates = element.components(separatedBy: ",")
+        coordinates = element.components(separatedBy: ",")
         return coordinates
     }
     
     // 단위 변환하기
-    private static func convertUnit(from:Array<String>) -> MyPoint {
-        guard let stringValueX = from.first else { return MyPoint.init(x: 0, y: 0) }
-        guard let stringValueY = from.last else { return MyPoint.init(x: 0, y: 0) }
+    private static func changePointValue(from:Array<String>) -> MyPoint {
+        var myPoint = MyPoint.init(x: 0, y: 0)
+        guard let stringValueX = from.first else { return myPoint }
+        guard let stringValueY = from.last else { return myPoint }
         
         let valueX:Int? = Int(stringValueX)
         let valueY:Int? = Int(stringValueY)
         if let x = valueX ,let y = valueY {
-            return MyPoint.init(x: x, y: y)
+            myPoint.valueX = x
+            myPoint.valueY = y
+            return myPoint
         }
-        return MyPoint.init(x: 0, y: 0)
+        return myPoint
     }
     
     // 입력 범위 확인하는 함수
     private static func checkInputRange(elements: MyPoint) -> Bool {
         let valueX = elements.valueX
         let valueY = elements.valueY
+        
+        var result = false
+        if valueX >= 1 && valueX <= 24 && valueY >= 1 && valueY <= 24 {
+            result = true
+        }
+        return result
+    }
+    private static func checkInputRange2(x:Int? , y:Int?) -> Bool? {
+        guard let valueX = x else { return nil }
+        guard let valueY = y else { return nil }
         
         var result = false
         if valueX >= 1 && valueX <= 24 && valueY >= 1 && valueY <= 24 {
@@ -73,15 +86,15 @@ struct InputView {
              3. 입력 범위 확인하기
              */
             let dividedNumbers = extractCoordinate(elements: element)
-            let convertedNumbers = convertUnit(from: dividedNumbers)
-            let checkValue = checkInputRange(elements: convertedNumbers)
+            let pointValues = changePointValue(from: dividedNumbers)
+            let checkValue = checkInputRange(elements: pointValues)
             // 범위를 초과하는 경우 : results값을 비워주고 빈값을 리턴하여 main.swift 에서 다시 처음부터 시작합니다.
             guard checkValue else {
                 results.removeAll()
                 print("좌표값 범위를 초과하였습니다. 다시 입력해주세요.")
                 return results
             }
-            results.append(convertedNumbers)
+            results.append(pointValues)
         }
         return results
     }
