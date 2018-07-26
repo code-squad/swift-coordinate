@@ -27,4 +27,17 @@ struct MyLine {
         self.pointA = pointA
         self.pointB = pointB
     }
+    
+    private func convertSquare(number:Int) -> Double {
+        return Double(number * number)
+    }
+    
+    public func distance() -> Double {
+        // 두 점 사이 거리는 제곱근((A.x - B.x)^제곱 + (A.y - B.y)^제곱) 공식으로 계산할 수 있다.
+        // (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y)
+        let valueX = convertSquare(number: self.pointA.valueX - self.pointB.valueX)
+        let valueY = convertSquare(number: self.pointA.valueY - self.pointB.valueY)
+        let distanceOfPoint = sqrt(Double(valueX + valueY))
+        return distanceOfPoint
+    }
 }
