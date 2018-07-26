@@ -8,20 +8,18 @@
 
 import Foundation
 
-struct MyLine{
-    private var pointA: MyPoint
-    private var pointB: MyPoint
+struct MyLine: FigureProtocol, Over2DFigureProtocol {
+    var points: [Point]
     
-    var displayablePoint: [MyPoint] {
-        return [pointA, pointB]
+    var pointsForDisplay: [Point] {
+        return points.map { Point(x: $0.x * 2 + 3, y: 25 - $0.y)}
     }
     
-    var distance: Double {
-        return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
+    var valudOfFigure: String {
+        return "두 점 사이의 거리는 \(sqrt(pow(Double(points[0].x - points[1].x), 2) + pow(Double(points[0].y - points[1].y), 2)))"
     }
     
-    init(points: [MyPoint]) {
-        self.pointA = points[0]
-        self.pointB = points[1]
+    init(_ points: [Point]) {
+        self.points = points
     }
 }
