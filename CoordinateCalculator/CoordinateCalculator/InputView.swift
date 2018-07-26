@@ -48,16 +48,22 @@ struct InputView {
         return result
     }
     
+    // 입력할 수 없는 문자 확인
+    private static func isAllowCharacters(text:String) -> Bool {
+        let allowCharacterSet = CharacterSet.init(charactersIn: "1234567890()-,")
+        let notAllowCharacter = text.trimmingCharacters(in: allowCharacterSet)
+        return notAllowCharacter.isEmpty ? true : false
+    }
+    
     // 입력값 받는 함수
     public static func readInput(input:String) -> [MyPoint] {
         var results = [MyPoint]()
-        let allowCharacterSet = CharacterSet.init(charactersIn: "1234567890()-,")
-        let notAllowCharacter = input.trimmingCharacters(in: allowCharacterSet)
-        print("notAllowCharacter : \(notAllowCharacter)")
-        guard notAllowCharacter.isEmpty else {
+
+        guard isAllowCharacters(text: input) else {
             print("입력할 수 없는 문자가 포함되어 있습니다. 다시 입력해주세요.")
             return results
         }
+        
         // '-' 기준으로 나누기
         let elements:Array<String> = input.components(separatedBy: "-")
         for element in elements {
