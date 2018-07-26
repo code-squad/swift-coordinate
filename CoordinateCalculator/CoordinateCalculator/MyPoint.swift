@@ -33,8 +33,4 @@ struct MyPoint {
         self.x = x
         self.y = y
     }
-    
-    public mutating func dd(f:Int){
-        self.x = f
-    }
 }
