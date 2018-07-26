@@ -36,8 +36,8 @@ struct OutputView {
     }
     // MyLine
     public static func printCoordinateMyLine(line:MyLine) {
-        let pointA:MyPoint = point.a
-        let pointB:MyPoint = point.b
+        let pointA:MyPoint = line.a
+        let pointB:MyPoint = line.b
         print("\(ANSICode.cursor.move(row:25 - pointA.valueX, col: pointA.valueY * 2 + 3))\(ANSICode.text.redBright)😀")
         print("\(ANSICode.cursor.move(row:25 - pointB.valueX, col: pointB.valueY * 2 + 3))\(ANSICode.text.redBright)😀")
         // 두 점 사이 거리는 제곱근((A.x - B.x)^제곱 + (A.y - B.y)^제곱) 공식으로 계산할 수 있다.
