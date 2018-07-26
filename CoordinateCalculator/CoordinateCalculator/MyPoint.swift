@@ -16,15 +16,25 @@ struct MyPoint {
         get {
             return x
         }
+        set(newVal) {
+            self.x = newVal
+        }
     }
     public var valueY:Int {
         get {
             return y
+        }
+        set(newVal) {
+            self.y = newVal
         }
     }
     
     init(x: Int, y:Int) {
         self.x = x
         self.y = y
+    }
+    
+    public mutating func dd(f:Int){
+        self.x = f
     }
 }
