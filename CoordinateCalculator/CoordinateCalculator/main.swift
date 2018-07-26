@@ -13,9 +13,10 @@ struct Main {
         while true {
             guard let point = InputView.read() else { continue }
             if point.count == 1 {
-                OutputView.drawAxis(with: point)
+                let myPoint = point.map {MyPoint(x: $0.x, y: $0.y)}
+                OutputView.drawAxis(with: myPoint)
             }else if point.count == 2 {
-                let myLine = MyLine(points: point)
+                let myLine = MyLine(points: point.map {MyPoint(x: $0.x, y: $0.y)})
                 OutputView.drawAxis(with: myLine)
             }
             break
