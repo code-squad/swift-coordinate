@@ -8,20 +8,14 @@
 
 import Foundation
 
-struct MyPoint {
-    private (set) var x: Int = 0
-    private (set) var y: Int = 0
+struct MyPoint: FigureProtocol {
+    var points: [Point]
     
-    var col: Int {
-        return 2 * x + 3
+    var pointsForDisplay: [Point] {
+        return points.map { Point(x: $0.x * 2 + 3, y: 25 - $0.y)}
     }
     
-    var row: Int {
-        return 25 - y
-    }
-    
-    init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
+    init(_ points: [Point] ) {
+        self.points = points
     }
 }

@@ -11,13 +11,11 @@ import Foundation
 struct Main {
     static func start(){
         while true {
-            guard let point = InputView.read() else { continue }
-            if point.count == 1 {
-                let myPoint = point.map {MyPoint(x: $0.x, y: $0.y)}
-                OutputView.drawAxis(with: myPoint)
-            }else if point.count == 2 {
-                let myLine = MyLine(points: point.map {MyPoint(x: $0.x, y: $0.y)})
-                OutputView.drawAxis(with: myLine)
+            guard let points = InputView.read() else { continue }
+            if points.count == 1 {
+                OutputView.drawAxis(with: MyPoint(points))
+            }else if points.count == 2 {
+                OutputView.drawAxis(with: MyLine(points))
             }
             break
         }
