@@ -16,8 +16,8 @@ struct MyLine {
         return [startPoint, endPoint]
     }
     
-    var valueOfFigure: String {
-        return "두 점 사이의 거리는 \(sqrt(pow(Double(startPoint.x - endPoint.x), 2) + pow(Double(startPoint.y - endPoint.y), 2)))"
+    var valueOfFigure: Double {
+        return sqrt(pow(Double(startPoint.x - endPoint.x), 2) + pow(Double(startPoint.y - endPoint.y), 2))
     }
     
     init(startPoint: MyPoint, endPoint: MyPoint) {
