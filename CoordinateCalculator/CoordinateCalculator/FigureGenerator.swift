@@ -22,6 +22,9 @@ struct FigureGenerator {
         case 2:
             let points = pointTuples.map {MyPoint(x: $0.x, y: $0.y)}
             OutputView.drawAxis(with: MyLine(startPoint: points[0], endPoint: points[1]))
+        case 3:
+            let points = pointTuples.map {MyPoint(x: $0.x, y: $0.y)}
+            let myTriangle = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
             print("지원하지 않는 도형입니다.")
         }
