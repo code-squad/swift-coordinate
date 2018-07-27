@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyTriangle {
-    var lineAB: MyLine
-    var lineBC: MyLine
-    var lineAC: MyLine
+    private var lineAB: MyLine
+    private var lineBC: MyLine
+    private var lineAC: MyLine
     
     var pointsForDisplay: [MyPoint] {
         let lines = [lineAB, lineBC, lineAC]
