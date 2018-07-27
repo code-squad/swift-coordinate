@@ -13,7 +13,7 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    private static func drawPoints(_ points: [Point]) -> String {
+    private static func drawPoints(_ points: [MyPoint]) -> String {
         var result = ""
         points.forEach {
             result += ANSICode.cursor.move(row: $0.x, col: $0.y)
@@ -23,21 +23,21 @@ struct OutputView {
         return result
     }
     
-    private static func displayShapeValue(_ shape: Over2DFigureProtocol) -> String {
+    private static func drawValue(of line: MyLine ) -> String {
         var result = ""
         result += ANSICode.cursor.move(row: 0, col: -2)
-        result += "두 점 사이의 거리는 \(shape.valudOfFigure)"
+        result += "두 점 사이의 거리는 \(line.valueOfFigure)"
         return result
     }
     
-    static func drawAxis(with figure: FigureProtocol ) {
+    static func drawAxis(with points: [MyPoint] ) {
         clear()
-        print("\(ANSICode.text.redBright)\(drawPoints(figure.pointsForDisplay))")
+        print("\(ANSICode.text.redBright)\(drawPoints(points))")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
-        
-        if figure is Over2DFigureProtocol {
-            let valuableFigure = figure as! Over2DFigureProtocol
-            print("\(displayShapeValue(valuableFigure))")
-        }
+    }
+    
+    static func drawAxis(with line: MyLine) {
+        drawAxis(with: line.pointsForDisplay)
+        print("\(drawValue(of: line))")
     }
 }
