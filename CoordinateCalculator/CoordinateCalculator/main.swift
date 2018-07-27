@@ -14,7 +14,7 @@ public func main() -> Bool {
     guard let inputValue = InputView.checkEmpty(value: initValue) else { return true }
     
     let coordinates:[MyPoint] = InputView.changeShape(value: inputValue)
-    let result = OutputView.selectShape(coordinates: coordinates)
+    let result = OutputView.printCoordinates(coordinates: coordinates)
     
     return result
 }

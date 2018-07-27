@@ -26,15 +26,7 @@ struct OutputView {
         return number * number
     }
     
-    // coordinates 개수에 따라 분류하는 함수
-    public static func selectShape(coordinates:[MyPoint]) -> Bool {
-        
-        OutputView.drawAxis() // 기본 좌표 그리기
-        
-        defer {
-            initTextColor() // 글자 색상 기본 변경
-        }
-        
+    private static func calculateByShape(coordinates:[MyPoint]) -> Bool {
         switch coordinates.count {
         case 1: // point
             MyPoint.takeCoordinates(points: coordinates)
@@ -52,6 +44,20 @@ struct OutputView {
              */
             return true
         }
+    }
+    
+    // coordinates 개수에 따라 분류하는 함수
+    public static func printCoordinates(coordinates:[MyPoint]) -> Bool {
+        OutputView.drawAxis() // 기본 좌표 그리기
+        // 개수에 따라 좌표 찍기
+        for p in coordinates {
+            print("\(ANSICode.cursor.move(row:25 - p.valueY, col: p.valueX * 2 + 3))\(ANSICode.text.redBright)😀")
+        }
+        defer {
+            initTextColor() // 글자 색상 기본 변경
+        }
+        let isValueInRange = calculateByShape(coordinates: coordinates)
+        return isValueInRange
         
     }
 }

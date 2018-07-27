@@ -54,9 +54,6 @@ struct MyTriangle {
     
     public static func takeCoordinates(points:[MyPoint]) {
         let myTriangle = MyTriangle.init(points: points)
-        for p in points {
-            print("\(ANSICode.cursor.move(row:25 - p.valueY, col: p.valueX * 2 + 3))\(ANSICode.text.redBright)😀")
-        }
         print("\(ANSICode.cursor.move(row:27, col: 0))")
         print("삼각형의 넓이는 \(myTriangle.area())")
     }
