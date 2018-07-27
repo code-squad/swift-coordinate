@@ -61,9 +61,6 @@ struct InputView {
         return true
     }
     
-    // 검사하고
-    // - 기준으로 나누고
-    // MyPoint 반환하고 
     public static func changeShape(value:String) -> [MyPoint] {
         var results = [MyPoint]()
 

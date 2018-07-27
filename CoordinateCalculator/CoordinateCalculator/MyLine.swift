@@ -28,6 +28,11 @@ struct MyLine {
         self.pointB = pointB
     }
     
+    init(points:[MyPoint]) {
+        self.pointA = points[0]
+        self.pointB = points[1]
+    }
+    
     private func convertSquare(number:Int) -> Double {
         return Double(number * number)
     }
@@ -39,5 +44,21 @@ struct MyLine {
         let valueY = convertSquare(number: self.pointA.valueY - self.pointB.valueY)
         let distanceOfPoint = sqrt(Double(valueX + valueY))
         return distanceOfPoint
+    }
+    
+    public func coordinates() -> [MyPoint] {
+        var points = [MyPoint]()
+        points.append(self.a)
+        points.append(self.b)
+        return points
+    }
+    
+    public static func takeCoordinates(points:[MyPoint]) {
+        let myLine = MyLine.init(pointA: points[0], pointB: points[1])
+        for p in points {
+            print("\(ANSICode.cursor.move(row:25 - p.valueY, col: p.valueX * 2 + 3))\(ANSICode.text.redBright)😀")
+        }
+        print("\(ANSICode.cursor.move(row:27, col: 0))")
+        print("두 점 사이의 거리는 \(myLine.distance())")
     }
 }

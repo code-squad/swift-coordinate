@@ -29,8 +29,26 @@ struct MyPoint {
         }
     }
     
+    init() {
+        self.x = 0
+        self.y = 0
+    }
+    
     init(x: Int, y:Int) {
         self.x = x
         self.y = y
     }
+    
+    init(points:[MyPoint]) {
+        self.x = points[0].valueX
+        self.y = points[0].valueY
+    }
+    
+    public static func takeCoordinates(points:[MyPoint]) {
+        let valueX:Int = points[0].valueX
+        let valueY:Int = points[0].valueY
+        print("\(ANSICode.cursor.move(row:25 - valueY, col: valueX * 2 + 3))\(ANSICode.text.redBright)😀")
+        print("\(ANSICode.cursor.move(row:26, col: 26))")
+    }
+    
 }

@@ -26,23 +26,32 @@ struct OutputView {
         return number * number
     }
     
-    // MyPoint
-    public static func printCoordinateMyPoint(point:MyPoint) {
-        let valueX:Int = point.valueX
-        let valueY:Int = point.valueY
-        print("\(ANSICode.cursor.move(row:25 - valueX, col: valueY * 2 + 3))\(ANSICode.text.redBright)😀")
-        print("\(ANSICode.cursor.move(row:26, col: 26))")
-        initTextColor()
+    // coordinates 개수에 따라 분류하는 함수
+    public static func selectShape(coordinates:[MyPoint]) -> Bool {
+        
+        OutputView.drawAxis() // 기본 좌표 그리기
+        
+        defer {
+            initTextColor() // 글자 색상 기본 변경
+        }
+        
+        switch coordinates.count {
+        case 1: // point
+            MyPoint.takeCoordinates(points: coordinates)
+            return false
+        case 2: // line
+            MyLine.takeCoordinates(points: coordinates)
+            return false
+        case 3: // triangle
+            MyTriangle.takeCoordinates(points: coordinates)
+            return false
+        default:
+            /*
+             좌표값 범위를 넘거나 입력할 수 없는 문자가 포함된 경우 빈값을 리턴받아 해당 부분에 들어옵니다.
+             또한, 원하는 값 이상으로 좌표가 입력된 경우에도 해당 부분으로 들어옵니다.
+             */
+            return true
+        }
+        
     }
-    // MyLine
-    public static func printCoordinateMyLine(line:MyLine) {
-        let myLine = MyLine.init(pointA: line.a, pointB: line.b)
-        print("\(ANSICode.cursor.move(row:25 - myLine.a.valueX, col: myLine.a.valueY * 2 + 3))\(ANSICode.text.redBright)😀")
-        print("\(ANSICode.cursor.move(row:25 - myLine.b.valueX, col: myLine.b.valueY * 2 + 3))\(ANSICode.text.redBright)😀")
-        print("\(ANSICode.cursor.move(row:27, col: 0))")
-        print("두 점 사이의 거리는 \(myLine.distance())")
-        print("\(ANSICode.cursor.move(row:28, col: 28))")
-        initTextColor()
-    }
-    
 }
