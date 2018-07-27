@@ -19,11 +19,11 @@ struct InputView {
             self.target = target.split(separator: "-").map {String($0)}
         }
         
-        func makePoints()-> [Point]? {
+        func makePoints()-> [PointTuple]? {
             if !isValidFormat() { return nil }
             let parsed = parse()
             if parsed.contains(where : {$0 == nil}) { return nil }
-            return parsed.compactMap {$0}.compactMap {Point(x: $0.x, y: $0.y)}
+            return parsed.compactMap {$0} 
         }
         
         private func isValidFormat() -> Bool {
@@ -56,7 +56,7 @@ struct InputView {
         }
     }
     
-    static func read() -> [Point]? {
+    static func read() -> [PointTuple]? {
         print("좌표를 입력하세요.")
         guard let input = readLine() else { return nil }
         guard let points = Validation(target: input).makePoints() else { return nil }
