@@ -12,12 +12,7 @@ struct Main {
     static func start(){
         while true {
             guard let points = InputView.read() else { continue }
-            if points.count == 1 {
-                OutputView.drawAxis(with: MyPoint(points))
-            }else if points.count == 2 {
-                OutputView.drawAxis(with: MyLine(points))
-            }
-            break
+            FigureGenerator(points: points).display()
         }
     }
 }
