@@ -13,6 +13,7 @@ struct Main {
         while true {
             guard let points = InputView.read() else { continue }
             FigureGenerator(points: points).display()
+            break
         }
     }
 }
