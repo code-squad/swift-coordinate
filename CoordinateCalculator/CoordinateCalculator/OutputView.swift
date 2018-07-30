@@ -27,13 +27,10 @@ struct OutputView {
     private static func drawValue(of figure: Over1DFigureProtocol) -> String {
         var result = ""
         result += ANSICode.cursor.move(row: 0, col: -2)
-        switch figure {
-        case let figure where figure is MyLine:
+        if figure.points.count == 2 {
             result += "두 점 사이의 거리는 \(figure.valueOfFigure)"
-        case let figure where figure is MyTriangle:
+        }else if figure.points.count == 3 {
             result += "삼각형의 넓이는 \(figure.valueOfFigure)"
-        default:
-            return result
         }
         return result
     }
