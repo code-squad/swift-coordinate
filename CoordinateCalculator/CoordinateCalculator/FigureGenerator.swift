@@ -15,20 +15,21 @@ struct FigureGenerator {
         self.pointTuples = points
     }
     
-    func display(){
+    func generateFigure() -> FigureProtocol? {
+        let figure: FigureProtocol?
         switch pointTuples.count {
         case 1:
-            OutputView.drawAxis(with: pointTuples.map {MyPoint(x: $0.x, y: $0.y)})
+            figure = MyPoint(x: pointTuples[0].x, y: pointTuples[0].y)
         case 2:
             let points = pointTuples.map {MyPoint(x: $0.x, y: $0.y)}
-            OutputView.drawAxis(with: MyLine(startPoint: points[0], endPoint: points[1]))
+            figure = MyLine(startPoint: points[0], endPoint: points[1])
         case 3:
             let points = pointTuples.map {MyPoint(x: $0.x, y: $0.y)}
-            let myTriangle = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
-            OutputView.drawAxie(with: myTriangle)
+            figure = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
-            print("지원하지 않는 도형입니다.")
+            return nil
         }
+        return figure
     }
 }
 
