@@ -23,33 +23,30 @@ struct OutputView {
         return result
     }
     
-    private static func drawValue(of line: MyLine ) -> String {
+    private static func drawValue(of figure: Over1DFigureProtocol) -> String {
         var result = ""
         result += ANSICode.cursor.move(row: 0, col: -2)
-        result += "두 점 사이의 거리는 \(line.valueOfFigure)"
+        switch figure {
+        case let figure where figure is MyLine:
+            result += "두 점 사이의 거리는 \(figure.valueOfFigure)"
+        case let figure where figure is MyTriangle:
+            result += "삼각형의 넓이는 \(figure.valueOfFigure)"
+        default:
+            return result
+        }
         return result
     }
     
-    private static func drawValue(of triangle: MyTriangle) -> String {
-        var result = ""
-        result += ANSICode.cursor.move(row: 0, col: -2)
-        result += "Space : \(triangle.valueOfFigure)"
-        return result
-    }
-    
-    static func drawAxis(with points: [MyPoint] ) {
+    static func drawAxis(with figure: FigureProtocol ) {
         clear()
-        print("\(ANSICode.text.redBright)\(drawPoints(points))")
+        print("\(ANSICode.text.redBright)\(drawPoints(figure.points))")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+        drawValue(of: figure)
     }
     
-    static func drawAxis(with line: MyLine) {
-        drawAxis(with: line.pointsForDisplay)
-        print("\(drawValue(of: line))")
-    }
-    
-    static func drawAxie(with triangle: MyTriangle) {
-        drawAxis(with: triangle.pointsForDisplay)
-        print("\(drawValue(of: triangle))")
+    private static func drawValue(of figure: FigureProtocol) {
+        if figure is Over1DFigureProtocol {
+            print("\(drawValue(of: figure as! Over1DFigureProtocol))")
+        }
     }
 }
