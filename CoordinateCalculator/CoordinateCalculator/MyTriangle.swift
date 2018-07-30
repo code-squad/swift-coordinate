@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct MyTriangle {
+struct MyTriangle: Over1DFigureProtocol {
     private var lineAB: MyLine
     private var lineBC: MyLine
     private var lineAC: MyLine
     
-    var pointsForDisplay: [MyPoint] {
+    var points: [MyPoint] {
         let lines = [lineAB, lineBC, lineAC]
         var points: [MyPoint] = []
-        lines.forEach {$0.pointsForDisplay.forEach {points.append($0)}}
+        lines.forEach {$0.points.forEach {points.append($0)}}
         return points
     }
     
