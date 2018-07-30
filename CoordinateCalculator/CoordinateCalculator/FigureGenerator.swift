@@ -9,13 +9,8 @@
 import Foundation
 
 struct FigureGenerator {
-    private var pointTuples: [PointTuple]
     
-    init(points: [PointTuple]) {
-        self.pointTuples = points
-    }
-    
-    func generateFigure() -> FigureProtocol? {
+    static func generate(from pointTuples: [PointTuple]) -> FigureProtocol? {
         let figure: FigureProtocol?
         switch pointTuples.count {
         case 1:
