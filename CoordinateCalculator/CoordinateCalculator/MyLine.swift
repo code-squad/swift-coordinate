@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct MyLine {
+struct MyLine: Over1DFigureProtocol {
     private var startPoint: MyPoint
     private var endPoint: MyPoint
     
-    var pointsForDisplay: [MyPoint] {
+    var points: [MyPoint] {
         return [startPoint, endPoint]
     }
     
