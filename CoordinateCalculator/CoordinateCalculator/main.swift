@@ -12,7 +12,8 @@ struct Main {
     static func start(){
         while true {
             guard let points = InputView.read() else { continue }
-            FigureGenerator(points: points).display()
+            guard let figure = FigureGenerator(points: points).generateFigure() else { continue }
+            OutputView.drawAxis(with: figure)
             break
         }
     }
