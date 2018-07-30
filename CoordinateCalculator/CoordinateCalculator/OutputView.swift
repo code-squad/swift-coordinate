@@ -16,7 +16,7 @@ struct OutputView {
     private static func drawPoints(_ points: [MyPoint]) -> String {
         var result = ""
         points.forEach {
-            result += ANSICode.cursor.move(row: $0.x, col: $0.y)
+            result += ANSICode.cursor.move(row: $0.pointsForDisplay.y, col: $0.pointsForDisplay.x)
             result += "•"
         }
         print(result)
@@ -30,6 +30,13 @@ struct OutputView {
         return result
     }
     
+    private static func drawValue(of triangle: MyTriangle) -> String {
+        var result = ""
+        result += ANSICode.cursor.move(row: 0, col: -2)
+        result += "Space : \(triangle.valueOfFigure)"
+        return result
+    }
+    
     static func drawAxis(with points: [MyPoint] ) {
         clear()
         print("\(ANSICode.text.redBright)\(drawPoints(points))")
@@ -39,5 +46,10 @@ struct OutputView {
     static func drawAxis(with line: MyLine) {
         drawAxis(with: line.pointsForDisplay)
         print("\(drawValue(of: line))")
+    }
+    
+    static func drawAxie(with triangle: MyTriangle) {
+        drawAxis(with: triangle.pointsForDisplay)
+        print("\(drawValue(of: triangle))")
     }
 }
