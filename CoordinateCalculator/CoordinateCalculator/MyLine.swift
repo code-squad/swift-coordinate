@@ -12,6 +12,10 @@ struct MyLine: Over1DFigureProtocol {
     private var startPoint: MyPoint
     private var endPoint: MyPoint
     
+    var descriptionPrefix: String {
+        return "두 점 사이의 거리는"
+    }
+    
     var points: [MyPoint] {
         return [startPoint, endPoint]
     }

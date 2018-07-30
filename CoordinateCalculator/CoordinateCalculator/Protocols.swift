@@ -13,5 +13,6 @@ protocol FigureProtocol {
 }
 
 protocol Over1DFigureProtocol: FigureProtocol {
+    var descriptionPrefix: String { get }
     var valueOfFigure: Double { get }
 }
