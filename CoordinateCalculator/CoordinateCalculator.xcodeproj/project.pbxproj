@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0350BE210F07E000088318 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0350BD210F07E000088318 /* Protocols.swift */; };
 		3E42A777210ABFFA00DF9149 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42A776210ABFFA00DF9149 /* MyTriangle.swift */; };
 		3E42A779210AC25A00DF9149 /* FigureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42A778210AC25A00DF9149 /* FigureGenerator.swift */; };
 		3E453B5E21057393001B8614 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E453B5D21057393001B8614 /* OutputView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3E0350BD210F07E000088318 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		3E42A776210ABFFA00DF9149 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		3E42A778210AC25A00DF9149 /* FigureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureGenerator.swift; sourceTree = "<group>"; };
 		3E453B5D21057393001B8614 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				3EB6CAF6210723D900628504 /* MyLine.swift */,
 				3E42A776210ABFFA00DF9149 /* MyTriangle.swift */,
 				3E42A778210AC25A00DF9149 /* FigureGenerator.swift */,
+				3E0350BD210F07E000088318 /* Protocols.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				3E453B6221057B10001B8614 /* MyPoint.swift in Sources */,
 				3E42A779210AC25A00DF9149 /* FigureGenerator.swift in Sources */,
 				3EB6CAF7210723D900628504 /* MyLine.swift in Sources */,
+				3E0350BE210F07E000088318 /* Protocols.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				3E42A777210ABFFA00DF9149 /* MyTriangle.swift in Sources */,
 				3E453B6021057ADC001B8614 /* InputView.swift in Sources */,
