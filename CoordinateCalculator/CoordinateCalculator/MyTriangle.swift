@@ -13,6 +13,10 @@ struct MyTriangle: Over1DFigureProtocol {
     private var lineBC: MyLine
     private var lineAC: MyLine
     
+    var descriptionPrefix: String {
+        return "삼각형의 넓이는"
+    }
+    
     var points: [MyPoint] {
         let lines = [lineAB, lineBC, lineAC]
         var points: [MyPoint] = []

@@ -27,11 +27,7 @@ struct OutputView {
     private static func drawValue(of figure: Over1DFigureProtocol) -> String {
         var result = ""
         result += ANSICode.cursor.move(row: 0, col: -2)
-        if figure.points.count == 2 {
-            result += "두 점 사이의 거리는 \(figure.valueOfFigure)"
-        }else if figure.points.count == 3 {
-            result += "삼각형의 넓이는 \(figure.valueOfFigure)"
-        }
+        figure += "\(figure.descriptionPrefix) \(figure.valueOfFigure)"
         return result
     }
     
