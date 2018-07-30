@@ -20,6 +20,17 @@ struct MyTriangle {
         return points
     }
     
+    var valueOfFigure: Double {
+        let c = lineAB.valueOfFigure
+        let a = lineBC.valueOfFigure
+        let b = lineAC.valueOfFigure
+        
+        let cosB = ((pow(a, 2) + pow(c, 2) - pow(b, 2)) / (2*a*c))
+        let sinB = sqrt(1-pow(cosB, 2))
+        
+        return 0.5*a*c*sinB
+    }
+    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(startPoint: pointA, endPoint: pointB)
         self.lineBC = MyLine(startPoint: pointB, endPoint: pointC)
