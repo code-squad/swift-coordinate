@@ -15,8 +15,9 @@ struct OutputView {
     
     private static func drawPoints(_ points: [MyPoint]) -> String {
         var result = ""
-        points.forEach {
-            result += ANSICode.cursor.move(row: $0.pointsForDisplay.y, col: $0.pointsForDisplay.x)
+        let drawablePoints = points.map {MyPoint(x: 2*$0.x + 3, y: 25 - $0.y)}
+        drawablePoints.forEach {
+            result += ANSICode.cursor.move(row: $0.y, col: $0.x)
             result += "•"
         }
         print(result)
