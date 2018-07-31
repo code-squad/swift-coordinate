@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func main() -> Bool {
+public func isReplay() -> Bool {
     let initValue = InputView.readInput()
     
     // 체크함수 : 입력값 비어 있는지 확인
@@ -33,5 +33,5 @@ public func main() -> Bool {
 
 var play:Bool = true
 while play {
-    play = main()
+    play = isReplay()
 }
