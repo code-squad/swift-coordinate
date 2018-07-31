@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint:FigureProtocol {
     private var x:Int
     private var y:Int
     
@@ -44,8 +44,8 @@ struct MyPoint {
         self.y = points[0].valueY
     }
     
-    public static func takeCoordinates(points:[MyPoint]) {
-        print("\(ANSICode.cursor.move(row:26, col: 26))")
+    public func coordinates() -> String? {
+        return ""
     }
     
 }
