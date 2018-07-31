@@ -39,8 +39,15 @@ struct OutputView {
     public static func printMessage(shape: ShapeProtocol) -> Bool {
         print("\(ANSICode.cursor.move(row:27, col: 0))")
         print("\(ANSICode.text.redBright)")
-        print(shape.message())
-        initTextColor()
+        
+        defer {
+            initTextColor()
+        }
+        
+        if let calculate = shape.calculate() {
+            print("\(shape.message())\(calculate)")
+        }
+
         return false
     }
     

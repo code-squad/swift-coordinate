@@ -37,7 +37,7 @@ struct MyLine:ShapeProtocol {
         return Double(number * number)
     }
     
-    public func distance() -> Double {
+    public func calculate() -> Double? {
         // 두 점 사이 거리는 제곱근((A.x - B.x)^제곱 + (A.y - B.y)^제곱) 공식으로 계산할 수 있다.
         // (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y)
         let valueX = convertSquare(number: self.pointA.valueX - self.pointB.valueX)
@@ -47,7 +47,7 @@ struct MyLine:ShapeProtocol {
     }
     
     public func message() -> String {
-        return "두 점 사이의 거리는 \(distance())"
+        return "두 점 사이의 거리는 "
     }
     
 }
