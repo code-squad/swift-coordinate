@@ -22,6 +22,9 @@ public func isReplay() -> Bool {
     // 체크함수 : 입력범위 확인
     guard InputView.isExceedRange(elements: coordinates) else { return true }
     
+    // 직사각형 여부 확인
+    guard MyRect.isQuadrangle(elements: coordinates) else { return true }
+    
     // 기본 좌표 출력
     guard OutputView.printCoordinates(coordinates: coordinates) else { return true }
     

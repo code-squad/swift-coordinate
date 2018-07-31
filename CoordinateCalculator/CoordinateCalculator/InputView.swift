@@ -99,11 +99,16 @@ struct InputView {
     
     // MyRect 요소를 준비하는 함수
     private static func calculateRect(elements:[MyPoint]) -> (MyPoint , CGSize) {
+        var setX = Set<Int>()
+        var setY = Set<Int>()
+        
         var minX:Int = 24
         var minY:Int = 24
         var maxX:Int = 0
         var maxY:Int = 0
         for element in elements {
+            setX.insert(element.valueX)
+            setY.insert(element.valueY)
             if minX > element.valueX {
                 minX = element.valueX
             }
