@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470976EC2110502F0031CEC8 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470976EB2110502F0031CEC8 /* MyRect.swift */; };
 		4769A88D2105C2F900A9BB11 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4769A88C2105C2F900A9BB11 /* OutputView.swift */; };
 		4769A8912105D85100A9BB11 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4769A8902105D85100A9BB11 /* InputView.swift */; };
 		4769A8932105D87300A9BB11 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4769A8922105D87300A9BB11 /* MyPoint.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		470976EB2110502F0031CEC8 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		4769A88C2105C2F900A9BB11 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		4769A8902105D85100A9BB11 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		4769A8922105D87300A9BB11 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				4769A8922105D87300A9BB11 /* MyPoint.swift */,
 				4769A8A92107107D00A9BB11 /* MyLine.swift */,
 				47D8354E210AAAB4002027C4 /* MyTriangle.swift */,
+				470976EB2110502F0031CEC8 /* MyRect.swift */,
 				47D83550210FED12002027C4 /* ShapeProtocol.swift */,
 			);
 			path = CoordinateCalculator;
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4769A8932105D87300A9BB11 /* MyPoint.swift in Sources */,
+				470976EC2110502F0031CEC8 /* MyRect.swift in Sources */,
 				4769A8AA2107107D00A9BB11 /* MyLine.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				47D83551210FED12002027C4 /* ShapeProtocol.swift in Sources */,
