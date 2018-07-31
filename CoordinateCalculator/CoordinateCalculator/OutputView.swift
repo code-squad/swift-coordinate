@@ -20,7 +20,6 @@ struct OutputView {
             result += ANSICode.cursor.move(row: $0.y, col: $0.x)
             result += "•"
         }
-        print(result)
         return result
     }
     
