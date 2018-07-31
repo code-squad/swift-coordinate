@@ -32,4 +32,22 @@ struct MyRect:ShapeProtocol {
         return "사각형 넓이는 \(area())"
     }
     
+    public static func isQuadrangle(elements:[MyPoint]) -> Bool {
+        var setX = Set<Int>()
+        var setY = Set<Int>()
+        
+        for element in elements {
+            setX.insert(element.valueX)
+            setY.insert(element.valueY)
+        }
+        
+        // 직사각형 여부 확인
+        guard setX.count == 2 && setY.count == 2 else {
+            print("직사각형이 아닙니다.")
+            return false
+        }
+        
+        return true
+    }
+    
 }
