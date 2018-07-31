@@ -26,8 +26,8 @@ public func main() -> Bool {
     guard OutputView.printCoordinates(coordinates: coordinates) else { return true }
     
     // 형태 선택 및 계산과 메세지 리턴
-    let shape = InputView.selectShape(coordinates: coordinates).coordinates()
-    let result = OutputView.printMessage(message: shape)
+    let selectedShape = InputView.selectShape(coordinates: coordinates)
+    let result = OutputView.printMessage(shape: selectedShape)
     return result
 }
 

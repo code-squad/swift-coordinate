@@ -98,7 +98,7 @@ struct InputView {
     }
     
     // 형태 선택하는 함수
-    public static func selectShape(coordinates:[MyPoint]) -> FigureProtocol {
+    public static func selectShape(coordinates:[MyPoint]) -> ShapeProtocol {
         switch coordinates.count {
         case 2:
             return MyLine.init(points: coordinates)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint:FigureProtocol {
+struct MyPoint:ShapeProtocol {
     private var x:Int
     private var y:Int
     
@@ -44,7 +44,7 @@ struct MyPoint:FigureProtocol {
         self.y = points[0].valueY
     }
     
-    public func coordinates() -> String? {
+    public func message() -> String {
         return ""
     }
     
