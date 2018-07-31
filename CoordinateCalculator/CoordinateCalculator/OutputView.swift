@@ -27,7 +27,7 @@ struct OutputView {
     private static func drawValue(of figure: Over1DFigureProtocol) -> String {
         var result = ""
         result += ANSICode.cursor.move(row: 0, col: -2)
-        figure += "\(figure.descriptionPrefix) \(figure.valueOfFigure)"
+        result += "\(figure.descriptionPrefix) \(figure.valueOfFigure)"
         return result
     }
     
