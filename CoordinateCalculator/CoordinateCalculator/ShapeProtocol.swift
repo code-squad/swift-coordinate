@@ -10,4 +10,5 @@ import Foundation
 
 protocol ShapeProtocol {
     func message() -> String
+    func calculate() -> Double?
 }
