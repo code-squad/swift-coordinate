@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol FigureProtocol {
-    func coordinates() -> String?
+protocol ShapeProtocol {
+    func message() -> String
 }

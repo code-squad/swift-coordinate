@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine:FigureProtocol {
+struct MyLine:ShapeProtocol {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     
@@ -46,7 +46,7 @@ struct MyLine:FigureProtocol {
         return distanceOfPoint
     }
     
-    public func coordinates() -> String? {
+    public func message() -> String {
         return "두 점 사이의 거리는 \(distance())"
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle:FigureProtocol {
+struct MyTriangle:ShapeProtocol {
     
     private var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
@@ -53,7 +53,7 @@ struct MyTriangle:FigureProtocol {
         return lineAB.distance() * lineAC.distance() * sin * 0.5
     }
     
-    public func coordinates() -> String? {
+    public func message() -> String {
         return "삼각형의 넓이는 \(area())"
     }
     
