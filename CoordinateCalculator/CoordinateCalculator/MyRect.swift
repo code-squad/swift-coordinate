@@ -22,14 +22,15 @@ struct MyRect:ShapeProtocol {
         self.rightBottom = MyPoint.init(x: valueX , y: valueY)
     }
     
-    private func area() -> Int {
+    public func calculate() -> Double? {
         let width = self.rightBottom.valueX - self.leftTop.valueX
         let height = self.rightBottom.valueY - self.leftTop.valueY
-        return width * height
+        let area = width * height
+        return Double(area)
     }
 
     public func message() -> String {
-        return "사각형 넓이는 \(area())"
+        return "사각형 넓이는 "
     }
     
     public static func isQuadrangle(elements:[MyPoint]) -> Bool {

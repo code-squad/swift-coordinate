@@ -42,19 +42,23 @@ struct MyTriangle:ShapeProtocol {
         self.lineAC = MyLine.init(pointA: points[0], pointB: points[2])
     }
     
-    public func area() -> Double {
-        let distanceOfAB = pow(lineAB.distance(), 2)
-        let distanceOfBC = pow(lineBC.distance(), 2)
-        let distanceOfAC = pow(lineAC.distance(), 2)
+    public func calculate() -> Double? {
+        guard let ab = lineAB.calculate() else { return nil }
+        guard let bc = lineBC.calculate() else { return nil }
+        guard let ac = lineAC.calculate() else { return nil }
         
-        let cosB = (distanceOfAB + distanceOfAC - distanceOfBC) / (2 * lineAB.distance() * lineAC.distance())
+        let distanceOfAB = pow(ab, 2)
+        let distanceOfBC = pow(bc, 2)
+        let distanceOfAC = pow(ac, 2)
+        
+        let cosB = (distanceOfAB + distanceOfAC - distanceOfBC) / (2 * ab * ac)
         let sin = sqrt(1 - pow(cosB, 2))
         
-        return lineAB.distance() * lineAC.distance() * sin * 0.5
+        return ab * ac * sin * 0.5
     }
     
     public func message() -> String {
-        return "삼각형의 넓이는 \(area())"
+        return "삼각형의 넓이는 "
     }
     
 }

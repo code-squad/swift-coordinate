@@ -44,6 +44,10 @@ struct MyPoint:ShapeProtocol {
         self.y = points[0].valueY
     }
     
+    public func calculate() -> Double? {
+        return nil
+    }
+    
     public func message() -> String {
         return ""
     }
