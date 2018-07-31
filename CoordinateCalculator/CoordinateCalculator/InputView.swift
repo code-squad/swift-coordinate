@@ -76,8 +76,6 @@ struct InputView {
     // 입력값을 [MyPoint] 형태로 변경하는 함수
     public static func convertToPoints(value:String) -> [MyPoint] {
         var results = [MyPoint]()
-        guard isAllowCharacters(text: value) else { return results }
-        
         // '-' 기준으로 나누기
         let elements:Array<String> = value.components(separatedBy: "-")
         for element in elements {
