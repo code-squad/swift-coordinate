@@ -11,26 +11,23 @@ import Foundation
 struct MyRect: Over1DFigureProtocol {
     private var leftTop: MyPoint
     private var rightBottom: MyPoint
-    private var size: CGSize
     
     var descriptionPrefix: String {
         return "사각형의 넓이는"
     }
     
-    var valueOfFigure: Double {
-        return Double(size.width * size.height)
-    }
+    var valueOfFigure: Double
     
     var points: [MyPoint] {
-        let rightTop = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y)
-        let leftBottom = MyPoint(x: leftTop.x, y: leftTop.y - Int(size.height))
+        let rightTop = MyPoint(x: rightBottom.x, y: leftTop.y)
+        let leftBottom = MyPoint(x: leftTop.x, y: rightBottom.y)
         return [leftTop, rightTop, leftBottom, rightBottom]
     }
     
     private init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
         self.rightBottom = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y - Int(size.height))
-        self.size = size
+        self.valueOfFigure = Double(size.width * size.height)
     }
     
     init?(points: [MyPoint]) {
@@ -65,6 +62,6 @@ struct MyRect: Over1DFigureProtocol {
         guard let sameXWithPivot = (points.filter {$0.x == pivot.x && $0.y != pivot.y}).first else { return false } // --- 1
         guard let sameYWithPivot = (points.filter {$0.x != pivot.x && $0.y == pivot.y}).first else { return false } // --- 2
         guard let opposite = (points.filter {$0.x != pivot.x && $0.y != pivot.y}).first else { return false }
-        return opposite.x == sameYWithPivot.x && opposite.y == sameXWithPivot.y ? true : false
+        return opposite.x == sameYWithPivot.x && opposite.y == sameXWithPivot.y
     }
 }
