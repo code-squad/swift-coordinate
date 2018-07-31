@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine {
+struct MyLine:FigureProtocol {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     
@@ -46,16 +46,8 @@ struct MyLine {
         return distanceOfPoint
     }
     
-    public func coordinates() -> [MyPoint] {
-        var points = [MyPoint]()
-        points.append(self.a)
-        points.append(self.b)
-        return points
+    public func coordinates() -> String? {
+        return "두 점 사이의 거리는 \(distance())"
     }
     
-    public static func takeCoordinates(points:[MyPoint]) {
-        let myLine = MyLine.init(pointA: points[0], pointB: points[1])
-        print("\(ANSICode.cursor.move(row:27, col: 0))")
-        print("두 점 사이의 거리는 \(myLine.distance())")
-    }
 }
