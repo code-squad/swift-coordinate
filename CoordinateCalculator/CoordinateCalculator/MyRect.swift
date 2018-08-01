@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyRect:ShapeProtocol {
+struct MyRect:ShapeProtocol,BasicProtocol {
     
     private var leftTop = MyPoint()
     private var rightBottom = MyPoint()
@@ -22,7 +22,20 @@ struct MyRect:ShapeProtocol {
         self.rightBottom = MyPoint.init(x: valueX , y: valueY)
     }
     
-    public func calculate() -> Double? {
+    init(points: [MyPoint]) {
+        let coordinate = MyRect.classifyCoordinates(points: points)
+        
+        if let minX = coordinate.0.min() , let minY = coordinate.1.min() {
+            self.leftTop.valueX = minX
+            self.leftTop.valueY = minY
+        }
+        if let maxX = coordinate.0.max() , let maxY = coordinate.1.max() {
+            self.rightBottom.valueX = maxX
+            self.rightBottom.valueY = maxY
+        }
+    }
+    
+    public func calculate() -> Double {
         let width = self.rightBottom.valueX - self.leftTop.valueX
         let height = self.rightBottom.valueY - self.leftTop.valueY
         let area = width * height
@@ -34,21 +47,28 @@ struct MyRect:ShapeProtocol {
     }
     
     public static func isQuadrangle(elements:[MyPoint]) -> Bool {
-        var setX = Set<Int>()
-        var setY = Set<Int>()
-        
-        for element in elements {
-            setX.insert(element.valueX)
-            setY.insert(element.valueY)
-        }
-        
+        let coordinate = classifyCoordinates(points: elements)
+
         // 직사각형 여부 확인
-        guard setX.count == 2 && setY.count == 2 else {
+        guard coordinate.0.count == 2 && coordinate.1.count == 2 else {
             print("직사각형이 아닙니다.")
             return false
         }
         
         return true
+    }
+    
+    // 좌표 분류
+    private static func classifyCoordinates(points:[MyPoint]) -> (Set<Int> , Set<Int>) {
+        var setX = Set<Int>()
+        var setY = Set<Int>()
+        
+        for point in points {
+            setX.insert(point.valueX)
+            setY.insert(point.valueY)
+        }
+        
+        return ( setX , setY )
     }
     
 }

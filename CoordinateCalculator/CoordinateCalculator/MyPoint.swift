@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint:ShapeProtocol {
+struct MyPoint:BasicProtocol {
     private var x:Int
     private var y:Int
     
@@ -42,14 +42,6 @@ struct MyPoint:ShapeProtocol {
     init(points:[MyPoint]) {
         self.x = points[0].valueX
         self.y = points[0].valueY
-    }
-    
-    public func calculate() -> Double? {
-        return nil
-    }
-    
-    public func message() -> String {
-        return ""
     }
     
 }

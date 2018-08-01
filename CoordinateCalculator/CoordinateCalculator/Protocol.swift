@@ -10,5 +10,9 @@ import Foundation
 
 protocol ShapeProtocol {
     func message() -> String
-    func calculate() -> Double?
+    func calculate() -> Double
+}
+
+protocol BasicProtocol {
+    init(points:[MyPoint])
 }

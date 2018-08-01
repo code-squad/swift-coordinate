@@ -99,16 +99,11 @@ struct InputView {
     
     // MyRect 요소를 준비하는 함수
     private static func calculateRect(elements:[MyPoint]) -> (MyPoint , CGSize) {
-        var setX = Set<Int>()
-        var setY = Set<Int>()
-        
         var minX:Int = 24
         var minY:Int = 24
         var maxX:Int = 0
         var maxY:Int = 0
         for element in elements {
-            setX.insert(element.valueX)
-            setY.insert(element.valueY)
             if minX > element.valueX {
                 minX = element.valueX
             }
@@ -133,15 +128,16 @@ struct InputView {
     }
     
     // 형태 선택하는 함수
-    public static func selectShape(coordinates:[MyPoint]) -> ShapeProtocol {
+    public static func selectShape(coordinates:[MyPoint]) -> BasicProtocol {
         switch coordinates.count {
         case 2:
             return MyLine.init(points: coordinates)
         case 3:
             return MyTriangle.init(points: coordinates)
         case 4:
-            let elementOfRect = calculateRect(elements: coordinates)
-            return MyRect.init(origin: elementOfRect.0, size: elementOfRect.1)
+//            let elementOfRect = calculateRect(elements: coordinates)
+//            return MyRect.init(origin: elementOfRect.0, size: elementOfRect.1)
+            return MyRect.init(points: coordinates)
         default:
             return MyPoint.init(points: coordinates)
         }
