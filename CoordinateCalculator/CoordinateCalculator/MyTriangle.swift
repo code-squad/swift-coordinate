@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle:ShapeProtocol {
+struct MyTriangle:ShapeProtocol,BasicProtocol {
     
     private var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
@@ -42,11 +42,10 @@ struct MyTriangle:ShapeProtocol {
         self.lineAC = MyLine.init(pointA: points[0], pointB: points[2])
     }
     
-    public func calculate() -> Double? {
-        guard let ab = lineAB.calculate() else { return nil }
-        guard let bc = lineBC.calculate() else { return nil }
-        guard let ac = lineAC.calculate() else { return nil }
-        
+    public func calculate() -> Double {
+        let ab = lineAB.calculate()
+        let bc = lineBC.calculate()
+        let ac = lineAC.calculate()
         let distanceOfAB = pow(ab, 2)
         let distanceOfBC = pow(bc, 2)
         let distanceOfAC = pow(ac, 2)

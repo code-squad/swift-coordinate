@@ -32,7 +32,13 @@ public func isReplay() -> Bool {
     
     // 형태 선택 및 계산과 메세지 리턴
     let selectedShape = InputView.selectShape(coordinates: coordinates)
-    let result = OutputView.printMessage(shape: selectedShape)
+    
+    var result = false
+    if let shape = selectedShape as? BasicProtocol & ShapeProtocol {
+        result = OutputView.printMessage(shape: shape)
+    }else{
+        print("\(ANSICode.cursor.move(row:27, col: 0))")
+    }
     return result
 }
 

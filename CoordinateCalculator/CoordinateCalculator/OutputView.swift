@@ -36,18 +36,16 @@ struct OutputView {
         return true
     }
     
-    public static func printMessage(shape: ShapeProtocol) -> Bool {
+    public static func printMessage(shape: ShapeProtocol & BasicProtocol) -> Bool {
         print("\(ANSICode.cursor.move(row:27, col: 0))")
         print("\(ANSICode.text.redBright)")
         
         defer {
             initTextColor()
         }
-        
-        if let calculate = shape.calculate() {
-            print("\(shape.message())\(calculate)")
-        }
 
+        print("\(shape.message())\(shape.calculate())")
+        
         return false
     }
     
