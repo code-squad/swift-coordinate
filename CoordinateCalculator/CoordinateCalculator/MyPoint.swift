@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint:BasicProtocol {
+struct MyPoint:BasicProtocol, Equatable {
     private var x:Int
     private var y:Int
     
