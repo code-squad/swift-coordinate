@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine:ShapeProtocol,BasicProtocol {
+struct MyLine:ShapeProtocol,BasicProtocol,Equatable {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     

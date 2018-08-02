@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyRect:ShapeProtocol,BasicProtocol {
+struct MyRect:ShapeProtocol,BasicProtocol,Equatable {
     
     private var leftTop = MyPoint()
     private var rightBottom = MyPoint()
