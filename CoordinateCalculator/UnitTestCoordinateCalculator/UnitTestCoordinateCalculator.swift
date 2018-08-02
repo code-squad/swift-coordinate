@@ -31,11 +31,6 @@ class UnitTestCoordinateCalculator: XCTestCase {
         var myPoints = [MyPoint]()
         myPoints.append(mypoint2)
         myPoints.append(mypoint3)
-        print("---------")
-        print(myPoints)
-        print("---------")
-        print(myPoint)
-        print("---------")
         /*
          아래 [MyPoint] 를 XCTAssertEqual 로 비교할 때 Equatable 을 사용하지 않으면 아래와 같은 메세지가 나옵니다.
          에러메세지 : Expression type '()' is ambiguous without more context
