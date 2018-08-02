@@ -34,7 +34,7 @@ public func isReplay() -> Bool {
     let selectedShape = InputView.selectShape(coordinates: coordinates)
     
     var result = false
-    if let shape = selectedShape as? BasicProtocol & ShapeProtocol {
+    if let shape = selectedShape as? ShapeProtocol {
         result = OutputView.printMessage(shape: shape)
     }else{
         print("\(ANSICode.cursor.move(row:27, col: 0))")
