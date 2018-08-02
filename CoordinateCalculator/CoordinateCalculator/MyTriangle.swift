@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle:ShapeProtocol,BasicProtocol {
+struct MyTriangle:ShapeProtocol,BasicProtocol,Equatable {
     
     private var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
