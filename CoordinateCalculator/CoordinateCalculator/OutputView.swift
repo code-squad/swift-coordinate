@@ -36,7 +36,7 @@ struct OutputView {
         return true
     }
     
-    public static func printMessage(shape: ShapeProtocol & BasicProtocol) -> Bool {
+    public static func printMessage(shape: ShapeProtocol) -> Bool {
         print("\(ANSICode.cursor.move(row:27, col: 0))")
         print("\(ANSICode.text.redBright)")
         
