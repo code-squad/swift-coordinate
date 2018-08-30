@@ -9,5 +9,6 @@
 import Foundation
 
 protocol MyPointConvertible {
-    var coordinateList :(Int, Int) { get }
+    var coordinateX :Int { get }
+    var coordinateY :Int { get }
 }

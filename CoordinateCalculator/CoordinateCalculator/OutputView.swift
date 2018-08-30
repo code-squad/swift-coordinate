@@ -19,9 +19,9 @@ struct OutputView {
     }
 
     static func drawPoint(_ input: MyPointConvertible ) {
-        let coordinatePoint = input.coordinateList
+
         drawAxis()
-        print("\(ANSICode.cursor.move(row: coordinatePoint.1 , col: coordinatePoint.0))\(ANSICode.text.redBright).")
+        print("\(ANSICode.cursor.move(row: input.coordinateY , col: input.coordinateX))\(ANSICode.text.redBright).")
         print("\(ANSICode.cursor.move(row: 27, col: 0))")
         deleteAxis()
     }
