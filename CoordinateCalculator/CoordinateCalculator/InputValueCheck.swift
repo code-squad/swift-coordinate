@@ -17,20 +17,20 @@
 import Foundation
 
 struct InputValueCheck {
-    func makeCheckedValues (_ input: String) throws -> MyPoint {
-        if !input.isEmpty {
-        guard let removeParenthesisElements = parenthesisRemoval(input) else { throw ErrorMessage.Message.notBracketValue}
+    func makeCheckedValues (_ inputCoordinates: String) throws -> MyPoint {
+        if !inputCoordinates.isEmpty {
+        guard let removeParenthesisElements = parenthesisRemoval(inputCoordinates) else { throw ErrorMessage.Message.notBracketValue}
         guard let splitCommaElements = splitCommaElemetns(removeParenthesisElements) else { throw ErrorMessage.Message.notSeparatedCommaValue}
-        guard let convertToIntElements = makeValueToInt(splitCommaElements) else { throw ErrorMessage.Message.notIntValue}
-        guard let validCoordinatesValue = checkOverRangeValue(convertToIntElements) else { throw ErrorMessage.Message.overCoordinateValue}
+        guard let convertElements = makeValidCoordinates(splitCommaElements) else { throw ErrorMessage.Message.notIntValue}
+        guard let validCoordinatesValue = createInRangeCoordinates(convertElements) else { throw ErrorMessage.Message.overCoordinateValue}
        
         return validCoordinatesValue
         }
         else { throw ErrorMessage.Message.emptyInputValue }
     }
     
-    private func parenthesisRemoval(_ input: String) -> String? {
-        let removeParenthesisElements = input
+    private func parenthesisRemoval(_ inputCoordinates: String) -> String? {
+        let removeParenthesisElements = inputCoordinates
         if removeParenthesisElements.contains("(") && removeParenthesisElements.contains(")") {
             let resultRemoveParenthesisElements = removeParenthesisElements.trimmingCharacters(in: ["(", ")"])
             return resultRemoveParenthesisElements
@@ -40,22 +40,22 @@ struct InputValueCheck {
         }
     }
     
-    private func splitCommaElemetns(_ input: String) -> Array<String>? {
+    private func splitCommaElemetns(_ removeParenthesisCoordinates: String) -> Array<String>? {
         var separateElements: Array<String> = []
-        guard input.contains(",") else { return nil }
-        separateElements = input.split(separator: ",").map(String.init)
+        guard removeParenthesisCoordinates.contains(",") else { return nil }
+        separateElements = removeParenthesisCoordinates.split(separator: ",").map(String.init)
         return separateElements
     }
     
-    private func makeValueToInt(_ input: Array<String>) -> Array<Int>? {
-        let intCoordinateValue = input.compactMap{ tempValue in Int(tempValue) }
-        if intCoordinateValue.count != input.count {
+    private func makeValidCoordinates(_ separatedCoordinates: Array<String>) -> Array<Int>? {
+        let convertCoordinates = separatedCoordinates.compactMap{ tempValue in Int(tempValue) }
+        if convertCoordinates.count != separatedCoordinates.count {
             return nil
         }
-        return intCoordinateValue
+        return convertCoordinates
     }
     
-    private func checkOverRangeValue(_ input: Array<Int>) -> MyPoint? {
+    private func createInRangeCoordinates(_ input: Array<Int>) -> MyPoint? {
         for index in 0 ..< input.count {
             guard input[index] <= 24 else { return nil }
         }
