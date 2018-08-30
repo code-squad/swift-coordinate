@@ -11,9 +11,9 @@ import Foundation
 while (true) {
     do {
         let inputCoordinates = InputView().inputCoordinates()
-        let checkedValue = try InputValueCheck().makeCheckedValues(inputCoordinates)
+        let coordinatePoint = try InputValueCheck().makeCheckedValues(inputCoordinates)
     
-        OutputView.drawPoint(checkedValue)
+        OutputView.drawPoint(coordinatePoint)
         break
         }
     catch let error as ErrorMessage.Message {
