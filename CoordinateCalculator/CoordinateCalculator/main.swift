@@ -8,5 +8,15 @@
 
 import Foundation
 
-print("Hello, World!")
-
+while (true) {
+    do {
+        let inputCoordinates = InputView().inputData()
+        let checkedValue = try InputValueCheck().makeCheckedValues(inputCoordinates)
+    
+        OutputView.drawPoint(checkedValue)
+        break
+        }
+    catch let error as ErrorMessage.Message {
+        print (error.rawValue)
+    }
+}
