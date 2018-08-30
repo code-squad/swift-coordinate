@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ED0E33A212FD7E500CF853D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E339212FD7E500CF853D /* OutputView.swift */; };
+		4ED0E33C212FD7F000CF853D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E33B212FD7F000CF853D /* InputView.swift */; };
+		4ED0E33E212FD80900CF853D /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E33D212FD80900CF853D /* MyPoint.swift */; };
+		4ED0E34021324C5F00CF853D /* InputValueCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E33F21324C5F00CF853D /* InputValueCheck.swift */; };
+		4ED0E3422135329500CF853D /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E3412135329500CF853D /* ErrorMessage.swift */; };
+		4ED0E344213795E200CF853D /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E343213795E200CF853D /* protocol.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +30,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4ED0E339212FD7E500CF853D /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		4ED0E33B212FD7F000CF853D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		4ED0E33D212FD80900CF853D /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		4ED0E33F21324C5F00CF853D /* InputValueCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValueCheck.swift; sourceTree = "<group>"; };
+		4ED0E3412135329500CF853D /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		4ED0E343213795E200CF853D /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -61,6 +73,12 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				4ED0E339212FD7E500CF853D /* OutputView.swift */,
+				4ED0E33B212FD7F000CF853D /* InputView.swift */,
+				4ED0E33D212FD80900CF853D /* MyPoint.swift */,
+				4ED0E33F21324C5F00CF853D /* InputValueCheck.swift */,
+				4ED0E3412135329500CF853D /* ErrorMessage.swift */,
+				4ED0E343213795E200CF853D /* protocol.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -123,8 +141,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED0E33E212FD80900CF853D /* MyPoint.swift in Sources */,
+				4ED0E3422135329500CF853D /* ErrorMessage.swift in Sources */,
+				4ED0E34021324C5F00CF853D /* InputValueCheck.swift in Sources */,
+				4ED0E344213795E200CF853D /* protocol.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				4ED0E33C212FD7F000CF853D /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				4ED0E33A212FD7E500CF853D /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
