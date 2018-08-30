@@ -10,7 +10,7 @@ import Foundation
 
 while (true) {
     do {
-        let inputCoordinates = InputView().inputData()
+        let inputCoordinates = InputView().inputCoordinates()
         let checkedValue = try InputValueCheck().makeCheckedValues(inputCoordinates)
     
         OutputView.drawPoint(checkedValue)
