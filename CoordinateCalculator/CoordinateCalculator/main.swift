@@ -13,7 +13,7 @@ while (true) {
         let inputCoordinates = InputView().inputCoordinates()
         let coordinatePoint = try InputValueCheck().makeCheckedValues(inputCoordinates)
     
-        OutputView.printPoint(coordinatePoint)
+        OutputView.drawPoint(coordinatePoint)
         break
         }
     catch let error as ErrorMessage.Message {
