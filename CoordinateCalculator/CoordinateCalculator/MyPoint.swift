@@ -10,11 +10,12 @@ import Foundation
 
 struct MyPoint: MyPointConvertible{
   
-    private (set) var coordinateX: Int = 0
-    private (set) var coordinateY: Int = 0
+    private (set) var x: Int = 0
+    private (set) var y: Int = 0
     
     init(x: Int, y: Int) {
-        coordinateX = x * 2 + 4
-        coordinateY = abs(y - 24)
+        self.x = x
+        self.y = y
+
     }
 }
