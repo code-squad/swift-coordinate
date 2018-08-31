@@ -12,3 +12,4 @@ protocol MyPointConvertible {
     var coordinateX :Int { get }
     var coordinateY :Int { get }
 }
+
