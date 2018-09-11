@@ -9,13 +9,21 @@
 import Foundation
 
 struct MyPoint: MyPointConvertible{
-  
+    
+    func createCoordinate() -> [MyPoint] {
+        return [self]
+    }
+    
     private (set) var x: Int = 0
     private (set) var y: Int = 0
     
     init(x: Int, y: Int) {
         self.x = x
         self.y = y
-
+    }
+    
+    init(_ points : [MyPoint]) {
+        self.x = points[0].x
+        self.y = points[0].y
     }
 }

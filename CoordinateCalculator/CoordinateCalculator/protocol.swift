@@ -9,7 +9,5 @@
 import Foundation
 
 protocol MyPointConvertible {
-    var x :Int { get }
-    var y :Int { get }
+    func createCoordinate() -> [MyPoint]
 }
-

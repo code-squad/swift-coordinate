@@ -17,7 +17,7 @@ struct InputView {
     }
     
     func inputCoordinates() -> String {
-        let input = InputView.readSomethingData("좌표를 입력하세요. (x, y)")
+        let input = InputView.readSomethingData("좌표를 입력하세요. (x, y) 또는 (x,y)-(x,y)")
         
         return input
     }
