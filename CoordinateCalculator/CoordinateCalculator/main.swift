@@ -12,10 +12,10 @@ while (true) {
     do {
         let inputCoordinates = InputView().inputCoordinates()
         let coordinatePoint = try InputValueCheck().makeCheckedValues(inputCoordinates)
-    
-        OutputView.drawPoint(coordinatePoint)
+        let point = try ProcotolFactory.convertProtocol(coordinatePoint)
+        OutputView.drawPoint(point)
         break
-        }
+    }
     catch let error as ErrorMessage.Message {
         print (error.rawValue)
     }
