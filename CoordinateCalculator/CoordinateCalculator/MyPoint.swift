@@ -10,7 +10,7 @@ import Foundation
 
 struct MyPoint: MyPointConvertible{
 
-    func createCoordinate() -> [MyPoint] {
+    func makeCoordinate() -> [MyPoint] {
         return [self]
     }
     

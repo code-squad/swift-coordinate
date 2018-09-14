@@ -19,7 +19,7 @@ struct OutputView {
     }
     
     static func drawPoint(_ points: MyPointConvertible ) {
-        let coordinates = points.createCoordinate()
+        let coordinates = points.makeCoordinate()
         drawAxis()
         for coordinate in coordinates {
             print("\(ANSICode.cursor.move(row:abs(coordinate.y - 24) , col: coordinate.x * 2 + 4 ))\(ANSICode.text.redBright).")
@@ -31,7 +31,7 @@ struct OutputView {
     
     private static func printAxisExplanation(_ points: MyPointConvertible) {
         print("\(ANSICode.clear)")
-        let axisExplanation = points.createCoordinate().count
+        let axisExplanation = points.makeCoordinate().count
         switch axisExplanation {
         case 2:
             let line = points as? MyLine

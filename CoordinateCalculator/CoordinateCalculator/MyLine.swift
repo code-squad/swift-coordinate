@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyLine: MyPointConvertible {
-    func createCoordinate() -> [MyPoint] {
+    func makeCoordinate() -> [MyPoint] {
         return [pointA, pointB]
     }
     
