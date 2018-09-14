@@ -13,7 +13,9 @@ struct ProcotolFactory {
         switch points.count {
         case 1:
             let point = [points[0], points[1]]
-            return point as! MyPointConvertible
+            if let returnPoint = (point as? MyPointConvertible) {
+                return returnPoint
+            }
         case 2:
             let line = MyLine(
                 pointA: points[0],
