@@ -12,8 +12,8 @@ struct ProcotolFactory {
     static func convertProtocol(_ points: [MyPoint]) throws -> MyPointConvertible {
         switch points.count {
         case 1:
-            let point = MyPoint(x: points[0].x, y: points[0].y)
-            return point
+            let point = [points[0], points[1]]
+            return point as! MyPointConvertible
         case 2:
             let line = MyLine(
                 pointA: points[0],
