@@ -10,8 +10,7 @@ import Foundation
 
 struct MyLine: MyPointConvertible {
     func createCoordinate() -> [MyPoint] {
-        return [MyPoint(x: self.pointA.x, y: self.pointA.y),
-                MyPoint(x: self.pointB.x, y: self.pointB.y)]
+        return [pointA, pointB]
     }
     
     private(set) var pointA: MyPoint
