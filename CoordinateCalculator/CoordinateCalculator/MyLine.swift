@@ -13,8 +13,8 @@ struct MyLine: MyPointConvertible {
         return [pointA, pointB]
     }
     
-    private(set) var pointA: MyPoint
-    private(set) var pointB: MyPoint
+    private var pointA: MyPoint
+    private var pointB: MyPoint
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
