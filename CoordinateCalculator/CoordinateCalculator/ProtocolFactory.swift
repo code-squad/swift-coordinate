@@ -9,18 +9,18 @@
 import Foundation
 
 struct ProcotolFactory {
-    static func convertProtocol(_ points: [MyPoint]) throws -> MyPointConvertible {
-        switch points.count {
+    static func convertProtocol(_ pointSet: [MyPoint]) throws -> MyPointConvertible {
+        switch pointSet.count {
         case 1:
-            return points[0]
+            return pointSet[0]
         case 2:
-            let line = MyLine(pointA: points[0], pointB: points[1])
+            let line = MyLine(pointA: pointSet[0], pointB: pointSet[1])
             return line as MyPointConvertible
         case 3:
-            if MyTriangle.verifyFigure(points) == false {
+            if MyTriangle.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeTriangle
             }
-            let triangle = MyTriangle(points: points)
+            let triangle = MyTriangle(points: pointSet)
             return triangle as MyPointConvertible
         default:
             break
