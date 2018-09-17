@@ -14,9 +14,9 @@ struct MyTriangle:MyPointConvertible, FigurePossible {
         return  [convert(myLine: lineAB), convert(myLine: lineBC), convert(myLine: lineAC)]
     }
   
-    private var lineAB = MyLine(pointA: MyPoint(x:0 ,y:0), pointB: MyPoint(x:0 ,y:0))
-    private var lineBC = MyLine(pointA: MyPoint(x:0 ,y:0), pointB: MyPoint(x:0 ,y:0))
-    private var lineAC = MyLine(pointA: MyPoint(x:0 ,y:0), pointB: MyPoint(x:0 ,y:0))
+    private var lineAB: MyLine
+    private var lineBC: MyLine
+    private var lineAC: MyLine
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
