@@ -13,14 +13,12 @@ struct MyLine: MyPointConvertible, FigureCalculation {
         return [pointA, pointB]
     }
     
-    private (set) var pointAB: [MyPoint]
     private var pointA: MyPoint
     private var pointB: MyPoint
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
-        self.pointAB = [pointA, pointB]
     }
     
     func calculate() -> Double {
