@@ -19,7 +19,7 @@ struct OutputView {
     }
     
     static func drawPoint(_ points: MyPointConvertible ) {
-        let coordinates = points.makeCoordinate()
+        let coordinates = points.convertMyPoint()
         drawAxis()
         for coordinate in coordinates {
             print("\(ANSICode.cursor.move(row:abs(coordinate.y - 24) , col: coordinate.x * 2 + 4 ))\(ANSICode.text.redBright).")
@@ -31,11 +31,14 @@ struct OutputView {
     
     private static func printAxisExplanation(_ points: MyPointConvertible) {
         print("\(ANSICode.clear)")
-        let axisExplanation = points.makeCoordinate().count
+        let axisExplanation = points.convertMyPoint().count
         switch axisExplanation {
         case 2:
             let line = points as? MyLine
             print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line?.distanceCalc() ?? 0)")
+        case 3:
+            let triangle = points as? MyTriangle
+            print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 삼격형 넓이는 \(triangle?.triangleAreaCalc() ?? 0)")
         default:
             break
         }

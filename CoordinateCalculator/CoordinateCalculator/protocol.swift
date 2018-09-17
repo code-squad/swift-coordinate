@@ -9,5 +9,9 @@
 import Foundation
 
 protocol MyPointConvertible {
-    func makeCoordinate() -> [MyPoint]
+    func convertMyPoint() -> [MyPoint]
+}
+
+protocol FigurePossible {
+    static func figureVerify(_ figue :[MyPoint]) -> Bool
 }

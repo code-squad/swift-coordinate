@@ -9,12 +9,12 @@
 import Foundation
 
 struct MyLine: MyPointConvertible {
-    func makeCoordinate() -> [MyPoint] {
+    func convertMyPoint() -> [MyPoint] {
         return [pointA, pointB]
     }
     
-    private var pointA: MyPoint
-    private var pointB: MyPoint
+    private (set) var pointA: MyPoint
+    private (set) var pointB: MyPoint
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
