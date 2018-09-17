@@ -19,7 +19,7 @@ struct ProcotolFactory {
                 pointB: points[1])
             return line as MyPointConvertible
         case 3:
-            if MyTriangle.figureVerify(points) == false {
+            if MyTriangle.verifyFigure(points) == false {
                 throw ErrorMessage.Message.unmakeTriangle
             }
             let triangle = MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])

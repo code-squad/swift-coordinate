@@ -35,7 +35,7 @@ struct MyTriangle:MyPointConvertible, FigurePossible {
         return area
     }
     
-    static func figureVerify(_ line :[MyPoint]) -> Bool {
+    static func verifyFigure(_ line :[MyPoint]) -> Bool {
         let lineAB = MyLine(pointA: line[0], pointB: line[1]).distanceCalc()
         let lineBC = MyLine(pointA: line[0], pointB: line[2]).distanceCalc()
         let lineAC = MyLine(pointA: line[1], pointB: line[2]).distanceCalc()
