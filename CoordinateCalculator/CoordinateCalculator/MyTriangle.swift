@@ -25,7 +25,7 @@ struct MyTriangle:MyPointConvertible, FigurePossible {
     }
     
     func convert(myLine: MyLine) -> MyPoint {
-        return MyPoint(x: myLine.pointA.x, y: myLine.pointA.y)
+        return MyPoint(x: myLine.pointAB[0].x, y: myLine.pointAB[1].y)
     }
     
     func triangleAreaCalc() -> Double {
