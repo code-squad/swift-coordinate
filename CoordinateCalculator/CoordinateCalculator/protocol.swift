@@ -15,3 +15,8 @@ protocol MyPointConvertible {
 protocol FigurePossible {
     static func verifyFigure(_ figue :[MyPoint]) -> Bool
 }
+
+protocol FigureCalculation {
+    func calculate () -> Double
+    var description: String { get }
+}

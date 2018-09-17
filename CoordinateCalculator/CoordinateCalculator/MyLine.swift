@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: MyPointConvertible {
+struct MyLine: MyPointConvertible, FigureCalculation {
     func convertMyPoint() -> [MyPoint] {
         return [pointA, pointB]
     }
@@ -23,8 +23,12 @@ struct MyLine: MyPointConvertible {
         self.pointAB = [pointA, pointB]
     }
     
-    func distanceCalc() -> Double {
+    func calculate() -> Double {
         let distance = pow(Double(pointA.x - pointB.x), 2.0) + pow(Double(pointA.y - pointB.y), 2.0)
         return sqrt(distance)
     }
+    
+    var description: String = {
+        return "두 점 사이 거리 : "
+    }()
 }

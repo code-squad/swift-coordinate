@@ -24,23 +24,11 @@ struct OutputView {
         for coordinate in coordinates {
             print("\(ANSICode.cursor.move(row:abs(coordinate.y - 24) , col: coordinate.x * 2 + 4 ))\(ANSICode.text.redBright).")
         }
-        print("\(ANSICode.cursor.move(row: 27, col: 0))")
         deleteAxis()
-        printAxisExplanation(points)
     }
     
-    private static func printAxisExplanation(_ points: MyPointConvertible) {
-        print("\(ANSICode.clear)")
-        let axisExplanation = points.convertMyPoint().count
-        switch axisExplanation {
-        case 2:
-            let line = points as? MyLine
-            print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 두 점 사이 거리는 \(line?.distanceCalc() ?? 0)")
-        case 3:
-            let triangle = points as? MyTriangle
-            print("\(ANSICode.cursor.move(row: 1, col: 1))\(ANSICode.text.whiteBright) 삼격형 넓이는 \(triangle?.triangleAreaCalc() ?? 0)")
-        default:
-            break
-        }
+    func printAxisExplanation(myProtocol: MyPointConvertible & FigureCalculation ) {
+        let explanation = myProtocol.calculate()
+        print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.yellow)\(myProtocol.description)\(explanation)")
     }
 }
