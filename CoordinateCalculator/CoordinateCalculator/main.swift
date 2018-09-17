@@ -14,7 +14,7 @@ while (true) {
         let coordinatePoint = try InputValueCheck().makeCheckedValues(inputCoordinates)
         let pointSet = try ProcotolFactory.convertProtocol(coordinatePoint)
         OutputView.drawPoint(pointSet)
-        if let calculatableShapes = pointSet as? (FigureCalculation & MyPointConvertible) {
+        if let calculatableShapes = pointSet as? FigureCalculation {
             OutputView().printAxisExplanation(myProtocol: calculatableShapes)
         }
         break

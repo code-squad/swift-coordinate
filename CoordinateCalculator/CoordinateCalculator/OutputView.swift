@@ -27,7 +27,7 @@ struct OutputView {
         deleteAxis()
     }
     
-    func printAxisExplanation(myProtocol: MyPointConvertible & FigureCalculation ) {
+    func printAxisExplanation(myProtocol: FigureCalculation ) {
         let explanation = myProtocol.calculate()
         print("\(ANSICode.cursor.move(row: 30, col: -1))\(ANSICode.text.yellow)\(myProtocol.description)\(explanation)")
     }
