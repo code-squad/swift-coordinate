@@ -18,10 +18,10 @@ struct MyTriangle:MyPointConvertible, FigurePossible {
     private var lineBC: MyLine
     private var lineAC: MyLine
     
-    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        self.lineAB = MyLine(pointA: pointA, pointB: pointB)
-        self.lineBC = MyLine(pointA: pointB, pointB: pointC)
-        self.lineAC = MyLine(pointA: pointC, pointB: pointA)
+    init(points: [MyPoint]) {
+        self.lineAB = MyLine(pointA: points[0], pointB: points[1])
+        self.lineBC = MyLine(pointA: points[1], pointB: points[2])
+        self.lineAC = MyLine(pointA: points[2], pointB: points[0])
     }
     
     func convert(myLine: MyLine) -> MyPoint {
