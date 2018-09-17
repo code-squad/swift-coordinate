@@ -10,21 +10,17 @@ import Foundation
 
 struct MyTriangle:MyPointConvertible, FigurePossible, FigureCalculation {
     func convertMyPoint() -> [MyPoint] {
-        return  [convert(myLine: lineAB), convert(myLine: lineBC), convert(myLine: lineAC)]
+        return [lineAB.convertMyPoint()[0],lineAB.convertMyPoint()[1],lineAC.convertMyPoint()[0]]
     }
-  
+    
     private var lineAB: MyLine
     private var lineBC: MyLine
     private var lineAC: MyLine
     
-    init(points: [MyPoint]) {
-        self.lineAB = MyLine(pointA: points[0], pointB: points[1])
-        self.lineBC = MyLine(pointA: points[1], pointB: points[2])
-        self.lineAC = MyLine(pointA: points[2], pointB: points[0])
-    }
-    
-    func convert(myLine: MyLine) -> MyPoint {
-        return MyPoint(x: myLine.pointAB[0].x, y: myLine.pointAB[1].y)
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+        self.lineAB = MyLine(pointA: pointA, pointB: pointB)
+        self.lineBC = MyLine(pointA: pointB, pointB: pointC)
+        self.lineAC = MyLine(pointA: pointC, pointB: pointA)
     }
     
     static func verifyFigure(_ line :[MyPoint]) -> Bool {

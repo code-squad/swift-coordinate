@@ -20,7 +20,7 @@ struct ProcotolFactory {
             if MyTriangle.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeTriangle
             }
-            let triangle = MyTriangle(points: pointSet)
+            let triangle = MyTriangle(pointA: pointSet[0], pointB: pointSet[1], pointC: pointSet[2])
             return triangle as MyPointConvertible
         default:
             break
