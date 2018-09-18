@@ -15,18 +15,27 @@ struct MyRect: MyPointConvertible, FigurePossible, FigureCalculation {
         return [leftTop, rightTop, rightBottom, leftBottom]
     }
     
-    private var leftTop: MyPoint
-    private var rightBottom: MyPoint
+    private var leftTop: MyPoint = MyPoint(x: 0, y: 0)
+    private var rightBottom: MyPoint = MyPoint(x: 0, y: 0)
+    private var origin: MyPoint = MyPoint(x: 0, y: 0)
+    private var size: CGSize = CGSize(width: 0, height: 0)
     
     init(origin: MyPoint, size: CGSize) {
-        self.leftTop = origin
-        self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
+        self.origin = origin
+        self.size = size
+    }
+    
+    init (points: [MyPoint]) {
+        self.init(origin: points[0],
+                  size: CGSize(width: MyLine(pointA: points[0], pointB: points[1]).calculate(), height: MyLine(pointA: points[1], pointB: points[2]).calculate()))
+        self.leftTop = points[3]
+        self.rightBottom = points[1]
     }
     
     static func verifyFigure(_ pointSet: [MyPoint]) -> Bool {
-        let distanceA = MyLine(pointA: pointSet[0], pointB: pointSet[2]).calculate()
-        let distanceB = sqrt(pow(MyLine(pointA: pointSet[0], pointB: pointSet[1]).calculate(),2) +  pow(MyLine(pointA: pointSet[1], pointB: pointSet[2]).calculate(),2))
-        if distanceA == distanceB  {
+        let distanceA = MyLine(pointA: pointSet[0], pointB: pointSet[1]).calculate()
+        let distanceB = MyLine(pointA: pointSet[2], pointB: pointSet[3]).calculate()
+        if distanceA == distanceB {
             return true
         } else { return false }
     }
