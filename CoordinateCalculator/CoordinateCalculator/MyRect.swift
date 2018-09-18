@@ -15,19 +15,17 @@ struct MyRect: MyPointConvertible, FigurePossible, FigureCalculation {
         return [leftTop, rightTop, rightBottom, leftBottom]
     }
     
-    private var leftTop: MyPoint = MyPoint(x: 0, y: 0)
-    private var rightBottom: MyPoint = MyPoint(x: 0, y: 0)
-    private var origin: MyPoint = MyPoint(x: 0, y: 0)
-    private var size: CGSize = CGSize(width: 0, height: 0)
-    
-    init(origin: MyPoint, size: CGSize) {
-        self.origin = origin
-        self.size = size
+    private var leftTop: MyPoint
+    private var rightBottom: MyPoint
+   
+    private init(origin: MyPoint, size: CGSize) {
+        self.leftTop = origin
+        self.rightBottom = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y - Int(size.height))
     }
     
     init (points: [MyPoint]) {
         self.init(origin: points[0],
-                  size: CGSize(width: MyLine(pointA: points[0], pointB: points[1]).calculate(), height: MyLine(pointA: points[1], pointB: points[2]).calculate()))
+                  size: CGSize(width: CGFloat(points[2].x) - CGFloat(points[0].x), height: CGFloat(points[3].y) - CGFloat(points[0].y)))
         self.leftTop = points[3]
         self.rightBottom = points[1]
     }
