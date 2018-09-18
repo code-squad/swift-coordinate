@@ -19,5 +19,6 @@ struct ErrorMessage {
         case overCoordinateValue = " 입력값 x,y는 24 이하여야 합니다."
         case excessInputValue = "입력 좌표의 크기가 초과했습니다."
         case unmakeTriangle = "삼각형이 만들어지지 않습니다."
+        case unmakeRect = "사각형이 만들어지지 않습니다."
     }
 }

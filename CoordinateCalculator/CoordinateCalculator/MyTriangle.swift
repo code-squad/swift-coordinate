@@ -10,7 +10,9 @@ import Foundation
 
 struct MyTriangle:MyPointConvertible, FigurePossible, FigureCalculation {
     func convertMyPoint() -> [MyPoint] {
-        return [lineAB.convertMyPoint()[0],lineAB.convertMyPoint()[1],lineAC.convertMyPoint()[0]]
+        let ABPoints = lineAB.convertMyPoint()
+        let ACPoints = lineAC.convertMyPoint()
+        return [ABPoints[0],ABPoints[1],ACPoints[0]]
     }
     
     private var lineAB: MyLine

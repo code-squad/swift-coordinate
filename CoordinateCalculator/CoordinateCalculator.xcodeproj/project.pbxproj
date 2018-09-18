@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E9D28A7214F964400906E6C /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D28A6214F964400906E6C /* MyRect.swift */; };
+		4E9D28A82150779000906E6C /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D28A6214F964400906E6C /* MyRect.swift */; };
 		4ED0E372214A547000CF853D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E371214A547000CF853D /* InputView.swift */; };
 		4ED0E376214A548900CF853D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E375214A548900CF853D /* OutputView.swift */; };
 		4ED0E378214A549800CF853D /* InputValueCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0E377214A549800CF853D /* InputValueCheck.swift */; };
@@ -45,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E9D28A6214F964400906E6C /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		4ED0E371214A547000CF853D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		4ED0E375214A548900CF853D /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		4ED0E377214A549800CF853D /* InputValueCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValueCheck.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 				4ED0E37B214A54AD00CF853D /* MyPoint.swift */,
 				4ED0E37D214A54B500CF853D /* MyLine.swift */,
 				4ED0E38D214DFA2400CF853D /* MyTriangle.swift */,
+				4E9D28A6214F964400906E6C /* MyRect.swift */,
 				4ED0E37F214A54C000CF853D /* Protocol.swift */,
 				4ED0E381214A54CB00CF853D /* ProtocolFactory.swift */,
 			);
@@ -215,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9D28A82150779000906E6C /* MyRect.swift in Sources */,
 				4ED0E39B214E015C00CF853D /* ANSICode.swift in Sources */,
 				4ED0E39C214E015C00CF853D /* main.swift in Sources */,
 				4ED0E39D214E015C00CF853D /* InputView.swift in Sources */,
@@ -241,6 +246,7 @@
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				4ED0E382214A54CB00CF853D /* ProtocolFactory.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				4E9D28A7214F964400906E6C /* MyRect.swift in Sources */,
 				4ED0E380214A54C000CF853D /* Protocol.swift in Sources */,
 				4ED0E37E214A54B500CF853D /* MyLine.swift in Sources */,
 				4ED0E37A214A54A400CF853D /* ErrorMessage.swift in Sources */,
