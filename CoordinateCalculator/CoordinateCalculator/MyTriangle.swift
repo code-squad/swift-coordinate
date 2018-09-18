@@ -5,7 +5,6 @@
 //  Created by KIMMINSIK on 2018. 9. 13..
 //  Copyright © 2018년 Codesquad Inc. All rights reserved.
 //
-
 import Foundation
 
 struct MyTriangle:MyPointConvertible, FigurePossible, FigureCalculation {

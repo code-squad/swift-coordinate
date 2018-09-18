@@ -26,8 +26,7 @@ struct ProcotolFactory {
             if MyRect.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeRect
             }
-            let size = CGSize(width: MyLine(pointA: pointSet[0], pointB: pointSet[1]).calculate(), height: MyLine(pointA: pointSet[1], pointB: pointSet[2]).calculate())
-            let rect = MyRect(origin: pointSet[0], size: size)
+            let rect = MyRect(points: pointSet)
             return rect as MyPointConvertible
         default:
             break
