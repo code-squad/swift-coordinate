@@ -20,24 +20,33 @@ struct MyRect: MyPointConvertible, FigurePossible, FigureCalculation {
    
     private init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
-        self.rightBottom = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y - Int(size.height))
+        self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y - Int(size.height))
     }
     
-    init (points: [MyPoint]) {
-        self.init(origin: points[0],
-                  size: CGSize(width: CGFloat(points[2].x) - CGFloat(points[0].x), height: CGFloat(points[3].y) - CGFloat(points[0].y)))
-        self.leftTop = points[3]
-        self.rightBottom = points[1]
+    init(points: [MyPoint]) {
+        let elements = MyRect.generateRectElemets(points)
+        self.init(origin: elements.origin, size: elements.size)
     }
     
+    private static func generateRectElemets(_ points: [MyPoint]) -> (origin: MyPoint, size: CGSize) {
+        let sortedPoints = points.sorted(by: {$0.x < $1.x} )
+        let origin:MyPoint = MyPoint(x: sortedPoints[1].x, y: sortedPoints[1].y)
+        let width = sortedPoints[2].x-sortedPoints[0].x
+        let height = sortedPoints[1].y-sortedPoints[0].y
+        let size:CGSize = CGSize(width: CGFloat(width), height: CGFloat(height))
+        
+        return (origin, size)
+    }
+        
     static func verifyFigure(_ pointSet: [MyPoint]) -> Bool {
         let distanceA = MyLine(pointA: pointSet[0], pointB: pointSet[1]).calculate()
         let distanceB = MyLine(pointA: pointSet[2], pointB: pointSet[3]).calculate()
+        print(distanceA, distanceB)
         if distanceA == distanceB {
             return true
         } else { return false }
     }
-    
+        
     func calculate() -> Double {
         let height = MyLine(pointA: leftTop, pointB: MyPoint(x: leftTop.x, y: rightBottom.y)).calculate()
         let width = MyLine(pointA: MyPoint(x: leftTop.x, y: rightBottom.y), pointB: rightBottom).calculate()

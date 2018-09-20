@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProcotolFactory {
+struct ProtocolFactory {
     static func convertProtocol(_ pointSet: [MyPoint]) throws -> MyPointConvertible {
         switch pointSet.count {
         case 1:

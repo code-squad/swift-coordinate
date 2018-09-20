@@ -12,7 +12,7 @@ while (true) {
     do {
         let inputCoordinates = InputView().inputCoordinates()
         let coordinatePoint = try InputValueCheck().makeCheckedValues(inputCoordinates)
-        let pointSet = try ProcotolFactory.convertProtocol(coordinatePoint)
+        let pointSet = try ProtocolFactory.convertProtocol(coordinatePoint)
         OutputView.drawPoint(pointSet)
         if let calculatableShapes = pointSet as? FigureCalculation {
             OutputView().printAxisExplanation(myProtocol: calculatableShapes)
