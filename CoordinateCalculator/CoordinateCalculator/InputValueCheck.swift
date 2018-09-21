@@ -22,7 +22,10 @@ struct InputValueCheck {
                 
                 guard let convertElements = makeNumericValues(splitCommaElements) else { throw ErrorMessage.Message.notIntValue}
                 
-                guard let validCoordinatesValue = createCoordinates(convertElements) else { throw ErrorMessage.Message.overCoordinateValue}
+                guard let checkPointNumber = checkPointNumber(convertElements) else
+                    { throw ErrorMessage.Message.excessInputValue }
+                        
+                guard let validCoordinatesValue = createCoordinates(checkPointNumber) else { throw ErrorMessage.Message.overCoordinateValue}
                 
                 points.append(validCoordinatesValue)
                 coordinatePoints = createMyPoint(points)
@@ -69,11 +72,19 @@ struct InputValueCheck {
     
 
     private func makeNumericValues(_ separatedCoordinates: Array<String>) -> Array<Int>? {
-        let convertCoordinates = separatedCoordinates.compactMap{ tempValue in Int(tempValue) }
-        if convertCoordinates.count != separatedCoordinates.count {
+        let numericValues = separatedCoordinates.compactMap{ tempValue in Int(tempValue) }
+        if numericValues.count != separatedCoordinates.count {
             return nil
         }
-        return convertCoordinates
+        return numericValues
+    }
+    
+    private func checkPointNumber(_ convertElements:Array<Int>) -> Array<Int>? {
+        let pointNumber = convertElements.count
+        if pointNumber > 4  {
+            return nil
+        }
+        return convertElements
     }
     
 
