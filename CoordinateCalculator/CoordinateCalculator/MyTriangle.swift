@@ -24,6 +24,12 @@ struct MyTriangle:MyPointConvertible, FigurePossible, FigureCalculation {
         self.lineAC = MyLine(pointA: pointC, pointB: pointA)
     }
     
+    init(points:[MyPoint]) {
+        self.lineAB = MyLine.init(pointA: points[0], pointB: points[1])
+        self.lineBC = MyLine.init(pointA: points[1], pointB: points[2])
+        self.lineAC = MyLine.init(pointA: points[2], pointB: points[0])
+    }
+    
     static func verifyFigure(_ line :[MyPoint]) -> Bool {
         let lineAB = MyLine(pointA: line[0], pointB: line[1]).calculate()
         let lineBC = MyLine(pointA: line[0], pointB: line[2]).calculate()

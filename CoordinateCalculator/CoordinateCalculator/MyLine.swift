@@ -21,6 +21,11 @@ struct MyLine: MyPointConvertible, FigureCalculation {
         self.pointB = pointB
     }
     
+    init(points:[MyPoint]) {
+        self.pointA = points[0]
+        self.pointB = points[1]
+    }
+    
     func calculate() -> Double {
         let distance = pow(Double(pointA.x - pointB.x), 2.0) + pow(Double(pointA.y - pointB.y), 2.0)
         return sqrt(distance)
