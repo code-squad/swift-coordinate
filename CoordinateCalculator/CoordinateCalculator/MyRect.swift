@@ -41,7 +41,6 @@ struct MyRect: MyPointConvertible, FigurePossible, FigureCalculation {
     static func verifyFigure(_ pointSet: [MyPoint]) -> Bool {
         let distanceA = MyLine(pointA: pointSet[0], pointB: pointSet[1]).calculate()
         let distanceB = MyLine(pointA: pointSet[2], pointB: pointSet[3]).calculate()
-        print(distanceA, distanceB)
         if distanceA == distanceB {
             return true
         } else { return false }

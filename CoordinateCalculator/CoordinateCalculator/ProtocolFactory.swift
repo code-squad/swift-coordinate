@@ -11,26 +11,20 @@ import Foundation
 struct ProtocolFactory {
     static func convertProtocol(_ pointSet: [MyPoint]) throws -> MyPointConvertible {
         switch pointSet.count {
-        case 1:
-            return pointSet[0]
         case 2:
-            let line = MyLine(pointA: pointSet[0], pointB: pointSet[1])
-            return line as MyPointConvertible
+            return MyLine(pointA: pointSet[0], pointB: pointSet[1])
         case 3:
             if MyTriangle.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeTriangle
             }
-            let triangle = MyTriangle(pointA: pointSet[0], pointB: pointSet[1], pointC: pointSet[2])
-            return triangle as MyPointConvertible
+            return MyTriangle(pointA: pointSet[0], pointB: pointSet[1], pointC: pointSet[2])
         case 4:
             if MyRect.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeRect
             }
-            let rect = MyRect(points: pointSet)
-            return rect as MyPointConvertible
+            return MyRect(points: pointSet)
         default:
-            break
+            return pointSet[0]
         }
-        throw ErrorMessage.Message.excessInputValue
     }
 }
