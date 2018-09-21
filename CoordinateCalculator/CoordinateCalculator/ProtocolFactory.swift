@@ -12,12 +12,12 @@ struct ProtocolFactory {
     static func convertProtocol(_ pointSet: [MyPoint]) throws -> MyPointConvertible {
         switch pointSet.count {
         case 2:
-            return MyLine(pointA: pointSet[0], pointB: pointSet[1])
+            return MyLine(points: pointSet)
         case 3:
             if MyTriangle.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeTriangle
             }
-            return MyTriangle(pointA: pointSet[0], pointB: pointSet[1], pointC: pointSet[2])
+            return MyTriangle(points: pointSet)
         case 4:
             if MyRect.verifyFigure(pointSet) == false {
                 throw ErrorMessage.Message.unmakeRect
