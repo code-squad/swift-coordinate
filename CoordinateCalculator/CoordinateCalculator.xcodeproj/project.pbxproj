@@ -13,6 +13,8 @@
 		A38F2AF72165FADC00526BC6 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF62165FADC00526BC6 /* InputView.swift */; };
 		A38F2AF92165FB2B00526BC6 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF82165FB2B00526BC6 /* MyPoint.swift */; };
 		A3F6E7DC2166F4C4000C927B /* UnitTestInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7DB2166F4C4000C927B /* UnitTestInput.swift */; };
+		A3F6E7E321675384000C927B /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7E221675384000C927B /* InputValidator.swift */; };
+		A3F6E7E421675384000C927B /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7E221675384000C927B /* InputValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,7 @@
 		A3F6E7D92166F4C4000C927B /* UnitTestInput.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestInput.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F6E7DB2166F4C4000C927B /* UnitTestInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestInput.swift; sourceTree = "<group>"; };
 		A3F6E7DD2166F4C4000C927B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3F6E7E221675384000C927B /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 				A38F2AF42165E3BF00526BC6 /* OutputView.swift */,
 				A38F2AF62165FADC00526BC6 /* InputView.swift */,
 				A38F2AF82165FB2B00526BC6 /* MyPoint.swift */,
+				A3F6E7E221675384000C927B /* InputValidator.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -187,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38F2AF92165FB2B00526BC6 /* MyPoint.swift in Sources */,
+				A3F6E7E321675384000C927B /* InputValidator.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				A38F2AF72165FADC00526BC6 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
@@ -199,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F6E7DC2166F4C4000C927B /* UnitTestInput.swift in Sources */,
+				A3F6E7E421675384000C927B /* InputValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

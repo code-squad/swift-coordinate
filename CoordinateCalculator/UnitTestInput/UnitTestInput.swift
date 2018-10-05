@@ -21,6 +21,12 @@ class UnitTestInput: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let input = "(10,10)"
+        XCTAssertTrue(input.firstIndex(of:",") == input.lastIndex(of:","))
+        let input2 = "(10,10,)"
+        XCTAssertFalse(input2.firstIndex(of:",") == input2.lastIndex(of:","))
+        let input3 = "(1010)"
+        XCTAssertTrue(input3.firstIndex(of:",") == input3.lastIndex(of:","))
     }
 
 
