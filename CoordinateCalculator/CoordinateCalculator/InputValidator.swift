@@ -19,7 +19,7 @@ struct InputValidator {
     private let leftBracket : Character = "("
     private let rightBracket : Character = ")"
     private let comma : Character = ","
-
+    private let xyCount : Int = 2
     private var input = String()
     
     init(input:String) {
@@ -38,8 +38,14 @@ struct InputValidator {
         return true
     }
     
+    private func hasBothXY() -> Bool {
+        let xy = InputView.separateCoordinate(input:self.input, separator:comma)
+        guard xy.count == xyCount else { return false }
+        return true
+    }
+    
     private func isIntInRange() -> Bool {
-        let coordinate = InputView.separateCoordinate(input:self.input, separator:comma)
+        let coordinate = InputView.getCoordinate(input:self.input, separator:comma)
         guard let x = Int(coordinate.x) else { return false }
         guard let y = Int(coordinate.y) else { return false }
         if (x > 25 || y > 25) { return false }
@@ -49,6 +55,7 @@ struct InputValidator {
     func checkInputError() -> InputError {
         guard hasBrackets() else { return .invalidForm }
         guard hasOneComma() else { return .invalidForm }
+        guard hasBothXY() else { return .invalidForm }
         guard isIntInRange() else { return .outOfRangeInt }
         return .noError
     }
