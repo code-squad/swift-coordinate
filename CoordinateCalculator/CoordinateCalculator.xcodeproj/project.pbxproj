@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC501F8B6F7E007F7335 /* CoordinateCalculator */,
-				A3F6E7DA2166F4C4000C927B /* UnitTestInput */,
+				A3F6E7DA2166F4C4000C927B /* UnitTestCoordinateCalculator */,
 				8377CC4F1F8B6F7E007F7335 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,7 +97,7 @@
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
 		};
-		A3F6E7DA2166F4C4000C927B /* UnitTestInput */ = {
+		A3F6E7DA2166F4C4000C927B /* UnitTestCoordinateCalculator */ = {
 			isa = PBXGroup;
 			children = (
 				A3F6E7DB2166F4C4000C927B /* UnitTestInputValidator.swift */,
@@ -105,7 +105,7 @@
 				A340A213216B3BEE00CA37AF /* UnitTestInputView.swift */,
 				A340A215216B3F3E00CA37AF /* UnitTestMyPoint.swift */,
 			);
-			path = UnitTestInput;
+			path = UnitTestCoordinateCalculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
