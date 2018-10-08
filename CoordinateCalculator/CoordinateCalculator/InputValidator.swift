@@ -15,11 +15,11 @@ public enum InputError : String {
 }
 
 struct InputValidator {
-    
     private let leftBracket : Character = "("
     private let rightBracket : Character = ")"
     private let comma : Character = ","
     private let xyCount : Int = 2
+    
     private var input = String()
     
     init(input:String) {
@@ -39,16 +39,16 @@ struct InputValidator {
     }
     
     private func hasBothXY() -> Bool {
-        let xy = InputView.separateCoordinate(input:self.input, separator:comma)
+        let xy = InputView.separateCoordinate(input:self.input)
         guard xy.count == xyCount else { return false }
         return true
     }
     
     private func isIntInRange() -> Bool {
-        let coordinate = InputView.getCoordinate(input:self.input, separator:comma)
+        let coordinate = InputView.getCoordinate(input:self.input)
         guard let x = Int(coordinate.x) else { return false }
         guard let y = Int(coordinate.y) else { return false }
-        if (x > 25 || y > 25) { return false }
+        if (x > 24 || y > 24) { return false }
         return true
     }
     
@@ -59,5 +59,4 @@ struct InputValidator {
         guard isIntInRange() else { return .outOfRangeInt }
         return .noError
     }
-    
 }
