@@ -8,21 +8,23 @@
 
 import Foundation
 
-//OutputView.drawAxis()
 
-let correct = "(10,9)"
-let a = "(424)"
-let b = "10,9)"
-let c = "(q,2)"
-let d = "(29,3)"
-
-let input = d
-
-let inputError = InputValidator(input:input).checkInputError()
-
-if (inputError != .noError){
-    print(inputError.rawValue)
-} else {
-    let coordinate = InputView.separateCoordinate(input:input, separator:",")
-    print(MyPoint(x:Int(coordinate.x)!,y:Int(coordinate.y)!))
+struct CoordinateCalculate {
+    func run() {
+        let input = InputView.readInput()
+        let inputError = InputValidator(input:input).checkInputError()
+        
+        guard inputError == .noError else {
+            print(inputError.rawValue)
+            return
+        }
+        
+        let myPoint = InputView.makeMyPoint(input:input)
+        print(myPoint)
+        
+        OutputView.drawAxis()
+        OutputView.drawPoint(point: myPoint)
+    }
 }
+
+CoordinateCalculate().run()
