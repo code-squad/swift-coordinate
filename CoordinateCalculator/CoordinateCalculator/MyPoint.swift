@@ -22,7 +22,6 @@ struct MyPoint {
     init(x:String, y:String) {
         guard let x = Int(x) else { return }
         guard let y = Int(y) else { return }
-        if ((0>x || x>24) || (0>y || y>24)) { return }
         self.x = x
         self.y = y
     }
