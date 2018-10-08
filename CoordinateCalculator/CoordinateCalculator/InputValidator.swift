@@ -10,7 +10,7 @@ import Foundation
 
 public enum InputError : String {
     case noError
-    case outOfRangeInt = "X, Y좌표는 모두 최대 24까지의 정수만 입력 가능합니다."
+    case outOfRangeInt = "X, Y좌표는 모두 0부터 최대 24까지의 정수만 입력 가능합니다."
     case invalidForm = "좌표는 (x,y) 형식으로 입력해주세요."
 }
 
@@ -48,7 +48,7 @@ struct InputValidator {
         let coordinate = InputView.getCoordinate(input:self.input)
         guard let x = Int(coordinate.x) else { return false }
         guard let y = Int(coordinate.y) else { return false }
-        if (x > 24 || y > 24) { return false }
+        if ((0>x || x>24) || (0>y || y>24)) { return false }
         return true
     }
     
