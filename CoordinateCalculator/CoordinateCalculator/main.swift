@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 struct CoordinateCalculate {
-    func run() {
+    static func run() {
         let input = InputView.readInput()
         let inputError = InputValidator(input:input).checkInputError()
         
@@ -18,13 +17,10 @@ struct CoordinateCalculate {
             print(inputError.rawValue)
             return
         }
-        
-        let myPoint = InputView.makeMyPoint(input:input)
-        print(myPoint)
-        
-        OutputView.drawAxis()
+        let coordinate = InputView.getCoordinate(input:input)
+        let myPoint = MyPoint(x:coordinate.x, y:coordinate.y)
         OutputView.drawPoint(point: myPoint)
     }
 }
 
-CoordinateCalculate().run()
+CoordinateCalculate.run()
