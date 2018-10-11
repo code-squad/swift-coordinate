@@ -9,7 +9,8 @@
 import Foundation
 
 struct OutputView {
-    private static let originOfCoordinates = MyPoint(x:3,y:25)
+    private static let originOfX = 3
+    private static let originOfY = 25
     private static let marker = "🔵"
     
     private static func drawAxis() {
@@ -18,12 +19,12 @@ struct OutputView {
     }
     
     private static func moveCursorToEnd() {
-        print("\(ANSICode.cursor.move(row:originOfCoordinates.y+1, col: originOfCoordinates.x))")
+        print("\(ANSICode.cursor.move(row: originOfY + 1, col: originOfX))")
     }
     
     static func drawPoint(point:MyPoint) {
         drawAxis()
-        print("\(ANSICode.cursor.move(row:originOfCoordinates.y - point.y, col:originOfCoordinates.x + point.x*2))\(marker)")
+        print("\(ANSICode.cursor.move(row: originOfY - point.y, col: originOfX + point.x * 2))\(marker)")
         moveCursorToEnd()
     }
     
