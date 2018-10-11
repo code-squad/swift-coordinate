@@ -12,13 +12,6 @@ struct MyPoint {
     private(set) var x = 0
     private(set) var y = 0
     
-    init() {}
-    
-    init(x:Int, y:Int) {
-        self.x = x
-        self.y = y
-    }
-    
     init(x:String, y:String) {
         guard let x = Int(x) else { return }
         guard let y = Int(y) else { return }
