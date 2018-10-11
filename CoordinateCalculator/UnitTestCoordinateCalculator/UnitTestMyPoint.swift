@@ -11,10 +11,7 @@ import XCTest
 class UnitTestMyPoint: XCTestCase {
     let validString = "15"
     let validStringToInt = 15
-    let outOfRangeString = "25"
-    let outOfRangeStringToInt = 25
     let notInt = "p"
-    let negativeInt = "-5"
     let defaultMyPoint = MyPoint()
 
     override func setUp() {}
@@ -25,18 +22,8 @@ class UnitTestMyPoint: XCTestCase {
         XCTAssertTrue(myPoint.x==validStringToInt && myPoint.y==validStringToInt)
     }
     
-    func testMyPointInitializedToDefault_WithNegativeInt() {
-        let myPoint = MyPoint(x:negativeInt, y:validString)
-        XCTAssertTrue(myPoint.x==defaultMyPoint.x && myPoint.y==defaultMyPoint.y)
-    }
-    
     func testMyPointInitializedToDefault_WithNotInt() {
         let myPoint = MyPoint(x:notInt, y:validString)
-        XCTAssertTrue(myPoint.x==defaultMyPoint.x && myPoint.y==defaultMyPoint.y)
-    }
-    
-    func testMyPointInitializedToDefault_WithOutOfRangeInt() {
-        let myPoint = MyPoint(x:outOfRangeString, y:validString)
         XCTAssertTrue(myPoint.x==defaultMyPoint.x && myPoint.y==defaultMyPoint.y)
     }
 }
