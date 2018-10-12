@@ -8,51 +8,58 @@
 
 import Foundation
 
-public enum InputError : String {
+public enum TextError : String {
     case noError
     case outOfRangeInt = "X, Y좌표는 모두 0부터 최대 24까지의 정수만 입력 가능합니다."
     case invalidForm = "좌표는 (x,y) 형식으로 입력해주세요."
 }
 
-struct InputValidator {
+struct TextValidator {
     private let leftBracket : Character = "("
     private let rightBracket : Character = ")"
     private let comma : Character = ","
     private let xyCount : Int = 2
+    private let minNum : Int = 0
+    private let maxNum : Int = 24
+    private var text = String()
     
-    private var input = String()
-    
-    init(input:String) {
-        self.input = input
+    init(text:String) {
+        self.text = text
     }
     
     private func hasBrackets() -> Bool {
-        guard input.first == leftBracket else { return false }
-        guard input.last == rightBracket else { return false }
+        guard text.first == leftBracket else { return false }
+        guard text.last == rightBracket else { return false }
         return true
     }
     
     private func hasOneComma() -> Bool {
-        guard input.contains(comma) else { return false }
-        guard input.firstIndex(of:comma)==input.lastIndex(of:comma) else { return false }
+        guard text.contains(comma) else { return false }
+        guard text.firstIndex(of:comma)==text.lastIndex(of:comma) else { return false }
         return true
     }
     
     private func hasBothXY() -> Bool {
-        let xy = InputView.separateCoordinate(input:self.input)
+        let xy = text.removeBothFirstAndLast().splitByComma()
         guard xy.count == xyCount else { return false }
         return true
     }
     
-    private func isIntInRange() -> Bool {
-        let coordinate = InputView.getCoordinate(input:self.input)
-        guard let x = Int(coordinate.x) else { return false }
-        guard let y = Int(coordinate.y) else { return false }
-        if ((0>x || x>24) || (0>y || y>24)) { return false }
+    private func isInRange(num:Int) -> Bool {
+        if ( minNum > num || num > maxNum) { return false }
         return true
     }
     
-    func checkInputError() -> InputError {
+    private func isIntInRange() -> Bool {
+        let coordinates = text.removeBothFirstAndLast().splitByComma()
+        for coordinate in coordinates {
+            guard let coordinateValue = Int(coordinate) else { return false }
+            guard isInRange(num: coordinateValue) else { return false }
+        }
+        return true
+    }
+    
+    func checkTextError() -> TextError {
         guard hasBrackets() else { return .invalidForm }
         guard hasOneComma() else { return .invalidForm }
         guard hasBothXY() else { return .invalidForm }
@@ -60,3 +67,4 @@ struct InputValidator {
         return .noError
     }
 }
+

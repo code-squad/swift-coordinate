@@ -8,7 +8,7 @@
 
 import XCTest
 
-class UnitTestInput: XCTestCase {
+class UnitTestTextValidator: XCTestCase {
     let validForm = "(10,9)"
     let noBracket = "10,9)"
     let noComma = "(424)"
@@ -21,26 +21,26 @@ class UnitTestInput: XCTestCase {
     override func tearDown() {}
     
     func testInputHasNoError() {
-        XCTAssertEqual(InputValidator(input:validForm).checkInputError(), .noError)
+        XCTAssertEqual(TextValidator(text:validForm).checkTextError(), .noError)
     }
     
     func testInputHasBrackets() {
-        XCTAssertEqual(InputValidator.init(input:noBracket).checkInputError(), .invalidForm)
+        XCTAssertEqual(TextValidator(text:noBracket).checkTextError(), .invalidForm)
     }
     
     func testInputHasOneComma() {
-        XCTAssertEqual(InputValidator(input:noComma).checkInputError(), .invalidForm)
+        XCTAssertEqual(TextValidator(text:noComma).checkTextError(), .invalidForm)
     }
     
     func testInputHasTwoValues() {
-        XCTAssertEqual(InputValidator.init(input:noTwoValue).checkInputError(), .invalidForm)
+        XCTAssertEqual(TextValidator.init(text:noTwoValue).checkTextError(), .invalidForm)
     }
     
     func testInputIsIntType() {
-        XCTAssertEqual(InputValidator.init(input:notInt).checkInputError(), .outOfRangeInt)
+        XCTAssertEqual(TextValidator.init(text:notInt).checkTextError(), .outOfRangeInt)
     }
     
     func testInputIsNotOutOfRange() {
-        XCTAssertEqual(InputValidator.init(input:outOfRange).checkInputError(), .outOfRangeInt)
+        XCTAssertEqual(TextValidator.init(text:outOfRange).checkTextError(), .outOfRangeInt)
     }
 }
