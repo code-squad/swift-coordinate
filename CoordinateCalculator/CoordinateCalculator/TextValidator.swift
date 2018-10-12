@@ -48,7 +48,7 @@ struct TextValidator {
     }
     
     private func isInRange(num:Int) -> Bool {
-        return ( minNum < num || num < maxNum)
+        return (minNum <= num && num <= maxNum)
     }
     
     private func isIntInRange() -> Bool {
