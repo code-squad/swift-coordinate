@@ -8,10 +8,12 @@
 
 import Foundation
 
-public enum TextError : String {
-    case noError
-    case outOfRangeInt = "X, Y좌표는 모두 0부터 최대 24까지의 정수만 입력 가능합니다."
+public enum TextValidation : String {
+    case success
     case invalidForm = "좌표는 (x,y) 형식으로 입력해주세요."
+    case noOneComma = "(x,y) 형식으로 컴마로 x좌표와 y좌표를 구분해주세요."
+    case noBothXY = "(x,y) 형식으로 x좌표와 y좌표를 모두 입력해주세요."
+    case outOfRangeInt = "X, Y좌표는 모두 0부터 최대 24까지의 정수만 입력 가능합니다."
 }
 
 struct TextValidator {
@@ -59,12 +61,12 @@ struct TextValidator {
         return true
     }
     
-    func checkTextError() -> TextError {
+    func checkTextError() -> TextValidation {
         guard hasBrackets() else { return .invalidForm }
-        guard hasOneComma() else { return .invalidForm }
-        guard hasBothXY() else { return .invalidForm }
+        guard hasOneComma() else { return .noOneComma }
+        guard hasBothXY() else { return .noBothXY }
         guard isIntInRange() else { return .outOfRangeInt }
-        return .noError
+        return .success
     }
 }
 
