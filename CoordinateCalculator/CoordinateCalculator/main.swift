@@ -11,13 +11,12 @@ import Foundation
 struct CoordinateCalculate {
     static func run() {
         let input = InputView.readInput()
-        let inputError = InputValidator(input:input).checkInputError()
-        
+        let inputError = TextValidator(text:input).checkTextError()
         guard inputError == .noError else {
             print(inputError.rawValue)
             return
         }
-        let coordinate = InputView.getCoordinate(input:input)
+        let coordinate = TextProcessor.extractXandY(fromCoordinate: input)
         let myPoint = MyPoint(x:coordinate.x, y:coordinate.y)
         OutputView.drawPoint(point: myPoint)
     }

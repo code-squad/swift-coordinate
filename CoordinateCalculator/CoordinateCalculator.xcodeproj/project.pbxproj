@@ -9,16 +9,17 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		A329AB162170681400EDA2C3 /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB152170681400EDA2C3 /* TextProcessor.swift */; };
+		A329AB1721706E5900EDA2C3 /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB152170681400EDA2C3 /* TextProcessor.swift */; };
 		A340A210216B3A3900CA37AF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF62165FADC00526BC6 /* InputView.swift */; };
-		A340A214216B3BEE00CA37AF /* UnitTestInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340A213216B3BEE00CA37AF /* UnitTestInputView.swift */; };
-		A340A216216B3F3E00CA37AF /* UnitTestMyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340A215216B3F3E00CA37AF /* UnitTestMyPoint.swift */; };
+		A340A216216B3F3E00CA37AF /* UnitTestTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340A215216B3F3E00CA37AF /* UnitTestTextProcessor.swift */; };
 		A340A217216B3FCD00CA37AF /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF82165FB2B00526BC6 /* MyPoint.swift */; };
 		A38F2AF52165E3BF00526BC6 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF42165E3BF00526BC6 /* OutputView.swift */; };
 		A38F2AF72165FADC00526BC6 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF62165FADC00526BC6 /* InputView.swift */; };
 		A38F2AF92165FB2B00526BC6 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF82165FB2B00526BC6 /* MyPoint.swift */; };
-		A3F6E7DC2166F4C4000C927B /* UnitTestInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7DB2166F4C4000C927B /* UnitTestInputValidator.swift */; };
-		A3F6E7E321675384000C927B /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7E221675384000C927B /* InputValidator.swift */; };
-		A3F6E7E421675384000C927B /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7E221675384000C927B /* InputValidator.swift */; };
+		A3F6E7DC2166F4C4000C927B /* UnitTestTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7DB2166F4C4000C927B /* UnitTestTextValidator.swift */; };
+		A3F6E7E321675384000C927B /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7E221675384000C927B /* TextValidator.swift */; };
+		A3F6E7E421675384000C927B /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6E7E221675384000C927B /* TextValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,15 +38,15 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
-		A340A213216B3BEE00CA37AF /* UnitTestInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestInputView.swift; sourceTree = "<group>"; };
-		A340A215216B3F3E00CA37AF /* UnitTestMyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestMyPoint.swift; sourceTree = "<group>"; };
+		A329AB152170681400EDA2C3 /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
+		A340A215216B3F3E00CA37AF /* UnitTestTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestTextProcessor.swift; sourceTree = "<group>"; };
 		A38F2AF42165E3BF00526BC6 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		A38F2AF62165FADC00526BC6 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A38F2AF82165FB2B00526BC6 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		A3F6E7D92166F4C4000C927B /* UnitTestInput.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestInput.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3F6E7DB2166F4C4000C927B /* UnitTestInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestInputValidator.swift; sourceTree = "<group>"; };
+		A3F6E7DB2166F4C4000C927B /* UnitTestTextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestTextValidator.swift; sourceTree = "<group>"; };
 		A3F6E7DD2166F4C4000C927B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = UnitTestCoordinateCalculator/Info.plist; sourceTree = SOURCE_ROOT; };
-		A3F6E7E221675384000C927B /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		A3F6E7E221675384000C927B /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +93,8 @@
 				A38F2AF42165E3BF00526BC6 /* OutputView.swift */,
 				A38F2AF62165FADC00526BC6 /* InputView.swift */,
 				A38F2AF82165FB2B00526BC6 /* MyPoint.swift */,
-				A3F6E7E221675384000C927B /* InputValidator.swift */,
+				A3F6E7E221675384000C927B /* TextValidator.swift */,
+				A329AB152170681400EDA2C3 /* TextProcessor.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -100,10 +102,9 @@
 		A3F6E7DA2166F4C4000C927B /* UnitTestCoordinateCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				A3F6E7DB2166F4C4000C927B /* UnitTestInputValidator.swift */,
+				A3F6E7DB2166F4C4000C927B /* UnitTestTextValidator.swift */,
 				A3F6E7DD2166F4C4000C927B /* Info.plist */,
-				A340A213216B3BEE00CA37AF /* UnitTestInputView.swift */,
-				A340A215216B3F3E00CA37AF /* UnitTestMyPoint.swift */,
+				A340A215216B3F3E00CA37AF /* UnitTestTextProcessor.swift */,
 			);
 			path = UnitTestCoordinateCalculator;
 			sourceTree = "<group>";
@@ -198,8 +199,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A329AB162170681400EDA2C3 /* TextProcessor.swift in Sources */,
 				A38F2AF92165FB2B00526BC6 /* MyPoint.swift in Sources */,
-				A3F6E7E321675384000C927B /* InputValidator.swift in Sources */,
+				A3F6E7E321675384000C927B /* TextValidator.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				A38F2AF72165FADC00526BC6 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
@@ -211,12 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A340A216216B3F3E00CA37AF /* UnitTestMyPoint.swift in Sources */,
+				A340A216216B3F3E00CA37AF /* UnitTestTextProcessor.swift in Sources */,
 				A340A210216B3A3900CA37AF /* InputView.swift in Sources */,
 				A340A217216B3FCD00CA37AF /* MyPoint.swift in Sources */,
-				A340A214216B3BEE00CA37AF /* UnitTestInputView.swift in Sources */,
-				A3F6E7DC2166F4C4000C927B /* UnitTestInputValidator.swift in Sources */,
-				A3F6E7E421675384000C927B /* InputValidator.swift in Sources */,
+				A3F6E7DC2166F4C4000C927B /* UnitTestTextValidator.swift in Sources */,
+				A3F6E7E421675384000C927B /* TextValidator.swift in Sources */,
+				A329AB1721706E5900EDA2C3 /* TextProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
