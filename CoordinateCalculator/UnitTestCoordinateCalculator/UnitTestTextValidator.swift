@@ -21,7 +21,7 @@ class UnitTestTextValidator: XCTestCase {
     override func tearDown() {}
     
     func testInputHasNoError() {
-        XCTAssertEqual(TextValidator(text:validForm).checkTextError(), .noError)
+        XCTAssertEqual(TextValidator(text:validForm).checkTextError(), .success)
     }
     
     func testInputHasBrackets() {
@@ -29,11 +29,11 @@ class UnitTestTextValidator: XCTestCase {
     }
     
     func testInputHasOneComma() {
-        XCTAssertEqual(TextValidator(text:noComma).checkTextError(), .invalidForm)
+        XCTAssertEqual(TextValidator(text:noComma).checkTextError(), .noOneComma)
     }
     
     func testInputHasTwoValues() {
-        XCTAssertEqual(TextValidator.init(text:noTwoValue).checkTextError(), .invalidForm)
+        XCTAssertEqual(TextValidator.init(text:noTwoValue).checkTextError(), .noBothXY)
     }
     
     func testInputIsIntType() {

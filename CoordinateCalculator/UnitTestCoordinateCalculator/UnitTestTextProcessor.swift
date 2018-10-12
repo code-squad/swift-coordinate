@@ -26,27 +26,27 @@ class UnitTestTextProcessor: XCTestCase {
     override func tearDown() {}
     
     func test_extractXandY_whenTextIsAllowedForm() {
-        let coordiante = TextProcessor.extractXY(fromCoordinate: coordinateString)
+        let coordiante = TextProcessor.extractXY(from: coordinateString)
         XCTAssertTrue(coordiante.x==coordinateX && coordiante.y==coordinateY)
     }
     
     func test_extractXandY_whenTextHasNoValue() {
-        let coordiante = TextProcessor.extractXY(fromCoordinate: noValue)
+        let coordiante = TextProcessor.extractXY(from: noValue)
         XCTAssertTrue(coordiante.x==defaultCoordinateValue && coordiante.y==defaultCoordinateValue)
     }
     
     func test_extractXandY_whenTextIsIncompleteForm() {
-        let coordiante = TextProcessor.extractXY(fromCoordinate: incompleteValue)
+        let coordiante = TextProcessor.extractXY(from: incompleteValue)
         XCTAssertTrue(coordiante.x==defaultCoordinateValue && coordiante.y==defaultCoordinateValue)
     }
     
     func test_extractXandY_whenTextIsLeftIncompleteForm() {
-        let coordiante = TextProcessor.extractXY(fromCoordinate: leftIncompleteValue)
+        let coordiante = TextProcessor.extractXY(from: leftIncompleteValue)
         XCTAssertTrue(coordiante.x==leftIncompleteCoordinateValue && coordiante.y==leftIncompleteCoordinateValue)
     }
     
     func test_extractXandY_whenTextIsRightIncompleteForm() {
-        let coordiante = TextProcessor.extractXY(fromCoordinate: rightIncompleteValue)
+        let coordiante = TextProcessor.extractXY(from: rightIncompleteValue)
         XCTAssertTrue(coordiante.x==rightIncompleteCoordinateValue && coordiante.y==rightIncompleteCoordinateValue)
     }
 }
