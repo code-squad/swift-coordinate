@@ -20,6 +20,14 @@ class UnitTestTextValidator: XCTestCase {
 
     override func tearDown() {}
     
+    func testInputHasNoInvalidCharacter() {
+        XCTAssertTrue(TextValidator(text:validForm).hasNoInvalidCharacter())
+    }
+    
+    func testInputHasInvalidCharacter() {
+        XCTAssertFalse(TextValidator(text:notInt).hasNoInvalidCharacter())
+    }
+    
     func testInputHasNoError() {
         XCTAssertEqual(TextValidator(text:validForm).checkTextError(), .success)
     }

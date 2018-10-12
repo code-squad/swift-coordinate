@@ -23,10 +23,15 @@ struct TextValidator {
     private let xyCount : Int = 2
     private let minNum : Int = 0
     private let maxNum : Int = 24
+    private let validCharacterSet = CharacterSet.init(charactersIn: "0123456789(),")
     private var text = String()
     
     init(text:String) {
         self.text = text
+    }
+    
+    func hasNoInvalidCharacter() -> Bool {
+        return (text.rangeOfCharacter(from: validCharacterSet.inverted) == nil)
     }
     
     private func hasBrackets() -> Bool {
