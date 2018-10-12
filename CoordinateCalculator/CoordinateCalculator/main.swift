@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CoordinateCalculate {
+struct CoordinateCalculator {
     static func run() {
         let input = InputView.readInput()
         let inputError = TextValidator(text:input).checkTextError()
@@ -22,4 +22,4 @@ struct CoordinateCalculate {
     }
 }
 
-CoordinateCalculate.run()
+CoordinateCalculator.run()
