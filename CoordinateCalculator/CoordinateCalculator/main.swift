@@ -10,14 +10,14 @@ import Foundation
 
 struct CoordinateCalculator {
     static func run() {
-        let input = InputView.readInput()
-        let inputError = TextValidator(text:input).checkTextError()
-        guard inputError == .noError else {
-            print(inputError.rawValue)
+        let coordinate = InputView.readInput()
+        let coordinatesValidation = TextValidator(text:coordinate).checkTextError()
+        guard coordinatesValidation == .success else {
+            print(coordinatesValidation.rawValue)
             return
         }
-        let coordinate = TextProcessor.extractXY(fromCoordinate: input)
-        let myPoint = MyPoint(x:coordinate.x, y:coordinate.y)
+        let coordinates = TextProcessor.extractXY(from: coordinate)
+        let myPoint = MyPoint(x:coordinates.x, y:coordinates.y)
         OutputView.drawPoint(point: myPoint)
     }
 }
