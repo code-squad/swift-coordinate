@@ -9,7 +9,18 @@
 import Foundation
 
 struct InputView {
-    func readInput() -> String {
-        return readLine()!
+    func readInput() -> MyPoint {
+        print("좌표를 입력하세요.")
+        let xyPoint = getXYPoint(readLine()!)
+        
+        return xyPoint
     }
+
+    private func getXYPoint(_ input:String) -> MyPoint {
+        let xPoint = input.split(separator: "(")[0].split(separator: ",")[0]
+        let yPoint = input.split(separator: ",")[1].split(separator: ")")[0]
+        let xyPoint = MyPoint(x:Int(xPoint) ?? -1, y:Int(yPoint) ?? -1)
+        return xyPoint
+    }
+    
 }
