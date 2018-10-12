@@ -16,7 +16,7 @@ struct CoordinateCalculator {
             print(inputError.rawValue)
             return
         }
-        let coordinate = TextProcessor.extractXandY(fromCoordinate: input)
+        let coordinate = TextProcessor.extractXY(fromCoordinate: input)
         let myPoint = MyPoint(x:coordinate.x, y:coordinate.y)
         OutputView.drawPoint(point: myPoint)
     }
