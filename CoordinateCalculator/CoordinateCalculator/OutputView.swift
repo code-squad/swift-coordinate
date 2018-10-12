@@ -27,5 +27,4 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: originOfY - point.y, col: originOfX + point.x * 2))\(marker)")
         moveCursorToEnd()
     }
-    
 }
