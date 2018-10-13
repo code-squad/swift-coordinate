@@ -12,20 +12,24 @@ struct CoordinateCalculator {
     static var runAgain = true
     
     static func run() {
-        let coordinate = InputView.readInput()
-        let textValidator = TextValidator(text:coordinate)
-        guard textValidator.hasNoInvalidCharacter() else {
-            print("\(TextValidation.invalidForm.rawValue) \(TextValidation.outOfRangeInt.rawValue)")
-            return
+        let coordinatesInput = InputView.readInput()
+        let coordinates : [String] = coordinatesInput.splitByHyphen()
+        
+        for coordinate in coordinates {
+            let textValidator = TextValidator(text:coordinate)
+            guard textValidator.hasNoInvalidCharacter() else {
+                print("\(TextValidation.invalidForm.rawValue) \(TextValidation.outOfRangeInt.rawValue)")
+                return
+            }
+            let coordinatesValidation = textValidator.checkTextError()
+            guard coordinatesValidation == .success else {
+                print(coordinatesValidation.rawValue)
+                return
+            }
+            let XY = TextProcessor.extractXY(from: coordinate)
+            let myPoint = MyPoint(x:XY.x, y:XY.y)
+            OutputView.drawPoint(point: myPoint)
         }
-        let coordinatesValidation = textValidator.checkTextError()
-        guard coordinatesValidation == .success else {
-            print(coordinatesValidation.rawValue)
-            return
-        }
-        let coordinates = TextProcessor.extractXY(from: coordinate)
-        let myPoint = MyPoint(x:coordinates.x, y:coordinates.y)
-        OutputView.drawPoint(point: myPoint)
         runAgain = false
     }
 }

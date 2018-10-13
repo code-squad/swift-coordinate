@@ -12,6 +12,9 @@ extension String {
     func splitByComma() -> [String] {
         return self.split(separator:",").map({String($0)})
     }
+    func splitByHyphen() -> [String] {
+        return self.split(separator:"-").map({String($0)})
+    }
     func removeBothFirstAndLast() -> String {
         return String(self.dropFirst().dropLast())
     }
