@@ -9,6 +9,11 @@
 import Foundation
 
 struct MyLine {
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
+    private(set) var pointA = MyPoint(x: 0, y: 0)
+    private(set) var pointB = MyPoint(x: 0, y: 0)
+    
+    init(pointA:MyPoint, pointB:MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
 }
