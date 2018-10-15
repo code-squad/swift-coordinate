@@ -19,7 +19,7 @@ struct CoordinateCalculator {
             guard let point = ShapeGenerator.generatePoint(from: coordinate) else { return }
             points.append(point)
         }
-        let shape = ShapeGenerator.generateShape(by: points)
+        guard let shape = ShapeGenerator.generateShape(by: points) else { return }
         OutputView.drawShape(shape)
         runAgain = false
     }

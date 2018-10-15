@@ -52,4 +52,8 @@ struct OutputView {
     static func printMessage(of coordinatesValidation: TextValidation) {
         print(coordinatesValidation.rawValue)
     }
+    
+    static func printMessage(of shapeValidation: ShapeValidation) {
+        print(shapeValidation.rawValue)
+    }
 }
