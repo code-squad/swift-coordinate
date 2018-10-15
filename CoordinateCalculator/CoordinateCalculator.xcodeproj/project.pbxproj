@@ -18,6 +18,7 @@
 		A329AB3421745AD900EDA2C3 /* UnitTestShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB3321745AD900EDA2C3 /* UnitTestShape.swift */; };
 		A329AB352174821E00EDA2C3 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF42165E3BF00526BC6 /* OutputView.swift */; };
 		A329AB362174822E00EDA2C3 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		A329AB38217487A900EDA2C3 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB37217487A900EDA2C3 /* MyTriangle.swift */; };
 		A340A210216B3A3900CA37AF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF62165FADC00526BC6 /* InputView.swift */; };
 		A340A216216B3F3E00CA37AF /* UnitTestTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340A215216B3F3E00CA37AF /* UnitTestTextProcessor.swift */; };
 		A340A217216B3FCD00CA37AF /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF82165FB2B00526BC6 /* MyPoint.swift */; };
@@ -49,6 +50,7 @@
 		A329AB18217089FE00EDA2C3 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		A329AB1A2171EBAC00EDA2C3 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		A329AB3321745AD900EDA2C3 /* UnitTestShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestShape.swift; sourceTree = "<group>"; };
+		A329AB37217487A900EDA2C3 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		A340A215216B3F3E00CA37AF /* UnitTestTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestTextProcessor.swift; sourceTree = "<group>"; };
 		A38F2AF42165E3BF00526BC6 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		A38F2AF62165FADC00526BC6 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				A38F2AF42165E3BF00526BC6 /* OutputView.swift */,
 				A38F2AF82165FB2B00526BC6 /* MyPoint.swift */,
 				A329AB18217089FE00EDA2C3 /* MyLine.swift */,
+				A329AB37217487A900EDA2C3 /* MyTriangle.swift */,
 				A3F6E7E221675384000C927B /* TextValidator.swift */,
 				A329AB152170681400EDA2C3 /* TextProcessor.swift */,
 				A329AB1A2171EBAC00EDA2C3 /* Shape.swift */,
@@ -217,6 +220,7 @@
 				A3F6E7E321675384000C927B /* TextValidator.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				A329AB1B2171EBAC00EDA2C3 /* Shape.swift in Sources */,
+				A329AB38217487A900EDA2C3 /* MyTriangle.swift in Sources */,
 				A38F2AF72165FADC00526BC6 /* InputView.swift in Sources */,
 				A329AB19217089FE00EDA2C3 /* MyLine.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
