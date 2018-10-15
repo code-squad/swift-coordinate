@@ -13,7 +13,8 @@ class UnitTestShape: XCTestCase {
     let noPoint = [MyPoint]()
     let onePoint = [MyPoint(x:1, y:1)]
     let twoPoints = [MyPoint(x:1, y:1), MyPoint(x:10, y:10)]
-    let threePoints = [MyPoint(x:1, y:1), MyPoint(x:10, y:10), MyPoint(x:20, y:20)]
+    let validThreePoints = [MyPoint(x:5, y:1), MyPoint(x:2, y:2), MyPoint(x:20, y:20)]
+    let invalidThreePoints = [MyPoint(x:1, y:1), MyPoint(x:10, y:10), MyPoint(x:20, y:20)]
     
 
     override func setUp() {}
@@ -31,7 +32,11 @@ class UnitTestShape: XCTestCase {
         XCTAssertNotNil(ShapeGenerator.generateShape(by: twoPoints))
     }
     
-    func testShapeGeneratorNil_whenThreePoint() {
-        XCTAssertNotNil(ShapeGenerator.generateShape(by: threePoints))
+    func testShapeGeneratorNotNil_whenValidThreePoint() {
+        XCTAssertNotNil(ShapeGenerator.generateShape(by: validThreePoints))
+    }
+    
+    func testShapeGeneratorNil_whenInvalidThreePoint() {
+        XCTAssertNil(ShapeGenerator.generateShape(by: invalidThreePoints))
     }
 }
