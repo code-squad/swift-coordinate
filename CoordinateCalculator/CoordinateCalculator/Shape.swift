@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias Point = (x: Int, y: Int)
-
 protocol Shape {
     var points: [MyPoint] { get }
 }
@@ -20,7 +18,7 @@ protocol CalculableShape: Shape {
 }
 
 struct ShapeGenerator {
-    static func generatePoint(from coordinate: String) -> Point? {
+    static func generatePoint(from coordinate: String) -> MyPoint? {
         let textValidator = TextValidator(text: coordinate)
         guard textValidator.hasNoInvalidCharacter() else {
             OutputView.printMessageOfTextInvalidation()
@@ -32,15 +30,15 @@ struct ShapeGenerator {
             return nil
         }
         let point = TextProcessor.extractPoint(from: coordinate)
-        return point
+        return MyPoint(x: point.x, y: point.y)
     }
     
-    static func generateShape(by points: [Point]) -> Shape? {
+    static func generateShape(by points: [MyPoint]) -> Shape? {
         switch points.count {
         case 1:
-            return MyPoint(x: points[0].x, y: points[0].y)
+            return points[0]
         case 2:
-            return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
+            return MyLine(pointA: points[0], pointB: points[1])
         default:
             return nil
         }
