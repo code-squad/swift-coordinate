@@ -8,6 +8,11 @@
 
 import Foundation
 
+public enum ShapeValidation: String {
+    case notSatisfyTriangleInequality = "삼각형이 성립되지않는 좌표입니다."
+    case outOfRangeMyPoint = "최대 3개의 좌표까지 입력 가능합니다."
+}
+
 protocol Shape {
     var points: [MyPoint] { get }
 }
@@ -48,14 +53,20 @@ struct ShapeGenerator {
     
     static func generateShape(by points: [MyPoint]) -> Shape? {
         switch points.count {
+        case 0:
+            return nil
         case 1:
             return points[0]
         case 2:
             return MyLine(pointA: points[0], pointB: points[1])
         case 3:
-            guard satisfyTriangleInequality(of: points) else { return nil }
+            guard satisfyTriangleInequality(of: points) else {
+                OutputView.printMessage(of: .notSatisfyTriangleInequality)
+                return nil
+            }
             return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
+            OutputView.printMessage(of: .outOfRangeMyPoint)
             return nil
         }
     }
