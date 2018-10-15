@@ -44,4 +44,12 @@ struct OutputView {
         drawAxis()
         drawPoints(shape)
     }
+    
+    static func printMessageOfTextInvalidation() {
+        print("\(TextValidation.invalidForm.rawValue) \(TextValidation.outOfRangeInt.rawValue)")
+    }
+    
+    static func printMessage(of coordinatesValidation: TextValidation) {
+        print(coordinatesValidation.rawValue)
+    }
 }

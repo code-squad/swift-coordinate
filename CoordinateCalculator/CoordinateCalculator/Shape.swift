@@ -20,6 +20,21 @@ protocol CalculableShape: Shape {
 }
 
 struct ShapeGenerator {
+    static func generatePoint(from coordinate: String) -> Point? {
+        let textValidator = TextValidator(text: coordinate)
+        guard textValidator.hasNoInvalidCharacter() else {
+            OutputView.printMessageOfTextInvalidation()
+            return nil
+        }
+        let coordinatesValidation = textValidator.checkTextError()
+        guard coordinatesValidation == .success else {
+            OutputView.printMessage(of: coordinatesValidation)
+            return nil
+        }
+        let point = TextProcessor.extractPoint(from: coordinate)
+        return point
+    }
+    
     static func generateShape(by points: [Point]) -> Shape? {
         switch points.count {
         case 1:
