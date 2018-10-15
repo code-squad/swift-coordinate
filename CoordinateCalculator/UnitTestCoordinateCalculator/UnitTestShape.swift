@@ -32,6 +32,6 @@ class UnitTestShape: XCTestCase {
     }
     
     func testShapeGeneratorNil_whenThreePoint() {
-        XCTAssertNil(ShapeGenerator.generateShape(by: threePoints))
+        XCTAssertNotNil(ShapeGenerator.generateShape(by: threePoints))
     }
 }
