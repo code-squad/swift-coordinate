@@ -21,7 +21,7 @@ extension String {
 }
 
 struct TextProcessor {
-    static func extractXY(from coordinate:String) -> (x:Int, y:Int){
+    static func extractPoint(from coordinate:String) -> Point {
         let xy : [String] = coordinate.removeBothFirstAndLast().splitByComma()
         let x = Int(xy.first ?? "0") ?? 0
         let y = Int(xy.last ?? "0") ?? 0
