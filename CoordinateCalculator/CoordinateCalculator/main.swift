@@ -15,19 +15,8 @@ struct CoordinateCalculator {
         let coordinatesInput = InputView.readInput()
         let coordinates: [String] = coordinatesInput.splitByHyphen()
         var points = [Point]()
-        
         for coordinate in coordinates {
-            let textValidator = TextValidator(text: coordinate)
-            guard textValidator.hasNoInvalidCharacter() else {
-                print("\(TextValidation.invalidForm.rawValue) \(TextValidation.outOfRangeInt.rawValue)")
-                return
-            }
-            let coordinatesValidation = textValidator.checkTextError()
-            guard coordinatesValidation == .success else {
-                print(coordinatesValidation.rawValue)
-                return
-            }
-            let point = TextProcessor.extractPoint(from: coordinate)
+            guard let point = ShapeGenerator.generatePoint(from: coordinate) else { return }
             points.append((x: point.x, y: point.y))
         }
         let shape = ShapeGenerator.generateShape(by: points)
