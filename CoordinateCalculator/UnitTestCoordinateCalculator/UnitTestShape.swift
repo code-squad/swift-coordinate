@@ -10,10 +10,10 @@ import XCTest
 
 class UnitTestShape: XCTestCase {
     
-    let noPoint = [Point]()
-    let onePoint = [Point(x:1, y:1)]
-    let twoPoints = [Point(x:1, y:1), Point(10,10)]
-    let threePoints = [Point(x:1, y:1), Point(10,10), Point(20,20)]
+    let noPoint = [MyPoint]()
+    let onePoint = [MyPoint(x:1, y:1)]
+    let twoPoints = [MyPoint(x:1, y:1), MyPoint(x:10, y:10)]
+    let threePoints = [MyPoint(x:1, y:1), MyPoint(x:10, y:10), MyPoint(x:20, y:20)]
     
 
     override func setUp() {}
