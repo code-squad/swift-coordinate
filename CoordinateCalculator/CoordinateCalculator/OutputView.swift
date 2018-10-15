@@ -30,22 +30,18 @@ struct OutputView {
         print("\(shape.calculationMessage)\(shape.calculate())")
     }
     
-    static func drawPoints(_ shape: CalculableShape) {
+    private static func drawPoints(_ shape: Shape) {
         for point in shape.points {
             drawPoint(point)
         }
         moveCursorToEnd()
-        showCalculationResult(of: shape)
+        guard let calculableShape: CalculableShape = shape as? CalculableShape else { return }
+        showCalculationResult(of: calculableShape)
     }
     
     static func drawShape(_ shape: Shape?) {
         guard let shape = shape else { return }
         drawAxis()
-        if (shape.points.count == 1) {
-            drawPoint(shape.points[shape.points.startIndex])
-            moveCursorToEnd()
-            return
-        }
-        drawPoints(shape as! CalculableShape)
+        drawPoints(shape)
     }
 }
