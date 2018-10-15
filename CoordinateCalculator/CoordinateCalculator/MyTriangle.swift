@@ -24,7 +24,7 @@ struct MyTriangle: CalculableShape {
     }
     
     var calculationMessage: String {
-        return "삼각형의 넓이는 "
+        return "삼각형의 넓이는"
     }
     
     func calculate() -> Double {
