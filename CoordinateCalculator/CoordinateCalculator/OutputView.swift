@@ -11,7 +11,6 @@ import Foundation
 struct OutputView {
     private static let originOfX = 3
     private static let originOfY = 25
-    private static let distanceMessage = "두 점 사이의 거리는 "
     private static let marker = "🔵"
     
     private static func drawAxis() {
@@ -23,22 +22,30 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: originOfY + 1, col: originOfX))")
     }
     
-    static func drawPoint(point:MyPoint) {
-        drawAxis()
+    static func drawPoint(_ point:MyPoint) {
         print("\(ANSICode.cursor.move(row: originOfY - point.y, col: originOfX + point.x * 2))\(marker)")
+    }
+    
+    private static func showCalculationResult(of shape: CalculableShape) {
+        print("\(shape.calculationMessage)\(shape.calculate())")
+    }
+    
+    static func drawPoints(_ shape: CalculableShape) {
+        for point in shape.points {
+            drawPoint(point)
+        }
         moveCursorToEnd()
+        showCalculationResult(of: shape)
     }
     
-    private static func calculateDistance(between pointA:MyPoint, and pointB:MyPoint) {
-        let distance = sqrt(pow(Double(pointA.x-pointB.x), 2) + pow(Double(pointA.y-pointB.y), 2))
-        print("\(distanceMessage)\(distance)")
-    }
-    
-    static func drawLine(line:MyLine) {
+    static func drawShape(_ shape: Shape?) {
+        guard let shape = shape else { return }
         drawAxis()
-        drawPoint(point: line.pointA)
-        drawPoint(point: line.pointB)
-        calculateDistance(between: line.pointA, and: line.pointB)
-        moveCursorToEnd()
+        if (shape.points.count==1) {
+            drawPoint(shape.points[shape.points.startIndex])
+            moveCursorToEnd()
+            return
+        }
+        drawPoints(shape as! CalculableShape)
     }
 }
