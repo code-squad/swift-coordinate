@@ -22,7 +22,7 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: originOfY + 1, col: originOfX))")
     }
     
-    static func drawPoint(_ point:MyPoint) {
+    static func drawPoint(_ point: MyPoint) {
         print("\(ANSICode.cursor.move(row: originOfY - point.y, col: originOfX + point.x * 2))\(marker)")
     }
     
@@ -41,7 +41,7 @@ struct OutputView {
     static func drawShape(_ shape: Shape?) {
         guard let shape = shape else { return }
         drawAxis()
-        if (shape.points.count==1) {
+        if (shape.points.count == 1) {
             drawPoint(shape.points[shape.points.startIndex])
             moveCursorToEnd()
             return

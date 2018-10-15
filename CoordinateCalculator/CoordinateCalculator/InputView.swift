@@ -13,7 +13,7 @@ struct InputView {
     
     static func readInput() -> String {
         print(guideMessage)
-        guard let input:String = readLine() else { return String() }
+        guard let input: String = readLine() else { return String() }
         return input
     }
 }
