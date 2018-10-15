@@ -21,7 +21,9 @@ struct MyLine: CalculableShape {
         return [pointA, pointB]
     }
     
-    var calculationMessage = "두 점 사이의 거리는 "
+    var calculationMessage: String {
+        return "두 점 사이의 거리는 "
+    }
     
     func calculate() -> Double {
         return sqrt(pow(Double(pointA.x-pointB.x), 2) + pow(Double(pointA.y-pointB.y), 2))
