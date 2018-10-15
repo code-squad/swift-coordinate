@@ -13,6 +13,7 @@
 		A329AB1721706E5900EDA2C3 /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB152170681400EDA2C3 /* TextProcessor.swift */; };
 		A329AB19217089FE00EDA2C3 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB18217089FE00EDA2C3 /* MyLine.swift */; };
 		A329AB1B2171EBAC00EDA2C3 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB1A2171EBAC00EDA2C3 /* Shape.swift */; };
+		A329AB1C2171ED2A00EDA2C3 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A329AB1A2171EBAC00EDA2C3 /* Shape.swift */; };
 		A340A210216B3A3900CA37AF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF62165FADC00526BC6 /* InputView.swift */; };
 		A340A216216B3F3E00CA37AF /* UnitTestTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340A215216B3F3E00CA37AF /* UnitTestTextProcessor.swift */; };
 		A340A217216B3FCD00CA37AF /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F2AF82165FB2B00526BC6 /* MyPoint.swift */; };
@@ -224,6 +225,7 @@
 				A340A216216B3F3E00CA37AF /* UnitTestTextProcessor.swift in Sources */,
 				A340A210216B3A3900CA37AF /* InputView.swift in Sources */,
 				A340A217216B3FCD00CA37AF /* MyPoint.swift in Sources */,
+				A329AB1C2171ED2A00EDA2C3 /* Shape.swift in Sources */,
 				A3F6E7DC2166F4C4000C927B /* UnitTestTextValidator.swift in Sources */,
 				A3F6E7E421675384000C927B /* TextValidator.swift in Sources */,
 				A329AB1721706E5900EDA2C3 /* TextProcessor.swift in Sources */,

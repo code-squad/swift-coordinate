@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint: Shape {
     private(set) var x = 0
     private(set) var y = 0
     
     init(x:Int, y:Int) {
         self.x = x
         self.y = y
+    }
+    
+    var points: [MyPoint] {
+        return [self]
     }
 }
