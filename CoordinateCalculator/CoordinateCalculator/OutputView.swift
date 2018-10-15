@@ -27,7 +27,7 @@ struct OutputView {
     }
     
     private static func showCalculationResult(of shape: CalculableShape) {
-        print("\(shape.calculationMessage)\(shape.calculate())")
+        print("\(shape.calculationMessage) \(shape.calculate())")
     }
     
     private static func drawPoints(_ shape: Shape) {

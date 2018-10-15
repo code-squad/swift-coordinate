@@ -22,7 +22,7 @@ struct MyLine: CalculableShape {
     }
     
     var calculationMessage: String {
-        return "두 점 사이의 거리는 "
+        return "두 점 사이의 거리는"
     }
     
     func calculate() -> Double {
