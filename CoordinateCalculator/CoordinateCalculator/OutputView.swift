@@ -22,7 +22,7 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: originOfY + 1, col: originOfX))")
     }
     
-    static func drawPoint(_ point: MyPoint) {
+    private static func drawPoint(_ point: MyPoint) {
         print("\(ANSICode.cursor.move(row: originOfY - point.y, col: originOfX + point.x * 2))\(marker)")
     }
     
