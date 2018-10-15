@@ -13,11 +13,11 @@ struct CoordinateCalculator {
     
     static func run() {
         let coordinatesInput = InputView.readInput()
-        let coordinates : [String] = coordinatesInput.splitByHyphen()
+        let coordinates: [String] = coordinatesInput.splitByHyphen()
         var points = [Point]()
         
         for coordinate in coordinates {
-            let textValidator = TextValidator(text:coordinate)
+            let textValidator = TextValidator(text: coordinate)
             guard textValidator.hasNoInvalidCharacter() else {
                 print("\(TextValidation.invalidForm.rawValue) \(TextValidation.outOfRangeInt.rawValue)")
                 return

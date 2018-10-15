@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum TextValidation : String {
+public enum TextValidation: String {
     case success
     case invalidForm = "좌표는 (x,y) 형식으로 입력해주세요."
     case noOneComma = "(x,y) 형식으로 컴마로 x좌표와 y좌표를 구분해주세요."
@@ -17,16 +17,16 @@ public enum TextValidation : String {
 }
 
 struct TextValidator {
-    private let leftBracket : Character = "("
-    private let rightBracket : Character = ")"
-    private let comma : Character = ","
-    private let xyCount : Int = 2
-    private let minNum : Int = 0
-    private let maxNum : Int = 24
+    private let leftBracket: Character = "("
+    private let rightBracket: Character = ")"
+    private let comma: Character = ","
+    private let xyCount: Int = 2
+    private let minNum: Int = 0
+    private let maxNum: Int = 24
     private let validCharacterSet = CharacterSet.init(charactersIn: "0123456789(),")
     private var text = String()
     
-    init(text:String) {
+    init(text: String) {
         self.text = text
     }
     
@@ -42,7 +42,7 @@ struct TextValidator {
     
     private func hasOneComma() -> Bool {
         guard text.contains(comma) else { return false }
-        guard text.firstIndex(of:comma)==text.lastIndex(of:comma) else { return false }
+        guard text.firstIndex(of: comma)==text.lastIndex(of: comma) else { return false }
         return true
     }
     
@@ -52,7 +52,7 @@ struct TextValidator {
         return true
     }
     
-    private func isInRange(num:Int) -> Bool {
+    private func isInRange(num: Int) -> Bool {
         return (minNum <= num && num <= maxNum)
     }
     
