@@ -14,6 +14,7 @@ struct CoordinateCalculator {
     static func run() {
         let coordinatesInput = InputView.readInput()
         let coordinates : [String] = coordinatesInput.splitByHyphen()
+        var points = [Point]()
         
         for coordinate in coordinates {
             let textValidator = TextValidator(text:coordinate)
@@ -26,10 +27,11 @@ struct CoordinateCalculator {
                 print(coordinatesValidation.rawValue)
                 return
             }
-            let XY = TextProcessor.extractXY(from: coordinate)
-            let myPoint = MyPoint(x:XY.x, y:XY.y)
-            OutputView.drawPoint(point: myPoint)
+            let point = TextProcessor.extractPoint(from: coordinate)
+            points.append((x: point.x, y: point.y))
         }
+        let shape = ShapeGenerator.generateShape(by: points)
+        OutputView.drawShape(shape)
         runAgain = false
     }
 }
