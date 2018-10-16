@@ -23,8 +23,7 @@ struct MyRect: CalculableShape {
     
     init(points: [MyPoint]) {
         guard points.count == 4 else { return }
-        var points = points
-        points.sort(by: sortXbyASC)
+        let points = points.sorted(by: sortXbyASC)
         self.leftTop = points[0].y < points[1].y ? points[1] : points[0]
         self.rightBottom = points[2].y < points[3].y ? points[2] : points[3]
     }
