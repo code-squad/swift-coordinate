@@ -14,3 +14,5 @@ func main() {
     OutputView.show(point: XY)
     OutputView.drawAxis()
 }
+
+main()
