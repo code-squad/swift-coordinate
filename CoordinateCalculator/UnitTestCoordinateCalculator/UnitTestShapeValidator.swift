@@ -28,17 +28,17 @@ class UnitTestShapeValidator: XCTestCase {
     }
     
     func testShapeValidatorTrue_whenRectangleSatisfied() {
-        XCTAssertTrue(ShapeValidator.satisfyRegtangle(of: vaildFourPoints))
+        XCTAssertTrue(ShapeValidator.satisfyRectangle(of: vaildFourPoints))
     }
     
     func testShapeValidatorFalse_whenRectangleNotSatisfied() {
-        XCTAssertFalse(ShapeValidator.satisfyRegtangle(of: invalidFourPoints))
+        XCTAssertFalse(ShapeValidator.satisfyRectangle(of: invalidFourPoints))
     }
     
     func testShapeValidatorTrue_whenRectangleSupported() {
-        XCTAssertTrue(ShapeValidator.satisfyRegtangleSupported(of: vaildFourPoints))
+        XCTAssertTrue(ShapeValidator.satisfyRectangleSupported(of: vaildFourPoints))
     }
     
     func testShapeValidatorFalse_whenRectangleNotSupported() {
-        XCTAssertFalse(ShapeValidator.satisfyRegtangleSupported(of: fourPointNotSupported))
+        XCTAssertFalse(ShapeValidator.satisfyRectangleSupported(of: fourPointNotSupported))
     }}

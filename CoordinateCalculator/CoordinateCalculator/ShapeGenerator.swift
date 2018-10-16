@@ -51,11 +51,11 @@ struct ShapeGenerator {
             }
             return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         case 4:
-            guard ShapeValidator.satisfyRegtangle(of: points) else {
+            guard ShapeValidator.satisfyRectangle(of: points) else {
                 OutputView.printMessage(of: .notSatisfyRectangle)
                 return nil
             }
-            guard ShapeValidator.satisfyRegtangleSupported(of: points) else {
+            guard ShapeValidator.satisfyRectangleSupported(of: points) else {
                 OutputView.printMessage(of: .notSatisfyRectangleSupported)
                 return nil
             }

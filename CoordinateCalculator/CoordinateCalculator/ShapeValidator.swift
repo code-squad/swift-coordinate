@@ -40,12 +40,12 @@ struct ShapeValidator {
         return lengthSet
     }
     
-    static func satisfyRegtangle(of points: [MyPoint]) -> Bool {
+    static func satisfyRectangle(of points: [MyPoint]) -> Bool {
         let lengthSet = makeRectangleLengthSet(by: points)
         return (lengthSet.count == 2 || lengthSet.count == 3)
     }
     
-    static func satisfyRegtangleSupported(of points: [MyPoint]) -> Bool {
+    static func satisfyRectangleSupported(of points: [MyPoint]) -> Bool {
         var xSet = Set<Int>(), ySet = Set<Int>()
         for point in points {
             xSet.insert(point.x)
