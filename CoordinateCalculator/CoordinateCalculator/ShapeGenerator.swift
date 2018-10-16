@@ -24,18 +24,6 @@ struct ShapeGenerator {
         return MyPoint(x: point.x, y: point.y)
     }
     
-    private static func sortXbyASC(first: MyPoint, second: MyPoint) -> Bool {
-        return first.x < second.x
-    }
-    
-    private static func searchRectProperty(of points: [MyPoint]) -> (myPoint: MyPoint, cgSize: CGSize) {
-        var points = points
-        points.sort(by: sortXbyASC)
-        let origin = points[0].y < points[1].y ? points[1] : points[0]
-        let rightBottom = points[2].y < points[3].y ? points[2] : points[3]
-        return (origin, CGSize(width: rightBottom.x-origin.x, height: origin.y-rightBottom.y))
-    }
-    
     static func generateShape(by points: [MyPoint]) -> Shape? {
         switch points.count {
         case 0:
@@ -59,8 +47,7 @@ struct ShapeGenerator {
                 OutputView.printMessage(of: .notSatisfyRectangleSupported)
                 return nil
             }
-            let rectProperty = searchRectProperty(of: points)
-            return MyRect(origin: rectProperty.myPoint, size: rectProperty.cgSize)
+            return MyRect(points: points)
         default:
             OutputView.printMessage(of: .outOfRangeMyPoint)
             return nil
