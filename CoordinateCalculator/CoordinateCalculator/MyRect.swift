@@ -17,6 +17,17 @@ struct MyRect: CalculableShape {
         self.rightBottom = MyPoint(x: leftTop.x + Int(size.width), y: leftTop.y - Int(size.height))
     }
     
+    private func sortXbyASC(first: MyPoint, second: MyPoint) -> Bool {
+        return first.x < second.x
+    }
+    
+    init(points: [MyPoint]) {
+        var points = points
+        points.sort(by: sortXbyASC)
+        self.leftTop = points[0].y < points[1].y ? points[1] : points[0]
+        self.rightBottom = points[2].y < points[3].y ? points[2] : points[3]
+    }
+    
     var points: [MyPoint] {
         return [leftTop, MyPoint(x: leftTop.x, y: rightBottom.y), rightBottom, MyPoint(x: rightBottom.x, y: leftTop.y)]
     }
