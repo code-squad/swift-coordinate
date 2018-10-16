@@ -35,5 +35,4 @@ struct MyTriangle: CalculableShape {
         let sin = sqrt(1 - pow(cos, 2))
         return 0.5 * a * c * sin
     }
-    
 }
