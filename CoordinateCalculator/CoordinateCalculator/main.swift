@@ -11,8 +11,8 @@ import Foundation
 func main() {
     let XY = InputView.readInput()
     
-    OutputView.show(point: XY)
     OutputView.drawAxis()
+    OutputView.show(point: XY)
 }
 
 main()

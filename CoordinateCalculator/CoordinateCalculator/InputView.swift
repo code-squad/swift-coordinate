@@ -9,8 +9,9 @@
 import Foundation
 
 struct InputView {
+    static private let maxValue = ANSICode.axis.AxisLimit
+    
     static func readInput() -> MyPoint {
-        print("\(ANSICode.cursor.move(row:100, col: 1))")
         let typingMention = "좌표를 입력하세요. ex- (10,18) //단, 숫자의 최대 크기는 24"
         let retypeMention = "숫자의 최대 크기는 24입니다. 입력값을 확인하시고 다시 입력 해주세요."
         var isRetype = false
@@ -25,11 +26,11 @@ struct InputView {
     static private func getXYPoint(_ input:String) -> MyPoint {
         let xPoint = input.split(separator: "(")[0].split(separator: ",")[0]
         let yPoint = input.split(separator: ",")[1].split(separator: ")")[0]
-        let xyPoint = MyPoint(x:Int(xPoint) ?? -1, y:Int(yPoint) ?? -1)
+        let xyPoint = MyPoint(x:Int(xPoint) ?? maxValue + 1, y:Int(yPoint) ?? maxValue + 1)
         return xyPoint
     }
     
     static private func validCheck(_ num:Int) -> Bool {
-        return num >= 0 && num <= 24
+        return num <= maxValue
     }
 }

@@ -9,13 +9,17 @@
 import Foundation
 
 struct OutputView {
+    static private let maxValue = ANSICode.axis.AxisLimit
+    
     static func drawAxis() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
     
     static func show(point:MyPoint) {
         let x = point.x * 2 + 2
-        let y = 25 - point.y
+        let y = maxValue + 1 - point.y
         print("\(ANSICode.cursor.move(row:y, col: x))🙈")
+        print("\(ANSICode.cursor.move(row:maxValue + 3, col: 1))")
     }
 }
