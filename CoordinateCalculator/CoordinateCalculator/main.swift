@@ -8,7 +8,9 @@
 
 import Foundation
 
-let XY = InputView.readInput()
-
-OutputView.show(point: XY)
-OutputView.drawAxis()
+func main() {
+    let XY = InputView.readInput()
+    
+    OutputView.show(point: XY)
+    OutputView.drawAxis()
+}
