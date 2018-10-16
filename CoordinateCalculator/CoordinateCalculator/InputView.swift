@@ -10,9 +10,10 @@ import Foundation
 
 struct InputView {
     static func readInput() -> MyPoint {
-        var isRetype = false
+        print("\(ANSICode.cursor.move(row:100, col: 1))")
         let typingMention = "좌표를 입력하세요. ex- (10,18) //단, 숫자의 최대 크기는 24"
         let retypeMention = "숫자의 최대 크기는 24입니다. 입력값을 확인하시고 다시 입력 해주세요."
+        var isRetype = false
         while true {
             isRetype ? print(retypeMention) : print(typingMention)
             let xyPoint = getXYPoint(readLine() ?? "다시 입력해 주세요.")

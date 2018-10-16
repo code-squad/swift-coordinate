@@ -10,6 +10,12 @@ import Foundation
 
 struct OutputView {
     static func drawAxis() {
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+        print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
+    }
+    
+    static func show(point:MyPoint) {
+        let x = point.x * 2 + 2
+        let y = 25 - point.y
+        print("\(ANSICode.cursor.move(row:y, col: x))🙈")
     }
 }
