@@ -8,7 +8,19 @@
 
 import Foundation
 
+extension Double {
+    mutating func square() {
+        self = self * self
+    }
+}
+
 struct MyLine {
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
+    
+    func distanceBetween() -> Double {
+        
+        
+        return 0
+    }
 }
