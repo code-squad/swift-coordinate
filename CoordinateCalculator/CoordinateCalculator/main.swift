@@ -6,7 +6,16 @@
 //  Copyright © 2017 Codesquad Inc. All rights reserved.
 //
 
+
+
 import Foundation
 
-print("Hello, World!")
+func main(){
+    let outputView: OutputView = OutputView()
+    
+    outputView.clearBackground()
+    outputView.drawAxis()
+}
+
+main()
 
