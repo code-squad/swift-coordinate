@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Double {
+extension Int {
     mutating func square() {
         self = self * self
     }
