@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint {
-    var x : Int
-    var y : Int
+    private(set) var x : Int
+    private(set) var y : Int
     
     var xy : (Int,Int) {
         get {
