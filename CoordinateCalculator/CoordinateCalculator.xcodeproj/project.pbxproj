@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		59AE32FE2175C1DB003B08E5 /* outputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AE32FD2175C1DB003B08E5 /* outputView.swift */; };
 		59DAA10421781CCD008F9D99 /* inputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DAA10321781CCC008F9D99 /* inputView.swift */; };
+		59DAA1062178268F008F9D99 /* myPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DAA1052178268F008F9D99 /* myPoint.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		59AE32FD2175C1DB003B08E5 /* outputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outputView.swift; sourceTree = "<group>"; };
 		59DAA10321781CCC008F9D99 /* inputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputView.swift; sourceTree = "<group>"; };
+		59DAA1052178268F008F9D99 /* myPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPoint.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				59AE32FD2175C1DB003B08E5 /* outputView.swift */,
 				59DAA10321781CCC008F9D99 /* inputView.swift */,
+				59DAA1052178268F008F9D99 /* myPoint.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 				59DAA10421781CCD008F9D99 /* inputView.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				59DAA1062178268F008F9D99 /* myPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

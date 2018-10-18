@@ -16,14 +16,14 @@ struct InputView {
     }
     
     public func readInput() -> String {
-        let coordinates = readLine()
-        return validity(coordinates)
+        let rawValue = readLine()
+        return validity(rawValue)
     }
     
-    private func validity(_ coordinates: String?) -> String {
-        guard let coordinates = coordinates else {
+    private func validity(_ rawValue: String?) -> String {
+        guard let validatedValue = rawValue else {
             return ""
         }
-        return coordinates
+        return validatedValue
     }
 }
