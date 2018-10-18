@@ -9,7 +9,7 @@
 import Foundation
 
 func main() {
-    let coordinates = InputView(mention: "좌표를 입력해주세요.").readInput()
+    let inputValue = InputView(mention: "좌표를 입력해주세요.").readInput()
     
     OutputView.drawAxis()
 }
