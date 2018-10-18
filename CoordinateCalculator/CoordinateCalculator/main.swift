@@ -9,10 +9,10 @@
 import Foundation
 
 func main() {
-    let XY = InputView.readInput()
+    let inputCoordinate = InputView.readInput()
     
     OutputView.drawAxis()
-    OutputView.show(point: XY)
+    OutputView.show(point: inputCoordinate.xy)
 }
 
 main()
