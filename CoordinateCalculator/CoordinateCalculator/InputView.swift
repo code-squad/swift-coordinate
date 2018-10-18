@@ -12,17 +12,20 @@ struct InputView {
     static private let maxValue = ANSICode.axis.AxisLimit
     
     static func readInput() -> MyPoint {
-        let typingMention = "좌표를 입력하세요. ex- (10,18) //단, 숫자의 최대 크기는 24"
+        
+        
+        
+        let typingMention = "좌표를 입력하세요. //단, 숫자의 최대 크기는 24"
         let retypeMention = "숫자의 최대 크기는 24입니다. 입력값을 확인하시고 다시 입력 해주세요."
         var isRetype = false
         while true {
             isRetype ? print(retypeMention) : print(typingMention)
-            let xyPoint = getXYPoint(readLine() ?? "다시 입력해 주세요.")
+            let xyPoint = getXYPoint(readLine() ?? "")
             guard validCheck(xyPoint.x) && validCheck(xyPoint.y) else {isRetype = true; continue}
             return xyPoint
         }
     }
-
+    
     static private func getXYPoint(_ input:String) -> MyPoint {
         let xPoint = input.split(separator: "(")[0].split(separator: ",")[0]
         let yPoint = input.split(separator: ",")[1].split(separator: ")")[0]

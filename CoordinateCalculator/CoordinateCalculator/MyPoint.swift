@@ -11,4 +11,12 @@ import Foundation
 struct MyPoint {
     var x : Int
     var y : Int
+    
+    var xy : (Int,Int) {
+        get {
+            let willShowX = self.x * 2 + 2
+            let willShowY = ANSICode.axis.AxisLimit + 1 - self.y
+            return (willShowX, willShowY)
+        }
+    }
 }
