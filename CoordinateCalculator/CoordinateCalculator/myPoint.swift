@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint {
-    private var x = 0
-    private var y = 0
+    var x = 0
+    var y = 0
     
     init(point: [Int]) {
         self.x = point[0]
