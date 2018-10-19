@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Validity 구조체의 역할 : 좌표가 올바르게 입력되었는지 확인
 struct Validity {
     private let coordinates: [Int]
     
@@ -15,6 +16,7 @@ struct Validity {
         self.coordinates = point
     }
     
+    // 조건(입력값의 범위: 0...24)을 만족하는지 확인하는 메소드
     public func isRight() -> Bool {
         if (0...24).contains(coordinates[0]) && (0...24).contains(coordinates[1]) {
             return true
