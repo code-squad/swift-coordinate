@@ -18,10 +18,10 @@ struct MyLine {
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     
-    func distanceBetween() -> Int {
+    func distanceBetween() -> Double {
         var x = self.pointA.x - self.pointB.x
         var y = self.pointA.y - self.pointB.y
-        
-        return x.square() + y.square()
+        let squareSumFromXY = Double(x.square() + y.square())
+        return squareSumFromXY.squareRoot()
     }
 }
