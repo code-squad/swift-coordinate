@@ -9,10 +9,14 @@
 import Foundation
 
 struct Validity {
-    public func isRight(point: String) -> Bool {
-        let coordinates = Validity(point)
-        
-        if (0...24).contains(coordinates[0]) || (0...24).contains(coordinates[1]) {
+    private let coordinates: [Int]
+    
+    init(point: [Int]) {
+        self.coordinates = point
+    }
+    
+    public func isRight() -> Bool {
+        if (0...24).contains(coordinates[0]) && (0...24).contains(coordinates[1]) {
             return true
         }
         return false

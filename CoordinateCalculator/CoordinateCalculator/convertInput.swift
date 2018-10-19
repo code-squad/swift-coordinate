@@ -9,21 +9,27 @@
 import Foundation
 
 struct ConvertInput {
-    public func Validity(_ rawValue: String?) -> [Int] {
-        guard let value = rawValue, containElement(value) else {
-            return [-1,-1]
-        }
-        return convertToPoint(value)
+    private let initialValue: String?
+    
+    init(initialValue: String?) {
+        self.initialValue = initialValue
     }
     
-    private func containElement(_ value: String) -> Bool {
+    public func convertToPoint() -> [Int] {
+        guard let rawValue = initialValue, isContainElement(rawValue) else {
+            return [-1,-1]
+        }
+        return transform(rawValue)
+    }
+    
+    private func isContainElement(_ value: String) -> Bool {
         if value.contains("(") && value.contains(",") && value.contains(")") {
             return true
         }
         return false
     }
     
-    private func convertToPoint(_ initialValue: String) -> [Int] {
-        return initialValue.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {Int($0) ?? -1}
+    private func transform(_ rawValue: String) -> [Int] {
+        return rawValue.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {Int($0) ?? -1}
     }
 }
