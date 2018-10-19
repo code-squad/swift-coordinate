@@ -15,15 +15,27 @@ struct InputView {
         self.mention = mention
     }
     
-    public func readInput() -> String {
+    public func readInput() -> [Int] {
+        print(mention)
         let rawValue = readLine()
         return validity(rawValue)
     }
     
-    private func validity(_ rawValue: String?) -> String {
-        guard let validatedValue = rawValue else {
-            return ""
+    private func validity(_ rawValue: String?) -> [Int] {
+        guard let value = rawValue, containElement(value) else {
+            return [-1,-1]
         }
-        return validatedValue
+        return convertToPoint(value)
+    }
+    
+    private func containElement(_ value: String) -> Bool {
+        if value.contains("(") && value.contains(",") && value.contains(")") {
+            return true
+        }
+        return false
+    }
+    
+    private func convertToPoint(_ initialValue: String) -> [Int] {
+        return initialValue.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {Int($0) ?? -1}
     }
 }
