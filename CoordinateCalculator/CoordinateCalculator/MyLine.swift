@@ -9,8 +9,8 @@
 import Foundation
 
 extension Int {
-    mutating func square() {
-        self = self * self
+    mutating func square() -> Int {
+        return self * self
     }
 }
 
@@ -18,9 +18,10 @@ struct MyLine {
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     
-    func distanceBetween() -> Double {
+    func distanceBetween() -> Int {
+        var x = self.pointA.x - self.pointB.x
+        var y = self.pointA.y - self.pointB.y
         
-        
-        return 0
+        return x.square() + y.square()
     }
 }
