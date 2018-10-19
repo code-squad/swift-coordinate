@@ -13,7 +13,7 @@ func main() -> Bool {
     let rawValue = InputView(mention: "좌표를 입력하세요.").readInput()
     if !InputCheck().isPass(rawValue) {return false}
     
-    let myPoint = MyPoint(point: rawValue)
+    let myPoint = MyPoint(point: rawValue).delievePoint()
     let outputView = OutputView(point: myPoint)
     outputView.drawAxis()
     outputView.markPoint()

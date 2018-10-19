@@ -9,9 +9,9 @@
 import Foundation
 
 struct OutputView {
-    private var point: MyPoint
+    private var point: [Int]
     
-    init(point: MyPoint) {
+    init(point: [Int]) {
         self.point = point
     }
     
@@ -21,7 +21,7 @@ struct OutputView {
     }
     
     public func markPoint() {
-        print("\(ANSICode.cursor.move(row: point.x, col: point.y))\(ANSICode.text.whiteBright)*")
+        print("\(ANSICode.cursor.move(row: point[0], col: point[1]))\(ANSICode.text.whiteBright)*")
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
 }
