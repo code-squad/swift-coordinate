@@ -10,6 +10,9 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		9D635DB1217879F400BD32A9 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB0217879F400BD32A9 /* OutputView.swift */; };
+		9D635DB5217885AD00BD32A9 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB4217885AD00BD32A9 /* InputView.swift */; };
+		9D635DB721796F0C00BD32A9 /* CheckUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */; };
+		9D635DB9217985F700BD32A9 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB8217985F700BD32A9 /* MyPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,9 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		9D635DB0217879F400BD32A9 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		9D635DB4217885AD00BD32A9 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserInput.swift; sourceTree = "<group>"; };
+		9D635DB8217985F700BD32A9 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +67,12 @@
 		8377CC501F8B6F7E007F7335 /* CoordinateCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				9D635DB4217885AD00BD32A9 /* InputView.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				9D635DB0217879F400BD32A9 /* OutputView.swift */,
+				9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */,
+				9D635DB8217985F700BD32A9 /* MyPoint.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -127,6 +136,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				9D635DB5217885AD00BD32A9 /* InputView.swift in Sources */,
+				9D635DB9217985F700BD32A9 /* MyPoint.swift in Sources */,
+				9D635DB721796F0C00BD32A9 /* CheckUserInput.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				9D635DB1217879F400BD32A9 /* OutputView.swift in Sources */,
 			);
