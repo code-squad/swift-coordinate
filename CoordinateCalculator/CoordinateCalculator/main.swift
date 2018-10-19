@@ -9,14 +9,11 @@
 import Foundation
 
 func main() -> Bool {
+    let inputPoint = InputView(mention: "좌표를 입력하세요.").readInput()
     
-    let rawValue = InputView(mention: "좌표를 입력하세요.").readInput()
-    if !InputCheck().isPass(rawValue) {return false}
-    
-    let myPoint = MyPoint(point: rawValue).delievePoint()
-    let outputView = OutputView(point: myPoint)
-    outputView.drawAxis()
-    outputView.markPoint()
+//    let outputView = OutputView(point: myPoint)
+//    outputView.drawAxis()   // 출력을 책임지는 구조체의 좌표를 그리는 메소드
+//    outputView.markPoint()  // 출력을 책임지는 구조체의 원하는 포인트를 찍는 메소드
     
     return true
 }

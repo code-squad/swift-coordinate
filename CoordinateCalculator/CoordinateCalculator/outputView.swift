@@ -8,6 +8,7 @@
 
 import Foundation
 
+// OutputView 구조체의 역할 : 좌표를 & 포인트를 출력
 struct OutputView {
     private var point: [Int]
     
