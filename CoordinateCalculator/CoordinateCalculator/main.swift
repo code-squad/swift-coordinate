@@ -11,17 +11,16 @@ import Foundation
 func main() -> Bool {
     
     let rawValue = InputView(mention: "좌표를 입력하세요.").readInput()
-    if !InputCheck().isPass(rawValue) {
-        return false
-    }
+    if !InputCheck().isPass(rawValue) {return false}
     
     let myPoint = MyPoint(point: rawValue)
-    
-    
+    let outputView = OutputView(point: myPoint)
+    outputView.drawAxis()
+    outputView.markPoint()
     
     return true
 }
 
-while(false) {
-    main()
+while(true) {
+    if !main() {break}
 }
