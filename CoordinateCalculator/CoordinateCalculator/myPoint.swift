@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MyPoint 구조체의 역할 : 입력받은 좌표를 좌표 체계에 맞게 변경 & 저장, 전달
 struct MyPoint {
     private var x: Int
     private var y: Int

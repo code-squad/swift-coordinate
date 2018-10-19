@@ -8,34 +8,19 @@
 
 import Foundation
 
+// InputView 구조체의 역할 : 입력만 책임
 struct InputView {
-    private var mention: String
+    private let mention: String
     
     init(mention: String) {
         self.mention = mention
     }
     
-    public func readInput() -> [Int] {
-        print(mention)
-        let rawValue = readLine()
-        return Validity(rawValue)
-    }
-    
-    private func Validity(_ rawValue: String?) -> [Int] {
-        guard let value = rawValue, containElement(value) else {
-            return [-1,-1]
+    public func readInput() -> String {
+        print(self.mention)
+        guard let rawValue = readLine() else {
+            return "(-1,-1)"
         }
-        return convertToPoint(value)
-    }
-    
-    private func containElement(_ value: String) -> Bool {
-        if value.contains("(") && value.contains(",") && value.contains(")") {
-            return true
-        }
-        return false
-    }
-    
-    private func convertToPoint(_ initialValue: String) -> [Int] {
-        return initialValue.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {Int($0) ?? -1}
+        return rawValue
     }
 }
