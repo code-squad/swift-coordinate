@@ -18,10 +18,10 @@ struct InputView {
     public func readInput() -> [Int] {
         print(mention)
         let rawValue = readLine()
-        return validity(rawValue)
+        return Validity(rawValue)
     }
     
-    private func validity(_ rawValue: String?) -> [Int] {
+    private func Validity(_ rawValue: String?) -> [Int] {
         guard let value = rawValue, containElement(value) else {
             return [-1,-1]
         }
