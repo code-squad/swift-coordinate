@@ -21,7 +21,7 @@ struct OutputView {
     }
     
     public func markPoint() {
-        print("\(ANSICode.cursor.move(row: 25 - point.y, col: 2 * point.x + 3))\(ANSICode.text.yellowBright)*")
+        print("\(ANSICode.cursor.move(row: point.x, col: point.y))\(ANSICode.text.whiteBright)*")
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
 }
