@@ -9,15 +9,20 @@
 import Foundation
 
 func main() {
-    var isRepeat = false
-    var inputCoordinate = InputView.readPoint(isRepeat: isRepeat)
-    while !ValidCheck.lengthCheck(point: inputCoordinate) {
-        isRepeat = true
-        inputCoordinate = InputView.readPoint(isRepeat: isRepeat)
-    }
-    
+    let inputCoordinate = readCheckedCoordinate()
     OutputView.drawAxis()
     OutputView.show(point: inputCoordinate.xy)
+}
+
+func readCheckedCoordinate() -> MyPoint {
+    var isRepeat = false
+    while true {
+        let inputPoint = InputView.readPoint(isRepeat: isRepeat)
+        guard ValidCheck.characterCheck(inputPoint) else {isRepeat = true; continue}
+        let inputCoordinate = InputView.readXY(inputPoint)
+        guard ValidCheck.sizeCheck(inputCoordinate) else {isRepeat = true; continue}
+        return inputCoordinate
+    }
 }
 
 main()
