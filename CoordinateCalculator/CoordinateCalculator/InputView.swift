@@ -29,8 +29,4 @@ struct InputView {
         let xyPoint = MyPoint(x:Int(xPoint) ?? maxValue + 1, y:Int(yPoint) ?? maxValue + 1)
         return xyPoint
     }
-    
-    static func validCheck(point:MyPoint) -> Bool {
-        return point.x <= maxValue && point.y <= maxValue
-    }
 }

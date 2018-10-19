@@ -11,7 +11,7 @@ import Foundation
 func main() {
     var isRepeat = false
     var inputCoordinate = InputView.readPoint(isRepeat: isRepeat)
-    while !InputView.validCheck(point: inputCoordinate) {
+    while !ValidCheck.lengthCheck(point: inputCoordinate) {
         isRepeat = true
         inputCoordinate = InputView.readPoint(isRepeat: isRepeat)
     }
