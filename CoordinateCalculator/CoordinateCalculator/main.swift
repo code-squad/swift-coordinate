@@ -9,12 +9,12 @@
 import Foundation
 
 func main() {
-    let inputCoordinate = readCheckedCoordinate()
+    let inputCoordinate = validCoordinate()
     OutputView.drawAxis()
     OutputView.show(point: inputCoordinate.xy)
 }
 
-func readCheckedCoordinate() -> MyPoint {
+func validCoordinate() -> MyPoint {
     var isRepeat = false
     while true {
         let inputPoint = InputView.readCoordinate(isRepeat)
