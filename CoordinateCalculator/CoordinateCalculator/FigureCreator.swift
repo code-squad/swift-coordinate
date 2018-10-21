@@ -9,7 +9,7 @@
 import Foundation
 
 struct FigureCreator {
-    static func createFigure(_ coordinate:String) -> Figure {
+    static func createFigure(_ coordinate:String) -> MyPoint {
         switch ValidCheck.numberOfHyphenCheck(coordinate) {
         case 0:
             return readPoint(coordinate)
