@@ -10,20 +10,26 @@
 
 import Foundation
 
+enum stateInput {
+    case nilNumber
+    case overFlowNumber
+    case rightInput
+}
+
 func main(){
     let inputView = InputView()
     let outputView = OutputView()
-    var inputFromUser : (positionX: String, positionY: String)
-    var positionX : Int = 0
-    var positionY : Int = 0
+    var inputFromUser : (positionX: String, positionY: String) = ("", "")
+    var stateCurrent : stateInput = .nilNumber
     
-    while true{
+    while stateCurrent == .nilNumber || stateCurrent == .overFlowNumber {
         inputFromUser = inputView.splitXandYlocation()
-        if let tempPositionX = Int(inputFromUser.positionX){ positionX = tempPositionX } else { return }
-        if let tempPositionY = Int(inputFromUser.positionY){ positionY = tempPositionY } else { return }
-        if !CheckUserInput.IsOverFlowNumber(notNilNumber: positionX) && !CheckUserInput.IsOverFlowNumber(notNilNumber: positionY) { break }
-        print("입력범위를 초과하였습니다.")
+        stateCurrent = CheckUserInput.returnInputState(positionX: inputFromUser.positionX, positionY: inputFromUser.positionY)
+        if stateCurrent == .nilNumber{ print("올바른 숫자를 입력하시오.") }
+        else if stateCurrent == .overFlowNumber { print("입력범위를 초과하였습니다.") }
     }
+    guard let positionX = Int(inputFromUser.positionX) else { return }
+    guard let positionY = Int(inputFromUser.positionY) else { return }
     let point : MyPoint = MyPoint(xPosition: positionX, yPosition: positionY)
     
     outputView.clearBackground()
