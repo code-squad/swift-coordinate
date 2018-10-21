@@ -13,11 +13,14 @@ import Foundation
 func main(){
     let inputView = InputView()
     let outputView = OutputView()
+    let checkUserInput = CheckUserInput()
+    var inputFromUser : (positionX: Int?, positionY: Int?)
     var point : MyPoint
-     
+    
     repeat{
-        point = inputView.splitXandYlocation(location: inputView.readInput(message: "좌표를 입력해주세요."))
-    }while CheckUserInput.IsOverFlowNumber(position: point.xPosition) || CheckUserInput.IsOverFlowNumber(position: point.yPosition)
+        inputFromUser = inputView.splitXandYlocation()
+    }while checkUserInput.IsRightUserInput(input: inputFromUser.positionX) || checkUserInput.IsRightUserInput(input: inputFromUser.positionY)
+    point = MyPoint(xPosition: inputFromUser.positionX!, yPosition: inputFromUser.positionY!)
     
     outputView.clearBackground()
     outputView.drawAxis()
