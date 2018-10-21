@@ -14,7 +14,7 @@ extension Int {
     }
 }
 
-struct MyLine {
+struct MyLine : Figure {
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     

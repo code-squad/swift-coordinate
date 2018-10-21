@@ -23,7 +23,7 @@ struct InputView {
         return coordinate
     }
     
-    static func readXY(_ coordinate:String) -> MyPoint {
+    static func readPoint(_ coordinate:String) -> MyPoint {
         let x = coordinate.split(separator: "(")[0].split(separator: ",")[0]
         let y = coordinate.split(separator: ",")[1].split(separator: ")")[0]
         let xy = MyPoint(x:Int(x) ?? maxRange + 1, y:Int(y) ?? maxRange + 1)
