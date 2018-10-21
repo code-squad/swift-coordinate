@@ -17,8 +17,9 @@ func main() {
 func readCheckedCoordinate() -> MyPoint {
     var isRepeat = false
     while true {
-        let inputPoint = InputView.readPoint(isRepeat: isRepeat)
+        let inputPoint = InputView.readCoordinate(isRepeat: isRepeat)
         guard ValidCheck.characterCheck(inputPoint) else {isRepeat = true; continue}
+        
         let inputCoordinate = InputView.readXY(inputPoint)
         guard ValidCheck.sizeCheck(inputCoordinate) else {isRepeat = true; continue}
         return inputCoordinate
