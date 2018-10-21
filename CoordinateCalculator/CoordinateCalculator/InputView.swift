@@ -9,8 +9,6 @@
 import Foundation
 
 struct InputView {
-    static private let maxRange = ANSICode.axis.AxisLimit
-    
     static private func readInput(ment:String) -> String {
         print(ment)
         return readLine() ?? ""
@@ -21,12 +19,5 @@ struct InputView {
         let retypeMent = "입력값을 확인하시고 다시 입력 해주세요."
         let coordinate = (isRepeat == true) ? readInput(ment: retypeMent) : readInput(ment: typingMent)
         return coordinate
-    }
-    
-    static func readPoint(_ coordinate:String) -> MyPoint {
-        let x = coordinate.split(separator: "(")[0].split(separator: ",")[0]
-        let y = coordinate.split(separator: ",")[1].split(separator: ")")[0]
-        let xy = MyPoint(x:Int(x) ?? maxRange + 1, y:Int(y) ?? maxRange + 1)
-        return xy
     }
 }

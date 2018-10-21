@@ -16,15 +16,15 @@ struct ValidCheck {
         return point.x <= maxRange && point.y <= maxRange
     }
     
-    static func characterCheck(_ input:String) -> Bool {
-        for i in input {
+    static func characterCheck(_ coordinate:String) -> Bool {
+        for i in coordinate {
             guard availableCharacters.contains(i) == true else {return false}
         }
         return true
     }
     
-    static func numberOfHyphenCheck(_ input:String) -> Int {
-        let hyphens = input.filter {$0 == "-"}
+    static func numberOfHyphenCheck(_ coordinate:String) -> Int {
+        let hyphens = coordinate.filter {$0 == "-"}
         return hyphens.count
     }
 }
