@@ -8,21 +8,23 @@
 
 import Foundation
 
+protocol Figure {}
+
 func main() {
-    let inputCoordinate = validCoordinate()
+    let coordinate = validCoordinate()
     OutputView.drawAxis()
-    OutputView.show(point: inputCoordinate.xy)
+    OutputView.show(point: coordinate.xy)
 }
 
 func validCoordinate() -> MyPoint {
     var isRepeat = false
     while true {
-        let inputPoint = InputView.readCoordinate(isRepeat)
-        guard ValidCheck.characterCheck(inputPoint) else {isRepeat = true; continue}
+        let inputCoordinate = InputView.readCoordinate(isRepeat)
+        guard ValidCheck.characterCheck(inputCoordinate) else {isRepeat = true; continue}
         
-        let inputCoordinate = InputView.readXY(inputPoint)
-        guard ValidCheck.rangeCheck(inputCoordinate) else {isRepeat = true; continue}
-        return inputCoordinate
+        let inputPoint = InputView.readPoint(inputCoordinate)
+        guard ValidCheck.rangeCheck(inputPoint) else {isRepeat = true; continue}
+        return inputPoint
     }
 }
 

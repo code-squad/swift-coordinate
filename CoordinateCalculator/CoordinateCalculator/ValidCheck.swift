@@ -22,4 +22,9 @@ struct ValidCheck {
         }
         return true
     }
+    
+    static func numberOfHyphenCheck(_ input:String) -> Int {
+        let hyphens = input.filter {$0 == "-"}
+        return hyphens.count
+    }
 }
