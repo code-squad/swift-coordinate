@@ -10,12 +10,19 @@ import Foundation
 
 struct CheckUserInput {
     
-    // UserInput이 0 <= input < 25 사이의 숫자인지 검사
-    static func IsOverFlowNumber(position : Int) -> Bool {
-        guard position > 24 || position < 0 else {
+    // 입력 값이 Nil 값인지 검사 후 아닌 경우 범위에 맞는지 검사
+    func IsRightUserInput(input : Int?) -> Bool {
+        if input == nil{
+            return true
+        }
+        return IsOverFlowNumber(notNilNumber: input!)
+    }
+    
+    // Nil 값이 아닐 경우 범위에 맞는 값인지 검사
+    private func IsOverFlowNumber(notNilNumber: Int) -> Bool{
+        guard notNilNumber > 24 || notNilNumber < 0 else {
             return false
         }
-        print("입력 범위를 초과하였습니다")
         return true
     }
 }

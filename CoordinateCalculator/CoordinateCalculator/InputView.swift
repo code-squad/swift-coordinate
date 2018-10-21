@@ -9,19 +9,16 @@
 import Foundation
 
 struct InputView {
-    
-    // 사용자의 입력을 받음
-    func readInput(message: String) -> String {
-        print(message)
-        guard let input = readLine() else {
-            return "Error"
-        }
-        return input
+    // X,Y 좌표로 나누어 줌
+    func splitXandYlocation() -> (Int?, Int?){
+        var splitUserInput : [String] = readInput(message: "좌표를 입력해주세요").components(separatedBy: [",", ")", "("])
+        return (Int(splitUserInput[1]), Int(splitUserInput[2]))
     }
     
-    // X,Y 좌표로 나누어 줌
-    func splitXandYlocation(location: String) -> MyPoint{
-        var splitUserInput : [String] = location.components(separatedBy: [",", ")", "("])
-        return MyPoint(xPosition: Int(splitUserInput[1]) ?? -1, yPosition: Int(splitUserInput[2]) ?? -1)
+    // 사용자의 입력을 받음
+    private func readInput(message: String) -> String {
+        print(message)
+        guard let input = readLine() else { return "" }
+        return input
     }
 }
