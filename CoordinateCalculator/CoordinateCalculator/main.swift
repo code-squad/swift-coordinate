@@ -17,11 +17,11 @@ func main() {
 func readCheckedCoordinate() -> MyPoint {
     var isRepeat = false
     while true {
-        let inputPoint = InputView.readCoordinate(isRepeat: isRepeat)
+        let inputPoint = InputView.readCoordinate(isRepeat)
         guard ValidCheck.characterCheck(inputPoint) else {isRepeat = true; continue}
         
         let inputCoordinate = InputView.readXY(inputPoint)
-        guard ValidCheck.sizeCheck(inputCoordinate) else {isRepeat = true; continue}
+        guard ValidCheck.rangeCheck(inputCoordinate) else {isRepeat = true; continue}
         return inputCoordinate
     }
 }
