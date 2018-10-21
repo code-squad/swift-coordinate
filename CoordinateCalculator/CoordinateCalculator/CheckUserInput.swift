@@ -10,7 +10,7 @@ import Foundation
 
 struct CheckUserInput {
     // Nil 값이 아닐 경우 범위에 맞는 값인지 검사
-    func IsOverFlowNumber(notNilNumber: Int) -> Bool{
+    static func IsOverFlowNumber(notNilNumber: Int) -> Bool{
         guard notNilNumber > 24 || notNilNumber < 0 else {
             return false
         }
