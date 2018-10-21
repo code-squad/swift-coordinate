@@ -9,24 +9,24 @@
 import Foundation
 
 struct InputView {
-    static private let maxValue = ANSICode.axis.AxisLimit
+    static private let maxRange = ANSICode.axis.AxisLimit
     
     static private func readInput(ment:String) -> String {
         print(ment)
         return readLine() ?? ""
     }
     
-    static func readPoint(isRepeat:Bool) -> String {
+    static func readCoordinate(_ isRepeat:Bool) -> String {
         let typingMent = "좌표를 입력하세요. //단, 숫자의 최대 크기는 24"
         let retypeMent = "입력값을 확인하시고 다시 입력 해주세요."
-        let point = isRepeat == true ? readInput(ment: retypeMent) : readInput(ment: typingMent)
-        return point
+        let coordinate = (isRepeat == true) ? readInput(ment: retypeMent) : readInput(ment: typingMent)
+        return coordinate
     }
     
-    static func readXY(_ point:String) -> MyPoint {
-        let xPoint = point.split(separator: "(")[0].split(separator: ",")[0]
-        let yPoint = point.split(separator: ",")[1].split(separator: ")")[0]
-        let xyPoint = MyPoint(x:Int(xPoint) ?? maxValue + 1, y:Int(yPoint) ?? maxValue + 1)
-        return xyPoint
+    static func readXY(_ coordinate:String) -> MyPoint {
+        let x = coordinate.split(separator: "(")[0].split(separator: ",")[0]
+        let y = coordinate.split(separator: ",")[1].split(separator: ")")[0]
+        let xy = MyPoint(x:Int(x) ?? maxRange + 1, y:Int(y) ?? maxRange + 1)
+        return xy
     }
 }

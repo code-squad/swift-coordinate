@@ -72,8 +72,8 @@
 				7D200443217072FC00308C50 /* InputView.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				7D78A4112179AF1100EE0843 /* ValidCheck.swift */,
-				7D78A40F21787E2600EE0843 /* MyLine.swift */,
 				7D200445217075D200308C50 /* MyPoint.swift */,
+				7D78A40F21787E2600EE0843 /* MyLine.swift */,
 				7D1B1D79216F164600E88767 /* OutputView.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 			);
