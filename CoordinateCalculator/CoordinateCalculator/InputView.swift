@@ -10,9 +10,9 @@ import Foundation
 
 struct InputView {
     // X,Y 좌표로 나누어 줌
-    func splitXandYlocation() -> (Int?, Int?){
+    func splitXandYlocation() -> (String, String){
         var splitUserInput : [String] = readInput(message: "좌표를 입력해주세요").components(separatedBy: [",", ")", "("])
-        return (Int(splitUserInput[1]), Int(splitUserInput[2]))
+        return (splitUserInput[1], splitUserInput[2])
     }
     
     // 사용자의 입력을 받음
