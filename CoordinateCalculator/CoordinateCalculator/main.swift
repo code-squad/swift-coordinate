@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol Figure {}
+protocol Figure {
+    var xy : (Int,Int) {get}
+}
 
 func main() {
     let coordinate = validCoordinate()
@@ -16,15 +18,16 @@ func main() {
     OutputView.show(point: coordinate.xy)
 }
 
-func validCoordinate() -> MyPoint {
+func validCoordinate() -> Figure {
     var isRepeat = false
     while true {
         let inputCoordinate = InputView.readCoordinate(isRepeat)
         guard ValidCheck.characterCheck(inputCoordinate) else {isRepeat = true; continue}
         
-        let inputPoint = InputView.readPoint(inputCoordinate)
-        guard ValidCheck.rangeCheck(inputPoint) else {isRepeat = true; continue}
-        return inputPoint
+        return FigureCreator.createFigure(inputCoordinate)
+//        let inputPoint = FigureCreator.readPoint(inputCoordinate)
+//        guard ValidCheck.rangeCheck(inputPoint) else {isRepeat = true; continue}
+//        return inputPoint
     }
 }
 
