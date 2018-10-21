@@ -8,17 +8,13 @@
 
 import Foundation
 
-protocol Figure {
-    var xy : (Int,Int) {get}
-}
-
 func main() {
     let coordinate = validCoordinate()
     OutputView.drawAxis()
     OutputView.show(point: coordinate.xy)
 }
 
-func validCoordinate() -> Figure {
+func validCoordinate() -> MyPoint {
     var isRepeat = false
     while true {
         let inputCoordinate = InputView.readCoordinate(isRepeat)

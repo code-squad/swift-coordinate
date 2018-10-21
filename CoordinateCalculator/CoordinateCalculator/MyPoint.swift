@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint : Figure {
+struct MyPoint {
     private(set) var x : Int
     private(set) var y : Int
     
