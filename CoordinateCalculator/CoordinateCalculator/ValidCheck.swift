@@ -9,11 +9,10 @@
 import Foundation
 
 struct ValidCheck {
-    static private let maxRange = ANSICode.axis.AxisLimit
     static private let availableCharacters:[Character] = ["(",",",")","-","0","1","2","3","4","5","6","7","8","9"]
     
     static func rangeCheck(_ point:MyPoint) -> Bool {
-        return point.x <= maxRange && point.y <= maxRange
+        return point.x <= ANSICode.axis.AxisLimit && point.y <= ANSICode.axis.AxisLimit
     }
     
     static func characterCheck(_ coordinate:String) -> Bool {
