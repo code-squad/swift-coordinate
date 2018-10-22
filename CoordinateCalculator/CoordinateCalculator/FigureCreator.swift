@@ -18,6 +18,10 @@ struct FigureCreator {
         }
     }
     
+    static private func separateHyphen(_ input:String) -> [String] {
+        return input.split(separator: "-").map {String($0)}
+    }
+    
     static private func readPoint(_ coordinate:String) -> MyPoint {
         let x = coordinate.split(separator: "(")[0].split(separator: ",")[0]
         let y = coordinate.split(separator: ",")[1].split(separator: ")")[0]
