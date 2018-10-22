@@ -9,12 +9,12 @@
 import Foundation
 
 func main() {
-    let willShowCoordinate = validCoordinate()
+    let willShowFigure = validCoordinate()
     OutputView.drawAxis()
-    OutputView.show(willShowCoordinate)
+    willShowFigure.callShow()
 }
 
-func validCoordinate() -> MyPoint {
+func validCoordinate() -> Figure {
     var isRepeat = false
     while true {
         let inputCoordinate = InputView.readCoordinate(isRepeat)

@@ -14,7 +14,7 @@ extension Int {
     }
 }
 
-struct MyLine {
+struct MyLine : Figure {
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     
@@ -23,5 +23,9 @@ struct MyLine {
         var y = self.pointA.y - self.pointB.y
         let squareSumFromXY = Double(x.square() + y.square())
         return squareSumFromXY.squareRoot()
+    }
+    
+    func callShow() {
+        
     }
 }
