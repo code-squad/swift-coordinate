@@ -9,9 +9,9 @@
 import Foundation
 
 func main() {
-    let coordinate = validCoordinate()
+    let willShowCoordinate = validCoordinate()
     OutputView.drawAxis()
-    OutputView.show(point: coordinate)
+    OutputView.show(willShowCoordinate)
 }
 
 func validCoordinate() -> MyPoint {
@@ -20,7 +20,11 @@ func validCoordinate() -> MyPoint {
         let inputCoordinate = InputView.readCoordinate(isRepeat)
         guard ValidCheck.characterCheck(inputCoordinate) else {isRepeat = true; continue}
         
-        return FigureCreator.createFigure(inputCoordinate)
+        let coordinates = FigureCreator.separateHyphen(inputCoordinate)
+        let points = coordinates.map {FigureCreator.readPoint($0)}
+        guard ValidCheck.rangeCheck(points) else {isRepeat = true; continue}
+        
+        return FigureCreator.createFigure(points)
     }
 }
 
