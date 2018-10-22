@@ -11,20 +11,20 @@ import Foundation
 func main() {
     // 첫 입력값을 받는 부분
     let first = InputView(mention: "좌표를 입력하세요.").readInput()
-    var convertedPoints = ConvertInput(initialInput: first).convertToPoints()
+    var convertedPoint = ConvertInput(initialInput: first).convertToPoint()
     
     // 올바르지 않은 입력을 받았을 때, 재입력을 받는 부분
-    while !Validity(point: convertedPoints).isRight() {
+    while !Validity(point: convertedPoint).isRight() {
         let next = InputView(mention: "올바른 좌표를 입력하세요.").readInput()
-        let nextPoints = ConvertInput(initialInput: next).convertToPoints()
-        convertedPoints = nextPoints
-        if Validity(point: nextPoints).isRight() {
+        let nextPoint = ConvertInput(initialInput: next).convertToPoint()
+        convertedPoint = nextPoint
+        if Validity(point: nextPoint).isRight() {
             break
         }
     }
     
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
-    let myPoint = MyPoint(point: convertedPoints).delievePoint()
+    let myPoint = MyPoint(point: convertedPoint).delievePoint()
     
     // 좌표를 그리고, 원하는 포인트를 찍어주는 부분
     let outputView = OutputView(point: myPoint)
