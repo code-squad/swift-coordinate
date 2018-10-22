@@ -22,5 +22,6 @@ struct MyPoint : Figure {
     
     func callShow() {
         OutputView.show(point: self.xy)
+        print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 3, col: 1))")
     }
 }

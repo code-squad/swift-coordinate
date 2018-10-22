@@ -26,6 +26,9 @@ struct MyLine : Figure {
     }
     
     func callShow() {
-        
+        OutputView.show(point: self.pointA.xy)
+        OutputView.show(point: self.pointB.xy)
+        print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 3, col: 1))")
+        print("두 점 사이 거리는 \(distanceBetween())")
     }
 }

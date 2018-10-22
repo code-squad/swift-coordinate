@@ -17,9 +17,15 @@ struct FigureCreator {
         switch coordinates.count {
         case 1:
             return coordinates[0]
+        case 2:
+            return create(line: coordinates)
         default:
             return MyPoint(x:0,y:0)
         }
+    }
+
+    static private func create(line:[MyPoint]) -> MyLine {
+        return MyLine.init(pointA: line[0], pointB: line[1])
     }
     
     static func separateHyphen(_ coordinate:String) -> [String] {
