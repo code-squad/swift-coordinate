@@ -17,11 +17,11 @@ struct ConvertInput {
     }
     
     // 잘못된 입력이 들어온 경우, 올바른 입력이 들어온 경우 데이터 형태 변환 & 반환하는 메소드
-    public func convertToPoints() -> [Int] {
+    public func convertToPoint() -> [String: Int] {
         guard let raw = initial, isContainElement(raw) else {
-            return [-1,-1]
+            return ["x": -1, "y": -1]
         }
-        return transformIntoPointsUsing(raw)
+        return transformIntoPointUsing(raw)
     }
     
     // 입력 형태가 올바른지 확인하는 메소드
@@ -33,8 +33,9 @@ struct ConvertInput {
     }
     
     // 입력받은 값(String)을 정수형 데이터 타입으로 변환
-    private func transformIntoPointsUsing(_ raw: String) -> [Int] {
-        
-        return raw.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {Int($0) ?? -1}
+    private func transformIntoPointUsing(_ raw: String) -> [String: Int] {
+        let point = raw.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {Int($0) ?? -1}
+        let coordinates = ["x": point[0], "y": point[1]]
+        return coordinates
     }
 }
