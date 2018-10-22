@@ -9,20 +9,20 @@
 import Foundation
 
 struct FigureCreator {
-    static func createFigure(_ coordinate:String) -> MyPoint {
-        switch ValidCheck.numberOfHyphenCheck(coordinate) {
-        case 0:
-            return readPoint(coordinate)
+    static func createFigure(_ coordinates:[MyPoint]) -> MyPoint {
+        switch coordinates.count {
+        case 1:
+            return coordinates[0]
         default:
-            return MyPoint(x:1,y:2)
+            return MyPoint(x:0,y:0)
         }
     }
     
-    static private func separateHyphen(_ input:String) -> [String] {
-        return input.split(separator: "-").map {String($0)}
+    static func separateHyphen(_ coordinate:String) -> [String] {
+        return coordinate.split(separator: "-").map {String($0)}
     }
     
-    static private func readPoint(_ coordinate:String) -> MyPoint {
+    static func readPoint(_ coordinate:String) -> MyPoint {
         let x = coordinate.split(separator: "(")[0].split(separator: ",")[0]
         let y = coordinate.split(separator: ",")[1].split(separator: ")")[0]
         let xy = MyPoint(x:Int(x) ?? ANSICode.axis.AxisLimit + 1, y:Int(y) ?? ANSICode.axis.AxisLimit + 1)
