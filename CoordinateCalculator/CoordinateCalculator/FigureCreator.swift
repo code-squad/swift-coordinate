@@ -8,8 +8,12 @@
 
 import Foundation
 
+protocol Figure {
+    func callShow()
+}
+
 struct FigureCreator {
-    static func createFigure(_ coordinates:[MyPoint]) -> MyPoint {
+    static func createFigure(_ coordinates:[MyPoint]) -> Figure {
         switch coordinates.count {
         case 1:
             return coordinates[0]

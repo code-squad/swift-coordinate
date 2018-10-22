@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : Figure {
     private(set) var x : Int
     private(set) var y : Int
     
@@ -18,5 +18,9 @@ struct MyPoint {
             let willShowY = ANSICode.axis.AxisLimit + 1 - self.y
             return (willShowX, willShowY)
         }
+    }
+    
+    func callShow() {
+        OutputView.show(point: self.xy)
     }
 }
