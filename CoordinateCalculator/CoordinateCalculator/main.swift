@@ -10,7 +10,7 @@
 
 import Foundation
 
-enum stateInput {
+enum StateInput {
     case nilNumber
     case overFlowNumber
     case rightInput
@@ -20,10 +20,10 @@ func main(){
     let inputView = InputView()
     let outputView = OutputView()
     var inputFromUser : (positionX: String, positionY: String) = ("", "")
-    var stateCurrent : stateInput = .nilNumber
+    var stateCurrent : StateInput = .nilNumber
     
     while stateCurrent == .nilNumber || stateCurrent == .overFlowNumber {
-        inputFromUser = inputView.splitXandYlocation()
+        inputFromUser = inputView.splitXandYlocation(input: inputView.readInput(message: "좌표를 입력해주세요."))
         stateCurrent = CheckUserInput.returnInputState(positionX: inputFromUser.positionX, positionY: inputFromUser.positionY)
         if stateCurrent == .nilNumber{ print("올바른 숫자를 입력하시오.") }
         else if stateCurrent == .overFlowNumber { print("입력범위를 초과하였습니다.") }
