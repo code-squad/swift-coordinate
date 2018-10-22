@@ -18,9 +18,9 @@ struct InputView {
     
     public func readInput() -> String {
         print(self.mention)
-        guard let rawValue = readLine() else {
+        guard let initial = readLine() else {
             return "(-1,-1)"
         }
-        return rawValue
+        return initial
     }
 }
