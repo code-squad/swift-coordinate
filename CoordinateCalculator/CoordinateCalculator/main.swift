@@ -11,7 +11,7 @@ import Foundation
 func main() {
     let coordinate = validCoordinate()
     OutputView.drawAxis()
-    OutputView.show(point: coordinate.xy)
+    OutputView.show(point: coordinate)
 }
 
 func validCoordinate() -> MyPoint {
@@ -21,9 +21,6 @@ func validCoordinate() -> MyPoint {
         guard ValidCheck.characterCheck(inputCoordinate) else {isRepeat = true; continue}
         
         return FigureCreator.createFigure(inputCoordinate)
-//        let inputPoint = FigureCreator.readPoint(inputCoordinate)
-//        guard ValidCheck.rangeCheck(inputPoint) else {isRepeat = true; continue}
-//        return inputPoint
     }
 }
 
