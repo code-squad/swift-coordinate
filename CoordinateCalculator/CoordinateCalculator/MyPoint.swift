@@ -12,7 +12,7 @@ struct MyPoint {
     private(set) var xPosition : Int
     private(set) var yPosition : Int
     
-    init(xPosition: Int, yPosition: Int){
+    init(xPosition: Int, yPosition: Int) {
         self.xPosition = xPosition
         self.yPosition = yPosition
     }
