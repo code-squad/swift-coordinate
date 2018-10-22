@@ -16,7 +16,7 @@ struct OutputView {
     
     static func show(point:(Int,Int)) {
         print("\(ANSICode.cursor.move(row:point.1, col:point.0))🙈")
-        print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 3, col: 1))")
     }
+    
     
 }
