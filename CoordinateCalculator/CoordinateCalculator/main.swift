@@ -10,16 +10,16 @@ import Foundation
 
 func main() {
     // 첫 입력값을 받는 부분
-    let first = InputView(mention: "좌표를 입력하세요.").readInput()
-    var error = ErrorCheck(input: first).checkInputError()
+    var input = InputView(mention: "좌표를 입력하세요.").readInput()
+    var error = ErrorCheck(input: input).checkInputError()
     
     // 올바르지 않은 입력을 받았을 때, 에러를 처리하고 재입력을 받는 부분
     while error != .noError {
-        let next = InputView(mention: "\(error.rawValue)\n올바른 좌표를 입력하세요.").readInput()
-        error = ErrorCheck(input: next).checkInputError()
+        input = InputView(mention: "\(error.rawValue)\n좌표를 입력하세요.").readInput()
+        error = ErrorCheck(input: input).checkInputError()
     }
     
-    let convertedPoint = ConvertInput(initialInput: first).convertToPoint()
+    let convertedPoint = ConvertInput(initialInput: input).convertToPoint()
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
     let xandy = MyPoint(point: convertedPoint).delievePoints()
     
