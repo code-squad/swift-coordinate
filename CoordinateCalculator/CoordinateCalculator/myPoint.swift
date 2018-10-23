@@ -14,13 +14,8 @@ struct MyPoint {
     private var y: Int
     
     // 제 1사분면의 좌표 체계를 이용해서 입력받은 좌표를 변경
-    init(point: [String: Int]) {
-        self.x = 24 - (point["y"] ?? 0)
-        self.y = 2 * (point["x"] ?? 0) + 3
-    }
-    
-    // 저장 프로퍼티를 보호하기 위한 전달 함수
-    public func delievePoints() -> [Int] {
-        return [x,y]
+    init(x: Int, y: Int) {
+        self.x = 24 - y
+        self.y = 2 * x + 3
     }
 }

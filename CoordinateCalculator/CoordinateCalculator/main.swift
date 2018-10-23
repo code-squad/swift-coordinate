@@ -19,9 +19,11 @@ func main() {
         error = ErrorCheck(input: input).checkInputError()
     }
     
-    let convertedPoint = ConvertInput(initialInput: input).convertToPoint()
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
-    let xandy = MyPoint(point: convertedPoint).delievePoints()
+    let convertedPoints = ConvertInput(correctInput: input).delievePoints()
+    
+    //
+    
     
     // 좌표를 그리고, 원하는 포인트를 찍어주는 부분
     let outputView = OutputView(point: xandy)

@@ -8,7 +8,11 @@
 
 import Foundation
 
-//struct MyLine {
-//    var pointA = MyPoint(point: <#T##[String : Int]#>)
-//    var pointB = MyPoint(point: <#T##[String : Int]#>)
-//}
+struct MyLine {
+    var pointA = MyPoint(point: <#T##[String : Int]#>)
+    var pointB = MyPoint(point: <#T##[String : Int]#>)
+    
+    init(<#parameters#>) {
+        <#statements#>
+    }
+}
