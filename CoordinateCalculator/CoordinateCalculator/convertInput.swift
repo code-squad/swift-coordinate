@@ -43,7 +43,7 @@ struct ConvertInput {
     // 배열의 요소들을 MyPoint에 구조체에 넣어 좌표를 리턴하는 메소드
     // ["10", "10"] -> MyPoint(x: 10, y: 10)
     private func makePoint(_ points: [String]) -> MyPoint {
-        return MyPoint(x: Int(points[0]) ?? -1, y: Int(points[0]) ?? -1)
+        return MyPoint(x: Int(points[0]) ?? -1, y: Int(points[1]) ?? -1)
     }
     
     // 초기 입력값을 튜플로 좌표쌍으로 리턴하는 메소드
