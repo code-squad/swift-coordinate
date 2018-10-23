@@ -8,5 +8,10 @@
 
 import Foundation
 
-print("Hello, World!")
+func main() {
+    PrintView.eraseDisplay()
+    PrintView.drawCoordinate()
+}
+
+main()
 
