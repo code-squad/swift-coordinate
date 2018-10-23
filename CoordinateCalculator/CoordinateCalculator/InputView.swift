@@ -29,10 +29,10 @@ class InputView {
             return (-1,-1)
         }
         let numericElements = pointElements.compactMap {Int($0) ?? -1}
-        return (numericElements[0], numericElements[0])
+        return (numericElements[0], numericElements[1])
     }
     
-    func checkCoordinateValue(numbers: (Int,Int)) -> Bool {
+    func checkWrongCoordinate(numbers: (Int,Int)) -> Bool {
         return numbers.0 < 0 || numbers.1 < 0
     }
 }
