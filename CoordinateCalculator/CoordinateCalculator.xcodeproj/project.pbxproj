@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		9D2D1ABB217EE55F009AC396 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1ABA217EE55F009AC396 /* ErrorState.swift */; };
 		9D635DB1217879F400BD32A9 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB0217879F400BD32A9 /* OutputView.swift */; };
 		9D635DB5217885AD00BD32A9 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB4217885AD00BD32A9 /* InputView.swift */; };
 		9D635DB721796F0C00BD32A9 /* CheckUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */; };
@@ -32,6 +33,7 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		9D2D1ABA217EE55F009AC396 /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 		9D635DB0217879F400BD32A9 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		9D635DB4217885AD00BD32A9 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserInput.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */,
 				9D635DB8217985F700BD32A9 /* MyPoint.swift */,
 				9DB3F419217E189C00149490 /* ShapeCreator.swift */,
+				9D2D1ABA217EE55F009AC396 /* ErrorState.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				9D635DB9217985F700BD32A9 /* MyPoint.swift in Sources */,
 				9D635DB721796F0C00BD32A9 /* CheckUserInput.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				9D2D1ABB217EE55F009AC396 /* ErrorState.swift in Sources */,
 				9D635DB1217879F400BD32A9 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
