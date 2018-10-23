@@ -10,6 +10,13 @@ import Foundation
 
 struct OutputView {
     
+    // 에러에 맞는 문구 출력
+    func ErrorStatePrint(_ state: ErrorState){
+        if state == .outOfRangeCharacter{ print("캐릭터 셋에 있는 문자를 입력하세요.") }
+        else if state == .wrongOrder{ print("(숫자,숫자) 형태로 입력하세요.") }
+        else if state == .overFlowNumber{ print("범위에 맞는 숫자를 입력하세요.") }
+    }
+    
     // 1사분면 좌표축을 그림
     func drawAxis() {
         print("\(ANSICode.text.black)\(ANSICode.axis.draw())")

@@ -10,9 +10,10 @@ import Foundation
 
 struct ShapeCreator{
     // Point를 생성해서 리턴해줌
-    static func createPoint(xPosition: String, yPosition: String) -> MyPoint?{
-        guard let xPosition = Int(xPosition) else {return nil}
-        guard let yPosition = Int(yPosition) else {return nil}
+    static func createPoint(xyPosition: String) -> MyPoint?{
+        let xyPosition : [String] = xyPosition.components(separatedBy: ["(", ")", ","])
+        guard let xPosition = Int(xyPosition[1]) else {return nil}
+        guard let yPosition = Int(xyPosition[2]) else {return nil}
         return MyPoint(xPosition: xPosition, yPosition: yPosition)
     }
 }
