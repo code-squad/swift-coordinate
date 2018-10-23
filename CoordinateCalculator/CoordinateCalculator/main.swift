@@ -20,10 +20,10 @@ func main() {
     }
     
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
-    let myPoint = MyPoint(point: convertedPoint).delievePoint()
+    let xandy = MyPoint(point: convertedPoint).delievePoints()
     
     // 좌표를 그리고, 원하는 포인트를 찍어주는 부분
-    let outputView = OutputView(point: myPoint)
+    let outputView = OutputView(point: xandy)
     outputView.drawAxis()   // 출력을 책임지는 구조체의 좌표를 그리는 메소드
     outputView.markPoint()  // 출력을 책임지는 구조체의 원하는 포인트를 찍는 메소드
 }

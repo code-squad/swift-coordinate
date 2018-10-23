@@ -20,7 +20,7 @@ struct MyPoint {
     }
     
     // 저장 프로퍼티를 보호하기 위한 전달 함수
-    public func delievePoint() -> [Int] {
+    public func delievePoints() -> [Int] {
         return [x,y]
     }
 }
