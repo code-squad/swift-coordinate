@@ -13,14 +13,14 @@ func main(){
     let outputView = OutputView()
     var inputUser : String
     var checkUserInput = CheckUserInput(input: "")
-//    var xyPosition : (positionX: String, positionY: String) = ("", "")
-    var stateError : ErrorState = .nilNumber
+    var stateError : ErrorState
     
     repeat{
         inputUser = inputView.readInput(message: "좌표를 입력해주세요.")
-        stateError = checkUserInput.checkErrorState(input: inputUser)
+        checkUserInput.setinput(inputUser)
+        stateError = checkUserInput.checkErrorState()
         outputView.ErrorStatePrint(stateError)
-    }while stateError == .outOfRangeCharacter || stateError == .overFlowNumber || stateError == .wrongOrder
+    }while stateError != .rightInput
     guard let point = ShapeCreator.createPoint(xyPosition: inputUser) else { return }
 
     outputView.clearBackground()
