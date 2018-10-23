@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		EB8D3EF2217EC9A800D1B0DE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3EF1217EC9A800D1B0DE /* InputView.swift */; };
 		EBD68F52217DFAEE0095740D /* PrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD68F51217DFAEE0095740D /* PrintView.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		EB8D3EF1217EC9A800D1B0DE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		EBD68F51217DFAEE0095740D /* PrintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				EBD68F51217DFAEE0095740D /* PrintView.swift */,
+				EB8D3EF1217EC9A800D1B0DE /* InputView.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				EB8D3EF2217EC9A800D1B0DE /* InputView.swift in Sources */,
 				EBD68F52217DFAEE0095740D /* PrintView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 			);
