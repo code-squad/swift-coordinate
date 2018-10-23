@@ -16,11 +16,7 @@ func main() {
     // 올바르지 않은 입력을 받았을 때, 재입력을 받는 부분
     while !Validity(point: convertedPoint).isRight() {
         let next = InputView(mention: "올바른 좌표를 입력하세요.").readInput()
-        let nextPoint = ConvertInput(initialInput: next).convertToPoint()
-        convertedPoint = nextPoint
-        if Validity(point: nextPoint).isRight() {
-            break
-        }
+        convertedPoint = ConvertInput(initialInput: next).convertToPoint()
     }
     
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
