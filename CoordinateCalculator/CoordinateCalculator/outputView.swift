@@ -14,9 +14,9 @@ struct OutputView {
     private var second: (Int, Int)  // 두 번째 좌표
     
     // 제 1사분면의 좌표 체계를 이용해서 입력받은 좌표를 변경
-    init(points: (MyPoint, MyPoint)) {
-        self.first = (24 - points.0.y, 2 * points.0.x + 3)
-        self.second = (24 - points.1.y, 2 * points.1.x + 3)
+    init(points: (first: MyPoint, second: MyPoint)) {
+        self.first = (24 - points.first.y, 2 * points.first.x + 3)
+        self.second = (24 - points.second.y, 2 * points.second.x + 3)
     }
     
     // 좌표를 그리는 메소드

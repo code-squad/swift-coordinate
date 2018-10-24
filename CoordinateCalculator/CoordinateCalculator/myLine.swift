@@ -32,6 +32,6 @@ struct MyLine {
     
     // 구조체의 정보를 OutputView에 넘겨주는 메소드
     public func delievePoints() -> (MyPoint, MyPoint) {
-        return (pointA, pointB)
+        return (first: pointA, second: pointB)
     }
 }
