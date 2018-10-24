@@ -9,7 +9,6 @@
 import Foundation
 
 struct OutputView {
-    
     // 에러에 맞는 문구 출력
     func ErrorStatePrint(_ state: ErrorState){
         if state == .outOfRangeCharacter{ print("캐릭터 셋에 있는 문자를 입력하세요.") }
@@ -19,16 +18,19 @@ struct OutputView {
     
     // 1사분면 좌표축을 그림
     func drawAxis() {
-        print("\(ANSICode.text.black)\(ANSICode.axis.draw())")
+        print("\(ANSICode.text.white)\(ANSICode.axis.draw())")
     }
-
-    // 입력한 포인트를 그림
-//    func drawPoint(point: MyPoint) {
-//        print("\(ANSICode.cursor.move(row: Int(25-point.yPosition), col: Int(2+2*point.xPosition)))\(ANSICode.text.yellowBright)*")
-//        print("\(ANSICode.text.black)")
-//        print("\(ANSICode.cursor.move(row: 26, col: 0))")
-//    }
-//
+    
+    // 모양의 점들을 화면에 출력
+    func drawShape(shape: Shape) {
+        print("\(ANSICode.text.yellowBright)")
+        for index in 0..<shape.points.count {
+                print("\(ANSICode.cursor.move(row: Int(25-shape.points[index].yPosition), col: Int(2+2*shape.points[index].xPosition)))*")
+        }
+        print("\(ANSICode.text.white)")
+        print("\(ANSICode.cursor.move(row: 26, col: 0))")
+    }
+    
     // 그리기 전 터미널 화면 Clear
     func clearBackground() {
         print("\(ANSICode.clear)\(ANSICode.home)")
