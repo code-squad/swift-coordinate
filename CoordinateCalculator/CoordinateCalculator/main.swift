@@ -11,8 +11,7 @@ import Foundation
 func main() {
     let input = InputView()
     let inputedCoordinate = input.readInput()
-    if input.checkWrongCoordinate(numbers: inputedCoordinate) {return}
-    let myPoint = MyPoint(x: inputedCoordinate.0, y: inputedCoordinate.1)
+    let myPoint = MyPoint(x: inputedCoordinate[0], y: inputedCoordinate[1])
     let output = PrintView()
     output.eraseDisplay()
     output.drawCoordinate(point: myPoint)
