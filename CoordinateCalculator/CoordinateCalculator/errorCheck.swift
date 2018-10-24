@@ -27,8 +27,8 @@ struct ErrorCheck {
     // --------------- 두 개의 좌표를 입력받았을 때 우선 에러 확인 ---------------
     
     // 입력값이 존재하는지 확인하는 메소드
-    private func isInputEmpty(_ point: String) -> Bool {
-        if point.isEmpty {
+    private func isInputEmpty(_ input: String) -> Bool {
+        if input.isEmpty {
             return false
         }
         return true
@@ -36,7 +36,7 @@ struct ErrorCheck {
     
     // 올바른 형태로 좌표를 입력하는지 확인하는 메소드
     private func isContainElement(_ input: String) -> Bool {
-        if input.first! == "(" && input.contains(",") && input.contains("-") && input.last! == ")" {
+        if input.first! == "(" && input.contains(",") && input.last! == ")" {
             return true
         }
         return false
@@ -92,6 +92,7 @@ struct ErrorCheck {
     
     // 입력을 나눈 좌표로 에러는 잡아내는 메소드
     private func errorCheck(_ point: String) -> ErrorList {
+        guard isContainElement(point) else {return .breakGuideline}
         guard isNumber(point) else {return .notNumber}
         guard isValidRange(point) else {return .outOfBound}
         guard isPointEmpty(point) else {return .notNumber}
@@ -101,12 +102,14 @@ struct ErrorCheck {
     // 입력을 가지고 에러는 잡아내는 메소드
     public func checkInputError() -> ErrorList {
         guard isInputEmpty(self.input) else {return .noInput}
-        guard isContainElement(self.input) else {return .breakGuideline}
-        
-        for element in separate(self.input) {
-            return errorCheck(element)
+        if !input.contains("-") {
+            return errorCheck(self.input)
         }
         
-        return .noError
+        var result = ErrorList.noError
+        for element in separate(input) {
+            result = errorCheck(element)
+        }
+        return result
     }
 }
