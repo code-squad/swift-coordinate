@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : Shape{
     private(set) var xPosition : Int
     private(set) var yPosition : Int
     
-    init(xPosition: Int, yPosition: Int) {
+    init(_ xPosition: Int, _ yPosition: Int) {
         self.xPosition = xPosition
         self.yPosition = yPosition
     }

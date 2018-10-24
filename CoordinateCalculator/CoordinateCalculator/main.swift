@@ -21,11 +21,14 @@ func main(){
         stateError = checkUserInput.checkErrorState()
         outputView.ErrorStatePrint(stateError)
     }while stateError != .rightInput
-    guard let point = ShapeCreator.createPoint(xyPosition: inputUser) else { return }
-
-    outputView.clearBackground()
-    outputView.drawAxis()
-    outputView.drawPoint(point: point)
+    
+    let shapeCreator = ShapeCreator()
+    let shape : Shape? = shapeCreator.CreateShape(input: inputUser)
+//    guard let point = ShapeCreator.createPoint(point: inputUser) else { return }
+//
+//    outputView.clearBackground()
+//    outputView.drawAxis()
+//    outputView.drawPoint(point: point)
 }
 
 main()
