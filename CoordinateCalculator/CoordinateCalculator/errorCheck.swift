@@ -106,10 +106,10 @@ struct ErrorCheck {
             return errorCheck(self.input)
         }
         
-        var result = ErrorList.noError
         for element in separate(input) {
-            result = errorCheck(element)
+            let result = errorCheck(element)
+            if result != .noError {return result}
         }
-        return result
+        return .noError
     }
 }
