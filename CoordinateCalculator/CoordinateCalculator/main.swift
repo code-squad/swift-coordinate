@@ -17,7 +17,6 @@ func main(){
     
     repeat{
         inputUser = inputView.readInput(message: "좌표를 입력해주세요.")
-        print(inputUser)
         checkUserInput.setinput(inputUser)
         stateError = checkUserInput.checkErrorState()
         outputView.ErrorStatePrint(stateError)
@@ -25,11 +24,10 @@ func main(){
     
     let shapeCreator = ShapeCreator()
     guard let shape = shapeCreator.CreateShape(input: inputUser) else { return }
-    print(shape)
     
     outputView.clearBackground()
     outputView.drawAxis()
-//    outputView.drawPoint(point: point)
+    outputView.drawShape(shape: shape)
 }
 
 main()
