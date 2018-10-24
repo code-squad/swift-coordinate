@@ -9,11 +9,9 @@
 import Foundation
 
 struct MyPoint : Shape{
-    private(set) var xPosition : Double
-    private(set) var yPosition : Double
-    
-    init(_ xPosition: Double, _ yPosition: Double) {
-        self.xPosition = xPosition
-        self.yPosition = yPosition
+    var points : [Position] = []
+
+    init(_ pointA: Position){
+        points.append(pointA)
     }
 }

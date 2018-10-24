@@ -25,10 +25,10 @@ func main(){
     
     let shapeCreator = ShapeCreator()
     guard let shape = shapeCreator.CreateShape(input: inputUser) else { return }
+    print(shape)
     
-    
-//    outputView.clearBackground()
-//    outputView.drawAxis()
+    outputView.clearBackground()
+    outputView.drawAxis()
 //    outputView.drawPoint(point: point)
 }
 

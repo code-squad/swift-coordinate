@@ -21,14 +21,14 @@ struct OutputView {
     func drawAxis() {
         print("\(ANSICode.text.black)\(ANSICode.axis.draw())")
     }
-    
+
     // 입력한 포인트를 그림
-    func drawPoint(point: MyPoint) {
-        print("\(ANSICode.cursor.move(row: Int(25-point.yPosition), col: Int(2+2*point.xPosition)))\(ANSICode.text.yellowBright)*")
-        print("\(ANSICode.text.black)")
-        print("\(ANSICode.cursor.move(row: 26, col: 0))")
-    }
-    
+//    func drawPoint(point: MyPoint) {
+//        print("\(ANSICode.cursor.move(row: Int(25-point.yPosition), col: Int(2+2*point.xPosition)))\(ANSICode.text.yellowBright)*")
+//        print("\(ANSICode.text.black)")
+//        print("\(ANSICode.cursor.move(row: 26, col: 0))")
+//    }
+//
     // 그리기 전 터미널 화면 Clear
     func clearBackground() {
         print("\(ANSICode.clear)\(ANSICode.home)")

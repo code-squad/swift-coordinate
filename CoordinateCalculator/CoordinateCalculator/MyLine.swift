@@ -9,16 +9,15 @@
 import Foundation
 
 struct MyLine : Shape{
-    private(set) var pointA : MyPoint
-    private(set) var pointB : MyPoint
-    
-    init(_ pointA: MyPoint, _ pointB: MyPoint){
-        self.pointA = pointA
-        self.pointB = pointB
+    var points : [Position] = []
+
+    init(_ pointA: Position, _ pointB: Position){
+        points.append(pointA)
+        points.append(pointB)
     }
     
     // Line의 길이 계산
     func calculateDistance() -> Double{
-        return sqrt((pointA.xPosition-pointB.xPosition) * (pointA.xPosition-pointB.xPosition) + (pointA.yPosition-pointB.yPosition) * (pointA.yPosition-pointB.yPosition))
+        return sqrt(pow((points[0].xPosition-points[1].xPosition), 2) + pow((points[0].yPosition-points[1].yPosition), 2))
     }
 }
