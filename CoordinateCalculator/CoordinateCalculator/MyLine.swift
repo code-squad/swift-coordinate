@@ -16,4 +16,9 @@ struct MyLine : Shape{
         self.pointA = pointA
         self.pointB = pointB
     }
+    
+    // Line의 길이 계산
+    func calculateDistance() -> Double{
+        return sqrt((pointA.xPosition-pointB.xPosition) * (pointA.xPosition-pointB.xPosition) + (pointA.yPosition-pointB.yPosition) * (pointA.yPosition-pointB.yPosition))
+    }
 }

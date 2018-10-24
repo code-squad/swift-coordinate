@@ -57,8 +57,9 @@ struct CheckUserInput {
     // CharacterSet에 포함되지 않는 입력인지 검사
     private func IsPossibleInputCharacter(_ point: String) -> Bool{
         let possibleInputSet = CharacterSet.init(charactersIn: "0123456789(,)")
+        if point == "" { return false }
         for element in point{
-            guard String(element).rangeOfCharacter(from: possibleInputSet) != nil else { return false}
+            guard String(element).rangeOfCharacter(from: possibleInputSet) != nil else { return false }
         }
         return true
     }
