@@ -10,22 +10,22 @@ import Foundation
 
 class PrintView {
     //row = y, col = x
-    //변환에 쓰일 기본값
-    private let rowDefault = 25
-    private let colDefault = 3
+    //변환에 쓰일 상수
+    private let rowConstant = 25
+    private let colConstant = 3
     
     // 출력을 위한 값으로 바꾸기
-    private func fixForPrint(point: MyPoint) -> (row: Int, col: Int) {
-        let row = rowDefault - point.y
-        let col = colDefault + point.x * 2
+    private func modifyForPrint(point: MyPoint) -> (row: Int, col: Int) {
+        let row = rowConstant - point.y
+        let col = colConstant + point.x * 2
         return (row, col)
     }
     
     // ANSICode로 그리기
     func drawCoordinate(point: MyPoint) {
-        let fixedPoint = fixForPrint(point: point)
+        let modifiedPoint = modifyForPrint(point: point)
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
-        print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:fixedPoint.row, col: fixedPoint.col))•")
+        print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:modifiedPoint.row, col: modifiedPoint.col))•")
         print("\(ANSICode.cursor.move(row:26, col: 51))")
     }
     
@@ -34,5 +34,5 @@ class PrintView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-
+    
 }
