@@ -80,39 +80,4 @@ struct CheckUserInput {
         guard positionX <= 24 && positionX >= 0 && positionY <= 24 && positionY >= 0 else { return false }
         return true
     }
-    
-//    // 포인트에 대해 오류를 검사하여 오류 내용 리턴
-//    mutating func checkErrorState(input: String) -> ErrorState{
-//        self.point = input
-//        guard IsPossibleInputCharacter() else { return .outOfRangeCharacter }
-//        guard IsRightOrderInput() else { return .wrongOrder }
-//        guard IsOverFlowNumber() else { return .overFlowNumber }
-//        return .rightInput
-//    }
-//
-//    // CharacterSet에 맞지 않는 입력인지 검사
-//    private func IsPossibleInputCharacter() -> Bool{
-//        let possibleInputSet = CharacterSet.init(charactersIn: "0123456789(,)")
-//        for element in self.point{
-//            guard String(element).rangeOfCharacter(from: possibleInputSet) != nil else { return false}
-//        }
-//        return true
-//    }
-//
-//    // 입력 형태가 (x,y)인지 검사
-//    private func IsRightOrderInput() -> Bool{
-//        guard self.point.getFirstElement() == "(" && self.point.getLastElement() == ")" && self.point.contains(",") else { return false }
-//        let splitInput : [String] = self.point.components(separatedBy: ["(", ")", ","])
-//        guard Int(splitInput[1]) != nil && Int(splitInput[2]) != nil else { return false }
-//        return true
-//    }
-//
-//    // 범위를 초과하였는지 검사
-//    private func IsOverFlowNumber() -> Bool{
-//        let splitInput : [String] = self.point.components(separatedBy: ["(", ")", ","])
-//        guard let positionX = Int(splitInput[1]) else { return false }
-//        guard let positionY = Int(splitInput[2]) else { return false }
-//        guard positionX <= 24 && positionX >= 0 && positionY <= 24 && positionY >= 0 else { return false }
-//        return true
-//    }
 }

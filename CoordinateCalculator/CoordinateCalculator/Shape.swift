@@ -9,4 +9,5 @@
 import Foundation
 
 protocol Shape {
+    var points : [Position] { get }
 }
