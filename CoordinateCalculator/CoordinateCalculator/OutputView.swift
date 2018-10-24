@@ -24,7 +24,7 @@ struct OutputView {
     
     // 입력한 포인트를 그림
     func drawPoint(point: MyPoint) {
-        print("\(ANSICode.cursor.move(row: 25-point.yPosition, col: 2+2*point.xPosition))\(ANSICode.text.yellowBright)*")
+        print("\(ANSICode.cursor.move(row: Int(25-point.yPosition), col: Int(2+2*point.xPosition)))\(ANSICode.text.yellowBright)*")
         print("\(ANSICode.text.black)")
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
