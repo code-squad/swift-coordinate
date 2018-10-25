@@ -9,8 +9,13 @@
 import Foundation
 
 struct MyPoint : Figure {
-    private(set) var x : Int
-    private(set) var y : Int
+    private let x : Int
+    private let y : Int
+    
+    init(x:Int, y:Int) {
+        self.x = x
+        self.y = y
+    }
     
     var xy : (Int,Int) {
         get {
@@ -20,8 +25,19 @@ struct MyPoint : Figure {
         }
     }
     
-    func callShow() {
-        OutputView.show(point: self.xy)
-        print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 3, col: 1))")
+    func readX() -> Int {
+        return self.x
+    }
+    
+    func readY() -> Int {
+        return self.y
+    }
+    
+    func readPoints() -> [(Int,Int)] {
+        return [self.xy]
+    }
+    
+    func readDetailInfo() -> Double? {
+        return nil
     }
 }

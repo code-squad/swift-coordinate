@@ -9,23 +9,28 @@
 import Foundation
 
 protocol Figure {
-    func callShow()
+    func readPoints() -> [(Int,Int)]
+    func readDetailInfo() -> Double?
 }
 
 struct FigureCreator {
-    static func createFigure(_ coordinates:[MyPoint]) -> Figure {
-        switch coordinates.count {
+    static func createFigure(_ input:[MyPoint]) -> Figure {
+        switch input.count {
         case 1:
-            return coordinates[0]
+            return createPoint(input)
         case 2:
-            return create(line: coordinates)
+            return createLine(input)
         default:
-            return MyPoint(x:0,y:0)
+            return MyPoint.init(x: 0, y: 0)
         }
     }
 
-    static private func create(line:[MyPoint]) -> MyLine {
-        return MyLine.init(pointA: line[0], pointB: line[1])
+    static private func createPoint(_ input:[MyPoint]) -> MyPoint {
+        return input[0]
+    }
+    
+    static private func createLine(_ input:[MyPoint]) -> MyLine {
+        return MyLine.init(pointA: input[0], pointB: input[1])
     }
     
     static func separateHyphen(_ coordinate:String) -> [String] {

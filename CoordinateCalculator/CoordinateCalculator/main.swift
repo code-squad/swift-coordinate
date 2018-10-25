@@ -11,7 +11,7 @@ import Foundation
 func main() {
     let willShowFigure = validCoordinate()
     OutputView.drawAxis()
-    willShowFigure.callShow()
+    OutputView.show(figure: willShowFigure)
 }
 
 func validCoordinate() -> Figure {
@@ -22,7 +22,7 @@ func validCoordinate() -> Figure {
         
         let coordinates = FigureCreator.separateHyphen(inputCoordinate)
         let points = coordinates.map {FigureCreator.readPoint($0)}
-        guard ValidCheck.rangeCheck(points) else {isRepeat = true; continue}
+        guard Check.rangeCheck(points) else {isRepeat = true; continue}
         
         return FigureCreator.createFigure(points)
     }
