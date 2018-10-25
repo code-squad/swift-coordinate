@@ -17,7 +17,7 @@ func main(){
     
     repeat{
         inputUser = inputView.readInput(message: "좌표를 입력해주세요.")
-        stateError = checkUserInput.checkErrorState(checkToInput: inputUser)
+        stateError = checkUserInput.checkErrorState(needToCheck: inputUser)
         outputView.ErrorStatePrint(stateError)
     }while stateError != .rightInput
     
