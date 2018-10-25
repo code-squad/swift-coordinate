@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Shape {
-    func drawShape()
+    func getPoint() -> [MyPoint]
 }
