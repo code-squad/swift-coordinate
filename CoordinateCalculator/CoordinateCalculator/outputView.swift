@@ -10,12 +10,11 @@ import Foundation
 
 // OutputView 구조체의 역할 : 좌표를 & 포인트를 출력
 struct OutputView {
-    private var points: [MyPoint]   // 첫 번째 좌표
+    private var figure: Figure   // 첫 번째 좌표
     
     // 제 1사분면의 좌표 체계를 이용해서 입력받은 좌표를 변경
-    init(points: [MyPoint]) {
-        self.points = points
-        // self.first = (24 - points.first.y, 2 * points.first.x + 3)
+    init(figure: Figure) {
+        self.figure = figure
     }
     
     // 좌표를 그리는 메소드
@@ -30,7 +29,7 @@ struct OutputView {
     }
     
     // 넘겨받은 좌표가 두 개인 경우 선을 출력해주는 메소드
-    private func drawLine(_ points: [MyPoint]) {
+    private func drawPoints(_ points: [MyPoint]) {
         for point in points {
             markPoint(point)
         }
@@ -38,8 +37,9 @@ struct OutputView {
     }
     
     // 거리를 출력해주는 메소드
-    private func printDistance(_ points: [MyPoint]) {
-        print(MyLine(pointA: points[0], pointB: points[1]).calculateDistance())
+    private func printDistance(_ points: Figure) {
+        guard let line = points as? MyLine  else { return }
+        print(line.calculateDistance())
     }
     
     // 원하는 포인트를 찍어주는 메소드
@@ -50,17 +50,16 @@ struct OutputView {
     // 넘겨받은 좌표로 해당되는 도형을 출력해주는 메소드
     public func drawFigure() {
         drawAxis()
+        drawPoints(figure.points)
         
         // 좌표쌍을 입력받았을 경우 출력
-        if points.count == 2 {
-            drawLine(points)
+        if figure.points.count == 2 {
             moveCursorClear()
-            printDistance(points)
+            printDistance(figure)
             return
         }
         
         // 좌표 하나만 입력받았을 경우 출력
-        markPoint(points[0])
         moveCursorClear()
     }
 }
