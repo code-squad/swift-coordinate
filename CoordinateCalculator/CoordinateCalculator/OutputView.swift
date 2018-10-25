@@ -14,9 +14,24 @@ struct OutputView {
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
     
-    static func show(point:(Int,Int)) {
-        print("\(ANSICode.cursor.move(row:point.1, col:point.0))🙈")
+    static func show(figure:Figure) {
+        show(points: figure.readPoints())
+        show(detailInfo: figure.readDetailInfo())
+        
     }
     
+    static private func show(points:[(Int,Int)]) {
+        for point in points {
+            print("\(ANSICode.cursor.move(row:point.1, col:point.0))🙈")
+        }
+    }
+    
+    static private func show(detailInfo:Double?) {
+        if let info = detailInfo {
+            print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 4, col:0))두 점 사이 거리는 \(info)")
+        } else {
+            print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 4, col:0))")
+        }
+    }
     
 }

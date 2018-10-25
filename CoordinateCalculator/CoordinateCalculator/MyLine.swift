@@ -15,20 +15,26 @@ extension Int {
 }
 
 struct MyLine : Figure {
-    private(set) var pointA : MyPoint
-    private(set) var pointB : MyPoint
+    private let pointA : MyPoint
+    private let pointB : MyPoint
     
-    func distanceBetween() -> Double {
-        let x = self.pointA.x - self.pointB.x
-        let y = self.pointA.y - self.pointB.y
+    init(pointA:MyPoint, pointB:MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
+    private func distanceBetween() -> Double {
+        let x = self.pointA.readX() - self.pointB.readX()
+        let y = self.pointA.readY() - self.pointB.readY()
         let squareSumFromXY = Double(x.square() + y.square())
         return squareSumFromXY.squareRoot()
     }
     
-    func callShow() {
-        OutputView.show(point: self.pointA.xy)
-        OutputView.show(point: self.pointB.xy)
-        print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 3, col: 1))")
-        print("두 점 사이 거리는 \(distanceBetween())")
+    func readPoints() -> [(Int, Int)] {
+        return [pointA.xy,pointB.xy]
+    }
+    
+    func readDetailInfo() -> Double? {
+        return distanceBetween()
     }
 }
