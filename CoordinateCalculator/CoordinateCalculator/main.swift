@@ -13,13 +13,13 @@ func main(){
     let outputView = OutputView()
     var inputUser : String
     let checkUserInput = CheckUserInput()
-    var stateError : InputState
+    var inputState : InputState
     
     repeat{
         inputUser = inputView.readInput(message: "좌표를 입력해주세요.")
-        stateError = checkUserInput.checkErrorState(needToCheck: inputUser)
-        outputView.ErrorStatePrint(stateError)
-    }while stateError != .rightInput
+        inputState = checkUserInput.checkErrorState(needToCheck: inputUser)
+        outputView.ErrorStatePrint(inputState)
+    }while inputState != .rightInput
     
     let shapeCreator = ShapeCreator()
     guard let shape = shapeCreator.CreateShape(input: inputUser) else { return }

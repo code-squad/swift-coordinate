@@ -10,16 +10,17 @@ import Foundation
 
 struct ShapeCreator{
     
-    var pointCount : Int = 1
-    var lineCount : Int = 2
+    let pointCount : Int = 1
+    let lineCount : Int = 2
     
     // MyPoint, MyLine을 생성할지 결정
     func CreateShape(input: String) -> Shape? {
-        switch input.split(separator: "-").count {
+        let points : [String] = input.split(separator: "-").map(String.init)
+        switch points.count {
         case pointCount:
             return createPoint(position: input)
         case lineCount:
-            return createLine(line: input)
+            return createLine(line: points)
         default:
             return nil
         }
@@ -34,10 +35,9 @@ struct ShapeCreator{
     }
     
     // "-"을 기준으로 점이 2개일 경우 Line을 생성
-    private func createLine(line: String) -> MyLine?{
-        let points : [String] = line.split(separator: "-").map(String.init)
-        guard let pointA = createPoint(position: points[0]) else { return nil }
-        guard let pointB = createPoint(position: points[1]) else { return nil }
+    private func createLine(line: [String]) -> MyLine?{
+        guard let pointA = createPoint(position: line[0]) else { return nil }
+        guard let pointB = createPoint(position: line[1]) else { return nil }
         return MyLine(pointA, pointB)
     }
 }
