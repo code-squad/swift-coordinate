@@ -91,6 +91,7 @@ struct ErrorCheck {
         return .noError
     }
     
+    // 좌표가 두개 이상일 때 에러를 잡아내는 메소드
     private func multiErrorCheck(_ input: String) -> ErrorList {
         for element in separate(input) {
             let result = errorCheck(element)
@@ -101,7 +102,7 @@ struct ErrorCheck {
         return .noError
     }
     
-    // 입력을 가지고 에러는 잡아내는 메소드
+    // 입력을 가지고 에러를 처리하는 메소드
     public func checkInputError() -> ErrorList {
         guard isInputEmpty(self.input) else {return .noInput}
         
