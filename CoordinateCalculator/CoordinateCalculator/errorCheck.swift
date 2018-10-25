@@ -47,14 +47,6 @@ struct ErrorCheck {
         return input.split(separator: "-").map {String($0)}
     }
     
-    // 두 개의 좌표가 입력되었는지 확인하는 메소드
-    private func isRightForm(_ input: String) -> Bool {
-        if separate(input).count != 2 {
-            return false
-        }
-        return true
-    }
-    
     // --------------- 순서에 따라 좌표로 분리하고 난 후 에러 확인 ----------------
     
     // 받은 입력을 좌표 배열로 바꿔주는 메소드
@@ -99,17 +91,7 @@ struct ErrorCheck {
         return .noError
     }
     
-    // 입력을 가지고 에러는 잡아내는 메소드
-    public func checkInputError() -> ErrorList {
-        guard isInputEmpty(self.input) else {return .noInput}
-        
-        // 입력 형태에 따라 좌표의 수를 나눠서 에처 핸들링
-        // 좌표가 하나 일때,
-        if input.split(separator: "-").count == 1 {
-            return errorCheck(self.input)
-        }
-        
-        // 좌표가 두개 일때,
+    private func multiErrorCheck(_ input: String) -> ErrorList {
         for element in separate(input) {
             let result = errorCheck(element)
             if result != .noError {
@@ -117,5 +99,22 @@ struct ErrorCheck {
             }
         }
         return .noError
+    }
+    
+    // 입력을 가지고 에러는 잡아내는 메소드
+    public func checkInputError() -> ErrorList {
+        guard isInputEmpty(self.input) else {return .noInput}
+        
+        // 입력 형태에 따라 좌표의 수를 나눠서 에처 핸들링
+        switch input.split(separator: "-").count {
+        case 1:
+            return errorCheck(self.input)       // 좌표가 하나 일때,
+        case 2:
+            return multiErrorCheck(self.input)  // 좌표가 두개 일때,
+        case 3:
+            return multiErrorCheck(self.input)  // 좌표가 세개 일때,
+        default:
+            return .noError
+        }
     }
 }
