@@ -15,15 +15,15 @@ class PrintView {
     private static let colConstant = 3
     
     // 출력을 위한 값으로 바꾸기
-    static func modifyForPrint(point: MyPoint) -> (row: Int, col: Int) {
-        let row = rowConstant - point.y
-        let col = colConstant + point.x * 2
+    static func modifyPrintable(originalPoint: MyPoint) -> (row: Int, col: Int) {
+        let row = rowConstant - originalPoint.y
+        let col = colConstant + originalPoint.x * 2
         return (row, col)
     }
     
     // ANSICode로 그리기
-    static func drawCoordinate(point: MyPoint) {
-        let modifiedPoint = modifyForPrint(point: point)
+    static func printOnCoordSystem(_ myPoint: MyPoint) {
+        let modifiedPoint = modifyPrintable(originalPoint: myPoint)
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
         print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:modifiedPoint.row, col: modifiedPoint.col))•")
         print("\(ANSICode.cursor.move(row:26, col: 51))")
