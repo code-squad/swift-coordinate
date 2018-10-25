@@ -20,18 +20,16 @@ func main() {
     }
     
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
-    let convertedPoints = ConvertInput(rawCoordinates: input).delievePoints()
+    let convertedPoints = CreateFigure(rawPoints: input).delievePoints()
     
     // 입력받은 두 개의 좌표값 정보를 처리해주기 위해 MyLine 구조체에 전달
-    let myLine = MyLine(points: convertedPoints).delievePoints()
+    
     
     // 좌표를 그리고, 원하는 포인트를 찍어주는 부분
-    let outputView = OutputView(points: myLine)
-    outputView.drawAxis()   // 출력을 책임지는 구조체의 좌표를 그리는 메소드
-    outputView.markPoint()  // 출력을 책임지는 구조체의 원하는 포인트를 찍는 메소드
+    
     
     // 거리를 계산하고 출력해주는 부분
-    print(MyLine(points: convertedPoints).calculateDistance())
+    
 }
 
 main()

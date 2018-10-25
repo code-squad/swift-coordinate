@@ -49,7 +49,7 @@ struct ErrorCheck {
     
     // 두 개의 좌표가 입력되었는지 확인하는 메소드
     private func isRightForm(_ input: String) -> Bool {
-        if separate(input).count < 2 {
+        if separate(input).count != 2 {
             return false
         }
         return true
@@ -84,7 +84,7 @@ struct ErrorCheck {
     
     // x 좌표 또는 y 좌표가 비었는지 확인하는 메소드
     private func isPointEmpty(_ point: String) -> Bool {
-        if transform(point).count < 2 {
+        if transform(point).count != 2 {
             return false
         }
         return true
@@ -102,13 +102,19 @@ struct ErrorCheck {
     // 입력을 가지고 에러는 잡아내는 메소드
     public func checkInputError() -> ErrorList {
         guard isInputEmpty(self.input) else {return .noInput}
-        if !input.contains("-") {
+        
+        // 입력 형태에 따라 좌표의 수를 나눠서 에처 핸들링
+        // 좌표가 하나 일때,
+        if input.split(separator: "-").count == 1 {
             return errorCheck(self.input)
         }
         
+        // 좌표가 두개 일때,
         for element in separate(input) {
             let result = errorCheck(element)
-            if result != .noError {return result}
+            if result != .noError {
+                return result
+            }
         }
         return .noError
     }
