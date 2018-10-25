@@ -49,9 +49,10 @@ struct OutputView {
     
     // 넘겨받은 좌표로 해당되는 도형을 출력해주는 메소드
     public func drawFigure() {
+        drawAxis()
+        
         // 좌표쌍을 입력받았을 경우 출력
         if points.count == 2 {
-            drawAxis()
             drawLine(points)
             moveCursorClear()
             printDistance(points)
@@ -59,7 +60,6 @@ struct OutputView {
         }
         
         // 좌표 하나만 입력받았을 경우 출력
-        drawAxis()
         markPoint(points[0])
         moveCursorClear()
     }
