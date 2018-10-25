@@ -21,6 +21,7 @@ extension String {
         return self[endIndex]
     }
     
+    // 스트링으로부터 Point를 추출
     func extractPosition() -> [String]{
         return self.components(separatedBy: ["(", ",", ")"])
     }
@@ -29,8 +30,10 @@ extension String {
 struct CheckUserInput {
     // 입력에 대한 Error 내역을 한 좌표씩 검사
     func checkErrorState(checkToInput: String) -> InputState{
+        var inputState : InputState
         for point in checkToInput.split(separator: "-").map(String.init){
-            guard checkPoint(point) == .rightInput else { return checkPoint(point) }
+            inputState = checkPoint(point)
+            guard inputState == .rightInput else { return inputState }
         }
         return .rightInput
     }
