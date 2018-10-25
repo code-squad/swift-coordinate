@@ -9,15 +9,22 @@
 import Foundation
 
 struct MyLine : Shape{
-    var points : [Position] = []
-
-    init(_ pointA: Position, _ pointB: Position){
-        points.append(pointA)
-        points.append(pointB)
-    }
+    private(set) var pointA : MyPoint
+    private(set) var pointB : MyPoint
     
+    init(_ pointA: MyPoint, _ pointB: MyPoint){
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+
     // Line의 길이 계산
     func calculateDistance() -> Double{
-        return sqrt(pow((points[0].xPosition-points[1].xPosition), 2) + pow((points[0].yPosition-points[1].yPosition), 2))
+        return sqrt(pow((pointA.xPosition-pointB.xPosition), 2) + pow((pointA.yPosition-pointB.yPosition), 2))
+    }
+    
+    // Shape 프로토콜의 메소드를 구현한 메소드 화면상에 좌표를 그려준다
+    func drawShape() {
+        print("\(ANSICode.cursor.move(row: Int(25-pointA.yPosition), col: Int(2+2*pointA.xPosition)))*")
+        print("\(ANSICode.cursor.move(row: Int(25-pointB.yPosition), col: Int(2+2*pointB.xPosition)))*")
     }
 }
