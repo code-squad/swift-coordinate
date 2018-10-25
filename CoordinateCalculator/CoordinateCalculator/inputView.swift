@@ -19,7 +19,7 @@ struct InputView {
     public func readInput() -> String {
         print(self.mention)
         guard let initial = readLine() else {
-            return "(-1,-1)"
+            return String()
         }
         return initial
     }
