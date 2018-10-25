@@ -17,7 +17,6 @@
 		9D635DB721796F0C00BD32A9 /* CheckUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */; };
 		9D635DB9217985F700BD32A9 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D635DB8217985F700BD32A9 /* MyPoint.swift */; };
 		9DB3F41A217E189C00149490 /* ShapeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB3F419217E189C00149490 /* ShapeCreator.swift */; };
-		9DD8E58E2180644800CE6DE3 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD8E58D2180644800CE6DE3 /* Position.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,7 +43,6 @@
 		9D635DB621796F0C00BD32A9 /* CheckUserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserInput.swift; sourceTree = "<group>"; };
 		9D635DB8217985F700BD32A9 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		9DB3F419217E189C00149490 /* ShapeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeCreator.swift; sourceTree = "<group>"; };
-		9DD8E58D2180644800CE6DE3 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 				9D2D1AC0217F1705009AC396 /* Shape.swift */,
 				9D2D1ABE217F14F0009AC396 /* MyLine.swift */,
 				9D635DB8217985F700BD32A9 /* MyPoint.swift */,
-				9DD8E58D2180644800CE6DE3 /* Position.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -150,7 +147,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DD8E58E2180644800CE6DE3 /* Position.swift in Sources */,
 				9DB3F41A217E189C00149490 /* ShapeCreator.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				9D635DB5217885AD00BD32A9 /* InputView.swift in Sources */,

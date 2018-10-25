@@ -22,9 +22,7 @@ struct OutputView {
     // 모양의 점들을 화면에 출력
     func drawShape(shape: Shape) {
         print("\(ANSICode.text.yellowBright)")
-        for index in 0..<shape.points.count {
-                print("\(ANSICode.cursor.move(row: Int(25-shape.points[index].yPosition), col: Int(2+2*shape.points[index].xPosition)))*")
-        }
+        shape.drawShape()
         print("\(ANSICode.text.white)")
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
