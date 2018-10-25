@@ -23,7 +23,7 @@ struct OutputView {
         print("\(ANSICode.axis.draw())\(ANSICode.text.whiteBright)")
     }
     
-    // 좌표를 아내로 내려서 사분면 전체를 보이게 해주는 메소드
+    // 좌표를 아래로 내려서 사분면 전체를 보이게 해주는 메소드
     private func moveCursorClear() {
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
@@ -39,7 +39,13 @@ struct OutputView {
     // 거리를 출력해주는 메소드
     private func printDistance(_ points: Figure) {
         guard let line = points as? MyLine  else { return }
-        print(line.calculateDistance())
+        print("두 점 사이의 거리는 : \(line.calculateDistance())")
+    }
+    
+    // 삼각형의 넓이를 출력해주는 메소드
+    private func printWidth(_ points: Figure) {
+        guard let triangle = points as? MyTriangle  else { return }
+        print("삼각형의 넓이는 : \(triangle.calcTriangleWidth())")
     }
     
     // 원하는 포인트를 찍어주는 메소드
@@ -52,14 +58,17 @@ struct OutputView {
         drawAxis()
         drawPoints(figure.points)
         
-        // 좌표쌍을 입력받았을 경우 출력
-        if figure.points.count == 2 {
+        switch figure.points.count {
+        case 2:
             moveCursorClear()
             printDistance(figure)
             return
+        case 3:
+            moveCursorClear()
+            printWidth(figure)
+            return
+        default:
+            moveCursorClear()
         }
-        
-        // 좌표 하나만 입력받았을 경우 출력
-        moveCursorClear()
     }
 }

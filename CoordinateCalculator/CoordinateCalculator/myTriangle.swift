@@ -48,6 +48,6 @@ struct MyTriangle: Figure {
         let cosB = findCosB(a, b, c)
         let sinB = findSinB(cosB)
         
-        return (a * c * sinB) / 2
+        return round(((a * c * sinB) / 2)*1000) / 1000
     }
 }
