@@ -27,15 +27,9 @@ extension String {
 }
 
 struct CheckUserInput {
-    var input : String
-    
-    mutating func setinput(_ input: String){
-        self.input = input
-    }
-    
     // 입력에 대한 Error 내역을 한 좌표씩 검사
-    func checkErrorState() -> InputState{
-        for point in input.split(separator: "-").map(String.init){
+    func checkErrorState(checkToInput: String) -> InputState{
+        for point in checkToInput.split(separator: "-").map(String.init){
             guard checkPoint(point) == .rightInput else { return checkPoint(point) }
         }
         return .rightInput
