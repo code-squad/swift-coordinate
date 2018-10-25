@@ -20,6 +20,10 @@ extension String {
         let endIndex = self.index(self.endIndex, offsetBy: -1)
         return self[endIndex]
     }
+    
+    func extractPosition() -> [String]{
+        return self.components(separatedBy: ["(", ",", ")"])
+    }
 }
 
 struct CheckUserInput {
@@ -41,6 +45,7 @@ struct CheckUserInput {
     func checkPoint(_ point: String) -> InputState{
         guard IsPossibleInputCharacter(point) else { return .outOfRangeCharacter }
         guard IsRightOrderInput(point) else { return .wrongOrder }
+        guard IsRightForm(point) else { return .wrongOrder }
         guard IsOverFlowNumber(point) else { return .overFlowNumber }
         return .rightInput
     }
@@ -55,19 +60,22 @@ struct CheckUserInput {
         return true
     }
     
-    // 입력 형태가 (x,y)인지 검사
-    private func IsRightOrderInput(_ point: String) -> Bool{
+    // 입력 순서가 "(", ",", ")" 순서로 들어왔는지 검사
+    private func IsRightOrderInput(_ point: String) -> Bool {
         guard point.getFirstElement() == "(" && point.getLastElement() == ")" && point.contains(",") else { return false }
-        let splitInput : [String] = point.components(separatedBy: ["(", ")", ","])
-        guard Int(splitInput[1]) != nil && Int(splitInput[2]) != nil else { return false }
+        return true
+    }
+    
+    // 입력 형태가 (x,y)인지 검사
+    private func IsRightForm(_ point: String) -> Bool{
+        guard Int(point.extractPosition()[1]) != nil && Int(point.extractPosition()[2]) != nil else { return false }
         return true
     }
     
     // 범위를 초과하였는지 검사
     private func IsOverFlowNumber(_ point: String) -> Bool{
-        let splitInput : [String] = point.components(separatedBy: ["(", ")", ","])
-        guard let positionX = Int(splitInput[1]) else { return false }
-        guard let positionY = Int(splitInput[2]) else { return false }
+        guard let positionX = Int(point.extractPosition()[1]) else { return false }
+        guard let positionY = Int(point.extractPosition()[2]) else { return false }
         guard positionX <= 24 && positionX >= 0 && positionY <= 24 && positionY >= 0 else { return false }
         return true
     }
