@@ -10,7 +10,6 @@ import Foundation
 
 func main() {
     let willShowFigure = validCoordinate()
-    OutputView.drawAxis()
     OutputView.show(figure: willShowFigure)
 }
 
