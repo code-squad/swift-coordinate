@@ -20,10 +20,10 @@ func main() {
     }
     
     // 확인과 변환을 거친 입력을, 출력되는 좌표 체계에 맞게 변환하고 전달하는 부분
-    let convertedPoints = CreateFigure(rawPoints: input).delieveFigure()
+    let createdFigure = CreateFigure(rawPoints: input).delieveFigure()
     
     // 좌표를 그리고, 원하는 포인트를 찍어주는 부분
-    OutputView(figure: convertedPoints).drawFigure()
+    OutputView(figure: createdFigure).drawFigure()
 }
 
 main()
