@@ -9,12 +9,16 @@
 import Foundation
 
 // MyPoint 구조체의 역할 : 입력받은 좌표를 저장
-struct MyPoint {
+struct MyPoint: Figure {
     public var x: Int
     public var y: Int
     
     init(x: Int, y: Int) {
         self.x = x
         self.y = y
+    }
+    
+    var points: [MyPoint] {
+        return [self]
     }
 }
