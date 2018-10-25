@@ -20,5 +20,6 @@ struct MyPoint : Shape{
     // Shape 프로토콜의 메소드를 구현한 메소드 화면상에 좌표를 그려준다
     func drawShape() {
         print("\(ANSICode.cursor.move(row: Int(25-yPosition), col: Int(2+2*xPosition)))*")
+        print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
 }

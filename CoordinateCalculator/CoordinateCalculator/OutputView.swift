@@ -24,7 +24,6 @@ struct OutputView {
         print("\(ANSICode.text.yellowBright)")
         shape.drawShape()
         print("\(ANSICode.text.white)")
-        print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
     
     // 그리기 전 터미널 화면 Clear

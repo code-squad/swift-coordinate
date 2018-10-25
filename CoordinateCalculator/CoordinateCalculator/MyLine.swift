@@ -26,5 +26,7 @@ struct MyLine : Shape{
     func drawShape() {
         print("\(ANSICode.cursor.move(row: Int(25-pointA.yPosition), col: Int(2+2*pointA.xPosition)))*")
         print("\(ANSICode.cursor.move(row: Int(25-pointB.yPosition), col: Int(2+2*pointB.xPosition)))*")
+        print("\(ANSICode.cursor.move(row: 26, col: 0))")
+        print("두 점 사이의 거리는 \(calculateDistance())")
     }
 }
