@@ -19,7 +19,17 @@ struct MyTriagnle : Shape {
         self.lineCA = MyLine(pointC, pointA)
     }
     
+    // Protocol 구현을 위한 메소드 좌표들을 리턴
     func getPoint() -> [MyPoint] {
         return [lineAB.pointA, lineAB.pointB, lineCA.pointA]
+    }
+    
+    // Triaangle의 넓이 계산
+    func calculateWidth() -> Double {
+        let lengthA : Double = lineAB.calculateDistance()
+        let lengthB : Double = lineBC.calculateDistance()
+        let lengthC : Double = lineCA.calculateDistance()
+        let sinTheta : Double = sqrt(1 - pow(((pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2)) / (2 * lengthA * lengthC)), 2))
+        return 0.5 * lengthA * lengthC * sinTheta
     }
 }
