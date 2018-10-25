@@ -56,7 +56,7 @@ struct CreateFigure {
         var points: [MyPoint] = []
         
         rawPoints.forEach {
-            points.append(makeSinglePoint($0))                      // ["10", "10"]           -> MyPoint(x: 10, y: 10)
+            points.append(makeSinglePoint($0))           // ["10", "10"]           -> MyPoint(x: 10, y: 10)
         }
         
         return [points[0], points[1]]
@@ -64,14 +64,17 @@ struct CreateFigure {
     
     // 변환된 좌표를 전달해주는 메소드
     // "(10,10)"         -> [MyPoint(x: 10,y: 10)]
-    // "(10,10)-(14,15)" -> [MyPoint(x: 10,y: 10), MyPoint(x: 14,y: 15)]
-    public func delievePoints() -> [MyPoint] {
+    // "(10,10)-(14,15)" -> MyLine(pointA: MyPoint(x: 10,y: 10)
+    //                            ,point: MyPoint(x: 14,y: 15))
+    public func delieveFigure() -> Figure {
         let separated = separate(rawPoints)
         let transformed = transform(rawPoints)
         
         if separated.count == 2 {
-            return makeDoublePoints(rawPoints)
+            let double = makeDoublePoints(rawPoints)
+            return MyLine(pointA: double[0], pointB: double[1]) // MyLine를 리턴
         }
-        return [makeSinglePoint(transformed)]
+        
+        return makeSinglePoint(transformed)                     // MyPoint를 리턴
     }
 }
