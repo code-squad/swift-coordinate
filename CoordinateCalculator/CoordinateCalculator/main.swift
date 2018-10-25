@@ -18,7 +18,7 @@ func validCoordinate() -> Figure {
     var isRepeat = false
     while true {
         let inputCoordinate = InputView.readCoordinate(isRepeat)
-        guard ValidCheck.characterCheck(inputCoordinate) else {isRepeat = true; continue}
+        guard inputCoordinate.isValidCharacter() else {isRepeat = true; continue}
         
         let coordinates = FigureCreator.separateHyphen(inputCoordinate)
         let points = coordinates.map {FigureCreator.readPoint($0)}
