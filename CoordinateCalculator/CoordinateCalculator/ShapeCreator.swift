@@ -22,7 +22,7 @@ struct ShapeCreator{
             return createPoint(position: input)
         case lineCount:
             return createLine(line: points)
-        case triangleCount: // 임시
+        case triangleCount:
             return createTriangle(triangle: points)
         default:
             return nil

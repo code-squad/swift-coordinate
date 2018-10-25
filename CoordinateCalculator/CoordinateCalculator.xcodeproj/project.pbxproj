@@ -85,8 +85,8 @@
 				9D2D1ABA217EE55F009AC396 /* InputState.swift */,
 				9DB3F419217E189C00149490 /* ShapeCreator.swift */,
 				9D2D1AC0217F1705009AC396 /* Shape.swift */,
-				9D2D1ABE217F14F0009AC396 /* MyLine.swift */,
 				9D635DB8217985F700BD32A9 /* MyPoint.swift */,
+				9D2D1ABE217F14F0009AC396 /* MyLine.swift */,
 				9DD8E58F2182017300CE6DE3 /* MyTriangle.swift */,
 			);
 			path = CoordinateCalculator;

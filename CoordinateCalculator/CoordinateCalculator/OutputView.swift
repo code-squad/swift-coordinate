@@ -27,14 +27,23 @@ struct OutputView {
         }
         print("\(ANSICode.text.white)")
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
-        if shape.getPoint().count == 2 {
-            printDistanceLine(line: shape as! MyLine)
-        }
+        shapeRequirmentPrint(shape)
+    }
+    
+    // 도형별 요구사항 구분하여 출력
+    private func shapeRequirmentPrint(_ shape: Shape) {
+        if shape.getPoint().count == 2 { printDistanceLine(line: shape as! MyLine) }
+        else if shape.getPoint().count == 3 { printTriangleWidth(triangle: shape as! MyTriagnle) }
     }
     
     // 직선일 경우 직선 거리 출력
-    func printDistanceLine(line: MyLine) {
+    private func printDistanceLine(line: MyLine) {
         print("두 점 사이의 거리는 \(line.calculateDistance())")
+    }
+    
+    // 삼각형일 때 넓이 출력
+    private func printTriangleWidth(triangle: MyTriagnle) {
+        print("삼각형의 넓이는 \(triangle.calculateWidth())")
     }
     
     // 그리기 전 터미널 화면 Clear
