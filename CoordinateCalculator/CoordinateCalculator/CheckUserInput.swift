@@ -30,7 +30,7 @@ struct CheckUserInput {
     }
     
     // 입력에 대한 Error 내역을 검사한다
-    func checkErrorState() -> ErrorState{
+    func checkErrorState() -> CheckInputState{
         if IsShapeOrPoint() {                                                              // "-"이 있는 경우
             for point in input.split(separator: "-").map(String.init){
                 guard checkPoint(point) == .rightInput else { return checkPoint(point) }
@@ -47,7 +47,7 @@ struct CheckUserInput {
     }
     
     // 포인트에 대해 오류를 검사하여 오류 내용 리턴
-    func checkPoint(_ point: String) -> ErrorState{
+    func checkPoint(_ point: String) -> CheckInputState{
         guard IsPossibleInputCharacter(point) else { return .outOfRangeCharacter }
         guard IsRightOrderInput(point) else { return .wrongOrder }
         guard IsOverFlowNumber(point) else { return .overFlowNumber }
