@@ -63,17 +63,15 @@ struct CreateFigure {
     }
     
     // 변환된 좌표를 전달해주는 메소드
-    // "(10,10)"         -> MyPoint(x: 10,y: 10)
-    // "(10,10)-(14,15)" -> MyLine(pointA: MyPoint(x: 10,y: 10)
-    //                            ,pointB: MyPoint(x: 14,y: 15))
-    public func delievePoints() -> Figure {
+    // "(10,10)"         -> [MyPoint(x: 10,y: 10)]
+    // "(10,10)-(14,15)" -> [MyPoint(x: 10,y: 10), MyPoint(x: 14,y: 15)]
+    public func delievePoints() -> [MyPoint] {
         let separated = separate(rawPoints)
         let transformed = transform(rawPoints)
         
         if separated.count == 2 {
-            let double = makeDoublePoints(rawPoints)
-            return MyLine(pointA: double[0], pointB: double[1])
+            return makeDoublePoints(rawPoints)
         }
-        return makeSinglePoint(transformed)
+        return [makeSinglePoint(transformed)]
     }
 }
