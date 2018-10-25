@@ -13,7 +13,7 @@ func main(){
     let outputView = OutputView()
     var inputUser : String
     var checkUserInput = CheckUserInput(input: "")
-    var stateError : ErrorState
+    var stateError : CheckInputState
     
     repeat{
         inputUser = inputView.readInput(message: "좌표를 입력해주세요.")
