@@ -12,8 +12,11 @@ func main() {
     // 처음 값 받음
     var inputedCoordinate = InputView.readInput()
     // 검사 후 틀리면 재실행
-    while Error.checkInputError(numberInput: inputedCoordinate) {
+    var inputValidity = Validator.checkInputValidity(numberInput: inputedCoordinate)
+    while inputValidity != Validity.valid {
+        inputValidity.printMessage()
         inputedCoordinate = InputView.readInput()
+        inputValidity = Validator.checkInputValidity(numberInput: inputedCoordinate)
     }
     // mypoint에 저장
     let myPoint = MyPoint(x: inputedCoordinate[0], y: inputedCoordinate[1])
