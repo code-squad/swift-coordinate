@@ -10,8 +10,8 @@ import Foundation
 
 // 두 좌표를 받아와서 거리를 계산하고 좌표 정보를 전달해주는 일을 책임지는 구조체
 struct MyLine: Figure {
-    private var pointA = MyPoint(x: Int(), y: Int())
-    private var pointB = MyPoint(x: Int(), y: Int())
+    private var pointA : MyPoint
+    private var pointB : MyPoint
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
