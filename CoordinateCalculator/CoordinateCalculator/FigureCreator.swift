@@ -32,6 +32,10 @@ struct FigureCreator {
         return MyLine.init(input[0], input[1])
     }
     
+    static private func createTriangle(_ input:[MyPoint]) -> MyTriangle {
+        return MyTriangle.init(input[0], input[1], input[2])
+    }
+    
     static func separateHyphen(_ coordinate:String) -> [String] {
         return coordinate.split(separator: "-").map {String($0)}
     }
