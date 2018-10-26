@@ -33,7 +33,7 @@ struct MyTriangle : Figure {
         self.pointC = pointC
     }
     
-    func triangleWidth() -> Double {
+    func width() -> Double {
         let a = self.lineBC.distanceBetween()
         let c = self.lineAB.distanceBetween()
         
