@@ -19,6 +19,8 @@ struct FigureCreator {
             return createPoint(input)
         case 2:
             return createLine(input)
+        case 3:
+            return createTriangle(input)
         default:
             return MyPoint.init(x: 0, y: 0)
         }

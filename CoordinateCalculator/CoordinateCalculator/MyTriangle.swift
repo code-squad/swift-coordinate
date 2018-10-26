@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle {
+struct MyTriangle : Figure {
     private let lineAB : MyLine
     private let lineBC : MyLine
     private let lineAC : MyLine
@@ -19,5 +19,7 @@ struct MyTriangle {
         self.lineAC = .init(pointA, pointC)
     }
     
-    
+    func readPoints() -> [MyPoint] {
+        return [lineAB.readPointA(),lineAB.readPointB(),lineBC.readPointB()]
+    }
 }

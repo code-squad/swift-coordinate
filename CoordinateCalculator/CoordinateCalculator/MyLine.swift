@@ -30,6 +30,14 @@ struct MyLine : Figure {
         return squareSumFromXY.squareRoot()
     }
     
+    func readPointA() -> MyPoint {
+        return self.pointA
+    }
+    
+    func readPointB() -> MyPoint {
+        return self.pointB
+    }
+    
     func readPoints() -> [MyPoint] {
         return [pointA,pointB]
     }
