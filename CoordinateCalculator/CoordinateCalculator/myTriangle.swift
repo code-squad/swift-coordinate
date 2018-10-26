@@ -10,21 +10,22 @@ import Foundation
 
 // 세 좌표를 받아와서 넓이를 계산하고 좌표 정보를 전달해주는 일을 책임지는 구조체
 struct MyTriangle: Figure {
-    private var lineAB = MyLine(pointA: MyPoint(x: Int(), y: Int()), pointB: MyPoint(x: Int(), y: Int()))
-    private var lineBC = MyLine(pointA: MyPoint(x: Int(), y: Int()), pointB: MyPoint(x: Int(), y: Int()))
-    private var lineCA = MyLine(pointA: MyPoint(x: Int(), y: Int()), pointB: MyPoint(x: Int(), y: Int()))
+    private var lineAB: MyLine
+    private var lineBC: MyLine
+    private var lineCA: MyLine
     
     init (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        self.lineAB.pointA = pointA
-        self.lineAB.pointB = pointB
-        self.lineBC.pointA = pointB
-        self.lineBC.pointB = pointC
-        self.lineCA.pointA = pointC
-        self.lineCA.pointB = pointA
+        self.lineAB = MyLine(pointA: pointA, pointB: pointB)
+        self.lineBC = MyLine(pointA: pointB, pointB: pointC)
+        self.lineCA = MyLine(pointA: pointC, pointB: pointA)
     }
     
     public var points: [MyPoint] {
-        return [lineAB.pointA, lineBC.pointA, lineCA.pointA]
+        let pointA = self.lineAB.firstPoint()
+        let pointB = self.lineBC.firstPoint()
+        let pointC = self.lineCA.firstPoint()
+        
+        return [pointA, pointB, pointC]
     }
     
     private func findCosB(_ a: Double, _ b: Double, _ c: Double) -> Double{
