@@ -18,7 +18,7 @@ struct MyLine : Figure {
     private let pointA : MyPoint
     private let pointB : MyPoint
     
-    init(pointA:MyPoint, pointB:MyPoint) {
+    init(_ pointA:MyPoint,_ pointB:MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }

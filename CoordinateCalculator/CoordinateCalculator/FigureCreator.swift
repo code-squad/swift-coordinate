@@ -29,7 +29,7 @@ struct FigureCreator {
     }
     
     static private func createLine(_ input:[MyPoint]) -> MyLine {
-        return MyLine.init(pointA: input[0], pointB: input[1])
+        return MyLine.init(input[0], input[1])
     }
     
     static func separateHyphen(_ coordinate:String) -> [String] {
