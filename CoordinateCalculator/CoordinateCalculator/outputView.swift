@@ -50,7 +50,7 @@ struct OutputView {
     
     // 원하는 포인트를 찍어주는 메소드
     private func markPoint(_ point: MyPoint) {
-        print("\(ANSICode.cursor.move(row: 24 - point.y, col: 2 * point.x + 3))\(ANSICode.text.whiteBright)*")
+        print("\(ANSICode.cursor.move(row: 24 - point.yPoint(), col: 2 * point.xPoint() + 3))\(ANSICode.text.whiteBright)*")
     }
     
     // 넘겨받은 좌표로 해당되는 도형을 출력해주는 메소드
