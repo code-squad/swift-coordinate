@@ -13,13 +13,23 @@ struct MyTriangle : Figure {
     private let lineBC : MyLine
     private let lineAC : MyLine
     
+    private let pointA : MyPoint
+    private let pointB : MyPoint
+    private let pointC : MyPoint
+    
     init(_ pointA: MyPoint, _ pointB: MyPoint, _ pointC: MyPoint) {
         self.lineAB = .init(pointA, pointB)
         self.lineBC = .init(pointB, pointC)
         self.lineAC = .init(pointA, pointC)
+        
+        self.pointA = pointA
+        self.pointB = pointB
+        self.pointC = pointC
     }
     
+    
+    
     func readPoints() -> [MyPoint] {
-        return [lineAB.readPointA(),lineAB.readPointB(),lineBC.readPointB()]
+        return [self.pointA, self.pointB, self.pointC]
     }
 }
