@@ -21,7 +21,7 @@ func validCoordinate() -> Figure {
         
         let coordinates = FigureCreator.separateHyphen(inputCoordinate)
         let points = coordinates.map {FigureCreator.readPoint($0)}
-        guard Check.rangeCheck(points) else {isRepeat = true; continue}
+        guard Check.isValidSize(points) else {isRepeat = true; continue}
         
         return FigureCreator.createFigure(points)
     }
