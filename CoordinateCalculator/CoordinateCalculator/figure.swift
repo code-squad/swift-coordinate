@@ -10,4 +10,5 @@ import Foundation
 
 protocol Figure {
     var points: [MyPoint] { get }
+    func calculate() -> Double?
 }
