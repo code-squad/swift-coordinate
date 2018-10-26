@@ -32,4 +32,8 @@ struct MyTriagnle : HaveTraitShape {
         let sinTheta : Double = sqrt(1 - pow(((pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2)) / (2 * lengthA * lengthC)), 2))
         return 0.5 * lengthA * lengthC * sinTheta
     }
+    
+    func getMessage() -> String {
+        return "삼각형의 넓이는 "
+    }
 }

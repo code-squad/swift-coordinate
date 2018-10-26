@@ -33,9 +33,7 @@ struct OutputView {
     // 도형별 요구사항 구분하여 출력
     private func shapeRequirmentPrint(_ haveTraitShape: HaveTraitShape?) {
         guard let isTrait = haveTraitShape else { return }
-        if isTrait.getPoint().count == 2 { print("두 점 사이의 거리는 ", terminator: "") }
-        else if isTrait.getPoint().count == 3 { print("삼각형의 넓이는 ", terminator: "") }
-        print(isTrait.calculateShapeTrait())
+        print("\(isTrait.getMessage())\(isTrait.calculateShapeTrait())")
     }
     
     // 그리기 전 터미널 화면 Clear
