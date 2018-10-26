@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Double {
+    func squared() -> Double {
+        return self * self
+    }
+}
+
 struct MyTriangle : Figure {
     private let lineAB : MyLine
     private let lineBC : MyLine
@@ -27,7 +33,10 @@ struct MyTriangle : Figure {
         self.pointC = pointC
     }
     
-    
+//    func triangleWidth() -> Double {
+//        let cosB = (self.lineBC.distanceBetween())
+//        return 0
+//    }
     
     func readPoints() -> [MyPoint] {
         return [self.pointA, self.pointB, self.pointC]
