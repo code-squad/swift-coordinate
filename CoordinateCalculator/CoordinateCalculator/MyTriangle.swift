@@ -13,7 +13,7 @@ struct MyTriangle {
     private let lineBC : MyLine
     private let lineAC : MyLine
     
-    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+    init(_ pointA: MyPoint, _ pointB: MyPoint, _ pointC: MyPoint) {
         self.lineAB = .init(pointA, pointB)
         self.lineBC = .init(pointB, pointC)
         self.lineAC = .init(pointA, pointC)
