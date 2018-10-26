@@ -17,6 +17,10 @@ struct OutputView {
     static func show(figure:Figure) {
         self.drawAxis()
         show(points: figure.readPoints())
+        cursorMove()
+        if let line : MyLine = figure as? MyLine {
+            print("두 점 사이의 거리는 \(line.distanceBetween())")
+        }
     }
     
     static private func show(points:[MyPoint]) {
@@ -25,11 +29,7 @@ struct OutputView {
         }
     }
     
-    static private func show(detailInfo:Double?) {
-        if let info = detailInfo {
-            print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 4, col:0))두 점 사이 거리는 \(info)")
-        } else {
-            print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 4, col:0))")
-        }
+    static private func cursorMove() {
+        print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 4, col:0))")
     }
 }
