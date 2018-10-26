@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    func square() -> Int {
+    func squared() -> Int {
         return self * self
     }
 }
@@ -26,7 +26,7 @@ struct MyLine : Figure {
     private func distanceBetween() -> Double {
         let x = self.pointA.readX() - self.pointB.readX()
         let y = self.pointA.readY() - self.pointB.readY()
-        let squareSumFromXY = Double(x.square() + y.square())
+        let squareSumFromXY = Double(x.squared() + y.squared())
         return squareSumFromXY.squareRoot()
     }
     

@@ -15,7 +15,7 @@ extension String {
 }
 
 struct Check {
-    static func rangeCheck(_ points:[MyPoint]) -> Bool {
+    static func isValidSize(_ points:[MyPoint]) -> Bool {
         for i in points {
             guard i.readX() <= ANSICode.axis.AxisLimit && i.readY() <= ANSICode.axis.AxisLimit else {return false}
         }
