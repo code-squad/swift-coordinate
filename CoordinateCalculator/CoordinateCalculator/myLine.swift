@@ -27,10 +27,14 @@ struct MyLine: Figure {
     }
     
     // 거리를 계산하는 메소드
-    public func calculateDistance() -> Double {
+    private func calculateDistance() -> Double {
         let dx = pointA.xPoint()-pointB.xPoint(), dy = pointA.yPoint()-pointB.yPoint()
         let square = Double((dx * dx) + (dy * dy))
         let result = round(square.squareRoot()*1000) / 1000
         return result
+    }
+    
+    public func calculate() -> Double? {
+        return calculateDistance()
     }
 }

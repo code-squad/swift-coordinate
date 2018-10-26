@@ -41,14 +41,18 @@ struct MyTriangle: Figure {
     }
     
     // 넓이를 계산하는 메소드
-    public func calcTriangleWidth() -> Double {
-        let a = lineBC.calculateDistance()
-        let b = lineCA.calculateDistance()
-        let c = lineAB.calculateDistance()
+    private func calcTriangleWidth() -> Double {
+        let a = lineBC.calculate()
+        let b = lineCA.calculate()
+        let c = lineAB.calculate()
         
-        let cosB = findCosB(a, b, c)
+        let cosB = findCosB(a ?? 0, b ?? 0, c ?? 0)
         let sinB = findSinB(cosB)
         
-        return round(((a * c * sinB) / 2)*1000) / 1000
+        return round((((a ?? 0) * (c ?? 0) * sinB) / 2)*1000) / 1000
+    }
+    
+    public func calculate() -> Double? {
+        return calcTriangleWidth()
     }
 }

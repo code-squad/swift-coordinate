@@ -36,18 +36,6 @@ struct OutputView {
         
     }
     
-    // 거리를 출력해주는 메소드
-    private func printDistance(_ points: Figure) {
-        guard let line = points as? MyLine  else { return }
-        print("두 점 사이의 거리는 : \(line.calculateDistance())")
-    }
-    
-    // 삼각형의 넓이를 출력해주는 메소드
-    private func printWidth(_ points: Figure) {
-        guard let triangle = points as? MyTriangle  else { return }
-        print("삼각형의 넓이는 : \(triangle.calcTriangleWidth())")
-    }
-    
     // 원하는 포인트를 찍어주는 메소드
     private func markPoint(_ point: MyPoint) {
         print("\(ANSICode.cursor.move(row: 24 - point.yPoint(), col: 2 * point.xPoint() + 3))\(ANSICode.text.whiteBright)*")
@@ -57,18 +45,7 @@ struct OutputView {
     public func drawFigure() {
         drawAxis()
         drawPoints(figure.points)
-        
-        switch figure.points.count {
-        case 2:
-            moveCursorClear()
-            printDistance(figure)
-            return
-        case 3:
-            moveCursorClear()
-            printWidth(figure)
-            return
-        default:
-            moveCursorClear()
-        }
+        moveCursorClear()
+        print(figure.calculate() ?? "")
     }
 }
