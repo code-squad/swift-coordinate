@@ -9,8 +9,7 @@
 import Foundation
 
 protocol Figure {
-    func readPoints() -> [(Int,Int)]
-    func readDetailInfo() -> Double?
+    func readPoints() -> [MyPoint]
 }
 
 struct FigureCreator {

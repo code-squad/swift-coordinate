@@ -30,11 +30,7 @@ struct MyLine : Figure {
         return squareSumFromXY.squareRoot()
     }
     
-    func readPoints() -> [(Int, Int)] {
-        return [pointA.xy,pointB.xy]
-    }
-    
-    func readDetailInfo() -> Double? {
-        return distanceBetween()
+    func readPoints() -> [MyPoint] {
+        return [pointA,pointB]
     }
 }
