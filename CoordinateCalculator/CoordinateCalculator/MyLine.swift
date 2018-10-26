@@ -27,7 +27,12 @@ struct MyLine : HaveTraitShape{
         return [pointA, pointB]
     }
     
+    // 라인의 길이를 계산
     func calculateShapeTrait() -> Double {
         return sqrt(pow((pointA.xPosition-pointB.xPosition), 2) + pow((pointA.yPosition-pointB.yPosition), 2))
+    }
+    
+    func getMessage() -> String {
+        return "두 점 사이의 거리는 "
     }
 }

@@ -10,4 +10,5 @@ import Foundation
 
 protocol HaveTraitShape : Shape {
     func calculateShapeTrait() -> Double
+    func getMessage() -> String
 }
