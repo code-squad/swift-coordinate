@@ -10,5 +10,9 @@ import Foundation
 
 protocol Figure {
     var points: [MyPoint] { get }
-    func calculate() -> Double?
+}
+
+protocol ComputableFigure: Figure {
+    func compute() -> Double
+    func computeMent() -> String
 }
