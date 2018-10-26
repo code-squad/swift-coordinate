@@ -33,10 +33,17 @@ struct MyTriangle : Figure {
         self.pointC = pointC
     }
     
-//    func triangleWidth() -> Double {
-//        let cosB = (self.lineBC.distanceBetween())
-//        return 0
-//    }
+    func triangleWidth() -> Double {
+        let cosB = readCosB()
+        return 0
+    }
+    
+    private func readCosB() -> Double {
+        let a = self.lineBC.distanceBetween()
+        let b = self.lineAC.distanceBetween()
+        let c = self.lineAB.distanceBetween()
+        return (a.squared() + c.squared() - b.squared()) / 2 * a * c
+    }
     
     func readPoints() -> [MyPoint] {
         return [self.pointA, self.pointB, self.pointC]
