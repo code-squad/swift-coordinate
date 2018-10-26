@@ -27,21 +27,15 @@ struct OutputView {
         }
         print("\(ANSICode.text.white)")
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
-        shapeRequirmentPrint(shape)
+        shapeRequirmentPrint(shape as? HaveTraitShape)
     }
     
     // 도형별 요구사항 구분하여 출력
-    private func shapeRequirmentPrint(_ shape: Shape) {
-        guard let trait = shape.calculateShapeTrait() else { return }
-        switch shape.getPoint().count {
-        case 2:
-            print("두 점사이의 거리는 \(trait)")
-        case 3:
-            print("삼각형의 넓이는 \(trait)")
-        default:
-            return
-        }
-        
+    private func shapeRequirmentPrint(_ haveTraitShape: HaveTraitShape?) {
+        guard let isTrait = haveTraitShape else { return }
+        if isTrait.getPoint().count == 2 { print("두 점 사이의 거리는 ", terminator: "") }
+        else if isTrait.getPoint().count == 3 { print("삼각형의 넓이는 ", terminator: "") }
+        print(isTrait.calculateShapeTrait())
     }
     
     // 그리기 전 터미널 화면 Clear

@@ -10,5 +10,4 @@ import Foundation
 
 protocol Shape {
     func getPoint() -> [MyPoint]
-    func calculateShapeTrait() -> Double?
 }
