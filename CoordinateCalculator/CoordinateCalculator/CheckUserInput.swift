@@ -31,7 +31,9 @@ struct CheckUserInput {
     // 입력에 대한 Error 내역을 한 좌표씩 검사
     func checkErrorState(needToCheck: String) -> InputState{
         var inputState : InputState
-        for point in needToCheck.split(separator: "-").map(String.init){
+        let splitByHipen : [String] = needToCheck.split(separator: "-").map(String.init)
+        guard splitByHipen.count < 5 else { return .notSupportRange }
+        for point in splitByHipen{
             inputState = checkPoint(point)
             guard inputState == .rightInput else { return inputState }
         }
