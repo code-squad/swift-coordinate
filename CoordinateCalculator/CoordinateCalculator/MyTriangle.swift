@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriagnle : Shape {
+struct MyTriagnle : HaveTraitShape {
     private(set) var lineAB : MyLine
     private(set) var lineBC : MyLine
     private(set) var lineCA : MyLine
@@ -24,16 +24,8 @@ struct MyTriagnle : Shape {
         return [lineAB.pointA, lineAB.pointB, lineCA.pointA]
     }
     
-    // Triaangle의 넓이 계산
-    func calculateWidth() -> Double {
-        let lengthA : Double = lineAB.calculateDistance()
-        let lengthB : Double = lineBC.calculateDistance()
-        let lengthC : Double = lineCA.calculateDistance()
-        let sinTheta : Double = sqrt(1 - pow(((pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2)) / (2 * lengthA * lengthC)), 2))
-        return 0.5 * lengthA * lengthC * sinTheta
-    }
-    
-    func calculateShapeTrait() -> Double? {
+   // 삼각형 넓이 계산
+    func calculateShapeTrait() -> Double {
         let lengthA : Double = lineAB.calculateDistance()
         let lengthB : Double = lineBC.calculateDistance()
         let lengthC : Double = lineCA.calculateDistance()

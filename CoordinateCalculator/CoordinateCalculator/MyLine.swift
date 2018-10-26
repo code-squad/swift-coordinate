@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine : Shape{
+struct MyLine : HaveTraitShape{
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     
@@ -27,7 +27,7 @@ struct MyLine : Shape{
         return [pointA, pointB]
     }
     
-    func calculateShapeTrait() -> Double? {
+    func calculateShapeTrait() -> Double {
         return sqrt(pow((pointA.xPosition-pointB.xPosition), 2) + pow((pointA.yPosition-pointB.yPosition), 2))
     }
 }
