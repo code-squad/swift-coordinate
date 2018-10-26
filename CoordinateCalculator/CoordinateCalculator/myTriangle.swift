@@ -9,7 +9,7 @@
 import Foundation
 
 // 세 좌표를 받아와서 넓이를 계산하고 좌표 정보를 전달해주는 일을 책임지는 구조체
-struct MyTriangle: Figure {
+struct MyTriangle: ComputableFigure {
     private var lineAB: MyLine
     private var lineBC: MyLine
     private var lineCA: MyLine
@@ -41,18 +41,18 @@ struct MyTriangle: Figure {
     }
     
     // 넓이를 계산하는 메소드
-    private func calcTriangleWidth() -> Double {
-        let a = lineBC.calculate()
-        let b = lineCA.calculate()
-        let c = lineAB.calculate()
+    public func compute() -> Double {
+        let a = lineBC.compute()
+        let b = lineCA.compute()
+        let c = lineAB.compute()
         
-        let cosB = findCosB(a ?? 0, b ?? 0, c ?? 0)
+        let cosB = findCosB(a, b, c)
         let sinB = findSinB(cosB)
         
-        return round((((a ?? 0) * (c ?? 0) * sinB) / 2)*1000) / 1000
+        return round(((a * c * sinB) / 2)*1000) / 1000
     }
     
-    public func calculate() -> Double? {
-        return calcTriangleWidth()
+    public func computeMent() -> String {
+        return "삼각형의 넓이는 : "
     }
 }

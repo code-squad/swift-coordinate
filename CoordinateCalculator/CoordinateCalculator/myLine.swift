@@ -9,7 +9,7 @@
 import Foundation
 
 // 두 좌표를 받아와서 거리를 계산하고 좌표 정보를 전달해주는 일을 책임지는 구조체
-struct MyLine: Figure {
+struct MyLine: ComputableFigure {
     private var pointA : MyPoint
     private var pointB : MyPoint
     
@@ -27,14 +27,14 @@ struct MyLine: Figure {
     }
     
     // 거리를 계산하는 메소드
-    private func calculateDistance() -> Double {
+    public func compute() -> Double {
         let dx = pointA.xPoint()-pointB.xPoint(), dy = pointA.yPoint()-pointB.yPoint()
         let square = Double((dx * dx) + (dy * dy))
         let result = round(square.squareRoot()*1000) / 1000
         return result
     }
     
-    public func calculate() -> Double? {
-        return calculateDistance()
+    public func computeMent() -> String {
+        return "두 점 사이의 거리는 : "
     }
 }

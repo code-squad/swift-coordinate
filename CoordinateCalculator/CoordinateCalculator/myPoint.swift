@@ -29,8 +29,4 @@ struct MyPoint: Figure {
     public var points: [MyPoint] {
         return [self]
     }
-    
-    public func calculate() -> Double? {
-        return nil
-    }
 }

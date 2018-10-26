@@ -28,6 +28,11 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: 26, col: 0))")
     }
     
+    // 원하는 포인트를 찍어주는 메소드
+    private func markPoint(_ point: MyPoint) {
+        print("\(ANSICode.cursor.move(row: 24 - point.yPoint(), col: 2 * point.xPoint() + 3))\(ANSICode.text.whiteBright)*")
+    }
+    
     // 넘겨받은 좌표가 두 개인 경우 선을 출력해주는 메소드
     private func drawPoints(_ points: [MyPoint]) {
         for point in points {
@@ -35,9 +40,11 @@ struct OutputView {
         }
     }
     
-    // 원하는 포인트를 찍어주는 메소드
-    private func markPoint(_ point: MyPoint) {
-        print("\(ANSICode.cursor.move(row: 24 - point.yPoint(), col: 2 * point.xPoint() + 3))\(ANSICode.text.whiteBright)*")
+    private func printComputeResult(_ computable: ComputableFigure?) {
+        guard let polygon = computable else {
+            return
+        }
+        print("\(polygon.computeMent())\(polygon.compute())")
     }
     
     // 넘겨받은 좌표로 해당되는 도형을 출력해주는 메소드
@@ -45,6 +52,6 @@ struct OutputView {
         drawAxis()
         drawPoints(figure.points)
         moveCursorClear()
-        print(figure.calculate() ?? "")
+        printComputeResult(figure as? ComputableFigure)
     }
 }
