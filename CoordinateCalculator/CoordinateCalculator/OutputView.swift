@@ -21,6 +21,9 @@ struct OutputView {
         if let line : MyLine = figure as? MyLine {
             print("두 점 사이의 거리는 \(line.distanceBetween())")
         }
+        if let triangle : MyTriangle = figure as? MyTriangle {
+            print("삼각형 넓이는 \(triangle.width())")
+        }
     }
     
     static private func show(points:[MyPoint]) {
