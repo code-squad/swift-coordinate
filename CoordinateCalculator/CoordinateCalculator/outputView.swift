@@ -33,7 +33,6 @@ struct OutputView {
         for point in points {
             markPoint(point)
         }
-        
     }
     
     // 원하는 포인트를 찍어주는 메소드
