@@ -12,11 +12,6 @@ import Foundation
 // 입력 형태에 따라 정수형 좌표로 변환하고 전달
 
 struct FigureCreator {
-    private let rawPoint: String
-    
-    init(rawPoint: String) {
-        self.rawPoint = rawPoint
-    }
     
     // 초기 입력을 '-'을 기준으로 분리해주는 메소드
     // "(10,10)-(10,10)" -> ["(10,10)", "(10,10)"]
@@ -67,7 +62,7 @@ struct FigureCreator {
     // "(10,10)"                    -> MyPoint
     // "(10,10)-(14,15)"            -> MyLine
     // "(10,10)-(14,15)-(20,21)"    -> MyTriangle
-    public func makeFigure() -> Figure {
+    public func makeFigure(rawPoint: String) -> Figure {
         let separated = separate(rawPoint)
         
         switch separated.count {
