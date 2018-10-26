@@ -32,18 +32,16 @@ struct OutputView {
     
     // 도형별 요구사항 구분하여 출력
     private func shapeRequirmentPrint(_ shape: Shape) {
-        if shape.getPoint().count == 2 { printDistanceLine(line: shape as! MyLine) }
-        else if shape.getPoint().count == 3 { printTriangleWidth(triangle: shape as! MyTriagnle) }
-    }
-    
-    // 직선일 경우 직선 거리 출력
-    private func printDistanceLine(line: MyLine) {
-        print("두 점 사이의 거리는 \(line.calculateDistance())")
-    }
-    
-    // 삼각형일 때 넓이 출력
-    private func printTriangleWidth(triangle: MyTriagnle) {
-        print("삼각형의 넓이는 \(triangle.calculateWidth())")
+        guard let trait = shape.calculateShapeTrait() else { return }
+        switch shape.getPoint().count {
+        case 2:
+            print("두 점사이의 거리는 \(trait)")
+        case 3:
+            print("삼각형의 넓이는 \(trait)")
+        default:
+            return
+        }
+        
     }
     
     // 그리기 전 터미널 화면 Clear

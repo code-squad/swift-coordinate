@@ -26,4 +26,8 @@ struct MyLine : Shape{
     func getPoint() -> [MyPoint]{
         return [pointA, pointB]
     }
+    
+    func calculateShapeTrait() -> Double? {
+        return sqrt(pow((pointA.xPosition-pointB.xPosition), 2) + pow((pointA.yPosition-pointB.yPosition), 2))
+    }
 }
