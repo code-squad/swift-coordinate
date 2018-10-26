@@ -23,7 +23,7 @@ struct MyLine : Figure {
         self.pointB = pointB
     }
     
-    private func distanceBetween() -> Double {
+    func distanceBetween() -> Double {
         let x = self.pointA.readX() - self.pointB.readX()
         let y = self.pointA.readY() - self.pointB.readY()
         let squareSumFromXY = Double(x.squared() + y.squared())
