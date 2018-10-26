@@ -32,4 +32,12 @@ struct MyTriagnle : Shape {
         let sinTheta : Double = sqrt(1 - pow(((pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2)) / (2 * lengthA * lengthC)), 2))
         return 0.5 * lengthA * lengthC * sinTheta
     }
+    
+    func calculateShapeTrait() -> Double? {
+        let lengthA : Double = lineAB.calculateDistance()
+        let lengthB : Double = lineBC.calculateDistance()
+        let lengthC : Double = lineCA.calculateDistance()
+        let sinTheta : Double = sqrt(1 - pow(((pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2)) / (2 * lengthA * lengthC)), 2))
+        return 0.5 * lengthA * lengthC * sinTheta
+    }
 }

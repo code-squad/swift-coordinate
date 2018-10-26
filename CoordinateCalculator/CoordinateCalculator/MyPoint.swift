@@ -21,4 +21,10 @@ struct MyPoint : Shape{
     func getPoint() -> [MyPoint] {
         return [self]
     }
+    
+    func calculateShapeTrait() -> Double? {
+        return nil
+    }
+    
+    
 }
