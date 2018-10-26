@@ -34,14 +34,21 @@ struct MyTriangle : Figure {
     }
     
     func triangleWidth() -> Double {
-        let cosB = readCosB()
-        return 0
+        let a = self.lineBC.distanceBetween()
+        let c = self.lineAB.distanceBetween()
+        
+        return 1 / 2 * a * c * sinB()
     }
     
-    private func readCosB() -> Double {
+    private func sinB() -> Double {
+        return (1 - cosB().squared()).squareRoot()
+    }
+    
+    private func cosB() -> Double {
         let a = self.lineBC.distanceBetween()
         let b = self.lineAC.distanceBetween()
         let c = self.lineAB.distanceBetween()
+        
         return (a.squared() + c.squared() - b.squared()) / 2 * a * c
     }
     
