@@ -33,11 +33,7 @@ struct MyPoint : Figure {
         return self.y
     }
     
-    func readPoints() -> [(Int,Int)] {
-        return [self.xy]
-    }
-    
-    func readDetailInfo() -> Double? {
-        return nil
+    func readPoints() -> [MyPoint] {
+        return [self]
     }
 }

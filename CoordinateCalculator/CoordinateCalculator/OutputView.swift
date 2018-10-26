@@ -17,13 +17,11 @@ struct OutputView {
     static func show(figure:Figure) {
         self.drawAxis()
         show(points: figure.readPoints())
-        show(detailInfo: figure.readDetailInfo())
-        
     }
     
-    static private func show(points:[(Int,Int)]) {
+    static private func show(points:[MyPoint]) {
         for point in points {
-            print("\(ANSICode.cursor.move(row:point.1, col:point.0))🙈")
+            print("\(ANSICode.cursor.move(row:point.xy.1, col:point.xy.0))🙈")
         }
     }
     
@@ -34,5 +32,4 @@ struct OutputView {
             print("\(ANSICode.cursor.move(row:ANSICode.axis.AxisLimit + 4, col:0))")
         }
     }
-    
 }
