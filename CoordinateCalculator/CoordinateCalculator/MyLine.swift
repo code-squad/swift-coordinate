@@ -14,7 +14,7 @@ extension Int {
     }
 }
 
-struct MyLine : Figure {
+struct MyLine : CalculatedFigure {
     private let pointA : MyPoint
     private let pointB : MyPoint
     
@@ -23,7 +23,11 @@ struct MyLine : Figure {
         self.pointB = pointB
     }
     
-    func distanceBetween() -> Double {
+    func calculateMent() -> String {
+        return "두 점 사이의 거리는 "
+    }
+    
+    func calculate() -> Double {
         let x = self.pointA.readX() - self.pointB.readX()
         let y = self.pointA.readY() - self.pointB.readY()
         let squareSumFromXY = Double(x.squared() + y.squared())

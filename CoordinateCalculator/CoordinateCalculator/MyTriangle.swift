@@ -14,7 +14,7 @@ extension Double {
     }
 }
 
-struct MyTriangle : Figure {
+struct MyTriangle : CalculatedFigure {
     private let lineAB : MyLine
     private let lineBC : MyLine
     private let lineAC : MyLine
@@ -33,9 +33,13 @@ struct MyTriangle : Figure {
         self.pointC = pointC
     }
     
-    func width() -> Double {
-        let a = self.lineBC.distanceBetween()
-        let c = self.lineAB.distanceBetween()
+    func calculateMent() -> String {
+        return "삼각형 넓이는 "
+    }
+    
+    func calculate() -> Double {
+        let a = self.lineBC.calculate()
+        let c = self.lineAB.calculate()
         return round(1 / 2 * a * c * sinB())
     }
     
@@ -44,9 +48,9 @@ struct MyTriangle : Figure {
     }
     
     private func cosB() -> Double {
-        let a = self.lineBC.distanceBetween()
-        let b = self.lineAC.distanceBetween()
-        let c = self.lineAB.distanceBetween()
+        let a = self.lineBC.calculate()
+        let b = self.lineAC.calculate()
+        let c = self.lineAB.calculate()
         return (a.squared() + c.squared() - b.squared()) / (2 * a * c)
     }
     
