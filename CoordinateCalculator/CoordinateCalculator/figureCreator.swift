@@ -12,7 +12,6 @@ import Foundation
 // 입력 형태에 따라 정수형 좌표로 변환하고 전달
 
 struct FigureCreator {
-    
     // 초기 입력을 '-'을 기준으로 분리해주는 메소드
     // "(10,10)-(10,10)" -> ["(10,10)", "(10,10)"]
     private func separate(_ input: String) -> [String] {
@@ -58,11 +57,11 @@ struct FigureCreator {
         return points                                       // [MyPoint(x: 10, y: 10), MyPoint(x: 14, y: 15)]
     }
     
+    // 네 개의 좌표를 입력받았을 때 CGSize를 구하는 함수
     private func computeSize(of points: [MyPoint]) -> CGSize {
         let width = points[1].xPoint() - points[0].xPoint()
         let height = points[1].yPoint() - points[2].yPoint()
-        print(width, height)
-        
+
         return CGSize(width: width, height: height)
     }
     
@@ -73,8 +72,9 @@ struct FigureCreator {
     // "(10,10)-(14,15)-(20,21)-(24,24)"    -> MyRect
     public func makeFigure(rawPoint: String) -> Figure {
         let separated = separate(rawPoint)
+        let nShape = separated.count
         
-        switch separated.count {
+        switch nShape {
         case 2:
             let line = makePointsWith(rawPoint)
             return MyLine(pointA: line[0], pointB: line[1])

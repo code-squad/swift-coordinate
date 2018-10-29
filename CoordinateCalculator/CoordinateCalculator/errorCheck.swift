@@ -12,6 +12,7 @@ enum ErrorList : String {
     case noInput = "입력값이 없습니다."
     case notNumber = "숫자를 입력하세요."
     case outOfBound = "범위를 벗어나는 입력입니다."
+    case notRectangle = "직 사각형으로 입력하세요."
     case notCoordinates = "좌표 형태로 입력하세요."
     case breakGuideline = "올바른 형태로 입력하세요."
     case noError
@@ -19,11 +20,6 @@ enum ErrorList : String {
 
 // ErrorCheck 구조체의 역할 : 좌표가 올바르게 입력되었는지 확인하고 에러 전달
 struct ErrorCheck {
-    private var input : String
-    
-    init(input: String) {
-        self.input = input
-    }
     
     // 입력값이 존재하는지 확인하는 메소드
     private func isInputEmpty(_ input: String) -> Bool {
@@ -75,6 +71,25 @@ struct ErrorCheck {
         return true
     }
     
+    // 받은 입력이 직사각형인지 확인하는 메소드
+    private func isRectangle(_ input: String) -> Bool {
+        let separated = separate(input)
+        let points = makeRawPointsWith(separated)
+        
+        let originX = points[0][0], originY = points[0][1]
+        ,secondX = points[1][0], secondY = points[1][1]
+        ,thirdX = points[2][0], thirdY = points[2][1]
+        ,fourthX = points[3][0], fourthY = points[3][1]
+        
+        if originX == fourthX && originY == secondY
+            && secondX == thirdX && thirdY == fourthY {
+            return true
+        }
+        return false
+    }
+    
+    
+    
     // 받은 입력을 좌표 순서에 따라 분리하는 메소드
     private func separate(_ input: String) -> [String] {
         return input.split(separator: "-").map {String($0)}
@@ -85,6 +100,15 @@ struct ErrorCheck {
         var coordinates = point
         coordinates = coordinates.removeBracket()
         return coordinates.split(separator: ",").map {String($0)}
+    }
+    
+    private func makeRawPointsWith(_ separatedCoordinates: [String]) -> [[String]] {
+        var rawPoints: [[String]] = []
+        
+        separatedCoordinates.forEach {
+            rawPoints.append(transform($0))
+        }
+        return rawPoints
     }
     
     
@@ -111,7 +135,7 @@ struct ErrorCheck {
     }
     
     // 입력을 가지고 에러를 처리하는 메소드
-    public func checkInputError() -> ErrorList {
+    public func checkInputError(_ input: String) -> ErrorList {
         let nShape = input.split(separator: "-").count
         guard isInputEmpty(input) else {return .noInput}
         
@@ -119,7 +143,11 @@ struct ErrorCheck {
         case 1...3:
             return allErrorCheck(input)
         case 4:
-            return allErrorCheck(input)
+            let error = allErrorCheck(input)
+            guard isRectangle(input) else {
+                return .notRectangle
+            }
+            return error
         default:
             return .breakGuideline
         }
