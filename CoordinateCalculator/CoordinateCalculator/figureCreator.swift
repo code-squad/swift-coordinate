@@ -73,7 +73,6 @@ struct FigureCreator {
     public func makeFigure(rawPoint: String) -> Figure {
         let nShape = separate(rawPoint).count
         let points = makePointsWith(rawPoint)
-        let cgsize = computeSize(of: points)
         
         switch nShape {
         case 2:
@@ -81,7 +80,7 @@ struct FigureCreator {
         case 3:
             return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         case 4:
-            return MyRect(origin: points[0], size: cgsize)
+            return MyRect(origin: points[0], size: computeSize(of: points))
         default:
             return points[0]
         }
