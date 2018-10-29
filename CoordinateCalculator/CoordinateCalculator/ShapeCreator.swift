@@ -13,6 +13,7 @@ struct ShapeCreator{
     let pointCount : Int = 1
     let lineCount : Int = 2
     let triangleCount : Int = 3
+    let rectCount : Int = 4
     
     // MyPoint, MyLine을 생성할지 결정
     func CreateShape(input: String) -> Shape? {
@@ -24,13 +25,15 @@ struct ShapeCreator{
             return createLine(line: points)
         case triangleCount:
             return createTriangle(triangle: points)
+        case rectCount:
+            return nil
         default:
             return nil
         }
     }
     
     // "-"을 기준으로 점이 1개일 경우 Point을 생성
-    private func createPoint(position: String) -> MyPoint? {
+    func createPoint(position: String) -> MyPoint? {
         let xyPosition : [String] = position.extractPosition()
         guard let xPosition = Double(xyPosition[1]) else { return nil }
         guard let yPosition = Double(xyPosition[2]) else { return nil }
@@ -51,4 +54,17 @@ struct ShapeCreator{
         guard let pointC = createPoint(position: triangle[2]) else { return nil }
         return MyTriagnle(pointA, pointB, pointC)
     }
+    
+    // "-"을 기준으로 점이 4개일 경우 Rect을 생성
+//    private func createRect(rect: [String]) -> MyRect? {
+//        var points : [MyPoint] = []
+//        for point in rect {
+//            guard let tempPoint = createPoint(position: point) else { return nil }
+//            points.append(tempPoint)
+//        }
+//        points = points.sorted(by: { $0.xPosition < $1.xPosition })
+//        let cgSize = CGSize(width: points[2].xPosition - points[1].xPosition , height: abs(points[0].yPosition-points[1].yPosition))
+//
+//        return nil
+//    }
 }
