@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+extension String {    
+    mutating func removeBracket() -> String {
+        self.removeFirst()
+        self.removeLast()
+        return self
+    }
+}
