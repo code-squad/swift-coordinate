@@ -23,6 +23,7 @@
 		7D7EE2ED21830E620090472D /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D78A40F21787E2600EE0843 /* MyLine.swift */; };
 		7D7EE2EF218310F10090472D /* UnitTestFigureCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EE2EE218310F10090472D /* UnitTestFigureCreator.swift */; };
 		7D7EE2F12186B5500090472D /* UnitTestFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EE2F02186B5500090472D /* UnitTestFigure.swift */; };
+		7D7EE2F32186E8BD0090472D /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EE2F22186E8BD0090472D /* MyRect.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		7D7EE2E521830CA80090472D /* UnitTestCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestCheck.swift; sourceTree = "<group>"; };
 		7D7EE2EE218310F10090472D /* UnitTestFigureCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestFigureCreator.swift; sourceTree = "<group>"; };
 		7D7EE2F02186B5500090472D /* UnitTestFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestFigure.swift; sourceTree = "<group>"; };
+		7D7EE2F22186E8BD0090472D /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				7D200445217075D200308C50 /* MyPoint.swift */,
 				7D78A40F21787E2600EE0843 /* MyLine.swift */,
 				7D7EE2C92182F6800090472D /* MyTriangle.swift */,
+				7D7EE2F22186E8BD0090472D /* MyRect.swift */,
 				7D200443217072FC00308C50 /* InputView.swift */,
 				7D1B1D79216F164600E88767 /* OutputView.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
@@ -278,6 +281,7 @@
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				7D7EE2CA2182F6800090472D /* MyTriangle.swift in Sources */,
 				7D200444217072FC00308C50 /* InputView.swift in Sources */,
+				7D7EE2F32186E8BD0090472D /* MyRect.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				7D1B1D7A216F164600E88767 /* OutputView.swift in Sources */,
 			);
