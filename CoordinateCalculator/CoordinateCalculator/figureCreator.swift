@@ -15,7 +15,6 @@ struct FigureCreator {
     
     // 초기 입력을 '-'을 기준으로 분리해주는 메소드
     // "(10,10)-(10,10)" -> ["(10,10)", "(10,10)"]
-    // "(10,10)-(10,10)-(14,15)" -> ["(10,10)", "(10,10)", "(14,15)"]
     private func separate(_ input: String) -> [String] {
         return input.split(separator: "-").map {String($0)}
     }
@@ -23,12 +22,13 @@ struct FigureCreator {
     // 분리된 초기 입력 배열의 요소를 다시 ','을 기준으로 분리해주는 메소드
     // "(10,10)" -> ["10","10"]
     private func transform(_ point: String) -> [String] {
-        return point.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {String($0)}
+        var coordinates = point
+        coordinates = coordinates.removeBracket()
+        return coordinates.split(separator: ",").map {String($0)}
     }
     
     // 분리된 배열의 요소들로 이중배열을 만들어주는 메소드
     // ["(10,10)", "(10,10)"] -> [["10","10"], ["10","10"]]
-    // ["(10,10)", "(10,10)", "(14,15)"] -> [["10","10"], ["10","10"], ["14","15"]]
     private func makeRawPointsWith(_ separatedCoordinates: [String]) -> [[String]] {
         var rawPoints: [[String]] = []
         
@@ -58,22 +58,35 @@ struct FigureCreator {
         return points                                       // [MyPoint(x: 10, y: 10), MyPoint(x: 14, y: 15)]
     }
     
+    private func computeSize(of points: [MyPoint]) -> CGSize {
+        let width = points[1].xPoint() - points[0].xPoint()
+        let height = points[1].yPoint() - points[2].yPoint()
+        print(width, height)
+        
+        return CGSize(width: width, height: height)
+    }
+    
     // 생성된 도형(Figure)을 전달해주는 메소드
-    // "(10,10)"                    -> MyPoint
-    // "(10,10)-(14,15)"            -> MyLine
-    // "(10,10)-(14,15)-(20,21)"    -> MyTriangle
+    // "(10,10)"                            -> MyPoint
+    // "(10,10)-(14,15)"                    -> MyLine
+    // "(10,10)-(14,15)-(20,21)"            -> MyTriangle
+    // "(10,10)-(14,15)-(20,21)-(24,24)"    -> MyRect
     public func makeFigure(rawPoint: String) -> Figure {
         let separated = separate(rawPoint)
         
         switch separated.count {
         case 2:
             let line = makePointsWith(rawPoint)
-            return MyLine(pointA: line[0], pointB: line[1]) // MyLine를 리턴
+            return MyLine(pointA: line[0], pointB: line[1])
         case 3:
             let triangle = makePointsWith(rawPoint)
             return MyTriangle(pointA: triangle[0], pointB: triangle[1], pointC: triangle[2])
+        case 4:
+            let rectangle = makePointsWith(rawPoint)
+            let cgsize = computeSize(of: rectangle)
+            return MyRect(origin: rectangle[0], size: cgsize)
         default:
-            let myPoint = makePointsWith(rawPoint)          // MyPoint를 리턴
+            let myPoint = makePointsWith(rawPoint)
             return myPoint[0]
         }
     }

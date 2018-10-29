@@ -10,7 +10,7 @@ import Foundation
 
 // OutputView 구조체의 역할 : 좌표를 & 포인트를 출력
 struct OutputView {
-    private var figure: Figure   // 첫 번째 좌표
+    private var figure: Figure
     
     // 제 1사분면의 좌표 체계를 이용해서 입력받은 좌표를 변경
     init(figure: Figure) {
