@@ -22,5 +22,11 @@ struct Check {
         return true
     }
     
+    static func isValidNumberOfCoordinates(_ points:[MyPoint]) -> Bool {
+        guard points.count <= 4 else {return false}
+        return true
+    }
+    
+    
     
 }

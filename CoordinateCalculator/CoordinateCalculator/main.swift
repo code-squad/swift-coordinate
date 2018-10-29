@@ -23,6 +23,7 @@ func validCoordinate() -> Figure {
         let coordinates = FigureCreator.separateHyphen(inputCoordinate)
         let points = coordinates.map {FigureCreator.readPoint($0)}
         guard Check.isValidSize(points) else {ment = retypeMent; continue}
+        guard Check.isValidNumberOfCoordinates(points) else {ment = retypeMent; continue}
         
         return FigureCreator.createFigure(points)
     }
