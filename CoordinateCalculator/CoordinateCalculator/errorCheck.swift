@@ -75,8 +75,6 @@ struct ErrorCheck {
         return true
     }
     
-    
-    
     // 받은 입력을 좌표 순서에 따라 분리하는 메소드
     private func separate(_ input: String) -> [String] {
         return input.split(separator: "-").map {String($0)}
@@ -114,18 +112,14 @@ struct ErrorCheck {
     
     // 입력을 가지고 에러를 처리하는 메소드
     public func checkInputError() -> ErrorList {
+        let nShape = input.split(separator: "-").count
         guard isInputEmpty(input) else {return .noInput}
         
-        // 입력 형태에 따라 좌표의 수를 나눠서 에처 핸들링
-        switch input.split(separator: "-").count {
-        case 1:
-            return allErrorCheck(input)  // 좌표가 하나 일때,
-        case 2:
-            return allErrorCheck(input)  // 좌표가 두개 일때,
-        case 3:
-            return allErrorCheck(input)  // 좌표가 세개 일때,
+        switch nShape {
+        case 1...3:
+            return allErrorCheck(input)
         case 4:
-            return allErrorCheck(input)  // 좌표가 세개 일때,
+            return allErrorCheck(input)
         default:
             return .breakGuideline
         }
