@@ -12,17 +12,26 @@ struct MyRect : CalculatedFigure {
     private let leftTop : MyPoint
     private let rightBottom : MyPoint
     
+    init(origin: MyPoint, size: CGSize) {
+        self.leftTop = origin
+        self.rightBottom = MyPoint.init(x: origin.readX() + Int(size.width),
+                                        y: origin.readY() - Int(size.height))
+    }
+    
     func calculateMent() -> String {
         return "사각형 넓이는 "
     }
     
     func calculate() -> Double {
-        
-        return 0
+        let width = rightBottom.readX() - leftTop.readX()
+        let height = leftTop.readY() - rightBottom.readY()
+        return Double(width * height)
     }
     
     func readPoints() -> [MyPoint] {
-        
-        return [MyPoint(x: 1, y: 1)]
+        return [leftTop,
+                rightBottom,
+                MyPoint(x: leftTop.readX(), y: rightBottom.readY()),
+                MyPoint(x: rightBottom.readX(), y: leftTop.readY())]
     }
 }
