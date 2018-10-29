@@ -24,7 +24,7 @@ func validCoordinate() -> Figure {
         let points = coordinates.map {FigureCreator.readPoint($0)}
         guard Check.isValidSize(points) else {ment = retypeMent; continue}
         guard Check.isValidNumberOfCoordinates(points) else {ment = retypeMent; continue}
-        guard Check.isRect(points) && points.count == 4 else {ment = retypeMent; continue}
+        guard Check.isRect(points) else {ment = retypeMent; continue}
         
         return FigureCreator.createFigure(points)
     }

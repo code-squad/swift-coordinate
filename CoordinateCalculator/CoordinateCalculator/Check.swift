@@ -28,6 +28,7 @@ struct Check {
     }
     
     static func isRect(_ points:[MyPoint]) -> Bool {
+        guard points.count == 4 else {return true}
         var xCollection : Set<Int> = []
         var yCollection : Set<Int> = []
         for point in points {
