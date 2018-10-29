@@ -71,23 +71,19 @@ struct FigureCreator {
     // "(10,10)-(14,15)-(20,21)"            -> MyTriangle
     // "(10,10)-(14,15)-(20,21)-(24,24)"    -> MyRect
     public func makeFigure(rawPoint: String) -> Figure {
-        let separated = separate(rawPoint)
-        let nShape = separated.count
+        let nShape = separate(rawPoint).count
+        let points = makePointsWith(rawPoint)
+        let cgsize = computeSize(of: points)
         
         switch nShape {
         case 2:
-            let line = makePointsWith(rawPoint)
-            return MyLine(pointA: line[0], pointB: line[1])
+            return MyLine(pointA: points[0], pointB: points[1])
         case 3:
-            let triangle = makePointsWith(rawPoint)
-            return MyTriangle(pointA: triangle[0], pointB: triangle[1], pointC: triangle[2])
+            return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         case 4:
-            let rectangle = makePointsWith(rawPoint)
-            let cgsize = computeSize(of: rectangle)
-            return MyRect(origin: rectangle[0], size: cgsize)
+            return MyRect(origin: points[0], size: cgsize)
         default:
-            let myPoint = makePointsWith(rawPoint)
-            return myPoint[0]
+            return points[0]
         }
     }
 }
