@@ -17,16 +17,21 @@ struct ShapeCreator{
     
     // MyPoint, MyLine을 생성할지 결정
     func CreateShape(input: String) -> Shape? {
-        let points : [String] = input.split(separator: "-").map(String.init)
-        switch points.count {
+        let stringPoint : [String] = input.split(separator: "-").map(String.init)
+        var myPoints : [MyPoint] = []
+        for point in stringPoint {
+            guard let tempPoint = createPoint(position: point) else { return nil }
+            myPoints.append(tempPoint)
+        }
+        switch stringPoint.count {
         case pointCount:
-            return createPoint(position: input)
+            return myPoints[0]
         case lineCount:
-            return createLine(line: points)
+            return createLine(line: myPoints)
         case triangleCount:
-            return createTriangle(triangle: points)
+            return createTriangle(triangle: myPoints)
         case rectCount:
-            return createRect(rect: points)
+            return createRect(rect: myPoints)
         default:
             return nil
         }
@@ -41,30 +46,21 @@ struct ShapeCreator{
     }
     
     // "-"을 기준으로 점이 2개일 경우 Line을 생성
-    private func createLine(line: [String]) -> MyLine? {
-        guard let pointA = createPoint(position: line[0]) else { return nil }
-        guard let pointB = createPoint(position: line[1]) else { return nil }
-        return MyLine(pointA, pointB)
+    private func createLine(line: [MyPoint]) -> MyLine {
+        return MyLine(line[0], line[1])
     }
     
     // "-"을 기준으로 점이 3개일 경우 Triangle을 생성
-    private func createTriangle(triangle: [String]) -> MyTriagnle? {
-        guard let pointA = createPoint(position: triangle[0]) else { return nil }
-        guard let pointB = createPoint(position: triangle[1]) else { return nil }
-        guard let pointC = createPoint(position: triangle[2]) else { return nil }
-        return MyTriagnle(pointA, pointB, pointC)
+    private func createTriangle(triangle: [MyPoint]) -> MyTriagnle {
+        return MyTriagnle(triangle[0], triangle[1], triangle[2])
     }
     
     // "-"을 기준으로 점이 4개일 경우 Rect을 생성
-    private func createRect(rect: [String]) -> MyRect? {
-        var points : [MyPoint] = []
-        for point in rect {
-            guard let tempPoint = createPoint(position: point) else { return nil }
-            points.append(tempPoint)
-        }
-        points = points.sorted(by: { $0.xPosition < $1.xPosition })
-        let cgSize = CGSize(width: points[2].xPosition - points[1].xPosition , height: abs(points[0].yPosition-points[1].yPosition))
-        guard points[0].yPosition > points[1].yPosition else { return MyRect(origin: points[1], size: cgSize) }
-        return MyRect(origin: points[0], size: cgSize)
+    private func createRect(rect: [MyPoint]) -> MyRect? {
+        var rect : [MyPoint] = rect
+        rect = rect.sorted(by: { $0.xPosition < $1.xPosition })
+        let cgSize = CGSize(width: rect[2].xPosition - rect[1].xPosition , height: abs(rect[0].yPosition-rect[1].yPosition))
+        guard rect[0].yPosition > rect[1].yPosition else { return MyRect(origin: rect[1], size: cgSize) }
+        return MyRect(origin: rect[0], size: cgSize)
     }
 }
