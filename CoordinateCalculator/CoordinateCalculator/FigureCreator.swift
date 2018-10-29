@@ -26,6 +26,8 @@ struct FigureCreator {
             return createLine(input)
         case 3:
             return createTriangle(input)
+        case 4:
+            return createRect(input)
         default:
             return MyPoint.init(x: 0, y: 0)
         }
@@ -42,6 +44,27 @@ struct FigureCreator {
     static private func createTriangle(_ input:[MyPoint]) -> MyTriangle {
         return MyTriangle.init(input[0], input[1], input[2])
     }
+    
+    static private func createRect(_ input:[MyPoint]) -> MyRect {
+        return MyRect.init(origin: readLeftTopPoint(input), size: <#T##CGSize#>)
+    }
+    
+    static private func readLeftTopPoint(_ input:[MyPoint]) -> MyPoint {
+        var x = ANSICode.axis.AxisLimit
+        var y = 0
+        
+        for point in input {
+            x = x > point.readX() ? point.readX() : x
+            y = y < point.readY() ? point.readY() : y
+        }
+        
+        return MyPoint(x: x, y: y)
+    }
+    
+//    static private func readSize(_ input:[MyPoint]) -> CGSize {
+//        
+//        
+//    }
     
     static func separateHyphen(_ coordinate:String) -> [String] {
         return coordinate.split(separator: "-").map {String($0)}
