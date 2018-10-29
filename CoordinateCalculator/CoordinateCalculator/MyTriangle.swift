@@ -36,8 +36,7 @@ struct MyTriangle : Figure {
     func width() -> Double {
         let a = self.lineBC.distanceBetween()
         let c = self.lineAB.distanceBetween()
-        
-        return 1 / 2 * a * c * sinB()
+        return round(1 / 2 * a * c * sinB())
     }
     
     private func sinB() -> Double {
@@ -48,8 +47,7 @@ struct MyTriangle : Figure {
         let a = self.lineBC.distanceBetween()
         let b = self.lineAC.distanceBetween()
         let c = self.lineAB.distanceBetween()
-        
-        return (a.squared() + c.squared() - b.squared()) / 2 * a * c
+        return (a.squared() + c.squared() - b.squared()) / (2 * a * c)
     }
     
     func readPoints() -> [MyPoint] {
