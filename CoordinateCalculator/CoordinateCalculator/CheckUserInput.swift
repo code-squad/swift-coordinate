@@ -37,7 +37,8 @@ struct CheckUserInput {
             inputState = checkPoint(point)
             guard inputState == .rightInput else { return inputState }
         }
-        return .rightInput
+        guard splitByHipen.count == 4 else { return .rightInput }
+        return IsEastablishRect(points: splitByHipen)
     }
     
     // 포인트에 대해 오류를 검사하여 오류 내용 리턴
@@ -46,6 +47,21 @@ struct CheckUserInput {
         guard IsRightOrderInput(point) else { return .wrongOrder }
         guard IsRightForm(point) else { return .wrongOrder }
         guard IsOverFlowNumber(point) else { return .overFlowNumber }
+        return .rightInput
+    }
+    
+    // 직사각형이 성립하는지 검사
+    private func IsEastablishRect(points : [String]) -> InputState{
+        let shapeCreator : ShapeCreator = ShapeCreator()
+        var checkPoints : [MyPoint] = []
+        for point in points {
+            guard let tempPoint = shapeCreator.createPoint(position: point) else { return .notEstablishRect }
+            checkPoints.append(tempPoint)
+        }
+        checkPoints = checkPoints.sorted(by: {$0.xPosition < $1.xPosition })
+        guard checkPoints[0].xPosition == checkPoints[1].xPosition && checkPoints[2].xPosition == checkPoints[3].xPosition else { return .notEstablishRect }
+        checkPoints = checkPoints.sorted(by: {$0.yPosition < $1.yPosition })
+        guard checkPoints[0].yPosition == checkPoints[1].yPosition && checkPoints[2].yPosition == checkPoints[2].yPosition else { return .notEstablishRect }
         return .rightInput
     }
     
