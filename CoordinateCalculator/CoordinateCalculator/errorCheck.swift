@@ -12,6 +12,7 @@ enum ErrorList : String {
     case noInput = "입력값이 없습니다."
     case notNumber = "숫자를 입력하세요."
     case outOfBound = "범위를 벗어나는 입력입니다."
+    case notCoordinates = "좌표 형태로 입력하세요."
     case breakGuideline = "올바른 형태로 입력하세요."
     case noError
 }
@@ -24,8 +25,6 @@ struct ErrorCheck {
         self.input = input
     }
     
-    // --------------- 두 개의 좌표를 입력받았을 때 우선 에러 확인 ---------------
-    
     // 입력값이 존재하는지 확인하는 메소드
     private func isInputEmpty(_ input: String) -> Bool {
         if input.isEmpty {
@@ -34,24 +33,26 @@ struct ErrorCheck {
         return true
     }
     
-    // 올바른 형태로 좌표를 입력하는지 확인하는 메소드
+    // 좌표의 요소를 포함하는지 확인하는 메소드
     private func isContainElement(_ input: String) -> Bool {
-        if input.first! == "(" && input.contains(",") && input.last! == ")" {
+        let charset: Set<Character> = ["(", ",", ")"]
+        return charset.isSubset(of: input)
+    }
+    
+    // 좌표의 형태인지 확인하는 메소드
+    private func isCoordinates(_ input: String) -> Bool {
+        if input.first == "(" && input.last == ")" {
             return true
         }
         return false
     }
     
-    // 받은 입력을 좌표 순서에 따라 분리하는 메소드
-    private func separate(_ input: String) -> [String] {
-        return input.split(separator: "-").map {String($0)}
-    }
-    
-    // --------------- 순서에 따라 좌표로 분리하고 난 후 에러 확인 ----------------
-    
-    // 받은 입력을 좌표 배열로 바꿔주는 메소드
-    private func transform(_ point: String) -> [String] {
-        return point.trimmingCharacters(in: ["(",")"]).split(separator: ",").map {String($0)}
+    // x 좌표 또는 y 좌표가 비었는지 확인하는 메소드
+    private func isPointEmpty(_ point: String) -> Bool {
+        if transform(point).count == 2 {
+            return true
+        }
+        return false
     }
     
     // 입력값이 숫자인지 확인하는 메소드
@@ -74,17 +75,26 @@ struct ErrorCheck {
         return true
     }
     
-    // x 좌표 또는 y 좌표가 비었는지 확인하는 메소드
-    private func isPointEmpty(_ point: String) -> Bool {
-        if transform(point).count != 2 {
-            return false
-        }
-        return true
+    
+    
+    // 받은 입력을 좌표 순서에 따라 분리하는 메소드
+    private func separate(_ input: String) -> [String] {
+        return input.split(separator: "-").map {String($0)}
     }
+    
+    // 받은 입력을 좌표 배열로 바꿔주는 메소드
+    private func transform(_ point: String) -> [String] {
+        var coordinates = point
+        coordinates = coordinates.removeBracket()
+        return coordinates.split(separator: ",").map {String($0)}
+    }
+    
+    
     
     // 입력을 나눈 좌표로 에러는 잡아내는 메소드
     private func errorCheck(_ point: String) -> ErrorList {
         guard isContainElement(point) else {return .breakGuideline}
+        guard isCoordinates(point) else {return .notCoordinates}
         guard isNumber(point) else {return .notNumber}
         guard isValidRange(point) else {return .outOfBound}
         guard isPointEmpty(point) else {return .notNumber}
@@ -109,13 +119,15 @@ struct ErrorCheck {
         // 입력 형태에 따라 좌표의 수를 나눠서 에처 핸들링
         switch input.split(separator: "-").count {
         case 1:
-            return allErrorCheck(input)       // 좌표가 하나 일때,
+            return allErrorCheck(input)  // 좌표가 하나 일때,
         case 2:
             return allErrorCheck(input)  // 좌표가 두개 일때,
         case 3:
             return allErrorCheck(input)  // 좌표가 세개 일때,
+        case 4:
+            return allErrorCheck(input)  // 좌표가 세개 일때,
         default:
-            return .noError
+            return .breakGuideline
         }
     }
 }
