@@ -9,12 +9,6 @@
 import Foundation
 
 struct ShapeCreator{
-    
-    let pointCount : Int = 1
-    let lineCount : Int = 2
-    let triangleCount : Int = 3
-    let rectCount : Int = 4
-    
     // MyPoint, MyLine을 생성할지 결정
     func CreateShape(input: String) -> Shape? {
         let stringPoint : [String] = input.split(separator: "-").map(String.init)
@@ -23,18 +17,28 @@ struct ShapeCreator{
             guard let tempPoint = createPoint(position: point) else { return nil }
             myPoints.append(tempPoint)
         }
-        switch stringPoint.count {
-        case pointCount:
+        let shapeDistinguish : ShapeDistinguish = DistinguishCreatingShape(count: myPoints.count)
+        switch shapeDistinguish {
+        case .point:
             return myPoints[0]
-        case lineCount:
+        case .line:
             return createLine(line: myPoints)
-        case triangleCount:
+        case .triangle:
             return createTriangle(triangle: myPoints)
-        case rectCount:
+        case .rect:
             return createRect(rect: myPoints)
         default:
             return nil
         }
+    }
+    
+    // 생성할 도형을 결정할 Enum 리턴
+    private func DistinguishCreatingShape(count : Int) -> ShapeDistinguish {
+        if count == 1 { return .point }
+        else if count == 2 { return .line }
+        else if count == 3 { return .triangle }
+        else if count == 4 { return .rect }
+        else { return .notSupport }
     }
     
     // "-"을 기준으로 점이 1개일 경우 Point을 생성
@@ -59,8 +63,8 @@ struct ShapeCreator{
     private func createRect(rect: [MyPoint]) -> MyRect? {
         var rect : [MyPoint] = rect
         rect = rect.sorted(by: { $0.xPosition < $1.xPosition })
-        let cgSize = CGSize(width: rect[2].xPosition - rect[1].xPosition , height: abs(rect[0].yPosition-rect[1].yPosition))
-        guard rect[0].yPosition > rect[1].yPosition else { return MyRect(origin: rect[1], size: cgSize) }
-        return MyRect(origin: rect[0], size: cgSize)
+        let size = CGSize(width: rect[2].xPosition - rect[1].xPosition , height: abs(rect[0].yPosition-rect[1].yPosition))
+        guard rect[0].yPosition > rect[1].yPosition else { return MyRect(origin: rect[1], size: size) }
+        return MyRect(origin: rect[0], size: size)
     }
 }
