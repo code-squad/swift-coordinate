@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyRect : HaveTraitShape {
-    var leftTop : MyPoint
-    var rightBottom : MyPoint
-    var size : CGSize
+    private(set) var leftTop : MyPoint
+    private(set) var rightBottom : MyPoint
+    private(set) var size : CGSize
     
     init(origin: MyPoint, size: CGSize){
         self.leftTop = origin
