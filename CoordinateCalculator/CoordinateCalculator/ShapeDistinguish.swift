@@ -8,10 +8,9 @@
 
 import Foundation
 
-enum ShapeDistinguish {
-    case point
-    case line
-    case triangle
-    case rect
-    case notSupport
+enum ShapeDistinguish : Int {
+    case point = 1
+    case line = 2
+    case triangle = 3
+    case rect = 4
 }
