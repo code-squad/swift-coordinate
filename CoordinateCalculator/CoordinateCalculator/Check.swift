@@ -27,6 +27,13 @@ struct Check {
         return true
     }
     
-    
-    
+    static func isRect(_ points:[MyPoint]) -> Bool {
+        var xCollection : Set<Int> = []
+        var yCollection : Set<Int> = []
+        for point in points {
+            xCollection.insert(point.readX())
+            yCollection.insert(point.readY())
+        }
+        return xCollection.count == 2 && yCollection.count == 2
+    }
 }
