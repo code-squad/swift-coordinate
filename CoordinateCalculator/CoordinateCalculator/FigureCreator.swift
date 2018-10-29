@@ -46,7 +46,7 @@ struct FigureCreator {
     }
     
     static private func createRect(_ input:[MyPoint]) -> MyRect {
-        return MyRect.init(origin: readLeftTopPoint(input), size: <#T##CGSize#>)
+        return MyRect.init(origin: readLeftTopPoint(input), size: readSize(input))
     }
     
     static private func readLeftTopPoint(_ input:[MyPoint]) -> MyPoint {
@@ -61,10 +61,16 @@ struct FigureCreator {
         return MyPoint(x: x, y: y)
     }
     
-//    static private func readSize(_ input:[MyPoint]) -> CGSize {
-//        
-//        
-//    }
+    static private func readSize(_ input:[MyPoint]) -> CGSize {
+        var xCollection : Set<Int> = []
+        var yCollection : Set<Int> = []
+        for point in input {
+            xCollection.insert(point.readX())
+            yCollection.insert(point.readY())
+        }
+        return CGSize.init(width: (xCollection.max() ?? 0) - (xCollection.min() ?? 0),
+                           height: (yCollection.max() ?? 0) - (yCollection.min() ?? 0))
+    }
     
     static func separateHyphen(_ coordinate:String) -> [String] {
         return coordinate.split(separator: "-").map {String($0)}
