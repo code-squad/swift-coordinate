@@ -37,11 +37,11 @@ class UnitTestFigure: XCTestCase {
     }
 
     func testDistanceBetween() {
-        XCTAssertTrue(myLine.distanceBetween() == 4)
+        XCTAssertTrue(myLine.calculate() == 4)
     }
     
     func testWidth() {
-        XCTAssertTrue(myTriangle.width() == 6)
+        XCTAssertTrue(myTriangle.calculate() == 6)
     }
 
     func testPerformanceExample() {

@@ -12,6 +12,11 @@ protocol Figure {
     func readPoints() -> [MyPoint]
 }
 
+protocol CalculatedFigure : Figure {
+    func calculate() -> Double
+    func calculateMent() -> String
+}
+
 struct FigureCreator {
     static func createFigure(_ input:[MyPoint]) -> Figure {
         switch input.count {

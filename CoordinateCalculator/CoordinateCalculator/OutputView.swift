@@ -18,11 +18,8 @@ struct OutputView {
         self.drawAxis()
         show(points: figure.readPoints())
         cursorMove()
-        if let line : MyLine = figure as? MyLine {
-            print("두 점 사이의 거리는 \(line.distanceBetween())")
-        }
-        if let triangle : MyTriangle = figure as? MyTriangle {
-            print("삼각형 넓이는 \(triangle.width())")
+        if let specialFigure : CalculatedFigure = figure as? CalculatedFigure {
+            print("\(specialFigure.calculateMent())\(specialFigure.calculate())")
         }
     }
     
