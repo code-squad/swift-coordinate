@@ -26,7 +26,7 @@ struct ShapeCreator{
         case triangleCount:
             return createTriangle(triangle: points)
         case rectCount:
-            return nil
+            return createRect(rect: points)
         default:
             return nil
         }
@@ -56,15 +56,15 @@ struct ShapeCreator{
     }
     
     // "-"을 기준으로 점이 4개일 경우 Rect을 생성
-//    private func createRect(rect: [String]) -> MyRect? {
-//        var points : [MyPoint] = []
-//        for point in rect {
-//            guard let tempPoint = createPoint(position: point) else { return nil }
-//            points.append(tempPoint)
-//        }
-//        points = points.sorted(by: { $0.xPosition < $1.xPosition })
-//        let cgSize = CGSize(width: points[2].xPosition - points[1].xPosition , height: abs(points[0].yPosition-points[1].yPosition))
-//
-//        return nil
-//    }
+    private func createRect(rect: [String]) -> MyRect? {
+        var points : [MyPoint] = []
+        for point in rect {
+            guard let tempPoint = createPoint(position: point) else { return nil }
+            points.append(tempPoint)
+        }
+        points = points.sorted(by: { $0.xPosition < $1.xPosition })
+        let cgSize = CGSize(width: points[2].xPosition - points[1].xPosition , height: abs(points[0].yPosition-points[1].yPosition))
+        guard points[0].yPosition > points[1].yPosition else { return MyRect(origin: points[1], size: cgSize) }
+        return MyRect(origin: points[0], size: cgSize)
+    }
 }
