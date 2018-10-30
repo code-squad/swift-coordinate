@@ -8,5 +8,8 @@
 
 import Foundation
 
-let outputViewPrint = OutputView.init()
-outputViewPrint.drawAxis()
+let point : MyPoint = MyPoint.init(x: 3, y: 5)
+
+OutputView().drawPoint(inputPoints: point)
+
+
