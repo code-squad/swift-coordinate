@@ -10,13 +10,6 @@ import Foundation
 
 struct InputView {
     
-    //값을 입력 받은 후 가공하여 출력
-    static func readInput() -> [Int?]{
-        let rawInput = receiveInput(ment: "좌표를 입력하세요 (x,y)")
-        let numericInput = makeNumericArrayBy(rawInput: rawInput)
-        return numericInput
-    }
-    
     // 멘트를 출력하고 값을 입력받음
     static func receiveInput(ment: String) -> String {
         print(ment)
