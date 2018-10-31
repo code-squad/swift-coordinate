@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PrintView {
+struct PrintView {
     //row = y, col = x
     //변환에 쓰일 상수
     private static let rowConstant = 25
