@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct MyLine: Computable {
+struct MyLine: MyFigure {
     
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
@@ -19,9 +19,9 @@ struct MyLine: Computable {
         self.pointB = MyPoint(x: coordinateArray[2], y: coordinateArray[3])
     }
     
-    func computeDistance(of line: MyLine) -> Double {
-        let xDistance = (line.pointA.x - line.pointB.x)
-        let yDistatnce = (line.pointA.y - line.pointB.y)
+    func computeDistance(of from: MyPoint, to: MyPoint ) -> Double {
+        let xDistance = (from.x - to.x)
+        let yDistatnce = (from.y - to.y)
         let lineDistance = sqrt(square(of: xDistance) + square(of: yDistatnce))
         return lineDistance
     }
