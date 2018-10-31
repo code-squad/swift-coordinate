@@ -8,24 +8,24 @@
 
 import Foundation
 
-struct MyLine {
+
+struct MyLine: Computable {
     
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
     
-    init(pointA: MyPoint, pointB: MyPoint) {
-        self.pointA = pointA
-        self.pointB = pointB
+    init(coordinateArray: [Int]) {
+        self.pointA = MyPoint(x: coordinateArray[0], y: coordinateArray[1])
+        self.pointB = MyPoint(x: coordinateArray[2], y: coordinateArray[3])
     }
     
     func computeDistance(of line: MyLine) -> Double {
         let xDistance = (line.pointA.x - line.pointB.x)
         let yDistatnce = (line.pointA.y - line.pointB.y)
-        let lineDistatnce = sqrt(square(of: xDistance) + square(of: yDistatnce))
-        return lineDistatnce
+        let lineDistance = sqrt(square(of: xDistance) + square(of: yDistatnce))
+        return lineDistance
     }
     
-    private func square(of number: Int) -> Double {
-        return Double(number * number)
+    
     }
-}
+
