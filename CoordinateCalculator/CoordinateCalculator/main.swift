@@ -8,8 +8,7 @@
 
 import Foundation
 
-let point : MyPoint = MyPoint.init(x: 3, y: 5)
-
-OutputView().drawPoint(inputPoints: point)
-
-
+//let point : MyPoint = MyPoint.init(x: 3, y: 5)
+//
+//OutputView().drawPoint(inputPoints: point)
+InputView.getUserCoordinate()
