@@ -17,20 +17,19 @@ enum Validity {
     // 검사결과에 따른 메세지
     func printMessage() {
         switch self {
-        case .outOfRange: print("입력 범위는 0=<x<25, 0=<y<25 입니다")
-        case .invalidForm: print("입력 형식을 확인해주세요")
-        default: print("정상 입력입니다")
+        case .outOfRange: print("입력 범위를 확인해주세요. \(ANSICode.text.yellowBright)0=<x<25, 0=<y<25")
+        case .invalidForm: print("입력 형식을 확인해주세요. \(ANSICode.text.yellowBright)입력 형식: (a,b)-(c,d)")
+        case .incorrectCharacters: print("허용되지 않은 입력입니다. \(ANSICode.text.yellowBright)입력 형식: (a,b)-(c,d)")
         }
     }
 }
 
 class Validator {
     
-    // 입력 가능한 문자 셋
-    
+    // 입력 가능한 케릭터셋
     static private let permittedCharacterSet = CharacterSet(charactersIn: ",-()").union(CharacterSet.decimalDigits)
     
-    // 입력받은 값으로 캐릭터 셋 만들기
+    // 입력받은 값으로 캐릭터셋 만들기
     static private func makeCharacterSet(of rawString: String) -> CharacterSet {
         return CharacterSet(charactersIn: rawString)
     }
@@ -45,7 +44,8 @@ class Validator {
         for element in rawCoordinate {
             guard element != nil else {return false}
         }
-        return rawCoordinate.count % 2 == 0
+        // 좌표 개수 제한
+        return rawCoordinate.count % 2 == 0 && rawCoordinate.count < 5
     }
     
     // 입력 값의 범위 조건
