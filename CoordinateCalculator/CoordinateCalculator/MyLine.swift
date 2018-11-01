@@ -11,8 +11,12 @@ import Foundation
 
 struct MyLine: MyFigure {
     
+    var points: [MyPoint] {return [self.pointA, self.pointB] }
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
+    var calculatedResult: Double? {
+        return computeDistance(of: self.pointA, to: self.pointB)
+    }
     
     init(coordinateArray: [Int]) {
         self.pointA = MyPoint(x: coordinateArray[0], y: coordinateArray[1])

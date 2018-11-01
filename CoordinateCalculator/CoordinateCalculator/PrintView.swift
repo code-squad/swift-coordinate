@@ -15,36 +15,38 @@ struct PrintView {
     private static let colConstant = 3
     
     // 출력을 위한 값으로 바꾸기
-    private static func modifyPrintable(originalPoint: MyPoint) -> MyPoint {
-        let modifiedPoint = MyPoint(x: colConstant + originalPoint.x * 2, y: rowConstant - originalPoint.y)
-        return modifiedPoint
+    private static func modifyPointsPrintable(originalFigure: MyFigure) -> [MyPoint] {
+        let modifiedPoints = originalFigure.points.map { MyPoint(x: colConstant + $0.x * 2, y: rowConstant - $0.y) }
+        return modifiedPoints
     }
     
     // figure 종류를 확인하고 그리기
     static func printOnCoordSystem(_ myFigure: MyFigure) {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
-        if myFigure is MyLine {
-            printLine(myFigure as! MyLine)
-        }
-        if myFigure is MyPoint {
-            printPoint(myFigure as! MyPoint)
-        }
+        printPoint(myFigure)
+        printCalculatedResult(myFigure)
         print("\(ANSICode.cursor.move(row:28, col: 51))")
     }
     
     //point 하나를 출력하는 함수
-    private static func printPoint(_ myPoint: MyPoint) {
-        let printablePoint = modifyPrintable(originalPoint: myPoint)
-        print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row: printablePoint.y, col: printablePoint.x))•")
+    private static func printPoint(_ myFigure: MyFigure) {
+        let figurePoints = modifyPointsPrintable(originalFigure: myFigure)
+            for figurePoint in figurePoints {
+            print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row: figurePoint.y, col: figurePoint.x))•")
+        }
     }
     
     // Line의 두 point와 거리를 출력하는 함수
-    private static func printLine(_ myLine: MyLine) {
-        let lineComponents = [myLine.pointA, myLine.pointB]
-        for lineComponent in lineComponents {
-            printPoint(lineComponent)
+    private static func printCalculatedResult(_ myFigure: MyFigure) {
+        guard let calculatedResult = myFigure.calculatedResult else {return}
+        print("\(ANSICode.cursor.move(row:27, col: 1)) \(switchMentBy(figure: myFigure)) \(calculatedResult)")
+    }
+    
+    private static func switchMentBy(figure: MyFigure) -> String {
+        switch figure {
+        case is MyLine: return "두 점 사이 거리는 "
+        default: return "연산이 없습니다"
         }
-        print("\(ANSICode.cursor.move(row:27, col: 1)) 두 점 사이 거리는 \(myLine.computeDistance(of: myLine.pointA, to: myLine.pointB))")
     }
     
     // 화면 지우기
