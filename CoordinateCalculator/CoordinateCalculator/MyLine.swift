@@ -25,7 +25,5 @@ struct MyLine: MyFigure {
         let lineDistance = sqrt(square(of: xDistance) + square(of: yDistatnce))
         return lineDistance
     }
-    
-    
-    }
+}
 

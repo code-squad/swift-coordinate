@@ -9,8 +9,4 @@
 import Foundation
 
 
-protocol MyFigure: Computable {
-    
-
-
-}
+protocol MyFigure: Computable {}
