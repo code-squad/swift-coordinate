@@ -9,4 +9,7 @@
 import Foundation
 
 
-protocol MyFigure: Computable {}
+protocol MyFigure: Computable {
+    var points: [MyPoint] {get}
+    var calculatedResult: Double? {get}
+}
