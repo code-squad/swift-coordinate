@@ -19,7 +19,7 @@ struct OutputView {
     }
     
     private func drawAxis() {
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+        print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
     
     private func clearConsole() {
