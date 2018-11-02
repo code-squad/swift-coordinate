@@ -10,9 +10,7 @@ import Foundation
 
 struct MyPoint: MyFigure {
     
-    var points: [MyPoint] {
-        return [self]
-    }
+    var points: [MyPoint] { return [self] }
     private(set) var x: Int
     private(set) var y: Int
     var calculatedResult: Double?
