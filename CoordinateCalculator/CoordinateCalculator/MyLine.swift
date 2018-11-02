@@ -11,9 +11,9 @@ import Foundation
 
 struct MyLine: MyFigure {
     
-    var points: [MyPoint] {return [self.pointA, self.pointB] }
-    private(set) var pointA: MyPoint
-    private(set) var pointB: MyPoint
+    var points: [MyPoint] { return [self.pointA, self.pointB] }
+    private let pointA: MyPoint
+    private let pointB: MyPoint
     var calculatedResult: Double? {
         return computeDistance(of: self.pointA, to: self.pointB)
     }
@@ -30,4 +30,3 @@ struct MyLine: MyFigure {
         return lineDistance
     }
 }
-
