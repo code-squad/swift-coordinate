@@ -31,7 +31,7 @@ struct PrintView {
     //point 하나를 출력하는 함수
     private static func printPoint(_ myFigure: MyFigure) {
         let figurePoints = modifyPointsPrintable(originalFigure: myFigure)
-            for figurePoint in figurePoints {
+        for figurePoint in figurePoints {
             print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row: figurePoint.y, col: figurePoint.x))•")
         }
     }
@@ -42,6 +42,7 @@ struct PrintView {
         print("\(ANSICode.cursor.move(row:27, col: 1)) \(switchMentBy(figure: myFigure)) \(calculatedResult)")
     }
     
+    // 도형별 계산 요소 멘트
     private static func switchMentBy(figure: MyFigure) -> String {
         switch figure {
         case is MyLine: return "두 점 사이 거리는 "

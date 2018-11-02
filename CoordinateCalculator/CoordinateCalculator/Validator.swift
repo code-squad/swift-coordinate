@@ -15,11 +15,11 @@ enum Validity {
     case incorrectCharacters
     
     // 검사결과에 따른 메세지
-    func printMessage() {
+    func message() -> String {
         switch self {
-        case .outOfRange: print("입력 범위를 확인해주세요. \(ANSICode.text.yellowBright)0=<x<25, 0=<y<25")
-        case .invalidForm: print("입력 형식을 확인해주세요. \(ANSICode.text.yellowBright)입력 형식: (a,b)-(c,d)")
-        case .incorrectCharacters: print("허용되지 않은 입력입니다. \(ANSICode.text.yellowBright)입력 형식: (a,b)-(c,d)")
+        case .outOfRange: return "입력 범위를 확인해주세요. \(ANSICode.text.yellowBright)0=<x<25, 0=<y<25"
+        case .invalidForm: return "입력 형식을 확인해주세요. \(ANSICode.text.yellowBright)입력 형식: (a,b)-(c,d)"
+        case .incorrectCharacters: return "허용되지 않은 입력입니다. \(ANSICode.text.yellowBright)입력 형식: (a,b)-(c,d)"
         }
     }
 }
@@ -60,14 +60,20 @@ class Validator {
     // 입력값 검사 후 결과 반환
     static func validate(rawCoordinate: String) -> Validity? {
         if !isCorrectCharactors(in: rawCoordinate) {
-            return Validity.incorrectCharacters
+            let validity = Validity.incorrectCharacters
+            print(validity.message())
+            return validity
         }
-        let optionalNumericInputArray = InputView.makeNumericArrayBy(rawInput: rawCoordinate)
+        let optionalNumericInputArray = CoordGenerator.makeNumericArrayBy(rawInput: rawCoordinate)
         if !isValidForm(of: optionalNumericInputArray) {
-            return Validity.invalidForm
+            let validity = Validity.invalidForm
+            print(validity.message())
+            return validity
         }
         if !isValidRange(of: optionalNumericInputArray) {
-            return Validity.outOfRange
+            let validity = Validity.outOfRange
+            print(validity.message())
+            return validity
         }
         return nil
     }
