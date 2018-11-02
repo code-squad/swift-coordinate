@@ -11,6 +11,7 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		EB407B042186F49F00401FE3 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB407B032186F49F00401FE3 /* MyLine.swift */; };
 		EB60691D21897CE90047CED9 /* MyFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60691C21897CE90047CED9 /* MyFigure.swift */; };
+		EB7DF0AE218BFAF2004584F8 /* CoordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DF0AD218BFAF2004584F8 /* CoordGenerator.swift */; };
 		EB8D3EF2217EC9A800D1B0DE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3EF1217EC9A800D1B0DE /* InputView.swift */; };
 		EB8D3EF4217EEB1D00D1B0DE /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3EF3217EEB1D00D1B0DE /* MyPoint.swift */; };
 		EB8D3EF621801E1A00D1B0DE /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3EF521801E1A00D1B0DE /* Validator.swift */; };
@@ -36,6 +37,7 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		EB407B032186F49F00401FE3 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		EB60691C21897CE90047CED9 /* MyFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFigure.swift; sourceTree = "<group>"; };
+		EB7DF0AD218BFAF2004584F8 /* CoordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordGenerator.swift; sourceTree = "<group>"; };
 		EB8D3EF1217EC9A800D1B0DE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		EB8D3EF3217EEB1D00D1B0DE /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		EB8D3EF521801E1A00D1B0DE /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				EB7DF0AD218BFAF2004584F8 /* CoordGenerator.swift */,
 				EB60691C21897CE90047CED9 /* MyFigure.swift */,
 				EB8D3EF3217EEB1D00D1B0DE /* MyPoint.swift */,
 				EBD68F51217DFAEE0095740D /* PrintView.swift */,
@@ -150,6 +153,7 @@
 				EB8D3EF2217EC9A800D1B0DE /* InputView.swift in Sources */,
 				EBD68F52217DFAEE0095740D /* PrintView.swift in Sources */,
 				EB8D3EF621801E1A00D1B0DE /* Validator.swift in Sources */,
+				EB7DF0AE218BFAF2004584F8 /* CoordGenerator.swift in Sources */,
 				EB407B042186F49F00401FE3 /* MyLine.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				EBE89C2921895338002C3E4C /* Computable.swift in Sources */,

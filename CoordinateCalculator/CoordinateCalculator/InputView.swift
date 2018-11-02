@@ -16,12 +16,5 @@ struct InputView {
         return readLine() ?? ""
     }
     
-    //입력받은 값을 숫자로 바꿔 배열로 반환
-    static func makeNumericArrayBy(rawInput: String) -> [Int?] {
-        let pointElements = rawInput.components(separatedBy:CharacterSet(charactersIn: "-,")).map { $0.trimmingCharacters(in: CharacterSet(charactersIn: "()")) }
-        let numericElements = pointElements.map {Int($0)}
-        return numericElements
-    }
-    
 }
 
