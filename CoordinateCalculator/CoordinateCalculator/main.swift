@@ -13,7 +13,7 @@ struct Main {
         var repetition = true
         while(repetition) {
             let point = InputView.getUserCoordinate()
-            if let pointPrint = point , point != nil {
+            if let pointPrint = point[0] , point[0] != nil {
                 repetition = false
                 OutputView().drawPoint(inputPoints: pointPrint)
             }

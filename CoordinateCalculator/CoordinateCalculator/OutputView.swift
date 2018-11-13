@@ -25,4 +25,7 @@ struct OutputView {
     private func clearConsole() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
+    func drawLine(inputLine : MyLine) {
+        print("\(ANSICode.text.white)WHITE")
+    }
 }
