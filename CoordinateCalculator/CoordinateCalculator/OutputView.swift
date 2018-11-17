@@ -19,19 +19,17 @@ struct OutputView {
         return result
     }
     
-    func drawPoint(_ point: String) {
+    func drawPoint(_ point: String,_ line: String) {
         clearConsole()
-        print(point)
         drawAxis()
+        print(point)
         
+        if(line != "") {
+            print(line)
+        }
+        print(ANSICode.cursor.move(row: 27, col: 3))
     }
-    func drawLine(_ point: String,_ line: String) {
-        clearConsole()
-        drawAxis()
-        print(point)
-        print("")
-        print(line)
-    }
+    
     // 아래 두점사이거리 출력
     func displayLine(_ line: MyLine) -> String {
         var result = ""
