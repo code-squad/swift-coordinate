@@ -32,10 +32,8 @@ func coordinateStart() {
             lineResult += OutputView().displayLine(line!)
         }
     }
-    OutputView().drawPoint(pointResult)
-    if lineResult != "" {
-        OutputView().drawLine(pointResult,lineResult)
-    }
+    OutputView().drawPoint(pointResult,lineResult)
+    
     
     
 }
