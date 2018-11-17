@@ -9,13 +9,35 @@
 import Foundation
 
 struct OutputView {
-
-    func drawPoint(inputPoints : MyPoint) {
-        clearConsole()
+    
+    func resultPoint(inputPoints : MyPoint) -> String {
         let xPoint = inputPoints.x * 2 + 3
         let yPoint = (inputPoints.y - 25) * -1
-        print("\(ANSICode.cursor.move(row : yPoint, col : xPoint ))\(ANSICode.text.yellowBright)●")
+        var result = ANSICode.cursor.move(row : yPoint, col : xPoint)
+        result += (ANSICode.text.yellowBright)
+        result += "•"
+        return result
+    }
+    
+    func drawPoint(_ point: String) {
+        clearConsole()
+        print(point)
         drawAxis()
+        
+    }
+    func drawLine(_ point: String,_ line: String) {
+        clearConsole()
+        drawAxis()
+        print(point)
+        print("")
+        print(line)
+    }
+    // 아래 두점사이거리 출력
+    func displayLine(_ line: MyLine) -> String {
+        var result = ""
+        result += ANSICode.cursor.move(row: 27, col: 3)
+        result += line.resultDescription
+        return result
     }
     
     private func drawAxis() {
@@ -24,8 +46,5 @@ struct OutputView {
     
     private func clearConsole() {
         print("\(ANSICode.clear)\(ANSICode.home)")
-    }
-    func drawLine(inputLine : MyLine) {
-        print("\(ANSICode.text.white)WHITE")
     }
 }
