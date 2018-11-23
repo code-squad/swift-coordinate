@@ -10,8 +10,6 @@ import Foundation
 
 func coordinateStart() {
     var repetition = true
-    //var point = MyPoint(x: 0, y: 0)
-    //var line = MyLine.init(point, point)
     while(repetition) {
         //입력
         let inputPoint = InputView.getUserString()

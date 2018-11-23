@@ -13,8 +13,7 @@ protocol twoPointProtocol {
 }
 
 struct MyShape {
-    
-    //code
+
     func selectPosition(_ count: Int,_ inputPoint: String) -> Bool {
         var point = MyPoint(x: 0, y: 0)
         var line = MyLine.init(point, point)
@@ -56,10 +55,9 @@ struct MyShape {
         OutputView().drawEnd()
         return false
     }
-    
+    // number : point일때 출력을 위해 flag
     func pointResult(_ point: MyPoint,_ number: Int)->Bool{
         OutputView().resultPoint(inputPoints: point)
-        // line에서 point 점찍는걸 재사용하고 싶은데, 값을 두지 않으면 점을 찍고 false를 반환해서
         if number == 0 {
             OutputView().drawEnd()
             return false
