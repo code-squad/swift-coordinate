@@ -14,7 +14,6 @@ struct OutputView {
         let xPoint = inputPoints.x * 2 + 3
         let yPoint = (inputPoints.y - 25) * -1
         print("\(ANSICode.cursor.move(row : yPoint, col : xPoint))\(ANSICode.text.yellowBright)•")
-        
     }
     
     func drawPoint() {
@@ -25,7 +24,6 @@ struct OutputView {
         print(ANSICode.cursor.move(row: 28, col: 3))
     }
     
-    // 아래 두점사이거리 출력
     func displayLine(_ line: MyLine){
         print(ANSICode.cursor.move(row: 27, col: 3))
         print(line.resultDescription)
