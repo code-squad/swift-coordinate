@@ -19,8 +19,24 @@ extension String {
     func removingWhitespaces() -> String {
         return components(separatedBy: .whitespaces).joined()
     }
+    func changeNumber() -> Int {
+        if let num = Int(self) , (num > 0 && num < 25)  {
+            return num
+        }
+        return 0
+    }
+    func checkBracket() -> Bool {
+        let bracket = "("
+        let userString = self.startIndex
+        if userString == bracket.startIndex {
+            return false
+        }
+        return true
+    }
+    func cutHyphenCoordinate() -> [String.SubSequence] {
+        return self.splitByHyphen()
+    }
 }
-
 
 struct InputView {
     
@@ -32,48 +48,41 @@ struct InputView {
     // MARK : 좌표 입력 받아서 문자열로 반환
     static func getUserString() -> String {
         let coordinate = readInput(ment: "좌표를 입력하세요.")
-        //공백제거
         let coordinates = coordinate.removingWhitespaces()
         return coordinates
     }
-    
-    // - 으로 문자 자르기
-    private static func cutHyphenCoordinate(_ coordinate: String ) -> [String.SubSequence] {
-        return coordinate.splitByHyphen()
-    }
-    // count를 확인해서 점인지 , 직선인지 확인
-    static func selectResult(_ point: String,_ count: Int) -> [MyPoint?]{
-        if count == 2 {
-            return getLineCoordinate(point, count)
-        }
-        return [getPointCoordinate(point)]
-    }
-    
-    //Line 두점 얻기
-    static func getLineCoordinate(_ coordinate: String ,_ count: Int) -> [MyPoint?] {
-        var noHyphenValue = cutHyphenCoordinate(coordinate)
+
+    static func getLineCoordinate(_ coordinate: String ,_ count: Int) -> MyLine {
+        var noHyphenValue = coordinate.cutHyphenCoordinate()
         var point = [MyPoint(x: 0, y: 0),MyPoint(x: 0, y: 0)]
+        let emptyPoint = MyPoint(x: 0, y: 0)
+
         for i in 0..<count{
             let str = String(noHyphenValue[i])
             let check : (Int,Int) = getIntegerFromString(str)
             guard check.0 != 0 , check.1 != 0 else {
-                return [nil]
+                return MyLine.init(emptyPoint, emptyPoint)
             }
             point[i] = MyPoint.init(x: check.0, y: check.1)
         }
-        return point
+        // 점이 같으면 선분이 아니다. 그런데 여기서 빈포인터를 반환하는 이유는
+        // 판단은 만들때 하는거지 여기서는 하는게 아니다.
+        if(point[0].x == point[1].x) && (point[0].y == point[1].y) {
+            return MyLine.init(emptyPoint, emptyPoint)
+        }
+        return MyLine.init(point[0],point[1])
     }
+    
     //point 얻기
-    static func getPointCoordinate(_ coordinate: String) -> MyPoint?{
+    static func getPointCoordinate(_ coordinate: String) -> MyPoint{
         let check : (Int,Int) = getIntegerFromString(coordinate)
         
         guard check.0 != 0 , check.1 != 0 else {
-            return nil
+            return MyPoint(x: 0, y: 0)
         }
-        let point = MyPoint.init(x: check.0, y: check.1)
-        return point
+        return MyPoint.init(x: check.0, y: check.1)
     }
-    // - 을 기준으로 4개 이상은 (1,2) : point , 2개는 직선, 3점은 삼각형
+    // - 을 기준으로 4개 이상은 (1,2) : point
     static func checkHyphenCoordinate(_ coordinate : String) -> (Int) {
         let pivot = coordinate.splitByHyphen()
         
@@ -88,13 +97,13 @@ struct InputView {
         var number : String = ""
         
         for char in coordinates {
-            if checkBracket(char) == true , count == 0  {
+            if coordinates.checkBracket() == true , count == 0  {
                 return (0,0)
             }
             count = count + 1
             
             if char == "," {
-                x = changeNumber(number)
+                x = number.changeNumber()
                 if x == 0 { return (0,0) }
                 number = ""
             }else if char == "(" || char == ")" {
@@ -104,30 +113,9 @@ struct InputView {
                 number.append(char)
             }
         }
-        y = changeNumber(number)
-        if y == 0 { return (0,0) }
+        y = number.changeNumber()
+        if y == 0{ return (0,0) }
         return (x,y)
-    }
-    // ( 괄호 체크
-    private static func checkBracket(_ char : Character) -> Bool{
-        if char == "(" {
-            return false
-        }
-        return true
-    }
-    // 범위체크
-    private static func checkScope(_ num :Int) -> Bool {
-        if num <= 0 || num > 24 {
-            return false
-        }
-        return true
-    }
-    // 문자를 숫자로 변경 : 옵셔널 생기는걸 방지
-    private static func changeNumber(_ number : String) -> Int {
-        if let num = Int(number) , checkScope(num) == true {
-            return num
-        }
-        return 0
     }
     
 }

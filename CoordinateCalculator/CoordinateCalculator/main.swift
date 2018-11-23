@@ -10,31 +10,16 @@ import Foundation
 
 func coordinateStart() {
     var repetition = true
-    var pointResult: String = ""
-    var lineResult: String = ""
+    //var point = MyPoint(x: 0, y: 0)
+    //var line = MyLine.init(point, point)
     while(repetition) {
-        let point = InputView.getUserString()
-        //- 체크
-        let coordinatesCount = InputView.checkHyphenCoordinate(point)
-        //[point]
-        let points = InputView.selectResult(point,coordinatesCount)
-        
-        for i in 0..<points.count {
-            if points[i] == nil {
-                break
-            }
-            repetition = false
-            pointResult += OutputView().resultPoint(inputPoints: points[i] ?? MyPoint.init(x: 0, y: 0))
-        }
-        // Line
-        if coordinatesCount == 2 {
-            let line = MyLine.init(points: points)
-            lineResult += OutputView().displayLine(line!)
-        }
+        //입력
+        let inputPoint = InputView.getUserString()
+        //처리
+        let coordinatesCount = InputView.checkHyphenCoordinate(inputPoint)
+        // 출력
+        repetition = MyShape().selectPosition(coordinatesCount,inputPoint)
     }
-    OutputView().drawPoint(pointResult,lineResult)
-    
-    
     
 }
 
