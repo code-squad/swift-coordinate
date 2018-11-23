@@ -9,23 +9,27 @@
 
 import Foundation
 
-struct MyLine: pointProtocol, twoPointProtocol {
-    var points: [MyPoint]
+struct MyLine: twoPointProtocol {
     
-    var pointsForPosition: [MyPoint] {
-        return [points[0], points[1]]
+    private (set) var pointA = MyPoint(x: 0, y: 0)
+    private (set) var pointB = MyPoint(x: 0, y: 0)
+
+    func getLine() -> MyLine {
+        return MyLine.init(pointA, pointB)
     }
     
     var resultDescription: String {
-        return "두 점 사이의 거리는 \(sqrt(pow(Double(points[0].x - points[1].x), 2) + pow(Double(points[0].y - points[1].y), 2)))"
+        return "두 점 사이의 거리는" + String(getLineDistance())
     }
     
-    init?(points: [MyPoint?]) {
-        
-        guard let point : [MyPoint] = points as? [MyPoint] else {
-            return nil
-        }
-        self.points = point
+    private func getLineDistance() -> Double {
+        return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
+    
+    init(_ pointA: MyPoint,_ pointB: MyPoint ) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
 }
 
