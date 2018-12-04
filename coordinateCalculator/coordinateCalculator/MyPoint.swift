@@ -9,13 +9,12 @@
 import Foundation
 
 //입력받은 값 처리
-
 struct MyPoint {
-    var x = 0
-    var y = 0
+    private(set) var x: Int
+    private(set) var y: Int
     
-    init(_ input:[Int]) {
-        self.x = input[0]
-        self.y = input[1]
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
     }
 }
