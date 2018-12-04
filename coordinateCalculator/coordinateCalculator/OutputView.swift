@@ -10,8 +10,8 @@ import Foundation
 
 struct outputView {
     //좌표를 그려줌
-    func printMyPoint(_ input: [String]) { 
-        let point = InputView.separateValue(input)
+    func printPoint(_ input: MyPoint) {
+        let point = input
         let x = point.x * 2 + 3
         let y = 25 - point.y
         clear()
@@ -23,6 +23,7 @@ struct outputView {
     private func printAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
+    
     private func clear() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
