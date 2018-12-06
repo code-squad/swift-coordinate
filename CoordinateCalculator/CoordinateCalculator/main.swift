@@ -8,18 +8,25 @@
 
 import Foundation
 
-func coordinateStart() {
-    var repetition = true
-    while(repetition) {
-        //입력
-        let inputPoint = InputView.getUserString()
-        //처리
-        let coordinatesCount = InputView.checkHyphenCoordinate(inputPoint)
-        // 출력
-        repetition = MyShape().selectPosition(coordinatesCount,inputPoint)
-    }
+func coordinateStart() ->Bool{
+    //입력
+    let inputPoint = InputView.getUserString()
+    //처리
+    let shapeValue = inputPoint.splitByHyphen()
+    var points = [MyPoint]()
     
+    for coordinate in shapeValue {
+        guard let point = MyShape.makePoint(from: coordinate) else { return true }
+        points.append(point)
+    }
+    guard let shape = MyShape.generateShape(points) else { return true }
+    // 출력
+    OutputView().drawShape(shape)
+    
+    return false
 }
 
-coordinateStart()
-
+var repetition = true
+while(repetition) {
+    repetition = coordinateStart()
+}

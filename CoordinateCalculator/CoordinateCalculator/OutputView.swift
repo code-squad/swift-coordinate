@@ -9,32 +9,42 @@
 import Foundation
 
 struct OutputView {
+    func drawShape(_ shape: FigureProtocol){
+        drawPoint()
+        for point in shape.points {
+            resultPoint(inputPoints: point)
+        }
+        if shape.points.count == 2 {
+            displayLine(shape as! distanceProtocol)
+        }
+        drawEnd()
+    }
     
-    func resultPoint(inputPoints : MyPoint) {
+    private func resultPoint(inputPoints : MyPoint) {
         let xPoint = inputPoints.x * 2 + 3
         let yPoint = (inputPoints.y - 25) * -1
         print("\(ANSICode.cursor.move(row : yPoint, col : xPoint))\(ANSICode.text.yellowBright)•")
     }
     
-    func drawPoint() {
+    private func drawPoint() {
         clearConsole()
         drawAxis()
     }
-    func drawEnd(){
+    private func drawEnd(){
         print(ANSICode.cursor.move(row: 28, col: 3))
     }
     
-    func displayLine(_ line: MyLine){
+    private func displayLine(_ value: distanceProtocol){
         print(ANSICode.cursor.move(row: 27, col: 3))
-        print(line.resultDescription)
+        print("\(value.descriptionTwoPoint) \(value.valueOfPoint)")
+    }
+    
+    private func drawAxis() {
+        print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
         
     }
     
-    func drawAxis() {
-        print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
-    }
-    
-    func clearConsole() {
+    private func clearConsole() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
 }
