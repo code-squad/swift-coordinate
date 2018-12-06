@@ -11,7 +11,7 @@ import Foundation
 protocol FigureProtocol {
     var points: [MyPoint] { get }
 }
-protocol distanceProtocol: FigureProtocol {
+protocol DistanceProtocol: FigureProtocol {
     var descriptionTwoPoint: String { get }
     var valueOfPoint: Double { get }
 }
@@ -38,6 +38,8 @@ struct MyShape {
             return MyPoint(x: points[0].x, y: points[0].y)
         case 2:
             return MyLine(points[0],points[1])
+        case 3:
+            return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
             return nil
         }
