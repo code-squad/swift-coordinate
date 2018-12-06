@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct MyLine: distanceProtocol {
+struct MyLine: DistanceProtocol {
     var descriptionTwoPoint: String { return "두 점 사이의 거리는" }
     
     var valueOfPoint: Double { return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2)) }

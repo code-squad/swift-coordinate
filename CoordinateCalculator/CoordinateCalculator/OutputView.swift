@@ -14,8 +14,8 @@ struct OutputView {
         for point in shape.points {
             resultPoint(inputPoints: point)
         }
-        if shape.points.count == 2 {
-            displayLine(shape as! distanceProtocol)
+        if shape.points.count >= 2 {
+            displayLine(shape as! DistanceProtocol)
         }
         drawEnd()
     }
@@ -31,10 +31,10 @@ struct OutputView {
         drawAxis()
     }
     private func drawEnd(){
-        print(ANSICode.cursor.move(row: 28, col: 3))
+        print(ANSICode.cursor.move(row: 29, col: 3))
     }
     
-    private func displayLine(_ value: distanceProtocol){
+    private func displayLine(_ value: DistanceProtocol){
         print(ANSICode.cursor.move(row: 27, col: 3))
         print("\(value.descriptionTwoPoint) \(value.valueOfPoint)")
     }
