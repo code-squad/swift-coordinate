@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct MyPoint {
+struct MyPoint : FigureProtocol {
     
     private (set) var x : Int
     private (set) var y : Int
@@ -17,6 +17,9 @@ struct MyPoint {
     init(x: Int, y: Int) {
         self.x = x
         self.y = y
+    }
+    var points: [MyPoint] {
+        return [self]
     }
     
 }
