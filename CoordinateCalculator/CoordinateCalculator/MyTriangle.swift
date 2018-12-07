@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: DistanceProtocol {
+struct MyTriangle: DistanceProtocol,FigureProtocol {
     var points: [MyPoint] {
         return [lineAB.pointA, lineAB.pointB, lineAC.pointB]
     }

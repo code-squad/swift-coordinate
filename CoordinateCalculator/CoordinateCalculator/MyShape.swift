@@ -11,7 +11,7 @@ import Foundation
 protocol FigureProtocol {
     var points: [MyPoint] { get }
 }
-protocol DistanceProtocol: FigureProtocol {
+protocol DistanceProtocol {
     var descriptionTwoPoint: String { get }
     var valueOfPoint: Double { get }
 }
