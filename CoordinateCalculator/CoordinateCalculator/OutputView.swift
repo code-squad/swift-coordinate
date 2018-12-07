@@ -15,7 +15,8 @@ struct OutputView {
             resultPoint(inputPoints: point)
         }
         if shape.points.count >= 2 {
-            displayLine(shape as! DistanceProtocol)
+            guard let shape: DistanceProtocol = shape as? DistanceProtocol else { return }
+            displayLine(shape)
         }
         drawEnd()
     }
