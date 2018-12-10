@@ -29,6 +29,8 @@ struct MyShape {
         guard validator.isRangePoint(num: point.x) , validator.isRangePoint(num: point.y) else { return nil }
         return MyPoint(x: point.x, y: point.y)
     }
+    
+    
     //point , myline2가지 형이 있기때문에 프로토콜로 해준다.
     static func generateShape(_ points: [MyPoint]) -> FigureProtocol? {
         switch points.count {
@@ -40,6 +42,8 @@ struct MyShape {
             return MyLine(points[0],points[1])
         case 3:
             return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+        case 4:
+            return MyRect(points: points)
         default:
             return nil
         }
