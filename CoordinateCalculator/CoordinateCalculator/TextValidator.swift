@@ -35,7 +35,7 @@ struct TextValidator {
     }
     
     func isRangePoint(num: Int) -> Bool {
-        return (minNumber < num && num <= maxNumber)
+        return (minNumber <= num && num <= maxNumber)
     }
     
 }
