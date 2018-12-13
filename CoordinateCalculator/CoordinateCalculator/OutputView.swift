@@ -37,7 +37,7 @@ struct OutputView {
     
     private func displayLine(_ value: DistanceProtocol){
         print(ANSICode.cursor.move(row: 27, col: 3))
-        print("\(value.descriptionTwoPoint) \(value.valueOfPoint)")
+        print("\(value.descriptionTwoPoint) \(String(format: "%.1f", value.valueOfPoint))")
     }
     
     private func drawAxis() {

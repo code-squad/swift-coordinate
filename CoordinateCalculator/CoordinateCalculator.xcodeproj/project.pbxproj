@@ -18,6 +18,7 @@
 		F3D6BF4E21B90C0F0074066A /* StringProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF4D21B90C0F0074066A /* StringProcessing.swift */; };
 		F3D6BF5221B91BE40074066A /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF5121B91BE40074066A /* MyTriangle.swift */; };
 		F3DA8F8D21BA3E2200C39B54 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA8F8C21BA3E2200C39B54 /* MyRect.swift */; };
+		F3F2F5E521C119C700E6475F /* RectValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2F5E421C119C700E6475F /* RectValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +46,7 @@
 		F3D6BF4D21B90C0F0074066A /* StringProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProcessing.swift; sourceTree = "<group>"; };
 		F3D6BF5121B91BE40074066A /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		F3DA8F8C21BA3E2200C39B54 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
+		F3F2F5E421C119C700E6475F /* RectValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				F37B29E8218B501F00DF5D61 /* MyLine.swift */,
 				F3D6BF5121B91BE40074066A /* MyTriangle.swift */,
 				F3DA8F8C21BA3E2200C39B54 /* MyRect.swift */,
+				F3F2F5E421C119C700E6475F /* RectValidator.swift */,
 				F39221B62187094400F64B8E /* OutputView.swift */,
 			);
 			path = CoordinateCalculator;
@@ -156,6 +159,7 @@
 				F37B29E9218B501F00DF5D61 /* MyLine.swift in Sources */,
 				F39221D92188301D00F64B8E /* Mypoint.swift in Sources */,
 				F367EBE6219B10830020AF29 /* MyShape.swift in Sources */,
+				F3F2F5E521C119C700E6475F /* RectValidator.swift in Sources */,
 				F3D6BF5221B91BE40074066A /* MyTriangle.swift in Sources */,
 				F3D6BF4E21B90C0F0074066A /* StringProcessing.swift in Sources */,
 				F39221B92187096D00F64B8E /* InputView.swift in Sources */,

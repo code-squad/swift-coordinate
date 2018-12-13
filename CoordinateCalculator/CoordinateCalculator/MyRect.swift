@@ -12,6 +12,7 @@ struct MyRect: FigureProtocol , DistanceProtocol{
     
     private var leadingTop = MyPoint(x: 0, y: 0)
     private var trailingBottom = MyPoint(x: 0, y: 0)
+    private var datumPoint = MyPoint(x: 0, y: 0)
     
     init(origin: MyPoint, size: CGSize) {
         self.leadingTop = origin
@@ -19,16 +20,15 @@ struct MyRect: FigureProtocol , DistanceProtocol{
     }
     
     init(points: [MyPoint]) {
-        guard rectValidator(points) else {
-            return
-        }
         let points = points.sorted(by: {$0.x < $1.x})
-        self.leadingTop = points[0].y < points[1].y ? points[1] : points[0]
-        self.trailingBottom = points[2].y < points[3].y ? points[2] : points[3]
+        self.datumPoint = MyPoint(x: points[0].x, y: points[0].y)
+        self.leadingTop = MyPoint(x: points[1].x, y: points[1].y)
+        self.trailingBottom = MyPoint(x: points[2].x, y: points[2].y)
+        
     }
     
     var points: [MyPoint] {
-        return [leadingTop, MyPoint(x: leadingTop.x, y: trailingBottom.y), trailingBottom, MyPoint(x: trailingBottom.x, y: leadingTop.y)]
+        return []
     }
     
     var descriptionTwoPoint: String {
@@ -36,19 +36,9 @@ struct MyRect: FigureProtocol , DistanceProtocol{
     }
     
     var valueOfPoint: Double {
-        let width = trailingBottom.x - leadingTop.x
-        let height = leadingTop.y - trailingBottom.y
-        return Double(width * height)
-    }
-    
-    
-    
-    func rectValidator(_ points: [MyPoint]) -> Bool {
-        let point = points[0]
-        
-        guard let sameXPoint = (points.filter {$0.x == point.x && $0.y != point.y}).first else { return false }
-        guard let sameYPoint = (points.filter {$0.x != point.x && $0.y == point.y}).first else { return false }
-        guard let otherPoint = (points.filter {$0.x != point.x && $0.y != point.y}).first else { return false }
-        return otherPoint.x == sameYPoint.x && otherPoint.y == sameXPoint.y
+        //print(MyLine(MyPoint(x: points[0].x, y: points[0].y), MyPoint(x: points[1].x, y: points[1].y)).valueOfPoint * MyLine(MyPoint(x: points[0].x, y: points[0].y), MyPoint(x: points[2].x, y: points[2].y)).valueOfPoint)
+        let lineA = MyLine(self.datumPoint,self.leadingTop).valueOfPoint
+        let lineB = MyLine(self.datumPoint,self.trailingBottom).valueOfPoint
+        return lineA * lineB
     }
 }
