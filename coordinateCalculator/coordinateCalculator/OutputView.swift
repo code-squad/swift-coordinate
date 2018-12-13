@@ -9,25 +9,34 @@
 import Foundation
 
 struct outputView {
-    //좌표를 그려줌
-    func printPoint(_ input: MyPoint) {
-        let point = input
-        let x = point.x * 2 + 3
-        let y = 25 - point.y
+    //MyPoint 출력
+    static func drawPoints(_ myPoint: Figure) {
         clear()
-        print("\(ANSICode.cursor.move(row: y, col: x))\(ANSICode.text.redBright)●")
+        for points in myPoint.point {
+            drawPoint(points)
+        }
         printAxis()
+        //calculation을 채택하고 있는지 확인하고 출력
+        guard let calculate: calculation = myPoint as? calculation else { return }
+        printCalculation(calculate)
+    }
+
+    //calculation을 좌표 하단에 출력
+    private static func printCalculation(_ figure: calculation) {
+       print("\(ANSICode.cursor.move(row: 27, col: 1))\(ANSICode.text.whiteBright)\(figure.calculate())")
+    }
+    
+    //화면에 입력받은 좌표 출력
+    private static func drawPoint(_ myPoint: MyPoint) {
+        print("\(ANSICode.cursor.move(row: 25 - myPoint.y, col: myPoint.x * 2 + 3))\(ANSICode.text.redBright)●")
     }
     
     //화면을 지우고 좌표축을 그려줌
-    private func printAxis() {
+    private static func printAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    private func clear() {
+    private static func clear() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
 }
-
-
-
