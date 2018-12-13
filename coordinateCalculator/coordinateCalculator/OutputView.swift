@@ -40,3 +40,22 @@ struct outputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
 }
+    //좌표를 그려줌
+    func printPoint(_ input: MyPoint) {
+        let point = input
+        let x = point.x * 2 + 3
+        let y = 25 - point.y
+        clear()
+        print("\(ANSICode.cursor.move(row: y, col: x))\(ANSICode.text.redBright)●")
+        printAxis()
+    }
+    
+    //화면을 지우고 좌표축을 그려줌
+    private func printAxis() {
+        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+    
+    private func clear() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
+    }
+}

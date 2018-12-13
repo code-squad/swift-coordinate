@@ -59,5 +59,19 @@ struct Check {
         default:
             return MyPoint(x: num[0], y: num[1])
         }
+    static func checkInput(_ input: String) -> Bool {
+        if input.contains("("), input.contains(")") {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func getNum(_ input: String) -> MyPoint {
+        var number = [String]()
+        if checkInput(input) == true {
+            number = (input.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)).components(separatedBy: ",")
+        }
+        return MyPoint.init(x: Int(number[0])!, y: Int(number[1])!)
     }
 }

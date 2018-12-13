@@ -22,3 +22,20 @@ func main() {
     }
 }
 main()
+while true {
+    func getPoint() {
+        let input = InputView.readInput()
+        let point = Check.getNum(input)
+        outputView().printPoint(point)
+    }
+    
+    func main(_ input: String){
+        if Check.checkInput(input) == true {
+            getPoint()
+        } else {
+            print("입력 형식은 (x,y) 입니다. 다시 입력해주세요")
+            getPoint()
+        }
+    }
+    main(InputView.readInput())
+}
