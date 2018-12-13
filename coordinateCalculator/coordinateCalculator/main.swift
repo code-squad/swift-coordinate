@@ -8,20 +8,17 @@
 
 import Foundation
 
-while true {
-    func getPoint() {
+func main() {
+    while true {
         let input = InputView.readInput()
-        let point = Check.getNum(input)
-        outputView().printPoint(point)
-    }
-    
-    func main(_ input: String){
-        if Check.checkInput(input) == true {
-            getPoint()
+        let number = Check.getNum(input)
+       
+        if Check.checkChar(input), Check.checkParenthesis(input), Check.checkNumRange(number) == true {
+            let figure = Check.getFigureValue(number)
+            outputView.drawPoints(figure)
         } else {
-            print("입력 형식은 (x,y) 입니다. 다시 입력해주세요")
-            getPoint()
+            print("다시 입력해주세요")
         }
     }
-    main(InputView.readInput())
 }
+main()
