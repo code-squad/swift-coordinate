@@ -10,7 +10,6 @@ import Foundation
 
 //입력받은 값 처리
 struct MyPoint: Figure {
-struct MyPoint {
     private(set) var x: Int
     private(set) var y: Int
     
@@ -22,5 +21,4 @@ struct MyPoint {
     var point: [MyPoint] {
         return [self]
     }
-
 }

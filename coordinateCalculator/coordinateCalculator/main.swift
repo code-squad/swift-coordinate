@@ -11,31 +11,14 @@ import Foundation
 func main() {
     while true {
         let input = InputView.readInput()
-        let number = Check.getNum(input)
+        let number = FigureCreate.number(of: input)
        
-        if Check.checkChar(input), Check.checkParenthesis(input), Check.checkNumRange(number) == true {
-            let figure = Check.getFigureValue(number)
-            outputView.drawPoints(figure)
+        if CheckInput.isInputable(input), CheckInput.hasParenthesis(input), CheckInput.isWhitinRange(number) == true {
+            let figure = FigureCreate.createFigure(number)
+            outputView.drawFigure(figure)
         } else {
             print("다시 입력해주세요")
         }
     }
 }
 main()
-while true {
-    func getPoint() {
-        let input = InputView.readInput()
-        let point = Check.getNum(input)
-        outputView().printPoint(point)
-    }
-    
-    func main(_ input: String){
-        if Check.checkInput(input) == true {
-            getPoint()
-        } else {
-            print("입력 형식은 (x,y) 입니다. 다시 입력해주세요")
-            getPoint()
-        }
-    }
-    main(InputView.readInput())
-}

@@ -16,7 +16,6 @@ struct InputView {
               1. (x,y)
               2. (x,y)-(x,y)
               """)
-        print("좌표를 입력하세요 (x,y)")
         guard let input = readLine() else{
             return ""
         }
