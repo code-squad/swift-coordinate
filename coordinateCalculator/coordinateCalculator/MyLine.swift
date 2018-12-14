@@ -21,10 +21,14 @@ struct MyLine: Figure, calculation {
         return [pointA, pointB]
     }
     
-    func calculate() -> String {
+    func calculate() -> Double {
         let pointX = Double(pointA.x - pointB.x)
         let pointY = Double(pointA.y - pointB.y)
         let calLine = sqrt((pointX * pointX) + (pointY * pointY))
-        return "두 점 사이의 거리는 : \(calLine)"
+        return calLine
+    }
+    
+    func calculateMent() -> String {
+        return "두 점 사이의 거리 : "
     }
 }
