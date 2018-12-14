@@ -20,9 +20,9 @@ import Foundation
  // 반대로 말하면 A^2 = B^2 + C^2 식을 만족하면 각이 직각
  // 조건이 참이 아니면 일반적으로 들어오는 사각형 좌표 체크를 위해 다음 블럭 진행.
  // 좌표를 그림으로 그리면.
- // myPoints[1]         myPoints[3]
+ // MyPoints[1]         MyPoints[3]
  //
- // myPoints[0]         myPoints[2]
+ // MyPoints[0]         MyPoints[2]
  */
 struct RectValidator {
     private func pointSort(_ points: [MyPoint]) -> [MyPoint] {
@@ -41,7 +41,6 @@ struct RectValidator {
         let sumOfLine = rectLine(points)
         
         if diagonalA == diagonalB , sumOfLine[0] == doubleDiagonal , sumOfLine[1] == doubleDiagonal {
-            print(MyLine(MyPoint(x: points[0].x, y: points[0].y), MyPoint(x: points[1].x, y: points[1].y)).valueOfPoint * MyLine(MyPoint(x: points[0].x, y: points[0].y), MyPoint(x: points[2].x, y: points[2].y)).valueOfPoint)
             return true
         }
         return false
