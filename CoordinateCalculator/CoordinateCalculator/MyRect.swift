@@ -7,28 +7,36 @@
 //
 
 import Foundation
-
+/*
+ // MyPoints[1]         MyPoints[3]
+ //
+ // MyPoints[0]         MyPoints[2]
+*/
 struct MyRect: FigureProtocol , DistanceProtocol{
     
-    private var leadingTop = MyPoint(x: 0, y: 0)
-    private var trailingBottom = MyPoint(x: 0, y: 0)
-    private var datumPoint = MyPoint(x: 0, y: 0)
+    private var leftTopPoint = (MyPoint(x: 0, y: 0))
+    private var leftBottomPoint = (MyPoint(x: 0, y: 0))
+    private var rightTopPoint = (MyPoint(x: 0, y: 0))
+    private var rightBottomPoint = (MyPoint(x: 0, y: 0))
     
     init(origin: MyPoint, size: CGSize) {
-        self.leadingTop = origin
-        self.trailingBottom = MyPoint(x: leadingTop.x + Int(size.width), y: leadingTop.y - Int(size.height))
+        self.leftTopPoint = origin
+        self.leftBottomPoint = MyPoint(x: origin.x + Int(size.width), y: origin.y)
+        self.rightTopPoint = MyPoint(x: origin.x, y: origin.y + Int(size.height))
+        self.rightBottomPoint = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
     }
     
     init(points: [MyPoint]) {
         let points = points.sorted(by: {$0.x < $1.x})
-        self.datumPoint = MyPoint(x: points[0].x, y: points[0].y)
-        self.leadingTop = MyPoint(x: points[1].x, y: points[1].y)
-        self.trailingBottom = MyPoint(x: points[2].x, y: points[2].y)
         
+        self.leftBottomPoint = points[0]
+        self.leftTopPoint = points[1]
+        self.rightTopPoint = points[2]
+        self.rightBottomPoint = points[3]
     }
     
     var points: [MyPoint] {
-        return []
+        return [leftTopPoint,leftBottomPoint,rightBottomPoint,rightTopPoint]
     }
     
     var descriptionTwoPoint: String {
@@ -36,9 +44,8 @@ struct MyRect: FigureProtocol , DistanceProtocol{
     }
     
     var valueOfPoint: Double {
-        //print(MyLine(MyPoint(x: points[0].x, y: points[0].y), MyPoint(x: points[1].x, y: points[1].y)).valueOfPoint * MyLine(MyPoint(x: points[0].x, y: points[0].y), MyPoint(x: points[2].x, y: points[2].y)).valueOfPoint)
-        let lineA = MyLine(self.datumPoint,self.leadingTop).valueOfPoint
-        let lineB = MyLine(self.datumPoint,self.trailingBottom).valueOfPoint
+        let lineA = MyLine(leftBottomPoint,leftTopPoint).valueOfPoint
+        let lineB = MyLine(leftBottomPoint,rightTopPoint).valueOfPoint
         return lineA * lineB
     }
 }
