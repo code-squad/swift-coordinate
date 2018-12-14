@@ -13,5 +13,6 @@ protocol Figure {
 }
 
 protocol calculation: Figure {
-    func calculate() -> String
+    func calculate() -> Double
+    func calculateMent() -> String
 }
