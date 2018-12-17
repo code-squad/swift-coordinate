@@ -51,12 +51,8 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <PathRunnable
-         runnableDebuggingMode = "0"
-         BundleIdentifier = "com.googlecode.iterm2"
-         FilePath = "/Users/jina/Downloads/iTerm.app">
-      </PathRunnable>
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3C7F97DC21AD182300980C60"
@@ -64,13 +60,7 @@
             BlueprintName = "coordinateCalculator"
             ReferencedContainer = "container:coordinateCalculator.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "${BUILT_PRODUCTS_DIR}"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

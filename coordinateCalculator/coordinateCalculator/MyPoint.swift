@@ -9,12 +9,16 @@
 import Foundation
 
 //입력받은 값 처리
-struct MyPoint {
+struct MyPoint: Figure {
     private(set) var x: Int
     private(set) var y: Int
     
     init(x: Int, y: Int) {
         self.x = x
         self.y = y
+    }
+    
+    var point: [MyPoint] {
+        return [self]
     }
 }

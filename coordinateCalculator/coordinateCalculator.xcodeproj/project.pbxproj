@@ -12,7 +12,10 @@
 		3C7F97EA21AD397100980C60 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F97E921AD397100980C60 /* InputView.swift */; };
 		3C7F97EC21AFB75B00980C60 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F97EB21AFB75B00980C60 /* MyPoint.swift */; };
 		3C7F97EE21AFC77F00980C60 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F97ED21AFC77F00980C60 /* OutputView.swift */; };
-		3CDB813B21B55BA80003C42E /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB813A21B55BA80003C42E /* Check.swift */; };
+		3CDB813B21B55BA80003C42E /* CheckInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB813A21B55BA80003C42E /* CheckInput.swift */; };
+		3CDB813D21B65DC00003C42E /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB813C21B65DC00003C42E /* MyLine.swift */; };
+		3CDB814121BCF7C80003C42E /* Procol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB814021BCF7C80003C42E /* Procol.swift */; };
+		3CE35D3521C3CAF600DA3B60 /* FigureCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE35D3421C3CAF600DA3B60 /* FigureCreate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +37,10 @@
 		3C7F97E921AD397100980C60 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		3C7F97EB21AFB75B00980C60 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		3C7F97ED21AFC77F00980C60 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		3CDB813A21B55BA80003C42E /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
+		3CDB813A21B55BA80003C42E /* CheckInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInput.swift; sourceTree = "<group>"; };
+		3CDB813C21B65DC00003C42E /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		3CDB814021BCF7C80003C42E /* Procol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Procol.swift; sourceTree = "<group>"; };
+		3CE35D3421C3CAF600DA3B60 /* FigureCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCreate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +76,11 @@
 				3C7F97E021AD182300980C60 /* main.swift */,
 				3C7F97E721AD2CED00980C60 /* ANSICode.swift */,
 				3C7F97E921AD397100980C60 /* InputView.swift */,
-				3CDB813A21B55BA80003C42E /* Check.swift */,
+				3CDB813A21B55BA80003C42E /* CheckInput.swift */,
+				3CE35D3421C3CAF600DA3B60 /* FigureCreate.swift */,
 				3C7F97EB21AFB75B00980C60 /* MyPoint.swift */,
+				3CDB813C21B65DC00003C42E /* MyLine.swift */,
+				3CDB814021BCF7C80003C42E /* Procol.swift */,
 				3C7F97ED21AFC77F00980C60 /* OutputView.swift */,
 			);
 			path = coordinateCalculator;
@@ -136,10 +145,13 @@
 			files = (
 				3C7F97EE21AFC77F00980C60 /* OutputView.swift in Sources */,
 				3C7F97EC21AFB75B00980C60 /* MyPoint.swift in Sources */,
-				3CDB813B21B55BA80003C42E /* Check.swift in Sources */,
+				3CDB813B21B55BA80003C42E /* CheckInput.swift in Sources */,
 				3C7F97EA21AD397100980C60 /* InputView.swift in Sources */,
 				3C7F97E121AD182300980C60 /* main.swift in Sources */,
+				3CDB813D21B65DC00003C42E /* MyLine.swift in Sources */,
+				3CDB814121BCF7C80003C42E /* Procol.swift in Sources */,
 				3C7F97E821AD2CED00980C60 /* ANSICode.swift in Sources */,
+				3CE35D3521C3CAF600DA3B60 /* FigureCreate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
