@@ -18,7 +18,20 @@
 		F3D6BF4E21B90C0F0074066A /* StringProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF4D21B90C0F0074066A /* StringProcessing.swift */; };
 		F3D6BF5221B91BE40074066A /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF5121B91BE40074066A /* MyTriangle.swift */; };
 		F3DA8F8D21BA3E2200C39B54 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA8F8C21BA3E2200C39B54 /* MyRect.swift */; };
+		F3EB496E21C7410A005EBF9B /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		F3EB496F21C7410A005EBF9B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		F3EB497021C7410A005EBF9B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39221B82187096D00F64B8E /* InputView.swift */; };
+		F3EB497121C7410A005EBF9B /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF4B21B90BFB0074066A /* TextValidator.swift */; };
+		F3EB497221C7410A005EBF9B /* StringProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF4D21B90C0F0074066A /* StringProcessing.swift */; };
+		F3EB497321C7410A005EBF9B /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F367EBE5219B10830020AF29 /* MyShape.swift */; };
+		F3EB497421C7410A005EBF9B /* Mypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39221D82188301D00F64B8E /* Mypoint.swift */; };
+		F3EB497521C7410A005EBF9B /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37B29E8218B501F00DF5D61 /* MyLine.swift */; };
+		F3EB497621C7410A005EBF9B /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BF5121B91BE40074066A /* MyTriangle.swift */; };
+		F3EB497721C7410A005EBF9B /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA8F8C21BA3E2200C39B54 /* MyRect.swift */; };
+		F3EB497821C7410A005EBF9B /* RectValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2F5E421C119C700E6475F /* RectValidator.swift */; };
+		F3EB497921C7410A005EBF9B /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39221B62187094400F64B8E /* OutputView.swift */; };
 		F3F2F5E521C119C700E6475F /* RectValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2F5E421C119C700E6475F /* RectValidator.swift */; };
+		F3F2F60E21C3D14400E6475F /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2F60D21C3D14400E6475F /* CoordinateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,10 +60,20 @@
 		F3D6BF5121B91BE40074066A /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		F3DA8F8C21BA3E2200C39B54 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		F3F2F5E421C119C700E6475F /* RectValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectValidator.swift; sourceTree = "<group>"; };
+		F3F2F60B21C3D14400E6475F /* CoordinateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F2F60D21C3D14400E6475F /* CoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateTests.swift; sourceTree = "<group>"; };
+		F3F2F60F21C3D14400E6475F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8377CC4B1F8B6F7E007F7335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F2F60821C3D14400E6475F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC501F8B6F7E007F7335 /* CoordinateCalculator */,
+				F3F2F60C21C3D14400E6475F /* CoordinateTests */,
 				8377CC4F1F8B6F7E007F7335 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */,
+				F3F2F60B21C3D14400E6475F /* CoordinateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +120,15 @@
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
 		};
+		F3F2F60C21C3D14400E6475F /* CoordinateTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3F2F60D21C3D14400E6475F /* CoordinateTests.swift */,
+				F3F2F60F21C3D14400E6475F /* Info.plist */,
+			);
+			path = CoordinateTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,18 +149,39 @@
 			productReference = 8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */;
 			productType = "com.apple.product-type.tool";
 		};
+		F3F2F60A21C3D14400E6475F /* CoordinateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3F2F61221C3D15500E6475F /* Build configuration list for PBXNativeTarget "CoordinateTests" */;
+			buildPhases = (
+				F3F2F60721C3D14400E6475F /* Sources */,
+				F3F2F60821C3D14400E6475F /* Frameworks */,
+				F3F2F60921C3D14400E6475F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoordinateTests;
+			productName = CoordinateTests;
+			productReference = F3F2F60B21C3D14400E6475F /* CoordinateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		8377CC461F8B6F7E007F7335 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Codesquad Inc.";
 				TargetAttributes = {
 					8377CC4D1F8B6F7E007F7335 = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					F3F2F60A21C3D14400E6475F = {
+						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -144,9 +199,20 @@
 			projectRoot = "";
 			targets = (
 				8377CC4D1F8B6F7E007F7335 /* CoordinateCalculator */,
+				F3F2F60A21C3D14400E6475F /* CoordinateTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3F2F60921C3D14400E6475F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8377CC4A1F8B6F7E007F7335 /* Sources */ = {
@@ -165,6 +231,26 @@
 				F39221B92187096D00F64B8E /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				F39221B72187094400F64B8E /* OutputView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F2F60721C3D14400E6475F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3EB496E21C7410A005EBF9B /* ANSICode.swift in Sources */,
+				F3EB496F21C7410A005EBF9B /* main.swift in Sources */,
+				F3EB497021C7410A005EBF9B /* InputView.swift in Sources */,
+				F3EB497121C7410A005EBF9B /* TextValidator.swift in Sources */,
+				F3EB497221C7410A005EBF9B /* StringProcessing.swift in Sources */,
+				F3EB497321C7410A005EBF9B /* MyShape.swift in Sources */,
+				F3EB497421C7410A005EBF9B /* Mypoint.swift in Sources */,
+				F3EB497521C7410A005EBF9B /* MyLine.swift in Sources */,
+				F3EB497621C7410A005EBF9B /* MyTriangle.swift in Sources */,
+				F3EB497721C7410A005EBF9B /* MyRect.swift in Sources */,
+				F3EB497821C7410A005EBF9B /* RectValidator.swift in Sources */,
+				F3EB497921C7410A005EBF9B /* OutputView.swift in Sources */,
+				F3F2F60E21C3D14400E6475F /* CoordinateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +381,47 @@
 			};
 			name = Release;
 		};
+		F3F2F61021C3D14500E6475F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CoordinateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "elena-kr.CoordinateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		F3F2F61121C3D14500E6475F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CoordinateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "elena-kr.CoordinateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -312,6 +439,15 @@
 			buildConfigurations = (
 				8377CC561F8B6F7E007F7335 /* Debug */,
 				8377CC571F8B6F7E007F7335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3F2F61221C3D15500E6475F /* Build configuration list for PBXNativeTarget "CoordinateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3F2F61021C3D14500E6475F /* Debug */,
+				F3F2F61121C3D14500E6475F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
