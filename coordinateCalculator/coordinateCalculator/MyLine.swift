@@ -12,9 +12,9 @@ struct MyLine: Figure, calculation {
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
     
-    init(point: [Int]) {
-        self.pointA = MyPoint(x: point[0], y: point[1])
-        self.pointB = MyPoint(x: point[2], y: point[3])
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
     }
     
     var point: [MyPoint] {
