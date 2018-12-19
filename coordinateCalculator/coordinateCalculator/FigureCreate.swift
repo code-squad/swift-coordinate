@@ -24,7 +24,9 @@ struct FigureCreate {
         
         switch num.count {
         case 4:
-            return MyLine(point: num)
+            return MyLine(pointA: MyPoint(x: num[0], y: num[1]), pointB: MyPoint(x: num[2], y: num[3]))
+        case 6:
+            return MyTriangle(pointA: MyPoint(x: num[0], y: num[1]), pointB: MyPoint(x: num[2], y: num[3]), pointC: MyPoint(x: num[4], y: num[5]))
         default:
             return MyPoint(x: num[0], y: num[1])
         }
