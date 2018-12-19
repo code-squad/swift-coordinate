@@ -15,6 +15,7 @@ struct InputView {
               좌표를 입력하세요.(범위:0~24)
               1. (x,y)
               2. (x,y)-(x,y)
+              3. (x,y)-(x,y)-(x,y)
               """)
         guard let input = readLine() else{
             return ""
