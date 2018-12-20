@@ -13,7 +13,7 @@ func main() {
         let input = InputView.readInput()
         let number = FigureCreate.number(of: input)
        
-        if CheckInput.isInputable(input), CheckInput.hasParenthesis(input), CheckInput.isWhitinRange(number) == true {
+        if CheckInput.isInputable(input), CheckInput.hasParenthesis(input), CheckInput.isWhitinRange(number), CheckInput.canBecomeFigure(number) == true {
             let figure = FigureCreate.createFigure(number)
             outputView.drawFigure(figure)
         } else {
@@ -21,4 +21,5 @@ func main() {
         }
     }
 }
+
 main()
