@@ -78,12 +78,12 @@
 				3C7F97E021AD182300980C60 /* main.swift */,
 				3C7F97E721AD2CED00980C60 /* ANSICode.swift */,
 				3C7F97E921AD397100980C60 /* InputView.swift */,
+				3CDB814021BCF7C80003C42E /* Procol.swift */,
 				3CDB813A21B55BA80003C42E /* CheckInput.swift */,
 				3CE35D3421C3CAF600DA3B60 /* FigureCreate.swift */,
 				3C7F97EB21AFB75B00980C60 /* MyPoint.swift */,
 				3CDB813C21B65DC00003C42E /* MyLine.swift */,
 				3CC06C0421CA0EA30056F462 /* MyTriangle.swift */,
-				3CDB814021BCF7C80003C42E /* Procol.swift */,
 				3C7F97ED21AFC77F00980C60 /* OutputView.swift */,
 			);
 			path = coordinateCalculator;
