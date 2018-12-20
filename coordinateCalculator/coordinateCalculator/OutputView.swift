@@ -12,13 +12,20 @@ struct outputView {
     //MyPoint 출력
     static func drawFigure(_ myPoint: Figure) {
         clear()
+        printAxis()
         for points in myPoint.point {
             drawPoint(points)
         }
-        printAxis()
+        moveCursor()
+        
         //calculation을 채택하고 있는지 확인하고 출력
         guard let calculate: calculation = myPoint as? calculation else { return }
         printCalculation(calculate)
+    }
+    
+    //커서 옮기기
+    static func moveCursor() {
+        print("\(ANSICode.cursor.move(row: 27, col: 1))\(ANSICode.text.whiteBright)")
     }
 
     //calculation을 좌표 하단에 출력
