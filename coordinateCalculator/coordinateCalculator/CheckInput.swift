@@ -35,4 +35,9 @@ struct CheckInput {
         }
         return true
     }
+    
+    //사용자의 입력값의 개수 확인하기
+    static func canBecomeFigure(_ inputNum: [Int?]) -> Bool {
+        return inputNum.count >= 2
+    }
 }
