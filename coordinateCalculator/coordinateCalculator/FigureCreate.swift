@@ -17,7 +17,7 @@ struct FigureCreate {
     }
     
     //figure에 값넣기
-    static func createFigure(_ userInput: [Int?]) -> Figure {
+    static func createFigure(_ userInput: [Int?]) -> Figure? {
         let num = userInput.map({ (v: Int?) -> (Int) in
             return v ?? 0
         })
@@ -29,6 +29,12 @@ struct FigureCreate {
             return MyLine(pointA: MyPoint(x: num[0], y: num[1]), pointB: MyPoint(x: num[2], y: num[3]))
         case 6:
             return MyTriangle(pointA: MyPoint(x: num[0], y: num[1]), pointB: MyPoint(x: num[2], y: num[3]), pointC: MyPoint(x: num[4], y: num[5]))
+        case 8:
+            guard CheckInput.ableToDrawRect(userInput) else {
+                outputView.printErrorMessage(errorMessage: .denyNum)
+                return nil
+            }
+            return MyRect(origin: MyPoint(x: num[0], y: num[1]), size: CGSize(width: num[2] - num[6], height: num[7] - num[3]))
         default:
             return MyPoint(x: 0, y: 0)            
         }
