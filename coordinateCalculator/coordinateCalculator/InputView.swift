@@ -16,6 +16,7 @@ struct InputView {
               1. (x,y)
               2. (x,y)-(x,y)
               3. (x,y)-(x,y)-(x,y)
+              4. (x,y)-(x,y)-(x,y)-(x,y)
               """)
         guard let input = readLine() else{
             return ""
