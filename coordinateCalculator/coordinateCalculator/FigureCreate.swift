@@ -36,7 +36,8 @@ struct FigureCreate {
             }
             return MyRect(origin: MyPoint(x: num[0], y: num[1]), size: CGSize(width: num[2] - num[6], height: num[7] - num[3]))
         default:
-            return MyPoint(x: 0, y: 0)            
+            outputView.printErrorMessage(errorMessage: .outOfRange)
+            return nil
         }
     }
 }
