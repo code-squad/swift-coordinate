@@ -13,6 +13,7 @@
 		3C7F97EC21AFB75B00980C60 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F97EB21AFB75B00980C60 /* MyPoint.swift */; };
 		3C7F97EE21AFC77F00980C60 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F97ED21AFC77F00980C60 /* OutputView.swift */; };
 		3CC06C0521CA0EA30056F462 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC06C0421CA0EA30056F462 /* MyTriangle.swift */; };
+		3CC06C0721CB6E690056F462 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC06C0621CB6E690056F462 /* MyRect.swift */; };
 		3CDB813B21B55BA80003C42E /* CheckInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB813A21B55BA80003C42E /* CheckInput.swift */; };
 		3CDB813D21B65DC00003C42E /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB813C21B65DC00003C42E /* MyLine.swift */; };
 		3CDB814121BCF7C80003C42E /* Procol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB814021BCF7C80003C42E /* Procol.swift */; };
@@ -39,6 +40,7 @@
 		3C7F97EB21AFB75B00980C60 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		3C7F97ED21AFC77F00980C60 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		3CC06C0421CA0EA30056F462 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		3CC06C0621CB6E690056F462 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		3CDB813A21B55BA80003C42E /* CheckInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInput.swift; sourceTree = "<group>"; };
 		3CDB813C21B65DC00003C42E /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		3CDB814021BCF7C80003C42E /* Procol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Procol.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				3C7F97EB21AFB75B00980C60 /* MyPoint.swift */,
 				3CDB813C21B65DC00003C42E /* MyLine.swift */,
 				3CC06C0421CA0EA30056F462 /* MyTriangle.swift */,
+				3CC06C0621CB6E690056F462 /* MyRect.swift */,
 				3C7F97ED21AFC77F00980C60 /* OutputView.swift */,
 			);
 			path = coordinateCalculator;
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C7F97EE21AFC77F00980C60 /* OutputView.swift in Sources */,
+				3CC06C0721CB6E690056F462 /* MyRect.swift in Sources */,
 				3C7F97EC21AFB75B00980C60 /* MyPoint.swift in Sources */,
 				3CDB813B21B55BA80003C42E /* CheckInput.swift in Sources */,
 				3C7F97EA21AD397100980C60 /* InputView.swift in Sources */,
