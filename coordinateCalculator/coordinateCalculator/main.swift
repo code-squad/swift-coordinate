@@ -14,12 +14,11 @@ struct main {
         let input = InputView.readInput()
         let number = FigureCreate.number(of: input)
         
-        if CheckInput.isInputable(input), CheckInput.hasParenthesis(input), CheckInput.isWhitinRange(number), CheckInput.canBecomeFigure(number) == true {
-            guard let figure = FigureCreate.createFigure(number) else {return}
-            outputView.drawFigure(figure)
-        } else {
-            outputView.printErrorMessage(errorMessage: .reEntered)
+        guard CheckInput.validData(input, number) == true else {
+            return outputView.printErrorMessage(errorMessage: .reEntered)
         }
+        guard let figure = FigureCreate.createFigure(number) else {return}
+        outputView.drawFigure(figure)
         run = false
     }
 }
