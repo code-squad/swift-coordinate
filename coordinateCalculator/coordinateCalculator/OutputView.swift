@@ -46,4 +46,14 @@ struct outputView {
     private static func clear() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
+    
+    //오류 메시지
+    enum ErrorMessage: String {
+        case reEntered = "입력 형식을 확인 후 다시 입력해주세요"
+        case denyNum = "직사각형 혹은 정사각형이 아닙니다. 다시입력해주세요"
+    }
+    
+    public static func printErrorMessage(errorMessage:ErrorMessage) {
+        print(errorMessage.rawValue)
+    }
 }
