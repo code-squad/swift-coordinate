@@ -7,19 +7,24 @@
 //
 
 import Foundation
-
-func main() {
-    while true {
+struct main {
+    static var run = true
+    
+    static func coordinateCalculator() {
         let input = InputView.readInput()
         let number = FigureCreate.number(of: input)
-       
+        
         if CheckInput.isInputable(input), CheckInput.hasParenthesis(input), CheckInput.isWhitinRange(number), CheckInput.canBecomeFigure(number) == true {
-            let figure = FigureCreate.createFigure(number)
+            guard let figure = FigureCreate.createFigure(number) else {return}
             outputView.drawFigure(figure)
         } else {
-            print("다시 입력해주세요")
+            outputView.printErrorMessage(errorMessage: .reEntered)
         }
+        run = false
     }
 }
 
-main()
+while(main.run) {
+    main.coordinateCalculator()
+}
+
