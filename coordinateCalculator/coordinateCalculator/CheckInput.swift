@@ -45,4 +45,10 @@ struct CheckInput {
     static func ableToDrawRect(_ inputNum: [Int?]) -> Bool {
         return inputNum[2] == inputNum[4] && inputNum[3] == inputNum[1] && inputNum[6] == inputNum[0] && inputNum[7] == inputNum[5]
     }
+    
+    static func validData(_ input: String, _ inputNum: [Int?]) -> Bool {
+        return isInputable(input) && hasParenthesis(input) && isWhitinRange(inputNum) && canBecomeFigure(inputNum)
+    }
 }
+
+
