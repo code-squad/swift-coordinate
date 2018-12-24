@@ -40,4 +40,9 @@ struct CheckInput {
     static func canBecomeFigure(_ inputNum: [Int?]) -> Bool {
         return inputNum.count >= 2
     }
+    
+    //사각형을 그릴 때 입력받은 좌표가 정사각형 or 직사각형인지 확인
+    static func ableToDrawRect(_ inputNum: [Int?]) -> Bool {
+        return inputNum[2] == inputNum[4] && inputNum[3] == inputNum[1] && inputNum[6] == inputNum[0] && inputNum[7] == inputNum[5]
+    }
 }
