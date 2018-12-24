@@ -51,6 +51,7 @@ struct outputView {
     enum ErrorMessage: String {
         case reEntered = "입력 형식을 확인 후 다시 입력해주세요"
         case denyNum = "직사각형 혹은 정사각형이 아닙니다. 다시입력해주세요"
+        case outOfRange = "입력 가능한 숫자 범위는 0~24 입니다."
     }
     
     public static func printErrorMessage(errorMessage:ErrorMessage) {
