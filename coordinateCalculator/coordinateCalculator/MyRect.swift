@@ -10,17 +10,17 @@ import Foundation
 
 struct MyRect: Figure, calculation {
     var leftTop = MyPoint(x: 0, y: 0)
-    var rightBottom = MyPoint(x: 0, y: 0)
     var size: CGSize
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
         self.size = size
-        self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
     }
     
     var point: [MyPoint] {
-        return [leftTop,MyPoint(x: rightBottom.x, y: leftTop.y),MyPoint(x: leftTop.x, y: rightBottom.y),rightBottom]
+        let rightBottomX = leftTop.x + Int(size.width)
+        let rightBottomY = leftTop.y + Int(size.height)
+        return [leftTop,MyPoint(x: rightBottomX, y: leftTop.y),MyPoint(x: leftTop.x, y: rightBottomY),MyPoint(x: rightBottomX, y: rightBottomY)]
     }
     
     func calculate() -> Double {
