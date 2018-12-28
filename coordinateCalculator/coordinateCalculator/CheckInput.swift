@@ -11,7 +11,7 @@ import Foundation
 // 사용자의 입력을 확인하여 MyPoint에 값 넘김
 struct CheckInput {
     //사용자의 입력 가능한 문자 확인
-    static func isInputable(_ input: String) -> Bool {
+    private static func isInputable(_ input: String) -> Bool {
         let customCharacterSet = CharacterSet.init(charactersIn: "(),-0123456789")
         let checkedInput = input.trimmingCharacters(in: customCharacterSet)
         guard checkedInput.isEmpty else {
@@ -21,12 +21,12 @@ struct CheckInput {
     }
     
     //사용자의 입력값에 괄호가 있는지 확인
-    static func hasParenthesis(_ input: String) -> Bool {
+    private static func hasParenthesis(_ input: String) -> Bool {
         return input.contains("(") && input.contains(")")
     }
     
     //사용자의 입력값이 허용범위인지 확인
-    static func isWhitinRange(_ inputNum: [Int?]) -> Bool {
+    private static func isWhitinRange(_ inputNum: [Int?]) -> Bool {
         for nums in inputNum {
             let numRange = nums! >= 0 && nums! <= 24
             if numRange == false {
@@ -37,7 +37,7 @@ struct CheckInput {
     }
     
     //사용자의 입력값의 개수 확인하기
-    static func canBecomeFigure(_ inputNum: [Int?]) -> Bool {
+    private static func canBecomeFigure(_ inputNum: [Int?]) -> Bool {
         return inputNum.count >= 2
     }
     
