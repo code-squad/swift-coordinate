@@ -14,10 +14,8 @@ struct main {
         let input = InputView.readInput()
         let number = FigureCreate.number(of: input)
         
-        guard CheckInput.validData(input, number) == true else {
-            return outputView.printErrorMessage(errorMessage: .reEntered)
-        }
-        guard let figure = FigureCreate.createFigure(number) else {return}
+        guard CheckInput.validData(input, number) == ErrorMessage.notErr else { return outputView.printErrorMessage(input, number)}
+        guard let figure = FigureCreate.createFigure(number) else { return }
         outputView.drawFigure(figure)
         run = false
     }
