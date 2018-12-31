@@ -30,13 +30,8 @@ struct FigureCreate {
         case 6:
             return MyTriangle(pointA: MyPoint(x: num[0], y: num[1]), pointB: MyPoint(x: num[2], y: num[3]), pointC: MyPoint(x: num[4], y: num[5]))
         case 8:
-            guard CheckInput.ableToDrawRect(userInput) else {
-                outputView.printErrorMessage(errorMessage: .denyNum)
-                return nil
-            }
             return MyRect(origin: MyPoint(x: num[0], y: num[1]), size: CGSize(width: num[2] - num[6], height: num[7] - num[3]))
         default:
-            outputView.printErrorMessage(errorMessage: .outOfRange)
             return nil
         }
     }
