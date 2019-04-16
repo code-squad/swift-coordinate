@@ -1,10 +1,15 @@
 import Foundation
 
-enum InputError: Error {
-    case invalidInput
-    case noParenthesis
-    case cannotSplitCoordinateValues
-    case coordinateValuesAreNotNumber
+extension String {
+    func count(of letter: Character) -> Int {
+        var characterCount = 0
+        for character in self {
+            if letter == character {
+                characterCount += 1
+            }
+        }
+        return characterCount
+    }
 }
 
 struct InputView {
@@ -17,15 +22,24 @@ struct InputView {
     }
     
     
-    private static func confirmCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
+    
+    
+    private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
-        guard userInput.contains(","),
-            (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
-                throw InputError.noParenthesis
+        let separator: Character = ","
+        guard (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
+            throw InputError.cannotRecognizeParentheses
+        }
+        guard userInput.count(of: separator) == 1 else {
+            throw InputError.cannotIdentifyTwoValues
+        }
+        let separatedValues = userInput.split(separator: separator).map { Int($0) }
+        
+        guard separatedValues.contains(nil) else {
+            throw InputError.cannotIdentifyNumbers
         }
         
-        
-        return (1, 1)
+        return (separatedValues[0]!, separatedValues[1]!)
     }
     
     

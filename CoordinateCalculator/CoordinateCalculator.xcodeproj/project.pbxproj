@@ -10,6 +10,7 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		F208836A226579690055D72D /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2088369226579690055D72D /* OutputView.swift */; };
+		F2318A2B226615D000D0F717 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2318A2A226615D000D0F717 /* InputError.swift */; };
 		F2DA12252265E5E5008D46AC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA12242265E5E5008D46AC /* InputView.swift */; };
 		F2DA12272265E7E2008D46AC /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA12262265E7E2008D46AC /* Coordinate.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		F2088369226579690055D72D /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		F2318A2A226615D000D0F717 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		F2DA12242265E5E5008D46AC /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		F2DA12262265E7E2008D46AC /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				F2088369226579690055D72D /* OutputView.swift */,
 				F2DA12242265E5E5008D46AC /* InputView.swift */,
+				F2318A2A226615D000D0F717 /* InputError.swift */,
 				F2DA12262265E7E2008D46AC /* Coordinate.swift */,
 			);
 			path = CoordinateCalculator;
@@ -133,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2DA12272265E7E2008D46AC /* Coordinate.swift in Sources */,
+				F2318A2B226615D000D0F717 /* InputError.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				F2DA12252265E5E5008D46AC /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
