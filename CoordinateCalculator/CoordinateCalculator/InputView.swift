@@ -2,8 +2,9 @@ import Foundation
 
 enum InputError: Error {
     case invalidInput
-    case invalidCoordinateFormat
-    case invalidCoordinate
+    case noParenthesis
+    case cannotSplitCoordinateValues
+    case coordinateValuesAreNotNumber
 }
 
 struct InputView {
@@ -15,13 +16,13 @@ struct InputView {
         return input
     }
     
+    
     private static func confirmCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
-        guard userInput.contains(",") (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
-            throw InputError.invalidCoordinateFormat
+        guard userInput.contains(","),
+            (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
+                throw InputError.noParenthesis
         }
-        
-        var coordinate = userInput.split(separator: ",").map { Int($0) }
         
         
         return (1, 1)
