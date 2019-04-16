@@ -22,8 +22,6 @@ struct InputView {
     }
     
     
-    
-    
     private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
         let separator: Character = ","
@@ -38,11 +36,13 @@ struct InputView {
         guard separatedValues.contains(nil) else {
             throw InputError.cannotIdentifyNumbers
         }
-        
         return (separatedValues[0]!, separatedValues[1]!)
     }
     
-    
+    static func readCoordinate() throws -> (x: Int, y: Int) {
+        let input = try readInput()
+        return try recognizeCoordinateFormat(input: input)
+    }
     
     
 }
