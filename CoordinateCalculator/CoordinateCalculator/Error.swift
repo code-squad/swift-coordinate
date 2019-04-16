@@ -5,4 +5,5 @@ enum InputError: Error {
     case cannotRecognizeParentheses
     case cannotIdentifyTwoValues
     case cannotIdentifyNumbers
+    case exceededAxisLimit
 }
