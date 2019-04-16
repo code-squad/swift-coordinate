@@ -1,6 +1,17 @@
 import Foundation
 
 struct Coordinate {
-    var x = 0
-    var y = 0
+    var x: Int
+    var y: Int
+    let axisLimit = 24
+    
+    init(x: Int, y: Int) throws {
+        guard (x, y) <= (axisLimit, axisLimit) else {
+            throw InputError.exceededAxisLimit
+        }
+        
+        (self.x, self.y) = (x, y)
+    }
+    
+    
 }
