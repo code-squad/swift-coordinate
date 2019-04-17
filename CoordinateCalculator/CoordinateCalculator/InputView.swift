@@ -35,7 +35,7 @@ struct InputView {
         }
         let separatedValues = userInput.split(separator: separator).map { Int($0) }
         
-        guard separatedValues.contains(nil) else {
+        if separatedValues.contains(nil) {
             throw InputError.cannotIdentifyNumbers
         }
         return (separatedValues[0]!, separatedValues[1]!)
