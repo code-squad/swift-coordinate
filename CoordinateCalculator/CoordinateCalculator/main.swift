@@ -2,12 +2,13 @@
 //  main.swift
 //  CoordinateCalculator
 //
-//  Created by JK on 09/10/2017.
-//  Copyright © 2017 Codesquad Inc. All rights reserved.
+//  Created by Joon-ho Kil on 04/17/2019.
+//  Copyright © 2019 Codesquad Inc. All rights reserved.
 //
 
 import Foundation
 
+//MARK: Struct
 struct OutputView {
     func drawAxis () {
         print("\(ANSICode.clear)\(ANSICode.home)")
@@ -15,7 +16,11 @@ struct OutputView {
     }
 }
 
-let outputView = OutputView()
-outputView.drawAxis()
+//MARK: Function
+func main () {
+    let outputView = OutputView()
+    outputView.drawAxis()
+}
 
+main()
 
