@@ -1,15 +1,18 @@
 import Foundation
 
 struct Coordinate {
-    var x: Int
-    var y: Int
     
+    //MARK: 속성
+    var row: Int
+    var column: Int
     
-    init?(x: Int, y: Int) {
-        guard (x, y) <= (ANSICode.axis.axisLimit, ANSICode.axis.axisLimit) else {
+    //MARK: 초기화 함수
+    init?(row: Int, column: Int) {
+        guard (row, column) <= (ANSICode.axis.axisLimit, ANSICode.axis.axisLimit) else {
             return nil
         }
-        (self.x, self.y) = (x, y)
+        self.row = row
+        self.column = column
     }
     
     
