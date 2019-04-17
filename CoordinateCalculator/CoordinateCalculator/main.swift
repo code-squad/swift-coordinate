@@ -5,5 +5,3 @@ func main() {
 }
 
 main()
-
-
