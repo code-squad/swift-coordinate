@@ -8,5 +8,11 @@
 
 import Foundation
 
-print("Hello, World!")
+struct OutputView {
+    
+}
+
+let outputView = OutputView()
+
+
 
