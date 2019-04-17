@@ -71,8 +71,8 @@
 				F2DA12262265E7E2008D46AC /* Coordinate.swift */,
 				F2088369226579690055D72D /* OutputView.swift */,
 				F2DA12242265E5E5008D46AC /* InputView.swift */,
-				8377CC511F8B6F7E007F7335 /* main.swift */,
 				F2318A2A226615D000D0F717 /* Error.swift */,
+				8377CC511F8B6F7E007F7335 /* main.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";

@@ -16,14 +16,15 @@ extension String {
 struct InputView {
     
     //MARK: 비공개 정적 메소드
-    private static func readInput() throws -> String {
-        guard let input = readLine(), input != "" else {
+    private static func ask(about question: String) throws -> String {
+        print(question)
+        guard let input = readLine() else {
             throw InputError.invalidInput
         }
         return input
     }
     
-    private static func recognizeCoordinateFormat(input: String) throws -> (row: Int, column: Int) {
+    private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
         let separator: Character = ","
         guard (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
@@ -41,8 +42,8 @@ struct InputView {
     }
     
     //MARK: 정적 메소드
-    static func readCoordinate() throws -> (row: Int, column: Int) {
-        let input = try readInput()
+    static func readCoordinate() throws -> (x: Int, y: Int) {
+        let input = try ask(about: "좌표를 입력하세요.")
         return try recognizeCoordinateFormat(input: input)
     }
     

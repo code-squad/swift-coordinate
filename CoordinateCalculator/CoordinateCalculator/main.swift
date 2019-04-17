@@ -1,9 +1,9 @@
 import Foundation
 
-func main() {
+func main() throws {
     OutputView.drawAxis()
-    OutputView.drawPoint(row: 5, column: 5)
-    
+    let coordinate = try InputView.readCoordinate()
+    OutputView.drawPoint(x: coordinate.x, y: coordinate.y)
 }
 
-main()
+try main()
