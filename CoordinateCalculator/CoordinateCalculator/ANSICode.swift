@@ -66,15 +66,15 @@ public struct ANSICode {
     }
     
     struct axis {
-        static let AxisLimit = 24
+        static let axisLimit = 24
         private static func drawX() -> String {
             var result = ""
-            for xLoop in 1...AxisLimit {
-                    result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
+            for xLoop in 1...axisLimit {
+                    result += cursor.move(row: axisLimit+1, col: xLoop*2+2)
                     result += "━━"
             }
-            for xLoop in 1...(AxisLimit/2) {
-                result += cursor.move(row: AxisLimit+2, col: xLoop*4+1)
+            for xLoop in 1...(axisLimit/2) {
+                result += cursor.move(row: axisLimit+2, col: xLoop*4+1)
                 result += String.init(format: "%3d", xLoop*2)
             }
             return result
@@ -82,18 +82,18 @@ public struct ANSICode {
 
         private static func drawY() -> String {
             var result = ""
-            for yLoop in 1...AxisLimit {
+            for yLoop in 1...axisLimit {
                 result += cursor.move(row: yLoop, col: 1)
                 if yLoop % 2 == 1 {
-                    result += String.init(format: "%2d|", AxisLimit-yLoop+1)
+                    result += String.init(format: "%2d|", axisLimit-yLoop+1)
                 }
                 else {
                     result += "  |"
                 }
             }
-            result += cursor.move(row: AxisLimit+1, col: 3)
+            result += cursor.move(row: axisLimit+1, col: 3)
             result += "+"
-            result += cursor.move(row: AxisLimit+2, col: 2)
+            result += cursor.move(row: axisLimit+2, col: 2)
             result += "0"
             return result
         }

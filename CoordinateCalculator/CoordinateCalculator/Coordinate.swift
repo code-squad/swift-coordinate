@@ -3,13 +3,12 @@ import Foundation
 struct Coordinate {
     var x: Int
     var y: Int
-    let axisLimit = 24
     
-    init(x: Int, y: Int) throws {
-        guard (x, y) <= (axisLimit, axisLimit) else {
-            throw InputError.exceededAxisLimit
+    
+    init?(x: Int, y: Int) {
+        guard (x, y) <= (ANSICode.axis.axisLimit, ANSICode.axis.axisLimit) else {
+            return nil
         }
-        
         (self.x, self.y) = (x, y)
     }
     
