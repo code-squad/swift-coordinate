@@ -2,7 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Build generated
+## Directories to ignore (do not add trailing '/'s, they skip symlinks)
+.DS_Store
+
+## Build
 build/
 DerivedData/
 
@@ -36,7 +39,7 @@ playground.xcworkspace
 #
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
-# Package.pins
+# Package.pis
 .build/
 
 # CocoaPods
