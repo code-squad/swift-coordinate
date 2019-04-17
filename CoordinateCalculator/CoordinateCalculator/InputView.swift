@@ -23,7 +23,7 @@ struct InputView {
         return input
     }
     
-    private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
+    private static func recognizeCoordinateFormat(input: String) throws -> (row: Int, column: Int) {
         var userInput = input
         let separator: Character = ","
         guard (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
@@ -41,7 +41,7 @@ struct InputView {
     }
     
     //MARK: 정적 메소드
-    static func readCoordinate() throws -> (x: Int, y: Int) {
+    static func readCoordinate() throws -> (row: Int, column: Int) {
         let input = try readInput()
         return try recognizeCoordinateFormat(input: input)
     }
