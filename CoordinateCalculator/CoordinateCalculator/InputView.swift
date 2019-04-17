@@ -17,7 +17,7 @@ struct InputView {
     
     //MARK: 비공개 정적 메소드
     private static func ask(about question: String) throws -> String {
-        print(question)
+        print(ANSICode.text.yellow + question)
         guard let input = readLine() else {
             throw InputError.invalidInput
         }
@@ -26,10 +26,13 @@ struct InputView {
     
     private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
-        let separator: Character = ","
+        guard input.count >= 2 else {
+            throw InputError.notEnoughCharacters
+        }
         guard (userInput.removeFirst(), userInput.removeLast()) == ("(", ")") else {
             throw InputError.cannotRecognizeParentheses
         }
+        let separator: Character = ","
         guard userInput.count(of: separator) == 1 else {
             throw InputError.cannotIdentifyTwoValues
         }
