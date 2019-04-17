@@ -60,8 +60,8 @@ public struct ANSICode {
     }
     
     struct cursor {
-        static func move(row : Int, col : Int) -> String {
-            return "\(escape)\(row);\(col)f"
+        static func move(row : Int, column : Int) -> String {
+            return "\(escape)\(row);\(column)f"
         }
     }
     
@@ -70,11 +70,11 @@ public struct ANSICode {
         private static func drawX() -> String {
             var result = ""
             for xLoop in 1...axisLimit {
-                    result += cursor.move(row: axisLimit+1, col: xLoop*2+2)
+                    result += cursor.move(row: axisLimit+1, column: xLoop*2+2)
                     result += "━━"
             }
             for xLoop in 1...(axisLimit/2) {
-                result += cursor.move(row: axisLimit+2, col: xLoop*4+1)
+                result += cursor.move(row: axisLimit+2, column: xLoop*4+1)
                 result += String.init(format: "%3d", xLoop*2)
             }
             return result
@@ -83,7 +83,7 @@ public struct ANSICode {
         private static func drawY() -> String {
             var result = ""
             for yLoop in 1...axisLimit {
-                result += cursor.move(row: yLoop, col: 1)
+                result += cursor.move(row: yLoop, column: 1)
                 if yLoop % 2 == 1 {
                     result += String.init(format: "%2d|", axisLimit-yLoop+1)
                 }
@@ -91,9 +91,9 @@ public struct ANSICode {
                     result += "  |"
                 }
             }
-            result += cursor.move(row: axisLimit+1, col: 3)
+            result += cursor.move(row: axisLimit+1, column: 3)
             result += "+"
-            result += cursor.move(row: axisLimit+2, col: 2)
+            result += cursor.move(row: axisLimit+2, column: 2)
             result += "0"
             return result
         }
@@ -109,7 +109,7 @@ public struct ANSICode {
             var result = ""
             for yLoop in origin.y...(origin.y+size.height) {
                 for xLoop in origin.x...(origin.x+size.width) {
-                    result += cursor.move(row: yLoop, col: xLoop)
+                    result += cursor.move(row: yLoop, column: xLoop)
                     switch (xLoop,yLoop) {
                     case (origin.x, origin.y):
                         result += "┏"

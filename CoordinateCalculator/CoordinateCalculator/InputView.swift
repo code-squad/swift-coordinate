@@ -1,10 +1,11 @@
 import Foundation
 
 extension String {
-    func count(of letter: Character) -> Int {
+    /// String이 Character를 몇개 가지고 있는지 확인합니다.
+    func count(of selectedCharacter: Character) -> Int {
         var characterCount = 0
         for character in self {
-            if letter == character {
+            if selectedCharacter == character {
                 characterCount += 1
             }
         }
@@ -14,13 +15,13 @@ extension String {
 
 struct InputView {
     
+    //MARK: 비공개 정적 메소드
     private static func readInput() throws -> String {
         guard let input = readLine(), input != "" else {
             throw InputError.invalidInput
         }
         return input
     }
-    
     
     private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
@@ -39,6 +40,7 @@ struct InputView {
         return (separatedValues[0]!, separatedValues[1]!)
     }
     
+    //MARK: 정적 메소드
     static func readCoordinate() throws -> (x: Int, y: Int) {
         let input = try readInput()
         return try recognizeCoordinateFormat(input: input)
