@@ -12,6 +12,6 @@ struct OutputView {
     static func drawAxis() {
         let quadrantOne = ANSICode.axis.draw()
         print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.text.yellowBright)\(quadrantOne)")
+        print("\(ANSICode.text.yellow)\(quadrantOne)")
     }
 }
