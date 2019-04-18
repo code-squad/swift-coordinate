@@ -91,7 +91,11 @@ struct MyPoint {
 //MARK: Function
 func main () {
     let outputView = OutputView()
+    
+    var inputView = InputView()
+    inputView = inputRoop(inputView)
     outputView.drawAxis()
+    outputView.drawPoint(inputView.point)
 }
 
 main()
