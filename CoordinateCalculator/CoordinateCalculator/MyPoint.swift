@@ -14,22 +14,37 @@ struct MyPoint {
 
     mutating func inputToCoordinate (_ inputView: InputView) throws {
         var value = inputView.valueEntered
-        if value.removeFirst() != "(" || value.removeLast() != ")" {
-            throw InputError.inputNonStandard
+        do {
+        value = try verifyInputStandard(value)
+        (x, y) = try verifyCoordinateStandard(value)
         }
-        var coordinate = value.split(separator: ",")
+    }
+    
+    private func verifyInputStandard (_ valueEntered: String) throws -> String {
+        var value = valueEntered
+        
+        if value.removeFirst() != "(" || value.removeLast() != ")" {
+            throw InputError.NonInputStandard
+        }
+        
+        return value
+    }
+    
+    private func verifyCoordinateStandard (_ valueEntered: String) throws -> (Int, Int) {
+        var coordinate = valueEntered.split(separator: ",")
+        
         if coordinate.count != 2 {
-            throw InputError.inputNonStandard
+            throw InputError.NonCoordinateStandard
         }
         
         guard let pointX = Int(coordinate[0]), pointX >= 0 && pointX <= 24 else {
-            throw InputError.coordinateNonStandard
+            throw InputError.NonCoordinateStandard
         }
         guard let pointY = Int(coordinate[1]), pointY >= 0 && pointY <= 24 else {
-            throw InputError.coordinateNonStandard
+            throw InputError.NonCoordinateStandard
         }
-        x = pointX
-        y = pointY
+        
+        return (pointX, pointY)
     }
 }
 
