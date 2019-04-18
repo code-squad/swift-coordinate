@@ -61,6 +61,28 @@ struct InputView {
     }
 }
 
+func inputRoop (_ inputView: InputView) -> InputView {
+    var view = inputView
+    while true {
+        view.readInput()
+        do {
+            try view.inputToCoordinate()
+            break
+        }
+        catch InputError.inputNonStandard {
+            print("소괄호로 둘러싸인 x,y 좌표를 정확히 입력해주세요. ex: (4,16)")
+        }
+        catch InputError.coordinateNonStandard {
+            print("x,y 좌표는 0부터 24까지 입력해주세요.")
+        }
+        catch {
+            print("입력값을 확인해주세요.")
+        }
+    }
+    
+    return view
+}
+
 struct MyPoint {
     var x = 0
     var y = 0
