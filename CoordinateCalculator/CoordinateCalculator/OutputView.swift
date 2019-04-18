@@ -9,13 +9,14 @@
 import Foundation
 
 struct OutputView {
-    private static func formatScreen() {
-        print("\(ANSICode.clear)\(ANSICode.home)")
-    }
 
     static func drawAxis() {
         let quadrantOne = ANSICode.axis.draw()
         formatScreen()
         print("\(ANSICode.text.yellow)\(quadrantOne)")
+    }
+
+    private static func formatScreen() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
     }
 }
