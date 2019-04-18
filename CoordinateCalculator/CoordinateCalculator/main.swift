@@ -61,6 +61,12 @@ struct InputView {
     }
 }
 
+struct MyPoint {
+    var x = 0
+    var y = 0
+}
+
+//MARK: Function
 func inputRoop (_ inputView: InputView) -> InputView {
     var view = inputView
     while true {
@@ -83,12 +89,6 @@ func inputRoop (_ inputView: InputView) -> InputView {
     return view
 }
 
-struct MyPoint {
-    var x = 0
-    var y = 0
-}
-
-//MARK: Function
 func main () {
     let outputView = OutputView()
     
