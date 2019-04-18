@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33F917D422685A7500DE6E93 /* OutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D322685A7500DE6E93 /* OutView.swift */; };
+		33F917D622685A8C00DE6E93 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D522685A8C00DE6E93 /* InputView.swift */; };
+		33F917D822685B2F00DE6E93 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D722685B2F00DE6E93 /* InputError.swift */; };
+		33F917DA22685B4500DE6E93 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D922685B4500DE6E93 /* MyPoint.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +28,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		33F917D322685A7500DE6E93 /* OutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutView.swift; sourceTree = "<group>"; };
+		33F917D522685A8C00DE6E93 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		33F917D722685B2F00DE6E93 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
+		33F917D922685B4500DE6E93 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -61,6 +69,10 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				33F917D322685A7500DE6E93 /* OutView.swift */,
+				33F917D522685A8C00DE6E93 /* InputView.swift */,
+				33F917D722685B2F00DE6E93 /* InputError.swift */,
+				33F917D922685B4500DE6E93 /* MyPoint.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -124,6 +136,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				33F917D622685A8C00DE6E93 /* InputView.swift in Sources */,
+				33F917DA22685B4500DE6E93 /* MyPoint.swift in Sources */,
+				33F917D422685A7500DE6E93 /* OutView.swift in Sources */,
+				33F917D822685B2F00DE6E93 /* InputError.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
