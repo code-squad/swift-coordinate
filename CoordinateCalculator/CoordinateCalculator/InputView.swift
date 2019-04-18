@@ -15,16 +15,21 @@ extension String {
 
 struct InputView {
     
-    //MARK: 비공개 정적 메소드
-    private static func ask(about question: String) throws -> String {
+    //MARK: 속성
+    private var currentLine = 26
+    
+    //MARK: 비공개 메소드
+    mutating private func ask(about question: String) throws -> String {
+        print(ANSICode.cursor.move(row: currentLine, column: 1))
         print(ANSICode.text.yellow + question)
         guard let input = readLine() else {
             throw InputError.invalidInput
         }
+        nextLine()
         return input
     }
     
-    private static func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
+    private func recognizeCoordinateFormat(input: String) throws -> (x: Int, y: Int) {
         var userInput = input
         guard input.count >= 2 else {
             throw InputError.notEnoughCharacters
@@ -44,10 +49,8 @@ struct InputView {
         return (separatedValues[0]!, separatedValues[1]!)
     }
     
-    
-    
-    //MARK: 정적 메소드
-    static func readCoordinate() throws -> Coordinate {
+    //MARK: 메소드
+    mutating func readCoordinate() throws -> Coordinate {
         let input = try ask(about: "좌표를 입력하세요.")
         let coordinateValue = try recognizeCoordinateFormat(input: input)
         guard let coordinate = Coordinate(x: coordinateValue.x, y: coordinateValue.y) else {
@@ -55,6 +58,12 @@ struct InputView {
         }
         return coordinate
     }
+    
+    mutating func nextLine() {
+        currentLine += 1
+    }
+    
+    
     
     
 }
