@@ -8,7 +8,11 @@ struct Coordinate {
     
     //MARK: 초기화 함수
     init?(x: Int, y: Int) {
-        guard (x, y) <= (ANSICode.axis.axisLimit, ANSICode.axis.axisLimit) else {
+        guard
+            x <= ANSICode.axis.axisLimit,
+            y <= ANSICode.axis.axisLimit,
+            x >= 0,
+            y >= 0 else {
             return nil
         }
         self.x = x
