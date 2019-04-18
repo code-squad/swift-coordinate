@@ -32,8 +32,8 @@ struct OutputView {
 }
 
 struct InputView {
-    var point = MyPoint()
-    var valueEntered: String = ""
+    private(set) var point = MyPoint()
+    private var valueEntered: String = ""
     
     mutating func readInput () {
         print("좌표를 입력하세요.")
