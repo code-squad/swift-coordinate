@@ -28,6 +28,11 @@ struct OutputView {
     }
 }
 
+struct MyPoint {
+    var x = 0
+    var y = 0
+}
+
 //MARK: Function
 func main () {
     let outputView = OutputView()
