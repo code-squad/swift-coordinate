@@ -17,7 +17,7 @@ func main () {
     while true {
         inputView.readInput()
         do {
-            try pointCoordinate.inputToCoordinate(inputView)
+            pointCoordinate = try Converter.inputToPointCoordinate(inputView.valueEntered)
             break
         }
         catch InputError.NonInputStandard {
