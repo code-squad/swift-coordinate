@@ -44,10 +44,16 @@ struct InputView {
         return (separatedValues[0]!, separatedValues[1]!)
     }
     
+    
+    
     //MARK: 정적 메소드
-    static func readCoordinate() throws -> (x: Int, y: Int) {
+    static func readCoordinate() throws -> Coordinate {
         let input = try ask(about: "좌표를 입력하세요.")
-        return try recognizeCoordinateFormat(input: input)
+        let coordinateValue = try recognizeCoordinateFormat(input: input)
+        guard let coordinate = Coordinate(x: coordinateValue.x, y: coordinateValue.y) else {
+            throw InputError.exceededAxisLimit
+        }
+        return coordinate
     }
     
     
