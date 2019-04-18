@@ -31,6 +31,36 @@ struct OutputView {
     }
 }
 
+struct InputView {
+    var point = MyPoint()
+    var valueEntered: String = ""
+    
+    mutating func readInput () {
+        print("좌표를 입력하세요.")
+        valueEntered = readLine() ?? "0"
+    }
+    
+    mutating func inputToCoordinate () throws {
+        var value = valueEntered
+        if value.removeFirst() != "(" || value.removeLast() != ")" {
+            throw InputError.inputNonStandard
+        }
+        var coordinate = value.split(separator: ",")
+        if coordinate.count != 2 {
+            throw InputError.inputNonStandard
+        }
+        
+        guard let pointX = Int(coordinate[0]), pointX >= 0 && pointX <= 24 else {
+            throw InputError.coordinateNonStandard
+        }
+        guard let pointY = Int(coordinate[1]), pointY >= 0 && pointY <= 24 else {
+            throw InputError.coordinateNonStandard
+        }
+        point.x = pointX
+        point.y = pointY
+    }
+}
+
 struct MyPoint {
     var x = 0
     var y = 0
