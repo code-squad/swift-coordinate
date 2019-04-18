@@ -14,7 +14,7 @@ func main () {
     
     var inputView = InputView()
     var pointCoordinate = MyPoint()
-    pointCoordinate = inputView.inputRoop(pointCoordinate)
+    pointCoordinate = inputView.inputLoop(pointCoordinate)
     outputView.drawAxis()
     outputView.drawPoint(pointCoordinate)
 }

@@ -16,7 +16,7 @@ struct InputView {
         valueEntered = readLine() ?? "0"
     }
     
-    mutating func inputRoop (_ mypoint: MyPoint) -> MyPoint {
+    mutating func inputLoop (_ mypoint: MyPoint) -> MyPoint {
         var point = mypoint
         while true {
             readInput()
