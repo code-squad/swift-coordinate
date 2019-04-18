@@ -3,8 +3,8 @@ import Foundation
 struct Coordinate {
     
     //MARK: 속성
-    var x: Int
-    var y: Int
+    private(set) var x: Int
+    private(set) var y: Int
     
     //MARK: 초기화 함수
     init?(x: Int, y: Int) {
