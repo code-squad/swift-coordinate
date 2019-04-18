@@ -25,8 +25,8 @@ struct OutputView {
         print(ANSICode.text.cyanBright + ANSICode.axis.draw())
     }
     
-    static func drawPoint(x: Int, y: Int) {
-        moveCursorTo(x: x, y: y)
+    static func drawPoint(_ coordinate: Coordinate) {
+        moveCursorTo(x: coordinate.x, y: coordinate.y)
         print(ANSICode.text.redBright + "O" + ANSICode.home)
     }
     

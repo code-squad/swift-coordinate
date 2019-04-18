@@ -6,4 +6,5 @@ enum InputError: Error {
     case cannotIdentifyTwoValues
     case cannotIdentifyNumbers
     case notEnoughCharacters
+    case exceededAxisLimit
 }
