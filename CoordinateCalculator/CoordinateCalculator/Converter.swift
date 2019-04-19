@@ -9,16 +9,17 @@
 import Foundation
 
 struct Converter {
-    static func inputToPointCoordinate (_ valueEntered: String) throws -> MyPoint {
-        var point = MyPoint()
-        var value = valueEntered
+    static func inputToFigure (_ valueEntered: String) throws -> Any {
+        var figure: Any
+        let values = valueEntered.split(separator: "-")
         
-        do {
-            value = try verifyInputStandard(value)
-            point = try verifyCoordinateStandard(value)
+        switch values.count {
+        case 1: figure = try inputToPoint(values)
+        case 2: figure = try inputToLine(values)
+        default: figure = "exit"
         }
         
-        return point
+        return figure
     }
     
     static private func verifyInputStandard (_ valueEntered: String) throws -> String {
@@ -48,5 +49,36 @@ struct Converter {
         }
         
         return MyPoint(x: pointX, y: pointY)
+    }
+
+    static private func inputToPoint (_ values: [String.SubSequence]) throws -> MyPoint {
+        var valueConvertable = String(values[0])
+        var point: MyPoint
+        
+        do {
+            valueConvertable = try Converter.verifyInputStandard(valueConvertable)
+            point = try Converter.verifyCoordinateStandard(valueConvertable)
+        }
+        
+        return point
+    }
+
+    static private func inputToLine (_ values: [String.SubSequence]) throws -> MyLine {
+        var line = MyLine()
+        var points = [MyPoint]()
+        
+        for value in values {
+            var valueConvertable = String(value)
+            
+            do {
+                valueConvertable = try Converter.verifyInputStandard(valueConvertable)
+                points.append(try Converter.verifyCoordinateStandard(valueConvertable))
+            }
+        }
+        
+        line.pointA = points[0]
+        line.pointB = points[1]
+        
+        return line
     }
 }
