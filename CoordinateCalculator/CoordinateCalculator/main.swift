@@ -8,4 +8,6 @@
 
 import Foundation
 
+InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)")
+
 OutputView.drawAxis()
