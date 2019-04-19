@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33054C8A22696EBC00B94C07 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33054C8922696EBC00B94C07 /* MyLine.swift */; };
+		33054C8C2269A47D00B94C07 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33054C8B2269A47D00B94C07 /* Figure.swift */; };
 		33F917D422685A7500DE6E93 /* OutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D322685A7500DE6E93 /* OutView.swift */; };
 		33F917D622685A8C00DE6E93 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D522685A8C00DE6E93 /* InputView.swift */; };
 		33F917D822685B2F00DE6E93 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D722685B2F00DE6E93 /* InputError.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		33054C8922696EBC00B94C07 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		33054C8B2269A47D00B94C07 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		33F917D322685A7500DE6E93 /* OutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutView.swift; sourceTree = "<group>"; };
 		33F917D522685A8C00DE6E93 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		33F917D722685B2F00DE6E93 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				33F917D922685B4500DE6E93 /* MyPoint.swift */,
 				33F917DD226873EE00DE6E93 /* Converter.swift */,
 				33054C8922696EBC00B94C07 /* MyLine.swift */,
+				33054C8B2269A47D00B94C07 /* Figure.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				33F917DA22685B4500DE6E93 /* MyPoint.swift in Sources */,
 				33F917DE226873EE00DE6E93 /* Converter.swift in Sources */,
 				33F917D422685A7500DE6E93 /* OutView.swift in Sources */,
+				33054C8C2269A47D00B94C07 /* Figure.swift in Sources */,
 				33054C8A22696EBC00B94C07 /* MyLine.swift in Sources */,
 				33F917D822685B2F00DE6E93 /* InputError.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,

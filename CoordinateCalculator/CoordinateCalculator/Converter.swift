@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Converter {
-    static func inputToFigure (_ valueEntered: String) throws -> Any {
-        var figure: Any
+struct Converter: Figure {
+    static func inputToFigure (_ valueEntered: String) throws -> Figure {
+        var figure: Figure
         let values = valueEntered.split(separator: "-")
         
         switch values.count {
         case 1: figure = try inputToPoint(values)
         case 2: figure = try inputToLine(values)
-        default: figure = "exit"
+        default: figure = try inputToLine(values)
         }
         
         return figure
