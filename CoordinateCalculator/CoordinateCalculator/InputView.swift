@@ -10,7 +10,12 @@ import Foundation
 
 struct InputView {
     
-    static func readInput() {
+    static func readInput(of question: String) {
+        ask(question)
         
+    }
+    
+    static private func ask(_ question: String) {
+        print(question)
     }
 }
