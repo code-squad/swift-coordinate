@@ -7,12 +7,9 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 
 enum ErrorMessage : Error{
     case noValueError
     case typeMissError
     case outOfRangeError
 }
-=======
->>>>>>> Modify : 코드를 원래대로 되돌림

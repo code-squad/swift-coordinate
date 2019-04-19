@@ -7,7 +7,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 
 struct InputView{
     func readInput() -> String?{
@@ -16,5 +15,3 @@ struct InputView{
         return inputLocation
     }
 }
-=======
->>>>>>> Modify : 코드를 원래대로 되돌림
