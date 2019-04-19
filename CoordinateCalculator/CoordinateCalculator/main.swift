@@ -8,6 +8,16 @@
 
 import Foundation
 
-InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)")
+while true {
+    
+    guard let result = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)") else {
+        continue
+    }
+    
+    print(result)
+    OutputView.drawAxis()
+    
+    break
+}
 
-OutputView.drawAxis()
+
