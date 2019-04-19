@@ -30,12 +30,8 @@ func main () {
     
     outputView.drawAxis()
     
-    if figure is MyPoint {
-        outputView.drawPoint(figure as! MyPoint)
-    } else if figure is MyLine {
-        outputView.drawLine(figure as! MyLine)
-    }
-    
+    if figure is MyPoint { outputView.drawPoint(figure as! MyPoint) }
+    else if figure is MyLine { outputView.drawLine(figure as! MyLine) }
 }
 
 main()
