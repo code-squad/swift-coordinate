@@ -12,7 +12,7 @@ import Foundation
 func main () {
     let outputView = OutputView()
     var inputView = InputView()
-    var pointCoordinate = MyPoint()
+    var pointCoordinate: MyPoint!
     
     while true {
         inputView.readInput()
