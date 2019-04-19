@@ -67,8 +67,8 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
-				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABC922699E6200596E60 /* InputView.swift */,
+				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABCB22699F0400596E60 /* MyPoint.swift */,
 			);
 			path = CoordinateCalculator;
