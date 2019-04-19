@@ -18,23 +18,48 @@ struct InputView {
             return
         }
         
-        separateCoordinate(of: prompt)
-       
+        guard let coordinates = separateCoordinates(of: prompt) else {
+            return
+        }
+
+        checkCoordinatesLimit(coordinates.x, coordinates.y)
     }
     
     static private func ask(_ question: String) {
+        
         print(question)
     }
     
-    static private func separateCoordinate(of prompt: String) {
+    static private func separateCoordinates(of prompt: String) -> (x: Int, y: Int)? {
         
         let input = prompt.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
         let coordinates = input.components(separatedBy: ",")
         
-        let x = coordinates[0]
-        let y = coordinates[1]
+        guard let x = convertToInt(of: coordinates[0]),
+            let y = convertToInt(of: coordinates[1]) else {
+                return nil
+        }
         
-        print("x: \(x) y: \(y)")
+        return (x, y)
+    }
+    
+    static private func convertToInt(of input: String) -> Int? {
         
+        guard Int(input) != nil else {
+            print("숫자만 입력해주세요.")
+            return nil
+        }
+        
+        let coordinate = Int(input)
+        
+        return coordinate
+    }
+    
+    static private func checkCoordinatesLimit(_ x: Int, _ y: Int) {
+        
+        guard x < 25, y < 25 else {
+            print("x, y 값은 최대 24까지 입력할 수 있습니다.")
+            return
+        }
     }
 }
