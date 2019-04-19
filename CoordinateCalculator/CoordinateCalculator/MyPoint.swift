@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint {
-    var x = 0
-    var y = 0
+    private(set) var x = 0
+    private(set) var y = 0
     
     init(x: Int, y:Int){
         self.x = x
@@ -19,22 +19,20 @@ struct MyPoint {
 }
 
 struct Distinct {
-    private var inputLocation : String? = nil
-    
-    func distinctLocation(locationText : String?) throws -> MyPoint {
-        guard let locationInput : String = locationText else{ throw ErrorMessage.noValueError }
+    func location(locationText : String?) throws -> MyPoint {
+        guard let locationInput : String = locationText, locationInput != "" else{ throw ErrorMessage.noValueError }
         if locationInput[locationInput.index(before: locationInput.endIndex)] != ")" || locationInput[locationInput.startIndex] != "(" { throw ErrorMessage.nonbracket }
         else {
             var beforeRefineLocation = locationInput
             beforeRefineLocation.removeFirst()
             beforeRefineLocation.removeLast()
             let locations = beforeRefineLocation.split(separator: ",")
-            let myPoint = try distinctRangeAndValue(locations: locations)
+            let myPoint = try rangeAndValue(locations: locations)
             return myPoint
         }
     }
     
-    func distinctRangeAndValue(locations : [String.SubSequence]) throws -> MyPoint {
+    func rangeAndValue(locations : [String.SubSequence]) throws -> MyPoint {
         if locations.count != 2 { throw ErrorMessage.outOfRangeError}
         else {
             guard let inputX = Int(locations[0]) else {
@@ -43,12 +41,17 @@ struct Distinct {
             guard let inputY = Int(locations[1]) else {
                 throw ErrorMessage.typeMissError
             }
-            if inputX <= 0 || inputY <= 0 || inputX > 25 || inputY > 25{
-                throw ErrorMessage.outOfRangeError
-            } else {
-                let myPoint = MyPoint.init(x: inputX, y: inputY)
-                return myPoint
-            }
+            let myPoint = try numberRange(inputX: inputX, inputY: inputY)
+            return myPoint
+        }
+    }
+    
+    func numberRange(inputX : Int, inputY : Int) throws -> MyPoint {
+        if inputX <= 0 || inputY <= 0 || inputX > 25 || inputY > 25{
+            throw ErrorMessage.outOfRangeError
+        } else {
+            let myPoint = MyPoint.init(x: inputX, y: inputY)
+            return myPoint
         }
     }
 }

@@ -13,7 +13,7 @@ func main(){
     let distinct = Distinct()
     let input = InputView().readInput()
     do{
-        myPoint = try distinct.distinctLocation(locationText: input)
+        myPoint = try distinct.location(locationText: input)
         OutputView().drawAxis(myPoint: myPoint)
     }catch ErrorMessage.noValueError {
         print("올바른 값을 입력하세요")
