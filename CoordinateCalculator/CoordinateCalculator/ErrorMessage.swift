@@ -12,4 +12,5 @@ enum ErrorMessage : Error{
     case noValueError
     case typeMissError
     case outOfRangeError
+    case nonbracket
 }
