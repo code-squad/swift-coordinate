@@ -17,10 +17,15 @@ struct OutputView {
         var result = ANSICode.cursor.move(row: translatedPoint.y, col: translatedPoint.x)
         result += ANSICode.text.redBright
         result += "µ"
+        result += restoreCursor()
         print(result)
     }
     
-
+    private func restoreCursor() -> String {
+        let restoredCursor = ANSICode.cursor.move(row: 26, col: 26)
+        return restoredCursor
+    }
+    
     private func translatePointPosition(of point: MyPoint) -> MyPoint {
         let translatedX = point.x * 2 + 3
         let translatedY = 25 - point.y
