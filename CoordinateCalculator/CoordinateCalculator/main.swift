@@ -12,12 +12,12 @@ import Foundation
 func main () {
     let outputView = OutputView()
     var inputView = InputView()
-    var pointCoordinate: MyPoint!
+    var figure: Any!
     
     while true {
         inputView.readInput()
         do {
-            pointCoordinate = try Converter.inputToPointCoordinate(inputView.valueEntered)
+            figure = try Converter.inputToFigure(inputView.valueEntered)
             break
         }
         catch let error as InputError {
@@ -29,7 +29,13 @@ func main () {
     }
     
     outputView.drawAxis()
-    outputView.drawPoint(pointCoordinate)
+    
+    if figure is MyPoint {
+        outputView.drawPoint(figure as! MyPoint)
+    } else if figure is MyLine {
+        outputView.drawLine(figure as! MyLine)
+    }
+    
 }
 
 main()
