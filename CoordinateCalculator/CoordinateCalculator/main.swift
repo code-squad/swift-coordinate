@@ -12,7 +12,7 @@ import Foundation
 func main () {
     let outputView = OutputView()
     var inputView = InputView()
-    var figure: Any!
+    var figure: Figure!
     
     while true {
         inputView.readInput()
