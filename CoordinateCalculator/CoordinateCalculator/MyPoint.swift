@@ -7,7 +7,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 
 struct MyPoint {
     var x = 0
@@ -38,5 +37,3 @@ struct MyPoint {
         }
     }
 }
-=======
->>>>>>> Modify : 코드를 원래대로 되돌림
