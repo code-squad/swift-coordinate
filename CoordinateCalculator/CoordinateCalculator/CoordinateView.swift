@@ -29,9 +29,6 @@ struct CoordinateView {
         print(ANSICode.text.redBright + "●")
     }
     
-    func draw(shape: Shape) {
-        
-    }
     
     
 }

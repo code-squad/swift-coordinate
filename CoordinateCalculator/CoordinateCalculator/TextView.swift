@@ -1,13 +1,13 @@
 import Foundation
 
-struct InputView {
+struct TextView {
     
     private var currentLine = ANSICode.CoordinateGrid.gridLimit + 3
     
     //MARK: 비공개 메소드
     mutating private func ask(about question: String) throws -> String {
         returnToCurrentLine()
-        print(ANSICode.text.yellow + question)
+        printText(ANSICode.text.yellow + question)
         guard let input = readLine() else {
             throw InputError.invalidInput
         }
