@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CoordinatePlane {
+struct CoordinateCalCulator {
     
     private var coordinateView: CoordinateView
     private var textView: TextView
