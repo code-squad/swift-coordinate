@@ -10,5 +10,7 @@ struct Point {
         self.y = y
     }
     
+    
+    
 }
 

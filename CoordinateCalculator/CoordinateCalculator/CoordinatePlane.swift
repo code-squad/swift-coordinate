@@ -10,16 +10,38 @@ import Foundation
 
 struct CoordinatePlane {
     
+    let coordinateView = CoordinateView()
+    
+    var minX = 0
+    var maxX = ANSICode.CoordinateGrid.gridLimit
+    var minY = 0
+    var maxY = ANSICode.CoordinateGrid.gridLimit
+    
     let gridLimit = ANSICode.CoordinateGrid.gridLimit
     var points = [Point]()
     var shapes = [Shape]()
     
-    func add(point: Point) {
-        
+    mutating func add(point: Point) throws {
+        points.append(point)
+        coordinateView.draw(point: point)
     }
     
-    func add(shape: Shape) {
-        
+    mutating func add(shape: Shape) {
+        shapes.append(shape)
     }
     
+    
+    
+}
+
+
+enum CoordinatePlaneError: CoordinateError {
+    case axisLimitExceeded
+    
+    func description() -> String {
+        switch self {
+        case .axisLimitExceeded:
+            return "좌표축 제한 초과함"
+        }
+    }
 }

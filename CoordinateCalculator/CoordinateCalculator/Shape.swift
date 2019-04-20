@@ -8,12 +8,10 @@
 
 import Foundation
 
-class Shape {
+protocol Shape {
     
-    let points: [Point]
+    var points: [Point] { get }
     
-    init(points: [Point]) {
-        self.points = points
-    }
+    func description() -> String
     
 }
