@@ -17,17 +17,29 @@ struct CoordinatePlane {
     var minY = 0
     var maxY = ANSICode.CoordinateGrid.gridLimit
     
-    let gridLimit = ANSICode.CoordinateGrid.gridLimit
     var points = [Point]()
     var shapes = [Shape]()
     
     mutating func add(point: Point) throws {
+        guard planeCanContain(point: point) else {
+            throw CoordinatePlaneError.axisLimitExceeded
+        }
         points.append(point)
         coordinateView.draw(point: point)
     }
     
     mutating func add(shape: Shape) {
         shapes.append(shape)
+    }
+    
+    private func planeCanContain(point: Point) -> Bool {
+        if point.x < minX ||
+            point.x > maxX ||
+            point.y < minY ||
+            point.y > maxY {
+            return false
+        }
+        return true
     }
     
     
