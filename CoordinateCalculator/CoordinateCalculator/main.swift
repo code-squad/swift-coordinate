@@ -1,7 +1,7 @@
 import Foundation
 
 func main() {
-    var coordinatePlane = CoordinatePlane()
+    var coordinatePlane = CoordinateCalCulator()
     while true {
         coordinatePlane.readCoordinatesAndAdd()
     }
