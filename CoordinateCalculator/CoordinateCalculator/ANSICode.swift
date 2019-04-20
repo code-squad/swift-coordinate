@@ -65,35 +65,35 @@ public struct ANSICode {
         }
     }
     
-    struct axis {
-        static let axisLimit = 24
+    struct CoordinateGrid {
+        static let gridLimit = 24
         private static func drawX() -> String {
             var result = ""
-            for xLoop in 1...axisLimit {
-                    result += cursor.move(row: axisLimit+1, column: xLoop*2+2)
-                    result += "━━"
+            for xLoop in 1...gridLimit {
+                result += cursor.move(row: gridLimit+1, column: xLoop*2+2)
+                result += "━━"
             }
-            for xLoop in 1...(axisLimit/2) {
-                result += cursor.move(row: axisLimit+2, column: xLoop*4+1)
+            for xLoop in 1...(gridLimit/2) {
+                result += cursor.move(row: gridLimit+2, column: xLoop*4+1)
                 result += String.init(format: "%3d", xLoop*2)
             }
             return result
         }
-
+        
         private static func drawY() -> String {
             var result = ""
-            for yLoop in 1...axisLimit {
+            for yLoop in 1...gridLimit {
                 result += cursor.move(row: yLoop, column: 1)
                 if yLoop % 2 == 1 {
-                    result += String.init(format: "%2d|", axisLimit-yLoop+1)
+                    result += String.init(format: "%2d|", gridLimit-yLoop+1)
                 }
                 else {
                     result += "  |"
                 }
             }
-            result += cursor.move(row: axisLimit+1, column: 3)
+            result += cursor.move(row: gridLimit+1, column: 3)
             result += "+"
-            result += cursor.move(row: axisLimit+2, column: 2)
+            result += cursor.move(row: gridLimit+2, column: 2)
             result += "0"
             return result
         }
@@ -102,7 +102,7 @@ public struct ANSICode {
             let result = drawX() + drawY()
             return result
         }
-}
+    }
     
     struct rect {
         static func draw(origin : (x:Int,y:Int), size : (width:Int,height:Int), isFill : Bool) -> String {
