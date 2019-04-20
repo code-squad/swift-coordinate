@@ -1,22 +1,10 @@
 import Foundation
 
-enum CoordinateViewError: CoordinateError {
-    case axisLimitExceeded
-    
-    func description() -> String {
-        switch self {
-        case .axisLimitExceeded:
-            return "좌표축 제한 초과함"
-        }
-    }
-}
-
 struct CoordinateView {
     
     init() {
         print(ANSICode.clear + ANSICode.text.cyanBright + ANSICode.CoordinateGrid.draw())
     }
-    
     
     //MARK: 비공개 메소드
     private func moveCursorTo(x: Int, y: Int) {
@@ -36,16 +24,14 @@ struct CoordinateView {
     }
     
     //MARK: 메소드
-    func draw(point: Point) throws {
-        guard point.x <= ANSICode.CoordinateGrid.gridLimit, point.y <= ANSICode.CoordinateGrid.gridLimit else {
-            throw CoordinateViewError.axisLimitExceeded
-        }
+    func draw(point: Point) {
         moveCursorTo(x: point.x, y: point.y)
         print(ANSICode.text.redBright + "●")
-        
     }
     
-    
+    func draw(shape: Shape) {
+        
+    }
     
     
 }

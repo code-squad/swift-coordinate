@@ -4,7 +4,9 @@ private func distanceBetween(start: Point, end: Point) -> Double {
     return sqrt(pow(Double(start.x - end.x), 2) + pow(Double(start.y - end.y), 2))
 }
 
-struct Line {
+struct Line: Shape {
+    
+    var points: [Point]
     
     let start: Point
     let end: Point
@@ -13,6 +15,7 @@ struct Line {
     init(start: Point, end: Point) {
         self.start = start
         self.end = end
+        points = [start, end]
         distance = distanceBetween(start: start, end: end)
     }
     
