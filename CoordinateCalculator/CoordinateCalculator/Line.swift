@@ -1,5 +1,7 @@
 import Foundation
 
+
+/// 두 점 사이의 거리를 반환합니다.
 private func distanceBetween(start: Point, end: Point) -> Double {
     return sqrt(pow(Double(start.x - end.x), 2) + pow(Double(start.y - end.y), 2))
 }

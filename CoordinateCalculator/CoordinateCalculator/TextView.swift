@@ -20,13 +20,13 @@ struct TextView {
     }
     
     //MARK: 메소드
+    /// 좌표값 문자열을 입력받아 점 배열로 반환합니다.
     mutating func readCoordinates() throws -> [Point] {
-        
         let input = try ask(about: "좌표를 입력하세요.")
         return try InputControl.points(input: input)
-        
     }
     
+    /// 현재 라인으로 커서를 이동시키고 문자열을 출력합니다.
     mutating func printText(_ text: String) {
         returnToCurrentLine()
         print(text)
