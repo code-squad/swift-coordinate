@@ -15,7 +15,7 @@
 		F282342E226B19A2000DA524 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282342D226B19A2000DA524 /* Shape.swift */; };
 		F295F49E226AC714002CAFC7 /* InputControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F295F49D226AC714002CAFC7 /* InputControl.swift */; };
 		F295F4A0226AC720002CAFC7 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = F295F49F226AC720002CAFC7 /* Line.swift */; };
-		F2DA12252265E5E5008D46AC /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA12242265E5E5008D46AC /* InputView.swift */; };
+		F2DA12252265E5E5008D46AC /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA12242265E5E5008D46AC /* TextView.swift */; };
 		F2DA12272265E7E2008D46AC /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DA12262265E7E2008D46AC /* Point.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,7 @@
 		F282342D226B19A2000DA524 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		F295F49D226AC714002CAFC7 /* InputControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControl.swift; sourceTree = "<group>"; };
 		F295F49F226AC720002CAFC7 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
-		F2DA12242265E5E5008D46AC /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		F2DA12242265E5E5008D46AC /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		F2DA12262265E7E2008D46AC /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 				F2088369226579690055D72D /* CoordinateView.swift */,
 				F282342B226B18EF000DA524 /* CoordinatePlane.swift */,
 				F282342D226B19A2000DA524 /* Shape.swift */,
-				F2DA12242265E5E5008D46AC /* InputView.swift */,
+				F2DA12242265E5E5008D46AC /* TextView.swift */,
 				F2318A2A226615D000D0F717 /* ErrorProtocol.swift */,
 				F295F49D226AC714002CAFC7 /* InputControl.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
@@ -151,7 +151,7 @@
 				F2DA12272265E7E2008D46AC /* Point.swift in Sources */,
 				F2318A2B226615D000D0F717 /* ErrorProtocol.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
-				F2DA12252265E5E5008D46AC /* InputView.swift in Sources */,
+				F2DA12252265E5E5008D46AC /* TextView.swift in Sources */,
 				F282342E226B19A2000DA524 /* Shape.swift in Sources */,
 				F295F4A0226AC720002CAFC7 /* Line.swift in Sources */,
 				F282342C226B18EF000DA524 /* CoordinatePlane.swift in Sources */,
