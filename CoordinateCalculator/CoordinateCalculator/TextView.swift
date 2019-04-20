@@ -6,7 +6,6 @@ struct TextView {
     
     //MARK: 비공개 메소드
     mutating private func ask(about question: String) throws -> String {
-        returnToCurrentLine()
         printText(ANSICode.text.yellow + question)
         guard let input = readLine() else {
             throw InputError.invalidInput
