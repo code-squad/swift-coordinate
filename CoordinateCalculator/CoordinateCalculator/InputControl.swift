@@ -1,31 +1,5 @@
 import Foundation
 
-enum InputError: CoordinateError {
-    case invalidInput
-    case cannotRecognizeParentheses
-    case cannotIdentifyTwoValues
-    case cannotIdentifyNumbers
-    case exceededAxisLimit
-    
-    func description() -> String {
-        switch self {
-        case .invalidInput:
-            return "유효하지 않은 입력"
-        case .cannotIdentifyNumbers:
-            return "숫자를 확인할 수 없음"
-        case .cannotIdentifyTwoValues:
-            return "두 개의 숫자를 확인할 수 없음"
-        case .cannotRecognizeParentheses:
-            return "괄호를 인식할 수 없음"
-        case .exceededAxisLimit:
-            return "좌표의 제한을 초과함"
-        }
-        
-    }
-    
-}
-
-
 struct InputControl {
     
     //MARK: 비공개 정적 메소드
@@ -51,6 +25,7 @@ struct InputControl {
     }
     
     //MARK: 정적 메소드
+    /// 문자열을 점 배열로 변환합니다.
     static func points(input: String) throws -> [Point] {
         let inputs = input.split(separator: "-").map { String($0) }
         var points: [Point] = []
@@ -62,10 +37,29 @@ struct InputControl {
         return points
     }
     
+}
+
+enum InputError: CoordinateError {
     
+    case invalidInput
+    case cannotRecognizeParentheses
+    case cannotIdentifyTwoValues
+    case cannotIdentifyNumbers
+    case exceededAxisLimit
     
-    
-    
-    
+    func description() -> String {
+        switch self {
+        case .invalidInput:
+            return "유효하지 않은 입력"
+        case .cannotIdentifyNumbers:
+            return "숫자를 확인할 수 없음"
+        case .cannotIdentifyTwoValues:
+            return "두 개의 숫자를 확인할 수 없음"
+        case .cannotRecognizeParentheses:
+            return "괄호를 인식할 수 없음"
+        case .exceededAxisLimit:
+            return "좌표의 제한을 초과함"
+        }
+    }
     
 }
