@@ -9,7 +9,7 @@
 import Foundation
 
 struct FigureFactory{
-    static func getFigure(_ type: FigureType?, _ values: [String.SubSequence]) throws -> Figure {
+    static func getFigure(_ type: FigureType?, _ values: [Substring]) throws -> Figure {
         switch type {
         case .point?:
             return try inputToPoint(values)
@@ -49,7 +49,7 @@ struct FigureFactory{
         return MyPoint(x: pointX, y: pointY)
     }
     
-    static private func inputToPoint (_ values: [String.SubSequence]) throws -> MyPoint {
+    static private func inputToPoint (_ values: [Substring]) throws -> MyPoint {
         var valueConvertable = String(values[0])
         var point: MyPoint
         
@@ -61,7 +61,7 @@ struct FigureFactory{
         return point
     }
     
-    static private func inputToLine (_ values: [String.SubSequence]) throws -> MyLine {
+    static private func inputToLine (_ values: [Substring]) throws -> MyLine {
         var line = MyLine()
         var points = [MyPoint]()
         
