@@ -8,11 +8,11 @@ private func distanceBetween(start: Point, end: Point) -> Double {
 
 struct Line: Shape {
     
-    var points: [Point]
+    private(set) var points: [Point]
     
-    let start: Point
-    let end: Point
-    let distance: Double
+    private let start: Point
+    private let end: Point
+    private let distance: Double
     
     init(start: Point, end: Point) {
         self.start = start
