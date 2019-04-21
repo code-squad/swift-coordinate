@@ -82,5 +82,5 @@ ex) git push origin godrm
 
 6. String, String.SubSequence, Substring 타입 차이점 정리
 > String : 일반적인 문자열 타입이다.
-> String.SubSequence : 
+> String.SubSequence : Substring 의 별명이다. typealis 로 String 타입에 선언되어있다.
 > Substring : 문자열에 소속되는 하위 문자열이다. 오래도록 값을 쓰기 위해서는 String 으로 형변환해서 저장해야한다. 왜냐하면 Substring 은 상위 문자열의 모든 Substring 을 가지고 있기 때문에 상위 문자열이 변경되거나 여러번 쓰이는 경우 메모리 손해가 발생한다.
