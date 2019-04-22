@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Converter: Figure {
+struct Converter {
     static func inputToFigure (_ valueEntered: String) throws -> Figure {
-        var figure: Figure
+        let figure: Figure
         let values = valueEntered.split(separator: "-")
         let type = FigureType(rawValue: values.count)
         

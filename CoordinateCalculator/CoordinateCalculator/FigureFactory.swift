@@ -62,7 +62,6 @@ struct FigureFactory{
     }
     
     static private func inputToLine (_ values: [Substring]) throws -> MyLine {
-        var line = MyLine()
         var points = [MyPoint]()
         
         for value in values {
@@ -74,8 +73,7 @@ struct FigureFactory{
             }
         }
         
-        line.pointA = points[0]
-        line.pointB = points[1]
+        let line = MyLine(points)
         
         return line
     }
