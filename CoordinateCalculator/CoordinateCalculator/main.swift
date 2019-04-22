@@ -12,11 +12,13 @@ func main(){
     var myLine : MyLine
     var myPoint : MyPoint
     let distinct = Distinct()
+    let input = InputView()
     while true {
-        let input = InputView().readInput()
-        if input != nil {
+        let inputText = input.readInput()
+        let containDistinct = input.distinctContain(inputLocation: inputText)
+        if inputText != nil {
             do{
-                myLine = try distinct.splitLocation(twoLocations: input)
+                myLine = try distinct.splitLocation(twoLocations: inputText)
                 OutputView().drawAxis(myLine: myLine)
             }catch ErrorMessage.noValueError {
                 print("올바른 값을 입력하세요")
