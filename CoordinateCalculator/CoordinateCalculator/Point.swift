@@ -1,8 +1,13 @@
 import Foundation
 
 struct Point: Drawable {
+    
     var description: String {
         return "점의 위치는 x: \(x), y: \(y)"
+    }
+    
+    var points: [Point] {
+        return [self]
     }
     
     
@@ -23,7 +28,7 @@ struct Point: Drawable {
     }
     
     func draw() {
-        CoordinateView.draw(point: self)
+        CoordinateView.draw(shape: self)
     }
     
 }

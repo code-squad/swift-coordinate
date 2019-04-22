@@ -22,7 +22,7 @@ struct CoordinateCalCulator {
             throw CoordinateCalculatorError.axisLimitExceeded
         }
         shapes.append(shape)
-        shape.draw()
+        CoordinateView.draw(shape: shape)
     }
     
     
@@ -50,7 +50,7 @@ struct CoordinateCalCulator {
     
 }
 
-enum CoordinateCalculatorError: CustomStringConvertible, Error {
+enum CoordinateCalculatorError: Error, CustomStringConvertible {
     
     case axisLimitExceeded
     case shapeNotSupported

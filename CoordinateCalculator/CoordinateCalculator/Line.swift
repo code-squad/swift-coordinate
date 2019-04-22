@@ -2,6 +2,10 @@ import Foundation
 
 struct Line: Drawable, CustomStringConvertible {
     
+    var points: [Point] {
+        return [start, end]
+    }
+
     var distance: Double {
         return sqrt(pow(Double(start.x - end.x), 2) + pow(Double(start.y - end.y), 2))
     }
@@ -20,17 +24,13 @@ struct Line: Drawable, CustomStringConvertible {
         return false
     }
     
-    private let start: Point
-    private let end: Point
+    let start: Point
+    let end: Point
     
     init(start: Point, end: Point) {
         self.start = start
         self.end = end
     }
     
-    func draw() {
-        CoordinateView.draw(point: start)
-        CoordinateView.draw(point: end)
-    }
     
 }
