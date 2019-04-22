@@ -10,11 +10,6 @@ import Foundation
 
 struct CoordinateCalCulator {
     
-    //MARK: Views
-    private var textView = TextView()
-    /// 표시 가능한 좌표 범위
-    private var coordinateRange = 0...ANSICode.CoordinateGrid.gridLimit
-    
     private var shapes = [Drawable]()
     
     init() {
@@ -28,8 +23,6 @@ struct CoordinateCalCulator {
         }
         shapes.append(shape)
         shape.draw()
-        //TODO: 설명 입력하기
-        textView.printText("")
     }
     
     
@@ -37,52 +30,37 @@ struct CoordinateCalCulator {
     ///
     /// - Parameter points: 도형화할 점의 배열입니다.
     /// - Returns: 점의 개수가 지원되는 도형인 경우에 도형을 반환합니다.
-    private func shaping(points: [Point]) -> Drawable? {
+    private func shaped(points: [Point]) throws -> Drawable {
         switch points.count {
+        case 1:
+            return points[0]
         case 2:
             return Line(start: points[0], end: points[1])
         default:
-            return nil
+            throw CoordinateCalculatorError.shapeNotSupported
         }
     }
     
-    /// 점과 도형을 구분하여 좌표에 추가합니다.
-    private mutating func addIdentifiedShape(points: [Point]) throws {
-        if let shape = shaping(points: points) {
+    mutating func addShape(points: [Point]) throws -> Drawable {
+            let shape = try shaped(points: points)
             try add(shape)
-        } else {
-            for point in points {
-                try add(point)
-            }
-        }
+        return shape
     }
     
-    
-    
-    /// 좌표를 읽고 도형을 구분하여 좌표에 추가합니다.
-    mutating func readCoordinatesAndAdd() {
-        do {
-            let points = try textView.readCoordinates()
-            try addIdentifiedShape(points: points)
-        } catch let error as InputError {
-            textView.printText("입력 오류: \(error.description)")
-        } catch let error as CoordinateCalculatorError {
-            textView.printText("좌표 오류: \(error.description)")
-        } catch {
-            textView.printText("예상치 못한 오류: \(error)")
-        }
-    }
     
 }
 
 enum CoordinateCalculatorError: CustomStringConvertible, Error {
     
     case axisLimitExceeded
+    case shapeNotSupported
     
     var description: String {
         switch self {
         case .axisLimitExceeded:
             return "좌표축 제한 초과함"
+        case .shapeNotSupported:
+            return "지원되지 않는 도형"
         }
     }
     
