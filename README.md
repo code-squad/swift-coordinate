@@ -1,3 +1,54 @@
+# STEP 5-1
+
+## Lesson Learned
+
+- ANSI Escape Code - ANSI Color 사용법
+
+  - [reference link1](<http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html>)
+  - [reference link2](<https://toutiao.io/posts/esgb4k/preview>)
+  - [wikipedia defninition](<https://en.wikipedia.org/wiki/ANSI_escape_code>)
+
+  - [cf. ANSI Character sets](<http://ascii-table.com/ansi-codes.php>)
+  - [추가 레퍼런스](<http://egloos.zum.com/sunyzero/v/4282610>)
+
+- `ANSI Escape code`는 **터미널의 텍스트 포맷을 제어하기 위해 만들어진 코드**를 의미한다.
+
+  - `ANSI escape code`를 지원하는 터미널이 필요
+
+  - `ANSI escape sequence`의 형태 (ex : \e[m  ; `e`는 esc, `m`은 색상 변경 명령어 라고 보면 된다. 리눅스 예제)
+
+  - **ESC [** 는 **CSI - Control Sequence Introducer** 를 의미.
+
+    - 기타 다른 방법 ( ESC N, ESC O, … )이 존재
+
+    - 마지막 레퍼런스는 linux 기준인데, osx 기준으로는 echo string이 그대로 타이핑 된다.
+
+  - 특수문자, 터미널 글자의 색상 변경 등에 쓰임
+
+  - ASCII 코드 등 ANSI Character set과는 좀 다르다. 
+
+    - 어차피 ANSI (미국 국가표준 협회)에서 제정했다는 사실은 같다.
+
+- swift 에서 esc (escape) 문자는 `\u{001B}`이다. 
+
+  - iterm 터미널에서 `swift` 치고 swift 창으로 변경되고 `print ("\u{001B}[0;33m")` 입력 후 ^D(cmd+D)로 나와보자. 
+  - iterm 터미널이 노란색으로 바뀌어있다.
+
+- ANSI Colors
+
+  - 운영체제 또는 터미널에 따라서 지원하는 색상 표기가 다르다. 
+  - 초기에는 8 colors만 지원
+    - 30-37은 foreground color, 40-47은 background color
+  - 256 color 모드도 지원 
+
+
+
+
+
+-------
+
+
+
 # 진행 방법
 
 - 좌표 계산기에 대한 요구사항을 파악한다.
