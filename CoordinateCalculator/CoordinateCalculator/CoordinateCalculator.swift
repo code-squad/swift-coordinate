@@ -11,35 +11,25 @@ import Foundation
 struct CoordinateCalCulator {
     
     //MARK: Views
-    private var coordinateView: CoordinateView
-    private var textView: TextView
+    private var textView = TextView()
     /// 표시 가능한 좌표 범위
-    private var coordinateRange: ClosedRange<Int>
+    private var coordinateRange = 0...ANSICode.CoordinateGrid.gridLimit
     
-    private var points = [Point]()
-    private var shapes = [Shape]()
+    private var shapes = [Drawable]()
     
     init() {
-        coordinateView = CoordinateView()
-        textView = TextView()
-        coordinateRange = 0...ANSICode.CoordinateGrid.gridLimit
-    }
-    
-    /// 좌표 평면에 점을 추가합니다. 표시할 수 없는 범위이면 오류를 발생시킵니다.
-    private mutating func add(_ point: Point) throws {
-        try validateRange(point: point)
-        points.append(point)
-        coordinateView.draw(point: point)
+        CoordinateView.drawCoordinatePlane()
     }
     
     /// 좌표 평면에 도형을 추가합니다. 표시할 수 없는 범위이면 오류를 발생시킵니다.
-    private mutating func add(_ shape: Shape) throws {
-        for point in shape.points {
-            try validateRange(point: point)
+    private mutating func add(_ shape: Drawable) throws {
+        guard shape.isDrawable else {
+            throw CoordinateCalculatorError.axisLimitExceeded
         }
         shapes.append(shape)
-        draw(shape: shape)
-        textView.printText(shape.description())
+        shape.draw()
+        //TODO: 설명 입력하기
+        textView.printText("")
     }
     
     
@@ -47,7 +37,7 @@ struct CoordinateCalCulator {
     ///
     /// - Parameter points: 도형화할 점의 배열입니다.
     /// - Returns: 점의 개수가 지원되는 도형인 경우에 도형을 반환합니다.
-    private func shaping(points: [Point]) -> Shape? {
+    private func shaping(points: [Point]) -> Drawable? {
         switch points.count {
         case 2:
             return Line(start: points[0], end: points[1])
@@ -67,19 +57,7 @@ struct CoordinateCalCulator {
         }
     }
     
-    /// 도형을 그립니다.
-    private func draw(shape: Shape) {
-        for point in shape.points {
-            coordinateView.draw(point: point)
-        }
-    }
     
-    /// Point가 좌표 크기 제한을 벗어나면 오류를 발생시킵니다.
-    private func validateRange(point: Point) throws {
-        guard coordinateRange.contains(point.x), coordinateRange.contains(point.y) else {
-            throw CoordinateCalculatorError.axisLimitExceeded
-        }
-    }
     
     /// 좌표를 읽고 도형을 구분하여 좌표에 추가합니다.
     mutating func readCoordinatesAndAdd() {
