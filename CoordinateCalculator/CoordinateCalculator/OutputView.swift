@@ -15,6 +15,6 @@ struct OutputView{
         print("\(ANSICode.text.whiteBright)\(ANSICode.cursor.move(row: 25-myLine.pointA.y, col: (myLine.pointA.x*2)+2))*")
         print("\(ANSICode.text.whiteBright)\(ANSICode.cursor.move(row: 25-myLine.pointB.y, col: (myLine.pointB.x*2)+2))*")
         print("\(ANSICode.cursor.move(row: 27, col: 25))")
-        myLine.calcul()
+        print("두 점사이의 거리는 \(myLine.lengthCalcul())")
     }
 }
