@@ -66,7 +66,8 @@ public struct ANSICode {
     }
     
     struct CoordinateGrid {
-        static let gridLimit = 24
+        static let gridRange = 0...24
+        static let gridLimit: Int! = gridRange.max()
         private static func drawX() -> String {
             var result = ""
             for xLoop in 1...gridLimit {

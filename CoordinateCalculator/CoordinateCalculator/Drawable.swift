@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol Shape {
+protocol Drawable {
     
-    var points: [Point] { get }
+    var isDrawable: Bool { get }
     
-    func description() -> String
+    func draw()
     
 }
