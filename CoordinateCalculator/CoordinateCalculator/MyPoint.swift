@@ -29,6 +29,19 @@ struct MyPoint {
 }
 
 struct Distinct {
+    func splitLocation(twoLocations : String?) throws -> MyLine {
+        guard let locationsInput : String = twoLocation, locationsInput != "" else{ throw ErrorMessage.noValueError }
+        var beforeRefineLocations = locationsInput
+        let dividedLocations = beforeRefineLocations.split(separator: "-")
+        if dividedLocations.count != 2 { throw ErrorMessage.outOfRangeError}
+        else {
+            let pointA = location(dividedLocation[0])
+            let pointB = location(dividedLocation[1])
+            let myLine = MyLine.init(pointA: pointA, pointB: pointB)
+            return myLine
+        }
+    }
+    
     func location(locationText : String?) throws -> MyPoint {
         guard let locationInput : String = locationText, locationInput != "" else{ throw ErrorMessage.noValueError }
         if locationInput[locationInput.index(before: locationInput.endIndex)] != ")" || locationInput[locationInput.startIndex] != "(" { throw ErrorMessage.nonbracket }
