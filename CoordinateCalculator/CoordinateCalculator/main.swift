@@ -9,12 +9,13 @@
 import Foundation
 
 func main(){
+    var myLine : MyLine
     var myPoint : MyPoint
     let distinct = Distinct()
     let input = InputView().readInput()
     do{
-        myPoint = try distinct.location(locationText: input)
-        OutputView().drawAxis(myPoint: myPoint)
+        myLine = try distinct.splitLocation(twoLocations: input)
+        OutputView().drawAxis(myLine: myLine)
     }catch ErrorMessage.noValueError {
         print("올바른 값을 입력하세요")
     }catch ErrorMessage.outOfRangeError {
