@@ -18,7 +18,6 @@ struct OutputView {
     }
     func drawLine (_ line: MyLine) {
         print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:25-line.pointA.y, col: line.pointA.x*2+3))•\(ANSICode.cursor.move(row:25-line.pointB.y, col: line.pointB.x*2+3))•\(ANSICode.cursor.move(row:26, col: 0))")
-        let length = line.calculateLength()
-        print("\(ANSICode.text.whiteBright)두 점 사이의 거리는  \(length)")
+        print("\(ANSICode.text.whiteBright)두 점 사이의 거리는  \(line.length)")
     }
 }
