@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct InputView {
+    func readInput() -> MyPoint {
+        let question = "좌표를 입력하세요."
+        print(question)
+        guard let line = readLine() else {
+            return MyPoint()
+        }
+        return parseIntoPoint(using: line)
+    }
+    
+    
+}
