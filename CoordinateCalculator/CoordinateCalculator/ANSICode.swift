@@ -8,7 +8,7 @@
 
 import Foundation
 
-//https://en.wikipedia.org/wiki/ANSI_escape_code
+
 public struct ANSICode {
     static let escape   = "\u{001B}["
     static let clear    = "\(escape)2J"
