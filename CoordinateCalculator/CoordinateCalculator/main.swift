@@ -14,12 +14,10 @@ while true {
         continue
     }
     
-    print(result)
     let myPoint = MyPoint(x: result.x, y: result.y)
     let output = OutputView(point: myPoint)
     
     output.drawAxis()
-    output.drawPoint()
     
     break
 }
