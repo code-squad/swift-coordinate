@@ -20,7 +20,7 @@ struct Validator {
             return nil
         }
         
-        let numericValue = convertToInt(of: separatedValue)
+        let numericValue = convertToNumeric(of: separatedValue)
         
         guard let coordinates = checkCoordinatesLimit(numericValue.x, numericValue.y) else {
             return nil
@@ -42,7 +42,7 @@ struct Validator {
         return coordinates
     }
     
-    static private func convertToInt(of input: [String]) -> (x: Int, y: Int) {
+    static private func convertToNumeric(of input: [String]) -> (x: Int, y: Int) {
     
         let inputNum = input.map { Int($0) ?? -1 }
         
