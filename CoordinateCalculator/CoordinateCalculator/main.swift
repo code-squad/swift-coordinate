@@ -18,7 +18,7 @@ while true {
     
     let myPoint = MyPoint(x: coordinates.x, y: coordinates.y)
     
-    OutputView.draw(point: myPoint)
+    OutputView.drawCoordinates(point: myPoint)
     
     break
 }
