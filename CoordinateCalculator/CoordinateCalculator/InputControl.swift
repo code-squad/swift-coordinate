@@ -15,13 +15,14 @@ struct InputControl {
             throw InputError.cannotIdentifyTwoValues
         }
         
-        let coordinate = coordinateValues.map { Int($0) }
+        let coordinate = try coordinateValues.map( { (value: String) -> Int in
+            guard let coordinate = Int(value) else {
+                throw InputError.cannotIdentifyNumbers
+            }
+            return coordinate
+        } )
         
-        if coordinate.contains(nil) {
-            throw InputError.cannotIdentifyNumbers
-        }
-        
-        return Point(x: coordinate[0]!, y: coordinate[1]!)
+        return Point(x: coordinate[0], y: coordinate[1])
     }
     
     //MARK: 정적 메소드
