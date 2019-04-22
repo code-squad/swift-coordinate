@@ -12,16 +12,10 @@ struct InputView {
     
     static func readInput(of question: String) -> String {
         
-        ask(question)
+        print(question)
         
         let prompt = readLine() ?? ""
         
         return prompt
     }
-    
-    static private func ask(_ question: String) {
-        
-        print(question)
-    }
-
 }
