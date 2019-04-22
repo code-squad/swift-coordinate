@@ -30,23 +30,23 @@ struct MyPoint {
 
 struct Distinct {
     func splitLocation(twoLocations : String?) throws -> MyLine {
-        guard let locationsInput : String = twoLocation, locationsInput != "" else{ throw ErrorMessage.noValueError }
+        guard let locationsInput : String = twoLocations, locationsInput != "" else{ throw ErrorMessage.noValueError }
         var beforeRefineLocations = locationsInput
         let dividedLocations = beforeRefineLocations.split(separator: "-")
         if dividedLocations.count != 2 { throw ErrorMessage.outOfRangeError}
         else {
-            let pointA = location(dividedLocation[0])
-            let pointB = location(dividedLocation[1])
+            let pointA = try location(locationText: dividedLocations[0])
+            let pointB = try location(locationText: dividedLocations[1])
             let myLine = MyLine.init(pointA: pointA, pointB: pointB)
             return myLine
         }
     }
     
-    func location(locationText : String?) throws -> MyPoint {
-        guard let locationInput : String = locationText, locationInput != "" else{ throw ErrorMessage.noValueError }
-        if locationInput[locationInput.index(before: locationInput.endIndex)] != ")" || locationInput[locationInput.startIndex] != "(" { throw ErrorMessage.nonbracket }
+    func location(locationText : String.SubSequence) throws -> MyPoint {
+        if locationText == "" { throw ErrorMessage.noValueError }
+        else if locationText[locationText.index(before: locationText.endIndex)] != ")" || locationText[locationText.startIndex] != "(" { throw ErrorMessage.nonbracket }
         else {
-            var beforeRefineLocation = locationInput
+            var beforeRefineLocation = locationText
             beforeRefineLocation.removeFirst()
             beforeRefineLocation.removeLast()
             let locations = beforeRefineLocation.split(separator: ",")
