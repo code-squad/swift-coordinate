@@ -10,6 +10,8 @@ import Foundation
 
 struct Validator {
     
+    static let AxisLimit = ANSICode.axis.AxisLimit
+    
     static func validateInput(of prompt: String) -> (x: Int, y: Int)? {
         
         guard !prompt.isEmpty else {
@@ -70,7 +72,7 @@ struct Validator {
     /// 해당 범위를 초과하게 되면 nil을 반환합니다.
     static private func checkCoordinatesLimit(_ x: Int, _ y: Int) -> (x: Int, y: Int)? {
         
-        guard x < 25, y < 25 else {
+        guard x < AxisLimit + 1, y < AxisLimit + 1 else {
             print("x, y 값은 최대 24까지 입력할 수 있습니다.")
             return nil
         }
