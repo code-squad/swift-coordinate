@@ -10,13 +10,11 @@ import Foundation
 
 struct InputView {
     
-    static func readInput(of question: String) -> String? {
+    static func readInput(of question: String) -> String {
         
         ask(question)
         
-        guard let prompt = readLine() else {
-            return nil
-        }
+        let prompt = readLine() ?? ""
         
         return prompt
     }
