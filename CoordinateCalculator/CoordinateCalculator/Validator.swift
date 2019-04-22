@@ -29,7 +29,7 @@ struct Validator {
         return coordinates
     }
     
-    static func separateCoordinates(of prompt: String) -> [String]? {
+    static private func separateCoordinates(of prompt: String) -> [String]? {
         
         let input = prompt.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
         let coordinates = input.components(separatedBy: ",")
@@ -50,7 +50,7 @@ struct Validator {
         return (inputNum[0], inputNum[1])
     }
     
-    static func checkCoordinatesLimit(_ x: Int, _ y: Int) -> (x: Int, y: Int)? {
+    static private func checkCoordinatesLimit(_ x: Int, _ y: Int) -> (x: Int, y: Int)? {
         
         guard x < 25, y < 25 else {
             print("x, y 값은 최대 24까지 입력할 수 있습니다.")
