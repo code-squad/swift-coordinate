@@ -10,9 +10,7 @@ import Foundation
 
 while true {
     
-    guard let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)") else {
-        continue
-    }
+    let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)")
     
     guard let coordinates = Validator.validateInput(of: prompt) else {
         continue

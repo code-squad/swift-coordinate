@@ -12,6 +12,10 @@ struct Validator {
     
     static func validateInput(of prompt: String) -> (x: Int, y: Int)? {
         
+        guard !prompt.isEmpty else {
+            return nil
+        }
+        
         guard let separatedValue = separateCoordinates(of: prompt) else {
             return nil
         }
