@@ -1,6 +1,14 @@
 import Foundation
 
-struct Line: Drawable {
+struct Line: Drawable, CustomStringConvertible {
+    
+    var distance: Double {
+        return sqrt(pow(Double(start.x - end.x), 2) + pow(Double(start.y - end.y), 2))
+    }
+    
+    var description: String {
+        return "두 점 사이의 거리: \(distance)"
+    }
     
     var isDrawable: Bool {
         if ANSICode.CoordinateGrid.gridRange.contains(start.x),
@@ -12,13 +20,8 @@ struct Line: Drawable {
         return false
     }
     
-    
-    
     private let start: Point
     private let end: Point
-    var distance: Double {
-        return sqrt(pow(Double(start.x - end.x), 2) + pow(Double(start.y - end.y), 2))
-    }
     
     init(start: Point, end: Point) {
         self.start = start
@@ -29,4 +32,5 @@ struct Line: Drawable {
         CoordinateView.draw(point: start)
         CoordinateView.draw(point: end)
     }
+    
 }

@@ -12,6 +12,8 @@ protocol Drawable {
     
     var isDrawable: Bool { get }
     
+    var description: String { get }
+    
     func draw()
     
 }
