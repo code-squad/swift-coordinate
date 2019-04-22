@@ -39,7 +39,7 @@ struct InputControl {
     
 }
 
-enum InputError: CoordinateError {
+enum InputError: CustomStringConvertible, Error {
     
     case invalidInput
     case cannotRecognizeParentheses
@@ -47,7 +47,7 @@ enum InputError: CoordinateError {
     case cannotIdentifyNumbers
     case exceededAxisLimit
     
-    func description() -> String {
+    var description: String {
         switch self {
         case .invalidInput:
             return "유효하지 않은 입력"

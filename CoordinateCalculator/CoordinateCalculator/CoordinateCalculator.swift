@@ -87,9 +87,9 @@ struct CoordinateCalCulator {
             let points = try textView.readCoordinates()
             try addIdentifiedShape(points: points)
         } catch let error as InputError {
-            textView.printText("입력 오류: \(error.description())")
+            textView.printText("입력 오류: \(error.description)")
         } catch let error as CoordinateCalculatorError {
-            textView.printText("좌표 오류: \(error.description())")
+            textView.printText("좌표 오류: \(error.description)")
         } catch {
             textView.printText("예상치 못한 오류: \(error)")
         }
@@ -97,11 +97,11 @@ struct CoordinateCalCulator {
     
 }
 
-enum CoordinateCalculatorError: CoordinateError {
+enum CoordinateCalculatorError: CustomStringConvertible, Error {
     
     case axisLimitExceeded
     
-    func description() -> String {
+    var description: String {
         switch self {
         case .axisLimitExceeded:
             return "좌표축 제한 초과함"
