@@ -40,7 +40,7 @@ struct InputControl {
     
 }
 
-enum InputError: CustomStringConvertible, Error {
+enum InputError: Error, CustomStringConvertible {
     
     case invalidInput
     case cannotRecognizeParentheses

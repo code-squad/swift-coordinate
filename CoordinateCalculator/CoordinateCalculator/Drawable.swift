@@ -14,6 +14,6 @@ protocol Drawable {
     
     var description: String { get }
     
-    func draw()
+    var points: [Point] { get }
     
 }

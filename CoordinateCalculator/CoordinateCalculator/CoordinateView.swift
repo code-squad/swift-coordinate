@@ -24,9 +24,15 @@ struct CoordinateView {
         print(ANSICode.clear + ANSICode.text.cyanBright + ANSICode.CoordinateGrid.draw())
     }
     
-    static func draw(point: Point) {
+    private static func draw(point: Point) {
         moveCursorTo(x: point.x, y: point.y)
         print(ANSICode.text.redBright + "●")
+    }
+    
+    static func draw(shape: Drawable) {
+        for point in shape.points {
+            draw(point: point)
+        }
     }
     
 }
