@@ -16,6 +16,9 @@ struct MyLine {
         self.pointA = pointA
         self.pointB = pointB
     }
+    func calcul() {
+        print("두 점사이의 거리는\(sqrt(pow(abs(Double(pointA.x - pointB.x)),2)) + pow(abs(Double(pointA.y - pointB.y)),2))")
+    }
 }
 
 struct MyPoint {
