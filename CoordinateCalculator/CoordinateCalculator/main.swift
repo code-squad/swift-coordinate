@@ -10,15 +10,19 @@ import Foundation
 
 while true {
     
-    guard let result = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)") else {
+    guard let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)") else {
         continue
     }
     
-    let myPoint = MyPoint(x: result.x, y: result.y)
+    guard let coordinates = Validator.validateInput(of: prompt) else {
+        continue
+    }
+    
+    let myPoint = MyPoint(x: coordinates.x, y: coordinates.y)
     let output = OutputView(point: myPoint)
-    
+
     output.drawAxis()
-    
+
     break
 }
 
