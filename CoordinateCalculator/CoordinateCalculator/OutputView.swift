@@ -10,16 +10,19 @@ import Foundation
 
 struct OutputView {
     
-    var point: MyPoint
-    let AxisLimit = ANSICode.axis.AxisLimit
+    static let AxisLimit = ANSICode.axis.AxisLimit
     
-    func drawAxis() {
-        print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
-        drawPoint()
+    static func draw(point: MyPoint) {
+        drawAxis()
+        drawDot(at: point)
     }
     
-    private func drawPoint() {
+    static private func drawAxis() {
+        print("\(ANSICode.clear)\(ANSICode.home)")
+        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+    
+    static private func drawDot(at point: MyPoint) {
         let translatedPoint = translatePointPosition(of: point)
         var result = ANSICode.cursor.move(row: translatedPoint.y, col: translatedPoint.x)
         result += ANSICode.text.redBright
@@ -28,12 +31,12 @@ struct OutputView {
         print(result)
     }
     
-    private func restoreCursor() -> String {
+    static private func restoreCursor() -> String {
         let restoredCursor = ANSICode.cursor.move(row: AxisLimit + 2, col: AxisLimit + 2)
         return restoredCursor
     }
     
-    private func translatePointPosition(of point: MyPoint) -> MyPoint {
+    static private func translatePointPosition(of point: MyPoint) -> MyPoint {
         let translatedX = point.x * 2 + 3
         let translatedY = AxisLimit - point.y + 1
         return MyPoint(x: translatedX, y: translatedY)

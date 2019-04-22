@@ -17,10 +17,9 @@ while true {
     }
     
     let myPoint = MyPoint(x: coordinates.x, y: coordinates.y)
-    let output = OutputView(point: myPoint)
-
-    output.drawAxis()
-
+    
+    OutputView.draw(point: myPoint)
+    
     break
 }
 
