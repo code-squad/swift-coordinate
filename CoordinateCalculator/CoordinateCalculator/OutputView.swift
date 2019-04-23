@@ -15,9 +15,7 @@ struct OutputView {
     }
     
     static func drawPoint(_ myPoint: MyPoint){
-        print("\(ANSICode.text.whiteBright)\(ANSICode.point.draw(myPoint))")
-
-        
+        print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))")
     }
     
 }
