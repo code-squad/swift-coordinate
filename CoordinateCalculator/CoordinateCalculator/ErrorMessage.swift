@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum ErrorMessage : Error{
-    case noValueError
-    case typeMissError
-    case outOfRangeError
-    case nonbracket
+enum ErrorMessage : String, Error {
+    case noValueError = "올바른 값을 입력하세요"
+    case typeMissError = "정수를 입력하세요"
+    case outOfRangeError = "범위를 넘었습니다"
+    case nonbracket = "소괄호를 씌워주세요"
 }
