@@ -73,9 +73,9 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				FAA5ABC922699E6200596E60 /* InputView.swift */,
 				FA570A71226D9029002AD9E9 /* Validator.swift */,
-				FA570A73226EB097002AD9E9 /* MyLine.swift */,
 				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABCB22699F0400596E60 /* MyPoint.swift */,
+				FA570A73226EB097002AD9E9 /* MyLine.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
