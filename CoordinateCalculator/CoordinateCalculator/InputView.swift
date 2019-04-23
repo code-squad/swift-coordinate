@@ -16,16 +16,17 @@ enum InputError: Error {
 
 struct InputView {
     static public func readInput() throws -> MyPoint {
+        let primaryQuestion = "좌표를 입력하세요. "
+        let questionAgain   = "입력한 좌표는 범위 밖입니다. 다시 입력해주세요. "
         var point: MyPoint!
-        let question = "좌표를 입력하세요: "
         repeat {
+            let question = point == nil ? primaryQuestion : questionAgain
             print(question)
             guard let input = readLine(), isValid(input) else {
                 throw InputError.whileReadingInput
             }
             point = try parseIntoPoint(using: input)
         } while(isPointOutOfAxis(using: point))
-        
         return point
     }
     
