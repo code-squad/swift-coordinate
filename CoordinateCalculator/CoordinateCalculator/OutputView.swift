@@ -38,13 +38,12 @@ struct OutputView {
         }
     }
     
-    static func printShape(_ shape: Drawable) throws {
+    static func printDescription(_ shape: Drawable) {
         switch shape {
         case let shape as CustomStringConvertible:
-            try draw(shape: shape as! Drawable)
             printText(shape.description)
         default:
-            try draw(shape: shape)
+            return
         }
     }
     

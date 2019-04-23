@@ -8,7 +8,8 @@ func main() {
         
         let points = try InputView.readCoordinates()
         let shape = try CoordinateCalculator.shaped(points: points)
-        try OutputView.printShape(shape)
+        try OutputView.draw(shape: shape)
+        OutputView.printDescription(shape)
         
     } catch let error as InputError {
         OutputView.printText("입력 오류: \(error.description)")
