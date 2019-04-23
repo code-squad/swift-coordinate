@@ -11,7 +11,7 @@ import Foundation
 struct Validator {
     
     static let AxisLimit = ANSICode.axis.AxisLimit
-    static let possibleCharacters = CharacterSet(charactersIn: "(),-").union(CharacterSet.decimalDigits)
+     static let possibleCharacters = CharacterSet(charactersIn: "(),- ").union(CharacterSet.decimalDigits)
     
     static func validateInput(of prompt: String) -> Bool {
         
@@ -58,15 +58,16 @@ struct Validator {
     /// - Returns: 쉼표로 나눠진 String 배열입니다.
     static private func separateCoordinates(of prompt: String) -> [String]? {
         
-        let input = prompt.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
-        let coordinates = input.components(separatedBy: ",")
+        var trimmedInput = prompt.components(separatedBy: .whitespaces).joined()
+        trimmedInput = trimmedInput.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
+        let separatedInput =  trimmedInput.components(separatedBy: CharacterSet(charactersIn: ",-"))
         
-        guard coordinates.count > 1 else {
+        guard separatedInput.count > 1 else {
             print("값을 쉼표(,)로 구분해주세요~!~!")
             return nil
         }
         
-        return coordinates
+        return separatedInput
     }
     
     /// String 배열의 값을 Int형으로 변환해 튜플로 반환합니다.
