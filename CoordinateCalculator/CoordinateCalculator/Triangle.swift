@@ -27,7 +27,6 @@ struct Triangle: Drawable {
     }
     
     var description: String {
-        //TODO: 삼각형 설명 입력하기
         return "삼각형의 넓이: \(size)"
     }
     
