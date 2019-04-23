@@ -6,10 +6,6 @@ struct Point: Drawable {
         return [self]
     }
     
-    
-    
-    
-    
     let x, y: Int
     
     init(x: Int, y: Int) {

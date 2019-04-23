@@ -19,9 +19,9 @@ struct Triangle: Drawable, CustomStringConvertible {
         return "삼각형의 넓이: \(size)"
     }
     
-    private var lineAB: Line
-    private var lineAC: Line
-    private var lineBC: Line
+    private let lineAB: Line
+    private let lineAC: Line
+    private let lineBC: Line
     
     var size: Double {
         let s = (lineAB.distance + lineAC.distance + lineBC.distance) / 2

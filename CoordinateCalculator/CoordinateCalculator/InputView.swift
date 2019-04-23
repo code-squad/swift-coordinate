@@ -2,35 +2,93 @@ import Foundation
 
 struct InputView {
     
-    private var currentLine = ANSICode.CoordinateGrid.gridLimit + 3
-    
     //MARK: 비공개 메소드
-    mutating private func ask(about question: String) throws -> String {
-        printText(ANSICode.text.yellow + question)
+    static private func ask(about question: String) throws -> String {
+        print(ANSICode.text.yellow + question)
         guard let input = readLine() else {
             throw InputError.invalidInput
         }
-        returnToCurrentLine()
         return input
     }
     
-    mutating private func returnToCurrentLine() {
-        print("\(ANSICode.cursor.move(row: currentLine, column: 1))", terminator: "")
-        currentLine += 1
+    //MARK: 비공개 정적 메소드
+    private static func point(input: String) throws -> Point {
+        var inputCoordinate = input
+        
+        guard inputCoordinate.removeFirst() == "(", inputCoordinate.removeLast() == ")" else {
+            throw InputError.cannotRecognizeParentheses
+        }
+        
+        let coordinateValues = inputCoordinate.split(separator: ",").map { String($0) }
+        
+        guard coordinateValues.count == 2 else {
+            throw InputError.cannotIdentifyTwoValues
+        }
+        
+        let coordinate = try coordinateValues.map( { (value: String) -> Int in
+            guard let coordinate = Int(value) else {
+                throw InputError.cannotIdentifyNumbers
+            }
+            return coordinate
+        } )
+        
+        return Point(x: coordinate[0], y: coordinate[1])
     }
+    
+    //MARK: 정적 메소드
+    /// 문자열을 점 배열로 변환합니다.
+    static func points(value: String) throws -> [Point] {
+        
+        guard value.count >= 5 else {
+            throw InputError.notEnoughCharacter
+        }
+        
+        let values = value.split(separator: "-").map { String($0) }
+        var points: [Point] = []
+        
+        for value in values {
+            let point = try InputView.point(input: value)
+            points.append(point)
+        }
+        return points
+    }
+    
     
     //MARK: 메소드
     /// 좌표값 문자열을 입력받아 점 배열로 반환합니다.
-    mutating func readCoordinates() throws -> [Point] {
+    static func readCoordinates() throws -> [Point] {
         let input = try ask(about: "좌표를 입력하세요.")
-        return try InputControl.points(value: input)
+        return try InputView.points(value: input)
     }
     
-    /// 현재 라인으로 커서를 이동시키고 문자열을 출력합니다.
-    mutating func printText(_ text: String) {
-        returnToCurrentLine()
-        print(text)
-    }
     
+}
+
+
+enum InputError: Error, CustomStringConvertible {
+    
+    case invalidInput
+    case cannotRecognizeParentheses
+    case cannotIdentifyTwoValues
+    case cannotIdentifyNumbers
+    case exceededAxisLimit
+    case notEnoughCharacter
+    
+    var description: String {
+        switch self {
+        case .invalidInput:
+            return "유효하지 않은 입력"
+        case .cannotIdentifyNumbers:
+            return "숫자를 확인할 수 없음"
+        case .cannotIdentifyTwoValues:
+            return "두 개의 숫자를 확인할 수 없음"
+        case .cannotRecognizeParentheses:
+            return "괄호를 인식할 수 없음"
+        case .exceededAxisLimit:
+            return "좌표의 제한을 초과함"
+        case .notEnoughCharacter:
+            return "글자 수가 충분하지 않음"
+        }
+    }
     
 }
