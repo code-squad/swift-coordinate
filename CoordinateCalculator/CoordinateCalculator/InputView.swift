@@ -14,6 +14,18 @@ enum RegexPattern: String {
 
 enum InputError: Error {
     case invalidInput
+    case invalidFormat
+}
+
+extension InputError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .invalidInput:
+            return "입력 오류"
+        case .invalidFormat:
+            return "입력 형식 오류"
+        }
+    }
 }
 
 struct InputView {
@@ -38,7 +50,7 @@ struct InputView {
     
     private static func verifyInputFormat(coordinatesText: String) throws {
         if coordinatesText.range(of: RegexPattern.verifyPattern.rawValue, options: [.regularExpression]) == nil {
-            throw InputError.invalidInput
+            throw InputError.invalidFormat
         }
     }
     

@@ -12,6 +12,12 @@ enum CoordinateRangeError: Error {
     case invalidRange
 }
 
+extension CoordinateRangeError: LocalizedError {
+    public var errorDescription: String? {
+        return "입력 범위 초과"
+    }
+}
+
 struct MyPoint {
     private(set) var x = 0
     private(set) var y = 0
