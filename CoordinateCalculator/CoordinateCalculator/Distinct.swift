@@ -37,7 +37,7 @@ struct Distinct {
         }
     }
     /// 입력된 좌표가 x,y 2개가 들어왔는지 판단하고 맞으면 값을 return하는 함수
-    func numberOfLocations(locations : [String.SubSequence]) throws -> MyPoint {
+    private func numberOfLocations(locations : [String.SubSequence]) throws -> MyPoint {
         if locations.count != 2 { throw ErrorMessage.outOfRangeError}
         else {
             guard let inputX = Int(locations[0]) else {
@@ -51,7 +51,7 @@ struct Distinct {
         }
     }
     /// x와 y의 범위를 판단하는 함수
-    func numberRange(inputX : Int, inputY : Int) throws -> MyPoint {
+    private func numberRange(inputX : Int, inputY : Int) throws -> MyPoint {
         if inputX <= 0 || inputY <= 0 || inputX > 25 || inputY > 25{
             throw ErrorMessage.outOfRangeError
         } else {
