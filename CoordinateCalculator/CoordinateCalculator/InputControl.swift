@@ -5,6 +5,9 @@ struct InputControl {
     //MARK: 비공개 정적 메소드
     private static func point(input: String) throws -> Point {
         var inputCoordinate = input
+        
+        
+        
         guard inputCoordinate.removeFirst() == "(", inputCoordinate.removeLast() == ")" else {
             throw InputError.cannotRecognizeParentheses
         }
@@ -27,12 +30,17 @@ struct InputControl {
     
     //MARK: 정적 메소드
     /// 문자열을 점 배열로 변환합니다.
-    static func points(input: String) throws -> [Point] {
-        let inputs = input.split(separator: "-").map { String($0) }
+    static func points(value: String) throws -> [Point] {
+        
+        guard value.count >= 5 else {
+            throw InputError.notEnoughCharacter
+        }
+        
+        let values = value.split(separator: "-").map { String($0) }
         var points: [Point] = []
         
-        for input in inputs {
-            let point = try InputControl.point(input: input)
+        for value in values {
+            let point = try InputControl.point(input: value)
             points.append(point)
         }
         return points
@@ -47,6 +55,7 @@ enum InputError: Error, CustomStringConvertible {
     case cannotIdentifyTwoValues
     case cannotIdentifyNumbers
     case exceededAxisLimit
+    case notEnoughCharacter
     
     var description: String {
         switch self {
@@ -60,6 +69,8 @@ enum InputError: Error, CustomStringConvertible {
             return "괄호를 인식할 수 없음"
         case .exceededAxisLimit:
             return "좌표의 제한을 초과함"
+        case .notEnoughCharacter:
+            return "글자 수가 충분하지 않음"
         }
     }
     
