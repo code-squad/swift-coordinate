@@ -33,6 +33,9 @@ struct InputView {
         let splitAPairOfPoint: [String] = point.trimmingCharacters(in: ["(",")"])
                                                 .split(separator: ",")
                                                 .map { (value) in return String(value)}
+        if splitAPairOfPoint.count != 2 {
+            throw errorCode.splitStringError
+        }
         return (splitAPairOfPoint[0], splitAPairOfPoint[1])
     }
     func readEachPoint() throws -> String {
