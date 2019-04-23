@@ -46,7 +46,7 @@ struct FigureFactory{
             throw InputError.NonCoordinateStandard
         }
         
-        return MyPoint(x: pointX, y: pointY)
+        return MyPoint(x: [pointX], y: [pointY])
     }
     
     static private func inputToPoint (_ values: [Substring]) throws -> MyPoint {
@@ -73,7 +73,7 @@ struct FigureFactory{
             }
         }
         
-        let line = MyLine(points)
+        let line = MyLine(x: [points[0].x, points[1].x], y: [points[0].y, points[1].y])
         
         return line
     }
