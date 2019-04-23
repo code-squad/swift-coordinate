@@ -26,6 +26,11 @@ struct MyLine: Figure {
         self.pointB = points[1]
         self.length = calculateLength()
     }
+    
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
 
     private func calculateLength () -> Double {
         let legA = pow(Double(pointA.x - pointB.x), 2)
