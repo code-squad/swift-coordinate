@@ -4,7 +4,6 @@ func main() {
     
     OutputView.drawCoordinatePlane()
     
-    
     do {
         
         let points = try InputView.readCoordinates()
