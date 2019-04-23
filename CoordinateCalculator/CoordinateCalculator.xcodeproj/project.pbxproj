@@ -11,6 +11,7 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		C5DBF31A226D96150005B064 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF319226D96150005B064 /* OutputView.swift */; };
 		C5DBF31E226DBC3E0005B064 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF31D226DBC3E0005B064 /* InputView.swift */; };
+		C5DBF320226EE4D00005B064 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF31F226EE4D00005B064 /* MyPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		C5DBF319226D96150005B064 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C5DBF31D226DBC3E0005B064 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		C5DBF31F226EE4D00005B064 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				C5DBF319226D96150005B064 /* OutputView.swift */,
 				C5DBF31D226DBC3E0005B064 /* InputView.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				C5DBF31F226EE4D00005B064 /* MyPoint.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5DBF320226EE4D00005B064 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				C5DBF31E226DBC3E0005B064 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
