@@ -12,8 +12,7 @@ enum errorCode : Error {
     case invalidInput
     case invalidRange
     case isNotANumber
-    case invalidPair
-    case splitPointError
+  
 }
 
 //OutputView.drawAxis()
@@ -27,9 +26,6 @@ while true {
         break
     }catch errorCode.invalidInput{
         print("invalidInput")
-        continue
-    }catch errorCode.splitPointError{
-        print("splitPointError")
         continue
     }catch errorCode.isNotANumber{
         print("isNotANumber")
