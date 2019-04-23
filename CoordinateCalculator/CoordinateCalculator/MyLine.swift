@@ -16,7 +16,7 @@ struct MyLine {
         self.pointA = pointA
         self.pointB = pointB
     }
-    func lengthCalcul() -> Double {
+    func lengthCalculator() -> Double {
         let betweenLength = sqrt(pow(abs(Double(pointA.x - pointB.x)),2)) + pow(abs(Double(pointA.y - pointB.y)),2)
         return betweenLength
     }
