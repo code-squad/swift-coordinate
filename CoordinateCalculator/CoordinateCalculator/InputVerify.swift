@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputVerify {
-    static func verifyInputStandard (_ valueEntered: [Substring]) throws {
+    static func verifyInputStandard (_ valueEntered: [String]) throws {
         for value in valueEntered {
             if value.first != "(" || value.last != ")" {
                 throw InputError.NonInputStandard
@@ -17,7 +17,7 @@ struct InputVerify {
         }
     }
     
-    static func verifyCoordinateStandard (_ valueEntered: [Substring]) throws {
+    static func verifyCoordinateStandard (_ valueEntered: [String]) throws {
         for valueOriginal in valueEntered {
             var value = valueOriginal
             value.removeFirst()
