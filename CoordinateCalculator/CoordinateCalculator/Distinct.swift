@@ -10,9 +10,9 @@ import Foundation
 
 struct Distinct {
     /// 입력받은 Text를 나누어 좌표의 갯수와 나뉜 좌표들을 return하는 함수
-    func splitLocation(inputTexts : String?) throws -> (loctionCount : Int, dividedLocations : [String.SubSequence]) {
-        guard let locationsInput : String = inputTexts, locationsInput != "" else{ throw ErrorMessage.noValueError }
-        let beforeRefineLocations = locationsInput
+    func splitLocation(inputTexts : String) throws -> (loctionCount : Int, dividedLocations : [String.SubSequence]) {
+        if inputTexts == "" { throw ErrorMessage.noValueError }
+        let beforeRefineLocations = inputTexts
         let dividedLocations = beforeRefineLocations.split(separator: "-")
         return (dividedLocations.count, dividedLocations)
     }
