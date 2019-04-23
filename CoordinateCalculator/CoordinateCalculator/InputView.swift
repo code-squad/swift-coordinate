@@ -33,20 +33,17 @@ struct InputView {
         guard let inputWithoutParenthesis = unwrapParenthesis(of: inputWithoutBlank) else {
             throw InputError.invalidParenthesis
         }
-        guard let (inputX, inputY) = divideNumbers(from: inputWithoutParenthesis) else {
+        guard let (numX, numY) = divideNumbers(from: inputWithoutParenthesis) else {
             throw InputError.invalidNumber
         }
-        return MyPoint(x: inputX, y: inputY)
+        return MyPoint(x: numX, y: numY)
     }
     
     static private func unwrapParenthesis(of input: String) -> String? {
-        let frontParenthesisIndex = input.startIndex
-        let backParenthesisIndex = input.index(before: input.endIndex)
-        if input[frontParenthesisIndex] != "(" || input[backParenthesisIndex] != ")" {
-            return nil
-        }
-        let startIndexOfNum = input.index(frontParenthesisIndex, offsetBy: 1)
-        let endIndexOfNum = input.index(input.endIndex, offsetBy: -2)
+        guard let openParenthesisIndex = input.index(of: "(") else { return nil }
+        guard let closeParenthesisIndex = input.index(of: ")") else { return nil }
+        let startIndexOfNum = input.index(openParenthesisIndex, offsetBy: 1)
+        let endIndexOfNum = input.index(closeParenthesisIndex, offsetBy: -1)
         return String(input[startIndexOfNum...endIndexOfNum])
     }
     
@@ -55,9 +52,8 @@ struct InputView {
         if dividedByComma.count != 2 {
             return nil
         }
-        guard let convertedX = Int(dividedByComma[0]), let convertedY = Int(dividedByComma[1]) else {
-            return nil
-        }
+        guard let convertedX = Int(dividedByComma[0]) else { return nil }
+        guard let convertedY = Int(dividedByComma[1]) else { return nil }
         return (convertedX, convertedY)
     }
 }
