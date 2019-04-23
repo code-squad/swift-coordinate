@@ -8,12 +8,34 @@
 
 import Foundation
 
-struct MyTriangle {
+struct MyTriangle: Figure {
     var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     
+    init(x: [Int], y: [Int]) {
+        self.lineAB.pointA.x = x[0]
+        self.lineAB.pointB.x = x[1]
+        self.lineAB.pointA.y = y[0]
+        self.lineAB.pointB.y = y[1]
+        
+        self.lineBC.pointA.x = x[1]
+        self.lineBC.pointB.x = x[2]
+        self.lineBC.pointA.y = y[1]
+        self.lineBC.pointB.y = y[2]
+        
+        self.lineAC.pointA.x = x[0]
+        self.lineAC.pointB.x = x[2]
+        self.lineAC.pointA.y = y[0]
+        self.lineAC.pointB.y = y[2]
+    }
+    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        //로직 구현
+        self.lineAB.pointA = pointA
+        self.lineAB.pointB = pointB
+        self.lineBC.pointA = pointB
+        self.lineBC.pointB = pointC
+        self.lineAC.pointA = pointA
+        self.lineAC.pointB = pointC
     }
 }
