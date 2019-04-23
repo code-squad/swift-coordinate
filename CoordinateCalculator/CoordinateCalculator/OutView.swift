@@ -20,4 +20,7 @@ struct OutputView {
         print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:25-line.pointA.y, col: line.pointA.x*2+3))•\(ANSICode.cursor.move(row:25-line.pointB.y, col: line.pointB.x*2+3))•\(ANSICode.cursor.move(row:26, col: 0))")
         print("\(ANSICode.text.whiteBright)두 점 사이의 거리는  \(line.length)")
     }
+    func drawTriangle (_ triangle: MyTriangle) {
+        print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:25-triangle.lineAB.pointA.y, col: triangle.lineAB.pointA.x*2+3))•\(ANSICode.cursor.move(row:25-triangle.lineBC.pointA.y, col: triangle.lineBC.pointA.x*2+3))•\(ANSICode.cursor.move(row:25-triangle.lineAC.pointB.y, col: triangle.lineAC.pointB.x*2+3))•\(ANSICode.cursor.move(row:26, col: 0))")
+    }
 }
