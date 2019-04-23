@@ -9,7 +9,7 @@
 import Foundation
 
 struct InputView {
-    public func readInput() -> MyPoint {
+    static public func readInput() -> MyPoint {
         let question = "좌표를 입력하세요."
         print(question)
         guard let line = readLine() else {
@@ -18,7 +18,7 @@ struct InputView {
         return parseIntoPoint(using: line)
     }
     
-    private func parseIntoPoint(using input: String) -> MyPoint {
+    static private func parseIntoPoint(using input: String) -> MyPoint {
         let inputWithoutBlank = input.replacingOccurrences(of: " ", with: "")
         guard let inputWithoutParenthesis = unwrapParenthesis(of: inputWithoutBlank) else {
             return MyPoint()
@@ -29,7 +29,7 @@ struct InputView {
         return MyPoint(x: inputX, y: inputY)
     }
     
-    private func unwrapParenthesis(of input: String) -> String? {
+    static private func unwrapParenthesis(of input: String) -> String? {
         let frontParenthesisIndex = input.startIndex
         let backParenthesisIndex = input.index(before: input.endIndex)
         if input[frontParenthesisIndex] != "(" || input[backParenthesisIndex] != ")" {
@@ -40,7 +40,7 @@ struct InputView {
         return String(input[startIndexOfNum...endIndexOfNum])
     }
     
-    private func divideNumbers(from input: String) -> (Int, Int)? {
+    static private func divideNumbers(from input: String) -> (Int, Int)? {
         let dividedByComma = input.components(separatedBy: ",")
         if dividedByComma.count != 2 {
             return nil
