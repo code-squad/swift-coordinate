@@ -1,6 +1,6 @@
 import Foundation
 
-struct CoordinateView {
+struct OutputView {
     
     //MARK: 비공개 메소드
     private static func moveCursorTo(x: Int, y: Int) {
@@ -24,17 +24,32 @@ struct CoordinateView {
         print(ANSICode.clear + ANSICode.text.cyanBright + ANSICode.CoordinateGrid.draw())
     }
     
-    private static func draw(point: Point) {
+    static func draw(point: Point) throws {
+       guard  ANSICode.CoordinateGrid.gridRange.contains(point.x),
+        ANSICode.CoordinateGrid.gridRange.contains(point.y) else {
+            throw OutputError.notDrawableRange
+        }
         moveCursorTo(x: point.x, y: point.y)
         print(ANSICode.text.redBright + "●")
     }
 
-    
-    static func draw(shape: Drawable) {
+    static func draw(shape: Drawable) throws {
         for point in shape.points {
-            draw(point: point)
+            try draw(point: point)
         }
     }
 
     
+}
+
+enum OutputError: Error, CustomStringConvertible {
+    
+    case notDrawableRange
+    
+    var description: String {
+        switch self {
+        case .notDrawableRange:
+            return "그릴 수 있는 범위가 아닙니다."
+        }
+    }
 }

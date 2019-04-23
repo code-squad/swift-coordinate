@@ -1,6 +1,6 @@
 import Foundation
 
-struct TextView {
+struct InputView {
     
     private var currentLine = ANSICode.CoordinateGrid.gridLimit + 3
     
