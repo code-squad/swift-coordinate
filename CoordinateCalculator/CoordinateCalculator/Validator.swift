@@ -30,7 +30,7 @@ struct Validator {
         
         let numericValue = convertToNumeric(of: separatedValue)
         
-        guard let coordinates = checkCoordinatesLimit(numericValue.x, numericValue.y) else {
+        guard checkCoordinatesLimit(coordinates: numericValue) else {
             return false
         }
         
@@ -62,6 +62,7 @@ struct Validator {
         trimmedInput = trimmedInput.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
         let separatedInput =  trimmedInput.components(separatedBy: CharacterSet(charactersIn: ",-"))
         
+        ///FIXME
         guard separatedInput.count > 1 else {
             print("값을 쉼표(,)로 구분해주세요~!~!")
             return nil
@@ -77,30 +78,30 @@ struct Validator {
     ///
     /// - Parameter input: 쉼표로 나눠진 String 배열입니다.
     /// - Returns: 좌표값을 나타내는 x, y 튜플입니다.
-    static private func convertToNumeric(of input: [String]) -> (x: Int, y: Int) {
+    static private func convertToNumeric(of input: [String]) -> [Int] {
     
         let inputNum = input.map { Int($0) ?? -1 }
         
-        
-        return (inputNum[0], inputNum[1])
+        return inputNum
     }
     
     /// 좌표계가 입력할 수 있는 최소값, 최대값을 확인합니다.
     ///
     /// 최소값은 0, 최대값은 24입니다.
     /// 해당 범위를 초과하게 되면 nil을 반환합니다.
-    static private func checkCoordinatesLimit(_ x: Int, _ y: Int) -> (x: Int, y: Int)? {
+    static private func checkCoordinatesLimit(coordinates: [Int]) -> Bool {
         
-        guard x < AxisLimit + 1, y < AxisLimit + 1 else {
-            print("x, y 값은 최대 24까지 입력할 수 있습니다.")
-            return nil
+        for coordinate in coordinates {
+            guard coordinate < AxisLimit + 1 else {
+                print("x, y 값은 최대 24까지 입력할 수 있습니다.")
+                return false
+            }
+            
+            guard coordinate > -1 else {
+                print("숫자만 입력해주세요.")
+                return false
+            }
         }
-        
-        guard x > 0 , y > 0 else {
-            print("숫자만 입력해주세요.")
-            return nil
-        }
-        
-        return (x, y)
+        return true
     }
 }
