@@ -34,8 +34,8 @@ struct InputView {
     }
     
     static private func parseIntoPoint(using input: String) throws -> MyPoint {
-        let inputWithoutBlank = input.replacingOccurrences(of: " ", with: "")
-        guard let inputWithoutParenthesis = unwrapParenthesis(of: inputWithoutBlank) else {
+        let blankRemovedInput = input.replacingOccurrences(of: " ", with: "")
+        guard let inputWithoutParenthesis = unwrapParenthesis(of: blankRemovedInput) else {
             throw InputError.invalidParenthesis
         }
         guard let (numX, numY) = divideNumbers(from: inputWithoutParenthesis) else {
