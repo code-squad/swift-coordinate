@@ -16,22 +16,10 @@ struct OutputView {
     }
     
     static public func drawYellowDot(at point: MyPoint) {
-        if isImpossibleToDraw(at: point) {
-            noticeOutOfAxisToDraw(at: point)
-            return
-        }
         let yellowDot = ANSICode.text.yellowBright + ANSICode.dot
         let drawingDirection = getDirectionToDraw(yellowDot, at: point)
         print(drawingDirection)
         moveCursorToOrigin()
-    }
-    
-    static private func isImpossibleToDraw(at point: MyPoint) -> Bool {
-        return point.x > ANSICode.axis.AxisLimit || point.y > ANSICode.axis.AxisLimit || point.x < 0 || point.y < 0
-    }
-    
-    static private func noticeOutOfAxisToDraw(at point: MyPoint) {
-        print("point (\(point.x),\(point.y)) is out of axis.")
     }
     
     static private func getDirectionToDraw(_ dot: String, at point: MyPoint) -> String {
