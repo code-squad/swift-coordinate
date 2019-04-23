@@ -16,15 +16,32 @@ struct Distinct {
         let dividedLocations = beforeRefineLocations.split(separator: "-")
         return (dividedLocations.count, dividedLocations)
     }
+    
+    func callDependingCoordinates(locationCount : Int, dividedLocations : [String.SubSequence]) throws {
+        let output = OutputView()
+        switch locationCount{
+        case 2 : // 입력된 Location의 갯수가 2개인 경우
+            let myLine = try initMyLine(dividedLocations: dividedLocations)
+            output.drawAxis()
+            output.printMyLine(myLine: myLine)
+        case 1 : // 입력된 Location의 갯수가 1개인 경우
+            let myPoint = try initMyPoint(locationText: dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
+            output.drawAxis()
+            output.printMyPoint(myPoint: myPoint)
+        default :
+            throw ErrorMessage.outOfRangeError
+        }
+    }
+    
     /// 입력받은 좌표가 2개일때 MyLine 구조체의 변수들에 값을 입력하는 함수
-    func initMyLine(dividedLocations : [String.SubSequence]) throws -> MyLine {
+    private func initMyLine(dividedLocations : [String.SubSequence]) throws -> MyLine {
         let pointA = try initMyPoint(locationText: dividedLocations[0])
         let pointB = try initMyPoint(locationText: dividedLocations[1])
         let myLine = MyLine.init(pointA: pointA, pointB: pointB)
         return myLine
     }
     /// 입력받은 좌표가 1개 혹은 MyLine 구조체의 하나의 변수에 값을 입력하는 함수
-    func initMyPoint(locationText : String.SubSequence) throws -> MyPoint {
+    private func initMyPoint(locationText : String.SubSequence) throws -> MyPoint {
         if locationText == "" { throw ErrorMessage.noValueError }
         else if locationText[locationText.index(before: locationText.endIndex)] != ")" || locationText[locationText.startIndex] != "(" { throw ErrorMessage.nonbracket }
         else {
