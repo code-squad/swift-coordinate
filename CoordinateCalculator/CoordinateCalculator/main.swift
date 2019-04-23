@@ -7,7 +7,7 @@ func main() {
     do {
         
         let points = try InputView.readCoordinates()
-        let shape = try OutputView.shaped(points: points)
+        let shape = try CoordinateCalculator.shaped(points: points)
         try OutputView.printShape(shape)
         
     } catch let error as InputError {
