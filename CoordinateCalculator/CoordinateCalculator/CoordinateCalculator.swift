@@ -10,10 +10,9 @@ import Foundation
 
 struct CoordinateCalCulator {
     
-    private var shapes = [Drawable]()
+    private(set) var shapes = [Drawable]()
     
     init() {
-        CoordinateView.drawCoordinatePlane()
     }
     
     /// 좌표 평면에 도형을 추가합니다. 표시할 수 없는 범위이면 오류를 발생시킵니다.
@@ -22,7 +21,6 @@ struct CoordinateCalCulator {
             throw CoordinateCalculatorError.axisLimitExceeded
         }
         shapes.append(shape)
-        CoordinateView.draw(shape: shape)
     }
     
     
@@ -42,8 +40,8 @@ struct CoordinateCalCulator {
     }
     
     mutating func addShape(points: [Point]) throws -> Drawable {
-            let shape = try shaped(points: points)
-            try add(shape)
+        let shape = try shaped(points: points)
+        try add(shape)
         return shape
     }
     

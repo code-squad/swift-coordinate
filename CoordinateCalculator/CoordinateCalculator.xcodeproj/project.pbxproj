@@ -77,9 +77,9 @@
 				F2DA12262265E7E2008D46AC /* Point.swift */,
 				F295F49F226AC720002CAFC7 /* Line.swift */,
 				F2088369226579690055D72D /* CoordinateView.swift */,
+				F2DA12242265E5E5008D46AC /* TextView.swift */,
 				F282342B226B18EF000DA524 /* CoordinateCalculator.swift */,
 				F282342D226B19A2000DA524 /* Drawable.swift */,
-				F2DA12242265E5E5008D46AC /* TextView.swift */,
 				F295F49D226AC714002CAFC7 /* InputControl.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 			);

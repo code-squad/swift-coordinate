@@ -27,9 +27,5 @@ struct Point: Drawable {
         self.y = y
     }
     
-    func draw() {
-        CoordinateView.draw(shape: self)
-    }
-    
 }
 
