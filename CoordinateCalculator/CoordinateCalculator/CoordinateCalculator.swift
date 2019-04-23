@@ -19,7 +19,7 @@ struct CoordinateCalculator {
         case 3:
             return Triangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
-            throw OutputError.shapeNotSupported
+            throw CoordinateError.shapeNotSupported
         }
     }
     

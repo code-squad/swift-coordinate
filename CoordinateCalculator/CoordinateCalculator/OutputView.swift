@@ -20,8 +20,7 @@ struct OutputView {
     }
     
     private static func draw(point: Point) throws {
-        guard  ANSICode.CoordinateGrid.gridRange.contains(point.x),
-            ANSICode.CoordinateGrid.gridRange.contains(point.y) else {
+        guard  ANSICode.CoordinateGrid.gridRange.contains(point.x), ANSICode.CoordinateGrid.gridRange.contains(point.y) else {
                 throw OutputError.notDrawableRange
         }
         moveCursorTo(x: point.x, y: point.y)
@@ -52,7 +51,7 @@ struct OutputView {
     static func printText(_ text: String) {
         print(ANSICode.cursor.move(row: ANSICode.CoordinateGrid.gridLimit + 5, column: 1) + text)
     }
-
+    
     
 }
 
@@ -64,6 +63,7 @@ enum OutputError: Error, CustomStringConvertible {
         switch self {
         case .notDrawableRange:
             return "그릴 수 있는 범위가 아닙니다."
+        }
+        
     }
-    
 }
