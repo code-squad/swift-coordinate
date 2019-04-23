@@ -8,23 +8,29 @@
 
 import Foundation
 
+enum InputError: Error {
+    case whileReadingInput
+    case invalidParenthesis
+    case invalidNumber
+}
+
 struct InputView {
-    static public func readInput() -> MyPoint {
+    static public func readInput() throws -> MyPoint {
         let question = "좌표를 입력하세요."
         print(question)
         guard let line = readLine() else {
-            return MyPoint()
+            throw InputError.whileReadingInput
         }
-        return parseIntoPoint(using: line)
+        return try parseIntoPoint(using: line)
     }
     
-    static private func parseIntoPoint(using input: String) -> MyPoint {
+    static private func parseIntoPoint(using input: String) throws -> MyPoint {
         let inputWithoutBlank = input.replacingOccurrences(of: " ", with: "")
         guard let inputWithoutParenthesis = unwrapParenthesis(of: inputWithoutBlank) else {
-            return MyPoint()
+            throw InputError.invalidParenthesis
         }
         guard let (inputX, inputY) = divideNumbers(from: inputWithoutParenthesis) else {
-            return MyPoint()
+            throw InputError.invalidNumber
         }
         return MyPoint(x: inputX, y: inputY)
     }
