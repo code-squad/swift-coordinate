@@ -14,6 +14,9 @@ struct Converter {
         let values = valueEntered.split(separator: "-")
         let type = FigureType(rawValue: values.count)
         
+        try InputVerify.verifyInputStandard(values)
+        try InputVerify.verifyCoordinateStandard(values)
+        
         figure = try FigureFactory.getFigure(type, values)
         
         return figure

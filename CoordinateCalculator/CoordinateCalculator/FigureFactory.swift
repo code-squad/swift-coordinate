@@ -12,69 +12,35 @@ struct FigureFactory{
     static func getFigure(_ type: FigureType?, _ values: [Substring]) throws -> Figure {
         switch type {
         case .point?:
-            return try inputToPoint(values)
+            return inputToPoint(String(values[0]))
         case .line?:
-            return try inputToLine(values)
+            return inputToLine(values)
         case .none:
             throw InputError.UndefinedFigure
         }
     }
-    
-    static private func verifyInputStandard (_ valueEntered: String) throws -> String {
+
+    static private func inputToPoint (_ valueEntered: String) -> MyPoint {
         var value = valueEntered
         
-        if value.first != "(" || value.last != ")" {
-            throw InputError.NonInputStandard
-        }
         value.removeFirst()
         value.removeLast()
         
-        return value
+        let coordinate = value.split(separator: ",")
+        let coordinateX: Int = Int(String(coordinate[0])) ?? 0
+        let coordinateY: Int = Int(String(coordinate[1])) ?? 0
+        
+        
+        return MyPoint(x: [coordinateX], y: [coordinateY])
     }
     
-    static private func verifyCoordinateStandard (_ valueEntered: String) throws -> MyPoint {
-        var coordinate = valueEntered.split(separator: ",")
-        
-        if coordinate.count != 2 {
-            throw InputError.NonCoordinateStandard
-        }
-        
-        guard let pointX = Int(coordinate[0]), pointX >= 0 && pointX <= 24 else {
-            throw InputError.NonCoordinateStandard
-        }
-        guard let pointY = Int(coordinate[1]), pointY >= 0 && pointY <= 24 else {
-            throw InputError.NonCoordinateStandard
-        }
-        
-        return MyPoint(x: [pointX], y: [pointY])
-    }
-    
-    static private func inputToPoint (_ values: [Substring]) throws -> MyPoint {
-        var valueConvertable = String(values[0])
-        var point: MyPoint
-        
-        do {
-            valueConvertable = try verifyInputStandard(valueConvertable)
-            point = try verifyCoordinateStandard(valueConvertable)
-        }
-        
-        return point
-    }
-    
-    static private func inputToLine (_ values: [Substring]) throws -> MyLine {
+    static private func inputToLine (_ values: [Substring]) -> MyLine {
         var points = [MyPoint]()
         
         for value in values {
-            var valueConvertable = String(value)
-            
-            do {
-                valueConvertable = try verifyInputStandard(valueConvertable)
-                points.append(try verifyCoordinateStandard(valueConvertable))
-            }
+            points.append(inputToPoint(String(value)))
         }
         
-        let line = MyLine(x: [points[0].x, points[1].x], y: [points[0].y, points[1].y])
-        
-        return line
+        return MyLine(x: [points[0].x, points[1].x], y: [points[0].y, points[1].y])
     }
 }
