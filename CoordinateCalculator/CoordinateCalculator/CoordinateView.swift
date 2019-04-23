@@ -28,11 +28,13 @@ struct CoordinateView {
         moveCursorTo(x: point.x, y: point.y)
         print(ANSICode.text.redBright + "●")
     }
+
     
     static func draw(shape: Drawable) {
         for point in shape.points {
             draw(point: point)
         }
     }
+
     
 }
