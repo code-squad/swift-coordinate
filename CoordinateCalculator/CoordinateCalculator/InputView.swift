@@ -16,9 +16,9 @@ struct InputView{
         return inputLocation
     }
     /// 입력에 포함되지 않는 문자가 있는지 판단하는 함수
-    func distinctContain(inputLocation : String?) -> String?{
+    func distinctContain(inputLocation : String?) -> String{
         let notContainedInput = CharacterSet(charactersIn: "0123456789,()-").inverted
-        if ((inputLocation?.rangeOfCharacter(from: notContainedInput)) == nil){ return inputLocation }
-        else { return nil }
+        if ((inputLocation?.rangeOfCharacter(from: notContainedInput)) == nil){ return inputLocation! }
+        else { return "" }
     }
 }
