@@ -22,5 +22,6 @@ struct OutputView {
     }
     func drawTriangle (_ triangle: MyTriangle) {
         print("\(ANSICode.text.yellowBright)\(ANSICode.cursor.move(row:25-triangle.lineAB.pointA.y, col: triangle.lineAB.pointA.x*2+3))•\(ANSICode.cursor.move(row:25-triangle.lineBC.pointA.y, col: triangle.lineBC.pointA.x*2+3))•\(ANSICode.cursor.move(row:25-triangle.lineAC.pointB.y, col: triangle.lineAC.pointB.x*2+3))•\(ANSICode.cursor.move(row:26, col: 0))")
+        print("\(ANSICode.text.whiteBright)삼각형의 넓이는  \(triangle.area)")
     }
 }
