@@ -13,28 +13,28 @@ struct Validator {
     static let AxisLimit = ANSICode.axis.AxisLimit
     static let possibleCharacters = CharacterSet(charactersIn: "(),-").union(CharacterSet.decimalDigits)
     
-    static func validateInput(of prompt: String) -> (x: Int, y: Int)? {
+    static func validateInput(of prompt: String) -> Bool {
         
         guard !prompt.isEmpty else {
-            return nil
+            return false
         }
         
         guard uncontainsPossibleCharacter(in: prompt) else {
             print("사용할 수 없는 문자가 입력되었습니다. 숫자(0-9), 괄호(), 쉼표(,), 대시(-)만을 사용해주세요.")
-            return nil
+            return false
         }
         
         guard let separatedValue = separateCoordinates(of: prompt) else {
-            return nil
+            return false
         }
         
         let numericValue = convertToNumeric(of: separatedValue)
         
         guard let coordinates = checkCoordinatesLimit(numericValue.x, numericValue.y) else {
-            return nil
+            return false
         }
         
-        return coordinates
+        return true
     }
     
     /// prompt에 입력된 문자열 중에 입력할 수 없는 문자가 포함되어 있는지 확인합니다.
