@@ -16,23 +16,25 @@ struct InputView {
     static let maxRange: Int = 24
     static let minRange: Int = 0
    
-    func printInputXMessage(){
-        print("input x coordinate input > ")
+    func printInputMessage(){
+        print("(x,y) coordinate (ex; (2,5) ) > ")
     }
     
-    func printInputYMessage(){
-        print("input y coordinate input > ")
-    }
-    
-    func readInputUtil () throws -> Int {
+    func readInputUtil () throws -> pair{
         let point = try readEachPoint()
-        let convertPointToNumber = try convertStringToNumber(point)
-        if !isInRange(point: convertPointToNumber) {
+        let (preprocessedPointX, preprocessedPointY) = try splitPoints(point)
+        let (pointX, pointY) = try convertStringToNumber(preprocessedPointX,preprocessedPointY)
+        if !isInRange(pointX, pointY) {
             throw errorCode.invalidRange
         }
-        return convertPointToNumber
+        return pair(pointX, pointY)
     }
-    
+    func splitPoints (_ point: String) throws -> ( String, String) {
+        let splitAPairOfPoint: [String] = point.trimmingCharacters(in: ["(",")"])
+                                                .split(separator: ",")
+                                                .map { (value) in return String(value)}
+        return (splitAPairOfPoint[0], splitAPairOfPoint[1])
+    }
     func readEachPoint() throws -> String {
         let input: String? = readLine()
         guard input != nil && !(input?.isEmpty ?? true) else {
@@ -41,25 +43,26 @@ struct InputView {
         return input!
     }
     
-    func convertStringToNumber(_ input: String )throws -> Int {
-        guard let pointNumber = Int(input) else{
+    func convertStringToNumber(_ x: String, _ y: String )throws -> pair {
+        guard let pointX = Int(x) else{
             throw errorCode.isNotANumber
         }
-        return pointNumber
+        guard let pointY = Int(y) else{
+            throw errorCode.isNotANumber
+        }
+        return pair(pointX, pointY)
     }
     
-    private func isInRange(point: Int)  -> Bool {
-        if point > InputView.maxRange || point < InputView.minRange {
+    private func isInRange(_ x: Int, _ y: Int)  -> Bool {
+        if x > InputView.maxRange || x < InputView.minRange || y > InputView.maxRange || y < InputView.minRange  {
             return false
         }
         return true
     }
     
     func readInput() throws -> pair {
-        printInputXMessage()
-        let pointX: Int = try readInputUtil()
-        printInputYMessage()
-        let pointY: Int = try readInputUtil()
+        printInputMessage()
+        let (pointX, pointY) = try readInputUtil()
         return pair(pointX, pointY)
     }
     
