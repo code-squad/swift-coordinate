@@ -15,5 +15,4 @@ struct MyPoint {
         self.x = x
         self.y = y
     }
-    
 }
