@@ -15,6 +15,7 @@
 		33F917D822685B2F00DE6E93 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D722685B2F00DE6E93 /* InputError.swift */; };
 		33F917DA22685B4500DE6E93 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D922685B4500DE6E93 /* MyPoint.swift */; };
 		33F917DE226873EE00DE6E93 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917DD226873EE00DE6E93 /* Converter.swift */; };
+		33FA0873226EB89400CA8B22 /* InputVerify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA0872226EB89400CA8B22 /* InputVerify.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		33F917D722685B2F00DE6E93 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		33F917D922685B4500DE6E93 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		33F917DD226873EE00DE6E93 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		33FA0872226EB89400CA8B22 /* InputVerify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerify.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				33054C8922696EBC00B94C07 /* MyLine.swift */,
 				33054C8B2269A47D00B94C07 /* Figure.swift */,
 				33054C8D2269B65900B94C07 /* FigureFactory.swift */,
+				33FA0872226EB89400CA8B22 /* InputVerify.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				33054C8C2269A47D00B94C07 /* Figure.swift in Sources */,
 				33054C8A22696EBC00B94C07 /* MyLine.swift in Sources */,
 				33F917D822685B2F00DE6E93 /* InputError.swift in Sources */,
+				33FA0873226EB89400CA8B22 /* InputVerify.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
