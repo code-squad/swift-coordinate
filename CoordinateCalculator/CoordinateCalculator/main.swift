@@ -8,4 +8,10 @@
 
 import Foundation
 
-OutputView.drawAxis()
+func run() {
+    let point = InputView.readInput()
+    OutputView.drawAxis()
+    OutputView.drawYellowDot(at: point)
+}
+
+run()
