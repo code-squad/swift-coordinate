@@ -16,12 +16,17 @@ enum InputError: Error {
 
 struct InputView {
     static public func readInput() throws -> MyPoint {
-        let question = "좌표를 입력하세요."
-        print(question)
-        guard let input = readLine(), isValid(input) else {
-            throw InputError.whileReadingInput
-        }
-        return try parseIntoPoint(using: input)
+        var point: MyPoint!
+        let question = "좌표를 입력하세요: "
+        repeat {
+            print(question)
+            guard let input = readLine(), isValid(input) else {
+                throw InputError.whileReadingInput
+            }
+            point = try parseIntoPoint(using: input)
+        } while(isPointOutOfAxis(using: point))
+        
+        return point
     }
     
     static private func isValid(_ input: String) -> Bool {
@@ -55,5 +60,9 @@ struct InputView {
         guard let convertedX = Int(dividedByComma[0]) else { return nil }
         guard let convertedY = Int(dividedByComma[1]) else { return nil }
         return (convertedX, convertedY)
+    }
+    
+    static private func isPointOutOfAxis(using point: MyPoint) -> Bool {
+        return point.x > ANSICode.axis.AxisLimit || point.y > ANSICode.axis.AxisLimit || point.x < 0 || point.y < 0
     }
 }
