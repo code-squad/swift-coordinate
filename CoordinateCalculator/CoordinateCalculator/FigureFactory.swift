@@ -33,7 +33,7 @@ struct FigureFactory{
         let coordinateY: Int = Int(String(coordinate[1])) ?? 0
         
         
-        return MyPoint(x: [coordinateX], y: [coordinateY])
+        return MyPoint(x: coordinateX, y: coordinateY)
     }
     
     static private func inputToLine (_ values: [Substring]) -> MyLine {

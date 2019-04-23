@@ -37,5 +37,6 @@ struct MyTriangle: Figure {
         self.lineBC.pointB = pointC
         self.lineAC.pointA = pointA
         self.lineAC.pointB = pointC
+        
     }
 }
