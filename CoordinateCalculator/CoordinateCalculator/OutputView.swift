@@ -25,7 +25,7 @@ struct OutputView {
     }
     
     static func moveToOrigin() {
-        let moveToOrigin = ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: 2)
+        let moveToOrigin = ANSICode.cursor.move(row: ANSICode.axis.originRow, col: ANSICode.axis.originCol)
         print(moveToOrigin)
     }
 }
