@@ -15,36 +15,22 @@ struct MyTriangle: Figure {
     var area = 0.0
     
     init(x: [Int], y: [Int]) {
-        self.lineAB.pointA.x = x[0]
-        self.lineAB.pointB.x = x[1]
-        self.lineAB.pointA.y = y[0]
-        self.lineAB.pointB.y = y[1]
-        
-        self.lineBC.pointA.x = x[1]
-        self.lineBC.pointB.x = x[2]
-        self.lineBC.pointA.y = y[1]
-        self.lineBC.pointB.y = y[2]
-        
-        self.lineAC.pointA.x = x[0]
-        self.lineAC.pointB.x = x[2]
-        self.lineAC.pointA.y = y[0]
-        self.lineAC.pointB.y = y[2]
-        
+        self.lineAB = MyLine(x: [ x[0], x[1] ], y: [ y[0], y[1] ])
+        self.lineBC = MyLine(x: [ x[1], x[2] ], y: [ y[1], y[2] ])
+        self.lineAC = MyLine(x: [ x[0], x[2] ], y: [ y[0], y[2] ])
         self.area = calculateArea()
     }
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        self.lineAB.pointA = pointA
-        self.lineAB.pointB = pointB
-        self.lineBC.pointA = pointB
-        self.lineBC.pointB = pointC
-        self.lineAC.pointA = pointA
-        self.lineAC.pointB = pointC
-        
+        self.lineAB = MyLine(pointA: pointA, pointB: pointB)
+        self.lineBC = MyLine(pointA: pointB, pointB: pointC)
+        self.lineAC = MyLine(pointA: pointA, pointB: pointC)
         self.area = calculateArea()
     }
     
     private func calculateArea () -> Double {
-        return (lineAB.length + lineBC.length + lineAC.length)/2.0
+        let halfPerimeter = (lineAB.length + lineBC.length + lineAC.length)/2.0
+
+        return sqrt(halfPerimeter * (halfPerimeter-lineAB.length) * (halfPerimeter-lineBC.length) * (halfPerimeter-lineAC.length))
     }
 }
