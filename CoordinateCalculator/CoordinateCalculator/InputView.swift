@@ -18,10 +18,14 @@ struct InputView {
     static public func readInput() throws -> MyPoint {
         let question = "좌표를 입력하세요."
         print(question)
-        guard let line = readLine() else {
+        guard let input = readLine(), isValid(input) else {
             throw InputError.whileReadingInput
         }
-        return try parseIntoPoint(using: line)
+        return try parseIntoPoint(using: input)
+    }
+    
+    static private func isValid(_ input: String) -> Bool {
+        return input.contains("(") && input.contains(")") && input.count >= 5 && !input.isEmpty
     }
     
     static private func parseIntoPoint(using input: String) throws -> MyPoint {
