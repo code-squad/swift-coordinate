@@ -25,7 +25,6 @@ struct InputView {
     }
     
     func readInputUtil () throws -> Int {
-        printInputXMessage()
         let point = try readEachPoint()
         let convertPointToNumber = try convertStringToNumber(point)
         if !isInRange(point: convertPointToNumber) {

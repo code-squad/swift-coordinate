@@ -65,6 +65,25 @@ public struct ANSICode {
         }
     }
     
+    struct point {
+        static let AxisLimit = 24
+        static func drawPoint(_ myPoint: MyPoint) -> String {
+            var result = ""
+            result += cursor.move(row: AxisLimit+1, col: 3)
+            result += cursor.move(row: AxisLimit-myPoint.y+1, col: 3+myPoint.x*2)
+            result += "\(ANSICode.text.redBright)"
+            result += "\(ANSICode.text.whiteBright)"
+            result += cursor.move(row: AxisLimit+3, col: 3)
+            return result
+        }
+        
+        static func draw(_ myPoint: MyPoint) -> String {
+            let result = drawPoint(myPoint)
+            
+            return result
+        }
+    }
+    
     struct axis {
         static let AxisLimit = 24
         private static func drawX() -> String {
@@ -79,7 +98,7 @@ public struct ANSICode {
             }
             return result
         }
-
+   
         private static func drawY() -> String {
             var result = ""
             for yLoop in 1...AxisLimit {
