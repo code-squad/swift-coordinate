@@ -21,15 +21,10 @@ struct MyLine: Figure {
         self.length = calculateLength()
     }
     
-    init(_ points: [MyPoint]) {
-        self.pointA = points[0]
-        self.pointB = points[1]
-        self.length = calculateLength()
-    }
-    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
+        self.length = calculateLength()
     }
 
     private func calculateLength () -> Double {
