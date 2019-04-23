@@ -32,6 +32,7 @@ func main () {
     
     if figure is MyPoint { outputView.drawPoint(figure as! MyPoint) }
     else if figure is MyLine { outputView.drawLine(figure as! MyLine) }
+    else if figure is MyTriangle { outputView.drawTriangle(figure as! MyTriangle) }
 }
 
 main()

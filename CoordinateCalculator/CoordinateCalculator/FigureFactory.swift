@@ -15,6 +15,8 @@ struct FigureFactory{
             return inputToPoint(String(values[0]))
         case .line?:
             return inputToLine(values)
+        case .triangle?:
+            return inputToTriangle(values)
         case .none:
             throw InputError.UndefinedFigure
         }
@@ -42,5 +44,15 @@ struct FigureFactory{
         }
         
         return MyLine(x: [points[0].x, points[1].x], y: [points[0].y, points[1].y])
+    }
+    
+    static private func inputToTriangle (_ values: [Substring]) -> MyTriangle {
+        var points = [MyPoint]()
+        
+        for value in values {
+            points.append(inputToPoint(String(value)))
+        }
+        
+        return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
     }
 }
