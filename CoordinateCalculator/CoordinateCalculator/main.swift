@@ -22,11 +22,11 @@ func main(){
                 let inputLocation = try distinct.splitLocation(inputTexts: distinctInput)
                 switch inputLocation.loctionCount {
                 case 2 : // 입력된 Location의 갯수가 2개인 경우
-                    myLine = try distinct.twoLocations(dividedLocations: inputLocation.dividedLocations)
+                    myLine = try distinct.initMyLine(dividedLocations: inputLocation.dividedLocations)
                     output.drawAxis()
                     output.printMyLine(myLine: myLine)
                 case 1 : // 입력된 Location의 갯수가 1개인 경우
-                    myPoint = try distinct.location(locationText: inputLocation.dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
+                    myPoint = try distinct.initMyPoint(locationText: inputLocation.dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
                     output.drawAxis()
                     output.printMyPoint(myPoint: myPoint)
                 default :

@@ -17,14 +17,14 @@ struct Distinct {
         return (dividedLocations.count, dividedLocations)
     }
     /// 입력받은 좌표가 2개일때 MyLine 구조체의 변수들에 값을 입력하는 함수
-    func twoLocations(dividedLocations : [String.SubSequence]) throws -> MyLine {
-        let pointA = try location(locationText: dividedLocations[0])
-        let pointB = try location(locationText: dividedLocations[1])
+    func initMyLine(dividedLocations : [String.SubSequence]) throws -> MyLine {
+        let pointA = try initMyPoint(locationText: dividedLocations[0])
+        let pointB = try initMyPoint(locationText: dividedLocations[1])
         let myLine = MyLine.init(pointA: pointA, pointB: pointB)
         return myLine
     }
     /// 입력받은 좌표가 1개 혹은 MyLine 구조체의 하나의 변수에 값을 입력하는 함수
-    func location(locationText : String.SubSequence) throws -> MyPoint {
+    func initMyPoint(locationText : String.SubSequence) throws -> MyPoint {
         if locationText == "" { throw ErrorMessage.noValueError }
         else if locationText[locationText.index(before: locationText.endIndex)] != ")" || locationText[locationText.startIndex] != "(" { throw ErrorMessage.nonbracket }
         else {
@@ -32,12 +32,12 @@ struct Distinct {
             beforeRefineLocation.removeFirst()
             beforeRefineLocation.removeLast()
             let locations = beforeRefineLocation.split(separator: ",")
-            let myPoint = try rangeAndValue(locations: locations)
+            let myPoint = try numberOfLocations(locations: locations)
             return myPoint
         }
     }
     /// 입력된 좌표가 x,y 2개가 들어왔는지 판단하고 맞으면 값을 return하는 함수
-    func rangeAndValue(locations : [String.SubSequence]) throws -> MyPoint {
+    func numberOfLocations(locations : [String.SubSequence]) throws -> MyPoint {
         if locations.count != 2 { throw ErrorMessage.outOfRangeError}
         else {
             guard let inputX = Int(locations[0]) else {
