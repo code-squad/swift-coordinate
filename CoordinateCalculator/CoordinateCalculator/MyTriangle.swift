@@ -12,6 +12,7 @@ struct MyTriangle: Figure {
     var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    var area = 0.0
     
     init(x: [Int], y: [Int]) {
         self.lineAB.pointA.x = x[0]
@@ -28,6 +29,8 @@ struct MyTriangle: Figure {
         self.lineAC.pointB.x = x[2]
         self.lineAC.pointA.y = y[0]
         self.lineAC.pointB.y = y[2]
+        
+        self.area = calculateArea()
     }
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
@@ -38,5 +41,10 @@ struct MyTriangle: Figure {
         self.lineAC.pointA = pointA
         self.lineAC.pointB = pointC
         
+        self.area = calculateArea()
+    }
+    
+    private func calculateArea () -> Double {
+        return (lineAB.length + lineBC.length + lineAC.length)/2.0
     }
 }
