@@ -8,9 +8,7 @@
 
 import Foundation
 
-protocol Drawable: CustomStringConvertible {
-    
-    var isDrawable: Bool { get }
+protocol Drawable {
     
     var points: [Point] { get }
     

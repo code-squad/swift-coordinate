@@ -14,16 +14,6 @@ struct Line: Drawable, CustomStringConvertible {
         return "두 점 사이의 거리: \(distance)"
     }
     
-    var isDrawable: Bool {
-        if ANSICode.CoordinateGrid.gridRange.contains(start.x),
-            ANSICode.CoordinateGrid.gridRange.contains(start.y),
-            ANSICode.CoordinateGrid.gridRange.contains(end.x),
-            ANSICode.CoordinateGrid.gridRange.contains(end.y) {
-            return true
-        }
-        return false
-    }
-    
     let start: Point
     let end: Point
     

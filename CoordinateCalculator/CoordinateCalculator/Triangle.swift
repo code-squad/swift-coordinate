@@ -8,19 +8,8 @@
 
 import Foundation
 
-struct Triangle: Drawable {
+struct Triangle: Drawable, CustomStringConvertible {
     
-    var isDrawable: Bool {
-        if ANSICode.CoordinateGrid.gridRange.contains(lineAB.start.x),
-            ANSICode.CoordinateGrid.gridRange.contains(lineAB.start.y),
-            ANSICode.CoordinateGrid.gridRange.contains(lineAB.end.x),
-            ANSICode.CoordinateGrid.gridRange.contains(lineAB.end.y),
-            ANSICode.CoordinateGrid.gridRange.contains(lineAC.end.x),
-            ANSICode.CoordinateGrid.gridRange.contains(lineAC.end.x) {
-            return true
-        }
-        return false
-    }
     
     var points: [Point] {
         return [lineAB.start, lineAB.end, lineAC.end]
@@ -30,9 +19,9 @@ struct Triangle: Drawable {
         return "삼각형의 넓이: \(size)"
     }
     
-    var lineAB: Line
-    var lineAC: Line
-    var lineBC: Line
+    private var lineAB: Line
+    private var lineAC: Line
+    private var lineBC: Line
     
     var size: Double {
         let s = (lineAB.distance + lineAC.distance + lineBC.distance) / 2
