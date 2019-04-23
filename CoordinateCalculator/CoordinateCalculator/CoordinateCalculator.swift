@@ -34,6 +34,8 @@ struct CoordinateCalCulator {
             return points[0]
         case 2:
             return Line(start: points[0], end: points[1])
+        case 3:
+            return Triangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
             throw CoordinateCalculatorError.shapeNotSupported
         }
