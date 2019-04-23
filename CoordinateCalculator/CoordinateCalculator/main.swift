@@ -9,7 +9,27 @@
 import Foundation
 
 func main() {
-    OutputView.drawAxis()
+    let coordinates: MyPoint
+
+    while true {
+        do {
+            coordinates = try InputView.readInput()
+            
+            OutputView.drawAxis()
+            OutputView.drawPoint(point: coordinates)
+            
+            break
+        } catch let error as InputError {
+            print(error.localizedDescription)
+            continue
+        } catch let error as CoordinateRangeError {
+            print(error.localizedDescription)
+            continue
+        } catch {
+            print("알 수 없는 에러")
+            continue
+        }
+    }
 }
 
 main()
