@@ -11,7 +11,13 @@ import Foundation
 struct Converter {
     static func inputToFigure (_ valueEntered: String) throws -> Figure {
         let figure: Figure
-        let values = valueEntered.split(separator: "-")
+        let valueSplit = valueEntered.split(separator: "-")
+        var values = [String]()
+        
+        for value in valueSplit {
+            values.append(String(value))
+        }
+        
         let type = FigureType(rawValue: values.count)
         
         try InputVerify.verifyInputStandard(values)

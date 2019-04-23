@@ -9,7 +9,7 @@
 import Foundation
 
 struct FigureFactory{
-    static func getFigure(_ type: FigureType?, _ values: [Substring]) throws -> Figure {
+    static func getFigure(_ type: FigureType?, _ values: [String]) throws -> Figure {
         switch type {
         case .point?:
             return inputToPoint(String(values[0]))
@@ -36,7 +36,7 @@ struct FigureFactory{
         return MyPoint(x: coordinateX, y: coordinateY)
     }
     
-    static private func inputToLine (_ values: [Substring]) -> MyLine {
+    static private func inputToLine (_ values: [String]) -> MyLine {
         var points = [MyPoint]()
         
         for value in values {
@@ -46,7 +46,7 @@ struct FigureFactory{
         return MyLine(x: [points[0].x, points[1].x], y: [points[0].y, points[1].y])
     }
     
-    static private func inputToTriangle (_ values: [Substring]) -> MyTriangle {
+    static private func inputToTriangle (_ values: [String]) -> MyTriangle {
         var points = [MyPoint]()
         
         for value in values {
