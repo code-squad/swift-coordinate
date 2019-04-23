@@ -11,6 +11,7 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		FA570A72226D9029002AD9E9 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570A71226D9029002AD9E9 /* Validator.swift */; };
 		FA570A74226EB097002AD9E9 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570A73226EB097002AD9E9 /* MyLine.swift */; };
+		FA6AF105226EFBB400F69B8C /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AF104226EFBB400F69B8C /* Converter.swift */; };
 		FAA5ABC022696FEB00596E60 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABBF22696FEB00596E60 /* OutputView.swift */; };
 		FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABC922699E6200596E60 /* InputView.swift */; };
 		FAA5ABCC22699F0400596E60 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABCB22699F0400596E60 /* MyPoint.swift */; };
@@ -34,6 +35,7 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		FA570A71226D9029002AD9E9 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		FA570A73226EB097002AD9E9 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		FA6AF104226EFBB400F69B8C /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		FAA5ABBF22696FEB00596E60 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		FAA5ABC922699E6200596E60 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FAA5ABCB22699F0400596E60 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				FAA5ABC922699E6200596E60 /* InputView.swift */,
 				FA570A71226D9029002AD9E9 /* Validator.swift */,
+				FA6AF104226EFBB400F69B8C /* Converter.swift */,
 				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABCB22699F0400596E60 /* MyPoint.swift */,
 				FA570A73226EB097002AD9E9 /* MyLine.swift */,
@@ -140,6 +143,7 @@
 			files = (
 				FAA5ABCC22699F0400596E60 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				FA6AF105226EFBB400F69B8C /* Converter.swift in Sources */,
 				FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				FA570A72226D9029002AD9E9 /* Validator.swift in Sources */,
