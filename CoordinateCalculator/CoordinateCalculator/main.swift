@@ -12,6 +12,7 @@ enum errorCode : Error {
     case invalidInput
     case invalidRange
     case isNotANumber
+    case splitStringError
 }
 
 let main = {
@@ -30,6 +31,9 @@ let main = {
             continue
         }catch errorCode.invalidRange{
             print("invalidRange")
+            continue
+        }catch errorCode.splitStringError{
+            print("splitStringError")
             continue
         }catch {
             print("unexpected error")
