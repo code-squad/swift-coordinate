@@ -2,7 +2,7 @@ import Foundation
 
 struct InputView {
     
-    //MARK: 비공개 메소드
+    //MARK: 비공개 정적 메소드
     static private func ask(about question: String) throws -> String {
         print(ANSICode.text.yellow + question)
         guard let input = readLine() else {
@@ -11,7 +11,6 @@ struct InputView {
         return input
     }
     
-    //MARK: 비공개 정적 메소드
     private static func point(input: String) throws -> Point {
         var inputCoordinate = input
         
@@ -53,17 +52,13 @@ struct InputView {
         return points
     }
     
-    
-    //MARK: 메소드
     /// 좌표값 문자열을 입력받아 점 배열로 반환합니다.
     static func readCoordinates() throws -> [Point] {
         let input = try ask(about: "좌표를 입력하세요.")
         return try InputView.points(value: input)
     }
     
-    
 }
-
 
 enum InputError: Error, CustomStringConvertible {
     
