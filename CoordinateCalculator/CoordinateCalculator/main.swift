@@ -9,7 +9,13 @@
 import Foundation
 
 func run() {
-    let point = InputView.readInput()
+    var point: MyPoint!
+    do {
+        point = try InputView.readInput()
+    } catch {
+        print("Error: \(error)")
+    }
+    
     OutputView.drawAxis()
     OutputView.drawYellowDot(at: point)
 }
