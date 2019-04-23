@@ -14,6 +14,7 @@ func run() {
         point = try InputView.readInput()
     } catch {
         print("Error: \(error)")
+        return
     }
     
     OutputView.drawAxis()
