@@ -26,7 +26,7 @@ struct MyTriangle {
         let cos = (pow(betweenBCLength,2) + pow(betweenABLength,2) - pow(betweenACLength,2))/(2*betweenBCLength*betweenABLength)
         let sin = sqrt(1-pow(cos,2))
         
-        let betweenArea = 0.5 * betweenBCLength * sin
-        return betweenArea
+        let betweenArea = 0.5 * betweenBCLength * (betweenABLength * sin)
+        return round(betweenArea * 100) / 100
     }
 }

@@ -16,10 +16,14 @@ struct Distinct {
         let dividedLocations = beforeRefineLocations.split(separator: "-")
         return (dividedLocations.count, dividedLocations)
     }
-    
+    /// 입력받은 좌표의 갯수를 판단하여 그에 맞는 함수를 출력하는 함수
     func callDependingCoordinates(locationCount : Int, dividedLocations : [String.SubSequence]) throws {
         let output = OutputView()
         switch locationCount{
+        case 3 : // 입력된 Location의 갯수가 3개인 경우
+            let myTriangle = try initMyTriangle(dividedLocations: dividedLocations)
+            output.drawAxis()
+            output.printMyTriangle(myTriangle: myTriangle)
         case 2 : // 입력된 Location의 갯수가 2개인 경우
             let myLine = try initMyLine(dividedLocations: dividedLocations)
             output.drawAxis()
@@ -31,6 +35,14 @@ struct Distinct {
         default :
             throw ErrorMessage.outOfRangeError
         }
+    }
+    /// 입력받은 좌표가 3개일때 MyTriangle 구조체의 변수들에 값을 입력하는 함수
+    private func initMyTriangle(dividedLocations : [String.SubSequence]) throws -> MyTriangle {
+        let pointA = try initMyPoint(locationText: dividedLocations[0])
+        let pointB = try initMyPoint(locationText: dividedLocations[1])
+        let pointC = try initMyPoint(locationText: dividedLocations[2])
+        let myTriangle = MyTriangle.init(pointA: pointA, pointB: pointB, pointC: pointC)
+        return myTriangle
     }
     
     /// 입력받은 좌표가 2개일때 MyLine 구조체의 변수들에 값을 입력하는 함수
