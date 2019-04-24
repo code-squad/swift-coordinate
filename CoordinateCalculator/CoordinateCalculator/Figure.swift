@@ -15,5 +15,6 @@ enum FigureType: Int {
 }
 
 protocol Figure {
-    init(x: [Int], y: [Int])
+    init(x: Int, y: Int)
 }
+

@@ -12,11 +12,6 @@ struct MyPoint: Figure {
     var x = 0
     var y = 0
     
-    init(x: [Int], y: [Int]) {
-        self.x = x[0]
-        self.y = y[0]
-    }
-    
     init(x: Int = 0, y: Int = 0) {
         self.x = x
         self.y = y

@@ -13,12 +13,9 @@ struct MyLine: Figure {
     var pointB = MyPoint(x: 0, y: 0)
     var length: Double = 0.0
     
-    init(x: [Int], y: [Int]) {
-        self.pointA.x = x[0]
-        self.pointB.x = x[1]
-        self.pointA.y = y[0]
-        self.pointB.y = y[1]
-        self.length = calculateLength()
+    init(x: Int = 0, y: Int = 0) {
+        self.pointA = MyPoint(x: x, y: y)
+        self.pointB = MyPoint(x: x, y: y)
     }
     
     init(pointA: MyPoint, pointB: MyPoint) {
