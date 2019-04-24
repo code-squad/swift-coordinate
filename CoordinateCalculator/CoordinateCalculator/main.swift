@@ -15,6 +15,8 @@ func main() {
         OutputView.printText("입력 오류: \(error.description)")
     } catch let error as OutputError {
         OutputView.printText("출력 오류: \(error.description)")
+    } catch let error as CoordinateError {
+        OutputView.printText("좌표 계산기 오류: \(error.description)")
     } catch {
         OutputView.printText("예상치 못한 오류: \(error)")
     }
