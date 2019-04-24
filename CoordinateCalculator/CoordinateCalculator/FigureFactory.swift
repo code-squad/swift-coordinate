@@ -12,11 +12,11 @@ struct FigureFactory{
     static func getFigure(_ type: FigureType?, _ values: [String]) throws -> Figure {
         switch type {
         case .point?:
-            return inputToPoint(String(values[0]))
+            return inputToPoint(values[0])
         case .line?:
-            return inputToLine(values)
+            return MyLine(pointA: inputToPoint(values[0]), pointB: inputToPoint(values[1]))
         case .triangle?:
-            return inputToTriangle(values)
+            return MyTriangle(pointA: inputToPoint(values[0]), pointB: inputToPoint(values[1]), pointC: inputToPoint(values[2]))
         case .none:
             throw InputError.UndefinedFigure
         }
@@ -32,27 +32,6 @@ struct FigureFactory{
         let coordinateX: Int = Int(String(coordinate[0])) ?? 0
         let coordinateY: Int = Int(String(coordinate[1])) ?? 0
         
-        
         return MyPoint(x: coordinateX, y: coordinateY)
-    }
-    
-    static private func inputToLine (_ values: [String]) -> MyLine {
-        var points = [MyPoint]()
-        
-        for value in values {
-            points.append(inputToPoint(String(value)))
-        }
-        
-        return MyLine(x: [points[0].x, points[1].x], y: [points[0].y, points[1].y])
-    }
-    
-    static private func inputToTriangle (_ values: [String]) -> MyTriangle {
-        var points = [MyPoint]()
-        
-        for value in values {
-            points.append(inputToPoint(String(value)))
-        }
-        
-        return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
     }
 }
