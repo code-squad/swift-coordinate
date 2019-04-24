@@ -8,41 +8,29 @@
 
 import Foundation
 
-enum InputError: Error {
-    case whileReadingInput
-    case invalidParenthesis
-    case invalidNumber
-}
-
 struct InputView {
-    static public func readInput() throws -> MyPoint {
-        let primaryQuestion = "좌표를 입력하세요. "
-        let questionAgain   = "입력한 좌표는 범위 밖입니다. 다시 입력해주세요. "
-        var point: MyPoint!
-        repeat {
-            let question = point == nil ? primaryQuestion : questionAgain
-            print(question)
-            guard let input = readLine(), isValid(input) else {
-                throw InputError.whileReadingInput
-            }
-            point = try parseIntoPoint(using: input)
-        } while(isPointOutOfAxis(using: point))
-        return point
+    static public func readInput() -> (Int, Int)? {
+        let question = "좌표를 입력하세요. "
+        print(question)
+        guard let input = readLine(), isValid(input) else {
+            return nil
+        }
+        return parseIntoPoint(using: input)
     }
     
     static private func isValid(_ input: String) -> Bool {
         return input.contains("(") && input.contains(")") && input.count >= 5 && !input.isEmpty
     }
     
-    static private func parseIntoPoint(using input: String) throws -> MyPoint {
+    static private func parseIntoPoint(using input: String) -> (Int, Int)? {
         let blankRemovedInput = input.replacingOccurrences(of: " ", with: "")
         guard let inputWithoutParenthesis = unwrapParenthesis(of: blankRemovedInput) else {
-            throw InputError.invalidParenthesis
+            return nil
         }
         guard let (numX, numY) = divideNumbers(from: inputWithoutParenthesis) else {
-            throw InputError.invalidNumber
+            return nil
         }
-        return MyPoint(x: numX, y: numY)
+        return (numX, numY)
     }
     
     static private func unwrapParenthesis(of input: String) -> String? {
