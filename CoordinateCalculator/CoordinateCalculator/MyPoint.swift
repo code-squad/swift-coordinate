@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint: Figure {
-    var x = 0
-    var y = 0
+    private(set) var x = 0
+    private(set) var y = 0
     
     init(x: Int = 0, y: Int = 0) {
         self.x = x

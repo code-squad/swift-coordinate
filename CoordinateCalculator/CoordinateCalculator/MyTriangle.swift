@@ -9,10 +9,10 @@
 import Foundation
 
 struct MyTriangle: Figure {
-    var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var area = 0.0
+    private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private(set) var area = 0.0
     
     init(x: Int = 0, y: Int = 0) {
         self.lineAB = MyLine(x: x, y: y)
