@@ -9,7 +9,7 @@
 import Foundation
 
 struct Converter {
-    static func inputToFigure (_ valueEntered: String) throws -> Figure {
+    static func inputToFigure (_ valueEntered: String) throws -> (Figure?, FigureType?) {
         let figure: Figure
         let valueSplit = valueEntered.split(separator: "-")
         var values = [String]()
@@ -25,6 +25,6 @@ struct Converter {
         
         figure = try FigureFactory.getFigure(type, values)
         
-        return figure
+        return (figure, type)
     }
 }
