@@ -11,4 +11,9 @@ import Foundation
 struct MyPoint {
     var x = 0
     var y = 0
+    
+    init(_ point:PointTuple) {
+        self.x = point.0
+        self.y = point.1
+    }
 }
