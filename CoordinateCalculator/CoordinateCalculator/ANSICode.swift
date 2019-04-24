@@ -85,7 +85,7 @@ public struct ANSICode {
             for yLoop in 1...AxisLimit {
                 result += cursor.move(row: yLoop, col: 1)
                 if yLoop % 2 == 1 {
-                    result += String.init(format: "%2d|", AxisLimit-yLoop+1)
+                    result += String.init(format: "%2d|", AxisLimit - yLoop+1)
                 }
                 else {
                     result += "  |"
@@ -107,25 +107,25 @@ public struct ANSICode {
     struct rect {
         static func draw(origin : (x:Int,y:Int), size : (width:Int,height:Int), isFill : Bool) -> String {
             var result = ""
-            for yLoop in origin.y...(origin.y+size.height) {
-                for xLoop in origin.x...(origin.x+size.width) {
+            for yLoop in origin.y...(origin.y + size.height) {
+                for xLoop in origin.x...(origin.x + size.width) {
                     result += cursor.move(row: yLoop, col: xLoop)
                     switch (xLoop,yLoop) {
                     case (origin.x, origin.y):
                         result += "┏"
-                    case (origin.x+size.width,origin.y+size.height):
+                    case (origin.x+size.width,origin.y + size.height):
                         result += "┛"
-                    case (origin.x, origin.y+size.height):
+                    case (origin.x, origin.y + size.height):
                         result += "┗"
-                    case (origin.x+size.width,origin.y):
+                    case (origin.x + size.width, origin.y):
                         result += "┓"
                     case (origin.x, _):
                         fallthrough
-                    case (origin.x+size.width, _):
+                    case (origin.x + size.width, _):
                         result += "┃"
                     case (_, origin.y):
                         fallthrough
-                    case (_, origin.y+size.height):
+                    case (_, origin.y + size.height):
                         result += "━"
                     default:
                         if (isFill) { result += " " }
