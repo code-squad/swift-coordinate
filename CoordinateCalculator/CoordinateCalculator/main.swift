@@ -12,12 +12,13 @@ import Foundation
 func main () {
     let outputView = OutputView()
     var inputView = InputView()
-    var figure: Figure!
+    var figure: Figure?
+    var figureType: FigureType?
     
     while true {
         inputView.readInput()
         do {
-            figure = try Converter.inputToFigure(inputView.valueEntered)
+            (figure, figureType) = try Converter.inputToFigure(inputView.valueEntered)
             break
         }
         catch let error as InputError {
@@ -29,10 +30,7 @@ func main () {
     }
     
     outputView.drawAxis()
-    
-    if figure is MyPoint { outputView.drawPoint(figure as! MyPoint) }
-    else if figure is MyLine { outputView.drawLine(figure as! MyLine) }
-    else if figure is MyTriangle { outputView.drawTriangle(figure as! MyTriangle) }
+    outputView.drawFigure(figure, figureType)
 }
 
 main()
