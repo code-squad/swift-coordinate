@@ -18,4 +18,15 @@ struct MyTriangle {
         self.lineBC = MyLine.init(startPoint: pointB, endPoint: pointC)
         self.lineAC = MyLine.init(startPoint: pointA, endPoint: pointC)
     }
+    func areaCalculator(lineAB: MyLine, lineBC: MyLine, lineAC: MyLine) -> Double {
+        let betweenABLength = lineAB.lengthCalculator(startPoint: lineAB.startPoint, endPoint: lineAB.endPoint)
+        let betweenBCLength = lineBC.lengthCalculator(startPoint: lineBC.startPoint, endPoint: lineBC.endPoint)
+        let betweenACLength = lineAC.lengthCalculator(startPoint: lineAC.startPoint, endPoint: lineAC.endPoint)
+        
+        let cos = (pow(betweenBCLength,2) + pow(betweenABLength,2) - pow(betweenACLength,2))/(2*betweenBCLength*betweenABLength)
+        let sin = sqrt(1-pow(cos,2))
+        
+        let betweenArea = 0.5 * betweenBCLength * sin
+        return betweenArea
+    }
 }
