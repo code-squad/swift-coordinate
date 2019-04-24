@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+
+struct InputView{
+    
+    enum Question : String{
+        case aboutCoordinate  = "좌표를 입력하세요."
+    }
+
+    func readInput() throws {
+        let anwser = try ask(Question.aboutCoordinate)
+    }
+    
+    func ask(_ question:Question) throws -> String {
+        print(question.rawValue)
+        guard let anwser = readLine() else {
+            throw Exception.ErrorType.wrongFormat
+        }
+        return anwser
+    }
+    
+   
+}
+
