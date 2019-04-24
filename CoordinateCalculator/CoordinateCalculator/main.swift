@@ -8,5 +8,10 @@
 
 import Foundation
 
+let inputView = InputView()
+try inputView.readInput()
+
 let outputView = OutputView.init()
 outputView.drawAxis()
+
+
