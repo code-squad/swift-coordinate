@@ -19,7 +19,7 @@ struct OutputView{
         print("\(ANSICode.text.whiteBright)\(ANSICode.cursor.move(row: 25-myLine.startPoint.y, col: (myLine.startPoint.x*2)+2))*")
         print("\(ANSICode.text.whiteBright)\(ANSICode.cursor.move(row: 25-myLine.endPoint.y, col: (myLine.endPoint.x*2)+2))*")
         print("\(ANSICode.cursor.move(row: 27, col: 25))")
-        print("두 점사이의 거리는 \(myLine.lengthCalculator())")
+        print("두 점사이의 거리는 \(myLine.lengthCalculator(startPoint: myLine.startPoint, endPoint: myLine.endPoint))")
     }
     /// 한개의 좌표가 입력되었을때 MyPoint 구조체의 변수들을 토대로 점을 찍는 함수
     func printMyPoint(myPoint : MyPoint){
