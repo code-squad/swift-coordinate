@@ -9,15 +9,15 @@
 import Foundation
 
 struct MyLine {
-    private(set) var pointA = MyPoint(x: 0, y: 0)
-    private(set) var pointB = MyPoint(x: 0, y: 0)
+    private(set) var startPoint = MyPoint(x: 0, y: 0)
+    private(set) var endPoint = MyPoint(x: 0, y: 0)
     
-    init(pointA: MyPoint, pointB: MyPoint){
-        self.pointA = pointA
-        self.pointB = pointB
+    init(startPoint: MyPoint, endPoint: MyPoint){
+        self.startPoint = startPoint
+        self.endPoint = endPoint
     }
     func lengthCalculator() -> Double {
-        let betweenLength = sqrt(pow(abs(Double(pointA.x - pointB.x)),2)) + pow(abs(Double(pointA.y - pointB.y)),2)
+        let betweenLength = sqrt(pow(abs(Double(startPoint.x - endPoint.x)),2)) + pow(abs(Double(startPoint.y - endPoint.y)),2)
         return betweenLength
     }
 }

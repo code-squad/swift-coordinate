@@ -37,7 +37,7 @@ struct Distinct {
     private func initMyLine(dividedLocations : [String.SubSequence]) throws -> MyLine {
         let pointA = try initMyPoint(locationText: dividedLocations[0])
         let pointB = try initMyPoint(locationText: dividedLocations[1])
-        let myLine = MyLine.init(pointA: pointA, pointB: pointB)
+        let myLine = MyLine.init(startPoint: pointA, endPoint: pointB)
         return myLine
     }
     /// 입력받은 좌표가 1개 혹은 MyLine 구조체의 하나의 변수에 값을 입력하는 함수
