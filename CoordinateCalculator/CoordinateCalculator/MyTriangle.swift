@@ -14,10 +14,10 @@ struct MyTriangle: Figure {
     var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var area = 0.0
     
-    init(x: [Int], y: [Int]) {
-        self.lineAB = MyLine(x: [ x[0], x[1] ], y: [ y[0], y[1] ])
-        self.lineBC = MyLine(x: [ x[1], x[2] ], y: [ y[1], y[2] ])
-        self.lineAC = MyLine(x: [ x[0], x[2] ], y: [ y[0], y[2] ])
+    init(x: Int = 0, y: Int = 0) {
+        self.lineAB = MyLine(x: x, y: y)
+        self.lineBC = MyLine(x: x, y: y)
+        self.lineAC = MyLine(x: x, y: y)
         self.area = calculateArea()
     }
     
