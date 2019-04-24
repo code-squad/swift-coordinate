@@ -1,6 +1,6 @@
 import Foundation
 
-struct Point: Drawable {
+struct Point: Drawable, Equatable {
     
     var points: [Point] {
         return [self]

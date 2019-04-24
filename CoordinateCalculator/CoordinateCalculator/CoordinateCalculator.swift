@@ -39,6 +39,14 @@ struct CoordinateCalculator {
                 }
                 
             }
+            guard points.contains(Point(x: maxX, y: maxY)),
+            points.contains(Point(x: maxX, y: minY)),
+            points.contains(Point(x: minX, y: maxY)),
+                points.contains(Point(x: minX, y: minY)) else {
+                    throw CoordinateError.cannotRecognizeRectangle
+            }
+            
+            
             return Rectangle(origin: Point(x: minX, y: maxY), size: CGSize(width: maxX - minX, height: maxY - minY))
         default:
             throw CoordinateError.shapeNotSupported
