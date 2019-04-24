@@ -6,6 +6,9 @@ struct Line: Drawable, CustomStringConvertible {
         return [start, end]
     }
 
+    let start: Point
+    let end: Point
+    
     var distance: Double {
         return sqrt(pow(Double(start.x - end.x), 2) + pow(Double(start.y - end.y), 2))
     }
@@ -13,9 +16,6 @@ struct Line: Drawable, CustomStringConvertible {
     var description: String {
         return "두 점 사이의 거리: \(distance)"
     }
-    
-    let start: Point
-    let end: Point
     
     init(start: Point, end: Point) {
         self.start = start

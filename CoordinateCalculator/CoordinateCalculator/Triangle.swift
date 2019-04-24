@@ -6,10 +6,6 @@ struct Triangle: Drawable, CustomStringConvertible {
         return [lineAB.start, lineAB.end, lineAC.end]
     }
     
-    var description: String {
-        return "삼각형의 넓이: \(size)"
-    }
-    
     private let lineAB: Line
     private let lineAC: Line
     private let lineBC: Line
@@ -17,6 +13,10 @@ struct Triangle: Drawable, CustomStringConvertible {
     var size: Double {
         let s = (lineAB.distance + lineAC.distance + lineBC.distance) / 2
         return sqrt(s * (s - lineAB.distance) * (s - lineAC.distance) * (s - lineBC.distance))
+    }
+    
+    var description: String {
+        return "삼각형의 넓이: \(size)"
     }
     
     init(pointA: Point, pointB: Point, pointC: Point) {
