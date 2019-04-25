@@ -31,8 +31,7 @@ enum Validation: CustomStringConvertible {
 }
 
 
-struct Inspector {
-
+struct Inspection {
 
     private var letter: String
 
@@ -40,7 +39,18 @@ struct Inspector {
         self.letter = item
     }
 
-    
+    func point() -> MyPoint? {
+        let positionXandY = makePosition()
+        return positionXandY
+    }
+
+    private func makePosition() -> MyPoint? {
+        guard validate() else { return nil }
+        let points = Convertor(origin: letter).proccessedPoints()
+        let positionX = points[0].toInt
+        let positionY = points[1].toInt
+        return MyPoint(x: positionX, y: positionY)
+    }
 
     func result() -> InputError {
         guard hasBracket() else { return
