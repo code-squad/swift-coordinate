@@ -8,13 +8,11 @@
 
 import Foundation
 
-//CoordinateCalulator.run()
-
 while true {
     var numbers: (Int, Int)!
     do {
         let input = try InputView.readInput()
-        numbers  = try Parser.parse(using: input)
+        numbers = try Parser.parse(using: input)
         if CoordinateValidator.isOutOfAxis(using: numbers) {
             throw CoordinateError.outOfAxisRange
         }
@@ -29,7 +27,7 @@ while true {
     let point = MyPoint(x: numbers.0, y: numbers.1)
     OutputView.drawAxis()
     OutputView.drawYellowDot(at: point)
-    break;
+    break
 }
 
 
