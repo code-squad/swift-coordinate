@@ -16,20 +16,23 @@ struct InputView{
     enum Question : String{
         case aboutCoordinate  = "좌표를 입력하세요."
     }
-    
-    func readInput() throws -> MyPoint {
-        let anwser = try ask(Question.aboutCoordinate)
-        anwser.isCorrectFormat()
-        let point =  try anwser.getPointTuple()
-        return try MyPoint(point)
-    }
-    
     func ask(_ question:Question) throws -> Answer {
         print(question.rawValue)
         guard let anwser = readLine() else {
             throw Exception.ErrorType.wrongFormat
         }
         return anwser
+    }
+    func readInput() throws -> MyPoint {
+        let anwser = try ask(Question.aboutCoordinate)
+        guard anwser.isCorrectFormat() else {
+            throw Exception.ErrorType.wrongFormat
+        }
+        return try makeMyPoint(anwser)
+    }
+    func makeMyPoint(_ answer:Answer) throws ->(MyPoint){
+        let point =  try answer.getPointTuple()
+        return try MyPoint(point)
     }
 }
 
