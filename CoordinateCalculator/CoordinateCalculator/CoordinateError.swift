@@ -8,12 +8,9 @@
 
 import Foundation
 
-struct CoordinateError: Error {
-    enum kind {
-        case invalidInputFormat
-        case impossibleToParse
-        case outOfAxisRange
-    }
-    
-    let noticeMessage: String
+enum CoordinateError: String, Error {
+    case invalidInputFormat = "잘못된 형식의 입력입니다. 다시 입력해주세요."
+    case impossibleToParse  = "변환 불가능한 입력입니다. 다시 입력해주세요. "
+    case outOfAxisRange     = "좌표 범위를 벗어난 입력입니다. 다시 입력해주세요. "
 }
+
