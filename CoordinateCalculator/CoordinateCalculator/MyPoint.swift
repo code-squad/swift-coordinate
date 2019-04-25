@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint {
-    var x = 0
-    var y = 0
+    private(set) var x = 0
+    private(set) var y = 0
     let possibleRange = NSRange.init(location: 0, length: 24)
     
     init(_ point:PointTuple) throws {
