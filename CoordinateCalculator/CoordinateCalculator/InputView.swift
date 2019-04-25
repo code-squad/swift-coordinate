@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 typealias Pair = (Int, Int)
 
 struct InputView {
