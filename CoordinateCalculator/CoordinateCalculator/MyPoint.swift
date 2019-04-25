@@ -17,8 +17,8 @@ struct MyPoint: Figure {
         self.y = y
     }
     
-    func draw() -> [(Int, Int)] {
-        return [(x, y)]
+    func draw() -> [MyPoint] {
+        return [self]
     }
     
     func ment() -> String {

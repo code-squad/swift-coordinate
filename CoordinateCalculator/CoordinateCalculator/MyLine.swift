@@ -31,8 +31,8 @@ struct MyLine: Figure {
         return sqrt(legA + legB)
     }
     
-    func draw() -> [(Int, Int)] {
-        return [(pointA.x, pointA.y), (pointB.x, pointB.y)]
+    func draw() -> [MyPoint] {
+        return [pointA, pointB]
     }
     
     func ment() -> String {

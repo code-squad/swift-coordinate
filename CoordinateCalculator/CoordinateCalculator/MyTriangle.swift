@@ -34,8 +34,8 @@ struct MyTriangle: Figure {
         return sqrt(halfPerimeter * (halfPerimeter-lineAB.length) * (halfPerimeter-lineBC.length) * (halfPerimeter-lineAC.length))
     }
     
-    func draw() -> [(Int, Int)] {
-        return [(lineAB.pointA.x, lineAB.pointA.y), (lineAB.pointB.x, lineAB.pointB.y), (lineAC.pointB.x, lineAC.pointB.y)]
+    func draw() -> [MyPoint] {
+        return [lineAB.pointA, lineAB.pointB, lineAC.pointB]
     }
     
     func ment() -> String {
