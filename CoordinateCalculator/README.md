@@ -9,6 +9,24 @@
 
 &nbsp;
 
+모든 설계시 
+
+입력 - 처리 - 출력 구조로 짠다.
+
+## 프로그램 구성 요소
+
+- 입력 - 처리 - 출력 (hw와 비슷)
+- 단계 
+  1. **입력**
+  2. **처리**
+  3. **저장 - 처리된 결과를 저장하기 위한 자료구조(data structure) 고려하기**
+  4. **출력을 위한 형식 지정**
+  5. **출력**
+- 출력을 위한 자료구조를 만들지 말고, 출력이 바뀌어도 자료구조는 변함이 없게끔 설계
+- 4,5는 출력 관련 단계
+
+
+
 ## :pushpin: step 5-1 
 
 ### ANSI Code
@@ -146,4 +164,12 @@
   - x축(y가 0일 때)은 좌표에서 25번째 줄에 출력됨 (max값 + 1)
 
 &nbsp;
+
+&nbsp;
+
+## :pushpin: Step 5-3
+
+### CharacterSet 
+
+[Understanding Swift's CharacterSet](<https://medium.com/livefront/understanding-swifts-characterset-5a7a89a32b54>)
 
