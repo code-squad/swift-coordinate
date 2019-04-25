@@ -8,13 +8,31 @@
 
 import Foundation
 
-enum ErrorCode : Error {
+enum ErrorCode : Error, CustomStringConvertible {
     case InvalidInput
     case InvalidRange
     case IsNotANumber
     case SplitStringError
     case Unknown
+    var description: String{
+        get {
+            switch self {
+            case .IsNotANumber:
+                return "IsNotANumber Error"
+            case .InvalidInput:
+                return "InvalidInput Error"
+            case .InvalidRange:
+                return "InvalidRange Error"
+            case .SplitStringError:
+                return "SplitString Error"
+            case .Unknown:
+                return "Unknown Error"
+            }
+        }
+    }
 }
+
+
 
 let main = {
     let inputView: InputView = InputView()
@@ -24,20 +42,11 @@ let main = {
         do {
             (x, y) = try inputView.readInput()
             break
-        }catch ErrorCode.InvalidInput{
-            print("InvalidInput")
-            continue
-        }catch ErrorCode.IsNotANumber{
-            print("IsNotANumber")
-            continue
-        }catch ErrorCode.InvalidRange{
-            print("InvalidRange")
-            continue
-        }catch ErrorCode.SplitStringError{
-            print("SplitStringError")
+        }catch let errorType as ErrorCode{
+            print(errorType.description)
             continue
         }catch {
-            print("unexpected error")
+            print(ErrorCode.Unknown.description)
             continue
         }
     }
