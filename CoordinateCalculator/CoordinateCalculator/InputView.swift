@@ -24,6 +24,10 @@ extension InputError: LocalizedError {
     }
 }
 
+enum Question: String {
+    case inputCoordinates = "좌표를 입력하세요."
+}
+
 enum RegexPattern: String {
     case verifyPattern = "\\([0-9]+,[0-9]+\\)"
 }
@@ -40,7 +44,7 @@ extension String {
 
 struct InputView {
     static func readInput() throws -> String {
-        print("좌표를 입력하세요.")
+        print(Question.inputCoordinates.rawValue)
         
         guard let coordinatesText = readLine() else { throw InputError.invalidInput }
         guard coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue) else {
