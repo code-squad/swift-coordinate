@@ -20,32 +20,49 @@ struct InputView {
 }
 
 struct Parser {
-    static public func parse(using input: String) throws -> (Int, Int) {
-        let blankRemovedInput = input.replacingOccurrences(of: " ", with: "")
-        guard let inputWithoutParenthesis = unwrapParenthesis(of: blankRemovedInput) else {
+    static public func parse(using input: String) throws -> [String] {
+        let blankRemovedInput = removeBlank(in: input)
+        let pairs = divideIntoPairs(from: blankRemovedInput)
+        guard let pairsWithoutParenthesis = unwrapParenthesis(of: pairs) else {
             throw CoordinateError.impossibleToParse
         }
-        guard let (numX, numY) = divideNumbers(from: inputWithoutParenthesis) else {
+        guard let tokens = divideByComma(from: pairsWithoutParenthesis) else {
             throw CoordinateError.impossibleToParse
         }
-        return (numX, numY)
+        return tokens
     }
     
-    static private func unwrapParenthesis(of input: String) -> String? {
-        guard let openParenthesisIndex = input.index(of: "(") else { return nil }
-        guard let closeParenthesisIndex = input.index(of: ")") else { return nil }
-        let startIndexOfNum = input.index(openParenthesisIndex, offsetBy: 1)
-        let endIndexOfNum = input.index(closeParenthesisIndex, offsetBy: -1)
-        return String(input[startIndexOfNum...endIndexOfNum])
+    static private func removeBlank(in input: String) -> String {
+        return input.replacingOccurrences(of: " ", with: "")
     }
     
-    static private func divideNumbers(from input: String) -> (Int, Int)? {
-        let dividedByComma = input.components(separatedBy: ",")
-        if dividedByComma.count != 2 {
-            return nil
+    static private func divideIntoPairs(from input: String) -> [String] {
+        return input.components(separatedBy: "-")
+    }
+    
+    static private func unwrapParenthesis(of pairs: [String]) -> [String]? {
+        var pairsWithoutParenthesis = [String]()
+        for pair in pairs {
+            guard let openParenthesisIndex = pair.index(of: "(") else { return nil }
+            guard let closeParenthesisIndex = pair.index(of: ")") else { return nil }
+            let startIndexOfNum = pair.index(openParenthesisIndex, offsetBy: 1)
+            let endIndexOfNum = pair.index(closeParenthesisIndex, offsetBy: -1)
+            let unwrappedPair = pair[startIndexOfNum...endIndexOfNum]
+            pairsWithoutParenthesis.append(String(unwrappedPair))
         }
-        guard let convertedX = Int(dividedByComma[0]) else { return nil }
-        guard let convertedY = Int(dividedByComma[1]) else { return nil }
-        return (convertedX, convertedY)
+        return pairsWithoutParenthesis
     }
+    
+    static private func divideByComma(from pairs: [String]) -> [String]? {
+        var tokens = [String]()
+        for pair in pairs {
+            let dividedByComma = pair.components(separatedBy: ",")
+            if dividedByComma.count != 2 { return nil }
+            tokens.append(contentsOf: dividedByComma)
+        }
+        return tokens
+    }
+    
 }
+
+
