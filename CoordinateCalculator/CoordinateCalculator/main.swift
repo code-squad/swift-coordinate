@@ -8,10 +8,24 @@
 
 import Foundation
 
-let inputView = InputView()
-try inputView.readInput()
+func main(){
+    var isError = false
+    repeat{
+        do{
+            let inputView = InputView()
+            let myPoint = try inputView.readInput()
+            let outputView = OutputView.init(myPoint)
+            outputView.drawAxis()
+            outputView.drawPoint()
+            isError = false
+        }catch let error as Exception.ErrorType {
+            Exception.alertError(type: error)
+            isError = true
+        }catch {
+            Exception.alertError()
+            isError = true
+        }
+    }while isError == true
+}
 
-let outputView = OutputView.init()
-outputView.drawAxis()
-
-
+main()
