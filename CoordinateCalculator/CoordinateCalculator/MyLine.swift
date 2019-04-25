@@ -31,9 +31,12 @@ struct MyLine: Figure {
         return sqrt(legA + legB)
     }
     
-    func draw() {
-        pointA.draw()
-        pointB.draw()
-        print("\(ANSICode.text.whiteBright)두 점 사이의 거리는  \(length)")
+    func draw() -> String {
+        var pointDraw: String = ""
+        
+        pointDraw += pointA.draw()
+        pointDraw += pointB.draw()
+        
+        return pointDraw + "\(ANSICode.text.whiteBright)두 점 사이의 거리는  \(length)"
     }
 }

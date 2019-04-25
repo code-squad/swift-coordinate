@@ -10,5 +10,5 @@ import Foundation
 
 protocol Figure {
     init(x: Int, y: Int)
-    func draw ()
+    func draw () -> String
 }

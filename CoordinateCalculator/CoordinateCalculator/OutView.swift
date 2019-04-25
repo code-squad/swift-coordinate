@@ -13,8 +13,8 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
-    func drawFigure (_ figure: Figure?) {
+    func drawFigure (_ figure: Figure) {
         print("\(ANSICode.text.yellowBright)")
-        figure?.draw()
+        print(figure.draw())
     }
 }

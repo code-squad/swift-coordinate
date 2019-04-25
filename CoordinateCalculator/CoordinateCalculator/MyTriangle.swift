@@ -34,11 +34,13 @@ struct MyTriangle: Figure {
         return sqrt(halfPerimeter * (halfPerimeter-lineAB.length) * (halfPerimeter-lineBC.length) * (halfPerimeter-lineAC.length))
     }
     
-    func draw() {
-        lineAB.pointA.draw()
-        lineAB.pointB.draw()
-        lineAC.pointB.draw()
+    func draw() -> String {
+        var pointDraw: String = ""
         
-        print("\(ANSICode.text.whiteBright)삼각형의 넓이는  \(area)")
+        pointDraw += lineAB.pointA.draw()
+        pointDraw += lineAB.pointB.draw()
+        pointDraw += lineAC.pointB.draw()
+        
+        return pointDraw+"\(ANSICode.text.whiteBright)삼각형의 넓이는  \(area)"
     }
 }
