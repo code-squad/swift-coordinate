@@ -17,7 +17,9 @@ struct InputVerify {
         }
     }
     
-    static func verifyCoordinateStandard (_ valueEntered: [String]) throws {
+    static func verifyCoordinateStandard (_ valueEntered: [String]) throws -> [(Int, Int)]{
+        var coordinates: [(Int, Int)] = [(Int, Int)]()
+        
         for valueOriginal in valueEntered {
             var value = valueOriginal
             value.removeFirst()
@@ -34,6 +36,8 @@ struct InputVerify {
             guard let pointY = Int(coordinate[1]), pointY >= 0 && pointY <= 24 else {
                 throw InputError.NonCoordinateStandard
             }
+            coordinates.append((pointX, pointY))
         }
+        return coordinates
     }
 }
