@@ -10,11 +10,13 @@ import Foundation
 
 while true {
     
-    let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)")
+    let prompt = InputView.readUserInput(of: "좌표를 입력하세요. ex. (10,10)")
     
     guard Validator.validateInput(of: prompt) else {
         continue
     }
+    
+    print(Converter.toMyPoints(using: prompt))
     
     break
 }
