@@ -7,11 +7,10 @@ func main() {
     do {
         
         let points = try InputView.readCoordinates()
-        if points.count == 1 {
-            try OutputView.draw(point: points[0])
-        } else {
-            let shape = try CoordinateCalculator.shaped(points: points)
-            try OutputView.draw(shape: shape)
+        let shape = try CoordinateCalculator.shaped(points: points)
+        try OutputView.draw(shape: shape)
+        
+        if let shape = shape as? CustomStringConvertible {
             OutputView.printText(shape.description)
         }
         
