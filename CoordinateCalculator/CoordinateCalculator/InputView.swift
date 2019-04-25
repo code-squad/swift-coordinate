@@ -15,6 +15,7 @@ struct InputView {
 
     func readInput() -> String {
         deliver(message: "좌표를 입력하세요. ")
-        return readLine() ?? ""
+        let input = readLine() ?? ""
+        return input
     }
 }
