@@ -27,8 +27,8 @@ class CoordinateCalculaterTests: XCTestCase {
     func testCheckRange(){
         let pointTupleOver = (25,10)
         let pointTupleUnder = (-1,-1)
-        XCTAssertThrowsError( MyPoint.init(pointTupleOver) ,"범위를 초과한 입력입니다.")
-        XCTAssertThrowsError( MyPoint.init(pointTupleUnder) ,"범위에 미달된 입력입니다.")
+        XCTAssertThrowsError( try MyPoint.init(pointTupleOver) ,"범위를 초과한 입력입니다.")
+        XCTAssertThrowsError( try MyPoint.init(pointTupleUnder) ,"범위에 미달된 입력입니다.")
     }
 
 }
