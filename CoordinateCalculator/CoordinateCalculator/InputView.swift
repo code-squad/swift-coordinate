@@ -9,24 +9,24 @@
 import Foundation
 
 struct InputView {
-    static public func readInput() -> (Int, Int)? {
+    static public func readInput() throws -> String {
         let question = "좌표를 입력하세요. "
         print(question)
         guard let input = readLine(), CoordinateValidator.isValidInputFormat(input) else {
-            return nil
+            throw CoordinateError.invalidInputFormat
         }
-        return Parser.parse(using: input)
+        return input
     }
 }
 
 struct Parser {
-    static public func parse(using input: String) -> (Int, Int)? {
+    static public func parse(using input: String) throws -> (Int, Int) {
         let blankRemovedInput = input.replacingOccurrences(of: " ", with: "")
         guard let inputWithoutParenthesis = unwrapParenthesis(of: blankRemovedInput) else {
-            return nil
+            throw CoordinateError.impossibleToParse
         }
         guard let (numX, numY) = divideNumbers(from: inputWithoutParenthesis) else {
-            return nil
+            throw CoordinateError.impossibleToParse
         }
         return (numX, numY)
     }
