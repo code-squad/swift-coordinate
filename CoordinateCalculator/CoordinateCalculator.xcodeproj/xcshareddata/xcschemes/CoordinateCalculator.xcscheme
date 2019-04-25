@@ -53,6 +53,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
+         BundleIdentifier = "com.googlecode.iterm2"
          FilePath = "/Applications/iTerm.app">
       </PathRunnable>
       <MacroExpansion>
