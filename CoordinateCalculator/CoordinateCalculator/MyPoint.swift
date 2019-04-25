@@ -13,7 +13,7 @@ enum CoordinateRangeError: Error {
 }
 
 extension CoordinateRangeError: LocalizedError {
-    public var errorDescription: String? {
+    var errorDescription: String? {
         return "입력 범위 초과"
     }
 }
