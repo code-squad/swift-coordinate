@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum InputError: Error {
+enum InputError: CustomStringConvertible {
     case nothing
     case exceedValue
     case hasNotBracket
@@ -22,13 +22,35 @@ enum InputError: Error {
         case .hasNotBracket:
             return "괄호가 없습니다"
         case .hasNotTwoInput:
-            return "x, y값을 각각 하나씩만 입력해주세요"
+            return "x, y값을 각각 하나씩 입력해주세요"
+
         }
+    }
+    func show() -> Bool{
+        OutputView.showError(message: self)
+        return true
     }
 }
 
+
 struct Inspector {
+
+
     private var letter: String
+
+    init(item: String) {
+        self.letter = item
+    }
+
+    
+
+    func result() -> InputError {
+        guard hasBracket() else { return
+            .hasNotBracket }
+        guard isEntered() else { return .nothing }
+        guard isExceed() else { return .exceedValue }
+        guard isTwo() else { return .hasNotTwoInput }
+    }
 
 
     private func hasBracket() -> Bool {
