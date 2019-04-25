@@ -21,7 +21,7 @@ struct InputView{
         let anwser = try ask(Question.aboutCoordinate)
         anwser.isCorrectFormat()
         let point =  try anwser.getPointTuple()
-        return MyPoint(point)
+        return try MyPoint(point)
     }
     
     func ask(_ question:Question) throws -> Answer {
