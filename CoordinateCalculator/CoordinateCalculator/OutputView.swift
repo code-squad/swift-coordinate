@@ -38,12 +38,6 @@ struct OutputView {
         }
     }
     
-    static func printDescription(_ shape: Drawable) {
-        if let shape = shape as? CustomStringConvertible {
-            printText(shape.description)
-        }
-    }
-    
     static func printText(_ text: String) {
         print(ANSICode.cursor.move(row: ANSICode.CoordinateGrid.gridLimit + 5, column: 1) + text)
     }

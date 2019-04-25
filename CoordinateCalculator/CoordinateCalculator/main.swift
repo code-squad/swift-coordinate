@@ -9,7 +9,10 @@ func main() {
         let points = try InputView.readCoordinates()
         let shape = try CoordinateCalculator.shaped(points: points)
         try OutputView.draw(shape: shape)
-        OutputView.printDescription(shape)
+        
+        if let shape = shape as? CustomStringConvertible {
+            OutputView.printText(shape.description)
+        }
         
     } catch let error as InputError {
         OutputView.printText("입력 오류: \(error.description)")
