@@ -25,9 +25,8 @@ enum Validation: CustomStringConvertible {
             return "x, y값을 모두 입력해주세요"
         }
     }
-    func show() -> Bool{
-        OutputView.showError(message: self)
-        return true
+    func printError() -> Bool{
+        return OutputView.showError(message: self) ? false : true
     }
 }
 
