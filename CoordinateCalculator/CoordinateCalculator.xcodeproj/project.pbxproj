@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		DE3EC673226965AA00808ACB /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EC672226965AA00808ACB /* MyPoint.swift */; };
+		DE3EC6752269666B00808ACB /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EC6742269666B00808ACB /* InputView.swift */; };
+		DE3EC67722696F5600808ACB /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EC67622696F5600808ACB /* Inspection.swift */; };
 		DED59EF522674C1400D3DC46 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED59EF422674C1400D3DC46 /* OutputView.swift */; };
+		DEEA12262269739E007CB205 /* Convertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEA12252269739E007CB205 /* Convertor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +32,11 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		DE3EC672226965AA00808ACB /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		DE3EC6742269666B00808ACB /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		DE3EC67622696F5600808ACB /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
 		DED59EF422674C1400D3DC46 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		DEEA12252269739E007CB205 /* Convertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,10 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				DED59EF422674C1400D3DC46 /* OutputView.swift */,
+				DE3EC672226965AA00808ACB /* MyPoint.swift */,
+				DE3EC6742269666B00808ACB /* InputView.swift */,
+				DE3EC67622696F5600808ACB /* Inspection.swift */,
+				DEEA12252269739E007CB205 /* Convertor.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -126,7 +138,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3EC673226965AA00808ACB /* MyPoint.swift in Sources */,
+				DE3EC67722696F5600808ACB /* Inspection.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				DEEA12262269739E007CB205 /* Convertor.swift in Sources */,
+				DE3EC6752269666B00808ACB /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				DED59EF522674C1400D3DC46 /* OutputView.swift in Sources */,
 			);
