@@ -10,8 +10,8 @@ import Foundation
 
 
 struct InputRefinary {
-    static private let maxRange: Int = 24
-    static private let minRange: Int = 0
+    static private let MaxRange: Int = 24
+    static private let MinRange: Int = 0
     private (set) var pointPair: Pair
     
     init(_ input : String) throws{
@@ -45,7 +45,7 @@ struct InputRefinary {
     }
     
     static private func isInRange(x: Int, y: Int)  -> Bool {
-        if x > maxRange || x < minRange || y > maxRange || y < minRange  {
+        if x > MaxRange || x < MinRange || y > MaxRange || y < MinRange  {
             return false
         }
         return true
