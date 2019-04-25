@@ -17,8 +17,8 @@ struct MyPoint: Figure {
         self.y = y
     }
     
-    func draw() {
-        print("\(ANSICode.cursor.move(row:25-y, col: x*2+3))•\(ANSICode.cursor.move(row:26, col: 0))")
+    func draw() -> String {
+        return "\(ANSICode.cursor.move(row:25-y, col: x*2+3))•\(ANSICode.cursor.move(row:27, col: 0))"
     }
 }
 

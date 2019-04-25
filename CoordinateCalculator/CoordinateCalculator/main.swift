@@ -20,12 +20,8 @@ func main () {
             figure = try Converter.inputToFigure(inputView.valueEntered)
             break
         }
-        catch let error as InputError {
-            print(error.rawValue)
-        }
-        catch {
-            print("알 수 없는 오류입니다. 입력값을 확인해주세요.")
-        }
+        catch let error as InputError { print(error.rawValue) }
+        catch { print("알 수 없는 오류입니다. 입력값을 확인해주세요.") }
     }
     
     outputView.drawAxis()
