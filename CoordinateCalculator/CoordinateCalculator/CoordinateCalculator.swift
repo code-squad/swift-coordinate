@@ -10,35 +10,38 @@ import Foundation
 
 struct CoordinateCalulator {
     static public func run() {
-        let inputNumbers = readInput()
-        let (x, y): (Int, Int) = inputNumbers
-        let point = MyPoint(x: x, y: y)
+        let (inputX, inputY): (Int, Int) = readInput()
+        let point = MyPoint(x: inputX, y: inputY)
         OutputView.drawAxis()
         OutputView.drawYellowDot(at: point)
-        
     }
     
     static private func readInput() -> (Int, Int) {
-        var input: (Int, Int)!
-        repeat {
-            input = InputView.readInput()
-            if isInvalid(input) {
-                noticeOutOfAxisRange()
+        var validNumbers: (Int, Int)!
+        while true {
+            guard let input = InputView.readInput() else {
+                noticeInvalidInput()
+                continue
             }
-        } while isInvalid(input)
-        return input
-    }
-    
-    static public func isInvalid(_ input: (Int, Int)?) -> Bool {
-        guard let (x, y) = input else {
-            return true
+            if CoordinateValidator.isOutOfAxis(using: input) {
+                noticeOutOfAxisRange()
+                continue
+            }
+            if CoordinateValidator.isInAxis(using: input) {
+                validNumbers = input
+                break
+            }
         }
-        let isOutOfAxis = x > ANSICode.axis.AxisLimit || y > ANSICode.axis.AxisLimit || x < 0 || y < 0
-        return isOutOfAxis
+        return validNumbers
     }
     
     static public func noticeOutOfAxisRange() {
-        let notice = "좌표 범위를 벗어났습니다. "
+        let notice = "좌표 범위를 벗어난 입력입니다. 다시 입력해주세요. "
+        print(notice)
+    }
+    
+    static func noticeInvalidInput() {
+        let notice = "잘못된 형식의 입력입니다. 다시 입력해주세요."
         print(notice)
     }
 }
