@@ -26,6 +26,7 @@ func main () {
     
     outputView.drawAxis()
     outputView.drawFigure(figure)
+    outputView.printMent(figure)
 }
 
 main()

@@ -31,12 +31,11 @@ struct MyLine: Figure {
         return sqrt(legA + legB)
     }
     
-    func draw() -> String {
-        var pointDraw: String = ""
-        
-        pointDraw += pointA.draw()
-        pointDraw += pointB.draw()
-        
-        return pointDraw + "\(ANSICode.text.whiteBright)두 점 사이의 거리는  \(length)"
+    func draw() -> [(Int, Int)] {
+        return [(pointA.x, pointA.y), (pointB.x, pointB.y)]
+    }
+    
+    func ment() -> String {
+        return "두 점 사이의 거리는  \(length)"
     }
 }
