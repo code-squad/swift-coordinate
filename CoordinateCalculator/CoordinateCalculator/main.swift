@@ -8,17 +8,4 @@
 
 import Foundation
 
-func run() {
-    var point: MyPoint!
-    do {
-        point = try InputView.readInput()
-    } catch {
-        print("Error: \(error)")
-        return
-    }
-    
-    OutputView.drawAxis()
-    OutputView.drawYellowDot(at: point)
-}
-
-run()
+CoordinateCalulator.run()
