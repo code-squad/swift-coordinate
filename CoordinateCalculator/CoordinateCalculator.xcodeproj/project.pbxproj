@@ -12,7 +12,6 @@
 		C278D157226D99EF005C056C /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D156226D99EF005C056C /* MyPoint.swift */; };
 		C278D159226DACA5005C056C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D158226DACA5005C056C /* InputView.swift */; };
 		C2C45D5B226D84710089235B /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C45D5A226D84710089235B /* OutputView.swift */; };
-		C2D858522270375A00C9CD3D /* CoordinateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D858512270375A00C9CD3D /* CoordinateCalculator.swift */; };
 		C2D8585422715BB900C9CD3D /* CoordinateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D8585322715BB900C9CD3D /* CoordinateValidator.swift */; };
 		C2D858562271868B00C9CD3D /* CoordinateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D858552271868B00C9CD3D /* CoordinateError.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +35,6 @@
 		C278D156226D99EF005C056C /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		C278D158226DACA5005C056C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C2C45D5A226D84710089235B /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
-		C2D858512270375A00C9CD3D /* CoordinateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculator.swift; sourceTree = "<group>"; };
 		C2D8585322715BB900C9CD3D /* CoordinateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateValidator.swift; sourceTree = "<group>"; };
 		C2D858552271868B00C9CD3D /* CoordinateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				8377CC511F8B6F7E007F7335 /* main.swift */,
-				C2D858512270375A00C9CD3D /* CoordinateCalculator.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				C278D158226DACA5005C056C /* InputView.swift */,
 				C2C45D5A226D84710089235B /* OutputView.swift */,
@@ -148,7 +145,6 @@
 				C278D159226DACA5005C056C /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				C2C45D5B226D84710089235B /* OutputView.swift in Sources */,
-				C2D858522270375A00C9CD3D /* CoordinateCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
