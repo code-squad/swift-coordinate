@@ -11,7 +11,7 @@ import Foundation
 struct MyPoint {
     private (set) var x: Int
     private (set) var y: Int
-    init(x: Int, y: Int){
+    init(x: Int = 0, y: Int = 0){
         self.x = x
         self.y = y
     }
