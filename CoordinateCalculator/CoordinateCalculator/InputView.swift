@@ -24,7 +24,7 @@ struct InputView {
         let point = try readEachPoint()
         let (preprocessedPointX, preprocessedPointY) = try splitPoints(point)
         let (pointX, pointY) = try convertStringToNumber(preprocessedPointX,preprocessedPointY)
-        if !isInRange(pointX, pointY) {
+        if !isInRange(x: pointX, y: pointY) {
             throw errorCode.invalidRange
         }
         return pair(pointX, pointY)
@@ -56,7 +56,7 @@ struct InputView {
         return pair(pointX, pointY)
     }
     
-    private func isInRange(_ x: Int, _ y: Int)  -> Bool {
+    private func isInRange(x: Int, y: Int)  -> Bool {
         if x > InputView.maxRange || x < InputView.minRange || y > InputView.maxRange || y < InputView.minRange  {
             return false
         }

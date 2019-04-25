@@ -40,7 +40,7 @@ let main = {
             continue
         }
     }
-    let myPoint = MyPoint.init(x, y)
+    let myPoint = MyPoint.init(x: x, y: y)
     OutputView.drawAxis()
     OutputView.drawPoint(myPoint)
 }
