@@ -66,9 +66,9 @@ public struct ANSICode {
     }
     
     struct point {
-        static let AxisLimit = 24
-        static let xAxisBase = 2
-        static let yColumnBase = 3
+        static private let AxisLimit = 24
+        static private let XAxisBase = 2
+        static private let YColumnBase = 3
         
         static func drawPoint(_ myPoint: MyPoint) -> String {
             var result = ""
@@ -78,19 +78,19 @@ public struct ANSICode {
             result += moveCursorUnderCoordinateMap()
             return result
         }
-        static func movePointToRightPlace(_ y: Int, _ x: Int) -> String {
-            return cursor.move(row: AxisLimit-y+1, col: 3+x*xAxisBase)
+        private static func movePointToRightPlace(_ y: Int, _ x: Int) -> String {
+            return cursor.move(row: AxisLimit-y+1, col: 3+x*XAxisBase)
         }
-        static func drawRedApplePoint() -> String {
+        private static func drawRedApplePoint() -> String {
             var result = "\(ANSICode.text.redBright)"
             result += "\(ANSICode.text.whiteBright)"
             return result
         }
-        static func moveOriginPoint() -> String {
-            return cursor.move(row: AxisLimit+1, col: yColumnBase)
+        private static func moveOriginPoint() -> String {
+            return cursor.move(row: AxisLimit+1, col: YColumnBase)
         }
-        static func moveCursorUnderCoordinateMap() -> String {
-            return cursor.move(row: AxisLimit+3, col: yColumnBase)
+        private static func moveCursorUnderCoordinateMap() -> String {
+            return cursor.move(row: AxisLimit+3, col: YColumnBase)
         }
     }
     

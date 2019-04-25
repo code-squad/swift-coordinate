@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum errorCode : Error {
-    case invalidInput
-    case invalidRange
-    case isNotANumber
-    case splitStringError
+enum ErrorCode : Error {
+    case InvalidInput
+    case InvalidRange
+    case IsNotANumber
+    case SplitStringError
 }
 
 let main = {
@@ -23,16 +23,16 @@ let main = {
         do {
             (x, y) = try inputView.readInput()
             break
-        }catch errorCode.invalidInput{
+        }catch ErrorCode.InvalidInput{
             print("invalidInput")
             continue
-        }catch errorCode.isNotANumber{
+        }catch ErrorCode.IsNotANumber{
             print("isNotANumber")
             continue
-        }catch errorCode.invalidRange{
+        }catch ErrorCode.InvalidRange{
             print("invalidRange")
             continue
-        }catch errorCode.splitStringError{
+        }catch ErrorCode.SplitStringError{
             print("splitStringError")
             continue
         }catch {

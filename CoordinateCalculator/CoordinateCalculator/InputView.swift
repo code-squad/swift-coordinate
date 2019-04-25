@@ -25,7 +25,7 @@ struct InputView {
         let (preprocessedPointX, preprocessedPointY) = try splitPoints(point)
         let (pointX, pointY) = try convertStringToNumber(preprocessedPointX,preprocessedPointY)
         if !isInRange(x: pointX, y: pointY) {
-            throw errorCode.invalidRange
+            throw ErrorCode.InvalidRange
         }
         return pair(pointX, pointY)
     }
@@ -34,24 +34,24 @@ struct InputView {
                                                 .split(separator: ",")
                                                 .map { (value) in return String(value)}
         if splitAPairOfPoint.count != 2 {
-            throw errorCode.splitStringError
+            throw ErrorCode.SplitStringError
         }
         return (splitAPairOfPoint[0], splitAPairOfPoint[1])
     }
     private func readEachPoint() throws -> String {
 //        let input: String? = readLine()
         guard let input = readLine() else {
-            throw errorCode.invalidInput
+            throw ErrorCode.InvalidInput
         }
         return input
     }
     
     private func convertStringToNumber(_ x: String, _ y: String )throws -> pair {
         guard let pointX = Int(x) else{
-            throw errorCode.isNotANumber
+            throw ErrorCode.IsNotANumber
         }
         guard let pointY = Int(y) else{
-            throw errorCode.isNotANumber
+            throw ErrorCode.IsNotANumber
         }
         return pair(pointX, pointY)
     }
