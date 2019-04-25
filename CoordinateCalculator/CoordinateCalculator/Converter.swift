@@ -19,9 +19,9 @@ struct Converter {
         }
         
         try InputVerify.verifyInputStandard(values)
-        try InputVerify.verifyCoordinateStandard(values)
+        let coordinates = try InputVerify.verifyCoordinateStandard(values)
         
-        figure = try FigureFactory.getFigure(values)
+        figure = try FigureFactory.getFigure(coordinates)
         
         return figure
     }
