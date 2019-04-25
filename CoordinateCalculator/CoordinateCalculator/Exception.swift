@@ -13,13 +13,14 @@ struct Exception {
     enum ErrorType:String,Error{
         case wrongFormat = "올바른 입력형식이 아닙니다."
         case outOfRange = "입력 범위를 벗어났습니다."
+        case unExpected = "예기치 못한 에러 입니다"
     }
     
-    static func alertError(type:ErrorType){
+    static func alertError(type:ErrorType = .unExpected){
         print("===============================")
-        print("=      \(type.rawValue)       =")
+        print("      \(type.rawValue)      ")
         print("===============================")
-        print("---------- 재시작 합니다 ----------")
+        print("        재시작 합니다             ")
     }
     
     

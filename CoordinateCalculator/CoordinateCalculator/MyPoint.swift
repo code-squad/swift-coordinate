@@ -11,7 +11,7 @@ import Foundation
 struct MyPoint {
     private(set) var x = 0
     private(set) var y = 0
-    let possibleRange = NSRange.init(location: 0, length: 24)
+    let possibleRange = 0...24
     
     init(_ point:PointTuple) throws {
         guard checkRange(point) else {

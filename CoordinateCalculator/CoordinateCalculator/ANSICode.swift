@@ -15,6 +15,8 @@ public struct ANSICode {
     static let home     = "\(escape)0;0H"
     static let none     = "\(escape)0;0m\(escape)1;0m"
     
+    
+    
     struct text {
         static let black   = escape + "0;30m"
         static let red     = escape + "0;31m"
@@ -67,11 +69,12 @@ public struct ANSICode {
     
     struct axis {
         static let AxisLimit = 24
+        
         private static func drawX() -> String {
             var result = ""
             for xLoop in 1...AxisLimit {
-                    result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
-                    result += "━━"
+                result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
+                result += "━━"
             }
             for xLoop in 1...(AxisLimit/2) {
                 result += cursor.move(row: AxisLimit+2, col: xLoop*4+1)
@@ -79,7 +82,7 @@ public struct ANSICode {
             }
             return result
         }
-
+        
         private static func drawY() -> String {
             var result = ""
             for yLoop in 1...AxisLimit {
@@ -102,7 +105,7 @@ public struct ANSICode {
             let result = drawX() + drawY()
             return result
         }
-}
+    }
     
     struct rect {
         static func draw(origin : (x:Int,y:Int), size : (width:Int,height:Int), isFill : Bool) -> String {
@@ -135,5 +138,15 @@ public struct ANSICode {
             }
             return result
         }
+    }
+}
+extension ANSICode{
+    static let dot = "•"
+    
+    static func convertX(_ before:Int)->Int{
+        return axis.AxisLimit+2-before-1
+    }
+    static func convertY(_ before:Int)->Int{
+        return before * 2 + 3
     }
 }

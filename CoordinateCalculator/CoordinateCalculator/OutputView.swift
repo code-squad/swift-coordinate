@@ -18,9 +18,17 @@ struct OutputView{
     
     func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+        print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
+    
     func drawPoint(){
-        print("\(ANSICode.cursor.move(row:self.point.x, col: self.point.y))")
+        let row = ANSICode.convertX(self.point.x)
+        let col = ANSICode.convertY(self.point.y)
+        let color = ANSICode.text.colorFrom(R:255,G:127,B:0)
+        print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
+        moveCurser()
+    }
+    func moveCurser(){
+         print("\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: 2))")
     }
 }
