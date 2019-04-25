@@ -9,7 +9,7 @@
 import Foundation
 
 struct Converter {
-    static func inputToFigure (_ valueEntered: String) throws -> (Figure?, FigureType?) {
+    static func inputToFigure (_ valueEntered: String) throws -> Figure {
         let figure: Figure
         let valueSplit = valueEntered.split(separator: "-")
         var values = [String]()
@@ -18,13 +18,11 @@ struct Converter {
             values.append(String(value))
         }
         
-        let type = FigureType(rawValue: values.count)
-        
         try InputVerify.verifyInputStandard(values)
         try InputVerify.verifyCoordinateStandard(values)
         
-        figure = try FigureFactory.getFigure(type, values)
+        figure = try FigureFactory.getFigure(values)
         
-        return (figure, type)
+        return figure
     }
 }
