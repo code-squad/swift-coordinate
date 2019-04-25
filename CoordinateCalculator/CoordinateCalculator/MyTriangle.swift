@@ -38,7 +38,7 @@ struct MyTriangle: Figure {
         return [lineAB.pointA, lineAB.pointB, lineAC.pointB]
     }
     
-    func ment() -> String {
-        return "삼각형의 넓이는  \(area)"
+    func ment() -> [String: Double] {
+        return ["삼각형의 넓이는": area]
     }
 }

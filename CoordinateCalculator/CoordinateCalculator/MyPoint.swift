@@ -21,8 +21,8 @@ struct MyPoint: Figure {
         return [self]
     }
     
-    func ment() -> String {
-        return ""
+    func ment() -> [String: Double] {
+        return [:]
     }
 }
 
