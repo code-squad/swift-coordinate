@@ -58,8 +58,7 @@ struct Validator {
     /// - Returns: 쉼표로 나눠진 String 배열입니다.
     static private func separateCoordinates(of prompt: String) -> [String]? {
         
-        var trimmedInput = prompt.components(separatedBy: .whitespaces).joined()
-        trimmedInput = trimmedInput.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
+        let trimmedInput = prompt.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
         let separatedInput =  trimmedInput.components(separatedBy: CharacterSet(charactersIn: ",-"))
         
         ///FIXME
