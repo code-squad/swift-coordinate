@@ -13,11 +13,6 @@ struct MyLine: Figure, Ment {
     private(set) var pointB = MyPoint(x: 0, y: 0)
     private(set) var length: Double = 0.0
     
-    init(x: Int = 0, y: Int = 0) {
-        self.pointA = MyPoint(x: x, y: y)
-        self.pointB = MyPoint(x: x, y: y)
-    }
-    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
