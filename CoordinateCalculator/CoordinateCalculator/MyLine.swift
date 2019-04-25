@@ -11,4 +11,9 @@ import Foundation
 struct MyLine: Drawable {
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
+    
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
 }
