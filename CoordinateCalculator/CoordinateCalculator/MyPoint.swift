@@ -20,10 +20,6 @@ struct MyPoint: Figure {
     func draw() -> [MyPoint] {
         return [self]
     }
-    
-    func ment() -> [String: Double] {
-        return [:]
-    }
 }
 
 

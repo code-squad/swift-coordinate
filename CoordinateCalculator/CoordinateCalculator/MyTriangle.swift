@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: Figure {
+struct MyTriangle: Figure, Ment {
      private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
@@ -38,7 +38,7 @@ struct MyTriangle: Figure {
         return [lineAB.pointA, lineAB.pointB, lineAC.pointB]
     }
     
-    func ment() -> [String: Double] {
+    func getMent() -> [String: Double] {
         return ["삼각형의 넓이는": area]
     }
 }

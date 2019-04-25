@@ -11,5 +11,4 @@ import Foundation
 protocol Figure {
     init(x: Int, y: Int)
     func draw () -> [MyPoint]
-    func ment () -> [String: Double]
 }

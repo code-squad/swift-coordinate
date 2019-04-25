@@ -10,6 +10,7 @@
 		33054C8A22696EBC00B94C07 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33054C8922696EBC00B94C07 /* MyLine.swift */; };
 		33054C8C2269A47D00B94C07 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33054C8B2269A47D00B94C07 /* Figure.swift */; };
 		33054C8E2269B65900B94C07 /* FigureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33054C8D2269B65900B94C07 /* FigureFactory.swift */; };
+		33F82FD42271925500FC7A91 /* Ment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F82FD32271925500FC7A91 /* Ment.swift */; };
 		33F917D422685A7500DE6E93 /* OutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D322685A7500DE6E93 /* OutView.swift */; };
 		33F917D622685A8C00DE6E93 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D522685A8C00DE6E93 /* InputView.swift */; };
 		33F917D822685B2F00DE6E93 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F917D722685B2F00DE6E93 /* InputError.swift */; };
@@ -37,6 +38,7 @@
 		33054C8922696EBC00B94C07 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		33054C8B2269A47D00B94C07 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		33054C8D2269B65900B94C07 /* FigureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureFactory.swift; sourceTree = "<group>"; };
+		33F82FD32271925500FC7A91 /* Ment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ment.swift; sourceTree = "<group>"; };
 		33F917D322685A7500DE6E93 /* OutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutView.swift; sourceTree = "<group>"; };
 		33F917D522685A8C00DE6E93 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		33F917D722685B2F00DE6E93 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				33054C8D2269B65900B94C07 /* FigureFactory.swift */,
 				33FA0872226EB89400CA8B22 /* InputVerify.swift */,
 				33FA0874226F0A0B00CA8B22 /* MyTriangle.swift */,
+				33F82FD32271925500FC7A91 /* Ment.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				33054C8E2269B65900B94C07 /* FigureFactory.swift in Sources */,
 				33F917DA22685B4500DE6E93 /* MyPoint.swift in Sources */,
 				33F917DE226873EE00DE6E93 /* Converter.swift in Sources */,
+				33F82FD42271925500FC7A91 /* Ment.swift in Sources */,
 				33F917D422685A7500DE6E93 /* OutView.swift in Sources */,
 				33054C8C2269A47D00B94C07 /* Figure.swift in Sources */,
 				33054C8A22696EBC00B94C07 /* MyLine.swift in Sources */,
