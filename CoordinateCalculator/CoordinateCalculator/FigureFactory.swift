@@ -9,16 +9,12 @@
 import Foundation
 
 struct FigureFactory{
-    static func getFigure(_ type: FigureType?, _ values: [String]) throws -> Figure {
-        switch type {
-        case .point?:
-            return inputToPoint(values[0])
-        case .line?:
-            return MyLine(pointA: inputToPoint(values[0]), pointB: inputToPoint(values[1]))
-        case .triangle?:
-            return MyTriangle(pointA: inputToPoint(values[0]), pointB: inputToPoint(values[1]), pointC: inputToPoint(values[2]))
-        case .none:
-            throw InputError.UndefinedFigure
+    static func getFigure(_ values: [String]) throws -> Figure {
+        switch values.count {
+        case 1: return inputToPoint(values[0])
+        case 2: return MyLine(pointA: inputToPoint(values[0]), pointB: inputToPoint(values[1]))
+        case 3: return MyTriangle(pointA: inputToPoint(values[0]), pointB: inputToPoint(values[1]), pointC: inputToPoint(values[2]))
+        default: throw InputError.UndefinedFigure
         }
     }
 

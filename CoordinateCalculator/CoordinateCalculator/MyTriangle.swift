@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyTriangle: Figure {
-    private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
+     private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var area = 0.0
@@ -32,5 +32,13 @@ struct MyTriangle: Figure {
         let halfPerimeter = (lineAB.length + lineBC.length + lineAC.length)/2.0
 
         return sqrt(halfPerimeter * (halfPerimeter-lineAB.length) * (halfPerimeter-lineBC.length) * (halfPerimeter-lineAC.length))
+    }
+    
+    func draw() {
+        lineAB.pointA.draw()
+        lineAB.pointB.draw()
+        lineAC.pointB.draw()
+        
+        print("\(ANSICode.text.whiteBright)삼각형의 넓이는  \(area)")
     }
 }
