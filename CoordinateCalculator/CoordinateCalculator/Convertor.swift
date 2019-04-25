@@ -15,8 +15,28 @@ extension String {
 }
 
 struct Convertor {
-    static func remove(bracket: String) -> String {
-        let result = bracket.components(separatedBy: ["(", ")"]).joined()
+
+    private let origin: String
+
+    init(origin: String) {
+        self.origin = origin
+    }
+
+    func proccessedPoints() -> [String] {
+        let points = splitComma(from: origin)
+        return points
+    }
+
+    private func splitComma(from text: String) -> [String] {
+        let points = remove(bracket: text).split(separator: ",").map { String($0) }
+        return points
+    }
+
+    private func remove(bracket: String ) -> String {
+        let result = bracket.components(separatedBy: ["(", ")"]).joined().trimmingCharacters(in: .whitespaces)
         return result
     }
+
+
 }
+
