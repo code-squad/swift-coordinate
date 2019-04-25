@@ -9,64 +9,26 @@
 import Foundation
 
 
-typealias pair = (Int, Int)
 
+typealias Pair = (Int, Int)
 
 struct InputView {
-    static private let maxRange: Int = 24
-    static private let minRange: Int = 0
-   
+    
     private func printInputMessage(){
         print("(x,y) coordinate (ex; (2,5) ) > ")
     }
     
-    private func readInputUtil () throws -> pair{
-        let point = try readEachPoint()
-        let (preprocessedPointX, preprocessedPointY) = try splitPoints(point)
-        let (pointX, pointY) = try convertStringToNumber(preprocessedPointX,preprocessedPointY)
-        if !isInRange(x: pointX, y: pointY) {
-            throw ErrorCode.InvalidRange
-        }
-        return pair(pointX, pointY)
-    }
-    private func splitPoints (_ point: String) throws -> ( String, String) {
-        let splitAPairOfPoint: [String] = point.trimmingCharacters(in: ["(",")"])
-                                                .split(separator: ",")
-                                                .map { (value) in return String(value)}
-        if splitAPairOfPoint.count != 2 {
-            throw ErrorCode.SplitStringError
-        }
-        return (splitAPairOfPoint[0], splitAPairOfPoint[1])
-    }
     private func readEachPoint() throws -> String {
-//        let input: String? = readLine()
         guard let input = readLine() else {
             throw ErrorCode.InvalidInput
         }
         return input
     }
     
-    private func convertStringToNumber(_ x: String, _ y: String )throws -> pair {
-        guard let pointX = Int(x) else{
-            throw ErrorCode.IsNotANumber
-        }
-        guard let pointY = Int(y) else{
-            throw ErrorCode.IsNotANumber
-        }
-        return pair(pointX, pointY)
-    }
-    
-    private func isInRange(x: Int, y: Int)  -> Bool {
-        if x > InputView.maxRange || x < InputView.minRange || y > InputView.maxRange || y < InputView.minRange  {
-            return false
-        }
-        return true
-    }
-    
-    func readInput() throws -> pair {
+    func readInput() throws -> Pair {
         printInputMessage()
-        let (pointX, pointY) = try readInputUtil()
-        return pair(pointX, pointY)
+        let inputString = try readEachPoint()
+        let resultPair = try InputRefinary(inputString).pointPair
+        return resultPair
     }
-    
 }
