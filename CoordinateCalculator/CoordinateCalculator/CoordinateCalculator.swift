@@ -12,8 +12,6 @@ struct CoordinateCalculator {
     
     static func shaped(points: [Point]) throws -> Drawable {
         switch points.count {
-        case 1:
-            return points[0]
         case 2:
             return Line(start: points[0], end: points[1])
         case 3:

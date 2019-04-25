@@ -19,17 +19,17 @@ struct OutputView {
         return y - rate
     }
     
-    private static func draw(point: Point) throws {
-        guard  ANSICode.CoordinateGrid.gridRange.contains(point.x), ANSICode.CoordinateGrid.gridRange.contains(point.y) else {
-                throw OutputError.notDrawableRange
-        }
-        moveCursorTo(x: point.x, y: point.y)
-        print(ANSICode.text.redBright + "●")
-    }
-    
     //MARK: 메소드
     static func drawCoordinatePlane() {
         print(ANSICode.clear + ANSICode.text.cyanBright + ANSICode.CoordinateGrid.draw())
+    }
+    
+    static func draw(point: Point) throws {
+        guard  ANSICode.CoordinateGrid.gridRange.contains(point.x), ANSICode.CoordinateGrid.gridRange.contains(point.y) else {
+            throw OutputError.notDrawableRange
+        }
+        moveCursorTo(x: point.x, y: point.y)
+        print(ANSICode.text.redBright + "●")
     }
     
     static func draw(shape: Drawable) throws {
@@ -38,16 +38,9 @@ struct OutputView {
         }
     }
     
-    static func printDescription(_ shape: Drawable) {
-        if let shape = shape as? CustomStringConvertible {
-            printText(shape.description)
-        }
-    }
-    
     static func printText(_ text: String) {
         print(ANSICode.cursor.move(row: ANSICode.CoordinateGrid.gridLimit + 5, column: 1) + text)
     }
-    
     
 }
 

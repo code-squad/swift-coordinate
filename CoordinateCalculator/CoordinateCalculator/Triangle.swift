@@ -1,6 +1,6 @@
 import Foundation
 
-struct Triangle: Drawable, CustomStringConvertible {
+struct Triangle: Drawable {
     
     var points: [Point] {
         return [lineAB.start, lineAB.end, lineAC.end]

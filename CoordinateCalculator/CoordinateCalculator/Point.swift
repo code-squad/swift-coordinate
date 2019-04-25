@@ -1,10 +1,6 @@
 import Foundation
 
-struct Point: Drawable, Equatable {
-    
-    var points: [Point] {
-        return [self]
-    }
+struct Point: Equatable {
     
     let x, y: Int
     
@@ -14,4 +10,5 @@ struct Point: Drawable, Equatable {
     }
     
 }
+
 

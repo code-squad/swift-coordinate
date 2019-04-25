@@ -1,6 +1,6 @@
 import Foundation
 
-struct Line: Drawable, CustomStringConvertible {
+struct Line: Drawable {
     
     var points: [Point] {
         return [start, end]

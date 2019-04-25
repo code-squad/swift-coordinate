@@ -1,6 +1,6 @@
 import Foundation
 
-struct Rectangle: Drawable, CustomStringConvertible {
+struct Rectangle: Drawable {
     
     var points: [Point] {
         return [leftTop, rightBottom, Point(x: leftTop.x, y: rightBottom.y), Point(x: rightBottom.x, y: leftTop.y)]
