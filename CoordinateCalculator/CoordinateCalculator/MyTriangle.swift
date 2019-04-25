@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyTriangle: Figure, Ment {
-     private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var area = 0.0
