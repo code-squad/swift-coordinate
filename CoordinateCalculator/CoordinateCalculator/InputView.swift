@@ -19,7 +19,7 @@ struct InputView{
     
     func readInput() throws -> MyPoint {
         let anwser = try ask(Question.aboutCoordinate)
-        let check = anwser.isCorrectFormat()
+        anwser.isCorrectFormat()
         let point =  try anwser.getPointTuple()
         return MyPoint(point)
     }
@@ -31,13 +31,13 @@ struct InputView{
         }
         return anwser
     }
-    
-    
 }
+
 typealias Answer = String
+
 extension Answer{
     func isCorrectFormat()->(Bool){
-        guard let regex = try? NSRegularExpression.init(pattern: "^[(]", options: []) else {
+        guard let regex = try? NSRegularExpression.init(pattern: "\\([0-9]+,[0-9]+\\)", options: []) else {
             return false
         }
         let result =  regex.matches(in: self, options: [], range: NSRange.init(location: 0, length: self.count))
@@ -60,3 +60,4 @@ extension Answer{
         
     }
 }
+
