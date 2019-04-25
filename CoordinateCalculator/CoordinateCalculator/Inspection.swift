@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum InputError: CustomStringConvertible {
-    case nothing
+enum Validation: CustomStringConvertible {
+    case noValue
     case exceedValue
     case hasNotBracket
     case hasNotTwoInput
