@@ -18,7 +18,5 @@ struct MyPoint {
         self.x = point.0
         self.y = point.1
     }
-    func verifyRange()->(Bool){
-        
-    }
+    
 }
