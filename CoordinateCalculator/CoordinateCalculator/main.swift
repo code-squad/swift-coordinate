@@ -13,6 +13,7 @@ enum ErrorCode : Error {
     case InvalidRange
     case IsNotANumber
     case SplitStringError
+    case Unknown
 }
 
 let main = {
@@ -24,16 +25,16 @@ let main = {
             (x, y) = try inputView.readInput()
             break
         }catch ErrorCode.InvalidInput{
-            print("invalidInput")
+            print("InvalidInput")
             continue
         }catch ErrorCode.IsNotANumber{
-            print("isNotANumber")
+            print("IsNotANumber")
             continue
         }catch ErrorCode.InvalidRange{
-            print("invalidRange")
+            print("InvalidRange")
             continue
         }catch ErrorCode.SplitStringError{
-            print("splitStringError")
+            print("SplitStringError")
             continue
         }catch {
             print("unexpected error")
