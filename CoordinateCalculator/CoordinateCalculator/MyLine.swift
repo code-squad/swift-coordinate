@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Figure {
+struct MyLine: Figure, Ment {
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
     private(set) var length: Double = 0.0
@@ -35,7 +35,8 @@ struct MyLine: Figure {
         return [pointA, pointB]
     }
     
-    func ment() -> [String: Double] {
+    func getMent() -> [String: Double] {
         return ["두 점 사이의 거리는": length]
     }
+    
 }

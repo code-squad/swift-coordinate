@@ -26,7 +26,9 @@ func main () {
     
     outputView.drawAxis()
     outputView.drawFigure(figure)
-    outputView.printMent(figure)
+    if let ment: Ment = figure as? Ment {
+        outputView.printMent(ment)
+    }
 }
 
 main()

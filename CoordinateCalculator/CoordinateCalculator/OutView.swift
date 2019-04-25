@@ -21,9 +21,9 @@ struct OutputView {
         }
         print("\(ANSICode.cursor.move(row:26, col: 0))")
     }
-    func printMent (_ figure: Figure) {
+    func printMent (_ ment: Ment) {
         print("\(ANSICode.text.whiteBright)")
-        let ments = figure.ment()
+        let ments = ment.getMent()
         for ment in ments {
             print(ment.key + "  \(ment.value)")
         }
