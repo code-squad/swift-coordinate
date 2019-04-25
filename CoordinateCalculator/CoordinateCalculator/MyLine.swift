@@ -22,7 +22,7 @@ struct MyLine : Shame {
         self.endPoint = endPoint
     }
     
-    func lengthCalculator(startPoint : MyPoint, endPoint : MyPoint) -> Double {
+    func lengthCalculator() -> Double {
         let betweenLength = sqrt(pow(abs(Double(startPoint.x - endPoint.x)),2) + pow(abs(Double(startPoint.y - endPoint.y)),2))
         return betweenLength
     }
@@ -31,7 +31,7 @@ struct MyLine : Shame {
         var linePoints : [MyPoint] = []
         linePoints.append(startPoint)
         linePoints.append(endPoint)
-        let guideMent = "두점을 잇는 직선의 길이는 \(lengthCalculator(startPoint: startPoint, endPoint: endPoint)) 입니다."
+        let guideMent = "두점을 잇는 직선의 길이는 \(lengthCalculator()) 입니다."
         return (linePoints.count, linePoints, guideMent)
     }
 }
