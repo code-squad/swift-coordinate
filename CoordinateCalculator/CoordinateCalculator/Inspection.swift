@@ -17,13 +17,12 @@ enum Validation: CustomStringConvertible {
         switch self {
         case .exceedValue:
             return "최대 24까지만 입력 가능합니다"
-        case .nothing:
-            return "좌표를 입력해주세요"
+        case .noValue:
+            return "유효한 값을 입력하세요"
         case .hasNotBracket:
             return "괄호가 없습니다"
         case .hasNotTwoInput:
-            return "x, y값을 각각 하나씩 입력해주세요"
-
+            return "x, y값을 모두 입력해주세요"
         }
     }
     func show() -> Bool{
