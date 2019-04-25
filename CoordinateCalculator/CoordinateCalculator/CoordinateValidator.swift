@@ -9,16 +9,16 @@
 import Foundation
 
 struct CoordinateValidator {
-    static func isNil(point: (Int, Int)?) -> Bool {
-        return point == nil
+    static func isValidInputFormat(_ input: String) -> Bool {
+        return input.contains("(") && input.contains(")") && input.count >= 5 && !input.isEmpty
     }
-    
-    static func isOutOfAxis(using point: (Int, Int)) -> Bool {
-        let (x, y) = point
+
+    static func isOutOfAxis(using numbers: (Int, Int)) -> Bool {
+        let (x, y) = numbers
         return x > ANSICode.axis.AxisLimit || y > ANSICode.axis.AxisLimit || x < 0 || y < 0
     }
     
-    static func isInAxis(using point: (Int, Int)) -> Bool {
-        return !isOutOfAxis(using: point)
+    static func isInAxis(using numbers: (Int, Int)) -> Bool {
+        return !isOutOfAxis(using: numbers)
     }
 }
