@@ -12,17 +12,15 @@ struct InputView {
     static public func readInput() -> (Int, Int)? {
         let question = "좌표를 입력하세요. "
         print(question)
-        guard let input = readLine(), isValid(input) else {
+        guard let input = readLine(), CoordinateValidator.isValidInputFormat(input) else {
             return nil
         }
-        return parseIntoPoint(using: input)
+        return Parser.parseIntoNumbers(using: input)
     }
-    
-    static private func isValid(_ input: String) -> Bool {
-        return input.contains("(") && input.contains(")") && input.count >= 5 && !input.isEmpty
-    }
-    
-    static private func parseIntoPoint(using input: String) -> (Int, Int)? {
+}
+
+struct Parser {
+    static public func parseIntoNumbers(using input: String) -> (Int, Int)? {
         let blankRemovedInput = input.replacingOccurrences(of: " ", with: "")
         guard let inputWithoutParenthesis = unwrapParenthesis(of: blankRemovedInput) else {
             return nil
@@ -49,9 +47,5 @@ struct InputView {
         guard let convertedX = Int(dividedByComma[0]) else { return nil }
         guard let convertedY = Int(dividedByComma[1]) else { return nil }
         return (convertedX, convertedY)
-    }
-    
-    static private func isPointOutOfAxis(using point: MyPoint) -> Bool {
-        return point.x > ANSICode.axis.AxisLimit || point.y > ANSICode.axis.AxisLimit || point.x < 0 || point.y < 0
     }
 }
