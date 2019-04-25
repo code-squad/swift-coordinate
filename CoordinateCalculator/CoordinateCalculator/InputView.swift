@@ -18,7 +18,7 @@ enum InputError: Error {
 }
 
 extension InputError: LocalizedError {
-    public var errorDescription: String? {
+    var errorDescription: String? {
         switch self {
         case .invalidInput:
             return "입력 오류"
