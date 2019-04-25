@@ -9,11 +9,11 @@
 import Foundation
 
 func main() {
-    let coordinates: MyPoint
-
     while true {
         do {
-            coordinates = try InputView.readInput()
+            let coordinatesText = try InputView.readInput()
+            
+            let coordinates = try Converter.convertCoordinates(coordinatesText: coordinatesText)
             
             OutputView.drawAxis()
             OutputView.drawPoint(point: coordinates)
