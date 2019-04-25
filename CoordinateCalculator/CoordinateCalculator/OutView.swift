@@ -15,6 +15,14 @@ struct OutputView {
     }
     func drawFigure (_ figure: Figure) {
         print("\(ANSICode.text.yellowBright)")
-        print(figure.draw())
+        let points = figure.draw()
+        for (x, y) in points {
+            print("\(ANSICode.cursor.move(row:25-y, col: x*2+3))•")
+        }
+        print("\(ANSICode.cursor.move(row:26, col: 0))")
+    }
+    func printMent (_ figure: Figure) {
+        print("\(ANSICode.text.whiteBright)")
+        print(figure.ment())
     }
 }
