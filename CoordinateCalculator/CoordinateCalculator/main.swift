@@ -11,13 +11,15 @@ import Foundation
 func main(){
     let distinct = Distinct()
     let input = InputView()
+    let output = OutputView()
+    var shame : Shame!
     while true {
         let inputText = input.readInput()
         let distinctInput = input.distinctContain(inputLocation: inputText)
         if distinctInput != "" {
             do{
                 let inputLocation = try distinct.splitLocation(inputTexts: distinctInput)
-                try distinct.callDependingCoordinates(locationCount: inputLocation.loctionCount, dividedLocations: inputLocation.dividedLocations)
+                shame = try distinct.callDependingCoordinates(locationCount: inputLocation.locationCount, dividedLocations: inputLocation.dividedLocations)
             }catch let error as ErrorMessage {
                 print(error.rawValue)
             }catch {
@@ -26,7 +28,8 @@ func main(){
             break
         }
     }
+    output.drawAxis()
+    output.printPoint(shame: shame)
 }
 
 main()
-

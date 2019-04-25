@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : Shame {    
     private(set) var x = 0
     private(set) var y = 0
-    
+
     init(x: Int, y:Int){
         self.x = x
         self.y = y
+    }
+    
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: String) {
+        return ([self].count,[self],"")
     }
 }

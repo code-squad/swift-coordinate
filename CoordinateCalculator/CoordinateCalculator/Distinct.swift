@@ -10,31 +10,26 @@ import Foundation
 
 struct Distinct {
     /// 입력받은 Text를 나누어 좌표의 갯수와 나뉜 좌표들을 return하는 함수
-    func splitLocation(inputTexts : String) throws -> (loctionCount : Int, dividedLocations : [String.SubSequence]) {
+    func splitLocation(inputTexts : String) throws -> (locationCount : Int, dividedLocations : [String.SubSequence]) {
         if inputTexts == "" { throw ErrorMessage.noValueError }
         let beforeRefineLocations = inputTexts
         let dividedLocations = beforeRefineLocations.split(separator: "-")
         return (dividedLocations.count, dividedLocations)
     }
     /// 입력받은 좌표의 갯수를 판단하여 그에 맞는 함수를 출력하는 함수
-    func callDependingCoordinates(locationCount : Int, dividedLocations : [String.SubSequence]) throws {
-        let output = OutputView()
+    func callDependingCoordinates(locationCount : Int, dividedLocations : [String.SubSequence]) throws -> Shame{
+        var shame : Shame
         switch locationCount{
         case 3 : // 입력된 Location의 갯수가 3개인 경우
-            let myTriangle = try initMyTriangle(dividedLocations: dividedLocations)
-            output.drawAxis()
-            output.printMyTriangle(myTriangle: myTriangle)
+            shame = try initMyTriangle(dividedLocations: dividedLocations)
         case 2 : // 입력된 Location의 갯수가 2개인 경우
-            let myLine = try initMyLine(dividedLocations: dividedLocations)
-            output.drawAxis()
-            output.printMyLine(myLine: myLine)
+            shame = try initMyLine(dividedLocations: dividedLocations)
         case 1 : // 입력된 Location의 갯수가 1개인 경우
-            let myPoint = try initMyPoint(locationText: dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
-            output.drawAxis()
-            output.printMyPoint(myPoint: myPoint)
+            shame = try initMyPoint(locationText: dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
         default :
             throw ErrorMessage.outOfRangeError
         }
+        return shame
     }
     /// 입력받은 좌표가 3개일때 MyTriangle 구조체의 변수들에 값을 입력하는 함수
     private func initMyTriangle(dividedLocations : [String.SubSequence]) throws -> MyTriangle {
