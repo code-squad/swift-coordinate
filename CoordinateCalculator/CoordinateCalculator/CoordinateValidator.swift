@@ -13,12 +13,14 @@ struct CoordinateValidator {
         return input.contains("(") && input.contains(")") && input.count >= 5 && !input.isEmpty
     }
 
-    static func isOutOfAxis(using numbers: (Int, Int)) -> Bool {
-        let (x, y) = numbers
-        return x > ANSICode.axis.AxisLimit || y > ANSICode.axis.AxisLimit || x < 0 || y < 0
+    static func isOutOfAxis(using numbers: [Int]) -> Bool {
+        for num in numbers {
+            if num > ANSICode.axis.AxisLimit || num < 0 { return true}
+        }
+        return false
     }
     
-    static func isInAxis(using numbers: (Int, Int)) -> Bool {
+    static func isInAxis(using numbers: [Int]) -> Bool {
         return !isOutOfAxis(using: numbers)
     }
 }
