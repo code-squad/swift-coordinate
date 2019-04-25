@@ -29,10 +29,12 @@ enum RegexPattern: String {
 }
 
 extension String {
-    func verifyInputFormat(regexPattern: String) throws {
+    func verifyInputFormat(regexPattern: String) -> Bool {
         if self.range(of: regexPattern, options: [.regularExpression]) == nil {
-            throw InputError.invalidFormat
+            return false
         }
+        
+        return true
     }
 }
 
@@ -41,7 +43,9 @@ struct InputView {
         print("좌표를 입력하세요.")
         
         guard let coordinatesText = readLine() else { throw InputError.invalidInput }
-        try coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue)
+        guard coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue) else {
+            throw InputError.invalidFormat
+        }
         
         return coordinatesText
     }
