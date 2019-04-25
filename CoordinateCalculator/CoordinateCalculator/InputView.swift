@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum RegexPattern: String {
-    case verifyPattern = "\\([0-9]+,[0-9]+\\)"
-}
-
 enum InputError: Error {
     case invalidInput
     case invalidFormat
@@ -28,48 +24,25 @@ extension InputError: LocalizedError {
     }
 }
 
-struct InputView {
-    static func readInput() throws -> MyPoint {
-        let coordinates: MyPoint
-        
-        let coordinatesText = try userInput()
-        try verifyInputFormat(coordinatesText: coordinatesText)
-        
-        coordinates = try convertCoordinatesFormat(coordinatesText: coordinatesText)
-        
-        return coordinates
-    }
-    
-    private static func userInput() throws -> String {
-        print("좌표를 입력하세요.")
-        
-        guard let coordinatesText = readLine() else { throw InputError.invalidInput }
-        
-        return coordinatesText
-    }
-    
-    private static func verifyInputFormat(coordinatesText: String) throws {
-        if coordinatesText.range(of: RegexPattern.verifyPattern.rawValue, options: [.regularExpression]) == nil {
+enum RegexPattern: String {
+    case verifyPattern = "\\([0-9]+,[0-9]+\\)"
+}
+
+extension String {
+    func verifyInputFormat(regexPattern: String) throws {
+        if self.range(of: regexPattern, options: [.regularExpression]) == nil {
             throw InputError.invalidFormat
         }
     }
-    
-    private static func convertCoordinatesFormat(coordinatesText: String) throws -> MyPoint {
-        let numbersText = coordinatesText.components(separatedBy: ["(", ")"]).joined().split(separator: ",")
-        var numbers: [Int] = []
+}
+
+struct InputView {
+    static func readInput() throws -> String {
+        print("좌표를 입력하세요.")
         
-        for numberText in numbersText {
-            numbers.append(try convertStringToInt(numberText: String(numberText)))
-        }
+        guard let coordinatesText = readLine() else { throw InputError.invalidInput }
+        try coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue)
         
-        return try MyPoint(x: numbers[0], y: numbers[1])
-    }
-    
-    private static func convertStringToInt(numberText: String) throws -> Int {
-        guard let number = Int(numberText) else {
-            throw InputError.invalidInput
-        }
-        
-        return number
+        return coordinatesText
     }
 }
