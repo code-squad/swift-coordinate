@@ -32,5 +32,20 @@ class CoordinateCalculaterTests: XCTestCase {
      X좌표축 범례는 Y축으로 25만큼 떨어진 공간에 그려진다.
      Y좌표축은 터미널 좌표상 3만큼 떨어져서 그려진다.
     */
+    func testCheckFormat(){
+        let anwser = "(10,10)"
+        XCTAssertTrue(anwser.isCorrectFormat(),"()형식인지 테스트합니다")
+    }
+    func testCheckWrongFormat(){
+        let anwser = "(10,10]"
+        XCTAssertFalse(anwser.isCorrectFormat(),"()형식인지 테스트합니다")
+    }
+    func testGetValueFromAnwser(){
+        let anwser = "(10,10)"
+        let pointTuple = (10,10)
+        XCTAssertEqual(pointTuple.0,try anwser.getPointTuple().0,"x좌표 추출 테스트합니다")
+        XCTAssertEqual(pointTuple.1,try anwser.getPointTuple().1,"y좌표 추출 테스트합니다")
+    }
+    
 
 }
