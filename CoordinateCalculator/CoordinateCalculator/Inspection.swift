@@ -64,26 +64,24 @@ struct Inspection {
         return true
     }
 
+    private func isEntered() -> Bool {
+        return !(letter.isEmpty)
+    }
 
     private func hasBracket() -> Bool {
         return letter.contains(")") && letter.contains("(")
     }
 
     private func isTwo() -> Bool {
-        let division = letter.split(separator: ",").map{ String($0) }
+        let division = Convertor(origin: letter).proccessedPoints()
         return division.count == 2
     }
 
-    private func isEntered() -> Bool {
-        return !(letter.isEmpty)
-
-    }
-
     private func isExceed() -> Bool {
-        let max = 24
-        let position = Convertor.remove(bracket: letter).split(separator: ",").map { String($0) }
+        let max = ANSICode.axis.AxisLimit
+        let position = Convertor(origin: letter).proccessedPoints()
         let positionX = position[0].toInt
         let positionY = position[1].toInt
-        return positionX > max || positionY > max
+        return positionX < max || positionY < max
     }
 }
