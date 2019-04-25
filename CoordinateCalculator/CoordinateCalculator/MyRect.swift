@@ -12,4 +12,7 @@ struct MyRect {
     var leftTop = MyPoint()
     var rightBottom = MyPoint()
     
+    init(origin: MyPoint, size: CGSize) {
+        //로직구현
+    }
 }

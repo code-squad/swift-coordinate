@@ -14,13 +14,6 @@ struct MyTriangle: Figure, Ment {
     private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private(set) var area = 0.0
     
-    init(x: Int = 0, y: Int = 0) {
-        self.lineAB = MyLine(x: x, y: y)
-        self.lineBC = MyLine(x: x, y: y)
-        self.lineAC = MyLine(x: x, y: y)
-        self.area = calculateArea()
-    }
-    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
