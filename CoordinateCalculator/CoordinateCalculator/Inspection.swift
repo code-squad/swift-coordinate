@@ -52,12 +52,16 @@ struct Inspection {
         return MyPoint(x: positionX, y: positionY)
     }
 
-    func result() -> InputError {
-        guard hasBracket() else { return
-            .hasNotBracket }
-        guard isEntered() else { return .nothing }
-        guard isExceed() else { return .exceedValue }
-        guard isTwo() else { return .hasNotTwoInput }
+    private func validate() -> Bool {
+        guard isEntered() else {
+            return Validation.noValue.printError() }
+        guard hasBracket() else {
+            return Validation.hasNotBracket.printError() }
+        guard isTwo() else {
+            return Validation.hasNotTwoInput.printError() }
+        guard isExceed() else {
+            return Validation.exceedValue.printError() }
+        return true
     }
 
 
