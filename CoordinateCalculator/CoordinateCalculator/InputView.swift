@@ -8,6 +8,7 @@
 
 import Foundation
 
+typealias Answer = String
 typealias PointTuple = (Int,Int)
 
 struct InputView{
@@ -18,7 +19,7 @@ struct InputView{
     
     func readInput() throws -> MyPoint {
         let anwser = try ask(Question.aboutCoordinate)
-        let check = try anwser.isCorrectFormat()
+        let check = anwser.isCorrectFormat()
         let point =  try anwser.getPointTuple()
         return MyPoint(point)
     }
@@ -33,10 +34,14 @@ struct InputView{
     
     
 }
-
-extension String{
-
-    
+extension Answer{
+    func isCorrectFormat()->(Bool){
+        guard let regex = try? NSRegularExpression.init(pattern: "^[(]", options: []) else {
+            return false
+        }
+        let result =  regex.matches(in: self, options: [], range: NSRange.init(location: 0, length: self.count))
+        return result.count == 0 ? false : true
+    }
     func getPointTuple() throws -> PointTuple {
         guard let regex = try? NSRegularExpression.init(pattern: "[0-9]+", options: []) else {
             throw Exception.ErrorType.wrongFormat
@@ -46,12 +51,10 @@ extension String{
         let y = NSString.init(string:self).substring(with: (matchs[1].range))
         return (try x.stringToInt(),try y.stringToInt())
     }
-    
     func stringToInt() throws -> Int{
         guard let intValue = Int(self) else {
             throw Exception.ErrorType.wrongFormat
         }
-        
         return intValue
         
     }
