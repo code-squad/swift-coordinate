@@ -24,7 +24,7 @@ struct MyLine : Shame {
     
     func lengthCalculator() -> Double {
         let betweenLength = sqrt(pow(abs(Double(startPoint.x - endPoint.x)),2) + pow(abs(Double(startPoint.y - endPoint.y)),2))
-        return betweenLength
+        return round(betweenLength * 100) / 100
     }
     
     func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: String) {
