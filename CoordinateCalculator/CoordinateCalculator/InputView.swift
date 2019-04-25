@@ -15,12 +15,12 @@ struct InputView {
         guard let input = readLine(), CoordinateValidator.isValidInputFormat(input) else {
             return nil
         }
-        return Parser.parseIntoNumbers(using: input)
+        return Parser.parse(using: input)
     }
 }
 
 struct Parser {
-    static public func parseIntoNumbers(using input: String) -> (Int, Int)? {
+    static public func parse(using input: String) -> (Int, Int)? {
         let blankRemovedInput = input.replacingOccurrences(of: " ", with: "")
         guard let inputWithoutParenthesis = unwrapParenthesis(of: blankRemovedInput) else {
             return nil
