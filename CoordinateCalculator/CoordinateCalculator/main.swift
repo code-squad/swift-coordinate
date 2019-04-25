@@ -9,10 +9,11 @@
 import Foundation
 
 while true {
-    var numbers: (Int, Int)!
+    var numbers: [Int]!
     do {
         let input = try InputView.readInput()
-        numbers = try Parser.parse(using: input)
+        let tokens = try Parser.parse(using: input)
+        numbers = try Converter.convert(tokens)
         if CoordinateValidator.isOutOfAxis(using: numbers) {
             throw CoordinateError.outOfAxisRange
         }
