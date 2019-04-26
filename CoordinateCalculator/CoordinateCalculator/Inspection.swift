@@ -25,8 +25,8 @@ enum InputError: CustomStringConvertible {
             return "x, y값을 모두 입력해주세요"
         }
     }
-    func printError() -> Bool{
-        return OutputView.showError(message: self) ? false : true
+    func isSatisfied() -> Bool{
+        return OutputView.printError(message: self) ? false : true
     }
 }
 
@@ -54,13 +54,13 @@ struct Inspection {
 
     private func validate() -> Bool {
         guard isEntered() else {
-            return InputError.noValue.printError() }
+            return InputError.noValue.isSatisfied() }
         guard hasBracket() else {
-            return InputError.hasNotBracket.printError() }
+            return InputError.hasNotBracket.isSatisfied() }
         guard isTwo() else {
-            return InputError.hasNotTwoInput.printError() }
+            return InputError.hasNotTwoInput.isSatisfied() }
         guard isExceed() else {
-            return InputError.exceedValue.printError() }
+            return InputError.exceedValue.isSatisfied() }
         return true
     }
 
