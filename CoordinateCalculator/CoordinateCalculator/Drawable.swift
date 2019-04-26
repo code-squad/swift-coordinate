@@ -10,11 +10,11 @@ import Foundation
 
 protocol Drawable: Shapable {
     func drawShape() -> String
-    func displayInformation() -> String
+    func displayShapeInformation() -> String
 }
 
 extension Drawable {
-    func displayInformation() -> String {
+    func displayShapeInformation() -> String {
         return ""
     }
 }

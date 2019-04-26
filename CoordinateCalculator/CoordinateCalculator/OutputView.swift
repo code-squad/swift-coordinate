@@ -16,7 +16,7 @@ struct OutputView {
     
     static func drawShape (_ myShape: Drawable){
         print(myShape.drawShape())
-        print(myShape.displayInformation())
+        print(myShape.displayShapeInformation())
     }
     
 }
