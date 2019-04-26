@@ -26,7 +26,7 @@ struct MyPoint {
     }
     
     private func checkRange(_ point:PointTuple)->Bool{
-       return possibleRange.contains(point.0) && possibleRange.contains(point.1)
+       return possibleRange.contains(point.x) && possibleRange.contains(point.y)
     }
     
 }
