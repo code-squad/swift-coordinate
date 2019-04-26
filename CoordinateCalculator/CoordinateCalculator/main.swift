@@ -56,17 +56,17 @@ let main = {
     }
     switch pointList.count {
     case 1:
-        let myPoint = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
+        let myPoint = MyPoint.init(pointList: pointList)
         OutputView.drawAxis()
-        OutputView.drawPoint(myPoint)
+        OutputView.drawShape(myPoint)
     case 2:
         let myLine = MyLine.init(pointList: pointList)
         OutputView.drawAxis()
-        OutputView.drawLine(myLine)
+        OutputView.drawShape(myLine)
     default:
-        let myPoint = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
+        let myPoint = MyPoint.init(pointList: pointList)
         OutputView.drawAxis()
-        OutputView.drawPoint(myPoint)
+        OutputView.drawShape(myPoint)
     }
 }
 

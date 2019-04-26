@@ -72,13 +72,13 @@ public struct ANSICode {
     struct line {
         static func displayDistance(_ myLine: MyLine) -> String {
             var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
-            result += "두 점 사이의 거리는 \(myLine.distance)"
+            result += "두 점 사이의 거리는 \(myLine.myShapeInformation)"
             return result
         }
     }
     
     struct point {
-        static func drawPoint(_ myPoint: MyPoint) -> String {
+        static func drawPoint(_ myPoint: Point) -> String {
             var result = ""
             result += moveOriginPoint()
             result += movePointToRightPlace(myPoint.y, myPoint.x)

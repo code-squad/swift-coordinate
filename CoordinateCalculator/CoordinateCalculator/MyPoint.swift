@@ -8,11 +8,24 @@
 
 import Foundation
 
-struct MyPoint {
-    private (set) var x: Int
-    private (set) var y: Int
-    init(x: Int = 0, y: Int = 0){
-        self.x = x
-        self.y = y
+struct MyPoint : Drawable {
+    
+    var myPointList: [Point]
+    
+    init( pointList: [Pair] ){
+        myPointList = [Point]()
+        for point in pointList {
+            myPointList.append(Point.init(x: point.x, y: point.y))
+        }
     }
+    
+    func drawShape() -> String {
+        var drawingShape = ""
+        for myPoint in myPointList {
+            drawingShape += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))"
+        }
+        return drawingShape
+    }
+    
+    
 }
