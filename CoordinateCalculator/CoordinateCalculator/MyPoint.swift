@@ -9,16 +9,16 @@
 import Foundation
 
 struct MyPoint : Drawable {
-    
+    /// Shapable protocol 
     var myPointList: [Point]
     
-    init( pointList: [Pair] ){
+    init(pointList: [Pair]){
         myPointList = [Point]()
         for point in pointList {
             myPointList.append(Point.init(x: point.x, y: point.y))
         }
     }
-    
+    /// Drawable protocol function
     func drawShape() -> String {
         var drawingShape = ""
         for myPoint in myPointList {
