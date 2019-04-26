@@ -9,30 +9,35 @@
 import Foundation
 
 struct MyLine : Drawable {
-    
-    func drawShape() -> String{
-        var drawingShape = ""
-        for myPoint in myPointList {
-            drawingShape += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))"
-        }
-        drawingShape += "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(self))\(ANSICode.text.whiteBright)"
-        return drawingShape
-    }
-    
+    /// Shapable protocol
     var myPointList: [Point]
     
-    init( pointList: [Pair] ){
-        myPointList = [Point]()
-        for point in pointList {
-            myPointList.append(Point.init(x: point.x, y: point.y))
-        }
-    }
-        
     var myShapeInformation : Double {
         get{
             let xDistance = myPointList[0].x - myPointList[1].x
             let yDistance = myPointList[0].y - myPointList[1].y
             return sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
         }
+    }
+    
+    init(pointList: [Pair]){
+        myPointList = [Point]()
+        for point in pointList {
+            myPointList.append(Point.init(x: point.x, y: point.y))
+        }
+    }
+    
+    /// Drawable protocol function
+    func drawShape() -> String{
+        var drawingShape = ""
+        for myPoint in myPointList {
+            drawingShape += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))"
+        }
+        return drawingShape
+    }
+    
+    func displayInformation() -> String {
+        let information = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(self))\(ANSICode.text.whiteBright)"
+        return information
     }
 }

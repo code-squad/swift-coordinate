@@ -38,8 +38,6 @@ enum ErrorCode : Error, CustomStringConvertible {
     }
 }
 
-
-
 let main = {
     var pointList: [Pair] = [Pair]()
     while true {
