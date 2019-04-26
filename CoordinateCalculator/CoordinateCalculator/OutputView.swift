@@ -44,7 +44,7 @@ struct OutputView {
 
     }
 
-    static func showError(message: Validation) -> Bool {
+    static func showError(message: InputError) -> Bool {
         print(message)
         return true
     }
