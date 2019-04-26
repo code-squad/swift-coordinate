@@ -9,14 +9,15 @@
 import Foundation
 
 while true {
-    var numbers: [Int]!
+    var figure: AxisDrawable!
     do {
         let input = try InputView.readInput()
         let tokens = try Parser.parse(using: input)
-        numbers = try Converter.convert(tokens)
+        let numbers = try Converter.convert(tokens)
         if CoordinateValidator.isOutOfAxis(using: numbers) {
             throw CoordinateError.outOfAxisRange
         }
+        figure = try FigureFactory.makeFigure(numbers: numbers)
     } catch let e as CoordinateError {
         print(e.rawValue)
         continue
@@ -24,10 +25,8 @@ while true {
         print("Other Unexpected Error")
         break
     }
-    
-    let point = MyPoint(x: numbers.0, y: numbers.1)
     OutputView.drawAxis()
-    OutputView.drawYellowDot(at: point)
+    OutputView.drawYellowDot(using: figure)
     break
 }
 
