@@ -36,7 +36,7 @@ struct MyLine : Drawable {
         return drawingShape
     }
     
-    func displayInformation() -> String {
+    func displayShapeInformation() -> String {
         let information = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(self))\(ANSICode.text.whiteBright)"
         return information
     }
