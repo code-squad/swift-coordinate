@@ -19,6 +19,10 @@ extension CoordinateRangeError: LocalizedError {
 }
 
 struct MyPoint: Drawable {
+    func point() -> [MyPoint] {
+        return [self]
+    }
+    
     private(set) var x = 0
     private(set) var y = 0
     
