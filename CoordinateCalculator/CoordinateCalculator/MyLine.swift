@@ -9,12 +9,12 @@
 import Foundation
 
 struct MyLine {
-    private var pointA = MyPoint()
-    private var pointB = MyPoint()
+    private (set) var pointA = MyPoint()
+    private (set) var pointB = MyPoint()
     
-    init( pointList: [MyPoint] ){
-        pointA = pointList[0]
-        pointB = pointList[1]
+    init( pointList: [Pair] ){
+        pointA = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
+        pointB = MyPoint.init(x: pointList[1].x, y: pointList[1].y)
     }
         
     var distance : Double {

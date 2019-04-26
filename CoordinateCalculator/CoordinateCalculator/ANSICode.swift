@@ -65,11 +65,19 @@ public struct ANSICode {
         }
     }
     
+    static private let AxisLimit = 24
+    static private let XAxisBase = 2
+    static private let YColumnBase = 3
+    
+    struct line {
+        static func displayDistance(_ myLine: MyLine) -> String {
+            var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
+            result += "두 점 사이의 거리는 \(myLine.distance)"
+            return result
+        }
+    }
+    
     struct point {
-        static private let AxisLimit = 24
-        static private let XAxisBase = 2
-        static private let YColumnBase = 3
-        
         static func drawPoint(_ myPoint: MyPoint) -> String {
             var result = ""
             result += moveOriginPoint()

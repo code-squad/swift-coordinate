@@ -31,7 +31,6 @@ extension String {
         }
         return true
     }
-    
 }
 
 struct InputRefinary {
