@@ -9,12 +9,10 @@
 import Foundation
 
 func main() {
-    while true {
         let input = InputView().readInput()
         guard let passedPoint = Inspection(item: input).point() else { return }
         OutputView.mark(at: passedPoint)
         return
-    }
 }
 
 main()
