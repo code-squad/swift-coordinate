@@ -11,6 +11,7 @@ import Foundation
 protocol Shapable: Drawable {
     var myPointList: [Point] {get set}
     var myShapeInformation: Double {get}
+    func displayShapeInformation() -> String
 }
 
 extension Shapable {
@@ -18,6 +19,9 @@ extension Shapable {
         get{
             return 0
         }
+    }
+    func displayShapeInformation() -> String {
+        return ""
     }
 }
 

@@ -19,7 +19,7 @@ struct MyPoint : Shapable {
         }
     }
     /// Drawable protocol function
-    func drawShape() -> String {
+    func draw() -> String {
         var drawingShape = ""
         for myPoint in myPointList {
             drawingShape += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))"
