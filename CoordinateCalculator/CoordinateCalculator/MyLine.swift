@@ -9,6 +9,11 @@
 import Foundation
 
 struct MyLine: Drawable, Measurable {
+    private(set) var pointA: MyPoint
+    private(set) var pointB: MyPoint
+    private(set) var length: Double
+    var unit: String
+    
     func calculate() -> Double {
         let x = pow(Double(pointA.x - pointB.x), 2)
         let y = pow(Double(pointA.y - pointB.y), 2)
@@ -22,11 +27,6 @@ struct MyLine: Drawable, Measurable {
         return linePoint
     }
     
-    private(set) var pointA: MyPoint
-    private(set) var pointB: MyPoint
-    private(set) var length: Double
-    var unit: String
-    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
@@ -34,6 +34,6 @@ struct MyLine: Drawable, Measurable {
         unit = ""
             
         length = calculate()
-        unit = MeasurableUnit.length.rawValue
+        unit = MeasurableUnit.line.rawValue
     }
 }
