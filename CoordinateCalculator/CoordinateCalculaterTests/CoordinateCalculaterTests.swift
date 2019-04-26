@@ -9,32 +9,53 @@
 import XCTest
 
 class CoordinateCalculaterTests: XCTestCase {
-
+    
     func testCheckPointFormat(){
+        //Given
         let anwser = Answer.init("(10,10)")
+        //Then
         XCTAssertTrue(anwser.isCoordinateFormat(),"()형식인지 테스트합니다")
     }
     func testCheckWrongFormat(){
-         let anwser = Answer.init("(10,10]")
+        //Given
+        let anwser = Answer.init("(10,10]")
+        //Then
         XCTAssertFalse(anwser.isCoordinateFormat(),"()형식인지 테스트합니다")
     }
     func testGetValueFromAnwser(){
+        //Given
         let anwser = Answer.init("(10,10)")
         let pointTuple = (10,10)
+        //Then
         XCTAssertEqual(pointTuple.0,try anwser.getPointTuple().x,"x 좌표 추출 테스트합니다")
         XCTAssertEqual(pointTuple.1,try anwser.getPointTuple().y,"y 좌표 추출 테스트합니다")
     }
     func testCheckRange(){
+        //Given
         let pointTupleOver = (25,10)
         let pointTupleUnder = (-1,-1)
+        //Then
         XCTAssertThrowsError( try MyPoint.init(pointTupleOver) ,"범위를 초과한 입력입니다.")
         XCTAssertThrowsError( try MyPoint.init(pointTupleUnder) ,"범위에 미달된 입력입니다.")
     }
     func testCheckLineFormat(){
+        //Given
         let testAnwser = Answer.init("(10,10]-(20,20]")
-        XCTAssertThrowsError(try testAnwser.getFormat(),"()-() 형식이 아니면 에러를 던집니다")
         let testAnwser2 = Answer.init("(10,10)-(20,20]")
+        //Then
+        XCTAssertThrowsError(try testAnwser.getFormat(),"()-() 형식이 아니면 에러를 던집니다")
         XCTAssertThrowsError(try testAnwser2.getFormat(),"()-() 형식이 아니면 에러를 던집니다")
     }
-
+    func testDistanceOfPoints(){
+        //Given
+        do{
+            let testLine = MyLine.init(try MyPoint(x: 10,y: 10),try MyPoint(x: 14,y: 15))
+            //Then
+            XCTAssertEqual(testLine.lengthOfLine, 6.4031242374328485Ω)
+        }catch{
+            ()
+        }
+       
+    }
+    
 }
