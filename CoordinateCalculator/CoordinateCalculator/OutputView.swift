@@ -15,10 +15,13 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static public func drawYellowDot(at point: MyPoint) {
+    static public func drawYellowDot(using figure: AxisDrawable) {
         let yellowDot = ANSICode.text.yellowBright + ANSICode.dot
-        let drawingDirection = getDirectionToDraw(yellowDot, at: point)
-        print(drawingDirection)
+        let points = figure.getPoints()
+        for point in points {
+            let drawingDirection = getDirectionToDraw(yellowDot, at: point)
+            print(drawingDirection)
+        }
         moveCursorToOrigin()
     }
     
