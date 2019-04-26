@@ -9,6 +9,13 @@
 import Foundation
 
 struct Answer{
+    
+    enum CoordinateFormat : Int{
+        static let separator = "-"
+        case point = 1
+        case line
+    }
+    
     private let contents :String
     init(_ contents:String) {
         self.contents = contents
@@ -28,5 +35,14 @@ struct Answer{
         let x = NSString.init(string:self.contents).substring(with: (matchs[0].range))
         let y = NSString.init(string:self.contents).substring(with: (matchs[1].range))
         return (try x.stringToInt(), try y.stringToInt())
+    }
+    func getFormat() throws ->CoordinateFormat{
+        let points = self.contents.components(separatedBy:CoordinateFormat.separator ).filter{
+            return Answer.init($0).isCoordinateFormat()
+        }
+        guard let coordinateFormat = CoordinateFormat.init(rawValue: points.count) else {
+            throw Exception.ErrorType.wrongFormat
+        }
+        return coordinateFormat
     }
 }

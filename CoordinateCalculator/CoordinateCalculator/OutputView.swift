@@ -15,6 +15,7 @@ struct OutputView{
     init(_ point:MyPoint) {
         self.point = point
     }
+   
     
     func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")

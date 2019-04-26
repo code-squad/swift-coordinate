@@ -11,6 +11,7 @@ import Foundation
 struct MyPoint {
     private(set) var x = 0
     private(set) var y = 0
+    
     let possibleRange = 0...24
     
     init(_ point:PointTuple) throws {
@@ -20,6 +21,10 @@ struct MyPoint {
         self.x = point.x
         self.y = point.y
     }
+    init(x:Int,y:Int) throws {
+        try self.init(PointTuple(x,y))
+    }
+    
     private func checkRange(_ point:PointTuple)->Bool{
        return possibleRange.contains(point.0) && possibleRange.contains(point.1)
     }
