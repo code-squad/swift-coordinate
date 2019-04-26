@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Drawable {
-    
+    func point() -> [MyPoint]
 }
