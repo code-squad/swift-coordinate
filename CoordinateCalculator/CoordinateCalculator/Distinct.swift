@@ -10,8 +10,8 @@ import Foundation
 
 struct Distinct {
     /// 입력받은 Text를 나누어 좌표의 갯수와 나뉜 좌표들을 return하는 함수
-    func splitLocation(inputTexts : String) throws -> (locationCount : Int, dividedLocations : [String]) {
-        if inputTexts == "" { throw ErrorMessage.noValueError }
+    func splitLocation(inputTexts : String) -> (locationCount : Int, dividedLocations : [String]) {
+        //if inputTexts == "" { throw ErrorMessage.noValueError }
         let beforeRefineLocations = inputTexts
         var dividedLocations : [String] = []
         let substringDividedLocations = beforeRefineLocations.split(separator: "-")
@@ -22,18 +22,18 @@ struct Distinct {
     }
     /// 입력받은 좌표의 갯수를 판단하여 그에 맞는 함수를 출력하는 함수
     func callDependingCoordinates(locationCount : Int, dividedLocations : [String]) throws -> Figure{
-        var shame : Figure
+        var figure : Figure
         switch locationCount{
         case 3 : // 입력된 Location의 갯수가 3개인 경우
-            shame = try initMyTriangle(dividedLocations: dividedLocations)
+            figure = try initMyTriangle(dividedLocations: dividedLocations)
         case 2 : // 입력된 Location의 갯수가 2개인 경우
-            shame = try initMyLine(dividedLocations: dividedLocations)
+            figure = try initMyLine(dividedLocations: dividedLocations)
         case 1 : // 입력된 Location의 갯수가 1개인 경우
-            shame = try initMyPoint(locationText: dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
+            figure = try initMyPoint(locationText: dividedLocations[0])// 원소가 1개이지만 배열을 벗기기 위해 [0]을 사용 (해당 함수는 1개일때 뿐만 아니라 2개일때 각 좌표들에 값을 대입하기 위한 함수로도 쓰이기 때문에)
         default :
             throw ErrorMessage.outOfRangeError
         }
-        return shame
+        return figure
     }
     /// 입력받은 좌표가 3개일때 MyTriangle 구조체의 변수들에 값을 입력하는 함수
     private func initMyTriangle(dividedLocations : [String]) throws -> MyTriangle {
@@ -54,7 +54,7 @@ struct Distinct {
     /// 입력받은 좌표가 1개 혹은 MyLine 구조체의 하나의 변수에 값을 입력하는 함수
     private func initMyPoint(locationText : String) throws -> MyPoint {
         if locationText == "" { throw ErrorMessage.noValueError }
-        else if locationText[locationText.index(before: locationText.endIndex)] != ")" || locationText[locationText.startIndex] != "(" { throw ErrorMessage.nonbracket }
+        else if locationText.last != ")" || locationText.first != "(" { throw ErrorMessage.nonbracket }
         else {
             var beforeRefineLocation = locationText
             beforeRefineLocation.removeFirst()

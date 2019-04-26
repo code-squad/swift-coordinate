@@ -16,16 +16,16 @@ func main(){
     while true {
         let inputText = input.readInput()
         let distinctInput = input.distinctContain(inputLocation: inputText)
+        let inputLocation = distinct.splitLocation(inputTexts: distinctInput)
         if distinctInput != "" {
-            do{
-                let inputLocation = try distinct.splitLocation(inputTexts: distinctInput)
+            do {
                 figure = try distinct.callDependingCoordinates(locationCount: inputLocation.locationCount, dividedLocations: inputLocation.dividedLocations)
-            }catch let error as ErrorMessage {
+                break
+            } catch let error as ErrorMessage {
                 print(error.rawValue)
-            }catch {
+            } catch {
                 print("알수없는 에러입니다.")
             }
-            break
         }
     }
     output.drawAxis()
