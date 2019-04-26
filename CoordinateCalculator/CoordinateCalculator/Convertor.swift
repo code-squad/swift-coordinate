@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     var toInt: Int {
-        return Int(self) ?? 0
+        return Int(self.trimmingCharacters(in: .whitespaces)) ?? 0
     }
 }
 
