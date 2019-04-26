@@ -69,7 +69,7 @@ public struct ANSICode {
     
     struct axis {
         static let AxisLimit = 24
-        static let originRow = ANSICode.axis.AxisLimit + 2
+        static let originRow = AxisLimit + 2
         static let originCol = 2
         
         private static func drawX() -> String {
