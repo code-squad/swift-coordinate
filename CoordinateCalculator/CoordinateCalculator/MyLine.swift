@@ -12,13 +12,13 @@ struct MyLine{
     let pointA : MyPoint
     let pointB : MyPoint
     
-    init(_ pointA:MyPoint,pointB:MyPoint) {
+    init(_ pointA:MyPoint,_ pointB:MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }
-    var lengthOfLine: Double { return self.getDistancebetweenDots(self.pointA, self.pointB)}
+    var lengthOfLine: Double { return self.getDistancebetweenPoints(self.pointA, self.pointB)}
     
-    func getDistancebetweenDots(_ pointA:MyPoint,_ pointB:MyPoint)->Double{
+    func getDistancebetweenPoints(_ pointA:MyPoint,_ pointB:MyPoint)->Double{
         return sqrt(pow(Double(pointA.x - pointB.x),2)+pow(Double(pointA.y - pointB.y),2))
     }
 }
