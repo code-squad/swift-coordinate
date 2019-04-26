@@ -14,11 +14,7 @@ typealias Pair = (x: Int, y: Int)
 struct InputView {
     
     static private func printInputMessage(){
-        print("(x,y) coordinate (ex; (2,5) ) > ")
-    }
-    
-    static private func printLineInputMessage(){
-        print("line (x1,y1)-(x2,y2) coordinate (ex; (2,5)-(4,10) ) > ")
+        print("좌표를 입력하세요. ")
     }
     
     static private func readEachPoint() throws -> String {
@@ -26,13 +22,6 @@ struct InputView {
             throw ErrorCode.InvalidInput
         }
         return input
-    }
-    
-    static func readLineInput() throws -> [Pair] {
-        printLineInputMessage()
-        let inputString = try readEachPoint()
-        let resultPairList = try InputRefinary(inputString).pointPair
-        return resultPairList
     }
     
     static func readInput() throws -> [Pair] {

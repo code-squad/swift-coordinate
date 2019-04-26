@@ -45,7 +45,6 @@ let main = {
     while true {
         do {
             pointList = try InputView.readInput()
-            print ("pointList > : \(pointList)")
             break
         }catch let errorType as ErrorCode{
             print(errorType.description)
@@ -55,9 +54,20 @@ let main = {
             continue
         }
     }
-    let myPoint = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
-    OutputView.drawAxis()
-    OutputView.drawPoint(myPoint)
+    switch pointList.count {
+    case 1:
+        let myPoint = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
+        OutputView.drawAxis()
+        OutputView.drawPoint(myPoint)
+    case 2:
+        let myLine = MyLine.init(pointList: pointList)
+        OutputView.drawAxis()
+        OutputView.drawLine(myLine)
+    default:
+        let myPoint = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
+        OutputView.drawAxis()
+        OutputView.drawPoint(myPoint)
+    }
 }
 
 main()

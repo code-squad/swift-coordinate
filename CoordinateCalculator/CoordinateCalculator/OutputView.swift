@@ -18,4 +18,10 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))")
     }
     
+    static func drawLine (_ myLine: MyLine){
+        print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myLine.pointA))")
+        print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myLine.pointB))")
+        print("\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(myLine))\(ANSICode.text.whiteBright)")
+    }
+    
 }
