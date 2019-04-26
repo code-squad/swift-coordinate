@@ -139,7 +139,7 @@ public struct ANSICode {
             let result = drawX() + drawY()
             return result
         }
-}
+    }
     
     struct rect {
         static func draw(origin : (x:Int,y:Int), size : (width:Int,height:Int), isFill : Bool) -> String {

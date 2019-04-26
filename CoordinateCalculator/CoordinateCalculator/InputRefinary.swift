@@ -79,7 +79,7 @@ struct InputRefinary {
         return (splitAPairOfPoint[0], splitAPairOfPoint[1])
     }
     
-    static private func convertStringToNumber( x: String,  y: String )throws -> Pair {
+    static private func convertStringToNumber(x: String,  y: String)throws -> Pair {
         guard let pointX = Int(x) else{
             throw ErrorCode.IsNotANumber
         }
