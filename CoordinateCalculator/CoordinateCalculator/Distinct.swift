@@ -23,6 +23,9 @@ struct Distinct {
     func callDependingCoordinates(locationCount : Int, dividedLocations : [String]) throws -> Figure{
         var figure : Figure
         switch locationCount{
+        case 4 : // 입력된 Location의 갯수가 4개인 경우
+            if Set(dividedLocations).count != 4 { throw ErrorMessage.noRectangle} // 4개의 좌표중 중복되는것이 있으면 에러 발생
+            figure = try initMyRectangle(dividedLocations: dividedLocations)
         case 3 : // 입력된 Location의 갯수가 3개인 경우
             figure = try initMyTriangle(dividedLocations: dividedLocations)
         case 2 : // 입력된 Location의 갯수가 2개인 경우
@@ -34,6 +37,29 @@ struct Distinct {
         }
         return figure
     }
+    
+    /// 입력받은 좌표가 4개일때 직사각형이 되는지 여부를 판단하고, MyRectangle 구조체의 변수들에 값을 입력하는 함수
+    private func initMyRectangle(dividedLocations : [String]) throws -> MyRect {
+        var points : [MyPoint] = []
+        var lines : [Double] = []
+        points.append(try initMyPoint(locationText: dividedLocations[0]))
+        for pointIndex in 1...dividedLocations.count-1 {
+            points.append(try initMyPoint(locationText: dividedLocations[pointIndex]))
+            lines.append(MyLine.lengthCalculator(MyLine.init(startPoint: points[0], endPoint: points[pointIndex]))())
+        }
+        var copyPoints = points
+        let rightIndex = lines.index(of: lines.max()!)! // 기본으로 지정한 점과 가장 먼 거리에 있는 점이 있는 좌표의 인덱스
+        copyPoints.remove(at: 0)
+        copyPoints.remove(at: rightIndex)
+        let rowLine = MyRect.init(leftTop: points[0], rightBottom: points[rightIndex+1]) // 기본으로 지정한 점과 가장 멀리있는 점을 잇는 대각선
+        let colLine = MyRect.init(leftTop: copyPoints[0], rightBottom: copyPoints[1]) // 나머지 두점을 잇는 대각선
+        // 인접하지 않은 두점씩을 잇는 대각선의 길이가 같고 중점이 같은 위치에 있으면 직사각형이다
+        if rowLine.crossPoint.crossX == colLine.crossPoint.crossX, rowLine.crossPoint.crossY == colLine.crossPoint.crossY, rowLine.diagonalLength == colLine.diagonalLength {
+            let myRect = MyRect.init(pointA: points[0], pointB: points[rightIndex+1], pointC: copyPoints[0])
+            return myRect
+        } else { throw ErrorMessage.noRectangle}
+    }
+    
     /// 입력받은 좌표가 3개일때 MyTriangle 구조체의 변수들에 값을 입력하는 함수
     private func initMyTriangle(dividedLocations : [String]) throws -> MyTriangle {
         let pointA = try initMyPoint(locationText: dividedLocations[0])

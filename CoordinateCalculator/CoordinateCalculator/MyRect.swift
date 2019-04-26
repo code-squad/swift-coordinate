@@ -9,40 +9,46 @@
 import Foundation
 
 struct MyRect : Figure {
-    private(set) var lineAB = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
-    private(set) var lineBC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
-    private(set) var lineCD = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
-    private(set) var lineAD = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
+    private(set) var leftTop = MyPoint(x: 0, y: 0)
+    private(set) var rightBottom = MyPoint(x: 0, y: 0)
+    private(set) var anotherPoint = MyPoint(x: 0, y: 0)
+    private(set) var crossPoint = MyPoint(crossX: 0.0, crossY: 0.0)
+    private(set) var diagonalLength : Double = 0.0
     
     init(x: Int, y: Int) {
-        self.lineAB = MyLine(x: x, y: y)
-        self.lineBC = MyLine(x: x, y: y)
-        self.lineCD = MyLine(x: x, y: y)
-        self.lineAD = MyLine(x: x, y: y)
+        self.leftTop = MyPoint(x: x, y: y)
+        self.rightBottom = MyPoint(x: x, y: y)
     }
     
-    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
-        self.lineAB = MyLine.init(startPoint: pointA, endPoint: pointB)
-        self.lineBC = MyLine.init(startPoint: pointB, endPoint: pointC)
-        self.lineCD = MyLine.init(startPoint: pointC, endPoint: pointD)
-        self.lineAD = MyLine.init(startPoint: pointA, endPoint: pointD)
+    init(leftTop: MyPoint, rightBottom: MyPoint) {
+        self.leftTop = leftTop
+        self.rightBottom = rightBottom
+        self.crossPoint = MyPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
+        self.diagonalLength = MyLine.lengthCalculator(MyLine.init(startPoint: leftTop, endPoint: rightBottom))()
     }
     
-    private func areaCalculator(lineAB: MyLine, lineBC: MyLine) -> Double {
-        let betweenABLength = lineAB.lengthCalculator()
-        let betweenBCLength = lineBC.lengthCalculator()
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint){
+        self.leftTop = pointA
+        self.rightBottom = pointB
+        self.anotherPoint = pointC
+        self.crossPoint = MyPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
+    }
+    
+    private func areaCalculator(leftTop: MyPoint, rightBottom: MyPoint, anotherPoint: MyPoint) -> Double {
+        let rowLine = MyLine.lengthCalculator(MyLine.init(startPoint: leftTop, endPoint: anotherPoint))()
+        let columnLine = MyLine.lengthCalculator(MyLine.init(startPoint: anotherPoint, endPoint: rightBottom))()
         
-        let betweenArea = betweenABLength * betweenBCLength
-        return round(betweenArea * 100) / 100
+        let betweenArea = rowLine * columnLine
+        return round(betweenArea * 100)/100
     }
     
     func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : String) {
         var trianglePoints : [MyPoint] = []
-        trianglePoints.append(lineAB.startPoint)
-        trianglePoints.append(lineAB.endPoint)
-        trianglePoints.append(lineCD.startPoint)
-        trianglePoints.append(lineCD.endPoint)
-        let guideMent = "네점을 잇는 사각형의 넓이는 \(areaCalculator(lineAB: lineAB, lineBC: lineBC)) 입니다."
+        trianglePoints.append(leftTop)
+        trianglePoints.append(rightBottom)
+        trianglePoints.append(anotherPoint)
+        trianglePoints.append(MyPoint.init(x: anotherPoint.x + Int((crossPoint.crossX - Double(anotherPoint.x)) * 2), y: anotherPoint.y + Int((crossPoint.crossY - Double(anotherPoint.y)) * 2)))
+        let guideMent = "네점을 잇는 사각형의 넓이는 \(areaCalculator(leftTop: leftTop, rightBottom: rightBottom, anotherPoint: anotherPoint)) 입니다."
         return (trianglePoints.count, trianglePoints, guideMent)
     }
 }
