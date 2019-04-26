@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AxisDrawble {
+protocol AxisDrawable {
     
 }
 
@@ -24,5 +24,17 @@ struct MyPoint: AxisDrawable {
     init(using numbers: [Int]) {
         x = numbers[0]
         y = numbers[1]
+    }
+}
+
+
+struct MyLine: AxisDrawble {
+    var pointA = MyPoint(x: 0, y: 0)
+    var pointB = MyPoint(x: 0, y: 0)
+    
+    
+    init(using numbers: [Int]) {
+        pointA = MyPoint(x: numbers[0], y: numbers[1])
+        pointB = MyPoint(x: numbers[2], y: numbers[3])
     }
 }
