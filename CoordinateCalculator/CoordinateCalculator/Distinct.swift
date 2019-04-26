@@ -11,7 +11,6 @@ import Foundation
 struct Distinct {
     /// 입력받은 Text를 나누어 좌표의 갯수와 나뉜 좌표들을 return하는 함수
     func splitLocation(inputTexts : String) -> (locationCount : Int, dividedLocations : [String]) {
-        //if inputTexts == "" { throw ErrorMessage.noValueError }
         let beforeRefineLocations = inputTexts
         var dividedLocations : [String] = []
         let substringDividedLocations = beforeRefineLocations.split(separator: "-")
