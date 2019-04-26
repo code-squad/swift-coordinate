@@ -13,7 +13,9 @@ enum ErrorCode : Error, CustomStringConvertible {
     case InvalidRange
     case IsNotANumber
     case SplitStringError
+    case SplitCoordinatorError
     case Unknown
+    case InvalidCharacter
     var description: String{
         get {
             switch self {
@@ -25,6 +27,10 @@ enum ErrorCode : Error, CustomStringConvertible {
                 return "InvalidRange Error"
             case .SplitStringError:
                 return "SplitString Error"
+            case .InvalidCharacter:
+                return "Invalid characters Error"
+            case .SplitCoordinatorError:
+                return "Split Coordinator X From Y Error"
             case .Unknown:
                 return "Unknown Error"
             }
@@ -35,12 +41,11 @@ enum ErrorCode : Error, CustomStringConvertible {
 
 
 let main = {
-    let inputView: InputView = InputView()
-    var x: Int = 0
-    var y: Int = 0
+    var pointList: [Pair] = [Pair]()
     while true {
         do {
-            (x, y) = try inputView.readInput()
+            pointList = try InputView.readInput()
+            print ("pointList > : \(pointList)")
             break
         }catch let errorType as ErrorCode{
             print(errorType.description)
@@ -50,7 +55,7 @@ let main = {
             continue
         }
     }
-    let myPoint = MyPoint.init(x: x, y: y)
+    let myPoint = MyPoint.init(x: pointList[0].x, y: pointList[0].y)
     OutputView.drawAxis()
     OutputView.drawPoint(myPoint)
 }

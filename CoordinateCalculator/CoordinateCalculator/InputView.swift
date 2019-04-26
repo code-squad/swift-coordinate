@@ -8,22 +8,34 @@
 
 import Foundation
 
-typealias Pair = (Int, Int)
+typealias Pair = (x: Int, y: Int)
+
 
 struct InputView {
     
-    private func printInputMessage(){
+    static private func printInputMessage(){
         print("(x,y) coordinate (ex; (2,5) ) > ")
     }
     
-    private func readEachPoint() throws -> String {
+    static private func printLineInputMessage(){
+        print("line (x1,y1)-(x2,y2) coordinate (ex; (2,5)-(4,10) ) > ")
+    }
+    
+    static private func readEachPoint() throws -> String {
         guard let input = readLine() else {
             throw ErrorCode.InvalidInput
         }
         return input
     }
     
-    func readInput() throws -> Pair {
+    static func readLineInput() throws -> [Pair] {
+        printLineInputMessage()
+        let inputString = try readEachPoint()
+        let resultPairList = try InputRefinary(inputString).pointPair
+        return resultPairList
+    }
+    
+    static func readInput() throws -> [Pair] {
         printInputMessage()
         let inputString = try readEachPoint()
         let resultPair = try InputRefinary(inputString).pointPair
