@@ -16,29 +16,29 @@ struct InputView{
     enum Question : String{
         case aboutCoordinate  = "좌표를 입력하세요."
     }
-    func ask(_ question:Question) throws -> Answer {
+    private func ask(_ question:Question) throws -> Answer {
         print(question.rawValue)
         guard let anwser = readLine() else {
             throw Exception.ErrorType.wrongFormat
         }
-        return anwser
+        return  anwser
     }
-    func readInput() throws -> MyPoint {
+    private func makeMyPoint(_ answer:Answer) throws ->(MyPoint){
+        let point =  try answer.getPointTuple()
+        return try MyPoint(point)
+    }
+    
+    public func readInput() throws -> MyPoint {
         let anwser = try ask(Question.aboutCoordinate)
         guard anwser.isCorrectFormat() else {
             throw Exception.ErrorType.wrongFormat
         }
         return try makeMyPoint(anwser)
     }
-    func makeMyPoint(_ answer:Answer) throws ->(MyPoint){
-        let point =  try answer.getPointTuple()
-        return try MyPoint(point)
-    }
 }
 
 typealias Answer = String
-
-extension Answer{
+extension Answer {
     func isCorrectFormat()->(Bool){
         guard let regex = try? NSRegularExpression.init(pattern: "\\([0-9]+,[0-9]+\\)", options: []) else {
             return false
