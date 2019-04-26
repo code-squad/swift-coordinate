@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine : Shame {
+struct MyLine : Figure {
     private(set) var startPoint = MyPoint(x: 0, y: 0)
     private(set) var endPoint = MyPoint(x: 0, y: 0)
     

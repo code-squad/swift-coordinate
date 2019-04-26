@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle : Shame {
+struct MyTriangle : Figure {
     private(set) var lineAB = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
     private(set) var lineBC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
     private(set) var lineAC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))

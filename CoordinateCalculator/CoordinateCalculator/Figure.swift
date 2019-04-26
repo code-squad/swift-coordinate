@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Shame {
+protocol Figure {
     init(x: Int, y: Int)
     func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: String)
 }

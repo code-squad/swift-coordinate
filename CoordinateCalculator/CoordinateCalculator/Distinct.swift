@@ -21,8 +21,8 @@ struct Distinct {
         return (dividedLocations.count, dividedLocations)
     }
     /// 입력받은 좌표의 갯수를 판단하여 그에 맞는 함수를 출력하는 함수
-    func callDependingCoordinates(locationCount : Int, dividedLocations : [String]) throws -> Shame{
-        var shame : Shame
+    func callDependingCoordinates(locationCount : Int, dividedLocations : [String]) throws -> Figure{
+        var shame : Figure
         switch locationCount{
         case 3 : // 입력된 Location의 갯수가 3개인 경우
             shame = try initMyTriangle(dividedLocations: dividedLocations)
