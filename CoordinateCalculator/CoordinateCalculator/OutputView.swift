@@ -14,11 +14,22 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func drawPoint(point: MyPoint) {
+    static func draw(shape: Drawable) {
+        for point in shape.point() {
+            drawPoint(point: point)
+        }
+        
+        if shape is Measurable {
+            let measuredValue = shape as! Measurable
+            print("\(measuredValue.unit)\(measuredValue.calculate())")
+        }
+    }
+    
+    private static func drawPoint(point: MyPoint) {
         let row = 25 - point.y
         let col = point.x * 2 + 2
         
         print("\(ANSICode.text.redBright)\(ANSICode.cursor.move(row: row, col: col))⌘")
-        print("\(ANSICode.cursor.move(row: 26, col: 0))")
+        print("\(ANSICode.cursor.move(row: 27, col: 0))")
     }
 }
