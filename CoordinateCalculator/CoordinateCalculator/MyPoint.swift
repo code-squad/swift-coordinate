@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AxisDrawable {
-    
+    func getPoints() -> [MyPoint]
 }
 
 struct MyPoint: AxisDrawable {
@@ -25,10 +25,14 @@ struct MyPoint: AxisDrawable {
         x = numbers[0]
         y = numbers[1]
     }
+    
+    func getPoints() -> [MyPoint] {
+        return [self]
+    }
 }
 
 
-struct MyLine: AxisDrawble {
+struct MyLine: AxisDrawable {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
     
@@ -36,5 +40,9 @@ struct MyLine: AxisDrawble {
     init(using numbers: [Int]) {
         pointA = MyPoint(x: numbers[0], y: numbers[1])
         pointB = MyPoint(x: numbers[2], y: numbers[3])
+    }
+    
+    func getPoints() -> [MyPoint] {
+        return [pointA, pointB]
     }
 }
