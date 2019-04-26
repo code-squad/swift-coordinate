@@ -54,20 +54,9 @@ let main = {
             continue
         }
     }
-    switch pointList.count {
-    case 1:
-        let myPoint = MyPoint.init(pointList: pointList)
-        OutputView.drawAxis()
-        OutputView.drawShape(myPoint)
-    case 2:
-        let myLine = MyLine.init(pointList: pointList)
-        OutputView.drawAxis()
-        OutputView.drawShape(myLine)
-    default:
-        let myPoint = MyPoint.init(pointList: pointList)
-        OutputView.drawAxis()
-        OutputView.drawShape(myPoint)
-    }
+    let myShape = MyShapeFactory.createShape(pointList: pointList)
+    OutputView.drawAxis()
+    OutputView.drawShape(myShape)
 }
 
 main()
