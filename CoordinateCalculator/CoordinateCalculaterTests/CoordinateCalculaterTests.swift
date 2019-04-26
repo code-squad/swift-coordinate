@@ -21,8 +21,8 @@ class CoordinateCalculaterTests: XCTestCase {
     func testGetValueFromAnwser(){
         let anwser = Answer.init("(10,10)")
         let pointTuple = (10,10)
-        XCTAssertEqual(pointTuple.0,try anwser.getPointTuple().0,"x 좌표 추출 테스트합니다")
-        XCTAssertEqual(pointTuple.1,try anwser.getPointTuple().1,"y 좌표 추출 테스트합니다")
+        XCTAssertEqual(pointTuple.0,try anwser.getPointTuple().x,"x 좌표 추출 테스트합니다")
+        XCTAssertEqual(pointTuple.1,try anwser.getPointTuple().y,"y 좌표 추출 테스트합니다")
     }
     func testCheckRange(){
         let pointTupleOver = (25,10)
@@ -31,8 +31,10 @@ class CoordinateCalculaterTests: XCTestCase {
         XCTAssertThrowsError( try MyPoint.init(pointTupleUnder) ,"범위에 미달된 입력입니다.")
     }
     func testCheckLineFormat(){
-        let anwser = Answer.init("(10,10) - (20,20]")
-        XCTAssertFalse(anwser.,"()-() 형식이 아닙니다.")
+        let testAnwser = Answer.init("(10,10]-(20,20]")
+        XCTAssertThrowsError(try testAnwser.getFormat(),"()-() 형식이 아니면 에러를 던집니다")
+        let testAnwser2 = Answer.init("(10,10)-(20,20]")
+        XCTAssertThrowsError(try testAnwser2.getFormat(),"()-() 형식이 아니면 에러를 던집니다")
     }
 
 }
