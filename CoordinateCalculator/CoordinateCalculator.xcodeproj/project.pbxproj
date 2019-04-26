@@ -11,9 +11,9 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		C57D23702271693F0087B84E /* InputRefinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D236F2271693F0087B84E /* InputRefinary.swift */; };
 		C57D237C227187FB0087B84E /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D237B227187FB0087B84E /* MyLine.swift */; };
-		C57D237E2272E3D20087B84E /* MyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D237D2272E3D20087B84E /* MyShape.swift */; };
 		C57D23802272E4E90087B84E /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D237F2272E4E90087B84E /* Drawable.swift */; };
 		C57D23822272E8CD0087B84E /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D23812272E8CD0087B84E /* Point.swift */; };
+		C57D23842272EEE90087B84E /* Shapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D23832272EEE90087B84E /* Shapable.swift */; };
 		C5DBF31A226D96150005B064 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF319226D96150005B064 /* OutputView.swift */; };
 		C5DBF31E226DBC3E0005B064 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF31D226DBC3E0005B064 /* InputView.swift */; };
 		C5DBF320226EE4D00005B064 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF31F226EE4D00005B064 /* MyPoint.swift */; };
@@ -37,9 +37,9 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		C57D236F2271693F0087B84E /* InputRefinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRefinary.swift; sourceTree = "<group>"; };
 		C57D237B227187FB0087B84E /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
-		C57D237D2272E3D20087B84E /* MyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShape.swift; sourceTree = "<group>"; };
 		C57D237F2272E4E90087B84E /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		C57D23812272E8CD0087B84E /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		C57D23832272EEE90087B84E /* Shapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapable.swift; sourceTree = "<group>"; };
 		C5DBF319226D96150005B064 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C5DBF31D226DBC3E0005B064 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C5DBF31F226EE4D00005B064 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				C5DBF31F226EE4D00005B064 /* MyPoint.swift */,
 				C57D23812272E8CD0087B84E /* Point.swift */,
-				C57D237D2272E3D20087B84E /* MyShape.swift */,
+				C57D23832272EEE90087B84E /* Shapable.swift */,
 				C57D237F2272E4E90087B84E /* Drawable.swift */,
 				C57D237B227187FB0087B84E /* MyLine.swift */,
 				C57D236F2271693F0087B84E /* InputRefinary.swift */,
@@ -153,10 +153,10 @@
 				C5DBF31E226DBC3E0005B064 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				C57D23702271693F0087B84E /* InputRefinary.swift in Sources */,
+				C57D23842272EEE90087B84E /* Shapable.swift in Sources */,
 				C57D23822272E8CD0087B84E /* Point.swift in Sources */,
 				C57D23802272E4E90087B84E /* Drawable.swift in Sources */,
 				C5DBF31A226D96150005B064 /* OutputView.swift in Sources */,
-				C57D237E2272E3D20087B84E /* MyShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
