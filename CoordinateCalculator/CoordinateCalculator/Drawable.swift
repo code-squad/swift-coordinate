@@ -9,12 +9,6 @@
 import Foundation
 
 protocol Drawable {
-    func drawShape() -> String
-    func displayShapeInformation() -> String
+    func draw() -> String
 }
 
-extension Drawable {
-    func displayShapeInformation() -> String {
-        return ""
-    }
-}
