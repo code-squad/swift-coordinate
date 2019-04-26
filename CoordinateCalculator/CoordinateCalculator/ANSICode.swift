@@ -15,8 +15,6 @@ public struct ANSICode {
     static let home     = "\(escape)0;0H"
     static let none     = "\(escape)0;0m\(escape)1;0m"
     
-    
-    
     struct text {
         static let black   = escape + "0;30m"
         static let red     = escape + "0;31m"
@@ -150,3 +148,4 @@ extension ANSICode{
         return before * 2 + 3
     }
 }
+
