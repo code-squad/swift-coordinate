@@ -1,3 +1,161 @@
+# STEP 5-2
+
+## Lesson Learned
+
+### 1) 에러코드에 대한 출력 방식
+
+기존 에러 코드 출력 방식은 다음과 같았다
+
+```swift
+import Foundation	
+
+enum ErrorCode : Error {	
+    case InvalidInput	    
+    case InvalidRange	    
+    case IsNotANumber	    
+    case SplitStringError	    
+    case Unknown
+}
+
+let main = {	
+    let inputView: InputView = InputView()	    
+    var x: Int = 0	   
+		let main = {
+        do {	       
+            (x, y) = try inputView.readInput()	            
+            break	            
+        }catch ErrorCode.InvalidInput{	        
+            print("InvalidInput")	            
+            continue	
+        }catch ErrorCode.IsNotANumber{	
+            print("IsNotANumber")	
+            continue	
+        }catch ErrorCode.InvalidRange{	
+            print("InvalidRange")	
+            continue	
+        }catch ErrorCode.SplitStringError{	
+            print("SplitStringError")	
+            continue	            
+        }catch {	       
+            print("unexpected error")	            
+            continue	            
+        }	        
+    }
+```
+
+### 1-1 ) 문제점
+
+- 에러 출력에 대해 main 코드 흐름 상에서 하드코딩하는 방식
+
+
+
+### 1-2) 해결 시도 방법 1
+
+> ErrorCode의 각 case에 String 값을 입력하여 rawValue로 출력하는 것
+
+- 한계 
+  - ErrorCode는 Error 프로토콜을 채택하므로 String을 같이 쓸 수 없음. 별도의 Enum에 String 값을 관리해야 함
+  - 결국 하드코딩 내용을 변수로 옮긴 것에 불과함
+
+### 1-3) 해결 시도 방법 2 - Accepted
+
+> [프로토콜 - CustomStringConvertible](<https://developer.apple.com/documentation/swift/customstringconvertible>)  를 활용할 것 
+>
+> 해당 프로토콜을 `준수`하려면 `description` 프로퍼티에 대한 정의가 필요함.
+
+```swift
+struct Point {
+    let x: Int, y: Int
+}
+
+let p = Point(x: 21, y: 30)
+print(p)
+// Prints "Point(x: 21, y: 30)"
+
+
+```
+
+`description` 프로퍼티를 구현하고 `CustomStringConvertible` 를 **채택**한다는 것을 선언하면, 구조체 Point는 **고유의 커스텀 표현방식**을 갖게 된다.
+
+```swift
+extension Point: CustomStringConvertible {
+    var description: String {
+        return "(\(x), \(y))"
+    }
+}
+print(p)
+// Prints "(21, 30)"
+```
+
+---
+
+
+
+### 1-4) 개선된 에러 출력 방식
+
+```swift
+enum ErrorCode : Error, CustomStringConvertible {
+    case InvalidInput
+    case InvalidRange
+    case IsNotANumber
+    case SplitStringError
+    case Unknown
+    var description: String{
+        get {
+            switch self {
+            case .IsNotANumber:
+                return "IsNotANumber Error"
+            case .InvalidInput:
+                return "InvalidInput Error"
+            case .InvalidRange:
+                return "InvalidRange Error"
+            case .SplitStringError:
+                return "SplitString Error"
+            case .Unknown:
+                return "Unknown Error"
+            }
+        }
+    }
+}
+```
+
+### 1-5) 주의사항
+
+- main 클로저에서 description은 다음과 같이 표현하여 코드를 간결하게 줄일 수 있다.
+- `ErrorCode`의 경우를 `errorType` 변수로 받고, 해당 `errorType`에 대한 `description` 출력을 하는 방식
+
+```swift
+//...
+				}catch let errorType as ErrorCode{
+            print(errorType.description)
+            continue
+        }catch {
+            print(ErrorCode.Unknown.description)
+            continue
+        }
+    }
+//...
+```
+
+
+
+### 1-6) 개선시 장점
+
+- ErrorCode` 내의 예외출력문을 `enum`에서 관리하는 이점이 있다.
+- main에서의 예외처리 구조가 간결해지고, 추후의 확장에 용이해진다.
+
+
+
+
+
+
+
+------
+
+---
+
+
+
 # STEP 5-1
 
 ## Lesson Learned
