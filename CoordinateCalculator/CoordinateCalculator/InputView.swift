@@ -68,8 +68,8 @@ struct Parser {
 struct Converter {
     static public func convert(_ tokens: [String]) throws -> [Int] {
         var numbers = [Int]()
-        for element in tokens {
-            guard let convertedNum = Int(element) else { throw CoordinateError.impossibleToConvert }
+        for token in tokens {
+            guard let convertedNum = Int(token) else { throw CoordinateError.impossibleToConvert }
             numbers.append(convertedNum)
         }
         return numbers
