@@ -14,14 +14,9 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func drawPoint(_ myPoint: MyPoint){
-        print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))")
-    }
-    
-    static func drawLine (_ myLine: MyLine){
-        print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myLine.pointA))")
-        print("\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myLine.pointB))")
-        print("\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(myLine))\(ANSICode.text.whiteBright)")
+    static func drawShape (_ myShape: Drawable){
+        print(myShape.drawShape())
+        print(myShape.displayInformation())
     }
     
 }
