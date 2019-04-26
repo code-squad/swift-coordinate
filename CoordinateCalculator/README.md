@@ -72,5 +72,6 @@
 print("\(ANSICode.cursor.move(row: axisBound + 3, col: axisBound + 3))")
 ```
 
-<img src="https://d2ddoduugvun08.cloudfront.net/items/2S2E0j232t1O1K2h3f0a/before.png" width="400" style="display: inline-block;"><img src="https://d2ddoduugvun08.cloudfront.net/items/370e3J0m1U1V2K3c202F/after.png" width="400px" style="display: inline-block;">
+<img src="https://d2ddoduugvun08.cloudfront.net/items/2S2E0j232t1O1K2h3f0a/before.png" width="400px" style="display: inline-block;">
 
+<img src="https://d2ddoduugvun08.cloudfront.net/items/370e3J0m1U1V2K3c202F/after.png" width="400px" style="display: inline-block;">
