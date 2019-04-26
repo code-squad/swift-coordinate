@@ -17,8 +17,8 @@ struct MyPoint {
         guard checkRange(point) else {
            throw Exception.ErrorType.outOfRange
         }
-        self.x = point.0
-        self.y = point.1
+        self.x = point.x
+        self.y = point.y
     }
     private func checkRange(_ point:PointTuple)->Bool{
        return possibleRange.contains(point.0) && possibleRange.contains(point.1)

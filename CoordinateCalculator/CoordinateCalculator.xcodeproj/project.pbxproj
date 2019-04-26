@@ -18,6 +18,8 @@
 		0E7A4DCC22706CBA00F4A126 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A4DBA22706AAD00F4A126 /* InputView.swift */; };
 		0E7A4DCE22706E2900F4A126 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A4DCD22706E2900F4A126 /* Exception.swift */; };
 		0E7A4DD122716BC500F4A126 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A4DCD22706E2900F4A126 /* Exception.swift */; };
+		0ECBE2B72272D7D9009CEE39 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBE2B62272D7D9009CEE39 /* Answer.swift */; };
+		0ECBE2B92272D80D009CEE39 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBE2B82272D80D009CEE39 /* Extensions.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		0E7A4DC222706CA300F4A126 /* CoordinateCalculaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculaterTests.swift; sourceTree = "<group>"; };
 		0E7A4DC422706CA300F4A126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E7A4DCD22706E2900F4A126 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
+		0ECBE2B62272D7D9009CEE39 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		0ECBE2B82272D80D009CEE39 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				0E7A4DB822706A8D00F4A126 /* MyPoint.swift */,
 				0E7A4DBA22706AAD00F4A126 /* InputView.swift */,
 				0E7A4DCD22706E2900F4A126 /* Exception.swift */,
+				0ECBE2B62272D7D9009CEE39 /* Answer.swift */,
+				0ECBE2B82272D80D009CEE39 /* Extensions.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 				0E7A4DB922706A8D00F4A126 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				0E7A4DBB22706AAD00F4A126 /* InputView.swift in Sources */,
+				0ECBE2B92272D80D009CEE39 /* Extensions.swift in Sources */,
+				0ECBE2B72272D7D9009CEE39 /* Answer.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				0E7A4DCE22706E2900F4A126 /* Exception.swift in Sources */,
 				0E6A437C226DAE4100C93373 /* OutputView.swift in Sources */,
