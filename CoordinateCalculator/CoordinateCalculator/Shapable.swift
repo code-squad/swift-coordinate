@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Shapable {
+protocol Shapable: Drawable {
     var myPointList: [Point] {get set}
     var myShapeInformation: Double {get}
 }
