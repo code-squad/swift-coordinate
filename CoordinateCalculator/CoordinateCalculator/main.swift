@@ -19,18 +19,13 @@ func main(){
             outputView.drawPoint()
             isError = false
         }catch let error as Exception.ErrorType {
-            Exception.alertError(type: error)
+            print(error)
             isError = true
         }catch {
-            Exception.alertError()
+            print(error)
             isError = true
         }
-    }while isError == true
+    }while isError
 }
 
 main()
-
-
-
-let 사다리게임1 = 사다리게임()
-사다리게임1
