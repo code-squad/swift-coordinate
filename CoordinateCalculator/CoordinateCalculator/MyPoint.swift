@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint: Figure {
+struct MyPoint: Figure, Equatable {
     private(set) var x = 0
     private(set) var y = 0
     

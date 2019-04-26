@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Figure, Ment {
+struct MyLine: Figure, Ment, Equatable {
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
     private(set) var length: Double = 0.0
