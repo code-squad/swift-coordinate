@@ -10,7 +10,15 @@ import Foundation
 
 struct CoordinateValidator {
     static func isValidInputFormat(_ input: String) -> Bool {
-        return input.contains("(") && input.contains(")") && input.count >= 5 && !input.isEmpty
+        if input.isEmpty || input == "" { return false }
+        
+        let inputCharacterSet = CharacterSet.init(charactersIn: input)
+        let formatCharacterSet = CharacterSet.init(charactersIn: "(,)")
+        let validCharacterSet = CharacterSet.decimalDigits.union(formatCharacterSet)
+        
+        let formatCheck = inputCharacterSet.isSuperset(of: formatCharacterSet)
+        let fullCheck = inputCharacterSet.isSubset(of: validCharacterSet)
+        return formatCheck && fullCheck
     }
 
     static func isOutOfAxis(using numbers: [Int]) -> Bool {
