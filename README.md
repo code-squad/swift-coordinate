@@ -1,3 +1,116 @@
+# STEP 5-3
+
+## Lesson Learned
+
+- 현재 코드의 문제점 (2019.04.26)
+  - `변화에 닫혀있는 코드 `: main에서 입력 내용에 대한 분기를 통해 객체(구조체) 를 각각의 경우에 따라 / 직접 / 생성하는 구조로 입력 유형의 추가에 따른 확장성에 어려움이 있음 
+- 접근 방안
+  - Design Pattern에 관한 예제로 자주 나오는 `java`에서는 인터페이스 기반 코딩으로 다형성의 장점을 충분히 잘 활용할 수 있다. 구상 클래스를 직접 생성하기 보다는 인터페이스 구현을 통해 구상 클래스 추가에 대응하기 위한 유연성을 확보
+  - Factory Pattern에 대한 학습을 기반으로 Swift code에 적용할 것
+
+
+
+## Factory Pattern
+
+> 중요 키워드 
+
+- DI (의존성 역전)
+- 객체 생성 부분의 캡슐화
+  -  `Creator 객체(팩토리 객체)`와 팩토리에서 생산할 `Product 객체`를 구분한다.
+  - `Creator 클래스` 와 `Product 클래스` 를 각각 `추상(interface or abstract)` / `구상` 으로 구분
+- `추상 클래스`에서 `추상 메소드` 선언
+- 구체화된 객체(`구상`)에서의 `method 오버라이딩`
+
+
+
+
+
+### 패턴 1) : 팩토리 메서드 패턴
+
+---
+
+> 객체를 생성하기 위한 인터페이스`(팩토리)`를 정의하고,
+>
+> 어떤 클래스의 인스턴스(Product)를 만들지는 서브클래스(Concrete Creator)에서 결정하는 방식이다. 
+
+> 팩토리 메소드 패턴 사용시 `구상 형식의 인스턴스 만드는 작업을 캡슐화` 한다.
+
+>  `Creator Abstract 클래스`에 구현되어 있는 다른 메소드에서는 `팩토리 메소드에 의해 생산된` `Product` 를 가지고 필요한 작업을 처리함
+
+
+
+### [도식도]																		
+
+|       Product        |      |          Creator           |
+| :------------------: | :--: | :------------------------: |
+|          -           |      | - factoryMethod() - 구현 x |
+|          -           |      |  - anOperation() - 구현 o  |
+|          ↑           |      |             ↑              |
+| **Concrete Product** |      |    **Concrete Creator**    |
+|          -           |  ←   |     - factoryMethod()      |
+
+- `Product`  `←→` `Concrete Product`
+  - Product 클래스에서는 모두 똑같은 인터페이스 구현한다.
+  - 그 제품을 사용할 클래스에서 구상 클래스가 아닌 인터페이스에 대한 레퍼런스를 써서 객체를 참조한다.
+
+- `Concrete Product` `←` `Concrete Creator`
+  - 구상 클래스 인스턴스를 만들어내는 일은 `Concrete Creator` 가 책임진다.
+  - 실제 제품을 만드는 방법을 알고 있는 클래스는  `Concrete Creator` 뿐이다.
+- Concrete Creator
+  - 실제 제품을 생산하는 `factoryMethod()`를 구현해야 한다.
+- Creator
+  - 제품을 가지고 원하는 일을 하기 위한 모든 메소드 `anOperation()`들이 구현되어 있다.
+  - 제품을 만들어주는  `factoryMethod()`는 추상 메소드로 정의되어 있을 뿐, 구현되어 있지 않다.
+  - Creator 의 모든 서브 클래스에서 `factoryMethod() `추상 메소드를 구현해야 한다.
+
+
+
+### Swift
+
+- Creator / Product 는 `프로토콜`,  
+- Concrete Creator / Concrete Product는 `struct` 로 구현 
+- (기본 구현 함수는 프로토콜에 대한 extension 으로 구현 )
+
+**위 방식의 Question ** :  Abstract/Interface 와 Concrete간의 `Casting`을 swift에서는 어떤 방식으로 표현해야할지 의문
+
+> Creator / Product 도 struct로 하고, protocol을 추상/구상 양쪽에 강제할까도 생각해보았지만,
+>
+> struct로 만들면 추상화에 무리가 있지 않나 생각함
+
+**Question Answer** : Protocol에 대한 다형성을 지원하기 위해 Protocol Type의 데이터타입을 지원한다.
+
+[참고자료 Protocol Type](<https://hcn1519.github.io/articles/2017-11/Swift_Protocol_Part1>)
+
+
+
+----
+
+
+
+### 패턴 2) : 추상 팩토리 패턴
+
+> 추후 기술
+
+
+
+
+
+
+
+-----
+
+----
+
+----
+
+.
+
+.
+
+.
+
+
+
 # STEP 5-2
 
 ## Lesson Learned
