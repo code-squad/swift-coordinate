@@ -13,10 +13,10 @@ func main() {
         do {
             let coordinatesText = try InputView.readInput()
             
-            let coordinates = try Converter.convertCoordinates(coordinatesText: coordinatesText)
+            let shape = try Converter.convertCoordinates(coordinatesText: coordinatesText)
             
             OutputView.drawAxis()
-            OutputView.drawPoint(point: coordinates)
+            OutputView.draw(shape: shape)
             
             break
         } catch let error as InputError {
