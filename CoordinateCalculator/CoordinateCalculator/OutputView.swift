@@ -14,7 +14,7 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func drawShape (_ myShape: Drawable){
+    static func drawShape (_ myShape: Shapable){
         print(myShape.drawShape())
         print(myShape.displayShapeInformation())
     }

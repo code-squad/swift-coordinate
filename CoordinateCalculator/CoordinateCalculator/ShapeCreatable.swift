@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ShapeCreatable {
-    static func createShape(pointList: [Pair]) -> Drawable
+    static func createShape(pointList: [Pair]) -> Shapable
 }

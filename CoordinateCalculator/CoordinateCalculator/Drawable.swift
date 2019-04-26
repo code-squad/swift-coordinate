@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Drawable: Shapable {
+protocol Drawable {
     func drawShape() -> String
     func displayShapeInformation() -> String
 }

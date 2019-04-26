@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint : Drawable {
+struct MyPoint : Shapable {
     /// Shapable protocol 
     var myPointList: [Point]
     
