@@ -29,28 +29,43 @@ enum Question: String {
 }
 
 enum RegexPattern: String {
-    case verifyPattern = "\\([0-9]+,[0-9]+\\)"
+    case verifyPattern = "^\\([0-9]+,[0-9]+\\)$"
 }
 
 extension String {
-    func verifyInputFormat(regexPattern: String) -> Bool {
-        if self.range(of: regexPattern, options: [.regularExpression]) == nil {
-            return false
+    func verifyInputFormat(regexPattern: String) -> String {
+        if let coordinatesRange = self.range(of: regexPattern, options: [.regularExpression]) {
+            return String(self[coordinatesRange])
         }
         
-        return true
+        return ""
     }
 }
 
 struct InputView {
-    static func readInput() throws -> String {
+    static func readInput() throws -> [String] {
+        var coordinatesTexts: [String] = []
+        
         print(Question.inputCoordinates.rawValue)
         
-        guard let coordinatesText = readLine() else { throw InputError.invalidInput }
-        guard coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue) else {
+        guard let input = readLine() else { throw InputError.invalidInput }
+        
+        for coordinatesText in input.split(separator: "-") {
+            let verificationResult = try verifyCoordinates(coordinatesText: String(coordinatesText))
+            
+            coordinatesTexts.append(verificationResult)
+        }
+        
+        return coordinatesTexts
+    }
+    
+    private static func verifyCoordinates(coordinatesText: String) throws -> String {
+        let verificationResult = coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue)
+        
+        if verificationResult == "" {
             throw InputError.invalidFormat
         }
         
-        return coordinatesText
+        return verificationResult
     }
 }
