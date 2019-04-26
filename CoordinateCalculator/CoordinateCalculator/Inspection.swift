@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Validation: CustomStringConvertible {
+enum InputError: CustomStringConvertible {
     case noValue
     case exceedValue
     case hasNotBracket
@@ -54,13 +54,13 @@ struct Inspection {
 
     private func validate() -> Bool {
         guard isEntered() else {
-            return Validation.noValue.printError() }
+            return InputError.noValue.printError() }
         guard hasBracket() else {
-            return Validation.hasNotBracket.printError() }
+            return InputError.hasNotBracket.printError() }
         guard isTwo() else {
-            return Validation.hasNotTwoInput.printError() }
+            return InputError.hasNotTwoInput.printError() }
         guard isExceed() else {
-            return Validation.exceedValue.printError() }
+            return InputError.exceedValue.printError() }
         return true
     }
 
