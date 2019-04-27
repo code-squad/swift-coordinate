@@ -8,18 +8,28 @@
 
 import Foundation
 
-struct MyLine{
-    let pointA : MyPoint
-    let pointB : MyPoint
+struct MyLine : Drawable{
+   
+    private let pointA : MyPoint
+    private let pointB : MyPoint
     
     init(_ pointA:MyPoint,_ pointB:MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }
-    var lengthOfLine: Double { return self.getDistancebetweenPoints(self.pointA, self.pointB)}
-    
-    func getDistancebetweenPoints(_ pointA:MyPoint,_ pointB:MyPoint)->Double{
-        return sqrt(pow(Double(pointA.x - pointB.x),2)+pow(Double(pointA.y - pointB.y),2))
+    private func getDistancebetweenPoints(_ pointA:MyPoint,_ pointB:MyPoint)->Double{
+        let xd = pow(Double(pointA.x - pointB.x),2)
+        let yd = pow(Double(pointA.y - pointB.y),2)
+        return sqrt(xd+yd)
     }
+    private func printDistancebetweenPoints(){
+        print("두 점 사이 거리는 \(self.getDistancebetweenPoints(self.pointA, self.pointB))")
+    }
+    func draw() {
+        self.pointA.draw()
+        self.pointB.draw()
+        self.printDistancebetweenPoints()
+    }
+    
 }
 
