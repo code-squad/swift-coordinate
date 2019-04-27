@@ -23,16 +23,22 @@ struct InputView{
         }
         return  Answer.init(input)
     }
-    private func makeMyPoint(_ answer:Answer) throws ->(MyPoint){
-        let point =  try answer.getPointTuple()
-        return try MyPoint(point)
+    private func makeDrawable(_ answer:Answer) throws ->(Drawable){
+        let points = try answer.getPointTuples()
+        
+        switch try answer.getFormat() {
+        case .point:
+            return try MyPoint.init(answer.getPointTuples()[0])
+        case .line:
+            return try MyLine.init(MyPoint(points[0]), MyPoint(points[1]))
+        }
     }
-    public func readInput() throws -> MyPoint {
+    public func readInput() throws -> Drawable {
         let anwser = try ask(Question.aboutCoordinate)
         guard anwser.isCoordinateFormat() else {
             throw Exception.ErrorType.wrongFormat
         }
-        return try makeMyPoint(anwser)
+        return try makeDrawable(anwser)
     }
 }
 
