@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : Drawable{
+
     private(set) var x = 0
     private(set) var y = 0
     
@@ -28,5 +29,12 @@ struct MyPoint {
     private func checkRange(_ point:PointTuple)->Bool{
        return possibleRange.contains(point.x) && possibleRange.contains(point.y)
     }
+    func draw() {
+        let row = ANSICode.convertX(self.x)
+        let col = ANSICode.convertY(self.y)
+        let color = ANSICode.text.colorFrom(R:255,G:127,B:0)
+        print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
+    }
+    
     
 }
