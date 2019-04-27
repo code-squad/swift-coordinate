@@ -17,13 +17,13 @@ struct MyLine : Drawable{
         self.pointA = pointA
         self.pointB = pointB
     }
-    private func getDistancebetweenPoints(_ pointA:MyPoint,_ pointB:MyPoint)->Double{
+    func getDistancebetweenPoints()->Double{
         let xd = pow(Double(pointA.x - pointB.x),2)
         let yd = pow(Double(pointA.y - pointB.y),2)
         return sqrt(xd+yd)
     }
     private func printDistancebetweenPoints(){
-        print("두 점 사이 거리는 \(self.getDistancebetweenPoints(self.pointA, self.pointB))")
+        print("두 점 사이 거리는 \(self.getDistancebetweenPoints())")
     }
     func draw() {
         self.pointA.draw()
