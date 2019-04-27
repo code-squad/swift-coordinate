@@ -147,5 +147,8 @@ extension ANSICode{
     static func convertY(_ before:Int)->Int{
         return before * 2 + 3
     }
+    static func moveCurser(){
+        print("\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: 2))")
+    }
 }
 
