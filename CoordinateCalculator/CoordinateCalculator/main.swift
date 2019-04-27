@@ -16,6 +16,7 @@ enum ErrorCode : Error, CustomStringConvertible {
     case SplitCoordinatorError
     case Unknown
     case InvalidCharacter
+    case ShapeCreationError
     var description: String{
         get {
             switch self {
@@ -31,6 +32,8 @@ enum ErrorCode : Error, CustomStringConvertible {
                 return "Invalid characters Error"
             case .SplitCoordinatorError:
                 return "Split Coordinator X From Y Error"
+            case .ShapeCreationError:
+                return "Shape Creation Error"
             case .Unknown:
                 return "Unknown Error"
             }
@@ -52,10 +55,10 @@ let main = {
             continue
         }
     }
-    let myShape = MyShapeFactory.createShape(pointList: pointList)
+    let myShape = try MyShapeFactory.createShape(pointList: pointList)
     OutputView.drawAxis()
     OutputView.drawShape(myShape)
 }
 
-main()
+try main()
 

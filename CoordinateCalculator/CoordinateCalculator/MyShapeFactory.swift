@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyShapeFactory: ShapeCreatable {
-   static func createShape(pointList: [Pair]) -> Shapable {
+   static func createShape(pointList: [Pair]) throws -> Shapable {
         switch pointList.count {
         case 1:
             let myShape: Shapable = MyPoint.init(pointList: pointList)
@@ -18,8 +18,7 @@ struct MyShapeFactory: ShapeCreatable {
             let myShape: Shapable = MyLine.init(pointList: pointList)
             return myShape
         default:
-            let myShape: Shapable = MyPoint.init(pointList: pointList)
-            return myShape
+            throw ErrorCode.ShapeCreationError
         }
     }
 }
