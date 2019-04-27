@@ -54,7 +54,7 @@ class CoordinateCalculaterTests: XCTestCase {
         do{
             let testLine = MyLine.init(try MyPoint(x: 10,y: 10),try MyPoint(x: 14,y: 15))
             //Then
-            XCTAssertEqual(testLine.lengthOfLine, 6.4031242374328485)
+            XCTAssertEqual(testLine.getDistancebetweenPoints(), 6.4031242374328485)
         }catch{
             ()
         }

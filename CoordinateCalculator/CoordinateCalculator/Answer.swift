@@ -38,24 +38,26 @@ struct Answer{
         return (try x.stringToInt(), try y.stringToInt())
     }
     func getPointTuples() throws ->[PointTuple]{
-        let points2 = self.contents.components(separatedBy:CoordinateFormat.separator )
-        let varifiedPoints2 = points2.filter{
-            return Answer.init($0).isCoordinateFormat()
-        }
-        let points = try varifiedPoints2.map{
+        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
+        let varifiedPoints = getVerifiedPoints(points: points)
+        let pointTuples = try varifiedPoints.map{
            try getPointTuple(string: $0)
         }
-       return points
+       return pointTuples
     }
     func getFormat() throws -> CoordinateFormat{
         let points = self.contents.components(separatedBy:CoordinateFormat.separator )
-        let varifiedPoints = points.filter{
-            return Answer.init($0).isCoordinateFormat()
-        }
+        let varifiedPoints = getVerifiedPoints(points: points)
         guard let coordinateFormat = CoordinateFormat.init(rawValue: points.count),varifiedPoints.count == points.count else {
             throw Exception.ErrorType.wrongFormat
         }
         return coordinateFormat
+    }
+    func getVerifiedPoints(points:[String])->[String]{
+        let varifiedPoints = points.filter{
+            return Answer.init($0).isCoordinateFormat()
+        }
+        return varifiedPoints
     }
   
 }
