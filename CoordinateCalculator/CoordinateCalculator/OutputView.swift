@@ -15,8 +15,19 @@ struct OutputView {
     }
     
     static func drawShape (_ myShape: Shapable){
-        print(myShape.draw())
-        print(myShape.displayShapeInformation())
+        var result = ""
+        let pointList: [Point] = myShape.getDrawablePoints()
+        for point in pointList {
+            result += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(point))"
+        }
+        print (result)
     }
     
+    static func displayShapeInformation(_ myShape: Shapable){
+        if myShape is Linable {
+            let shapeInformation = myShape.myShapeInformation
+            let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(shapeInformation))\(ANSICode.text.whiteBright)"
+            print (result)
+        }
+    }
 }

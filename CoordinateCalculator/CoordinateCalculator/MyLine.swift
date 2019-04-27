@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine : Shapable {
+struct MyLine : Linable {
     /// Shapable protocol
     var myPointList: [Point]
     
@@ -25,19 +25,5 @@ struct MyLine : Shapable {
         for point in pointList {
             myPointList.append(Point.init(x: point.x, y: point.y))
         }
-    }
-    
-    /// Drawable protocol function
-    func draw() -> String{
-        var drawingShape = ""
-        for myPoint in myPointList {
-            drawingShape += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(myPoint))"
-        }
-        return drawingShape
-    }
-    
-    func displayShapeInformation() -> String {
-        let information = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(self))\(ANSICode.text.whiteBright)"
-        return information
     }
 }
