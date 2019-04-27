@@ -70,9 +70,9 @@ public struct ANSICode {
     static private let YColumnBase = 3
     
     struct line {
-        static func displayDistance(_ myLine: MyLine) -> String {
+        static func displayDistance(_ diistance: Double) -> String {
             var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
-            result += "두 점 사이의 거리는 \(myLine.myShapeInformation)"
+            result += "두 점 사이의 거리는 \(diistance)"
             return result
         }
     }

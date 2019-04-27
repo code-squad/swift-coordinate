@@ -58,6 +58,7 @@ let main = {
     let myShape = try MyShapeFactory.createShape(pointList: pointList)
     OutputView.drawAxis()
     OutputView.drawShape(myShape)
+    OutputView.displayShapeInformation(myShape)
 }
 
 try main()
