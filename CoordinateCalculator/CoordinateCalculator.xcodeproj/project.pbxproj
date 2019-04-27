@@ -15,6 +15,8 @@
 		0E1908752273222700659B34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BAD2273048D00F9651E /* main.swift */; };
 		0E1908762273222B00659B34 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB22273048E00F9651E /* OutputView.swift */; };
 		0E1908772273223000659B34 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BBB22731EAE00F9651E /* MyLine.swift */; };
+		0E29F5262274BBD5008AC76E /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29F5252274BBD5008AC76E /* Drawable.swift */; };
+		0E29F5272274C9CE008AC76E /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29F5252274BBD5008AC76E /* Drawable.swift */; };
 		0E7A4DC322706CA300F4A126 /* CoordinateCalculaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A4DC222706CA300F4A126 /* CoordinateCalculaterTests.swift */; };
 		0E7A4DC822706CAE00F4A126 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		0ECE2BB42273048E00F9651E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BAD2273048D00F9651E /* main.swift */; };
@@ -41,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E29F5252274BBD5008AC76E /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		0E7A4DC022706CA300F4A126 /* CoordinateCalculaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateCalculaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7A4DC222706CA300F4A126 /* CoordinateCalculaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculaterTests.swift; sourceTree = "<group>"; };
 		0E7A4DC422706CA300F4A126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 				0ECE2BB22273048E00F9651E /* OutputView.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				0ECE2BBB22731EAE00F9651E /* MyLine.swift */,
+				0E29F5252274BBD5008AC76E /* Drawable.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 				0E1908772273223000659B34 /* MyLine.swift in Sources */,
 				0E1908742273222400659B34 /* InputView.swift in Sources */,
 				0E1908752273222700659B34 /* main.swift in Sources */,
+				0E29F5272274C9CE008AC76E /* Drawable.swift in Sources */,
 				0E1908732273222100659B34 /* Extensions.swift in Sources */,
 				0E1908722273221E00659B34 /* Exception.swift in Sources */,
 				0E7A4DC822706CAE00F4A126 /* ANSICode.swift in Sources */,
@@ -233,6 +238,7 @@
 				0ECE2BB72273048E00F9651E /* InputView.swift in Sources */,
 				0ECE2BBC22731EAE00F9651E /* MyLine.swift in Sources */,
 				0ECE2BBA2273048E00F9651E /* Answer.swift in Sources */,
+				0E29F5262274BBD5008AC76E /* Drawable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

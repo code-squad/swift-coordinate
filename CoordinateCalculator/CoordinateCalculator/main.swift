@@ -13,10 +13,10 @@ func main(){
     repeat{
         do{
             let inputView = InputView()
-            let myPoint = try inputView.readInput()
-            let outputView = OutputView.init(myPoint)
+            let drawable = try inputView.readInput()
+            let outputView = OutputView.init(drawable)
             outputView.drawAxis()
-            outputView.drawPoint()
+            outputView.output()
             isError = false
         }catch let error as Exception.ErrorType {
             print(error)
