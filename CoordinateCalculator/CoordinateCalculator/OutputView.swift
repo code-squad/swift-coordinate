@@ -44,8 +44,7 @@ struct OutputView {
 
     }
 
-    static func printError(message: InputError) -> Bool {
+    static func printError(message: InputError) {
         print(message)
-        return true
     }
 }
