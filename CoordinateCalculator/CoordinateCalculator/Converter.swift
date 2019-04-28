@@ -10,7 +10,7 @@ import Foundation
 
 struct Converter {
     
-    static func toMyPoints(using input: String) -> [MyPoint] {
+    static func toMyPoints(using input: String) -> Drawable  {
 
         var myPoints : [MyPoint] = []
         
@@ -23,6 +23,12 @@ struct Converter {
             myPoints.append(MyPoint(x:point[0], y: point[1]))
         }
         
-        return myPoints
+        switch myPoints.count {
+        case 2:
+            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
+        default:
+            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
+        }
+       
     }
 }
