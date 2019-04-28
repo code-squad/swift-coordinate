@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint: Drawable {
+
     private(set) var x = 0
     private(set) var y = 0
+    
+    var points: [MyPoint] {
+        return [self]
+    }
 }

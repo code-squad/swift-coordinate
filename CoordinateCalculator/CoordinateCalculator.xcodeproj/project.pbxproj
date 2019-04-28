@@ -15,6 +15,7 @@
 		FAA5ABC022696FEB00596E60 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABBF22696FEB00596E60 /* OutputView.swift */; };
 		FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABC922699E6200596E60 /* InputView.swift */; };
 		FAA5ABCC22699F0400596E60 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABCB22699F0400596E60 /* MyPoint.swift */; };
+		FABB2D4B227599E900DF43F1 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB2D4A227599E900DF43F1 /* Drawable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		FAA5ABBF22696FEB00596E60 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		FAA5ABC922699E6200596E60 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FAA5ABCB22699F0400596E60 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		FABB2D4A227599E900DF43F1 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABCB22699F0400596E60 /* MyPoint.swift */,
 				FA570A73226EB097002AD9E9 /* MyLine.swift */,
+				FABB2D4A227599E900DF43F1 /* Drawable.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				FA570A72226D9029002AD9E9 /* Validator.swift in Sources */,
+				FABB2D4B227599E900DF43F1 /* Drawable.swift in Sources */,
 				FA570A74226EB097002AD9E9 /* MyLine.swift in Sources */,
 				FAA5ABC022696FEB00596E60 /* OutputView.swift in Sources */,
 			);
