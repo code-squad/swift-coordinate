@@ -44,8 +44,11 @@ struct Inspection {
         return positionXandY
     }
 
-    private func makePosition() -> MyPoint? {
+    func validation() -> InputError? {
+        return validate()
+    }
 
+    private func makePosition() -> MyPoint? {
         let points = Convertor(origin: letter).proccessedPoints()
         let positionX = points[0].toInt
         let positionY = points[1].toInt
