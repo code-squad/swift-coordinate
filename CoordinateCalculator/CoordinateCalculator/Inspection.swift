@@ -25,7 +25,7 @@ enum InputError: CustomStringConvertible {
             return "x, y값을 모두 입력해주세요"
         }
     }
-    func isSatisfied() -> InputError{
+    func isSatisfied() -> InputError {
         return self
     }
 }
@@ -45,14 +45,14 @@ struct Inspection {
     }
 
     private func makePosition() -> MyPoint? {
-        guard validate() else { return nil }
+
         let points = Convertor(origin: letter).proccessedPoints()
         let positionX = points[0].toInt
         let positionY = points[1].toInt
         return MyPoint(x: positionX, y: positionY)
     }
 
-    private func validate() -> Bool {
+    private func validate() -> InputError? {
         guard isEntered() else {
             return InputError.noValue.isSatisfied() }
         guard hasBracket() else {
@@ -61,7 +61,7 @@ struct Inspection {
             return InputError.haveNotTwoInput.isSatisfied() }
         guard isExceed() else {
             return InputError.exceedValue.isSatisfied() }
-        return true
+        return nil
     }
 
     private func isEntered() -> Bool {
