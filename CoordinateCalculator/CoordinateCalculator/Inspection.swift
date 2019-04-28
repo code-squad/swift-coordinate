@@ -12,7 +12,7 @@ enum InputError: CustomStringConvertible {
     case noValue
     case exceedValue
     case hasNotBracket
-    case hasNotTwoInput
+    case haveNotTwoInput
     var description: String {
         switch self {
         case .exceedValue:
