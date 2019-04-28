@@ -9,19 +9,11 @@
 import Foundation
 
 struct MyPoint {
-    private var x: Int
-    private var y: Int
+    private(set) var positionX: Int
+    private(set) var positionY: Int
 
     init(x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
-
-    var positionX: Int {
-        return x
-    }
-
-    var positionY: Int {
-        return y
+        self.positionX = x
+        self.positionY = y
     }
 }
