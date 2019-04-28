@@ -21,12 +21,12 @@ enum InputError: CustomStringConvertible {
             return "유효한 값을 입력하세요"
         case .hasNotBracket:
             return "괄호가 없습니다"
-        case .hasNotTwoInput:
+        case .haveNotTwoInput:
             return "x, y값을 모두 입력해주세요"
         }
     }
-    func isSatisfied() -> Bool{
-        return OutputView.printError(message: self) ? false : true
+    func isSatisfied() -> InputError{
+        return self
     }
 }
 
@@ -58,7 +58,7 @@ struct Inspection {
         guard hasBracket() else {
             return InputError.hasNotBracket.isSatisfied() }
         guard isTwo() else {
-            return InputError.hasNotTwoInput.isSatisfied() }
+            return InputError.haveNotTwoInput.isSatisfied() }
         guard isExceed() else {
             return InputError.exceedValue.isSatisfied() }
         return true
