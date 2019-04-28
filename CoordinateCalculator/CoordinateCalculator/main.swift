@@ -9,10 +9,15 @@
 import Foundation
 
 func main() {
-        let input = InputView().readInput()
-        guard let passedPoint = Inspection(item: input).point() else { return }
-        OutputView.mark(at: passedPoint)
+    let input = InputView().readInput()
+    let inspect: Inspection = Inspection(item: input)
+    if let result = inspect.validation() {
+        OutputView.printError(message: result)
         return
+    }
+    guard let passedPoint = Inspection(item: input).point() else { return }
+    OutputView.mark(at: passedPoint)
+    return
 }
 
 main()
