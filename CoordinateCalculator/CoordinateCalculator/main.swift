@@ -16,7 +16,9 @@ while true {
         continue
     }
     
-    print(Converter.toMyPoints(using: prompt))
+    let myPoints = Converter.toMyPoints(using: prompt)
+
+    OutputView.drawCoordinates(point: myPoints)
     
     break
 }

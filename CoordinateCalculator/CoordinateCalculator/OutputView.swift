@@ -12,9 +12,13 @@ struct OutputView {
     
     static let AxisLimit = ANSICode.axis.AxisLimit
     
-    static func drawCoordinates(point: MyPoint) {
+    static func drawCoordinates(point: Drawable) {
+        
         drawAxis()
-        drawDot(at: point)
+        
+        for i in point.points {
+            drawDot(at: i)
+        }
     }
     
     static private func drawAxis() {
