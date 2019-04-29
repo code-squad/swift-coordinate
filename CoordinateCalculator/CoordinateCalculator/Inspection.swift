@@ -25,9 +25,6 @@ enum InputError: CustomStringConvertible {
             return "x, y값을 모두 입력해주세요"
         }
     }
-    func isSatisfied() -> InputError {
-        return self
-    }
 }
 
 
@@ -57,13 +54,13 @@ struct Inspection {
 
     private func validate() -> InputError? {
         guard isEntered() else {
-            return InputError.noValue.isSatisfied() }
+            return InputError.noValue }
         guard hasBracket() else {
-            return InputError.hasNotBracket.isSatisfied() }
+            return InputError.hasNotBracket }
         guard isTwo() else {
-            return InputError.haveNotTwoInput.isSatisfied() }
+            return InputError.haveNotTwoInput }
         guard isExceed() else {
-            return InputError.exceedValue.isSatisfied() }
+            return InputError.exceedValue }
         return nil
     }
 
