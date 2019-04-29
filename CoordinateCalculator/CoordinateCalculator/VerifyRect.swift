@@ -9,12 +9,13 @@
 import Foundation
 
 struct VerifyRect {
+    /// 두점을 입력 받으면 점 사이를 잇는 선의길이와 중점을 반환하는 함수
     private func distinctTwoPoints(leftTop: MyPoint, rightBottom: MyPoint) -> (crossPoint: MyCrossPoint, diagonalLength:Double){
         let crossPoint = MyCrossPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
         let diagonalLength = MyLine.lengthCalculator(MyLine.init(startPoint: leftTop, endPoint: rightBottom))()
         return (crossPoint,diagonalLength)
     }
-    
+    /// 배열을 받으면 이를 4개의 좌표로 나누어 직사각형을 판단하고 좌표들,중점,대각선의 거리를 반환하는 함수
     func outputTwoDiagonal (points : [MyPoint], lines : [Double]) -> (locations:[MyPoint], rowLine: (crossPoint:MyCrossPoint,diagonalLength:Double), colLine: (crossPoint:MyCrossPoint,diagonalLength:Double)){
         var locations : [MyPoint] = []
         var copyPoints = points

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Figure {
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: String)
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: Double)
 }

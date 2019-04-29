@@ -29,13 +29,13 @@ struct MyRect : Figure {
         return round(betweenArea * 100)/100
     }
     
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : String) {
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : Double) {
         var rectanglePoints : [MyPoint] = []
         rectanglePoints.append(leftTop)
         rectanglePoints.append(rightBottom)
         rectanglePoints.append(anotherPoint)
         rectanglePoints.append(anotherPoint2)
-        let guideMent = "네점을 잇는 사각형의 넓이는 \(areaCalculator(leftTop: leftTop, rightBottom: rightBottom, anotherPoint: anotherPoint)) 입니다."
+        let guideMent = areaCalculator(leftTop: leftTop, rightBottom: rightBottom, anotherPoint: anotherPoint)
         return (rectanglePoints.count, rectanglePoints, guideMent)
     }
 }
