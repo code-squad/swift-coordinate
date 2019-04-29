@@ -16,7 +16,9 @@ while true {
         continue
     }
     
-    let figure = Converter.toFigure(from: prompt)
+    guard let figure = Converter.toFigure(from: prompt) else {
+        continue
+    }
 
     OutputView.drawCoordinates(of: figure)
     
