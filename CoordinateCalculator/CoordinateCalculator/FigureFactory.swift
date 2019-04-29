@@ -8,16 +8,9 @@
 
 import Foundation
 
-struct DrawableFactory{
+struct FigureFactory{
     
-    let possibleRange = 0...24
-    
-    private func checkRange(_ point:PointTuple)->Bool{
-        return possibleRange.contains(point.x) && possibleRange.contains(point.y)
-    }
-    
-    
-     static func createDrawable(type:FigureType,points:[PointTuple]) throws ->Drawable{
+     func createFigure(type:FigureType,points:[PointTuple]) throws ->Figure{
         switch type {
         case .point:
             return  MyPoint.init(points[0])
@@ -25,6 +18,4 @@ struct DrawableFactory{
             return MyLine.init( MyPoint(points[0]),  MyPoint(points[1]))
         }
     }
-  
-
 }
