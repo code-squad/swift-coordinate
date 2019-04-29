@@ -14,11 +14,11 @@ struct MyLine: Drawable, Measurable {
     var value: Double
     var unit: String
     
-    func measure() -> Double {
+    mutating func measureValue() {
         let x = pow(Double(pointA.x - pointB.x), 2)
         let y = pow(Double(pointA.y - pointB.y), 2)
         
-        return sqrt(x + y)
+        value = sqrt(x + y)
     }
     
     func point() -> [MyPoint] {
@@ -33,7 +33,7 @@ struct MyLine: Drawable, Measurable {
         value = 0
         unit = ""
             
-        value = measure()
+        measureValue()
         unit = MeasurableUnit.line.rawValue
     }
 }
