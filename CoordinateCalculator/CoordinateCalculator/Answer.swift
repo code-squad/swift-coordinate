@@ -17,16 +17,35 @@ enum CoordinateFormat : Int{
 struct Answer{
     
     private let contents :String
+    
     init(_ contents:String){
         self.contents = contents
     }
     
-    func isCoordinateFormat() ->(Bool){
+    public func isCoordinateFormat() ->(Bool){
         guard let regex = try? NSRegularExpression.init(pattern: "\\([0-9]+,[0-9]+\\)", options: []) else {
             return false
         }
         let result =  regex.matches(in: self.contents, options: [], range: NSRange.init(location: 0, length: self.contents.count))
         return result.count == 0 ? false : true
+    }
+    
+    public func getFormat() throws -> CoordinateFormat{
+        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
+        let varifiedPoints = getVerifiedPoints(points: points)
+        guard let coordinateFormat = CoordinateFormat.init(rawValue: points.count),varifiedPoints.count == points.count else {
+            throw Exception.ErrorType.wrongFormat
+        }
+        return coordinateFormat
+    }
+    
+    public func getPointTuples() throws ->[PointTuple]{
+        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
+        let varifiedPoints = getVerifiedPoints(points: points)
+        let pointTuples = try varifiedPoints.map{
+            try getPointTuple(string: $0)
+        }
+        return pointTuples
     }
     
     private func getPointTuple(string:String) throws -> PointTuple {
@@ -40,29 +59,11 @@ struct Answer{
         return (try x.stringToInt(), try y.stringToInt())
     }
     
-    func getPointTuples() throws ->[PointTuple]{
-        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
-        let varifiedPoints = getVerifiedPoints(points: points)
-        let pointTuples = try varifiedPoints.map{
-           try getPointTuple(string: $0)
-        }
-       return pointTuples
-    }
-    
-    func getFormat() throws -> CoordinateFormat{
-        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
-        let varifiedPoints = getVerifiedPoints(points: points)
-        guard let coordinateFormat = CoordinateFormat.init(rawValue: points.count),varifiedPoints.count == points.count else {
-            throw Exception.ErrorType.wrongFormat
-        }
-        return coordinateFormat
-    }
-    
-    func getVerifiedPoints(points:[String])->[String]{
+    private func getVerifiedPoints(points:[String])->[String]{
         let varifiedPoints = points.filter{
             return Answer.init($0).isCoordinateFormat()
         }
         return varifiedPoints
     }
-  
+    
 }
