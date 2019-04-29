@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Linable: Shapable {
-  
+    var pointA : MyPoint {get}
+    var pointB : MyPoint {get}
 }
