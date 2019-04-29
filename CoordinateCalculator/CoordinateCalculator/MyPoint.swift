@@ -45,4 +45,10 @@ struct MyLine: AxisDrawable {
     func getPoints() -> [MyPoint] {
         return [pointA, pointB]
     }
+    
+    func getLength() -> Double {
+        let distanceX = pow(Double(pointA.x - pointB.x), 2.0)
+        let distanceY = pow(Double(pointA.y - pointB.y), 2.0)
+        return sqrt(distanceX + distanceY)
+    }
 }
