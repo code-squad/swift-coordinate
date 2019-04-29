@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct MyLine : Drawable{
+struct MyLine : Figure{
    
-    private let pointA : MyPoint
-    private let pointB : MyPoint
+    private(set) let pointA : MyPoint
+    private(set) let pointB : MyPoint
     
     init(_ pointA:MyPoint,_ pointB:MyPoint) {
         self.pointA = pointA
@@ -28,9 +28,9 @@ struct MyLine : Drawable{
         print("두 점 사이 거리는 \(self.getDistancebetweenPoints())")
     }
     
-    func draw() {
-        self.pointA.draw()
-        self.pointB.draw()
+    func draw(line:MyLine) {
+        draw(point:line.pointA)
+        draw(point:line.pointB)
         self.printDistancebetweenPoints()
     }
     
