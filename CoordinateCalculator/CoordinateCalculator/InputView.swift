@@ -8,8 +8,13 @@
 
 import Foundation
 
-
-
+struct InputView {
+    static func readInput(question: String) -> String {
+        print(question)
+        let value = readLine()!
+        return value
+    }
+}
 
 
 

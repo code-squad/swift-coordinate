@@ -8,5 +8,6 @@
 
 import Foundation
 
-OutputView.drawAxis()
+let question = InputView.readInput(question: "좌표를 입력하세요. ex(10,10)")
+
 
