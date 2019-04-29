@@ -25,17 +25,12 @@ struct InputView{
         return  Answer.init(input)
     }
     
-    private func makeDrawable(_ answer:Answer) throws ->(Drawable){
-        let points = try answer.getPointTuples()
-        guard let type = CoordinateFormat.init(rawValue: points.count) else { throw Exception.ErrorType.wrongFormat}
-        return try DrawableFactory.createDrawable(type: type, points: points)
-    }
-    public func readInput() throws -> Drawable {
+    public func readInput() throws -> Answer {
         let anwser = try ask(Question.aboutCoordinate)
         guard anwser.isCoordinateFormat() else {
             throw Exception.ErrorType.wrongFormat
         }
-        return try makeDrawable(anwser)
+        return anwser
     }
 }
 
