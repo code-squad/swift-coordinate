@@ -16,7 +16,6 @@
 		FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABC922699E6200596E60 /* InputView.swift */; };
 		FAA5ABCC22699F0400596E60 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABCB22699F0400596E60 /* MyPoint.swift */; };
 		FABB2D4B227599E900DF43F1 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB2D4A227599E900DF43F1 /* Drawable.swift */; };
-		FAD2F2672276A2140096515F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2F2662276A2140096515F /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,7 +41,6 @@
 		FAA5ABC922699E6200596E60 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FAA5ABCB22699F0400596E60 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		FABB2D4A227599E900DF43F1 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
-		FAD2F2662276A2140096515F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 				FAA5ABC922699E6200596E60 /* InputView.swift */,
 				FA570A71226D9029002AD9E9 /* Validator.swift */,
 				FA6AF104226EFBB400F69B8C /* Converter.swift */,
-				FAD2F2662276A2140096515F /* Calculator.swift */,
 				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABCB22699F0400596E60 /* MyPoint.swift */,
 				FA570A73226EB097002AD9E9 /* MyLine.swift */,
@@ -150,7 +147,6 @@
 				FAA5ABCC22699F0400596E60 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				FA6AF105226EFBB400F69B8C /* Converter.swift in Sources */,
-				FAD2F2672276A2140096515F /* Calculator.swift in Sources */,
 				FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				FA570A72226D9029002AD9E9 /* Validator.swift in Sources */,
