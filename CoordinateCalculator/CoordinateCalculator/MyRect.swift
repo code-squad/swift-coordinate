@@ -13,18 +13,10 @@ struct MyRect : Figure {
     private(set) var rightBottom = MyPoint(x: 0, y: 0)
     private(set) var anotherPoint = MyPoint(x: 0, y: 0)
     private(set) var crossPoint = MyPoint(crossX: 0.0, crossY: 0.0)
-    private(set) var diagonalLength : Double = 0.0
     
     init(x: Int, y: Int) {
         self.leftTop = MyPoint(x: x, y: y)
         self.rightBottom = MyPoint(x: x, y: y)
-    }
-    
-    init(leftTop: MyPoint, rightBottom: MyPoint) {
-        self.leftTop = leftTop
-        self.rightBottom = rightBottom
-        self.crossPoint = MyPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
-        self.diagonalLength = MyLine.lengthCalculator(MyLine.init(startPoint: leftTop, endPoint: rightBottom))()
     }
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint){

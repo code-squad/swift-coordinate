@@ -47,15 +47,13 @@ struct Distinct {
             points.append(try initMyPoint(locationText: dividedLocations[pointIndex]))
             lines.append(MyLine.lengthCalculator(MyLine.init(startPoint: points[0], endPoint: points[pointIndex]))())
         }
-        var copyPoints = points
-        let rightIndex = lines.index(of: lines.max()!)! // 기본으로 지정한 점과 가장 먼 거리에 있는 점이 있는 좌표의 인덱스
-        copyPoints.remove(at: 0)
-        copyPoints.remove(at: rightIndex)
-        let rowLine = MyRect.init(leftTop: points[0], rightBottom: points[rightIndex+1]) // 기본으로 지정한 점과 가장 멀리있는 점을 잇는 대각선
-        let colLine = MyRect.init(leftTop: copyPoints[0], rightBottom: copyPoints[1]) // 나머지 두점을 잇는 대각선
+        let twoDiagonals = VerifyRect().outputTwoDiagonal(points: points, lines: lines)
+        let rowLine = twoDiagonals.rowLine
+        let colLine = twoDiagonals.colLine
+        let locations = twoDiagonals.locations
         // 인접하지 않은 두점씩을 잇는 대각선의 길이가 같고 중점이 같은 위치에 있으면 직사각형이다
         if rowLine.crossPoint.crossX == colLine.crossPoint.crossX, rowLine.crossPoint.crossY == colLine.crossPoint.crossY, rowLine.diagonalLength == colLine.diagonalLength {
-            let myRect = MyRect.init(pointA: points[0], pointB: points[rightIndex+1], pointC: copyPoints[0])
+            let myRect = MyRect.init(pointA: locations[0], pointB: locations[1], pointC: locations[2])
             return myRect
         } else { throw ErrorMessage.noRectangle}
     }
