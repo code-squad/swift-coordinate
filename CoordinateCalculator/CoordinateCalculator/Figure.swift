@@ -8,6 +8,12 @@
 
 import Foundation
 
-protocol Drawable{
-    func draw()
+enum FigureType : Int{
+    static let separator = "-"
+    case point = 1
+    case line
+}
+
+protocol Figure{
+    
 }
