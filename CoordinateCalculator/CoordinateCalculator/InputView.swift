@@ -27,9 +27,6 @@ struct InputView{
     
     public func readInput() throws -> Answer {
         let anwser = try ask(Question.aboutCoordinate)
-        guard anwser.isCoordinateFormat() else {
-            throw Exception.ErrorType.wrongFormat
-        }
         return anwser
     }
 }
