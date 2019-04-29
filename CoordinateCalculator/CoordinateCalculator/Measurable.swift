@@ -16,5 +16,5 @@ protocol Measurable {
     var unit: String { get }
     var value: Double { get }
     
-    func measure() -> Double
+    mutating func measureValue()
 }
