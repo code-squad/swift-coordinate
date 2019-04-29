@@ -16,4 +16,14 @@ struct MyLine: Drawable {
     var points: [MyPoint] {
         return [pointA, pointB]
     }
+    
+    func calculateDistance() -> Double {
+        
+        let distanceX = pointA.x - pointB.x
+        let distanceY = pointA.y - pointB.y
+        
+        let distance = sqrt(Double(distanceX*distanceX + distanceY*distanceY))
+        
+        return distance
+    }
 }
