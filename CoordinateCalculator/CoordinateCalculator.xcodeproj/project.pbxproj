@@ -17,6 +17,7 @@
 		0E1908772273223000659B34 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BBB22731EAE00F9651E /* MyLine.swift */; };
 		0E29F5262274BBD5008AC76E /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29F5252274BBD5008AC76E /* Drawable.swift */; };
 		0E29F5272274C9CE008AC76E /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29F5252274BBD5008AC76E /* Drawable.swift */; };
+		0E5D9B2F227747F700D09038 /* DrawableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D9B2E227747F700D09038 /* DrawableFactory.swift */; };
 		0E7A4DC322706CA300F4A126 /* CoordinateCalculaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A4DC222706CA300F4A126 /* CoordinateCalculaterTests.swift */; };
 		0E7A4DC822706CAE00F4A126 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		0ECE2BB42273048E00F9651E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BAD2273048D00F9651E /* main.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0E29F5252274BBD5008AC76E /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		0E5D9B2E227747F700D09038 /* DrawableFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawableFactory.swift; sourceTree = "<group>"; };
 		0E7A4DC022706CA300F4A126 /* CoordinateCalculaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateCalculaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7A4DC222706CA300F4A126 /* CoordinateCalculaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculaterTests.swift; sourceTree = "<group>"; };
 		0E7A4DC422706CA300F4A126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				0ECE2BBB22731EAE00F9651E /* MyLine.swift */,
 				0E29F5252274BBD5008AC76E /* Drawable.swift */,
+				0E5D9B2E227747F700D09038 /* DrawableFactory.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				0ECE2BB92273048E00F9651E /* OutputView.swift in Sources */,
 				0ECE2BB42273048E00F9651E /* main.swift in Sources */,
 				0ECE2BB82273048E00F9651E /* MyPoint.swift in Sources */,
+				0E5D9B2F227747F700D09038 /* DrawableFactory.swift in Sources */,
 				0ECE2BB52273048E00F9651E /* Extensions.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				0ECE2BB72273048E00F9651E /* InputView.swift in Sources */,
