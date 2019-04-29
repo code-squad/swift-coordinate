@@ -9,13 +9,19 @@
 import Foundation
 
 struct OutputView {
+    static public func draw(_ figure: AxisDrawable) {
+        drawAxis()
+        drawYellowDot(using: figure)
+        moveToLineBelowAxis()
+        printComputedValue(of: figure)
+    }
     
-    static public func drawAxis() {
+    static private func drawAxis() {
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static public func drawYellowDot(using figure: AxisDrawable) {
+    static private func drawYellowDot(using figure: AxisDrawable) {
         let yellowDot = ANSICode.text.yellowBright + ANSICode.dot
         let points = figure.getPoints()
         for point in points {
@@ -37,6 +43,31 @@ struct OutputView {
         print(moveToOrigin)
     }
     
+    static private func moveToLineBelowAxis() {
+        let rowBelowAxis = ANSICode.axis.originRow + 1
+        let directionBelowAxis = ANSICode.cursor.move(row: rowBelowAxis, col: ANSICode.axis.originCol)
+        print(directionBelowAxis)
+    }
     
+    static private func printComputedValue(of figure: AxisDrawable) {
+        var description = "\(ANSICode.text.whiteBright)"
+        switch figure {
+        case let line as MyLine:
+            description += getDescription(for: figure)
+            print(description, "\(line.getLength())")
+        default:
+            print("")
+        }
+    }
+    
+    static private func getDescription(for figure: AxisDrawable) -> String {
+        switch figure {
+        case is MyLine:
+            let description = "두 점 사이의 거리는 "
+            return description
+        default:
+            return ""
+        }
+    }
 }
 
