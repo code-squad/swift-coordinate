@@ -12,11 +12,12 @@ struct MyLine : Linable {
     var pointA: MyPoint = MyPoint()
     var pointB: MyPoint = MyPoint()
     
-    var myShapeInformation : Double {
+    var myShapeInformation : String {
         get{
             let xDistance = pointA.x - pointB.x
             let yDistance = pointA.y - pointB.y
-            return sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
+            let distance = sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
+            return String(distance)
         }
     }
     

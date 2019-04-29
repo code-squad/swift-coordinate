@@ -10,7 +10,6 @@ import Foundation
 
 typealias Pair = (x: Int, y: Int)
 
-
 struct InputView {
     
     static private func printInputMessage(){
