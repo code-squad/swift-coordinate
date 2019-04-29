@@ -24,10 +24,8 @@ struct OutputView {
     }
     
     static func displayShapeInformation(_ myShape: Shapable){
-        if myShape is Linable {
-            let shapeInformation = myShape.myShapeInformation
-            let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(shapeInformation))\(ANSICode.text.whiteBright)"
-            print (result)
-        }
+        let shapeInformation = myShape.myShapeInformation
+        let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(shapeInformation))\(ANSICode.text.whiteBright)"
+        print (result)
     }
 }

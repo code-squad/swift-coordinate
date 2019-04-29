@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Shapable {
-    var myShapeInformation: Double {get}
+    var myShapeInformation: String {get}
     func getDrawablePointList() -> [MyPoint]
 }
 
