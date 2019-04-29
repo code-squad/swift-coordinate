@@ -33,7 +33,6 @@ struct OutputView {
          - point: MyPoint
     */
     static func mark(at point: MyPoint) {
-        print(point)
         let standardRow = 2 * point.positionX
         let axisBound = ANSICode.axis.AxisLimit + 1
         let sign = "📌"
