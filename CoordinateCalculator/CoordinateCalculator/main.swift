@@ -12,12 +12,12 @@ while true {
     var figure: AxisDrawable!
     do {
         let input = try InputView.readInput()
-        let tokens = try Parser.parse(using: input)
-        let numbers = try Converter.convert(tokens)
-        if CoordinateValidator.isOutOfAxis(using: numbers) {
+        let pairs = try Parser.parse(using: input)
+        let convertedPairs = try Converter.convert(pairs)
+        if CoordinateValidator.isOutOfAxis(using: convertedPairs) {
             throw CoordinateError.outOfAxisRange
         }
-        figure = try FigureFactory.makeFigure(numbers: numbers)
+        figure = try FigureFactory.makeFigure(numbers: convertedPairs)
     } catch let e as CoordinateError {
         print(e.rawValue)
         continue
