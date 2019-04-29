@@ -13,12 +13,6 @@ struct MyTriangle : Figure {
     private(set) var lineBC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
     private(set) var lineAC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
     
-    init(x: Int, y: Int) {
-        self.lineAB = MyLine(x: x, y: y)
-        self.lineBC = MyLine(x: x, y: y)
-        self.lineAC = MyLine(x: x, y: y)
-    }
-    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine.init(startPoint: pointA, endPoint: pointB)
         self.lineBC = MyLine.init(startPoint: pointB, endPoint: pointC)
