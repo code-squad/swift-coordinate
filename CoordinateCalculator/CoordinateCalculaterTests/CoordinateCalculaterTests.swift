@@ -33,11 +33,12 @@ class CoordinateCalculaterTests: XCTestCase {
     }
     func testCheckRange(){
         //Given
-        let pointTupleOver = (25,10)
-        let pointTupleUnder = (-1,-1)
+        let excess = Answer.init("(25,10)")
+        let under = Answer.init("(-1,-1)")
+        let coordinateProcesser = CoordinateProcesser()
         //Then
-        XCTAssertThrowsError( try MyPoint.init(pointTupleOver) ,"범위를 초과한 입력입니다.")
-        XCTAssertThrowsError( try MyPoint.init(pointTupleUnder) ,"범위에 미달된 입력입니다.")
+        XCTAssertThrowsError(try coordinateProcesser.convertToFigure(answer: excess),"범위를 초과한 입력입니다.")
+        XCTAssertThrowsError(try coordinateProcesser.convertToFigure(answer: under),"범위를 초과한 입력입니다.")
     }
     func testCheckLineFormat(){
         //Given
@@ -51,14 +52,12 @@ class CoordinateCalculaterTests: XCTestCase {
     }
     func testDistanceOfPoints(){
         //Given
-        do{
-            let testLine = MyLine.init(try MyPoint(x: 10,y: 10),try MyPoint(x: 14,y: 15))
-            //Then
-            XCTAssertEqual(testLine.getDistancebetweenPoints(), 6.4031242374328485)
-        }catch{
-            ()
-        }
-       
+        
+        let testLine = MyLine.init( MyPoint((10,10)), MyPoint((14,15)))
+        //Then
+        XCTAssertEqual(testLine.distanceOfPoints, 6.4031242374328485)
+        
+        
     }
     
 }
