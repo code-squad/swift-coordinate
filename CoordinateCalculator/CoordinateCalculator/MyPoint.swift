@@ -22,12 +22,15 @@ struct MyPoint : Drawable{
         self.x = point.x
         self.y = point.y
     }
+    
     init(x:Int,y:Int) throws {
         try self.init(PointTuple(x,y))
     }
+    
     private func checkRange(_ point:PointTuple)->Bool{
        return possibleRange.contains(point.x) && possibleRange.contains(point.y)
     }
+    
     func draw() {
         let row = ANSICode.convertX(self.x)
         let col = ANSICode.convertY(self.y)
@@ -35,6 +38,5 @@ struct MyPoint : Drawable{
         print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
         ANSICode.moveCurser()
     }
-    
     
 }

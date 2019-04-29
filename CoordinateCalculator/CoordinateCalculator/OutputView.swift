@@ -15,10 +15,12 @@ struct OutputView{
     init(_ target:Drawable) {
         self.target = target
     }
+    
     func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
+    
     func output(){
         self.target.draw()
     }
