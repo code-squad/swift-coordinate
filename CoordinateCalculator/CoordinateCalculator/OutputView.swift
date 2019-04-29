@@ -12,12 +12,20 @@ struct OutputView {
     
     static let AxisLimit = ANSICode.axis.AxisLimit
     
-    static func drawCoordinates(point: Drawable) {
+    static func drawCoordinates(of figure: Drawable) {
         
         drawAxis()
         
-        for i in point.points {
-            drawDot(at: i)
+        for point in figure.points {
+            drawDot(at: point)
+        }
+        
+        switch figure {
+        case let line as MyLine:
+            print("두 점 사이의 거리는", terminator: " ")
+            print(Calculator.calculateDistance(of: line))
+        default:
+            break
         }
     }
     
