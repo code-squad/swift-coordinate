@@ -35,7 +35,6 @@ struct InputView{
             return try MyLine.init(MyPoint(points[0]), MyPoint(points[1]))
         }
     }
-    
     public func readInput() throws -> Drawable {
         let anwser = try ask(Question.aboutCoordinate)
         guard anwser.isCoordinateFormat() else {
