@@ -10,19 +10,41 @@ import Foundation
 
 struct OutputView{
     
-    let target:Drawable
+    let target:Figure
     
-    init(_ target:Drawable) {
+    init(_ target:Figure) {
         self.target = target
     }
-    
-    func drawAxis(){
+    private func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")
     }
     
-    func output(){
-        self.target.draw()
+    private func draw(point:MyPoint) {
+        let row = ANSICode.convertY(point.y)
+        let col = ANSICode.convertX(point.x)
+        let color = ANSICode.text.colorFrom(R:255,G:127,B:0)
+        print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
+        ANSICode.moveCurser()
     }
+    
+    private func draw(line:MyLine){
+        self.draw(point:line.pointA)
+        self.draw(point:line.pointB)
+        print("두 점사이의 거리는\(line.distanceOfPoints)")
+    }
+    
+    func draw(){
+        drawAxis()
+        switch target.type {
+        case .point:
+            guard let point = target as? MyPoint else { return }
+            draw(point:point)
+        case .line:
+            guard let line = target as? MyLine else { return }
+            draw(line:line)
+        }
+    }
+    
     
 }
