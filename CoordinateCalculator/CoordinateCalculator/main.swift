@@ -16,9 +16,9 @@ while true {
         continue
     }
     
-    let myPoints = Converter.toMyPoints(using: prompt)
+    let figure = Converter.toFigure(from: prompt)
 
-    OutputView.drawCoordinates(point: myPoints)
+    OutputView.drawCoordinates(of: figure)
     
     break
 }

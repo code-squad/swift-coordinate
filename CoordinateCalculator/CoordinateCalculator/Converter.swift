@@ -10,7 +10,7 @@ import Foundation
 
 struct Converter {
     
-    static func toMyPoints(using input: String) -> Drawable  {
+    static func toFigure(from input: String) -> Drawable  {
 
         var myPoints : [MyPoint] = []
         
