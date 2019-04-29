@@ -9,15 +9,15 @@
 import Foundation
 
 struct MyLine : Linable {
-    var pointA: MyPoint = MyPoint()
-    var pointB: MyPoint = MyPoint()
+    private var pointA: MyPoint = MyPoint()
+    private var pointB: MyPoint = MyPoint()
     
-    var myShapeInformation : String {
+    var myLineInformation : Double {
         get{
             let xDistance = pointA.x - pointB.x
             let yDistance = pointA.y - pointB.y
             let distance = sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
-            return String(distance)
+            return distance
         }
     }
     

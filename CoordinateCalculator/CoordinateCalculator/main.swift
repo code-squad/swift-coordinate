@@ -8,39 +8,6 @@
 
 import Foundation
 
-enum ErrorCode : Error, CustomStringConvertible {
-    case InvalidInput
-    case InvalidRange
-    case IsNotANumber
-    case SplitStringError
-    case SplitCoordinatorError
-    case Unknown
-    case InvalidCharacter
-    case ShapeCreationError
-    var description: String{
-        get {
-            switch self {
-            case .IsNotANumber:
-                return "IsNotANumber Error"
-            case .InvalidInput:
-                return "InvalidInput Error"
-            case .InvalidRange:
-                return "InvalidRange Error"
-            case .SplitStringError:
-                return "SplitString Error"
-            case .InvalidCharacter:
-                return "Invalid characters Error"
-            case .SplitCoordinatorError:
-                return "Split Coordinator X From Y Error"
-            case .ShapeCreationError:
-                return "Shape Creation Error"
-            case .Unknown:
-                return "Unknown Error"
-            }
-        }
-    }
-}
-
 let main = {
     var pointList: [Pair] = [Pair]()
     while true {
