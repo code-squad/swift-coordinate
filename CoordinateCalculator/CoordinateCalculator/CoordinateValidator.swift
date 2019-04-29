@@ -13,12 +13,11 @@ struct CoordinateValidator {
         if input.isEmpty || input == "" { return false }
         
         let inputCharacterSet = CharacterSet.init(charactersIn: input)
-        let formatCharacterSet = CharacterSet.init(charactersIn: "(,)")
+        let formatCharacterSet = CharacterSet.init(charactersIn: "(,)-")
         let validCharacterSet = CharacterSet.decimalDigits.union(formatCharacterSet)
         
-        let formatCheck = inputCharacterSet.isSuperset(of: formatCharacterSet)
-        let fullCheck = inputCharacterSet.isSubset(of: validCharacterSet)
-        return formatCheck && fullCheck
+        let validCheck = inputCharacterSet.isSubset(of: validCharacterSet)
+        return validCheck
     }
 
     static func isOutOfAxis(using pairs: [Pair]) -> Bool {
