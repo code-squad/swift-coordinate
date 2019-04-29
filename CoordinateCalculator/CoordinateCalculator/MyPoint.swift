@@ -9,7 +9,6 @@
 import Foundation
 
 struct MyPoint : Shapable {
-    var myShapeInformation: String = ""
     private (set) var x: Int
     private (set) var y: Int
     
