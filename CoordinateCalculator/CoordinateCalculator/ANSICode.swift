@@ -78,7 +78,7 @@ public struct ANSICode {
     }
     
     struct point {
-        static func drawPoint(_ myPoint: Point) -> String {
+        static func drawPoint(_ myPoint: MyPoint) -> String {
             var result = ""
             result += moveOriginPoint()
             result += movePointToRightPlace(myPoint.y, myPoint.x)

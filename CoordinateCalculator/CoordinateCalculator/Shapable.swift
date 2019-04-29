@@ -8,19 +8,8 @@
 
 import Foundation
 
-protocol Shapable: Drawable {
-    var myPointList: [Point] {get}
+protocol Shapable {
     var myShapeInformation: Double {get}
-}
-
-extension Shapable {
-    var myShapeInformation: Double {
-        get{
-            return 0
-        }
-    }
-    func getDrawablePoints() -> [Point] {
-        return myPointList
-    }
+    func getDrawablePointList() -> [MyPoint]
 }
 

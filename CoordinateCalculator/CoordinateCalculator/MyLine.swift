@@ -9,21 +9,26 @@
 import Foundation
 
 struct MyLine : Linable {
-    /// Shapable protocol
-    var myPointList: [Point]
+    var pointA: MyPoint = MyPoint()
+    var pointB: MyPoint = MyPoint()
     
     var myShapeInformation : Double {
         get{
-            let xDistance = myPointList[0].x - myPointList[1].x
-            let yDistance = myPointList[0].y - myPointList[1].y
+            let xDistance = pointA.x - pointB.x
+            let yDistance = pointA.y - pointB.y
             return sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
         }
     }
     
-    init(pointList: [Pair]){
-        myPointList = [Point]()
-        for point in pointList {
-            myPointList.append(Point.init(x: point.x, y: point.y))
-        }
+    func getDrawablePointList() -> [MyPoint] {
+        var pointList: [MyPoint]  = [MyPoint]()
+        pointList.append(pointA)
+        pointList.append(pointB)
+        return pointList
+    }
+    
+    init(pointList: [Pair]) throws {
+        pointA = MyPoint(x: pointList[0].x, y: pointList[0].y)
+        pointB = MyPoint(x: pointList[1].x, y: pointList[1].y)
     }
 }

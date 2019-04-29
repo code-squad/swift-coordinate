@@ -9,13 +9,22 @@
 import Foundation
 
 struct MyPoint : Shapable {
-    /// Shapable protocol 
-    var myPointList: [Point]
+    var myShapeInformation: Double = 0
+    private (set) var x: Int
+    private (set) var y: Int
     
-    init(pointList: [Pair]){
-        myPointList = [Point]()
-        for point in pointList {
-            myPointList.append(Point.init(x: point.x, y: point.y))
-        }
+    func getDrawablePointList() -> [MyPoint] {
+        return [self]
     }
+
+    init(x: Int = 0, y: Int = 0){
+        self.x = x
+        self.y = y
+    }
+    
+    init(pointList: [Pair]) throws {
+        self.x = pointList[0].x
+        self.y = pointList[0].y
+    }
+
 }

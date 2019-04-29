@@ -16,7 +16,7 @@ struct OutputView {
     
     static func drawShape (_ myShape: Shapable){
         var result = ""
-        let pointList: [Point] = myShape.getDrawablePoints()
+        let pointList: [MyPoint] = myShape.getDrawablePointList()
         for point in pointList {
             result += "\(ANSICode.text.whiteBright)\(ANSICode.point.drawPoint(point))"
         }
