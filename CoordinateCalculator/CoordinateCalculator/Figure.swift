@@ -15,5 +15,5 @@ enum FigureType : Int{
 }
 
 protocol Figure{
-    
+    var type:FigureType{ get }
 }
