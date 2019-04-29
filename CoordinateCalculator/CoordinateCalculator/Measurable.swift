@@ -14,6 +14,7 @@ enum MeasurableUnit: String {
 
 protocol Measurable {
     var unit: String { get }
+    var value: Double { get }
     
-    func calculate() -> Double
+    func measure() -> Double
 }

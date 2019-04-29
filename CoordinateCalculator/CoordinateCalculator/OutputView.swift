@@ -19,8 +19,8 @@ struct OutputView {
             drawPoint(point: point)
         }
         
-        if let measuredValue = shape as? Measurable {
-            print("\(measuredValue.unit)\(measuredValue.calculate())")
+        if let measurableShape = shape as? Measurable {
+            print("\(measurableShape.unit)\(measurableShape.value)")
         }
     }
     
