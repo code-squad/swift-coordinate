@@ -141,12 +141,14 @@ public struct ANSICode {
 extension ANSICode{
     static let dot = "•"
     
-    static func convertX(_ before:Int)->Int{
-        return axis.AxisLimit+2-before-1
-    }
     static func convertY(_ before:Int)->Int{
+        return axis.AxisLimit+1-before
+    }
+    
+    static func convertX(_ before:Int)->Int{
         return before * 2 + 3
     }
+    
     static func moveCurser(){
         print("\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: 2))")
     }
