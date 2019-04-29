@@ -9,24 +9,19 @@
 import Foundation
 
 struct MyPoint : Figure{
-
+    
+    private(set) var type: FigureType = .point
     private(set) var x = 0
     private(set) var y = 0
     
-
+    
     
     init(_ point:PointTuple) {
-      
+        
         self.x = point.x
         self.y = point.y
     }
-  
-    func draw(point:MyPoint) {
-        let row = ANSICode.convertX(point.x)
-        let col = ANSICode.convertY(point.y)
-        let color = ANSICode.text.colorFrom(R:255,G:127,B:0)
-        print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
-        ANSICode.moveCurser()
-    }
+    
+    
     
 }
