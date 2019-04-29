@@ -12,11 +12,6 @@ struct MyLine : Figure {
     private(set) var startPoint = MyPoint(x: 0, y: 0)
     private(set) var endPoint = MyPoint(x: 0, y: 0)
     
-    init(x: Int, y: Int) {
-        self.startPoint = MyPoint(x: x, y: y)
-        self.endPoint = MyPoint(x: x, y: y)
-    }
-    
     init(startPoint: MyPoint, endPoint: MyPoint){
         self.startPoint = startPoint
         self.endPoint = endPoint

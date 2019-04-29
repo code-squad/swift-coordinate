@@ -12,18 +12,13 @@ struct MyRect : Figure {
     private(set) var leftTop = MyPoint(x: 0, y: 0)
     private(set) var rightBottom = MyPoint(x: 0, y: 0)
     private(set) var anotherPoint = MyPoint(x: 0, y: 0)
-    private(set) var crossPoint = MyPoint(crossX: 0.0, crossY: 0.0)
+    private(set) var anotherPoint2 = MyPoint(x: 0, y: 0)
     
-    init(x: Int, y: Int) {
-        self.leftTop = MyPoint(x: x, y: y)
-        self.rightBottom = MyPoint(x: x, y: y)
-    }
-    
-    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint){
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint){
         self.leftTop = pointA
         self.rightBottom = pointB
         self.anotherPoint = pointC
-        self.crossPoint = MyPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
+        self.anotherPoint2 = pointD
     }
     
     private func areaCalculator(leftTop: MyPoint, rightBottom: MyPoint, anotherPoint: MyPoint) -> Double {
@@ -35,12 +30,12 @@ struct MyRect : Figure {
     }
     
     func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : String) {
-        var trianglePoints : [MyPoint] = []
-        trianglePoints.append(leftTop)
-        trianglePoints.append(rightBottom)
-        trianglePoints.append(anotherPoint)
-        trianglePoints.append(MyPoint.init(x: anotherPoint.x + Int((crossPoint.crossX - Double(anotherPoint.x)) * 2), y: anotherPoint.y + Int((crossPoint.crossY - Double(anotherPoint.y)) * 2)))
+        var rectanglePoints : [MyPoint] = []
+        rectanglePoints.append(leftTop)
+        rectanglePoints.append(rightBottom)
+        rectanglePoints.append(anotherPoint)
+        rectanglePoints.append(anotherPoint2)
         let guideMent = "네점을 잇는 사각형의 넓이는 \(areaCalculator(leftTop: leftTop, rightBottom: rightBottom, anotherPoint: anotherPoint)) 입니다."
-        return (trianglePoints.count, trianglePoints, guideMent)
+        return (rectanglePoints.count, rectanglePoints, guideMent)
     }
 }

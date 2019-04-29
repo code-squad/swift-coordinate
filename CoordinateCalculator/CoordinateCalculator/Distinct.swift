@@ -53,7 +53,7 @@ struct Distinct {
         let locations = twoDiagonals.locations
         // 인접하지 않은 두점씩을 잇는 대각선의 길이가 같고 중점이 같은 위치에 있으면 직사각형이다
         if rowLine.crossPoint.crossX == colLine.crossPoint.crossX, rowLine.crossPoint.crossY == colLine.crossPoint.crossY, rowLine.diagonalLength == colLine.diagonalLength {
-            let myRect = MyRect.init(pointA: locations[0], pointB: locations[1], pointC: locations[2])
+            let myRect = MyRect.init(pointA: locations[0], pointB: locations[1], pointC: locations[2], pointD: locations[3])
             return myRect
         } else { throw ErrorMessage.noRectangle}
     }

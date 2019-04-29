@@ -8,18 +8,14 @@
 
 import Foundation
 
-extension MyPoint {
-    
-}
-
 struct VerifyRect {
-    private func distinctTwoPoints(leftTop: MyPoint, rightBottom: MyPoint) -> (crossPoint: MyPoint, diagonalLength:Double){
-        let crossPoint = MyPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
+    private func distinctTwoPoints(leftTop: MyPoint, rightBottom: MyPoint) -> (crossPoint: MyCrossPoint, diagonalLength:Double){
+        let crossPoint = MyCrossPoint(crossX: Double(leftTop.x) + Double(rightBottom.x-leftTop.x)/2, crossY: Double(leftTop.y) + Double(rightBottom.y-leftTop.y)/2)
         let diagonalLength = MyLine.lengthCalculator(MyLine.init(startPoint: leftTop, endPoint: rightBottom))()
         return (crossPoint,diagonalLength)
     }
     
-    func outputTwoDiagonal (points : [MyPoint], lines : [Double]) -> (locations:[MyPoint], rowLine: (crossPoint:MyPoint,diagonalLength:Double), colLine: (crossPoint:MyPoint,diagonalLength:Double)){
+    func outputTwoDiagonal (points : [MyPoint], lines : [Double]) -> (locations:[MyPoint], rowLine: (crossPoint:MyCrossPoint,diagonalLength:Double), colLine: (crossPoint:MyCrossPoint,diagonalLength:Double)){
         var locations : [MyPoint] = []
         var copyPoints = points
         let rightIndex = lines.index(of: lines.max()!)! // 기본으로 지정한 점과 가장 먼 거리에 있는 점이 있는 좌표의 인덱스
@@ -30,6 +26,7 @@ struct VerifyRect {
         locations.append(points[0])
         locations.append(points[rightIndex+1])
         locations.append(copyPoints[0])
+        locations.append(copyPoints[1])
         return (locations,rowLine,colLine)
     }
 }
