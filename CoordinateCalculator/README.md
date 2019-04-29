@@ -6,6 +6,7 @@
 
 - [step 5-1]()
 - [step 5-2]()
+- [step 5-3]()
 
 &nbsp;
 
@@ -127,6 +128,7 @@
    
    let sub: Substring = sample[third..<fifth]
    // "ke it ti"
+   // String으로 바꾸고 싶으면 String initializer 사용 가능 (ex. String(substringVariable))
    ```
 
 &nbsp;
@@ -171,5 +173,88 @@
 
 ### CharacterSet 
 
+> A set of Unicode character values for use in search operations. ([documentation](<https://developer.apple.com/documentation/foundation/characterset>))
+
+- 사용 목적: 
+  to group characters together **_for searching operations_**, so that they can **_find any of a particular set of characters during a search._**
+  검색을 위한 character를 한 그룹에 모아 검색 관련 method를 내장
+- 특징
+  - standard character set 제공 - type property로 제공함(static var)
+  - :star: 검색에 유용한 method (Combining Character Set)
+    - 집합 관련 method로 두개의 CharacterSet간의 비교가능 : union, subset, superset..
+    - isSuperset , isSubset
+  - insert() : characterset 요소 추가
+  - String으로 초기화 가능 : init(charactersIn: String) 
+
+- 구현) 입력 String에 입력할 수 없는 문자가 포함되어있는지 체크하기
+
+  - Standard: 입력가능한 문자만 있는 set -> 괄호, 쉼표, 숫자만(음수, 소수 안됨)
+  - ``` validCharacterSet.isSuperset(of: inputCharacterSet)``` : 체크하는 핵심 메소드
+
+  ```swift
+  //입력 가능한 문자만 있는 set
+  var validCharacterSet: CharacterSet = CharacterSet(charactersIn: "(,)")
+  // forUnion: Sets the value to a union of the CharacterSet with another CharacterSet.
+  // 합집합. 합치기 with decimalDigits
+  validCharacterSet.formUnion(CharacterSet.decimalDigits)
+  
+  // standard와 비교할 입력 받은 문자열
+  let inputCharacterSet = CharacterSet(charactersIn: "(10,11)")
+  
+  // 기준에 입력받은 문자열이 완전히 포함되는지 -> true
+  validCharacterSet.isSuperset(of: inputCharacterSet)
+  // 입력받은 문자열이 기준에 완전히 포함되는 부분집합인지 -> true
+  inputCharacterSet.isSubset(of: validCharacterSet)
+  
+  // ** 허점 발생! 괄호가 없거나, 쉼표가 없어도 true로 인식됨
+  let invalidCharacterSet = CharacterSet(charactersIn: "11,11")
+  invalidCharacterSet.isSubset(of: validCharacterSet)
+  
+  ```
+
+  - 문제점 보완 : 괄호, 쉼표, 숫자를 점점 추가해가며 비교
+
+  ```swift
+  let inputCharacterSet = CharacterSet(charactersIn: "(10,11)")
+  let invalidCharacterSet = CharacterSet(charactersIn: "11,10")
+  
+  //1. parenthesis
+  var validCharacterSet = CharacterSet(charactersIn: "()")
+  validCharacterSet.isSubset(of: inputCharacterSet)   // true
+  validCharacterSet.isSubset(of: invalidCharacterSet) // false
+  
+  //2. comma
+  validCharacterSet.formUnion(CharacterSet(charactersIn: ","))
+  validCharacterSet.isSubset(of: inputCharacterSet)   //true
+  validCharacterSet.isSubset(of: invalidCharacterSet) //false
+  
+  //3. decimalDigits
+  validCharacterSet.formUnion(CharacterSet.decimalDigits)
+  validCharacterSet.isSuperset(of: inputCharacterSet)   //true
+  validCharacterSet.isSuperset(of: invalidCharacterSet) //true
+  ```
+
+  - 참고) strictSubset / strictSuperSet 은 **해당 set과 동일한건 불포함임**
+
+    - ex. {a, b}에서 {a}, {b}는 strictSubset. {a, b}는 불포함
+
+  - standard character set 중 ```decimalDigits``` : **0 포함. 음수 불포함**
+
+    ```swift
+    let zero = CharacterSet(charactersIn: "0")
+    let negative = CharacterSet(charactersIn: "-1")
+    CharacterSet.decimalDigits.isSuperset(of: zero)
+    CharacterSet.decimalDigits.isSuperset(of: negative)
+    ```
+
 [Understanding Swift's CharacterSet](<https://medium.com/livefront/understanding-swifts-characterset-5a7a89a32b54>)
 
+
+
+
+
+1. CharacterSet 을 사용해서 입력할 수 없는 문자 포함되어 있는지 체크
+
+2. struct MyLine : 두 점 사이 거리 계산하는 함수 구현
+
+   27번째 줄에 거리를 출력함
