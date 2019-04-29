@@ -13,10 +13,11 @@ func main(){
     repeat{
         do{
             let inputView = InputView()
-            let drawable = try inputView.readInput()
-            let outputView = OutputView.init(drawable)
-            outputView.drawAxis()
-            outputView.output()
+            let answer = try inputView.readInput()
+            let coordinateProcesser = CoordinateProcesser()
+            let figure = try coordinateProcesser.convertToFigure(answer:answer)
+            let outputView = OutputView.init(figure)
+            outputView.draw()
             isError = false
         }catch let error as Exception.ErrorType {
             print(error)

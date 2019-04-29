@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum CoordinateFormat : Int{
-    static let separator = "-"
-    case point = 1
-    case line
-}
 
 struct Answer{
     
@@ -30,17 +25,17 @@ struct Answer{
         return result.count == 0 ? false : true
     }
     
-    public func getFormat() throws -> CoordinateFormat{
-        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
+    public func getFormat() throws -> FigureType{
+        let points = self.contents.components(separatedBy:FigureType.separator )
         let varifiedPoints = getVerifiedPoints(points: points)
-        guard let coordinateFormat = CoordinateFormat.init(rawValue: points.count),varifiedPoints.count == points.count else {
+        guard let coordinateFormat = FigureType.init(rawValue: points.count),varifiedPoints.count == points.count else {
             throw Exception.ErrorType.wrongFormat
         }
         return coordinateFormat
     }
     
     public func getPointTuples() throws ->[PointTuple]{
-        let points = self.contents.components(separatedBy:CoordinateFormat.separator )
+        let points = self.contents.components(separatedBy:FigureType.separator )
         let varifiedPoints = getVerifiedPoints(points: points)
         let pointTuples = try varifiedPoints.map{
             try getPointTuple(string: $0)
