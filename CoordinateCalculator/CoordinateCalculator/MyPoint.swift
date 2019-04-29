@@ -14,8 +14,6 @@ struct MyPoint : Figure{
     private(set) var x = 0
     private(set) var y = 0
     
-    
-    
     init(_ point:PointTuple) {
         
         self.x = point.x
