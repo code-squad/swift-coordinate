@@ -22,11 +22,11 @@ struct MyLine : Figure {
         return round(betweenLength * 100) / 100
     }
     
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: String) {
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: Double) {
         var linePoints : [MyPoint] = []
         linePoints.append(startPoint)
         linePoints.append(endPoint)
-        let guideMent = "두점을 잇는 직선의 길이는 \(lengthCalculator()) 입니다."
+        let guideMent = lengthCalculator()
         return (linePoints.count, linePoints, guideMent)
     }
 }

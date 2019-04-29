@@ -31,12 +31,12 @@ struct MyTriangle : Figure {
         return round(betweenArea * 100) / 100
     }
     
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : String) {
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : Double) {
         var trianglePoints : [MyPoint] = []
         trianglePoints.append(lineAB.startPoint)
         trianglePoints.append(lineAB.endPoint)
         trianglePoints.append(lineAC.endPoint)
-        let guideMent = "세점을 잇는 삼각형의 넓이는 \(areaCalculator(lineAB: lineAB, lineBC: lineBC, lineAC: lineAC)) 입니다."
+        let guideMent = areaCalculator(lineAB: lineAB, lineBC: lineBC, lineAC: lineAC)
         return (trianglePoints.count, trianglePoints, guideMent)
     }
 }

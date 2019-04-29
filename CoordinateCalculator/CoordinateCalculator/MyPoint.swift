@@ -17,7 +17,7 @@ struct MyPoint : Figure {
         self.y = y
     }
     
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: String) {
-        return ([self].count,[self],"")
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: Double) {
+        return ([self].count,[self],0)
     }
 }
