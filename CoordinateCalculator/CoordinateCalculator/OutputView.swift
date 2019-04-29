@@ -32,7 +32,7 @@ struct OutputView {
         return direction
     }
     
-    static func moveCursorToOrigin() {
+    static private func moveCursorToOrigin() {
         let moveToOrigin = ANSICode.cursor.move(row: ANSICode.axis.originRow, col: ANSICode.axis.originCol)
         print(moveToOrigin)
     }

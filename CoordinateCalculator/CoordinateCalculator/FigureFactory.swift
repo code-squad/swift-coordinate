@@ -9,12 +9,12 @@
 import Foundation
 
 struct FigureFactory {
-    static public func makeFigure(numbers: [Int]) throws -> AxisDrawable {
-        switch numbers.count {
+    static public func makeFigure(pairs: [Pair]) throws -> AxisDrawable {
+        switch pairs.count {
+        case 1:
+            return MyPoint(pair: pairs[0])
         case 2:
-            return MyPoint(using: numbers)
-        case 4:
-            return MyLine(using: numbers)
+            return MyLine(pairs: pairs)
         default:
             throw CoordinateError.invalidInputFormat
         }

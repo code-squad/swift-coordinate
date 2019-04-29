@@ -20,10 +20,10 @@ struct MyPoint: AxisDrawable {
         self.x = x
         self.y = y
     }
-    
-    init(using numbers: [Int]) {
-        x = numbers[0]
-        y = numbers[1]
+   
+    init(pair: Pair) {
+        self.x = pair.x
+        self.y = pair.y
     }
     
     func getPoints() -> [MyPoint] {
@@ -37,9 +37,9 @@ struct MyLine: AxisDrawable {
     var pointB = MyPoint(x: 0, y: 0)
     
     
-    init(using numbers: [Int]) {
-        pointA = MyPoint(x: numbers[0], y: numbers[1])
-        pointB = MyPoint(x: numbers[2], y: numbers[3])
+    init(pairs: [Pair]) {
+        pointA = MyPoint(x: pairs[0].x, y: pairs[0].y)
+        pointB = MyPoint(x: pairs[1].x, y: pairs[1].y)
     }
     
     func getPoints() -> [MyPoint] {
