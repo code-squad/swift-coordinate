@@ -92,6 +92,16 @@
 			path = CoordinateCalculaterTests;
 			sourceTree = "<group>";
 		};
+		0EC137A22277852B00DAF1C8 /* Figure */ = {
+			isa = PBXGroup;
+			children = (
+				0ECE2BB12273048E00F9651E /* MyPoint.swift */,
+				0ECE2BBB22731EAE00F9651E /* MyLine.swift */,
+				0E29F5252274BBD5008AC76E /* Figure.swift */,
+			);
+			path = Figure;
+			sourceTree = "<group>";
+		};
 		8377CC451F8B6F7E007F7335 = {
 			isa = PBXGroup;
 			children = (
@@ -113,16 +123,14 @@
 		8377CC501F8B6F7E007F7335 /* CoordinateCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				0EC137A22277852B00DAF1C8 /* Figure */,
 				0ECE2BB32273048E00F9651E /* Answer.swift */,
 				0ECE2BAF2273048E00F9651E /* Exception.swift */,
 				0ECE2BAE2273048D00F9651E /* Extensions.swift */,
 				0ECE2BB02273048E00F9651E /* InputView.swift */,
 				0ECE2BAD2273048D00F9651E /* main.swift */,
-				0ECE2BB12273048E00F9651E /* MyPoint.swift */,
 				0ECE2BB22273048E00F9651E /* OutputView.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
-				0ECE2BBB22731EAE00F9651E /* MyLine.swift */,
-				0E29F5252274BBD5008AC76E /* Figure.swift */,
 				0E5D9B2E227747F700D09038 /* FigureFactory.swift */,
 				0E5D9B302277700300D09038 /* CoordinateProcesser.swift */,
 			);
