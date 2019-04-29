@@ -17,7 +17,7 @@ while true {
         if CoordinateValidator.isOutOfAxis(using: convertedPairs) {
             throw CoordinateError.outOfAxisRange
         }
-        figure = try FigureFactory.makeFigure(numbers: convertedPairs)
+        figure = try FigureFactory.makeFigure(pairs: convertedPairs)
     } catch let e as CoordinateError {
         print(e.rawValue)
         continue
@@ -25,8 +25,9 @@ while true {
         print("Other Unexpected Error")
         break
     }
-    OutputView.drawAxis()
-    OutputView.drawYellowDot(using: figure)
+    
+    OutputView.draw(figure)
+
     break
 }
 
