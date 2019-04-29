@@ -24,16 +24,6 @@ struct Validator {
             return false
         }
         
-        guard let separatedValue = separateCoordinates(of: prompt) else {
-            return false
-        }
-        
-        let numericValue = convertToNumeric(of: separatedValue)
-        
-        guard checkCoordinatesLimit(coordinates: numericValue) else {
-            return false
-        }
-        
         return true
     }
     
@@ -49,46 +39,11 @@ struct Validator {
         return differenceCharacters.isEmpty
     }
     
-    /// prompt에 입력된 값을 쉼표로 구분해 반환합니다.
-    ///
-    /// `(` `)` 를 제거하고, 쉼표 `,` 로 구분한 값을 String 배열로 반환합니다.
-    /// 입력값에 쉼표가 없으면, String 배열의 원소 개수가 1개이므로 오류 메세지가 출력되고 nil이 반환됩니다.
-    ///
-    /// - Parameter prompt: 사용자가 입력한 String 값입니다.
-    /// - Returns: 쉼표로 나눠진 String 배열입니다.
-    static private func separateCoordinates(of prompt: String) -> [String]? {
-        
-        let trimmedInput = prompt.components(separatedBy: CharacterSet(charactersIn: "()")).joined()
-        let separatedInput =  trimmedInput.components(separatedBy: CharacterSet(charactersIn: ",-"))
-        
-        ///FIXME
-        guard separatedInput.count > 1 else {
-            print("값을 쉼표(,)로 구분해주세요~!~!")
-            return nil
-        }
-        
-        return separatedInput
-    }
-    
-    /// String 배열의 값을 Int형으로 변환해 튜플로 반환합니다.
-    ///
-    /// Int 형으로 변환할 수 없으면, -1이 기본값으로 들어갑니다.
-    /// 배열의 0번째 인덱스에는 x값이, 1번째 인덱스에는 y값이 저장되어있습니다.
-    ///
-    /// - Parameter input: 쉼표로 나눠진 String 배열입니다.
-    /// - Returns: 좌표값을 나타내는 x, y 튜플입니다.
-    static private func convertToNumeric(of input: [String]) -> [Int] {
-    
-        let inputNum = input.map { Int($0) ?? -1 }
-        
-        return inputNum
-    }
-    
     /// 좌표계가 입력할 수 있는 최소값, 최대값을 확인합니다.
     ///
     /// 최소값은 0, 최대값은 24입니다.
     /// 해당 범위를 초과하게 되면 nil을 반환합니다.
-    static private func checkCoordinatesLimit(coordinates: [Int]) -> Bool {
+    static func checkCoordinatesLimit(coordinates: [Int]) -> Bool {
         
         for coordinate in coordinates {
             guard coordinate < AxisLimit + 1 else {
