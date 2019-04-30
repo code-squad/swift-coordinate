@@ -42,8 +42,8 @@ struct Validator {
     ///
     /// 최소값은 0, 최대값은 24입니다.
     /// 해당 범위를 초과하게 되면 nil을 반환합니다.
-    static func checkCoordinatesLimit(coordinates: [Int]) -> Bool {
-        
+    static func checkCoordinatesLimit(coordinates: [[Int]]) -> Bool {
+        let coordinates = coordinates.flatMap{$0}
         for coordinate in coordinates {
             guard coordinate < AxisLimit + 1 else {
                 return false
