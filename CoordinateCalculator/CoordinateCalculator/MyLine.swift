@@ -9,13 +9,13 @@
 import Foundation
 
 struct MyLine: AxisDrawable {
-    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointA = MyPoint(x: 0, y: 0) 
     private var pointB = MyPoint(x: 0, y: 0)
     
     
-    init(pairs: [Pair]) {
-        pointA = MyPoint(x: pairs[0].x, y: pairs[0].y)
-        pointB = MyPoint(x: pairs[1].x, y: pairs[1].y)
+    init(pairA: Pair, pairB: Pair) {
+        pointA = MyPoint(x: pairA.x, y: pairA.y)
+        pointB = MyPoint(x: pairB.x, y: pairB.y)
     }
     
     func getPoints() -> [MyPoint] {
