@@ -11,6 +11,8 @@
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		C24C550F2277E75D0079B7A6 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C550E2277E75D0079B7A6 /* MyLine.swift */; };
 		C24C5511227828540079B7A6 /* AxisDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C5510227828540079B7A6 /* AxisDrawable.swift */; };
+		C24C5513227838740079B7A6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C5512227838740079B7A6 /* Parser.swift */; };
+		C24C5515227838B30079B7A6 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C5514227838B30079B7A6 /* Converter.swift */; };
 		C278D157226D99EF005C056C /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D156226D99EF005C056C /* MyPoint.swift */; };
 		C278D159226DACA5005C056C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D158226DACA5005C056C /* InputView.swift */; };
 		C2C45D5B226D84710089235B /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C45D5A226D84710089235B /* OutputView.swift */; };
@@ -37,6 +39,8 @@
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		C24C550E2277E75D0079B7A6 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		C24C5510227828540079B7A6 /* AxisDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisDrawable.swift; sourceTree = "<group>"; };
+		C24C5512227838740079B7A6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		C24C5514227838B30079B7A6 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		C278D156226D99EF005C056C /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		C278D158226DACA5005C056C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C2C45D5A226D84710089235B /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -76,14 +80,16 @@
 			isa = PBXGroup;
 			children = (
 				8377CC511F8B6F7E007F7335 /* main.swift */,
-				C2D858572271E10A00C9CD3D /* FigureFactory.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				C278D158226DACA5005C056C /* InputView.swift */,
+				C24C5514227838B30079B7A6 /* Converter.swift */,
+				C24C5512227838740079B7A6 /* Parser.swift */,
+				C2D8585322715BB900C9CD3D /* CoordinateValidator.swift */,
 				C2C45D5A226D84710089235B /* OutputView.swift */,
 				C278D156226D99EF005C056C /* MyPoint.swift */,
 				C24C550E2277E75D0079B7A6 /* MyLine.swift */,
+				C2D858572271E10A00C9CD3D /* FigureFactory.swift */,
 				C24C5510227828540079B7A6 /* AxisDrawable.swift */,
-				C2D8585322715BB900C9CD3D /* CoordinateValidator.swift */,
 				C2D858552271868B00C9CD3D /* CoordinateError.swift */,
 			);
 			path = CoordinateCalculator;
@@ -148,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D858582271E10A00C9CD3D /* FigureFactory.swift in Sources */,
+				C24C5513227838740079B7A6 /* Parser.swift in Sources */,
 				C278D157226D99EF005C056C /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				C2D858562271868B00C9CD3D /* CoordinateError.swift in Sources */,
@@ -156,6 +163,7 @@
 				C24C5511227828540079B7A6 /* AxisDrawable.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				C24C550F2277E75D0079B7A6 /* MyLine.swift in Sources */,
+				C24C5515227838B30079B7A6 /* Converter.swift in Sources */,
 				C2C45D5B226D84710089235B /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
