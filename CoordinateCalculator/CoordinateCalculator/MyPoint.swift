@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol AxisDrawable {
-    func getPoints() -> [MyPoint]
-}
-
 struct MyPoint: AxisDrawable {
     public private(set) var x: Int = 0
     public private(set) var y: Int = 0
