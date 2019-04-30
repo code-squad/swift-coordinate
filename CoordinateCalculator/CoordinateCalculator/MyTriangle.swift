@@ -13,10 +13,12 @@ struct MyTriangle: Drawable, Measurable {
     private(set) var lineBC: MyLine
     private(set) var lineAC: MyLine
     
-    private let trianglePoint: [MyPoint]
-    
     func point() -> [MyPoint] {
-        return trianglePoint
+        let pointA = lineAB.pointA
+        let pointB = lineAB.pointB
+        let pointC = lineAC.pointB
+        
+        return [pointA, pointB, pointC]
     }
     
     var shapeState: ShapeStateText {
@@ -40,7 +42,5 @@ struct MyTriangle: Drawable, Measurable {
         lineAB = MyLine(pointA: pointA, pointB: pointB)
         lineBC = MyLine(pointA: pointB, pointB: pointC)
         lineAC = MyLine(pointA: pointA, pointB: pointC)
-        
-        trianglePoint = [pointA, pointB, pointC]
     }
 }
