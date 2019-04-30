@@ -16,7 +16,7 @@ struct MyTriangle : Trianglable {
 
     var myTriangleAreaInformation: Double {
         get {
-            return 1/2 * lineBC.myLineInformation * lineCA.myLineInformation * getMySineThetaC()
+            return (1/2 * lineBC.myLineInformation * lineCA.myLineInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero) 
         }
     }
     
