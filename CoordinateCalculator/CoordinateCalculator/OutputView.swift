@@ -9,11 +9,15 @@
 import Foundation
 
 struct OutputView {
+    static private let descriptionForLineLength = "두 점 사이 거리는 "
+    
     static public func draw(_ figure: AxisDrawable) {
         drawAxis()
         drawYellowDot(using: figure)
         moveToLineBelowAxis()
-        printComputedValue(of: figure)
+        if let figureWithValue = figure as? ValueComputable {
+            printComputedValue(of: figureWithValue)
+        }
     }
     
     static private func drawAxis() {
@@ -49,25 +53,12 @@ struct OutputView {
         print(directionBelowAxis)
     }
     
-    static private func printComputedValue(of figure: AxisDrawable) {
+    static private func printComputedValue(of figure: ValueComputable) {
         var description = "\(ANSICode.text.whiteBright)"
-        switch figure {
-        case let line as MyLine:
-            description += getDescription(for: figure)
-            print(description, "\(line.getLength())")
-        default:
-            print("")
-        }
+        description += figure.description
+        let computedValue = figure.getComputedValue()
+        print(description, computedValue)
     }
     
-    static private func getDescription(for figure: AxisDrawable) -> String {
-        switch figure {
-        case is MyLine:
-            let description = "두 점 사이의 거리는 "
-            return description
-        default:
-            return ""
-        }
-    }
 }
 
