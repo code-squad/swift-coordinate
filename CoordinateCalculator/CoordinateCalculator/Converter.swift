@@ -12,9 +12,7 @@ struct Converter {
     
     static func toFigure(from input: String) -> Drawable? {
 
-        guard let myPoints = toMyPoints(from: input) else {
-            return nil
-        }
+        let myPoints = toMyPoints(from: input)
         
         switch myPoints.count {
         case 1:
@@ -26,7 +24,7 @@ struct Converter {
         }
     }
     
-    static private func toMyPoints(from input: String) -> [MyPoint]? {
+    static private func toMyPoints(from input: String) -> [MyPoint] {
         
         var myPoints : [MyPoint] = []
         let trimmedInput = input.removeParenthesis().splitByHyphen().map{ $0.splitByComma().map { Int($0) ?? -1 } }
