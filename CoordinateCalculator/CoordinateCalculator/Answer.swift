@@ -12,6 +12,7 @@ import Foundation
 struct Answer{
     
     private let contents :String
+    let separator = "-"
     
     init(_ contents:String){
         self.contents = contents
@@ -35,7 +36,7 @@ struct Answer{
     }
     
     public func getPointTuples() throws ->[PointTuple]{
-        let points = self.contents.components(separatedBy:FigureType.separator )
+        let points = self.contents.components(separatedBy:self.separator )
         let varifiedPoints = getVerifiedPoints(points: points)
         let pointTuples = try varifiedPoints.map{
             try getPointTuple(string: $0)
