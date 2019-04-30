@@ -13,8 +13,8 @@ protocol AxisDrawable {
 }
 
 struct MyPoint: AxisDrawable {
-    var x = 0
-    var y = 0
+    private var x = 0
+    private var y = 0
     
     init(x: Int, y: Int) {
         self.x = x
