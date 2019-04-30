@@ -246,15 +246,28 @@
     CharacterSet.decimalDigits.isSuperset(of: zero)
     CharacterSet.decimalDigits.isSuperset(of: negative)
     ```
+  
 
-[Understanding Swift's CharacterSet](<https://medium.com/livefront/understanding-swifts-characterset-5a7a89a32b54>)
+&nbsp;
 
+> reference : [Understanding Swift's CharacterSet](<https://medium.com/livefront/understanding-swifts-characterset-5a7a89a32b54>)
 
+&nbsp;
 
+### Function vs Computed Property - What to use
 
+- function 
+  - 여러번 호출시 마다 다른 값의 결과가 나올 것으로 예상될 때
+  - error 발생 가능성이 있을 때
+  - heavy
+  - complexity가 클 때
+- computed property
+  - when computation is cheap 
+  - complexity 가 O(1)일 때
+  - error 발생 가능성이 없음
+- ValueComputable 의 description
+  - 여러번 호출 되어도 항상 같은 값을 내보낼 것 → computed property 가 적절할 것으로 판단
 
-1. CharacterSet 을 사용해서 입력할 수 없는 문자 포함되어 있는지 체크
+- reference
+  - [function vs computed property - what to use](https://medium.com/swift-india/functions-vs-computed-property-what-to-use-64bbe2df3916)
 
-2. struct MyLine : 두 점 사이 거리 계산하는 함수 구현
-
-   27번째 줄에 거리를 출력함
