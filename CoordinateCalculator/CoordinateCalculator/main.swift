@@ -10,7 +10,7 @@ import Foundation
 
 while true {
     
-    let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10)")
+    let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10) or (1,2)-(3,4)")
     
     guard Validator.validateInput(of: prompt) else {
         print("사용할 수 없는 문자가 입력되었습니다. 숫자(0-9), 괄호(), 쉼표(,), 대시(-)만을 사용해주세요.")
