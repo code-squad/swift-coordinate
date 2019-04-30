@@ -19,8 +19,8 @@ struct MyLine: Drawable, Measurable {
         return sqrt(x + y)
     }
     
-    var unit: String {
-        return MeasurableUnit.line.rawValue
+    var unit: MeasurableUnit {
+        return .line
     }
     
     func point() -> [MyPoint] {

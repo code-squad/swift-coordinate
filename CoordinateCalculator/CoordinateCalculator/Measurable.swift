@@ -14,6 +14,6 @@ enum MeasurableUnit: String {
 }
 
 protocol Measurable {
-    var unit: String { get }
+    var unit: MeasurableUnit { get }
     var value: Double { get }
 }

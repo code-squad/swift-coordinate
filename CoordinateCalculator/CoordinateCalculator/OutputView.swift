@@ -20,7 +20,7 @@ struct OutputView {
         }
         
         if let measurableShape = shape as? Measurable {
-            print("\(measurableShape.unit)\(measurableShape.value)")
+            print("\(measurableShape.unit.rawValue)\(measurableShape.value)")
         }
     }
     

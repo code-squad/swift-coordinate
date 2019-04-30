@@ -19,8 +19,8 @@ struct MyTriangle: Drawable, Measurable {
         return trianglePoint
     }
     
-    var unit: String {
-        return MeasurableUnit.triangle.rawValue
+    var unit: MeasurableUnit {
+        return .triangle
     }
     
     var value: Double {
