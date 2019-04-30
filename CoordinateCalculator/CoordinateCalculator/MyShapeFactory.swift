@@ -14,6 +14,7 @@ struct MyShapeFactory: ShapeCreatable {
         case 1:
             let myShape: Shapable = MyPoint.init(pointList: pointList)
             return myShape
+            
         case 2:
             let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
             let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
@@ -22,12 +23,13 @@ struct MyShapeFactory: ShapeCreatable {
             }
             let myShape: Shapable = MyLine.init(pointA: myPointA, pointB: myPointB)
             return myShape
+            
         case 3:
             let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
             let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
             let pointC : Shapable = MyPoint.init(pointList: [pointList[2]])
             guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint,
-                                                    let myPointC = pointC as? MyPoint else{
+                  let myPointC = pointC as? MyPoint else{
                 throw ErrorCode.ShapeCreationError
             }
             let myShape: Shapable = MyTriangle.init(pointA: myPointA, pointB: myPointB, pointC: myPointC)
