@@ -17,10 +17,12 @@ struct Converter {
         }
         
         switch myPoints.count {
+        case 1:
+            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         case 2:
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         default:
-            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
+            return nil
         }
     }
     
