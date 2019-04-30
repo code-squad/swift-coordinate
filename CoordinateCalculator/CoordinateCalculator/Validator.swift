@@ -20,7 +20,6 @@ struct Validator {
         }
         
         guard uncontainsPossibleCharacter(in: prompt) else {
-            print("사용할 수 없는 문자가 입력되었습니다. 숫자(0-9), 괄호(), 쉼표(,), 대시(-)만을 사용해주세요.")
             return false
         }
         
@@ -47,12 +46,10 @@ struct Validator {
         
         for coordinate in coordinates {
             guard coordinate < AxisLimit + 1 else {
-                print("x, y 값은 최대 24까지 입력할 수 있습니다.")
                 return false
             }
             
             guard coordinate > -1 else {
-                print("숫자만 입력해주세요.")
                 return false
             }
         }
