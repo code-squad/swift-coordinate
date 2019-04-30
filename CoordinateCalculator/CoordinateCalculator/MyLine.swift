@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine : Figure {
+struct MyLine : Figure, Guide {
     private(set) var startPoint = MyPoint(x: 0, y: 0)
     private(set) var endPoint = MyPoint(x: 0, y: 0)
     
@@ -22,11 +22,15 @@ struct MyLine : Figure {
         return round(betweenLength * 100) / 100
     }
     
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent: Double) {
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint]) {
         var linePoints : [MyPoint] = []
         linePoints.append(startPoint)
         linePoints.append(endPoint)
-        let guideMent = lengthCalculator()
-        return (linePoints.count, linePoints, guideMent)
+        return (linePoints.count, linePoints)
+    }
+    
+    func guidePrint()->(ment: String,value: Double) {
+        let guideMent = (Ment: "두 점사이의 거리는", value:lengthCalculator())
+        return (guideMent.Ment,guideMent.value)
     }
 }

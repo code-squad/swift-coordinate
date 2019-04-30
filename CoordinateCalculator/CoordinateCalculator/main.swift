@@ -30,6 +30,9 @@ func main(){
     }
     output.drawAxis()
     output.printPoint(figure: figure)
+    if let guide : Guide = figure as? Guide {
+        output.printGuide(guide: guide)
+    }
 }
 
 main()
