@@ -9,8 +9,6 @@
 import Foundation
 
 protocol Trianglable : Shapable{
-    //func myTriangleInformation
     var myTriangleAreaInformation : Double {get}
-    
 }
 
