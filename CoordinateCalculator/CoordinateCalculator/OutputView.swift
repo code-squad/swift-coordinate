@@ -39,5 +39,4 @@ struct OutputView {
         let result = "\(ANSICode.text.blueBright)\(ANSICode.shape.displayShapeInformation(mentionOfShapeInformation))\(ANSICode.text.whiteBright)"
         return result
     }
-    
 }
