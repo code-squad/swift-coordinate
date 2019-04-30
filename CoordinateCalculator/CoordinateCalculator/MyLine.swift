@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyLine : Linable {
-    private var pointA: MyPoint = MyPoint()
-    private var pointB: MyPoint = MyPoint()
+    private (set) var pointA: MyPoint = MyPoint()
+    private (set) var pointB: MyPoint = MyPoint()
     
     var myLineInformation : Double {
         get{
@@ -28,8 +28,14 @@ struct MyLine : Linable {
         return pointList
     }
     
-    init(pointList: [Pair]) throws {
+    init(pointList: [Pair]) {
         pointA = MyPoint(x: pointList[0].x, y: pointList[0].y)
         pointB = MyPoint(x: pointList[1].x, y: pointList[1].y)
     }
+    
+    init(pointA : MyPoint, pointB : MyPoint){
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
 }
