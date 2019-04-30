@@ -14,7 +14,7 @@ struct FigureFactory {
         case 1:
             return MyPoint(pair: pairs[0])
         case 2:
-            return MyLine(pairs: pairs)
+            return MyLine(pairA: pairs[0], pairB: pairs[1])
         default:
             throw CoordinateError.invalidInputFormat
         }
