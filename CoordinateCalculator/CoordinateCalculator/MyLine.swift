@@ -10,11 +10,16 @@ import Foundation
 
 struct MyLine: Drawable {
     
-    private(set) var pointA = MyPoint(x: 0, y: 0)
-    private(set) var pointB = MyPoint(x: 0, y: 0)
+    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointB = MyPoint(x: 0, y: 0)
     
     var points: [MyPoint] {
         return [pointA, pointB]
+    }
+    
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
     }
     
     func calculateDistance() -> Double {
