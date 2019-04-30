@@ -21,7 +21,7 @@ struct MyPoint : Shapable {
         self.y = y
     }
     
-    init(pointList: [Pair]) throws {
+    init(pointList: [Pair]) {
         self.x = pointList[0].x
         self.y = pointList[0].y
     }
