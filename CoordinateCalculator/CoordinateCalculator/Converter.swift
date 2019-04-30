@@ -29,32 +29,18 @@ struct Converter {
     static private func toMyPoints(from input: String) -> [MyPoint]? {
         
         var myPoints : [MyPoint] = []
-        let trimmedInput = input.removeParenthesis().splitByHyphen()
+        let trimmedInput = input.removeParenthesis().splitByHyphen().map{ $0.splitByComma().map { Int($0) ?? -1 } }
+        
+        guard Validator.checkCoordinatesLimit(coordinates: trimmedInput) else {
+            return []
+        }
         
         for input in trimmedInput {
-            
-            let coordinateValue = input.splitByComma().map { Int($0) ?? -1 }
-            
-            guard let point = createPoint(using: coordinateValue) else {
-                return nil
-            }
-            
-            myPoints.append(point)
+            let point = MyPoint(x: input[0], y: input[1]).points
+            myPoints += point
         }
         
         return myPoints
-    }
-    
-    static private func createPoint(using coordinateValue: [Int]) -> MyPoint? {
-        
-        guard Validator.checkCoordinatesLimit(coordinates: coordinateValue) else {
-            return nil
-        }
-        
-        let point = MyPoint(x: coordinateValue[0], y: coordinateValue[1])
-        
-        return point
-        
     }
 }
 
