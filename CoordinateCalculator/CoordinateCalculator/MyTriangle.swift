@@ -19,15 +19,19 @@ struct MyTriangle: Drawable, Measurable {
         return trianglePoint
     }
     
-    var unit: MeasurableUnit {
+    var shapeState: ShapeStateText {
         return .triangle
     }
     
-    var value: Double {
-        let cos = (pow(lineBC.value, 2) + pow(lineAB.value, 2) - pow(lineAC.value, 2)) / ( 2 * lineBC.value * lineAB.value)
+    var measuredValue: Double {
+        let lineABLength = lineAB.measuredValue
+        let lineBCLength = lineBC.measuredValue
+        let lineACLength = lineAC.measuredValue
+        
+        let cos = (pow(lineBCLength, 2) + pow(lineABLength, 2) - pow(lineACLength, 2)) / ( 2 * lineBCLength * lineABLength)
         let sin = sqrt(1 - pow(cos, 2))
         
-        let result = 0.5 * lineBC.value * lineAB.value * sin
+        let result = 0.5 * lineBCLength * lineABLength * sin
         
         return result
     }

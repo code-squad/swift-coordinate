@@ -12,14 +12,14 @@ struct MyLine: Drawable, Measurable {
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
     
-    var value: Double {
+    var measuredValue: Double {
         let x = pow(Double(pointA.x - pointB.x), 2)
         let y = pow(Double(pointA.y - pointB.y), 2)
         
         return sqrt(x + y)
     }
     
-    var unit: MeasurableUnit {
+    var shapeState: ShapeStateText {
         return .line
     }
     
