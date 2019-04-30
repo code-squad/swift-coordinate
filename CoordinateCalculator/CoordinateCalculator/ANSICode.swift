@@ -77,6 +77,14 @@ public struct ANSICode {
         }
     }
     
+    struct triangle{
+        static func displayArea(_ area: Double) -> String {
+            var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
+            result += "삼각형의 넓이는 \(area)"
+            return result
+        }
+    }
+    
     struct point {
         static func drawPoint(_ myPoint: MyPoint) -> String {
             var result = ""
