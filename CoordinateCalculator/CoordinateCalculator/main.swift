@@ -24,7 +24,7 @@ func main(){
             } catch let error as ErrorMessage {
                 print(error.rawValue)
             } catch {
-                print("알수없는 에러입니다.")
+                print(error)
             }
             return
         }
