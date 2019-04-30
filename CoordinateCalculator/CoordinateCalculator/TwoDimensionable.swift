@@ -10,4 +10,5 @@ import Foundation
 
 protocol TwoDimensionable: Shapable{
     var shapeInformation : Double {get}
+    var mentionOfShapeInformation: String {get}
 }

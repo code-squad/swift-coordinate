@@ -10,6 +10,7 @@ import Foundation
 
 struct MyTriangle : Trianglable {
     
+    
     private (set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineCA = MyLine(pointA: MyPoint(), pointB: MyPoint())
@@ -17,6 +18,11 @@ struct MyTriangle : Trianglable {
     var shapeInformation: Double {
         get {
             return (1/2 * lineBC.shapeInformation * lineCA.shapeInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero) 
+        }
+    }
+    var mentionOfShapeInformation: String {
+        get {
+            return "삼각형의 넓이는 \(shapeInformation)"
         }
     }
     
