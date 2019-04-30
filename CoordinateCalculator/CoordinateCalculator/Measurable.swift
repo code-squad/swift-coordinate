@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum ShapeStateText: String {
+enum ShapeStatePhrase: String {
     case line = "두 점 사이 거리는 "
     case triangle = "삼각형 넓이는 "
 }
 
 protocol Measurable {
-    var shapeState: ShapeStateText { get }
+    var shapeState: ShapeStatePhrase { get }
     var measuredValue: Double { get }
 }
