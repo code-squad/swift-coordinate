@@ -9,33 +9,42 @@
 import Foundation
 
 struct MyShapeFactory: ShapeCreatable {
+    
    static func createShape(pointList: [Pair]) throws -> Shapable {
         switch pointList.count {
         case 1:
             let myShape: Shapable = MyPoint.init(pointList: pointList)
             return myShape
-            
         case 2:
-            let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
-            let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
-            guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint else{
-                throw ErrorCode.ShapeCreationError
-            }
-            let myShape: Shapable = MyLine.init(pointA: myPointA, pointB: myPointB)
+            let myShape: Shapable = try createLine(pointList)
             return myShape
-            
         case 3:
-            let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
-            let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
-            let pointC : Shapable = MyPoint.init(pointList: [pointList[2]])
-            guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint,
-                  let myPointC = pointC as? MyPoint else{
-                throw ErrorCode.ShapeCreationError
-            }
-            let myShape: Shapable = MyTriangle.init(pointA: myPointA, pointB: myPointB, pointC: myPointC)
+            let myShape: Shapable = try createTriangle(pointList)
             return myShape
         default:
             throw ErrorCode.ShapeCreationError
         }
+    }
+    
+    static private func createLine(_ pointList : [Pair]) throws -> Shapable {
+        let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
+        let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
+        guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint else{
+            throw ErrorCode.ShapeCreationError
+        }
+        let myShape: Linable = MyLine.init(pointA: myPointA, pointB: myPointB)
+        return myShape
+    }
+    
+    static private func createTriangle(_ pointList : [Pair]) throws -> Shapable {
+        let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
+        let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
+        let pointC : Shapable = MyPoint.init(pointList: [pointList[2]])
+        guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint,
+            let myPointC = pointC as? MyPoint else{
+                throw ErrorCode.ShapeCreationError
+        }
+        let myShape: Trianglable = MyTriangle.init(pointA: myPointA, pointB: myPointB, pointC: myPointC)
+        return myShape
     }
 }
