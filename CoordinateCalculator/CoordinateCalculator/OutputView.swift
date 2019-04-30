@@ -24,12 +24,18 @@ struct OutputView {
     }
     
     static func displayShapeInformation(_ myShape: Shapable){
-        guard myShape is Linable else {
-           return
+        if myShape is Linable {
+            let myLinable = myShape as! Linable
+            let shapeInformation = myLinable.myLineInformation
+            let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance( shapeInformation))\(ANSICode.text.whiteBright)"
+            print (result)
         }
-        let myLinable = myShape as! Linable
-        let shapeInformation = myLinable.myLineInformation
-        let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance(shapeInformation))\(ANSICode.text.whiteBright)"
-        print (result)
+        if myShape is Trianglable {
+            let myTrianglable = myShape as! Trianglable
+            let shapeInformation = myTrianglable.myTriangleAreaInformation
+            let result = "\(ANSICode.text.blueBright)\(ANSICode.triangle.displayArea( shapeInformation))\(ANSICode.text.whiteBright)"
+            print (result)
+        }
+        return
     }
 }

@@ -16,6 +16,8 @@
 		C57D23882272FC0E0087B84E /* MyShapeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D23872272FC0E0087B84E /* MyShapeFactory.swift */; };
 		C57D238A2273EF780087B84E /* Linable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D23892273EF780087B84E /* Linable.swift */; };
 		C57D238C2276E5AA0087B84E /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D238B2276E5AA0087B84E /* ErrorCode.swift */; };
+		C57D238E2276EF8E0087B84E /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D238D2276EF8E0087B84E /* MyTriangle.swift */; };
+		C57D23902276EFA20087B84E /* Trianglable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D238F2276EFA20087B84E /* Trianglable.swift */; };
 		C5DBF31A226D96150005B064 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF319226D96150005B064 /* OutputView.swift */; };
 		C5DBF31E226DBC3E0005B064 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF31D226DBC3E0005B064 /* InputView.swift */; };
 		C5DBF320226EE4D00005B064 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DBF31F226EE4D00005B064 /* MyPoint.swift */; };
@@ -44,6 +46,8 @@
 		C57D23872272FC0E0087B84E /* MyShapeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShapeFactory.swift; sourceTree = "<group>"; };
 		C57D23892273EF780087B84E /* Linable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linable.swift; sourceTree = "<group>"; };
 		C57D238B2276E5AA0087B84E /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		C57D238D2276EF8E0087B84E /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		C57D238F2276EFA20087B84E /* Trianglable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trianglable.swift; sourceTree = "<group>"; };
 		C5DBF319226D96150005B064 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C5DBF31D226DBC3E0005B064 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C5DBF31F226EE4D00005B064 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -84,11 +88,13 @@
 				C57D236F2271693F0087B84E /* InputRefinary.swift */,
 				C5DBF31D226DBC3E0005B064 /* InputView.swift */,
 				C57D23892273EF780087B84E /* Linable.swift */,
+				C57D238F2276EFA20087B84E /* Trianglable.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				C57D237B227187FB0087B84E /* MyLine.swift */,
 				C5DBF31F226EE4D00005B064 /* MyPoint.swift */,
 				C57D23872272FC0E0087B84E /* MyShapeFactory.swift */,
 				C5DBF319226D96150005B064 /* OutputView.swift */,
+				C57D238D2276EF8E0087B84E /* MyTriangle.swift */,
 				C57D23832272EEE90087B84E /* Shapable.swift */,
 				C57D23852272EFA70087B84E /* ShapeCreatable.swift */,
 			);
@@ -154,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5DBF320226EE4D00005B064 /* MyPoint.swift in Sources */,
+				C57D23902276EFA20087B84E /* Trianglable.swift in Sources */,
+				C57D238E2276EF8E0087B84E /* MyTriangle.swift in Sources */,
 				C57D238A2273EF780087B84E /* Linable.swift in Sources */,
 				C57D237C227187FB0087B84E /* MyLine.swift in Sources */,
 				C57D23882272FC0E0087B84E /* MyShapeFactory.swift in Sources */,
