@@ -17,7 +17,7 @@ func main(){
         let inputText = input.readInput()
         let distinctInput = input.distinctContain(inputLocation: inputText)
         let inputLocation = distinct.splitLocation(inputTexts: distinctInput)
-        if distinctInput != "" {
+        guard let Input : String = distinctInput, Input.count == 0 else{
             do {
                 figure = try distinct.callDependingCoordinates(locationCount: inputLocation.locationCount, dividedLocations: inputLocation.dividedLocations)
                 break
@@ -26,6 +26,7 @@ func main(){
             } catch {
                 print("알수없는 에러입니다.")
             }
+            return
         }
     }
     output.drawAxis()
