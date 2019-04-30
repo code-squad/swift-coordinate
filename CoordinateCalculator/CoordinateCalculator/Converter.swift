@@ -15,9 +15,19 @@ struct Converter {
             return try convertPoint(coordinatesText: coordinatesText[0])
         case 2:
             return try convertLine(coordinatesTexts: coordinatesText)
+        case 3:
+            return try convertTriangle(coordinatesTexts: coordinatesText)
         default:
             throw InputError.invalidInput
         }
+    }
+    
+    private static func convertTriangle(coordinatesTexts: [String]) throws -> MyTriangle {
+        let pointA = try convertPoint(coordinatesText: coordinatesTexts[0])
+        let pointB = try convertPoint(coordinatesText: coordinatesTexts[1])
+        let pointC = try convertPoint(coordinatesText: coordinatesTexts[2])
+        
+        return MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC)
     }
     
     private static func convertLine(coordinatesTexts: [String]) throws -> MyLine {
