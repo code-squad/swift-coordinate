@@ -9,8 +9,6 @@
 import Foundation
 
 struct OutputView {
-    static private let descriptionForLineLength = "두 점 사이 거리는 "
-    
     static public func draw(_ figure: AxisDrawable) {
         drawAxis()
         drawYellowDot(using: figure)
