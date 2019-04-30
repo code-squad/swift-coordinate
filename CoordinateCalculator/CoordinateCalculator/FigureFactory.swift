@@ -16,7 +16,7 @@ struct FigureFactory {
         case 2:
             return MyLine(pairA: pairs[0], pairB: pairs[1])
         default:
-            throw CoordinateError.invalidInputFormat
+            throw FactoryError.impossibleToCreateInstance
         }
     }
 }

@@ -15,14 +15,14 @@ while true {
         let pairs = try Parser.parse(using: input)
         let convertedPairs = try Converter.convert(pairs)
         if CoordinateValidator.isOutOfAxis(using: convertedPairs) {
-            throw CoordinateError.outOfAxisRange
+            throw AxisError.outOfAxisRange
         }
         figure = try FigureFactory.makeFigure(pairs: convertedPairs)
-    } catch let e as CoordinateError {
-        print(e.rawValue)
+    } catch let e as AxisError {
+        print(e.message)
         continue
-    } catch {
-        print("Other Unexpected Error")
+    } catch let e as CoordinateError {
+        print(e.message)
         break
     }
     

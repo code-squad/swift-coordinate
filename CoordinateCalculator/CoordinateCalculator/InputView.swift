@@ -15,7 +15,7 @@ struct InputView {
     static public func readInput() throws -> String {
         print(question)
         guard let input = readLine(), CoordinateValidator.isValidInputFormat(input) else {
-            throw CoordinateError.invalidInputFormat
+            throw InputFormatError.invalidFormat
         }
         return input
     }
@@ -26,10 +26,10 @@ struct Parser {
         let blankRemovedInput = removeBlank(in: input)
         let pairs = divideIntoPairs(from: blankRemovedInput)
         guard let pairsWithoutParenthesis = unwrapParenthesis(of: pairs) else {
-            throw CoordinateError.impossibleToParse
+            throw InputFormatError.invalidParenthesis
         }
         guard let pairsWithoutComma = divideByComma(from: pairsWithoutParenthesis) else {
-            throw CoordinateError.impossibleToParse
+            throw InputFormatError.impossibleTodivideByComma
         }
         return pairsWithoutComma
     }
@@ -72,7 +72,7 @@ struct Converter {
         var convertedPairs = [Pair]()
         for pair in pairs {
             guard let convertedX = Int(pair.x), let convertedY = Int(pair.y) else {
-                throw CoordinateError.impossibleToConvert
+                throw ConverterError.impossibleToConvert
             }
             
             convertedPairs.append((convertedX, convertedY))
