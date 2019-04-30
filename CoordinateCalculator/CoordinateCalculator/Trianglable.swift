@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol Trianglable : Shapable{
-    var myTriangleAreaInformation : Double {get}
+protocol Trianglable : TwoDimensionable{
 }
 
