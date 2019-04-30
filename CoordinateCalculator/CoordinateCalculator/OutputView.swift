@@ -23,19 +23,22 @@ struct OutputView {
         print (result)
     }
     
-    static func displayShapeInformation(_ myShape: Shapable){
-        if myShape is Linable {
+    static func displayShapeInformation(_ myShape: Shapable) throws {
+        switch myShape {
+        case is Linable :
             let myLinable = myShape as! Linable
             let shapeInformation = myLinable.myLineInformation
             let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance( shapeInformation))\(ANSICode.text.whiteBright)"
             print (result)
-        }
-        if myShape is Trianglable {
+            
+        case is Trianglable :
             let myTrianglable = myShape as! Trianglable
             let shapeInformation = myTrianglable.myTriangleAreaInformation
             let result = "\(ANSICode.text.blueBright)\(ANSICode.triangle.displayArea( shapeInformation))\(ANSICode.text.whiteBright)"
             print (result)
+
+        default :
+            throw ErrorCode.NoDistinctShapeInformationError
         }
-        return
     }
 }
