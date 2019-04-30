@@ -25,7 +25,7 @@ let main = {
     let myShape = try MyShapeFactory.createShape(pointList: pointList)
     OutputView.drawAxis()
     OutputView.drawShape(myShape)
-    try OutputView.displayShapeInformation(myShape)
+    OutputView.displayShapeInformation(myShape)
 }
 
 try main()

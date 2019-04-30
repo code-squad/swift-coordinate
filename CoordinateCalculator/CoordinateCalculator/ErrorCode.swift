@@ -17,7 +17,6 @@ enum ErrorCode : Error, CustomStringConvertible {
     case Unknown
     case InvalidCharacter
     case ShapeCreationError
-    case NoDistinctShapeInformationError
     var description: String{
         get {
             switch self {
@@ -35,8 +34,6 @@ enum ErrorCode : Error, CustomStringConvertible {
                 return "Split Coordinator X From Y Error"
             case .ShapeCreationError:
                 return "Shape Creation Error"
-            case .NoDistinctShapeInformationError:
-                return "Not A Distinct Shape Error"
             case .Unknown:
                 return "Unknown Error"
             }
