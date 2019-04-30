@@ -10,6 +10,7 @@ import Foundation
 
 enum MeasurableUnit: String {
     case line = "두 점 사이 거리는 "
+    case triangle = "삼각형 넓이는 "
 }
 
 protocol Measurable {
