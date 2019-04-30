@@ -69,21 +69,14 @@ public struct ANSICode {
     static private let XAxisBase = 2
     static private let YColumnBase = 3
     
-    struct line {
-        static func displayDistance(_ distance: Double) -> String {
+    struct shape {
+        static func displayShapeInformation(_ shapeInformation: String) -> String {
             var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
-            result += "두 점 사이의 거리는 \(distance)"
+            result += shapeInformation
             return result
         }
     }
     
-    struct triangle{
-        static func displayArea(_ area: Double) -> String {
-            var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
-            result += "삼각형의 넓이는 \(area)"
-            return result
-        }
-    }
     
     struct point {
         static func drawPoint(_ myPoint: MyPoint) -> String {
