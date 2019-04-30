@@ -19,7 +19,7 @@ struct MyLine: Drawable, Measurable {
         return sqrt(x + y)
     }
     
-    var shapeState: ShapeStateText {
+    var shapeState: ShapeStatePhrase {
         return .line
     }
     

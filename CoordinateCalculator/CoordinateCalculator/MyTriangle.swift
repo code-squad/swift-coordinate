@@ -21,7 +21,7 @@ struct MyTriangle: Drawable, Measurable {
         return [pointA, pointB, pointC]
     }
     
-    var shapeState: ShapeStateText {
+    var shapeState: ShapeStatePhrase {
         return .triangle
     }
     
