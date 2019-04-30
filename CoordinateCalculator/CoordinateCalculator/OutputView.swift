@@ -23,7 +23,7 @@ struct OutputView {
         print (result)
     }
     
-    static func displayShapeInformation(_ myShape: Shapable) throws {
+    static func displayShapeInformation(_ myShape: Shapable) {
         switch myShape {
         case is Linable :
             let myLinable = myShape as! Linable
@@ -38,7 +38,7 @@ struct OutputView {
             print (result)
 
         default :
-            throw ErrorCode.NoDistinctShapeInformationError
+            break
         }
     }
 }
