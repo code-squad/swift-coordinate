@@ -35,11 +35,6 @@ struct MyLine : Linable {
         return pointList
     }
     
-    init(pointList: [Pair]) {
-        pointA = MyPoint(x: pointList[0].x, y: pointList[0].y)
-        pointB = MyPoint(x: pointList[1].x, y: pointList[1].y)
-    }
-    
     init(pointA : MyPoint, pointB : MyPoint){
         self.pointA = pointA
         self.pointB = pointB
