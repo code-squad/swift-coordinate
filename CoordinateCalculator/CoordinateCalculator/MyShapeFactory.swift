@@ -12,10 +12,25 @@ struct MyShapeFactory: ShapeCreatable {
    static func createShape(pointList: [Pair]) throws -> Shapable {
         switch pointList.count {
         case 1:
-            let myShape: Shapable = try MyPoint.init(pointList: pointList)
+            let myShape: Shapable = MyPoint.init(pointList: pointList)
             return myShape
         case 2:
-            let myShape: Shapable = try MyLine.init(pointList: pointList)
+            let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
+            let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
+            guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint else{
+                throw ErrorCode.ShapeCreationError
+            }
+            let myShape: Shapable = MyLine.init(pointA: myPointA, pointB: myPointB)
+            return myShape
+        case 3:
+            let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
+            let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
+            let pointC : Shapable = MyPoint.init(pointList: [pointList[2]])
+            guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint,
+                                                    let myPointC = pointC as? MyPoint else{
+                throw ErrorCode.ShapeCreationError
+            }
+            let myShape: Shapable = MyTriangle.init(pointA: myPointA, pointB: myPointB, pointC: myPointC)
             return myShape
         default:
             throw ErrorCode.ShapeCreationError

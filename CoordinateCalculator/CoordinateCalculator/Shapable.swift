@@ -12,3 +12,4 @@ protocol Shapable {
     func getDrawablePointList() -> [MyPoint]
 }
 
+
