@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle : Figure {
+struct MyTriangle : Figure, Guide {
     private(set) var lineAB = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
     private(set) var lineBC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
     private(set) var lineAC = MyLine(startPoint: MyPoint(x: 0, y: 0), endPoint: MyPoint(x: 0, y: 0))
@@ -31,12 +31,16 @@ struct MyTriangle : Figure {
         return round(betweenArea * 100) / 100
     }
     
-    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint], guideMent : Double) {
+    func distinctIndex() -> (locationIndex: Int, myPoints: [MyPoint]) {
         var trianglePoints : [MyPoint] = []
         trianglePoints.append(lineAB.startPoint)
         trianglePoints.append(lineAB.endPoint)
         trianglePoints.append(lineAC.endPoint)
-        let guideMent = areaCalculator(lineAB: lineAB, lineBC: lineBC, lineAC: lineAC)
-        return (trianglePoints.count, trianglePoints, guideMent)
+        return (trianglePoints.count, trianglePoints)
+    }
+    
+    func guidePrint() -> (ment: String, value: Double) {
+        let guideMent = (ment: "세 점사이의 넓이는", value: areaCalculator(lineAB: lineAB, lineBC: lineBC, lineAC: lineAC))
+        return (guideMent.ment, guideMent.value)
     }
 }

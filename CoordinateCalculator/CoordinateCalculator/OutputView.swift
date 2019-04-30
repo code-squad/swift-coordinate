@@ -20,7 +20,9 @@ struct OutputView{
             print("\(ANSICode.text.whiteBright)\(ANSICode.cursor.move(row: 25-myPoint.y, col: (myPoint.x*2)+2))*")
         }
         print("\(ANSICode.cursor.move(row: 27, col: 25))")
-        if figure.distinctIndex().locationIndex == 2 { print("두점을 잇는 직선의 길이는 \(figure.distinctIndex().guideMent)입니다") }
-        else if figure.distinctIndex().locationIndex > 2 { print("\(figure.distinctIndex().locationIndex)점을 잇는 도형의 넓이는 \(figure.distinctIndex().guideMent)입니다") }
+    }
+    
+    func printGuide(guide: Guide){
+        print("\(guide.guidePrint().ment) \(guide.guidePrint().value)")
     }
 }
