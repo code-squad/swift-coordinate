@@ -14,9 +14,9 @@ struct MyTriangle : Trianglable {
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineCA = MyLine(pointA: MyPoint(), pointB: MyPoint())
 
-    var myTriangleAreaInformation: Double {
+    var shapeInformation: Double {
         get {
-            return (1/2 * lineBC.myLineInformation * lineCA.myLineInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero) 
+            return (1/2 * lineBC.shapeInformation * lineCA.shapeInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero) 
         }
     }
     
@@ -27,9 +27,9 @@ struct MyTriangle : Trianglable {
     }
     
     private func getMyCosineThetaC() -> Double{
-        let distanceA = lineBC.myLineInformation
-        let distanceC = lineAB.myLineInformation
-        let distanceB = lineCA.myLineInformation
+        let distanceA = lineBC.shapeInformation
+        let distanceC = lineAB.shapeInformation
+        let distanceB = lineCA.shapeInformation
         var cosineThetaC: Double = (distanceA * distanceA)
             + (distanceB * distanceB)
             - (distanceC * distanceC)

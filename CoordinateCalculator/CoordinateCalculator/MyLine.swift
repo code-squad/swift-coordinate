@@ -11,8 +11,7 @@ import Foundation
 struct MyLine : Linable {
     private (set) var pointA: MyPoint = MyPoint()
     private (set) var pointB: MyPoint = MyPoint()
-    
-    var myLineInformation : Double {
+    var shapeInformation : Double {
         get{
             let xDistance = pointA.x - pointB.x
             let yDistance = pointA.y - pointB.y

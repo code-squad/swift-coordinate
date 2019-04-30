@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol Linable: Shapable {
-    var myLineInformation : Double {get}
+protocol Linable: TwoDimensionable {
 }
 

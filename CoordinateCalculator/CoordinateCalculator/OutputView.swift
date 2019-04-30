@@ -38,15 +38,16 @@ struct OutputView {
     
     static private func displayLineInformation(_ myShape: Shapable) -> String{
         let myLinable = myShape as! Linable
-        let shapeInformation = myLinable.myLineInformation
+        let shapeInformation = myLinable.shapeInformation
         let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance( shapeInformation))\(ANSICode.text.whiteBright)"
         return result
     }
     
     static private func displayTriangleInformation(_ myShape: Shapable) -> String {
         let myTrianglable = myShape as! Trianglable
-        let shapeInformation = myTrianglable.myTriangleAreaInformation
+        let shapeInformation = myTrianglable.shapeInformation
         let result = "\(ANSICode.text.blueBright)\(ANSICode.triangle.displayArea( shapeInformation))\(ANSICode.text.whiteBright)"
         return result
     }
+    
 }
