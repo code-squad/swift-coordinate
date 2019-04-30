@@ -26,19 +26,27 @@ struct OutputView {
     static func displayShapeInformation(_ myShape: Shapable) {
         switch myShape {
         case is Linable :
-            let myLinable = myShape as! Linable
-            let shapeInformation = myLinable.myLineInformation
-            let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance( shapeInformation))\(ANSICode.text.whiteBright)"
+            let result = displayLineInformation(myShape)
             print (result)
-            
         case is Trianglable :
-            let myTrianglable = myShape as! Trianglable
-            let shapeInformation = myTrianglable.myTriangleAreaInformation
-            let result = "\(ANSICode.text.blueBright)\(ANSICode.triangle.displayArea( shapeInformation))\(ANSICode.text.whiteBright)"
+            let result = displayTriangleInformation(myShape)
             print (result)
-
         default :
             break
         }
+    }
+    
+    static private func displayLineInformation(_ myShape: Shapable) -> String{
+        let myLinable = myShape as! Linable
+        let shapeInformation = myLinable.myLineInformation
+        let result = "\(ANSICode.text.blueBright)\(ANSICode.line.displayDistance( shapeInformation))\(ANSICode.text.whiteBright)"
+        return result
+    }
+    
+    static private func displayTriangleInformation(_ myShape: Shapable) -> String {
+        let myTrianglable = myShape as! Trianglable
+        let shapeInformation = myTrianglable.myTriangleAreaInformation
+        let result = "\(ANSICode.text.blueBright)\(ANSICode.triangle.displayArea( shapeInformation))\(ANSICode.text.whiteBright)"
+        return result
     }
 }
