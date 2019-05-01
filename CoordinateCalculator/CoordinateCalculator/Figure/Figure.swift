@@ -9,11 +9,18 @@
 import Foundation
 
 enum FigureType : Int{
-    static let separator = "-"
+    case none = 0
     case point = 1
     case line
+    case triangle
 }
 
 protocol Figure{
-    var type:FigureType{ get }
+    func getPoints()->[MyPoint]
 }
+extension Figure{
+    var type:FigureType{
+        return FigureType.init(rawValue:getPoints().count) ?? .none
+    }
+}
+
