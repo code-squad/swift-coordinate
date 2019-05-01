@@ -9,7 +9,9 @@
 import Foundation
 
 struct MyPoint : Figure{
-   
+    
+    var description: String { return ""}
+    
     private(set) var x = 0
     private(set) var y = 0
     

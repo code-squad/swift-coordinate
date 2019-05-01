@@ -9,7 +9,13 @@
 import Foundation
 
 struct MyTriangle : Figure{
-   
+
+     var description: String { return "삼각형의 넓이는  \(10)"}
+    
+    var widthOfTriange: Double {
+        return 30
+    }
+    
     private(set) var lineAB :MyLine
     private(set) var lineBC :MyLine
     private(set) var lineAC :MyLine
