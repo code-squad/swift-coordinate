@@ -9,7 +9,7 @@
 import Foundation
 
 struct MyLine : Figure{
-    private(set) var type: FigureType = .line
+ 
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     var distanceOfPoints: Double {
@@ -22,6 +22,11 @@ struct MyLine : Figure{
         self.pointA = pointA
         self.pointB = pointB
     }
+    
+    func getPoints() -> [MyPoint] {
+        return [pointA,pointB]
+    }
+    
     
 }
 

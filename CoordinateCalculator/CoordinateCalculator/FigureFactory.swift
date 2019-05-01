@@ -12,10 +12,16 @@ struct FigureFactory{
     
      func createFigure(type:FigureType,points:[PointTuple]) throws ->Figure{
         switch type {
+        case .none:
+            throw Exception.ErrorType.wrongFormat
         case .point:
             return  MyPoint.init(points[0])
         case .line :
             return MyLine.init( MyPoint(points[0]),  MyPoint(points[1]))
+        case .triangle:
+            
+            return MyTriangle.init(lineAB: <#T##MyLine#>, lineBC: <#T##MyLine#>, lineAC: <#T##MyLine#>)
+            
         }
     }
 }

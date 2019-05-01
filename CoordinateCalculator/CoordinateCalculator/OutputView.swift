@@ -33,18 +33,11 @@ struct OutputView{
         self.draw(point:line.pointB)
         print("두 점사이의 거리는\(line.distanceOfPoints)")
     }
-    
-    func draw(){
+    private func draw( _ figure : Figure ) {
         drawAxis()
-        switch target.type {
-        case .point:
-            guard let point = target as? MyPoint else { return }
-            draw(point:point)
-        case .line:
-            guard let line = target as? MyLine else { return }
-            draw(line:line)
+        _ = figure.getPoints().map{
+            point in
+            draw(point: point)
         }
     }
-    
-    
 }
