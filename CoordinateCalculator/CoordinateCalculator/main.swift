@@ -17,7 +17,7 @@ func main(){
             let coordinateProcesser = CoordinateProcesser()
             let figure = try coordinateProcesser.convertToFigure(answer:answer)
             let outputView = OutputView.init(figure)
-            outputView.draw()
+            outputView.draw(figure)
             isError = false
         }catch let error as Exception.ErrorType {
             print(error)

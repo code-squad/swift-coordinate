@@ -9,6 +9,7 @@
 import Foundation
 
 extension String{
+    
     func stringToInt() throws -> Int{
         guard let intValue = Int(self) else {
             throw Exception.ErrorType.wrongFormat

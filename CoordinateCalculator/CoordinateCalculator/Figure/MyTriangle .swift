@@ -10,17 +10,22 @@ import Foundation
 
 struct MyTriangle : Figure{
 
-     var description: String { return "삼각형의 넓이는  \(10)"}
+     var description: String { return "삼각형의 넓이는  \(widthOfTriangle)"}
     
-    var widthOfTriange: Double {
+    var widthOfTriangle: Double {
+        
         return 30
+    }
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+        lineAB = MyLine.init(pointA, pointB)
+        lineBC = MyLine.init(pointB, pointC)
+        lineAC = MyLine.init(pointA, pointC)
     }
     
     private(set) var lineAB :MyLine
     private(set) var lineBC :MyLine
     private(set) var lineAC :MyLine
     
-    // 로직 구현
     func getPoints() -> [MyPoint] {
         var points = [MyPoint]()
         points.append(contentsOf: lineAB.getPoints())
