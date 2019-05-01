@@ -10,11 +10,28 @@ import Foundation
 
 struct MyTriangle : Figure{
 
-     var description: String { return "삼각형의 넓이는  \(widthOfTriangle)"}
+    var description: String { return "삼각형의 넓이는  \(widthOfTriangle)"}
+    
+    var heightOfTriangle:Double{
+        let lengthA = lineBC.distanceOfPoints
+        let lengthB = lineAC.distanceOfPoints
+        let lengthC = lineAB.distanceOfPoints
+        
+        let cosB = pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2) / 2*lengthA*lengthC
+        
+        return lengthC / cosB
+    }
     
     var widthOfTriangle: Double {
-        
-        return 30
+        let a = lineBC.distanceOfPoints
+        let b = lineAC.distanceOfPoints
+        let c = lineAB.distanceOfPoints
+        let a2 = pow(a, 2)
+        let b2 = pow(b, 2)
+        let c2 = pow(c, 2)
+        let cosB = (a2 + c2 - b2 ) / (a*c*2)
+        let sinB = sqrt(1 - pow(cosB,2))
+        return a*c*sinB/2
     }
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         lineAB = MyLine.init(pointA, pointB)
