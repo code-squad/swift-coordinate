@@ -10,6 +10,8 @@ import Foundation
 
 struct MyLine : Figure{
  
+    var description: String { return "두 점 사이의 거리는 \(distanceOfPoints)"}
+    
     private(set) var pointA : MyPoint
     private(set) var pointB : MyPoint
     var distanceOfPoints: Double {

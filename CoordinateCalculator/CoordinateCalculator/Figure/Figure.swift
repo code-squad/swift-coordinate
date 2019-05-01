@@ -15,7 +15,8 @@ enum FigureType : Int{
     case triangle
 }
 
-protocol Figure{
+protocol Figure:CustomStringConvertible{
+    var description : String { get }
     func getPoints()->[MyPoint]
 }
 extension Figure{
