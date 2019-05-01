@@ -27,7 +27,7 @@ struct Answer{
     }
     
     public func getFormat() throws -> FigureType{
-        let points = self.contents.components(separatedBy:FigureType.separator )
+        let points = self.contents.components(separatedBy:separator )
         let varifiedPoints = getVerifiedPoints(points: points)
         guard let coordinateFormat = FigureType.init(rawValue: points.count),varifiedPoints.count == points.count else {
             throw Exception.ErrorType.wrongFormat

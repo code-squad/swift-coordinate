@@ -17,6 +17,8 @@
 		0E1908772273223000659B34 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BBB22731EAE00F9651E /* MyLine.swift */; };
 		0E29F5262274BBD5008AC76E /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29F5252274BBD5008AC76E /* Figure.swift */; };
 		0E29F5272274C9CE008AC76E /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29F5252274BBD5008AC76E /* Figure.swift */; };
+		0E5C44122278452200184984 /* MyTriangle .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5C44112278452200184984 /* MyTriangle .swift */; };
+		0E5C44132278452600184984 /* MyTriangle .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5C44112278452200184984 /* MyTriangle .swift */; };
 		0E5D9B2F227747F700D09038 /* FigureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D9B2E227747F700D09038 /* FigureFactory.swift */; };
 		0E5D9B312277700300D09038 /* CoordinateProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D9B302277700300D09038 /* CoordinateProcesser.swift */; };
 		0E5D9B322277766200D09038 /* CoordinateProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D9B302277700300D09038 /* CoordinateProcesser.swift */; };
@@ -48,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0E29F5252274BBD5008AC76E /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		0E5C44112278452200184984 /* MyTriangle .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyTriangle .swift"; sourceTree = "<group>"; };
 		0E5D9B2E227747F700D09038 /* FigureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureFactory.swift; sourceTree = "<group>"; };
 		0E5D9B302277700300D09038 /* CoordinateProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateProcesser.swift; sourceTree = "<group>"; };
 		0E7A4DC022706CA300F4A126 /* CoordinateCalculaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinateCalculaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,7 @@
 				0ECE2BB12273048E00F9651E /* MyPoint.swift */,
 				0ECE2BBB22731EAE00F9651E /* MyLine.swift */,
 				0E29F5252274BBD5008AC76E /* Figure.swift */,
+				0E5C44112278452200184984 /* MyTriangle .swift */,
 			);
 			path = Figure;
 			sourceTree = "<group>";
@@ -239,6 +243,7 @@
 				0E7A4DC822706CAE00F4A126 /* ANSICode.swift in Sources */,
 				0E1908702273221900659B34 /* MyPoint.swift in Sources */,
 				0E1908712273221B00659B34 /* Answer.swift in Sources */,
+				0E5C44132278452600184984 /* MyTriangle .swift in Sources */,
 				0E1908762273222B00659B34 /* OutputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +255,7 @@
 				0ECE2BB62273048E00F9651E /* Exception.swift in Sources */,
 				0ECE2BB92273048E00F9651E /* OutputView.swift in Sources */,
 				0E5D9B312277700300D09038 /* CoordinateProcesser.swift in Sources */,
+				0E5C44122278452200184984 /* MyTriangle .swift in Sources */,
 				0ECE2BB42273048E00F9651E /* main.swift in Sources */,
 				0ECE2BB82273048E00F9651E /* MyPoint.swift in Sources */,
 				0E5D9B2F227747F700D09038 /* FigureFactory.swift in Sources */,
