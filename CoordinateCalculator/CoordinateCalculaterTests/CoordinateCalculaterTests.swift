@@ -77,7 +77,7 @@ class CoordinateCalculaterTests: XCTestCase {
         guard let triangle = (try factory.createFigure(type: .triangle, points: points)) as? MyTriangle else {return}
         
         //Then
-        XCTAssertEqual(triangle.widthOfTriange, 29)
+        XCTAssertEqual(triangle.widthOfTriangle, 29)
     }
     
 }

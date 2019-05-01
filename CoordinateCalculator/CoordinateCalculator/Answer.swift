@@ -18,7 +18,7 @@ struct Answer{
         self.contents = contents
     }
     
-    public func isCoordinateFormat() ->(Bool){
+    public func isCoordinateFormat() -> (Bool){
         guard let regex = try? NSRegularExpression.init(pattern: "\\([0-9]+,[0-9]+\\)", options: []) else {
             return false
         }
@@ -35,7 +35,7 @@ struct Answer{
         return coordinateFormat
     }
     
-    public func getPointTuples() throws ->[PointTuple]{
+    public func getPointTuples() throws -> [PointTuple]{
         let points = self.contents.components(separatedBy:self.separator )
         let varifiedPoints = getVerifiedPoints(points: points)
         let pointTuples = try varifiedPoints.map{
@@ -55,7 +55,7 @@ struct Answer{
         return (try x.stringToInt(), try y.stringToInt())
     }
     
-    private func getVerifiedPoints(points:[String])->[String]{
+    private func getVerifiedPoints(points:[String]) -> [String]{
         let varifiedPoints = points.filter{
             return Answer.init($0).isCoordinateFormat()
         }

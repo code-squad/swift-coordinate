@@ -24,5 +24,4 @@ struct MyPoint : Figure{
         return [self]
     }
     
-    
 }

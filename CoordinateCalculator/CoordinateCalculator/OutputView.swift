@@ -27,6 +27,7 @@ struct OutputView{
         print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
         ANSICode.moveCurser()
     }
+    
     func draw( _ figure : Figure ) {
         drawAxis()
         _ = figure.getPoints().map{
