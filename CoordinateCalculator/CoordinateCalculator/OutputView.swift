@@ -27,17 +27,12 @@ struct OutputView{
         print("\(ANSICode.cursor.move(row:row , col: col ))\(color)\(ANSICode.dot)")
         ANSICode.moveCurser()
     }
-    
-    private func draw(line:MyLine){
-        self.draw(point:line.pointA)
-        self.draw(point:line.pointB)
-        print("두 점사이의 거리는\(line.distanceOfPoints)")
-    }
-    private func draw( _ figure : Figure ) {
+    func draw( _ figure : Figure ) {
         drawAxis()
         _ = figure.getPoints().map{
             point in
             draw(point: point)
         }
+        print(figure)
     }
 }
