@@ -9,6 +9,10 @@
 import XCTest
 
 class CoordinateCalculaterTests: XCTestCase {
+    var factory : FigureFactory!
+    override func setUp() {
+         factory = FigureFactory()
+    }
     
     func testCheckPointFormat(){
         //Given
@@ -50,14 +54,30 @@ class CoordinateCalculaterTests: XCTestCase {
         XCTAssertThrowsError(try testAnwser2.getFormat(),"()-() 형식이 아니면 에러를 던집니다")
         XCTAssertNoThrow(try testAnwser3.getFormat(),"()-() 형식이 이면 성공합니다")
     }
+    func testCheckTriangleFormat(){
+        //Given
+        let testAnwser = Answer.init("(10,10]-(20,20]-(10,20)")
+        let testAnwser2 = Answer.init("(10,10)-(20,20]-(20,20]")
+        let testAnwser3 = Answer.init("(5,5)-(10,10)-(20,20)")
+        //Then
+        XCTAssertThrowsError(try testAnwser.getFormat(),"()-()-() 형식이 아니면 에러를 던집니다")
+        XCTAssertThrowsError(try testAnwser2.getFormat(),"()-()-() 형식이 아니면 에러를 던집니다")
+        XCTAssertNoThrow(try testAnwser3.getFormat(),"()-()-() 형식이 이면 성공합니다")
+    }
     func testDistanceOfPoints(){
         //Given
         
         let testLine = MyLine.init( MyPoint((10,10)), MyPoint((14,15)))
         //Then
         XCTAssertEqual(testLine.distanceOfPoints, 6.4031242374328485)
+    }
+    func testWidthOfTriangle()throws {
+        //Given
+        let points = [(10,10),(14,15),(20,8)]
+        guard let triangle = (try factory.createFigure(type: .triangle, points: points)) as? MyTriangle else {return}
         
-        
+        //Then
+        XCTAssertEqual(triangle.widthOfTriange, 29)
     }
     
 }
