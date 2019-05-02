@@ -12,8 +12,5 @@ import Foundation
 protocol Figure{
     func getPoints()->[MyPoint]
 }
-protocol Calculable{
-    func getCalculatedValue()->Double
-}
 
 

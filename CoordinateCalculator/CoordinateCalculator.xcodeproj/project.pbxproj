@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E182A05227B6B480028FBE0 /* Calculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E182A04227B6B480028FBE0 /* Calculable.swift */; };
 		0E1908702273221900659B34 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB12273048E00F9651E /* MyPoint.swift */; };
 		0E1908712273221B00659B34 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB32273048E00F9651E /* Answer.swift */; };
 		0E1908722273221E00659B34 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BAF2273048E00F9651E /* Exception.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E182A04227B6B480028FBE0 /* Calculable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculable.swift; sourceTree = "<group>"; };
 		0E29F5252274BBD5008AC76E /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		0E5C44112278452200184984 /* MyTriangle .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyTriangle .swift"; sourceTree = "<group>"; };
 		0E5D9B2E227747F700D09038 /* FigureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureFactory.swift; sourceTree = "<group>"; };
@@ -98,10 +100,11 @@
 		0EC137A22277852B00DAF1C8 /* Figure */ = {
 			isa = PBXGroup;
 			children = (
-				0ECE2BB12273048E00F9651E /* MyPoint.swift */,
 				0ECE2BBB22731EAE00F9651E /* MyLine.swift */,
+				0ECE2BB12273048E00F9651E /* MyPoint.swift */,
 				0E29F5252274BBD5008AC76E /* Figure.swift */,
 				0E5C44112278452200184984 /* MyTriangle .swift */,
+				0E182A04227B6B480028FBE0 /* Calculable.swift */,
 			);
 			path = Figure;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				0E5D9B2F227747F700D09038 /* FigureFactory.swift in Sources */,
 				0ECE2BB52273048E00F9651E /* Extensions.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				0E182A05227B6B480028FBE0 /* Calculable.swift in Sources */,
 				0ECE2BB72273048E00F9651E /* InputView.swift in Sources */,
 				0ECE2BBC22731EAE00F9651E /* MyLine.swift in Sources */,
 				0ECE2BBA2273048E00F9651E /* Answer.swift in Sources */,
