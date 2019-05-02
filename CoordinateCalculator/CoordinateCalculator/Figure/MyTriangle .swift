@@ -10,9 +10,20 @@ import Foundation
 
 struct MyTriangle : Figure{
 
-    var description: String { return "삼각형의 넓이는  \(widthOfTriangle)"}
+    var description: String { return "삼각형의 넓이는  \(areaOfTriangle)"}
     
-    var widthOfTriangle: Double {
+    private let lineAB :MyLine
+    private let lineBC :MyLine
+    private let lineAC :MyLine
+    
+    
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+        self.lineAB = MyLine.init(pointA, pointB)
+        self.lineBC = MyLine.init(pointB, pointC)
+        self.lineAC = MyLine.init(pointA, pointC)
+    }
+    
+    private var areaOfTriangle: Double {
         let a = lineBC.distanceOfPoints
         let b = lineAC.distanceOfPoints
         let c = lineAB.distanceOfPoints
@@ -23,15 +34,6 @@ struct MyTriangle : Figure{
         let sinB = sqrt(1 - pow(cosB,2))
         return a*c*sinB/2
     }
-    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        lineAB = MyLine.init(pointA, pointB)
-        lineBC = MyLine.init(pointB, pointC)
-        lineAC = MyLine.init(pointA, pointC)
-    }
-    
-    private(set) var lineAB :MyLine
-    private(set) var lineBC :MyLine
-    private(set) var lineAC :MyLine
     
     func getPoints() -> [MyPoint] {
         var points = [MyPoint]()
