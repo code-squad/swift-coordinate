@@ -25,7 +25,7 @@ struct OutputView {
     
     static private func drawYellowDot(using figure: AxisDrawable) {
         let yellowDot = ANSICode.text.yellowBright + ANSICode.dot
-        let points = figure.getPoints()
+        let points = figure.points
         for point in points {
             let drawingDirection = getDirectionToDraw(yellowDot, at: point)
             print(drawingDirection)
