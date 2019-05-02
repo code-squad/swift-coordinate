@@ -10,10 +10,15 @@ import Foundation
 
 struct MyPoint: Drawable {
 
-    var x = 0
-    var y = 0
+    let x: Int
+    let y: Int
 
     var points: [MyPoint] {
         return [self]
+    }
+    
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
     }
 }

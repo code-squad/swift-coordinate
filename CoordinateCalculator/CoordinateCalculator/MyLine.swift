@@ -10,8 +10,8 @@ import Foundation
 
 struct MyLine: Drawable {
     
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
+    let pointA: MyPoint
+    let pointB: MyPoint
     
     var points: [MyPoint] {
         return [pointA, pointB]
