@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct MyPoint: AxisDrawable {
-    public private(set) var x: Int = 0
-    public private(set) var y: Int = 0
+struct MyPoint {
+    private(set) var x: Int = 0
+    private(set) var y: Int = 0
     
     init() {
         self.x = 0
@@ -26,10 +26,10 @@ struct MyPoint: AxisDrawable {
         self.x = pair.x
         self.y = pair.y
     }
-    
-    func getPoints() -> [MyPoint] {
+}
+
+extension MyPoint: AxisDrawable {
+    var points: [MyPoint] {
         return [self]
     }
 }
-
-

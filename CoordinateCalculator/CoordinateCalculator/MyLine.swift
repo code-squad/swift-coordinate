@@ -8,13 +8,9 @@
 
 import Foundation
 
-struct MyLine: AxisDrawable, ValueComputable {
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
-    
-    var description: String {
-        return "두 점 사이의 거리는 "
-    }
+struct MyLine {
+    private(set) var pointA = MyPoint(x: 0, y: 0)
+    private(set) var pointB = MyPoint(x: 0, y: 0)
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
@@ -25,9 +21,17 @@ struct MyLine: AxisDrawable, ValueComputable {
         pointA = MyPoint(x: pairA.x, y: pairA.y)
         pointB = MyPoint(x: pairB.x, y: pairB.y)
     }
-    
-    func getPoints() -> [MyPoint] {
+}
+
+extension MyLine: AxisDrawable {
+    var points: [MyPoint] {
         return [pointA, pointB]
+    }
+}
+
+extension MyLine: ValueComputable {
+    var description: String {
+        return "두 점 사이의 거리는 "
     }
     
     func getComputedValue() -> Double {
