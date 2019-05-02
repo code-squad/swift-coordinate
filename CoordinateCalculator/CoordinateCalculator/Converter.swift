@@ -45,12 +45,16 @@ struct Converter {
             numbers.append(try convertStringToInt(numberText: String(numberText)))
         }
         
-        return try MyPoint(x: numbers[0], y: numbers[1])
+        return MyPoint(x: numbers[0], y: numbers[1])
     }
     
     private static func convertStringToInt(numberText: String) throws -> Int {
         guard let number = Int(numberText) else {
             throw InputError.invalidInput
+        }
+        
+        guard 0...24 ~= number else {
+            throw InputError.invalidRange
         }
         
         return number
