@@ -32,6 +32,6 @@ struct CoordinateProcesser {
     
     func convertToFigure(answer:Answer) throws -> Figure{
         try check(answer:answer)
-        return try factory.createFigure(type: answer.getFormat(), points: answer.getPointTuples())
+        return try factory.createFigure(points: answer.getPointTuples())
     } 
 }

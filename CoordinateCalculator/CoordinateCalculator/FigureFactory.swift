@@ -10,17 +10,19 @@ import Foundation
 
 struct FigureFactory{
     
-    func createFigure(type:FigureType,points:[PointTuple]) throws ->Figure{
-        switch type {
-        case .none:
+    func createFigure(points:[PointTuple]) throws ->Figure{
+        var initializer : ([PointTuple])->Figure
+        switch points.count {
+        case 1:
+            initializer = createPoint(points:)
+        case 2:
+            initializer = createLine(points:)
+        case 3:
+            initializer = createTriangle(points:)
+        default:
             throw Exception.ErrorType.wrongFormat
-        case .point:
-            return createPoint(points: points)
-        case .line :
-            return createLine(points: points)
-        case .triangle:
-            return createTriangle(points: points)
         }
+        return initializer(points)
     }
     
     private func createPoint(points:[PointTuple])->MyPoint{
