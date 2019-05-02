@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AxisDrawable {
-    func getPoints() -> [MyPoint]
+    var points: [MyPoint] { get }
 }
 
 protocol ValueComputable {
