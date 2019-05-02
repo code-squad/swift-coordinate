@@ -14,9 +14,16 @@ struct MyTriangle : TwoDimensionable {
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineCA = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var _area: Double = 0
+    
     var shapeInformation: Double {
         get {
             return _area
+        }
+    }
+    
+    var description: String {
+        get{
+            return "삼각형의 넓이는 "
         }
     }
     
