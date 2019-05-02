@@ -41,6 +41,10 @@ extension MyTriangle: ValueComputable {
     }
     
     func getComputedValue() -> Double {
+        return computeArea()
+    }
+    
+    private func computeArea() -> Double {
         let a = lineBC.getComputedValue()
         let b = lineAC.getComputedValue()
         let c = lineAB.getComputedValue()

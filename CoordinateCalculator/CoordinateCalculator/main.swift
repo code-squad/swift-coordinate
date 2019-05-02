@@ -27,7 +27,6 @@ while true {
     }
     
     OutputView.draw(figure)
-
     break
 }
 
