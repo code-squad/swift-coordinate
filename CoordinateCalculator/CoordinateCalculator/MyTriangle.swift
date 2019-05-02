@@ -8,22 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: AxisDrawable, ValueComputable {
-    func getPoints() -> [MyPoint] {
-        var points = lineAB.getPoints()
-        var pointBC = lineBC.getPoints()
-        let pointC = pointBC.remove(at: pointBC.count-1)
-        points.append(pointC)
-        return points
-    }
-    
-    var description: String {
-        return "삼각형의 넓이는 "
-    }
-    
-    func getComputedValue() -> Double {
-        //
-    }
+struct MyTriangle {
     
     var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
@@ -43,3 +28,10 @@ struct MyTriangle: AxisDrawable, ValueComputable {
     }
 }
 
+extension MyTriangle: AxisDrawable {
+    var points: [MyPoint] {
+        var points = lineAB.points
+        points.append(lineAC.pointB)
+        return points
+    }
+}
