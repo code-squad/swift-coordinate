@@ -23,7 +23,7 @@ struct OutputView {
         switch figure {
         case let line as MyLine:
             print("두 점 사이의 거리는", terminator: " ")
-            print(line.calculateDistance())
+            print(line.distance)
         default:
             break
         }

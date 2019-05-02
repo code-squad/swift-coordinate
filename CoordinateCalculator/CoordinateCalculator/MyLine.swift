@@ -17,18 +17,18 @@ struct MyLine: Drawable {
         return [pointA, pointB]
     }
     
+    var distance: Double {
+        let distanceX = pointA.x - pointB.x
+        let distanceY = pointA.y - pointB.y
+        
+        let result = sqrt(Double(distanceX*distanceX + distanceY*distanceY))
+        
+        return result
+    }
+    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }
-    
-    func calculateDistance() -> Double {
-        
-        let distanceX = pointA.x - pointB.x
-        let distanceY = pointA.y - pointB.y
-        
-        let distance = sqrt(Double(distanceX*distanceX + distanceY*distanceY))
-        
-        return distance
-    }
+   
 }
