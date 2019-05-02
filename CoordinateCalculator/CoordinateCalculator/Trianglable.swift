@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Trianglable : TwoDimensionable{
+    mutating func setArea()
 }
 

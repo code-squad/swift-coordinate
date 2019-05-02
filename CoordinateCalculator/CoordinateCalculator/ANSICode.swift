@@ -70,9 +70,15 @@ public struct ANSICode {
     static private let YColumnBase = 3
     
     struct shape {
-        static func displayShapeInformation(_ shapeInformation: String) -> String {
+        static func displayShapeMention(_ mention: String) -> String {
             var result = cursor.move(row: AxisLimit+4, col: YColumnBase)
-            result += shapeInformation
+            result += mention
+            return result
+
+        }
+        static func displayShapeInformation(_ cursorIndex: Int, _ shapeInformation: Double) -> String {
+            var result = cursor.move(row: AxisLimit+4, col: (YColumnBase*3 + cursorIndex))
+            result += String(shapeInformation)
             return result
         }
     }

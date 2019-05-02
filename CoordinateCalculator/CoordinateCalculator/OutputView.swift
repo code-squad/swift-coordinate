@@ -25,7 +25,7 @@ struct OutputView {
     
     static func displayShapeInformation(_ myShape: Shapable) {
         switch myShape {
-        case is TwoDimensionable :
+        case is TwoDimensionable, is Linable:
             let result = displayTwoDimensionalInformation(myShape)
             print (result)
         default :
@@ -34,9 +34,10 @@ struct OutputView {
     }
     
     static private func displayTwoDimensionalInformation(_ myShape: Shapable) -> String{
-        let myLinable = myShape as! TwoDimensionable
-        let mentionOfShapeInformation = myLinable.mentionOfShapeInformation
-        let result = "\(ANSICode.text.blueBright)\(ANSICode.shape.displayShapeInformation(mentionOfShapeInformation))\(ANSICode.text.whiteBright)"
+        let myTwoDimension = myShape as! TwoDimensionable
+        let shapeInformation = myTwoDimension.shapeInformation
+        let mention = myTwoDimension.description
+        let result = "\(ANSICode.text.blueBright)\(ANSICode.shape.displayShapeMention(mention))\(ANSICode.shape.displayShapeInformation(mention.count, shapeInformation))\(ANSICode.text.whiteBright)"
         return result
     }
 }

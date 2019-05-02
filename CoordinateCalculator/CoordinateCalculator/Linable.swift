@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Linable: TwoDimensionable {
+    mutating func setDistance()
 }
 
