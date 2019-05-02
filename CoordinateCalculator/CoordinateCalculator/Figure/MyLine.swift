@@ -12,8 +12,8 @@ struct MyLine : Figure{
  
     var description: String { return "두 점 사이의 거리는 \(distanceOfPoints)"}
     
-    private(set) var pointA : MyPoint
-    private(set) var pointB : MyPoint
+    private let  pointA : MyPoint
+    private let  pointB : MyPoint
     var distanceOfPoints: Double {
         let xd = pow(Double(pointA.x - pointB.x),2)
         let yd = pow(Double(pointA.y - pointB.y),2)
