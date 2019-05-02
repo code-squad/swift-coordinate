@@ -20,6 +20,12 @@ struct MyLine : TwoDimensionable {
         }
     }
     
+    var description: String {
+        get{
+            return "두 점 사이의 거리는 "
+        }
+    }
+    
     private mutating func setDistance(){
         let xDistance = pointA.x - pointB.x
         let yDistance = pointA.y - pointB.y

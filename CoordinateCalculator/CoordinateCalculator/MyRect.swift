@@ -24,6 +24,11 @@ struct MyRect : TwoDimensionable {
             return _area
         }
     }
+    var description: String {
+        get{
+            return "사각형의 넓이는 "
+        }
+    }
     private mutating func setArea(){
         _width = Double(rightBottom.y - leftTop.y)
         _height = Double(leftTop.x - rightBottom.x)
@@ -58,6 +63,4 @@ struct MyRect : TwoDimensionable {
         pointList.append(rightTop)
         return pointList
     }
-    
-    
 }
