@@ -8,13 +8,19 @@
 
 import Foundation
 
-struct MyTriangle {
+struct MyTriangle: Drawable {
     
-    var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private let lineAB: MyLine
+    private let lineBC: MyLine
+    private let lineAC: MyLine
+    
+    var points: [MyPoint] {
+        return lineAB.points + lineBC.points + lineAC.points
+    }
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        //로직 구현
+        self.lineAB = MyLine(pointA: pointA, pointB: pointB)
+        self.lineBC = MyLine(pointA: pointB, pointB: pointC)
+        self.lineAC = MyLine(pointA: pointA, pointB: pointC)
     }
 }
