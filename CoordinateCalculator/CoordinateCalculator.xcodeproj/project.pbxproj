@@ -16,6 +16,7 @@
 		FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABC922699E6200596E60 /* InputView.swift */; };
 		FAA5ABCC22699F0400596E60 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5ABCB22699F0400596E60 /* MyPoint.swift */; };
 		FABB2D4B227599E900DF43F1 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB2D4A227599E900DF43F1 /* Drawable.swift */; };
+		FAF88922227AB46C003D27CC /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF88921227AB46C003D27CC /* MyTriangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		FAA5ABC922699E6200596E60 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FAA5ABCB22699F0400596E60 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		FABB2D4A227599E900DF43F1 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		FAF88921227AB46C003D27CC /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				FAA5ABBF22696FEB00596E60 /* OutputView.swift */,
 				FAA5ABCB22699F0400596E60 /* MyPoint.swift */,
 				FA570A73226EB097002AD9E9 /* MyLine.swift */,
+				FAF88921227AB46C003D27CC /* MyTriangle.swift */,
 				FABB2D4A227599E900DF43F1 /* Drawable.swift */,
 			);
 			path = CoordinateCalculator;
@@ -149,6 +152,7 @@
 				FA6AF105226EFBB400F69B8C /* Converter.swift in Sources */,
 				FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				FAF88922227AB46C003D27CC /* MyTriangle.swift in Sources */,
 				FA570A72226D9029002AD9E9 /* Validator.swift in Sources */,
 				FABB2D4B227599E900DF43F1 /* Drawable.swift in Sources */,
 				FA570A74226EB097002AD9E9 /* MyLine.swift in Sources */,
