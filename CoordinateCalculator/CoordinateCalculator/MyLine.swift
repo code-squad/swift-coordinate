@@ -16,6 +16,11 @@ struct MyLine: AxisDrawable, ValueComputable {
         return "두 점 사이의 거리는 "
     }
     
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
     init(pairA: Pair, pairB: Pair) {
         pointA = MyPoint(x: pairA.x, y: pairA.y)
         pointB = MyPoint(x: pairB.x, y: pairB.y)
