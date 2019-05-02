@@ -35,3 +35,19 @@ extension MyTriangle: AxisDrawable {
         return points
     }
 }
+
+extension MyTriangle: ValueComputable {
+    var description: String {
+        return "삼각형의 넓이는 "
+    }
+    
+    func getComputedValue() -> Double {
+        let a = lineBC.getComputedValue()
+        let b = lineAC.getComputedValue()
+        let c = lineAB.getComputedValue()
+        let cosB = (pow(a, 2)+pow(c, 2)-pow(b, 2)) / 2.0 * a * c
+        let sinB = sqrt(1-pow(cosB, 2))
+        let area = 0.5 * a * c * sinB
+        return area
+    }
+}
