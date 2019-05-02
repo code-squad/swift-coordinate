@@ -26,15 +26,6 @@ struct Answer{
         return result.count == 0 ? false : true
     }
     
-    public func getFormat() throws -> FigureType{
-        let points = self.contents.components(separatedBy:self.separator )
-        let varifiedPoints = getVerifiedPoints(points: points)
-        guard let coordinateFormat = FigureType.init(rawValue: points.count),varifiedPoints.count == points.count else {
-            throw Exception.ErrorType.wrongFormat
-        }
-        return coordinateFormat
-    }
-    
     public func getPointTuples() throws -> [PointTuple]{
         let points = self.contents.components(separatedBy:self.separator )
         let varifiedPoints = getVerifiedPoints(points: points)
