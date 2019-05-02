@@ -15,6 +15,8 @@ struct FigureFactory {
             return MyPoint(pair: pairs[0])
         case 2:
             return MyLine(pairA: pairs[0], pairB: pairs[1])
+        case 3:
+            return MyTriangle(pairA: pairs[0], pairB: pairs[1], pairC: pairs[2])
         default:
             throw FactoryError.impossibleToCreateInstance
         }
