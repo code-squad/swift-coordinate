@@ -12,16 +12,6 @@ struct MyTriangle : Figure{
 
     var description: String { return "삼각형의 넓이는  \(widthOfTriangle)"}
     
-    var heightOfTriangle:Double{
-        let lengthA = lineBC.distanceOfPoints
-        let lengthB = lineAC.distanceOfPoints
-        let lengthC = lineAB.distanceOfPoints
-        
-        let cosB = pow(lengthA, 2) + pow(lengthC, 2) - pow(lengthB, 2) / 2*lengthA*lengthC
-        
-        return lengthC / cosB
-    }
-    
     var widthOfTriangle: Double {
         let a = lineBC.distanceOfPoints
         let b = lineAC.distanceOfPoints
