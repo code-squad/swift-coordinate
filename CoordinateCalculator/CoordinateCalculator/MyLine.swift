@@ -35,10 +35,10 @@ extension MyLine: ValueComputable {
     }
     
     func getComputedValue() -> Double {
-        return getLength()
+        return computeLength()
     }
     
-    private func getLength() -> Double {
+    private func computeLength() -> Double {
         let distanceX = pow(Double(pointA.x - pointB.x), 2.0)
         let distanceY = pow(Double(pointA.y - pointB.y), 2.0)
         return sqrt(distanceX + distanceY)
