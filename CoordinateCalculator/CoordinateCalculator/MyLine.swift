@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine : Linable {
+struct MyLine : TwoDimensionable {
     
     private (set) var pointA: MyPoint = MyPoint()
     private (set) var pointB: MyPoint = MyPoint()

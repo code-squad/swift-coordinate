@@ -15,9 +15,9 @@ protocol TwoDimensionable: Shapable, CustomStringConvertible{
 extension TwoDimensionable {
     var description: String {
         switch self{
-        case is Linable:
+        case is MyLine:
             return "두 점 사이의 거리는 "
-        case is Trianglable:
+        case is MyTriangle:
             return "삼각형의 넓이는 "
         default:
             return ""

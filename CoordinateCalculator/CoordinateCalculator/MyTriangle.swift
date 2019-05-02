@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle : Trianglable {
+struct MyTriangle : TwoDimensionable {
     
     private (set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())

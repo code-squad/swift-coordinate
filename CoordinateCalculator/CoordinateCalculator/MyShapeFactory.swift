@@ -31,7 +31,7 @@ struct MyShapeFactory: ShapeCreatable {
         guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint else{
             throw ErrorCode.ShapeCreationError
         }
-        let myShape: Linable = MyLine.init(pointA: myPointA, pointB: myPointB)
+        let myShape: MyLine = MyLine.init(pointA: myPointA, pointB: myPointB)
         return myShape
     }
     
@@ -43,7 +43,7 @@ struct MyShapeFactory: ShapeCreatable {
             let myPointC = pointC as? MyPoint else{
                 throw ErrorCode.ShapeCreationError
         }
-        let myShape: Trianglable = MyTriangle.init(pointA: myPointA, pointB: myPointB, pointC: myPointC)
+        let myShape: MyTriangle = MyTriangle.init(pointA: myPointA, pointB: myPointB, pointC: myPointC)
         return myShape
     }
 }
