@@ -9,32 +9,32 @@
 import Foundation
 
 struct Converter {
-    static func convertCoordinates(coordinatesText: [String]) throws -> Drawable {
-        switch coordinatesText.count {
+    static func convertCoordinates(coordinatesTexts: [String]) throws -> Drawable {
+        switch coordinatesTexts.count {
         case 1:
-            return try convertPoint(coordinatesText: coordinatesText[0])
-        case 2:
-            return try convertLine(coordinatesTexts: coordinatesText)
-        case 3:
-            return try convertTriangle(coordinatesTexts: coordinatesText)
+            return try convertPoint(coordinatesText: coordinatesTexts[0])
+        case 2, 3:
+            return try convertMeasurableShape(coordinatesTexts: coordinatesTexts)
         default:
             throw InputError.invalidInput
         }
     }
     
-    private static func convertTriangle(coordinatesTexts: [String]) throws -> MyTriangle {
-        let pointA = try convertPoint(coordinatesText: coordinatesTexts[0])
-        let pointB = try convertPoint(coordinatesText: coordinatesTexts[1])
-        let pointC = try convertPoint(coordinatesText: coordinatesTexts[2])
+    private static func convertMeasurableShape(coordinatesTexts: [String]) throws -> Drawable {
+        var points: [MyPoint] = []
         
-        return MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC)
-    }
-    
-    private static func convertLine(coordinatesTexts: [String]) throws -> MyLine {
-        let pointA = try convertPoint(coordinatesText: coordinatesTexts[0])
-        let pointB = try convertPoint(coordinatesText: coordinatesTexts[1])
+        for coordinatesText in coordinatesTexts {
+            points.append(try convertPoint(coordinatesText: coordinatesText))
+        }
         
-        return MyLine(pointA: pointA, pointB: pointB)
+        switch points.count {
+        case 2:
+            return MyLine(pointA: points[0], pointB: points[1])
+        case 3:
+            return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+        default:
+            throw InputError.invalidInput
+        }
     }
     
     private static func convertPoint(coordinatesText: String) throws -> MyPoint {
