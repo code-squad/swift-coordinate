@@ -25,7 +25,7 @@ struct OutputView {
     
     static func displayShapeInformation(_ myShape: Shapable) {
         switch myShape {
-        case is TwoDimensionable, is Linable:
+        case is TwoDimensionable:
             let result = displayTwoDimensionalInformation(myShape)
             print (result)
         default :
