@@ -9,23 +9,23 @@
 import Foundation
 
 struct MyLine : Linable {
-  
+    
     private (set) var pointA: MyPoint = MyPoint()
     private (set) var pointB: MyPoint = MyPoint()
+    private var _distance: Double = 0
     
     var shapeInformation : Double {
         get{
-            let xDistance = pointA.x - pointB.x
-            let yDistance = pointA.y - pointB.y
-            let distance = sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
-                                .rounded(.toNearestOrAwayFromZero)
-            return distance
+            return _distance
         }
     }
-    var mentionOfShapeInformation: String {
-        get {
-            return "두 점 사이의 거리는 \(shapeInformation)"
-        }
+    
+    mutating func setDistance(){
+        let xDistance = pointA.x - pointB.x
+        let yDistance = pointA.y - pointB.y
+        let distance = sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
+            .rounded(.toNearestOrAwayFromZero)
+        self._distance = distance
     }
     
     func getDrawablePointList() -> [MyPoint] {
@@ -38,6 +38,7 @@ struct MyLine : Linable {
     init(pointA : MyPoint, pointB : MyPoint){
         self.pointA = pointA
         self.pointB = pointB
+        setDistance()
     }
     
 }

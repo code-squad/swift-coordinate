@@ -9,7 +9,6 @@
 import Foundation
 
 struct MyShapeFactory: ShapeCreatable {
-    
    static func createShape(pointList: [Pair]) throws -> Shapable {
         switch pointList.count {
         case 1:
