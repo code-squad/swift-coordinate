@@ -20,7 +20,7 @@ struct MyTriangle : TwoDimensionable {
         }
     }
     
-    mutating func setArea() {
+    private mutating func setArea() {
         self._area = (1/2 * lineBC.shapeInformation * lineCA.shapeInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero)
     }
 

@@ -20,7 +20,7 @@ struct MyLine : TwoDimensionable {
         }
     }
     
-    mutating func setDistance(){
+    private mutating func setDistance(){
         let xDistance = pointA.x - pointB.x
         let yDistance = pointA.y - pointB.y
         let distance = sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
