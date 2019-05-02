@@ -8,9 +8,7 @@
 
 import Foundation
 
-struct MyPoint : Figure{
-    
-    var description: String { return ""}
+struct MyPoint : Figure,Hashable{
     
     private(set) var x = 0
     private(set) var y = 0
