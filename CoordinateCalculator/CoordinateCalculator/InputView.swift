@@ -8,22 +8,6 @@
 
 import Foundation
 
-enum InputError: Error {
-    case invalidInput
-    case invalidFormat
-}
-
-extension InputError: LocalizedError {
-    var errorDescription: String? {
-        switch self {
-        case .invalidInput:
-            return "입력 오류"
-        case .invalidFormat:
-            return "입력 형식 오류"
-        }
-    }
-}
-
 enum Question: String {
     case inputCoordinates = "좌표를 입력하세요."
 }

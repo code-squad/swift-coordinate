@@ -8,16 +8,6 @@
 
 import Foundation
 
-enum CoordinateRangeError: Error {
-    case invalidRange
-}
-
-extension CoordinateRangeError: LocalizedError {
-    var errorDescription: String? {
-        return "입력 범위 초과"
-    }
-}
-
 struct MyPoint: Drawable {
     func point() -> [MyPoint] {
         return [self]
@@ -26,9 +16,7 @@ struct MyPoint: Drawable {
     private(set) var x = 0
     private(set) var y = 0
     
-    init(x: Int, y: Int) throws {
-        guard 0...24 ~= x, 0...24 ~= y else { throw CoordinateRangeError.invalidRange }
-        
+    init(x: Int, y: Int) {
         self.x = x
         self.y = y
     }
