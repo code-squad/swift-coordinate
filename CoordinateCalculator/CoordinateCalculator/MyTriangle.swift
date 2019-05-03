@@ -22,10 +22,9 @@ struct MyTriangle {
 
 extension MyTriangle: AxisDrawable {
     var points: [MyPoint] {
-        var points = lineAB.points
-        let pointC = lineAC.pointB
-        points.append(pointC)
-        return points
+        let points = Set(lineAB.points).union(Set(lineAC.points))
+        return points.map({ $0
+        })
     }
 }
 
