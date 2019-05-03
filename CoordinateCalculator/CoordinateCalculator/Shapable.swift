@@ -1,15 +1,15 @@
 //
-//  MyShape.swift
+//  TwoDimensionable.swift
 //  CoordinateCalculator
 //
-//  Created by hw on 26/04/2019.
+//  Created by hw on 30/04/2019.
 //  Copyright © 2019 Codesquad Inc. All rights reserved.
 //
 
 import Foundation
 
-protocol Pointable {
-    func getDrawablePointList() -> [MyPoint]
+protocol Shapable: Pointable{
+    var shapeInformation : Double {get}
+    var questionMessage: String {get}
 }
-
 
