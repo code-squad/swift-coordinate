@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Shapable {
+protocol Pointable {
     func getDrawablePointList() -> [MyPoint]
 }
 

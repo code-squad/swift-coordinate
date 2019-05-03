@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol TwoDimensionable: Shapable, CustomStringConvertible{
+protocol Shapable: Pointable{
     var shapeInformation : Double {get}
+    var questionMessage: String {get}
 }
 
