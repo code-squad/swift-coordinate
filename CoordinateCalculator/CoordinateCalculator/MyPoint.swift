@@ -28,3 +28,14 @@ extension MyPoint: AxisDrawable {
         return [self]
     }
 }
+
+extension MyPoint: Hashable {
+    static func ==(lpoint: MyPoint, rpoint: MyPoint) -> Bool {
+        return lpoint.x == rpoint.x && lpoint.y == rpoint.y
+    }
+    
+    func hash(into haser: inout Hasher) {
+        haser.combine(x)
+        haser.combine(y)
+    }
+}
