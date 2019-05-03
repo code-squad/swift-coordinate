@@ -8,27 +8,27 @@
 
 import Foundation
 
-struct MyTriangle : TwoDimensionable {
+struct MyTriangle : Shapable {
     
     private (set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineCA = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    private var _area: Double = 0
+    private var area: Double = 0
     
     var shapeInformation: Double {
         get {
-            return _area
+            return area
         }
     }
     
-    var description: String {
+    var questionMessage: String {
         get{
             return "삼각형의 넓이는 "
         }
     }
     
     private mutating func setArea() {
-        self._area = (1/2 * lineBC.shapeInformation * lineCA.shapeInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero)
+        self.area = (1/2 * lineBC.shapeInformation * lineCA.shapeInformation * getMySineThetaC()).rounded(.toNearestOrAwayFromZero)
     }
 
     private func getMySineThetaC () -> Double{
