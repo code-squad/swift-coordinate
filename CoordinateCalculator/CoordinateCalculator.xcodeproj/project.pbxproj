@@ -14,6 +14,7 @@
 		C24C5513227838740079B7A6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C5512227838740079B7A6 /* Parser.swift */; };
 		C24C5515227838B30079B7A6 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C5514227838B30079B7A6 /* Converter.swift */; };
 		C26E1264227A7B370032E607 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E1263227A7B370032E607 /* MyTriangle.swift */; };
+		C26E1266227C648B0032E607 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E1265227C648B0032E607 /* MyRect.swift */; };
 		C278D157226D99EF005C056C /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D156226D99EF005C056C /* MyPoint.swift */; };
 		C278D159226DACA5005C056C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278D158226DACA5005C056C /* InputView.swift */; };
 		C2C45D5B226D84710089235B /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C45D5A226D84710089235B /* OutputView.swift */; };
@@ -43,6 +44,7 @@
 		C24C5512227838740079B7A6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C24C5514227838B30079B7A6 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		C26E1263227A7B370032E607 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		C26E1265227C648B0032E607 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		C278D156226D99EF005C056C /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		C278D158226DACA5005C056C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C2C45D5A226D84710089235B /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				C278D156226D99EF005C056C /* MyPoint.swift */,
 				C24C550E2277E75D0079B7A6 /* MyLine.swift */,
 				C26E1263227A7B370032E607 /* MyTriangle.swift */,
+				C26E1265227C648B0032E607 /* MyRect.swift */,
 				C2D858572271E10A00C9CD3D /* FigureFactory.swift */,
 				C24C5510227828540079B7A6 /* AxisDrawable.swift */,
 				C2D858552271868B00C9CD3D /* CoordinateError.swift */,
@@ -169,6 +172,7 @@
 				C24C550F2277E75D0079B7A6 /* MyLine.swift in Sources */,
 				C24C5515227838B30079B7A6 /* Converter.swift in Sources */,
 				C2C45D5B226D84710089235B /* OutputView.swift in Sources */,
+				C26E1266227C648B0032E607 /* MyRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
