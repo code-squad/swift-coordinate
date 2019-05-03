@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5625860F227BE5F900CF5485 /* InputControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625860E227BE5F900CF5485 /* InputControl.swift */; };
 		566663D322746ED4007FFD65 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566663D222746ED4007FFD65 /* OutputView.swift */; };
 		566663D72276CF1B007FFD65 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566663D62276CF1B007FFD65 /* InputView.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5625860E227BE5F900CF5485 /* InputControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControl.swift; sourceTree = "<group>"; };
 		566663D222746ED4007FFD65 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		566663D62276CF1B007FFD65 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				566663D222746ED4007FFD65 /* OutputView.swift */,
 				566663D62276CF1B007FFD65 /* InputView.swift */,
+				5625860E227BE5F900CF5485 /* InputControl.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			files = (
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				566663D72276CF1B007FFD65 /* InputView.swift in Sources */,
+				5625860F227BE5F900CF5485 /* InputControl.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				566663D322746ED4007FFD65 /* OutputView.swift in Sources */,
 			);
