@@ -8,29 +8,30 @@
 
 import Foundation
 
+private typealias SortedPointSet = (xSet: [Int], ySet: [Int])
 struct MyShapeFactory: ShapeCreatable {
-   static func createShape(pointList: [Pair]) throws -> Shapable {
+   static func createShape(pointList: [Pair]) throws -> Pointable {
         switch pointList.count {
         case 1:
-            let myShape: Shapable = MyPoint.init(pointList: pointList)
+            let myShape: Pointable = MyPoint.init(pointList: pointList)
             return myShape
         case 2:
-            let myShape: Shapable = try createLine(pointList)
+            let myShape: Pointable = try createLine(pointList)
             return myShape
         case 3:
-            let myShape: Shapable = try createTriangle(pointList)
+            let myShape: Pointable = try createTriangle(pointList)
             return myShape
         case 4:
-            let myShape: Shapable = try createRectangle(pointList)
+            let myShape: Pointable = try createRectangle(pointList)
             return myShape
         default:
             throw ErrorCode.ShapeCreationError
         }
     }
     
-    static private func createLine(_ pointList : [Pair]) throws -> Shapable {
-        let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
-        let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
+    static private func createLine(_ pointList : [Pair]) throws -> Pointable {
+        let pointA : Pointable = MyPoint.init(pointList: [pointList[0]])
+        let pointB : Pointable = MyPoint.init(pointList: [pointList[1]])
         guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint else{
             throw ErrorCode.ShapeCreationError
         }
@@ -38,10 +39,10 @@ struct MyShapeFactory: ShapeCreatable {
         return myShape
     }
     
-    static private func createTriangle(_ pointList : [Pair]) throws -> Shapable {
-        let pointA : Shapable = MyPoint.init(pointList: [pointList[0]])
-        let pointB : Shapable = MyPoint.init(pointList: [pointList[1]])
-        let pointC : Shapable = MyPoint.init(pointList: [pointList[2]])
+    static private func createTriangle(_ pointList : [Pair]) throws -> Pointable {
+        let pointA : Pointable = MyPoint.init(pointList: [pointList[0]])
+        let pointB : Pointable = MyPoint.init(pointList: [pointList[1]])
+        let pointC : Pointable = MyPoint.init(pointList: [pointList[2]])
         guard let myPointA = pointA as? MyPoint, let myPointB = pointB as? MyPoint,
             let myPointC = pointC as? MyPoint else{
                 throw ErrorCode.ShapeCreationError
@@ -50,10 +51,10 @@ struct MyShapeFactory: ShapeCreatable {
         return myShape
     }
     
-    static private func createRectangle(_ pointList: [Pair]) throws -> Shapable {
-        let checkRectangleResult = try checkRectangle(pointList)
-        if checkRectangleResult.isValid {
-            let pairOfleftTopAndRightBottom = decideLeftTopAndRightBottom(sortedX: checkRectangleResult.sortedX, sortedY: checkRectangleResult.sortedY)
+    static private func createRectangle(_ pointList: [Pair]) throws -> Pointable {
+        let distinctRectanglePointSet = try getDistinctRectanglePoints(pointList)
+        if checkRectangle(distinctRectanglePointSet) {
+            let pairOfleftTopAndRightBottom = decideLeftTopAndRightBottom(sortedX: distinctRectanglePointSet.xSet, sortedY: distinctRectanglePointSet.ySet)
             let myShape: MyRect = MyRect.init(leftTop: pairOfleftTopAndRightBottom.leftTop, rightBottom: pairOfleftTopAndRightBottom.rightBottom)
             return myShape
         }
@@ -70,7 +71,10 @@ struct MyShapeFactory: ShapeCreatable {
         return (leftTop, rightBottom)
     }
     
-    static private func checkRectangle(_ pointList: [Pair]) throws -> (isValid: Bool, sortedX: [Int], sortedY: [Int]) {
+    static private func checkRectangle(_ sortedPointSet: SortedPointSet ) -> Bool {
+        return sortedPointSet.xSet.count == 2 && sortedPointSet.ySet.count == 2 ? true: false
+    }
+    static private func getDistinctRectanglePoints(_ pointList: [Pair]) throws -> SortedPointSet {
         guard pointList.count == 4 else{
             throw ErrorCode.ShapeCreationError
         }
@@ -82,6 +86,6 @@ struct MyShapeFactory: ShapeCreatable {
         }
         let sortedX = xPointSet.sorted(by: >)   // descending order
         let sortedY = yPointSet.sorted()        // ascending order
-        return (xPointSet.count == 2 && yPointSet.count == 2 ) ? (true, sortedX, sortedY) : (false, sortedX, sortedY)
+        return SortedPointSet(xSet: sortedX, ySet: sortedY)
     }
 }
