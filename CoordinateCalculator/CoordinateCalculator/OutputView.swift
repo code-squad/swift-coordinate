@@ -52,10 +52,9 @@ struct OutputView {
     }
     
     static private func printComputedValue(of figure: ValueComputable) {
-        var description = "\(ANSICode.text.whiteBright)"
-        description += figure.description
+        let whiteBrightText = "\(ANSICode.text.whiteBright)"
         let computedValue = figure.getComputedValue()
-        print(description, computedValue)
+        print(whiteBrightText, figure.description, computedValue)
     }
     
 }
