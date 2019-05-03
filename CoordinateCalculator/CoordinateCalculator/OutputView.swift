@@ -14,7 +14,7 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func drawShape (_ myShape: Shapable){
+    static func drawShape (_ myShape: Pointable){
         var result = ""
         let pointList: [MyPoint] = myShape.getDrawablePointList()
         for point in pointList {
@@ -23,20 +23,18 @@ struct OutputView {
         print (result)
     }
     
-    static func displayShapeInformation(_ myShape: Shapable) {
-        switch myShape {
-        case is TwoDimensionable:
-            let result = displayTwoDimensionalInformation(myShape)
-            print (result)
-        default :
-            break
+    static func displayShapeInformation(_ myShape: Pointable) {
+        guard myShape is Shapable else {
+            return
         }
+        let result = displayTwoDimensionalInformation(myShape)
+        print (result)
     }
     
-    static private func displayTwoDimensionalInformation(_ myShape: Shapable) -> String{
-        let myTwoDimension = myShape as! TwoDimensionable
+    static private func displayTwoDimensionalInformation(_ myShape: Pointable) -> String{
+        let myTwoDimension = myShape as! Shapable
         let shapeInformation = myTwoDimension.shapeInformation
-        let mention = myTwoDimension.description
+        let mention = myTwoDimension.questionMessage
         let result = "\(ANSICode.text.blueBright)\(ANSICode.shape.displayShapeMention(mention))\(ANSICode.shape.displayShapeInformation(mention.count, shapeInformation))\(ANSICode.text.whiteBright)"
         return result
     }
