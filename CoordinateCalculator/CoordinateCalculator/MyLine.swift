@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct MyLine : TwoDimensionable {
+struct MyLine : Shapable {
     
     private (set) var pointA: MyPoint = MyPoint()
     private (set) var pointB: MyPoint = MyPoint()
-    private var _distance: Double = 0
+    private var distance: Double = 0
     
     var shapeInformation : Double {
         get{
-            return _distance
+            return distance
         }
     }
     
-    var description: String {
+    var questionMessage: String {
         get{
             return "두 점 사이의 거리는 "
         }
@@ -31,7 +31,7 @@ struct MyLine : TwoDimensionable {
         let yDistance = pointA.y - pointB.y
         let distance = sqrt(Double ((xDistance * xDistance) + (yDistance * yDistance)))
             .rounded(.toNearestOrAwayFromZero)
-        self._distance = distance
+        self.distance = distance
     }
     
     func getDrawablePointList() -> [MyPoint] {
