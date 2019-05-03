@@ -14,14 +14,11 @@ struct MyPoint {
 }
 
 
-public struct OutputView {
-    static func drawAxis(){
+struct OutputView {
+    static func drawAxis(point: [Int]) {
         print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
-        print("\(ANSICode.cursor.move(row:10, col: 10))*")
+        print("\(ANSICode.cursor.move(row:point[0], col: point[1]))*")
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
 }
-
-
 
