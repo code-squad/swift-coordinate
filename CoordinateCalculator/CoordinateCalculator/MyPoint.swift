@@ -21,11 +21,6 @@ struct MyPoint {
         self.x = x
         self.y = y
     }
-   
-    init(pair: Pair) {
-        self.x = pair.x
-        self.y = pair.y
-    }
 }
 
 extension MyPoint: AxisDrawable {

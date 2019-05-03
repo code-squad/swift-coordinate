@@ -18,19 +18,13 @@ struct MyTriangle {
         lineBC = MyLine(pointA: pointB, pointB: pointC)
         lineAC = MyLine(pointA: pointA, pointB: pointC)
     }
-    
-    init(pairA: Pair, pairB: Pair, pairC: Pair) {
-        let pointA = MyPoint(pair: pairA)
-        let pointB = MyPoint(pair: pairB)
-        let pointC = MyPoint(pair: pairC)
-        self.init(pointA: pointA, pointB: pointB, pointC: pointC)
-    }
 }
 
 extension MyTriangle: AxisDrawable {
     var points: [MyPoint] {
         var points = lineAB.points
-        points.append(lineAC.pointB)
+        let pointC = lineAC.pointB
+        points.append(pointC)
         return points
     }
 }
