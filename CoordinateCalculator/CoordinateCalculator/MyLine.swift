@@ -16,11 +16,6 @@ struct MyLine {
         self.pointA = pointA
         self.pointB = pointB
     }
-    
-    init(pairA: Pair, pairB: Pair) {
-        pointA = MyPoint(x: pairA.x, y: pairA.y)
-        pointB = MyPoint(x: pairB.x, y: pairB.y)
-    }
 }
 
 extension MyLine: AxisDrawable {
