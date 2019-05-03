@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint : Shapable {
+struct MyPoint : Pointable {
     private (set) var x: Int
     private (set) var y: Int
     
