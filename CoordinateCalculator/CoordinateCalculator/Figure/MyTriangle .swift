@@ -9,8 +9,7 @@
 import Foundation
 
 struct MyTriangle : Figure,Calculable{
-    private(set) var explanation: String = "삼각형의 넓이는 "
-    
+    let explanation: String = "삼각형의 넓이는 "
     private let lineAB :MyLine
     private let lineBC :MyLine
     private let lineAC :MyLine
