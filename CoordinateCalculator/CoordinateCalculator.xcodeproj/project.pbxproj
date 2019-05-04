@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0E0FD91E227E038F00A3C369 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FD91D227E038F00A3C369 /* MyRect.swift */; };
+		0E0FD91F227E06D200A3C369 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FD91D227E038F00A3C369 /* MyRect.swift */; };
+		0E0FD920227E073600A3C369 /* Calculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E182A04227B6B480028FBE0 /* Calculable.swift */; };
 		0E182A05227B6B480028FBE0 /* Calculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E182A04227B6B480028FBE0 /* Calculable.swift */; };
 		0E1908702273221900659B34 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB12273048E00F9651E /* MyPoint.swift */; };
 		0E1908712273221B00659B34 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB32273048E00F9651E /* Answer.swift */; };
@@ -240,10 +242,12 @@
 				0E7A4DC322706CA300F4A126 /* CoordinateCalculaterTests.swift in Sources */,
 				0E1908772273223000659B34 /* MyLine.swift in Sources */,
 				0E5D9B322277766200D09038 /* CoordinateProcesser.swift in Sources */,
+				0E0FD920227E073600A3C369 /* Calculable.swift in Sources */,
 				0E1908742273222400659B34 /* InputView.swift in Sources */,
 				0E1908752273222700659B34 /* main.swift in Sources */,
 				0E29F5272274C9CE008AC76E /* Figure.swift in Sources */,
 				0E1908732273222100659B34 /* Extensions.swift in Sources */,
+				0E0FD91F227E06D200A3C369 /* MyRect.swift in Sources */,
 				0E5D9B332277766A00D09038 /* FigureFactory.swift in Sources */,
 				0E1908722273221E00659B34 /* Exception.swift in Sources */,
 				0E7A4DC822706CAE00F4A126 /* ANSICode.swift in Sources */,
