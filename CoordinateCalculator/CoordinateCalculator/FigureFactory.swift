@@ -11,7 +11,7 @@ import Foundation
 struct FigureFactory{
     
     func createFigure(points:[PointTuple]) throws ->Figure{
-        var initializer : ([PointTuple])->Figure
+        var initializer : ([PointTuple])throws->Figure
         switch points.count {
         case 1:
             initializer = createPoint(points:)
@@ -24,7 +24,7 @@ struct FigureFactory{
         default:
             throw Exception.ErrorType.wrongFormat
         }
-        return initializer(points)
+        return try initializer(points)
     }
     
     private func createPoint(points:[PointTuple])->MyPoint{
@@ -41,7 +41,10 @@ struct FigureFactory{
        return MyTriangle.init(pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]))
     }
     
-    private func createRect(points:[PointTuple])->MyRect{
+    private func createRect(points:[PointTuple])throws->MyRect{
+        guard MyRect.isRectFormat(points: points) else {
+            throw Exception.ErrorType.wrongFormat
+        }
         return MyRect.init( pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]) ,pointD: MyPoint(points[3]))
     }
 }

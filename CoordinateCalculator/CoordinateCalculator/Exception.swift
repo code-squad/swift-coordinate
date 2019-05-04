@@ -15,6 +15,7 @@ struct Exception {
         
         case wrongFormat = "올바른 입력형식이 아닙니다."
         case outOfRange = "입력 범위를 벗어났습니다."
+        case notFigureFormat = "올바른 도형의 형태가 아닙니다."
         case unExpected = "예기치 못한 에러 입니다"
       
     }
