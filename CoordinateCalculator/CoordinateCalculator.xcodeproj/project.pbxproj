@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0FD91E227E038F00A3C369 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0FD91D227E038F00A3C369 /* MyRect.swift */; };
 		0E182A05227B6B480028FBE0 /* Calculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E182A04227B6B480028FBE0 /* Calculable.swift */; };
 		0E1908702273221900659B34 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB12273048E00F9651E /* MyPoint.swift */; };
 		0E1908712273221B00659B34 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE2BB32273048E00F9651E /* Answer.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E0FD91D227E038F00A3C369 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		0E182A04227B6B480028FBE0 /* Calculable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculable.swift; sourceTree = "<group>"; };
 		0E29F5252274BBD5008AC76E /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		0E5C44112278452200184984 /* MyTriangle .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyTriangle .swift"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				0E29F5252274BBD5008AC76E /* Figure.swift */,
 				0E5C44112278452200184984 /* MyTriangle .swift */,
 				0E182A04227B6B480028FBE0 /* Calculable.swift */,
+				0E0FD91D227E038F00A3C369 /* MyRect.swift */,
 			);
 			path = Figure;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				0ECE2BB42273048E00F9651E /* main.swift in Sources */,
 				0ECE2BB82273048E00F9651E /* MyPoint.swift in Sources */,
 				0E5D9B2F227747F700D09038 /* FigureFactory.swift in Sources */,
+				0E0FD91E227E038F00A3C369 /* MyRect.swift in Sources */,
 				0ECE2BB52273048E00F9651E /* Extensions.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				0E182A05227B6B480028FBE0 /* Calculable.swift in Sources */,
