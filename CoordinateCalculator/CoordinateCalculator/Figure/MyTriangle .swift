@@ -9,6 +9,8 @@
 import Foundation
 
 struct MyTriangle : Figure,Calculable{
+    private(set) var explanation: String = "삼각형의 넓이는 "
+    
     private let lineAB :MyLine
     private let lineBC :MyLine
     private let lineAC :MyLine
@@ -43,10 +45,5 @@ struct MyTriangle : Figure,Calculable{
     func getCalculatedValue() -> Double {
         return self.areaOfTriangle
     }
-    
-    
-    
-    
-    
 }
 

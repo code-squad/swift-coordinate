@@ -37,18 +37,7 @@ struct OutputView{
         explain(figure)
     }
     func explain(_ figure:Figure){
-        guard let calculable = figure as? Calculable else { return}
-        var explanation:String
-        let value = calculable.getCalculatedValue()
-        let numOfPoint = figure.getPoints().count
-        switch numOfPoint{
-        case 2:
-            explanation = "두 점 사이 거리는 "
-        case 3:
-            explanation = "삼각형 넓이는 "
-        default:
-            return
-        }
-        print("\(explanation)\(value)")
+        guard let calculable = figure as? Calculable else { return }
+        print("\(calculable.explanation)\(calculable.getCalculatedValue())")
     }
 }

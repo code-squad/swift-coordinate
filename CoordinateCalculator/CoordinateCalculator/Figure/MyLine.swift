@@ -12,6 +12,8 @@ struct MyLine : Figure,Calculable{
     private let  pointA : MyPoint
     private let  pointB : MyPoint
     
+    private (set) var explanation: String = "두 점 사이 거리는 "
+    
     private var distanceOfPoints: Double {
         let xd = pow(Double(pointA.x - pointB.x),2)
         let yd = pow(Double(pointA.y - pointB.y),2)
@@ -29,10 +31,6 @@ struct MyLine : Figure,Calculable{
     func getCalculatedValue() -> Double {
         return self.distanceOfPoints
     }
-    
-    
-    
-    
     
 }
 

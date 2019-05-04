@@ -7,6 +7,9 @@
 //
 
 import Foundation
+
 protocol Calculable{
+    var explanation: String { get }
     func getCalculatedValue()->Double
 }
+
