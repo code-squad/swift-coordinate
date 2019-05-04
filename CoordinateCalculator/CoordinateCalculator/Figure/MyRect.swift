@@ -12,6 +12,16 @@ struct MyRect :Figure,Calculable{
     
     private (set) var leftTop:MyPoint
     private (set) var rightBottom:MyPoint
+    private var areaOfRect: Double {
+        let width = rightBottom.x - leftTop.x
+        let height = leftTop.y - rightBottom.y
+        return Double(width * height)
+    }
+    let explanation: String = "사각형의 넓이는 "
+    
+    init(pointA:MyPoint,pointB:MyPoint,pointC:MyPoint,pointD:MyPoint) {
+        <#statements#>
+    }
     
     func getPoints() -> [MyPoint] {
         let rightTop = MyPoint.init((x:rightBottom.x,y:leftTop.y))
@@ -19,11 +29,11 @@ struct MyRect :Figure,Calculable{
         return [leftTop,rightTop,leftBottom,rightBottom]
     }
     
-    var explanation: String = "사각형의 넓이는 "
-    
     func getCalculatedValue() -> Double {
-        let width = rightBottom.x - leftTop.x
-        let height = leftTop.y - rightBottom.y
-        return Double(width * height)
+        return self.areaOfRect
+    }
+    
+    static func isRectFormat(points:[PointTuple])->Bool{
+        
     }
 }

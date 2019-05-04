@@ -19,6 +19,8 @@ struct FigureFactory{
             initializer = createLine(points:)
         case 3:
             initializer = createTriangle(points:)
+        case 4:
+            initializer = createRect(points:)
         default:
             throw Exception.ErrorType.wrongFormat
         }
@@ -37,6 +39,9 @@ struct FigureFactory{
     
     private func createTriangle(points:[PointTuple])->MyTriangle{
        return MyTriangle.init(pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]))
-        
+    }
+    
+    private func createRect(points:[PointTuple])->MyRect{
+        return MyRect.init( pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]) ,pointD: MyPoint(points[3]))
     }
 }
