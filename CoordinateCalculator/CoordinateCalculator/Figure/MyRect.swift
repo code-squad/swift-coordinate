@@ -22,8 +22,8 @@ struct MyRect :Figure,Calculable{
     var explanation: String = "사각형의 넓이는 "
     
     func getCalculatedValue() -> Double {
-        return 10.0
+        let width = rightBottom.x - leftTop.x
+        let height = leftTop.y - rightBottom.y
+        return Double(width * height)
     }
-   
-    
 }
