@@ -34,7 +34,7 @@ struct MyRect :Figure,Calculable{
     
     func getPoints() -> [MyPoint] {
         let rightTop = MyPoint.init((x:rightBottom.x,y:leftTop.y))
-        let leftBottom = MyPoint.init((x:rightBottom.x,y:leftTop.y))
+        let leftBottom = MyPoint.init((x:leftTop.x,y:rightBottom.y))
         return [leftTop,rightTop,leftBottom,rightBottom]
     }
     
@@ -42,7 +42,19 @@ struct MyRect :Figure,Calculable{
         return self.areaOfRect
     }
     
-    static func isRectFormat(points:[PointTuple])->Bool{
-        return true
+    static func isRectFormat(points:[MyPoint])->Bool{
+        guard Array(Set(points)).count == 4 else { return false }
+        let countX:Int = Set(points.map{
+            point in
+            point.x
+        }).count
+        let countY:Int = Set(points.map{
+            point in
+            point.y
+        }).count
+        
+        return countX == 2 && countY == 2
     }
+    
+    
 }
