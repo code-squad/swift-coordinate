@@ -38,13 +38,17 @@ struct FigureFactory{
     }
     
     private func createTriangle(points:[PointTuple])->MyTriangle{
-       return MyTriangle.init(pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]))
+        return MyTriangle.init(pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]))
     }
     
     private func createRect(points:[PointTuple])throws->MyRect{
-        guard MyRect.isRectFormat(points: points) else {
-            throw Exception.ErrorType.wrongFormat
+        let myPoints = points.map{
+            point in
+             MyPoint.init(point)
         }
-        return MyRect.init( pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]) ,pointD: MyPoint(points[3]))
+        guard MyRect.isRectFormat(points: myPoints) else {
+            throw Exception.ErrorType.notFigureFormat
+        }
+        return MyRect.init(pointA: myPoints[0],pointB:myPoints[1],pointC:myPoints[2], pointD:myPoints[3])
     }
 }
