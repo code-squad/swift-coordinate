@@ -36,6 +36,7 @@ struct OutputView{
         }
         explain(figure)
     }
+    
     func explain(_ figure:Figure){
         guard let calculable = figure as? Calculable else { return }
         print("\(calculable.explanation)\(calculable.getCalculatedValue())")
