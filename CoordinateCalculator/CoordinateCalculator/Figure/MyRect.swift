@@ -18,12 +18,13 @@ struct MyRect :Figure,Calculable{
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
-        self.rightBottom = MyPoint.init(((Int(CGFloat(origin.x) + size.width)) , Int(CGFloat(origin.y) + size.height)))
+        self.rightBottom = MyPoint.init(((Int(CGFloat(origin.x) + size.width)) , Int(CGFloat(origin.y) - size.height)))
         self.areaOfRect = Double(size.width * size.height)
     }
     
     init(pointA:MyPoint,pointB:MyPoint,pointC:MyPoint,pointD:MyPoint) {
         let points:[MyPoint] = [pointA,pointB,pointC,pointD]
+        
         let minValues : PointTuple = points.reduce((x:Int.max,y:Int.max)){
             (min:PointTuple ,next:MyPoint) -> PointTuple in
             let minX = min.x < next.x ? min.x : next.x
@@ -44,7 +45,7 @@ struct MyRect :Figure,Calculable{
     func getPoints() -> [MyPoint] {
         let rightTop = MyPoint.init((x:rightBottom.x,y:leftTop.y))
         let leftBottom = MyPoint.init((x:leftTop.x,y:rightBottom.y))
-        return [leftTop,rightTop,leftBottom,rightBottom]
+        return [self.leftTop,rightTop,leftBottom,self.rightBottom]
     }
     
     func getCalculatedValue() -> Double {
