@@ -54,14 +54,8 @@ struct MyRect :Figure,Calculable{
     
     static func isRectFormat(points:[MyPoint])->Bool{
         guard Array(Set(points)).count == 4 else { return false }
-        let countX:Int = Set(points.map{
-            point in
-            point.x
-        }).count
-        let countY:Int = Set(points.map{
-            point in
-            point.y
-        }).count
+        let countX:Int = Set(points.map{ $0.x }).count
+        let countY:Int = Set(points.map{ $0.y }).count
         
         return countX == 2 && countY == 2
     }
