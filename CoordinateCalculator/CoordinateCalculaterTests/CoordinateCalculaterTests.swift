@@ -87,8 +87,9 @@ class CoordinateCalculaterTests: XCTestCase {
         let pointsToSuccess = [(10,10),(22,10),(22,18),(10,18)]
         let pointsToFail = [(10,11),(22,10),(22,18),(10,18)]
         //Then
-        XCTAssertThrowsError(try factory.createFigure(points: pointsToFail))
         XCTAssertNoThrow(try factory.createFigure(points: pointsToSuccess))
+        XCTAssertThrowsError(try factory.createFigure(points: pointsToFail))
+        
     }
     
     func testDistanceOfPoints(){
