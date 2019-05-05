@@ -19,6 +19,8 @@ struct Converter {
             return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
         case 2:
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
+        case 3:
+            return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
         default:
             return nil
         }
