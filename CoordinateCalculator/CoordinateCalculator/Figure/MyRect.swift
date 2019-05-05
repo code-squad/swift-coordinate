@@ -12,24 +12,33 @@ struct MyRect :Figure,Calculable{
     
     private (set) var leftTop:MyPoint
     private (set) var rightBottom:MyPoint
-    private var areaOfRect: Double {
-        let width = rightBottom.x - leftTop.x
-        let height = leftTop.y - rightBottom.y
-        return Double(width * height)
-    }
+    private let areaOfRect: Double
+    
     let explanation: String = "사각형의 넓이는 "
     
+    init(origin: MyPoint, size: CGSize) {
+        self.leftTop = origin
+        self.rightBottom = MyPoint.init(((Int(CGFloat(origin.x) + size.width)) , Int(CGFloat(origin.y) + size.height)))
+        self.areaOfRect = Double(size.width * size.height)
+    }
+    
     init(pointA:MyPoint,pointB:MyPoint,pointC:MyPoint,pointD:MyPoint) {
-        let points = [pointA,pointB,pointC,pointD]
-        var rightBottom = pointA
-        var leftTop = pointB
-        _ = points.map{
-            point in
-            rightBottom = point.x >= rightBottom.x && point.y <= rightBottom.y ? point : rightBottom
-            leftTop = point.x <= leftTop.x && point.y >= leftTop.y ? point : leftTop
+        let points:[MyPoint] = [pointA,pointB,pointC,pointD]
+        let minValues : PointTuple = points.reduce((x:Int.max,y:Int.max)){
+            (min:PointTuple ,next:MyPoint) -> PointTuple in
+            let minX = min.x < next.x ? min.x : next.x
+            let minY = min.y < next.y ? min.y : next.y
+            return (x:minX,y:minY)
         }
-        self.rightBottom = rightBottom
-        self.leftTop = leftTop
+        let maxValues : PointTuple = points.reduce((x:Int.min,y:Int.min)){
+            (max:PointTuple ,next:MyPoint) -> PointTuple in
+            let maxX = max.x > next.x ? max.x : next.x
+            let maxY = max.y > next.y ? max.y : next.y
+            return (x:maxX,y:maxY)
+        }
+        let origin = MyPoint.init((x:minValues.x,y:maxValues.y))
+        let size = CGSize.init(width: maxValues.x-minValues.x,height: maxValues.y-minValues.y)
+        self.init(origin: origin, size: size)
     }
     
     func getPoints() -> [MyPoint] {
@@ -55,6 +64,6 @@ struct MyRect :Figure,Calculable{
         
         return countX == 2 && countY == 2
     }
-    
-    
 }
+
+
