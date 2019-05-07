@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyRect {
-    var leftTop = MyPoint()
-    var rightBottom = MyPoint()
-    var size = CGSize()
+    private var leftTop = MyPoint()
+    private var rightBottom = MyPoint()
+    private var size = CGSize()
     
     init(leftTop: MyPoint, rightBottom: MyPoint) {
         self.leftTop = leftTop
