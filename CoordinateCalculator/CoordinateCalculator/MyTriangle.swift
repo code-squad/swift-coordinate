@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyTriangle {
-    private(set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    private(set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
-    private(set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         lineAB = MyLine(pointA: pointA, pointB: pointB)
@@ -22,9 +22,8 @@ struct MyTriangle {
 
 extension MyTriangle: AxisDrawable {
     var points: [MyPoint] {
-        let points = Set(lineAB.points).union(Set(lineAC.points))
-        return points.map({ $0
-        })
+        let pointSet = Set(lineAB.points).union(Set(lineAC.points))
+        return Array(pointSet)
     }
 }
 
