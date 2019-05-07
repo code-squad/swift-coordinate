@@ -40,6 +40,8 @@ enum AxisError: String, CoordinateError {
 
 enum FactoryError: String, CoordinateError {
     case impossibleToCreateInstance = "instance 생성 불가"
+    case isNotRectangle = "직/정사각형이 아닙니다."
+    case invalidRectXY = "잘못된 사각형 좌표입니다."
     
     var message: String {
         return self.rawValue
