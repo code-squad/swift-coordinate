@@ -15,6 +15,7 @@ struct MyPoint {
 
 
 struct OutputView {
+    
     static func drawAxis(point: [Int]) {
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.cursor.move(row:point[0], col: point[1]))*")
