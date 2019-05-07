@@ -248,3 +248,75 @@ flattenNested
 
 https://webclub.tistory.com/156
 
+
+
+## CustomStringConvertible Protocol
+
+CustomStringConvertible 프로토콜은 준수하는 타입은 인스턴스를 문자열로 변환할 때 사용할 자체 표현을 제공할 수 있다. 
+
+`String(describing:)` 이니셜라이저는 모든 유형의 인스턴스를 `String` 타입으로 변환하는 우선적인 방법이다. 전달 된 인스턴스가 `CustomStringConvertible`을 준수하면`` String 이니셜라이저``나 `print()` 함수는 인스턴스의 커스텀 `description` 프로퍼티를 사용한다.
+
+타입의 `description` 프로퍼티에 직접 접근하거나 제네릭 제약 조건으로 `CustomStringConvertible`을 사용하는 것은 권장되지 않는다. 
+
+
+
+### Conforming to the CustomStringConvertible Protocol
+
+커스텀 타입에 `description` 프로퍼티를 정의하는 것은 커스텀 타입이  `CustomStringConvertible` 을 준수하게 만든다.
+
+예를 들어, 이 커스텀 `Point` 구조체는 표준 라이브러리에서 제공하는 기본 표현을 사용하고있다.
+
+```swift
+struct Point {
+    let x: Int, y: Int
+}
+
+let p = Point(x: 21, y: 30)
+print(p)
+// Prints "Point(x: 21, y: 30)"
+```
+
+After implementing the `description` property and declaring `CustomStringConvertible` conformance, the `Point` type provides its own custom representation.
+
+`description` 프로퍼티를 구현하고, `CustomStringConvertible` 채택하면, `Point` 타입은 고유한 사용자 정의 표현을 제공한다.  
+
+```swift
+extension Point: CustomStringConvertible {
+    var description: String {
+        return "(\(x), \(y))"
+    }
+}
+
+print(p)
+// Prints "(21, 30)"
+```
+
+
+
+### description
+
+이 프로퍼티를 직접적으로 부르는 것은 권장되지 않는다. 대신, `String(describing: )` 이니셜라이저를 사용하여 모든 타입의 인스턴스를 문자열로 변환해야한다. 이 이니셜라이저는 모든 타입에 반응하며, `CustomStringConvertible`  프로토콜을 준수하는 타입에 대해 커스텀 `description` 프로퍼티를 사용한다.
+
+```swift
+struct Point: CustomStringConvertible {
+    let x: Int, y: Int
+
+    var description: String {
+        return "(\(x), \(y))"
+    }
+}
+
+let p = Point(x: 21, y: 30)
+let s = String(describing: p)
+print(s)
+// Prints "(21, 30)"
+```
+
+`p`에서  `s` 로의 문자열 변환은 `Point` 타입의  `description` 프로퍼티를 사용한다.
+
+
+
+참조:
+
+https://developer.apple.com/documentation/swift/customstringconvertible
+
