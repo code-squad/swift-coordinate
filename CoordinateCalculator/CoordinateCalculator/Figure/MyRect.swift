@@ -10,11 +10,10 @@ import Foundation
 
 struct MyRect :Figure,Calculable{
     
+    let explanation: String = "사각형의 넓이는 "
     private (set) var leftTop:MyPoint
     private (set) var rightBottom:MyPoint
     private let areaOfRect: Double
-    
-    let explanation: String = "사각형의 넓이는 "
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
@@ -38,7 +37,7 @@ struct MyRect :Figure,Calculable{
             return (x:maxX,y:maxY)
         }
         let origin = MyPoint.init((x:minValues.x,y:maxValues.y))
-        let size = CGSize.init(width: maxValues.x-minValues.x,height: maxValues.y-minValues.y)
+        let size = CGSize.init(width: maxValues.x - minValues.x,height: maxValues.y - minValues.y)
         self.init(origin: origin, size: size)
     }
     
@@ -52,7 +51,7 @@ struct MyRect :Figure,Calculable{
         return self.areaOfRect
     }
     
-    static func isRectFormat(points:[MyPoint])->Bool{
+    static func isRectFormat(points:[MyPoint]) -> Bool {
         guard Array(Set(points)).count == 4 else { return false }
         let countX:Int = Set(points.map{ $0.x }).count
         let countY:Int = Set(points.map{ $0.y }).count

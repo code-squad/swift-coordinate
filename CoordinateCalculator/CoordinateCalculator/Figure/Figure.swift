@@ -10,7 +10,8 @@ import Foundation
 
 
 protocol Figure{
-    func getPoints()->[MyPoint]
+    
+    func getPoints() -> [MyPoint]
 }
 
 

@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyLine : Figure,Calculable{
+    let explanation: String = "두 점 사이 거리는 "
     private let  pointA : MyPoint
     private let  pointB : MyPoint
-    let explanation: String = "두 점 사이 거리는 "
     
     private var distanceOfPoints: Double {
         let xd = pow(Double(pointA.x - pointB.x),2)

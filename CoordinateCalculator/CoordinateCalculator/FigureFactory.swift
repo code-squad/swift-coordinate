@@ -10,8 +10,8 @@ import Foundation
 
 struct FigureFactory{
     
-    func createFigure(points:[PointTuple]) throws ->Figure{
-        var initializer : ([PointTuple])throws->Figure
+    func createFigure(points:[PointTuple]) throws -> Figure {
+        var initializer : ([PointTuple]) throws -> Figure
         switch points.count {
         case 1:
             initializer = createPoint(points:)
@@ -27,21 +27,21 @@ struct FigureFactory{
         return try initializer(points)
     }
     
-    private func createPoint(points:[PointTuple])->MyPoint{
+    private func createPoint(points:[PointTuple]) -> MyPoint {
         return MyPoint.init(points[0])
     }
     
-    private func createLine(points:[PointTuple])->MyLine{
+    private func createLine(points:[PointTuple]) -> MyLine {
         let pointA = createPoint(points:[points[0]])
         let pointB = createPoint(points:[points[1]])
         return MyLine.init(pointA,pointB)
     }
     
-    private func createTriangle(points:[PointTuple])->MyTriangle{
+    private func createTriangle(points:[PointTuple]) -> MyTriangle {
         return MyTriangle.init(pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]))
     }
     
-    private func createRect(points:[PointTuple])throws->MyRect{
+    private func createRect(points:[PointTuple]) throws -> MyRect {
         let myPoints = points.map{
             point in
              MyPoint.init(point)
