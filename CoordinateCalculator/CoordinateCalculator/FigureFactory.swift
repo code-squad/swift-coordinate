@@ -27,28 +27,39 @@ struct FigureFactory{
         return try initializer(points)
     }
     
-    private func createPoint(points:[PointTuple]) -> MyPoint {
-        return MyPoint.init(points[0])
+    
+    private func tuplesToPoints(tuples:[PointTuple]) -> [MyPoint] {
+        let myPoints = tuples.map{MyPoint.init($0)}
+        
+        return myPoints
     }
     
+    private func createPoint(points:[PointTuple]) -> MyPoint {
+        let myPoints = tuplesToPoints(tuples: points)
+        
+        return myPoints[0]
+    }
+    
+    
     private func createLine(points:[PointTuple]) -> MyLine {
-        let pointA = createPoint(points:[points[0]])
-        let pointB = createPoint(points:[points[1]])
-        return MyLine.init(pointA,pointB)
+        let myPoints = tuplesToPoints(tuples: points)
+        
+        return MyLine.init(myPoints[0],myPoints[1])
     }
     
     private func createTriangle(points:[PointTuple]) -> MyTriangle {
-        return MyTriangle.init(pointA: MyPoint(points[0]), pointB: MyPoint(points[1]), pointC: MyPoint(points[2]))
+        let myPoints = tuplesToPoints(tuples: points)
+        
+        return MyTriangle.init(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
     }
     
     private func createRect(points:[PointTuple]) throws -> MyRect {
-        let myPoints = points.map{
-            point in
-             MyPoint.init(point)
-        }
+        let myPoints = tuplesToPoints(tuples: points)
+        
         guard MyRect.isRectFormat(points: myPoints) else {
             throw Exception.ErrorType.notFigureFormat
         }
+        
         return MyRect.init(pointA: myPoints[0],pointB:myPoints[1],pointC:myPoints[2], pointD:myPoints[3])
     }
 }
