@@ -70,8 +70,8 @@ public struct ANSICode {
         private static func drawX() -> String {
             var result = ""
             for xLoop in 1...AxisLimit {
-                    result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
-                    result += "━━"
+                result += cursor.move(row: AxisLimit+1, col: xLoop*2+2)
+                result += "━━"
             }
             for xLoop in 1...(AxisLimit/2) {
                 result += cursor.move(row: AxisLimit+2, col: xLoop*4+1)
@@ -79,7 +79,7 @@ public struct ANSICode {
             }
             return result
         }
-
+        
         private static func drawY() -> String {
             var result = ""
             for yLoop in 1...AxisLimit {
@@ -102,7 +102,7 @@ public struct ANSICode {
             let result = drawX() + drawY()
             return result
         }
-}
+    }
     
     struct rect {
         static func draw(origin : (x:Int,y:Int), size : (width:Int,height:Int), isFill : Bool) -> String {

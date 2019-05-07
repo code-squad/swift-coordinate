@@ -8,29 +8,40 @@
 
 import Foundation
 
-// 내 함수의 소속 구분 위해 struct
 struct InputControl {
+    
     static func convertStringtoInt(input: String) throws ->[Int]{
-        let inputArray = input.components(separatedBy: ",").compactMap{Int($0)}
+        var input = input
         
-        for input in inputArray {
-            if !(1...24).contains(input) {
-                throw Error.wrongValue
+        if(input.first == "(") && (input.last == ")"){
+            input.removeFirst()
+            input.removeLast()
+            let inputArray = input.components(separatedBy: ",").compactMap{Int($0)}
+            
+            for input in inputArray {
+                if !(1...24).contains(input){
+                    throw Error.wrongValue
+                }
             }
+            return inputArray
         }
-        return inputArray
+        throw Error.removeValue
     }
     
+    
     enum Error: Swift.Error {
-    case wrongValue
+        case wrongValue
+        case removeValue
         var description: String {
             switch self {
             case .wrongValue: return "24까지의 좌표값만 입력해주세요"
+            case .removeValue: return "(,)으로 값을 입력해주세요)"
             }
         }
     }
     
     
 }
+
 
 

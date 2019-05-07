@@ -18,7 +18,7 @@ struct OutputView {
     
     static func drawAxis(point: [Int]) {
         print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.cursor.move(row:point[0], col: point[1]))*")
+        print("\(ANSICode.cursor.move(row: 24-point[1]+1, col: point[0]*2+3))*")
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
 }
