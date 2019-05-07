@@ -54,5 +54,3 @@ struct OutputView {
         return MyPoint(x: translatedX, y: translatedY)
     }
 }
-
-

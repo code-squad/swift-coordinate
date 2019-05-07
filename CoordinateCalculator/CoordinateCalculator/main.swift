@@ -9,7 +9,6 @@
 import Foundation
 
 while true {
-    
     let prompt = InputView.readInput(of: "좌표를 입력하세요. ex. (10,10) 좌표값이 여러개일경우 -를 이용해 입력해주세요. ex. (1,2)-(3,4)")
     
     guard Validator.validateInput(of: prompt) else {

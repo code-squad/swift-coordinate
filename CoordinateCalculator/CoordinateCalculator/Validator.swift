@@ -9,20 +9,13 @@
 import Foundation
 
 struct Validator {
-    
     static let AxisLimit = ANSICode.axis.AxisLimit
-     static let possibleCharacters = CharacterSet(charactersIn: "(),- ").union(CharacterSet.decimalDigits)
+    static let possibleCharacters = CharacterSet(charactersIn: "(),- ").union(CharacterSet.decimalDigits)
     
     static func validateInput(of prompt: String) -> Bool {
-        
-        guard !prompt.isEmpty else {
+        guard !prompt.isEmpty, uncontainsPossibleCharacter(in: prompt) else {
             return false
         }
-        
-        guard uncontainsPossibleCharacter(in: prompt) else {
-            return false
-        }
-        
         return true
     }
     
@@ -31,10 +24,8 @@ struct Validator {
     /// prompt 문자열 Set에 대한 possibleCharater Set의 차집합을 구하고 차집합이 비어있으면 true를 반환합니다.
     /// - Returns: 입력할 수 없는 문자가 포함되어있지 않으면 true를 반환하고, 포함되어 있으면 false를 반환합니다.
     static private func uncontainsPossibleCharacter(in prompt: String) -> Bool {
-        
         let promptCharacters = CharacterSet(charactersIn: prompt)
         let differenceCharacters = promptCharacters.subtracting(possibleCharacters)
-        
         return differenceCharacters.isEmpty
     }
     
@@ -48,7 +39,6 @@ struct Validator {
             guard coordinate < AxisLimit + 1 else {
                 return false
             }
-            
             guard coordinate > -1 else {
                 return false
             }
