@@ -30,5 +30,4 @@ struct MyLine: Drawable {
         self.pointA = pointA
         self.pointB = pointB
     }
-   
 }
