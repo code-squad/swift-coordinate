@@ -160,7 +160,9 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 
 
 
-![img](../files/README.assets/img-20190430173431084.png)
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2F9cRn1%2FbtquL1V5n7n%2FcmbCk4XqcQDVgbyFIGPnJK%2Fimg.png)
+
+
 
 
 
@@ -206,7 +208,7 @@ flattenNested
 
 
 
-#STEP-4
+# STEP-4
 
 ## 객체 설계 - 캡슐화
 
