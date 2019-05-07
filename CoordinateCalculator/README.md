@@ -254,6 +254,8 @@
 
 &nbsp;
 
+## 📌 Step 5-4
+
 ### Function vs Computed Property - What to use
 
 - function 
@@ -270,4 +272,91 @@
 
 - reference
   - [function vs computed property - what to use](https://medium.com/swift-india/functions-vs-computed-property-what-to-use-64bbe2df3916)
+
+&nbsp;
+
+### swift math 관련 함수
+
+- pow
+- sqrt
+
+
+
+&nbsp;
+
+## 📌 Step 5-5
+
+### 추가 구현사항
+
+1. 직사각형만 허용하도록 검사 - 사다리꼴, 마름모 불가
+   - 4개 쌍 좌표에서 x, y좌표 값이 각 2가지만 나와야 함
+   - x, y값이 같으면 사각형 아님
+2. 사각형의 넓이  - size 사용하기
+
+```swift
+struct MyRect {
+  var leftTop = MyPoint()
+  var rightBottom = MyPoint()
+  init(origin: MyPoint, size: CGSize) {
+        //로직구현
+    }
+}
+```
+
+- CGSize : width, height를 property로 갖는 struct
+
+&nbsp;
+
+### Set 
+
+> An unordered collection of unique elements
+
+중복 없이 unique한 요소들로만 구성된 순서 없는 collection
+
+&nbsp;
+
+```swift
+struct Set<Element> where Element : Hashable
+```
+
+- generic type 인데, type 중에 Hashable protocol을 채택한 타입만 사용이 가능하다는 의미
+
+- 위치
+  - _Foundation > Collections > Set_
+
+- 언제 사용할까? (Array < Set 인 경우) :+1:
+
+  > You use a set instead of an array when you need to test efficiently for membership and you aren’t concerned with the order of the elements in the collection, or when you need to ensure that each element appears only once in a collection
+
+  - 순서에 상관없이 소속되어 있는지 확인할 때
+  - 딱 한번만 나타나도록 확실하게 하고 싶을 때
+
+- method
+
+  - `contains`
+  - `==` , `!==` (Equotable 에서 구현된 method)
+  - 집합 연산 : union, disjoint, subset...
+
+&nbsp;
+
+### Custom Type 을 요소로 하는 Set 사용하기
+
+- `Hashable` protocol을 준수(conform)해야 한다. ([Hashable in documentation](https://developer.apple.com/documentation/swift/hashable))
+
+  ```swift
+  protocol Hashable
+  ```
+
+  - `Hashable` protocol은 `Equatable` protocol을 준수한다.
+  - Hashable protocol 준수하기 == `hash(into:)` function 구현하기
+
+- Hashable 
+
+- struct 의 모든 stored property 가 Hashable 준수한다면, 컴파일러가 hash function 자동으로 구현해준다.
+
+- Hashable 은 Equatable protocol을 상속받음
+
+  
+
+
 
