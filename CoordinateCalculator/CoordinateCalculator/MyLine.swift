@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Drawable {
+struct MyLine: Drawable, CustomStringConvertible {
     
     private let pointA: MyPoint
     private let pointB: MyPoint
@@ -24,6 +24,10 @@ struct MyLine: Drawable {
         let result = sqrt(Double(distanceX*distanceX + distanceY*distanceY))
         
         return result
+    }
+    
+    var description: String {
+        return "두 점 사이의 거리는 \(self.distance)"
     }
     
     init(pointA: MyPoint, pointB: MyPoint) {

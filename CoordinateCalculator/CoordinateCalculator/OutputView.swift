@@ -13,23 +13,13 @@ struct OutputView {
     static let AxisLimit = ANSICode.axis.AxisLimit
     
     static func drawCoordinates(of figure: Drawable) {
-        
         drawAxis()
         
         for point in figure.points {
             drawDot(at: point)
         }
-        
-        switch figure {
-        case let line as MyLine:
-            print("두 점 사이의 거리는", terminator: " ")
-            print(line.distance)
-        case let triangle as MyTriangle:
-            print("삼각형 넓이는", terminator: " ")
-            print(triangle.area)
-        default:
-            break
-        }
+
+        printDescription(of: figure)
     }
     
     static private func drawAxis() {
@@ -44,6 +34,12 @@ struct OutputView {
         result += "µ"
         result += restoreCursor()
         print(result)
+    }
+    
+    static private func printDescription(of figure: Drawable) {
+        if let figure = figure as? CustomStringConvertible {
+            print(figure.description)
+        }
     }
     
     static private func restoreCursor() -> String {
