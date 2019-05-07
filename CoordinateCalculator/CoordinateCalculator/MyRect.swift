@@ -29,3 +29,23 @@ struct MyRect {
         rightBottom = MyPoint(x: rightBottomX, y: origin.y)
     }
 }
+
+extension MyRect: AxisDrawable {
+    var points: [MyPoint] {
+        var points = [leftTop, rightBottom]
+        points.append(MyPoint(x: leftTop.x, y: rightBottom.y))
+        points.append(MyPoint(x: rightBottom.x, y: leftTop.y))
+        return points
+    }
+}
+
+extension MyRect: ValueComputable {
+    var description: String {
+        return "사각형 넓이는 "
+    }
+    
+    func getComputedValue() -> Double {
+        let area = size.width * size.height
+        return Double(area)
+    }
+}
