@@ -11,7 +11,6 @@ import Foundation
 struct Converter {
     
     static func toFigure(from input: String) -> Drawable? {
-
         let myPoints = toMyPoints(from: input)
         
         switch myPoints.count {
@@ -27,7 +26,6 @@ struct Converter {
     }
     
     static private func toMyPoints(from input: String) -> [MyPoint] {
-        
         var myPoints : [MyPoint] = []
         let trimmedInput = input.removeParenthesis().splitByHyphen().map{ $0.splitByComma().map { Int($0) ?? -1 } }
         
@@ -39,7 +37,6 @@ struct Converter {
             let point = MyPoint(x: input[0], y: input[1]).points
             myPoints += point
         }
-        
         return myPoints
     }
 }
