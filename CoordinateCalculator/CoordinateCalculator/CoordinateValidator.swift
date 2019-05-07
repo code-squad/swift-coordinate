@@ -33,7 +33,11 @@ struct CoordinateValidator {
         return num > ANSICode.axis.AxisLimit || num < 0
     }
     
-    static func isInAxis(using pairs: [(x: Int, y: Int)]) -> Bool {
+    static func isInAxis(using pairs: [Pair]) -> Bool {
         return !isOutOfAxis(using: pairs)
+    }
+    
+    static func isNotRectangle(setX: Set<Int>, setY: Set<Int>) -> Bool {
+        return !(setX.count == 2 && setY.count == 2 ) && (setX == setY)
     }
 }
