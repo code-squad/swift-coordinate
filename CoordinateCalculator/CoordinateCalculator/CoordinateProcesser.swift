@@ -10,7 +10,6 @@ import Foundation
 
 struct CoordinateProcesser {
     
-    
     private let factory:FigureFactory = FigureFactory()
     
     private func check(point:PointTuple) throws {
