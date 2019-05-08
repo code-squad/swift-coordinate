@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InputControl {
+struct InputValidator {
     
     static func convertStringtoInt(input: String) throws ->[Int]{
         var input = input

@@ -12,18 +12,16 @@ func main() {
     
     while true {
         let input = InputView.readInput(question: "좌표를 입력하세요. ex.(10,10)")
-        do { let point = try InputControl.convertStringtoInt(input: input)
+        do { let point = try InputValidator.convertStringtoInt(input: input)
             OutputView.drawAxis(point: point)
             break
-        } catch let err as InputControl.Error {
+        } catch let err as InputValidator.Error {
             print(err.description)
             
         } catch {
             print("알 수 없는 에러")
         }
     }
-    
-    
 }
 
 main()
