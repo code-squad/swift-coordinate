@@ -16,7 +16,9 @@ enum Question: String {
 struct InputView {
     static func readInput(_ question: Question) -> String {
         print(question.rawValue)
-        let value = readLine()!
+//        let value = readLine()!
+        
+        let value = readLine() ?? ""
         return value
     }
 }

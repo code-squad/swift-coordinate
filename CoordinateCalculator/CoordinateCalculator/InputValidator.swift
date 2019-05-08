@@ -46,5 +46,7 @@ struct InputValidator {
     }
 }
 
-
+struct Validator {
+    
+}
 
