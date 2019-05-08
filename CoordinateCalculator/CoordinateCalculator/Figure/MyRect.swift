@@ -9,7 +9,6 @@
 import Foundation
 
 struct MyRect :Figure,Calculable{
-    
     let explanation: String = "사각형의 넓이는 "
     private (set) var leftTop:MyPoint
     private (set) var rightBottom:MyPoint
@@ -55,7 +54,6 @@ struct MyRect :Figure,Calculable{
         guard Array(Set(points)).count == 4 else { return false }
         let countX:Int = Set(points.map{ $0.x }).count
         let countY:Int = Set(points.map{ $0.y }).count
-        
         return countX == 2 && countY == 2
     }
 }

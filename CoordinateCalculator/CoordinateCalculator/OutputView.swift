@@ -15,6 +15,7 @@ struct OutputView{
     init(_ target:Figure) {
         self.target = target
     }
+    
     private func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.cyanBright)\(ANSICode.axis.draw())")

@@ -10,7 +10,6 @@ import Foundation
 
 
 struct Answer{
-    
     private let contents :String
     let separator = "-"
     
@@ -40,7 +39,6 @@ struct Answer{
             throw Exception.ErrorType.wrongFormat
         }
         let matchs = regex.matches(in: string, options: [], range: NSRange.init(location: 0, length: string.count))
-        
         let x = NSString.init(string:string).substring(with: (matchs[0].range))
         let y = NSString.init(string:string).substring(with: (matchs[1].range))
         return (try x.stringToInt(), try y.stringToInt())

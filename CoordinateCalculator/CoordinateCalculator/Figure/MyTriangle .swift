@@ -9,7 +9,6 @@
 import Foundation
 
 struct MyTriangle : Figure,Calculable{
-    
     let explanation: String = "삼각형의 넓이는 "
     private let lineAB :MyLine
     private let lineBC :MyLine
@@ -23,7 +22,6 @@ struct MyTriangle : Figure,Calculable{
         let c2 = pow(c, 2)
         let cosB = (a2 + c2 - b2 ) / (a * c * 2)
         let sinB = sqrt(1 - pow(cosB,2))
-        
         return a*c*sinB/2
     }
     
@@ -39,12 +37,10 @@ struct MyTriangle : Figure,Calculable{
         points.append(contentsOf: self.lineBC.getPoints())
         points.append(contentsOf: self.lineAC.getPoints())
         let deduplicationPoints =  Array(Set(points))
-        
         return deduplicationPoints
     }
     
     func getCalculatedValue() -> Double {
-        
         return self.areaOfTriangle
     }
    
