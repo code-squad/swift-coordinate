@@ -498,27 +498,23 @@ struct Hasher
 
 ### CustomStringConvertible
 
+**Swift의 모든 instance는 String으로 변환이 가능한데, 변환시에 각 객체에 default로 구현된 description을 변환한다. 변환시의 description을 custom 하고 싶다면 이 protocol을 준수해야한다.**
+
 > CustomStringConvertible protocol can provide their own representation to be used **when converting an instance to a string.**
 
 instance → String으로 변환하면 보일 representation을 지정하는 protocol
 
-&nbsp;
-
-- 사용 될 때 : String initializer 를 이용할 때, 지정한 String으로 변환된다.
-
-  > `String(describing:)` : preferred way to convert an instance of any type to a string
-
-  ```swift
-  init<Subject>(describing instance: Subject) where Subject : CustomStringConvertible
-  ```
-
-  the initializer creates the string representation of instance 
+instance를 String으로 표현하고자 할 때, 해당 instance가 무엇인지 대표하는 정보를 description에 구현한다.
 
 &nbsp;
 
 #### Conforming to the CustomStringConvertible Protocol
 
 - by implementing **_description_** property (var)
+
+  ```swift
+  var description: String { get }
+  ```
 
   ```swift
   struct MyPoint {
@@ -538,6 +534,20 @@ instance → String으로 변환하면 보일 representation을 지정하는 pro
 
 &nbsp;
 
+- 사용하기 
+
+  - 직접적으로 description property 부르는건 지양됨
+
+  - String initializer 를 이용해서 변환하여 사용하기
+
+    > `String(describing:)` : preferred way to convert an instance of any type to a string
+
+    ```swift
+    init<Subject>(describing instance: Subject) where Subject : CustomStringConvertible
+    ```
+
+    the initializer creates the string representation of instance 
+
 &nbsp;
 
 #### String(describing:) 을 사용하는 다른 프로토콜 - TextOutputStreamable protocol
@@ -552,21 +562,13 @@ func write<Target>(to target: inout Target) where Target : TextOutputStream
 
 &nbsp;
 
+&nbsp;
 
+#### stored property - 초기값(default value)을 넣어야 하는 경우, 아닌 경우
 
-### 계산한 넓이, 길이를 출력하는 방법 생각해보기
-
-1. CustomStringConvertible의 extension으로 넓이, 길이 계산하는 method 추가
-
-   모든 CustomStringConvertible이 ValueComputable 이어야 하는가? → **NO**
-
-2. ValueComputable 가 CustomStringConvertible 을 상속받기
-
-   모든 ValueComputable이 CustomStringConvertible 이어야 하는가? → yes or no..
-   could be represented in String.. 
-   계산한 value가 해당 instance를 대변, 대표하는 값인가? (Is the computed value the representation of the figure instance??) → Yes?  
-
-3. 도형 구조체에서 ValueComputable, CustomStringConvertible 두개의 프로토콜을 채택하기
-
-   OutputView - printComputedValue 에서 protocol 둘에 대한 각각 처리가 필요
-
+1. 넣어야 한다.
+   - 항상 같은 initial value를 가지는 경우 - default value로 설정해 주는게 initializer보다 효율적
+   - default, automatic memberwise initializer 밖에 없는 경우 (custom intializer가 없는 경우)
+2. 안 넣어야 한다.
+   - 항상 다른 값이 들어와서 default value가 의미 없음. initializer로 항상 설정이 필요할 때
+   - default, automatic memberwise initializer가 아닌 custom initializer를 구현해 준 경우
