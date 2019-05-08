@@ -23,7 +23,7 @@ func main() {
             print(error.localizedDescription)
             continue
         } catch {
-            print("알 수 없는 에러")
+            print(error)
             continue
         }
     }
