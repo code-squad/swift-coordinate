@@ -11,9 +11,9 @@ import Foundation
 func main() {
     while true {
         do {
-            let coordinatesTexts = try InputView.readInput()
+            let coordinates = try InputView.readInput()
             
-            let shape = try Converter.convertCoordinates(coordinatesTexts: coordinatesTexts)
+            let shape = try Converter.shape(coordinates: coordinates)
             
             OutputView.drawAxis()
             OutputView.draw(shape: shape)

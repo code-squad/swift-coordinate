@@ -9,11 +9,11 @@
 import Foundation
 
 struct Converter {
-    static func convertCoordinates(coordinatesTexts: [String]) throws -> Drawable {
+    static func shape(coordinates: [String]) throws -> Drawable {
         var points: [MyPoint] = []
         
-        for coordinatesText in coordinatesTexts {
-            points.append(try convertPoint(coordinatesText: coordinatesText))
+        for coordinate in coordinates {
+            points.append(try convertPoint(coordinate: coordinate))
         }
         
         switch points.count {
@@ -31,8 +31,8 @@ struct Converter {
         }
     }
     
-    private static func convertPoint(coordinatesText: String) throws -> MyPoint {
-        let numbersText = coordinatesText.components(separatedBy: ["(", ")"]).joined().split(separator: ",")
+    private static func convertPoint(coordinate: String) throws -> MyPoint {
+        let numbersText = coordinate.components(separatedBy: ["(", ")"]).joined().split(separator: ",")
         var numbers: [Int] = []
         
         for numberText in numbersText {

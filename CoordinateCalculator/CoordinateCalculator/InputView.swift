@@ -18,8 +18,8 @@ enum RegexPattern: String {
 
 extension String {
     func verifyInputFormat(regexPattern: String) -> String {
-        if let coordinatesRange = self.range(of: regexPattern, options: [.regularExpression]) {
-            return String(self[coordinatesRange])
+        if let coordinateRange = self.range(of: regexPattern, options: [.regularExpression]) {
+            return String(self[coordinateRange])
         }
         
         return ""
@@ -28,23 +28,23 @@ extension String {
 
 struct InputView {
     static func readInput() throws -> [String] {
-        var coordinatesTexts: [String] = []
+        var coordinates: [String] = []
         
         print(Question.inputCoordinates.rawValue)
         
         guard let input = readLine() else { throw InputError.invalidInput }
         
-        for coordinatesText in input.split(separator: "-") {
-            let verificationResult = try verifyCoordinates(coordinatesText: String(coordinatesText))
+        for coordinate in input.split(separator: "-") {
+            let verificationResult = try verifyCoordinate(String(coordinate))
             
-            coordinatesTexts.append(verificationResult)
+            coordinates.append(verificationResult)
         }
         
-        return coordinatesTexts
+        return coordinates
     }
     
-    private static func verifyCoordinates(coordinatesText: String) throws -> String {
-        let verificationResult = coordinatesText.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue)
+    private static func verifyCoordinate(_ coordinate: String) throws -> String {
+        let verificationResult = coordinate.verifyInputFormat(regexPattern: RegexPattern.verifyPattern.rawValue)
         
         if verificationResult == "" {
             throw InputError.invalidFormat
