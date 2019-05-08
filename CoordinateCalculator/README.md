@@ -307,197 +307,266 @@ struct MyRect {
 
 &nbsp;
 
-- ### Set 
+### Set 
 
-  > An unordered collection of unique elements
+> An unordered collection of unique elements
 
-  중복 없이 unique한 요소들로만 구성된 순서 없는 collection
+중복 없이 unique한 요소들로만 구성된 순서 없는 collection
 
-  &nbsp;
+&nbsp;
+
+```swift
+struct Set<Element> where Element : Hashable
+```
+
+- generic type 인데, type 중에 Hashable protocol을 채택한 타입만 사용이 가능하다는 의미
+
+- 위치
+  
+- _Foundation > Collections > Set_
+  
+- 언제 사용할까? (Array < Set 인 경우) 👍
+
+  > You use a set instead of an array when you need to test efficiently for membership and you aren’t concerned with the order of the elements in the collection, or when you need to ensure that each element appears only once in a collection
+
+  - 순서에 상관없이 소속되어 있는지 확인할 때
+  - 딱 한번만 나타나도록 확실하게 하고 싶을 때
+
+- method
+
+  - `contains`
+  - `==` , `!==` (Equotable 에서 구현된 method)
+  - 집합 연산 : union, disjoint, subset… 등등
+
+- Set 을 사용하기 위한 기본 조건 : Set 의 element가 되는 type이 `Hashable` protocol을 준수해야 한다.
+
+&nbsp;
+
+### Hashable
+
+```swift
+protocol Hashable
+```
+
+> A type that can be hashed into a `Hasher` to produce an integer hash value
+
+- `Hashable` protocol을 준수하는 type
+
+  - Set, Dictionary key로 사용할 수 있는 type 
+  - 해당 type은 **integer hash value를 가진다**.
+
+- standard library - Hashable 채택한 type
+
+  - String
+  - integer
+  - floating-point
+  - boolean .. etc
+
+- hash value가 필요한 이유 : ✅ **instance를 판별하고 구분하고 비교하기 위해서**
+
+  - Hashable ⇢ Equatable : Equatable protocol을 상속받음
+
+    - Equatable protocol : a type that can be compared for value equality
+
+      value가 일치/불일치 하는지 `==`, `!==` operator로 비교할 수 있는 type
+
+    - Hahable은 이런 Equatable 을 상속받았으므로 value간 비교가 가능해야 한다
+
+    - 비교 대상은 hash value가 된다.
+
+  - Set, Dictionary 의 경우, 순서가 없기 때문에 각 element를 identify 할 수 있는 방법이 필요 → `hashValue`
+
+  - 각기 다른 instance 마다 고유한 hash value를 갖도록 Hashable 에서 구현 → `hash(into:)`
+
+- **'Hashing a value (값을 해싱한다)'** 의 의미
+
+  - 해당 type의 **essential components**(결정적인 부분, 남과 다름을 identify 할 수 있는 부분)을 hash function에 넣는다 (Hasher type 사용)
+  - essential components는 Equatable 의 구현에서 사용된 부분이다. (비교를 위해서 사용되는 부분)
+
+- Hashable protocol - `hash(into: )` 에서 hash value 만드는 방법: `Hasher` 를 이용
+
+&nbsp;
+
+### Hasher
+
+```swift
+struct Hasher
+```
+
+> The universal hash function used by `Set` and `Dictionary`.
+>
+> `Hasher` can be used **to map an arbitrary sequence of bytes to an integer hash value**. You can feed data to the hasher using a series of calls to mutating `combine` methods. When you’ve finished feeding the hasher, the hash value can be retrieved by calling `finalize()`
+
+- byte sequence → integer hash value로 변환해준다.
+
+- hash value 만드는 방법 : mutating method`combine()` 사용
+
+  - combine으로 넘긴 일련의 인자에서 essential part들을 haser state 에 넣고 섞음
+  - 프로그램 한 실행에서 각기 다른 object는 각자 다른 hash value를 가진다.
+  - 프로그램 한 실행에서 같은 sequence of byte는 항상 같은 hash value를 가진다.
+  - haser는 randomly seed 되므로, 여러 번의 실행에서 hash value는 달라질 수 있다.
+  - argument의 type이 Hashable protocol을 conform해야 한다.
+
+- hash value 가져오는 방법: function `finalize()` 사용
+
+  - haser state를 종료하고 hash value를 반환한다.
+
+    > Finalizes the hasher state and returns the hash value.
+
+&nbsp;
+
+- _Example_
 
   ```swift
-  struct Set<Element> where Element : Hashable
+  var hasher = Hasher() //mutating method combine()을 사용하려면 var로 선언해야 함
+  hasher.combine(0)
+  hasher.combine(1)
+  print(hasher.finalize())
+  // 프로그램 실행 시 마다 hash value가 다름
   ```
-
-  - generic type 인데, type 중에 Hashable protocol을 채택한 타입만 사용이 가능하다는 의미
-
-  - 위치
-    - _Foundation > Collections > Set_
-
-  - 언제 사용할까? (Array < Set 인 경우) 👍
-
-    > You use a set instead of an array when you need to test efficiently for membership and you aren’t concerned with the order of the elements in the collection, or when you need to ensure that each element appears only once in a collection
-
-    - 순서에 상관없이 소속되어 있는지 확인할 때
-    - 딱 한번만 나타나도록 확실하게 하고 싶을 때
-
-  - method
-
-    - `contains`
-    - `==` , `!==` (Equotable 에서 구현된 method)
-    - 집합 연산 : union, disjoint, subset… 등등
-
-  - Set 을 사용하기 위한 기본 조건 : Set 의 element가 되는 type이 `Hashable` protocol을 준수해야 한다.
-
-  &nbsp;
-
-  ### Hashable
 
   ```swift
-  protocol Hashable
+  var hasher1 = Hasher() 
+  var hasher2 = Hasher() 
+  hasher1.combine(1)
+  hasher2.combine(1)
+  
+  // 같은 hash value를 가짐
+  print(hasher1.finalize())
+  print(hasher2.finalize())
+  
+  hasher2.combine(3)
+  print(hasher2.finalize())
+  // 다른 hash value
   ```
 
-  > A type that can be hashed into a `Hasher` to produce an integer hash value
+&nbsp;
 
-  - `Hashable` protocol을 준수하는 type
+&nbsp;
 
-    - Set, Dictionary key로 사용할 수 있는 type 
-    - 해당 type은 **integer hash value를 가진다**.
+### Conforming to the Hashable Protocol 
 
-  - standard library - Hashable 채택한 type
+**Custom Type을 Set, Dictionary Key에서 사용하려면, protocol Hashable 을 준수해야 한다.**
 
-    - String
-    - integer
-    - floating-point
-    - boolean .. etc
+> To customize your type’s `Hashable` conformance, to adopt `Hashable` in a type that doesn’t meet the criteria listed above, or to extend an existing type to conform to `Hashable`, implement the `hash(into:)` method in your custom type.
 
-  - hash value가 필요한 이유 : ✅ **instance를 판별하고 구분하고 비교하기 위해서**
+#### Way to Conform Hashable Protocol
 
-    - Hashable ⇢ Equatable : Equatable protocol을 상속받음
+**1. 자동으로 따르는 경우**
 
-      - Equatable protocol : a type that can be compared for value equality
+- struct
+  - 모든 stored property가 Hashable 준수하는 경우
+- enum
+  - With associated value: 해당 value type이 Hashable 준수하는 경우
+  - without assiciated value: 선언 없이도 자동으로 Hashable 준수
 
-        value가 일치/불일치 하는지 `==`, `!==` operator로 비교할 수 있는 type
+**2. 직접 conformance를 다뤄야 하는 경우**
 
-      - Hahable은 이런 Equatable 을 상속받았으므로 value간 비교가 가능해야 한다
+- 3가지 경우
+  - 1번의 자동 조건을 만족하지 못하는 경우
+  - existing type 이 Hashable 을 채택하려는 경우
+  - Hashable conformance를 직접 custom 하려는 경우
+- 방법 : 해당 type에 `hash(into:)` method 구현
+- `hash(into:)` 구현하기
+  -  Haser의 `combine(_:)` - argument에 해당 type의 essential component를 넘겨준다.
+  - Equatable conformance를 다시 구현하는 것도 권장됨 
 
-      - 비교 대상은 hash value가 된다.
-
-    - Set, Dictionary 의 경우, 순서가 없기 때문에 각 element를 identify 할 수 있는 방법이 필요 → `hashValue`
-
-    - 각기 다른 instance 마다 고유한 hash value를 갖도록 Hashable 에서 구현 → `hash(into:)`
-
-  - **'Hashing a value (값을 해싱한다)'** 의 의미
-
-    - 해당 type의 **essential components**(결정적인 부분, 남과 다름을 identify 할 수 있는 부분)을 hash function에 넣는다 (Hasher type 사용)
-    - essential components는 Equatable 의 구현에서 사용된 부분이다. (비교를 위해서 사용되는 부분)
-
-  - Hashable protocol - `hash(into: )` 에서 hash value 만드는 방법: `Hasher` 를 이용
-
-  &nbsp;
-
-  ### Hasher
+- _Example - 좌표 상의 점을 나타내는 struct MyPoint_
 
   ```swift
-  struct Hasher
-  ```
-
-  > The universal hash function used by `Set` and `Dictionary`.
-  >
-  > `Hasher` can be used **to map an arbitrary sequence of bytes to an integer hash value**. You can feed data to the hasher using a series of calls to mutating `combine` methods. When you’ve finished feeding the hasher, the hash value can be retrieved by calling `finalize()`
-
-  - byte sequence → integer hash value로 변환해준다.
-
-  - hash value 만드는 방법 : mutating method`combine()` 사용
-
-    - combine으로 넘긴 일련의 인자에서 essential part들을 haser state 에 넣고 섞음
-    - 프로그램 한 실행에서 각기 다른 object는 각자 다른 hash value를 가진다.
-    - 프로그램 한 실행에서 같은 sequence of byte는 항상 같은 hash value를 가진다.
-    - haser는 randomly seed 되므로, 여러 번의 실행에서 hash value는 달라질 수 있다.
-    - argument의 type이 Hashable protocol을 conform해야 한다.
-
-  - hash value 가져오는 방법: function `finalize()` 사용
-
-    - haser state를 종료하고 hash value를 반환한다.
-
-      > Finalizes the hasher state and returns the hash value.
-
-  &nbsp;
-
-  - _Example_
-
-    ```swift
-    var hasher = Hasher() //mutating method combine()을 사용하려면 var로 선언해야 함
-    hasher.combine(0)
-    hasher.combine(1)
-    print(hasher.finalize())
-    // 프로그램 실행 시 마다 hash value가 다름
-    ```
-
-    ```swift
-    var hasher1 = Hasher() 
-    var hasher2 = Hasher() 
-    hasher1.combine(1)
-    hasher2.combine(1)
+  struct MyPoint {
+    private(set) var x: Int = 0
+    private(set) var y: Int = 0
     
-    // 같은 hash value를 가짐
-    print(hasher1.finalize())
-    print(hasher2.finalize())
-    
-    hasher2.combine(3)
-    print(hasher2.finalize())
-    // 다른 hash value
-    ```
-
-  &nbsp;
-
-  &nbsp;
-
-  ### Conforming to the Hashable Protocol 
-
-  **Custom Type을 Set, Dictionary Key에서 사용하려면, protocol Hashable 을 준수해야 한다.**
-
-  > To customize your type’s `Hashable` conformance, to adopt `Hashable` in a type that doesn’t meet the criteria listed above, or to extend an existing type to conform to `Hashable`, implement the `hash(into:)` method in your custom type.
-
-  #### Way to Conform Hashable Protocol
-
-  ##### 1. 자동으로 따르는 경우
-
-  - struct
-    - 모든 stored property가 Hashable 준수하는 경우
-  - enum
-    - With associated value: 해당 value type이 Hashable 준수하는 경우
-    - without assiciated value: 선언 없이도 자동으로 Hashable 준수
-
-  ##### 2. 직접 conformance를 다뤄야 하는 경우
-
-  - 3가지 경우
-    - 1번의 자동 조건을 만족하지 못하는 경우
-    - existing type 이 Hashable 을 채택하려는 경우
-    - Hashable conformance를 직접 custom 하려는 경우
-  - 방법 : 해당 type에 `hash(into:)` method 구현
-  - `hash(into:)` 구현하기
-    -  Haser의 `combine(_:)` - argument에 해당 type의 essential component를 넘겨준다.
-    - Equatable conformance를 다시 구현하는 것도 권장됨 
-
-  - _Example - 좌표 상의 점을 나타내는 struct MyPoint_
-
-    ```swift
-    struct MyPoint {
-      private(set) var x: Int = 0
-      private(set) var y: Int = 0
-      
-      //.. initializer...
+    //.. initializer...
+  }
+  
+  extension MyPoint: Hashable {
+    static func ==(lpoint: MyPoint, rpoint: MyPoint) -> Bool {
+      return lpoint.x == rpoint.x && lpoint.y == rpoint.y
     }
     
-    extension MyPoint: Hashable {
-      static func ==(lpoint: MyPoint, rpoint: MyPoint) -> Bool {
-        return lpoint.x == rpoint.x && lpoint.y == rpoint.y
-      }
-      
-      func hash(into haser: inout Hasher) {
-        //using essential components - x, y
-        haser.combine(x) 
-        haser.combine(y) 
-      }
+    func hash(into haser: inout Hasher) {
+      //using essential components - x, y
+      haser.combine(x) 
+      haser.combine(y) 
     }
-    ```
+  }
+  ```
 
-    
+&nbsp;
 
+### CustomStringConvertible
+
+> CustomStringConvertible protocol can provide their own representation to be used **when converting an instance to a string.**
+
+instance → String으로 변환하면 보일 representation을 지정하는 protocol
+
+&nbsp;
+
+- 사용 될 때 : String initializer 를 이용할 때, 지정한 String으로 변환된다.
+
+  > `String(describing:)` : preferred way to convert an instance of any type to a string
+
+  ```swift
+  init<Subject>(describing instance: Subject) where Subject : CustomStringConvertible
+  ```
+
+  the initializer creates the string representation of instance 
+
+&nbsp;
+
+#### Conforming to the CustomStringConvertible Protocol
+
+- by implementing **_description_** property (var)
+
+  ```swift
+  struct MyPoint {
+  	let x: Int, y: Int
+  }
   
-
+  extension MyPoint: CustomStringConvertible {
+    var description: String {
+      return "Point at (\(x), \(y))"
+    }
+  }
   
+  let p = MyPoint(x: 10, y:10)
+  print(p)
+  // "Point as (10, 10)"
+  ```
+
+&nbsp;
+
+&nbsp;
+
+#### String(describing:) 을 사용하는 다른 프로토콜 - TextOutputStreamable protocol
+
+이 프로토콜을 준수하는 type은 이 프로토콜을 준수하는 다른 type에 자신의 value를 write 할 수 있다.
+
+해당 instance의 텍스트로 된 표현(textual representation)을 target (which also conforms to this protocol)에 쓸 수 있다.
+
+```swift
+func write<Target>(to target: inout Target) where Target : TextOutputStream
+```
+
+&nbsp;
 
 
+
+### 계산한 넓이, 길이를 출력하는 방법 생각해보기
+
+1. CustomStringConvertible의 extension으로 넓이, 길이 계산하는 method 추가
+
+   모든 CustomStringConvertible이 ValueComputable 이어야 하는가? → **NO**
+
+2. ValueComputable 가 CustomStringConvertible 을 상속받기
+
+   모든 ValueComputable이 CustomStringConvertible 이어야 하는가? → yes or no..
+   could be represented in String.. 
+   계산한 value가 해당 instance를 대변, 대표하는 값인가? (Is the computed value the representation of the figure instance??) → Yes?  
+
+3. 도형 구조체에서 ValueComputable, CustomStringConvertible 두개의 프로토콜을 채택하기
+
+   OutputView - printComputedValue 에서 protocol 둘에 대한 각각 처리가 필요
 
