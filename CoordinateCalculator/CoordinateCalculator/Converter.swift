@@ -10,17 +10,6 @@ import Foundation
 
 struct Converter {
     static func convertCoordinates(coordinatesTexts: [String]) throws -> Drawable {
-        switch coordinatesTexts.count {
-        case 1:
-            return try convertPoint(coordinatesText: coordinatesTexts[0])
-        case 2, 3, 4:
-            return try convertMeasurableShape(coordinatesTexts: coordinatesTexts)
-        default:
-            throw InputError.invalidInput
-        }
-    }
-    
-    private static func convertMeasurableShape(coordinatesTexts: [String]) throws -> Drawable {
         var points: [MyPoint] = []
         
         for coordinatesText in coordinatesTexts {
@@ -28,6 +17,8 @@ struct Converter {
         }
         
         switch points.count {
+        case 1:
+            return points[0]
         case 2:
             return MyLine(pointA: points[0], pointB: points[1])
         case 3:
