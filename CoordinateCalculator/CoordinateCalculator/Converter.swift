@@ -13,7 +13,7 @@ struct Converter {
         switch coordinatesTexts.count {
         case 1:
             return try convertPoint(coordinatesText: coordinatesTexts[0])
-        case 2, 3:
+        case 2, 3, 4:
             return try convertMeasurableShape(coordinatesTexts: coordinatesTexts)
         default:
             throw InputError.invalidInput
@@ -32,6 +32,9 @@ struct Converter {
             return MyLine(pointA: points[0], pointB: points[1])
         case 3:
             return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+        case 4:
+            let verificationResult = try RectVerifier.verifyRect(points: points)
+            return MyRect(origin: verificationResult.origin, size: verificationResult.size)
         default:
             throw InputError.invalidInput
         }

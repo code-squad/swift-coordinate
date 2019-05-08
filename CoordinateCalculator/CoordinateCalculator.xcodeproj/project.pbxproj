@@ -13,6 +13,7 @@
 		142714A62277DFF900BA87FC /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142714A52277DFF900BA87FC /* MyTriangle.swift */; };
 		142714AC227AB8BC00BA87FC /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142714AB227AB8BC00BA87FC /* InputError.swift */; };
 		142714AE227ABBBE00BA87FC /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142714AD227ABBBE00BA87FC /* MyRect.swift */; };
+		142714B22281534F00BA87FC /* RectVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142714B12281534F00BA87FC /* RectVerifier.swift */; };
 		1431D90622717886001DBCBA /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1431D90522717886001DBCBA /* Converter.swift */; };
 		146A3E0622699D5500385ADA /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A3E0522699D5500385ADA /* OutputView.swift */; };
 		14D289DB226D8E94008F0779 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D289DA226D8E94008F0779 /* InputView.swift */; };
@@ -40,7 +41,8 @@
 		142714A52277DFF900BA87FC /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		142714AB227AB8BC00BA87FC /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		142714AD227ABBBE00BA87FC /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
-		1431D90522717886001DBCBA /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		142714B12281534F00BA87FC /* RectVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectVerifier.swift; sourceTree = "<group>"; };
+		1431D90522717886001DBCBA /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		146A3E0522699D5500385ADA /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		14D289DA226D8E94008F0779 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		14D289DC226D8EC4008F0779 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				146A3E0522699D5500385ADA /* OutputView.swift */,
 				1431D90522717886001DBCBA /* Converter.swift */,
+				142714B12281534F00BA87FC /* RectVerifier.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D289DD226D8EC4008F0779 /* MyPoint.swift in Sources */,
+				142714B22281534F00BA87FC /* RectVerifier.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				142714AC227AB8BC00BA87FC /* InputError.swift in Sources */,
 				142714A22272D2F500BA87FC /* Measurable.swift in Sources */,
