@@ -13,6 +13,7 @@ protocol AxisDrawable {
 }
 
 protocol ValueComputable {
-    var description: String { get }
+    var descriptionOfComputedValue: String { get }
     func getComputedValue() -> Double
 }
+

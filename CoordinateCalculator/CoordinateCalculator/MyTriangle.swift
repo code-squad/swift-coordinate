@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyTriangle {
-    private var lineAB: MyLine!
-    private var lineBC: MyLine!
-    private var lineAC: MyLine!
+    private var lineAB: MyLine
+    private var lineBC: MyLine
+    private var lineAC: MyLine
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         lineAB = MyLine(pointA: pointA, pointB: pointB)
@@ -28,7 +28,7 @@ extension MyTriangle: AxisDrawable {
 }
 
 extension MyTriangle: ValueComputable {
-    var description: String {
+    var descriptionOfComputedValue: String {
         return "삼각형의 넓이는 "
     }
     

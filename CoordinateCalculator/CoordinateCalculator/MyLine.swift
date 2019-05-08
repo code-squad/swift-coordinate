@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyLine {
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
+    private var pointA: MyPoint
+    private var pointB: MyPoint
     
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
@@ -25,7 +25,7 @@ extension MyLine: AxisDrawable {
 }
 
 extension MyLine: ValueComputable {
-    var description: String {
+    var descriptionOfComputedValue: String {
         return "두 점 사이의 거리는 "
     }
     
@@ -39,3 +39,5 @@ extension MyLine: ValueComputable {
         return sqrt(distanceX + distanceY)
     }
 }
+
+

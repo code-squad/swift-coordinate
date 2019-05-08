@@ -40,7 +40,7 @@ extension MyRect: AxisDrawable {
 }
 
 extension MyRect: ValueComputable {
-    var description: String {
+    var descriptionOfComputedValue: String {
         return "사각형 넓이는 "
     }
     
