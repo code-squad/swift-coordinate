@@ -37,10 +37,11 @@ struct RectVerifier {
     
     ///똑같은 좌표가 2개 이상 입력되었는지 검증
     private static func verifyCoordinates(points: [MyPoint]) -> Bool {
-        for i in 1..<points.count {
-            if (points[0].x == points[i].x), (points[0].y == points[i].y) {
-                return false
-            }
+        var coordinates = points
+        let firstCoordinate = coordinates.removeFirst()
+        
+        if coordinates.contains(where: { ($0.x, $0.y) == (firstCoordinate.x, firstCoordinate.y) }) {
+            return false
         }
         
         return true
