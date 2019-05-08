@@ -13,8 +13,8 @@ struct MyPoint: Drawable {
         return [self]
     }
     
-    private(set) var x = 0
-    private(set) var y = 0
+    private(set) var x: Int
+    private(set) var y: Int
     
     init(x: Int, y: Int) {
         self.x = x
