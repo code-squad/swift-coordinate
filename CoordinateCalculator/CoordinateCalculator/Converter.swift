@@ -20,9 +20,31 @@ struct Converter {
             return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         case 3:
             return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
+        case 4:
+            return makeRect(points: myPoints)
         default:
             return nil
         }
+    }
+    
+    static private func makeRect(points: [MyPoint]) -> Drawable? {
+        guard Validator.canBeRect(points: points) else {
+            return nil
+        }
+    
+        let sortedPoints = points.sorted { (left, right) -> Bool in
+            return (left.x, left.y) < (right.x, right.y)
+        }
+        print(sortedPoints)
+        
+        let leftTop = sortedPoints[1]
+        let rightBottom = sortedPoints[2]
+        let width = rightBottom.x - leftTop.x
+        let height = leftTop.y - rightBottom.y
+        let rectSize = CGSize(width: width, height: height)
+        
+        
+        return MyRect(origin: leftTop, size: rectSize)
     }
     
     static private func toMyPoints(from input: String) -> [MyPoint] {
