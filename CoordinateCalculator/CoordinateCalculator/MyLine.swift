@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Drawable, CustomStringConvertible {
+struct MyLine: Drawable {
     
     private let pointA: MyPoint
     private let pointB: MyPoint
@@ -26,12 +26,20 @@ struct MyLine: Drawable, CustomStringConvertible {
         return result
     }
     
-    var description: String {
-        return "두 점 사이의 거리는 \(self.distance)"
-    }
-    
     init(pointA: MyPoint, pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }
+}
+
+extension MyLine: Calculable {
+    
+    var description: String {
+        return "두 점 사이의 거리는"
+    }
+    
+    func getCalcultedValue() -> Double {
+        return self.distance
+    }
+    
 }

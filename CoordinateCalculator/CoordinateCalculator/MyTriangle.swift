@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct MyTriangle: Drawable, CustomStringConvertible {
-   
+struct MyTriangle: Drawable {
+    
     private let lineAB: MyLine
     private let lineBC: MyLine
     private let lineAC: MyLine
@@ -30,13 +30,21 @@ struct MyTriangle: Drawable, CustomStringConvertible {
         return result
     }
     
-    var description: String {
-        return "삼각형의 넓이는 \(self.area)"
-    }
-    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(pointA: pointA, pointB: pointB)
         self.lineBC = MyLine(pointA: pointB, pointB: pointC)
         self.lineAC = MyLine(pointA: pointA, pointB: pointC)
     }
+}
+
+extension MyTriangle: Calculable {
+    
+    var description: String {
+        return "삼각형의 넓이는"
+    }
+    
+    func getCalcultedValue() -> Double {
+        return area
+    }
+    
 }
