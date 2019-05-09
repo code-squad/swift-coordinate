@@ -20,8 +20,10 @@ struct InputView {
             }
         }
     }
+    
+    private static let question = "좌표를 입력하세요."
 
-    static private func readText(question: String) throws -> String {
+    static private func readText(ask question: String) throws -> String {
         print(question)
         guard let input = readLine(), !input.isEmpty else {
             throw InputView.Error.isEmpty
@@ -30,6 +32,6 @@ struct InputView {
     }
 
     static func readInput() throws -> String {
-        return try readText(question: "좌표를 입력하세요.")
+        return try readText(ask: question)
     }
 }
