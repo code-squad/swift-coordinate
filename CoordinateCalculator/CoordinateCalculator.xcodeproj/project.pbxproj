@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		FA2506902283D52900EB16B8 /* Calculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25068F2283D52900EB16B8 /* Calculable.swift */; };
 		FA570A72226D9029002AD9E9 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570A71226D9029002AD9E9 /* Validator.swift */; };
 		FA570A74226EB097002AD9E9 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570A73226EB097002AD9E9 /* MyLine.swift */; };
 		FA6AF105226EFBB400F69B8C /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6AF104226EFBB400F69B8C /* Converter.swift */; };
@@ -35,6 +36,7 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		FA25068F2283D52900EB16B8 /* Calculable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculable.swift; sourceTree = "<group>"; };
 		FA570A71226D9029002AD9E9 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		FA570A73226EB097002AD9E9 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		FA6AF104226EFBB400F69B8C /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				FA570A73226EB097002AD9E9 /* MyLine.swift */,
 				FAF88921227AB46C003D27CC /* MyTriangle.swift */,
 				FABB2D4A227599E900DF43F1 /* Drawable.swift */,
+				FA25068F2283D52900EB16B8 /* Calculable.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				FAA5ABCA22699E6200596E60 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				FAF88922227AB46C003D27CC /* MyTriangle.swift in Sources */,
+				FA2506902283D52900EB16B8 /* Calculable.swift in Sources */,
 				FA570A72226D9029002AD9E9 /* Validator.swift in Sources */,
 				FABB2D4B227599E900DF43F1 /* Drawable.swift in Sources */,
 				FA570A74226EB097002AD9E9 /* MyLine.swift in Sources */,
