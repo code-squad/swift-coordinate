@@ -9,13 +9,27 @@
 import Foundation
 
 struct InputView {
-
-    static private func readText(question: String) -> String {
-        print(question)
-        return readLine() ?? ""
+    
+    enum Error: Swift.Error {
+        case isEmpty
+        
+        var localizedDescription: String {
+            switch self {
+            case .isEmpty:
+                return "입력이 정의되지 않았습니다."
+            }
+        }
     }
 
-    static func readInput() -> String {
-        return readText(question: "좌표를 입력하세요.")
+    static private func readText(question: String) throws -> String {
+        print(question)
+        guard let input = readLine(), !input.isEmpty else {
+            throw InputView.Error.isEmpty
+        }
+        return input
+    }
+
+    static func readInput() throws -> String {
+        return try readText(question: "좌표를 입력하세요.")
     }
 }
