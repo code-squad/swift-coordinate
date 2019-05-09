@@ -8,5 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
+func main() {
+    let outputView = OutputView()
+    outputView.drawAxis()
+}
 
+main()
