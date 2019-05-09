@@ -38,3 +38,14 @@ struct MyRect: Drawable {
         self.rightBottom = MyPoint(x: rightX, y: rightY)
     }
 }
+
+extension MyRect: Calculable {
+    
+    var description: String {
+        return "사각형의 넓이는"
+    }
+    
+    func getCalcultedValue() -> Double {
+        return area
+    }
+}
