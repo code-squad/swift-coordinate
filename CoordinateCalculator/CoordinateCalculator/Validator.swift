@@ -45,4 +45,20 @@ struct Validator {
         }
         return true
     }
+    
+    static func canBeRect(points: [MyPoint]) -> Bool {
+        guard points.count == 4 else {
+            return false
+        }
+
+        var xSet: Set<Int> = []
+        var ySet: Set<Int> = []
+        
+        for point in points {
+            xSet.insert(point.x)
+            ySet.insert(point.y)
+        }
+        
+       return xSet.count == 2 && ySet.count == 2
+    }
 }
