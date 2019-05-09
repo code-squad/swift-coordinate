@@ -22,11 +22,19 @@ struct MyRect: Drawable {
         ]
     }
     
+    var area: Double {
+        let width = rightBottom.x - leftTop.x
+        let height = leftTop.y - rightBottom.y
+        
+        let result = Double(width * height)
+        
+        return result
+    }
+    
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
         let rightX = origin.x + Int(size.width)
         let rightY = origin.y - Int(size.height)
         self.rightBottom = MyPoint(x: rightX, y: rightY)
     }
-    
 }
