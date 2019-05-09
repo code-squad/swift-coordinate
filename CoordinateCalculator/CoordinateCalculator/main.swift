@@ -8,5 +8,17 @@
 
 import Foundation
 
-OutputView.clear()
-OutputView.drawAxis()
+func run() throws {
+    do {
+        let input = try InputView.readInput()
+        if let point = PointFormatter.convert(from: input) {
+            OutputView.clear()
+            OutputView.drawAxis()
+            OutputView.draw(point: point)
+        }
+    } catch let error as InputView.Error {
+        print(error.localizedDescription)
+    }
+}
+
+try run()
