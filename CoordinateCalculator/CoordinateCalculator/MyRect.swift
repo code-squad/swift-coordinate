@@ -8,9 +8,25 @@
 
 import Foundation
 
-struct MyRect {
+struct MyRect: Drawable {
     
     private let leftTop: MyPoint
     private let rightBottom: MyPoint
+    
+    var points: [MyPoint] {
+        return [
+            leftTop,
+            rightBottom,
+            MyPoint(x: leftTop.x, y: rightBottom.y),
+            MyPoint(x: rightBottom.x, y: leftTop.y)
+        ]
+    }
+    
+    init(origin: MyPoint, size: CGSize) {
+        self.leftTop = origin
+        let rightX = origin.x + Int(size.width)
+        let rightY = origin.y - Int(size.height)
+        self.rightBottom = MyPoint(x: rightX, y: rightY)
+    }
     
 }
