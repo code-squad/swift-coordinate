@@ -136,4 +136,15 @@ public struct ANSICode {
             return result
         }
     }
+    
+    struct point {
+        static func draw(_ x: Int, _ y: Int) -> String {
+            let point = "•"
+            var result = ""
+            result += ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 1 - y, col: x * 2 + 3)
+            result += point
+            result += ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 2, col: ANSICode.axis.AxisLimit + 2)
+            return result
+        }
+    }
 }
