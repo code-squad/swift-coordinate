@@ -10,12 +10,13 @@ import Foundation
 
 struct InputValidator {
     
-    static func convertStringtoInt(input: String) throws ->[Int]{
+    static func convertStringtoInt(input: String) throws ->[Int] {
         var input = input
         
         if(input.first == "(") && (input.last == ")"){
             input.removeFirst()
             input.removeLast()
+
             let inputArray = input.components(separatedBy: ",").compactMap{Int($0)}
             
             for input in inputArray {
