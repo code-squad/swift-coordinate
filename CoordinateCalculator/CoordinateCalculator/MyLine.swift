@@ -34,7 +34,7 @@ struct MyLine: Drawable {
 
 extension MyLine: Calculable {
     
-    var description: String {
+    var calculationDescription: String {
         return "두 점 사이의 거리는"
     }
     

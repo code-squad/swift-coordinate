@@ -41,7 +41,7 @@ struct MyRect: Drawable {
 
 extension MyRect: Calculable {
     
-    var description: String {
+    var calculationDescription: String {
         return "사각형의 넓이는"
     }
     

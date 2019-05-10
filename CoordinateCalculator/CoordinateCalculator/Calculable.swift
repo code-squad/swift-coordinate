@@ -10,7 +10,7 @@ import Foundation
 
 protocol Calculable {
     
-    var description: String { get }
+    var calculationDescription: String { get }
     
     func getCalcultedValue() -> Double
     

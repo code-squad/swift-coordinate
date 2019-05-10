@@ -39,7 +39,7 @@ struct MyTriangle: Drawable {
 
 extension MyTriangle: Calculable {
     
-    var description: String {
+    var calculationDescription: String {
         return "삼각형의 넓이는"
     }
     

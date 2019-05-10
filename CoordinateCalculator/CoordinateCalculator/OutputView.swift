@@ -38,7 +38,7 @@ struct OutputView {
     
     static private func printDescription(of figure: Drawable) {
         if let figure = figure as? Calculable {
-            let description = figure.description
+            let description = figure.calculationDescription
             let value = figure.getCalcultedValue()
             print("\(description) \(value)")
         }
