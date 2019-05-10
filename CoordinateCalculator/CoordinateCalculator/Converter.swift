@@ -15,35 +15,45 @@ struct Converter {
         
         switch myPoints.count {
         case 1:
-            return MyPoint(x: myPoints[0].x, y: myPoints[0].y)
+            return makePoint(points: myPoints)
         case 2:
-            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
+            return makeLine(points: myPoints)
         case 3:
-            return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
+            return makeTriangle(points: myPoints)
         case 4:
-            return makeRect(points: myPoints)
+            return makeRectangle(points: myPoints)
         default:
             return nil
         }
     }
     
-    static private func makeRect(points: [MyPoint]) -> Drawable? {
-        guard Validator.canBeRect(points: points) else {
+    static private func makePoint(points: [MyPoint]) -> MyPoint {
+        return MyPoint(x: points[0].x, y: points[0].y)
+    }
+    
+    static private func makeLine(points: [MyPoint]) -> MyLine {
+        return MyLine(pointA: points[0], pointB: points[1])
+    }
+    
+    static private func makeTriangle(points: [MyPoint]) -> MyTriangle {
+        return MyTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+    }
+    
+    static private func makeRectangle(points: [MyPoint]) -> MyRect? {
+        guard Validator.canBeRect(of: points) else {
             return nil
         }
     
         let sortedPoints = points.sorted { (left, right) -> Bool in
             return (left.x, left.y) < (right.x, right.y)
         }
-        print(sortedPoints)
         
         let leftTop = sortedPoints[1]
         let rightBottom = sortedPoints[2]
         let width = rightBottom.x - leftTop.x
         let height = leftTop.y - rightBottom.y
         let rectSize = CGSize(width: width, height: height)
-        
-        
+
         return MyRect(origin: leftTop, size: rectSize)
     }
     
