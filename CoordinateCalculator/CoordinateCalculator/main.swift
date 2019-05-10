@@ -13,7 +13,8 @@ func main() {
     while true {
         let input = InputView.readInput(Question.request)
         do { let point = try InputValidator.convertStringtoInt(input: input)
-            OutputView.drawAxis(point: point)
+            OutputView.drawAxis(pointA: point, pointB: point)
+          
             break
         } catch let err as InputValidator.Error {
             print(err.description)
