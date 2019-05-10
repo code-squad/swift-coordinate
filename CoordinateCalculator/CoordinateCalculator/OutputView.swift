@@ -10,9 +10,22 @@ import Foundation
 
 struct OutputView {
     
-    func drawAxis(){
+    static func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+    
+    static func drawDot() {
+        let startPoint = 25
+        var result = ""
+        let x = 7
+        let y = 7
+        
+        result += ANSICode.cursor.move(row: startPoint-x, col: (y*2)+2)
+        result += "😆"
+        result += ANSICode.cursor.move(row: startPoint+1, col: (startPoint*2)+2)
+        
+        print(result)
     }
     
 }

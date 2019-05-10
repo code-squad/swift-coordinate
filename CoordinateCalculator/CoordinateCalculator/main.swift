@@ -9,8 +9,9 @@
 import Foundation
 
 func main() {
-    let outputView = OutputView()
-    outputView.drawAxis()
+    
+    OutputView.drawAxis()
+    OutputView.drawDot()
 }
 
 main()
