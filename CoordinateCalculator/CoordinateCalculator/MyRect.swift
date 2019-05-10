@@ -33,9 +33,9 @@ struct MyRect: Drawable {
     
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = origin
-        let rightX = origin.x + Int(size.width)
-        let rightY = origin.y - Int(size.height)
-        self.rightBottom = MyPoint(x: rightX, y: rightY)
+        let rightBottomX = origin.x + Int(size.width)
+        let rightBottomY = origin.y - Int(size.height)
+        self.rightBottom = MyPoint(x: rightBottomX, y: rightBottomY)
     }
 }
 
