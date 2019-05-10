@@ -46,7 +46,7 @@ struct Validator {
         return true
     }
     
-    static func canBeRect(points: [MyPoint]) -> Bool {
+    static func canBeRect(of points: [MyPoint]) -> Bool {
         guard points.count == 4 else {
             return false
         }
@@ -58,7 +58,7 @@ struct Validator {
             xSet.insert(point.x)
             ySet.insert(point.y)
         }
-        
+
        return xSet.count == 2 && ySet.count == 2
     }
 }
