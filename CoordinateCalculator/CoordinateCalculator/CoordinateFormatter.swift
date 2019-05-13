@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PointFormatter {
+struct CoordinateFormatter {
     
     enum Error: Swift.Error {
         case invalidFormat
@@ -31,7 +31,7 @@ struct PointFormatter {
     
     static private func validateRange(_ number: Int) throws {
         guard (0...24).contains(number) else {
-            throw PointFormatter.Error.invalidRange
+            throw CoordinateFormatter.Error.invalidRange
         }
     }
     
@@ -43,7 +43,7 @@ struct PointFormatter {
     
     static func point(from input: String) throws -> MyPoint {
         guard isValidCoordinate(input) else {
-            throw PointFormatter.Error.invalidFormat
+            throw CoordinateFormatter.Error.invalidFormat
         }
         let numbers = try parseNumbers(input)
         return MyPoint(x: numbers[0], y: numbers[1])
