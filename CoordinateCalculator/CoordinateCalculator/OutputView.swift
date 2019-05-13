@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct MyPoint {
     var x = 0
     var y = 0
@@ -20,18 +18,16 @@ struct MyLine {
     var pointB = MyPoint(x: 0, y: 0)
 }
 
-
-
 struct OutputView {
-    
-    static func drawAxis(pointA: [Int], pointB: [Int]) {
-        print("\(ANSICode.clear)\(ANSICode.home)")
-        print("\(ANSICode.cursor.move(row: 24-pointB[0]+1, col: pointA[0]*2+3))*")
-       
-           print("\(ANSICode.cursor.move(row: 24-pointA[1]+1, col: pointB[1]*2+3))*")
+
+    static func drawAxis(line: MyLine) {
+        
+         print("\(ANSICode.clear)\(ANSICode.home)")
+          print("\(ANSICode.cursor.move(row: 24-line.pointA.y+1, col: line.pointA.x*2+3))*")
+        
+        print("\(ANSICode.cursor.move(row: 24-line.pointB.x+1, col: line.pointB.y*2+3))*")
         
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
         
     }
 }
-
