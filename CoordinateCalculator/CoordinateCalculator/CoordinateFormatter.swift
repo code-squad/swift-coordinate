@@ -24,11 +24,6 @@ struct CoordinateFormatter {
         }
     }
     
-    static private func isValidCoordinate(_ input: String) -> Bool {
-        let regex = "\\(-?[\\d]+,-?[\\d]+\\)"
-        return input.matches(regex)
-    }
-    
     static private func validateRange(_ number: Int) throws {
         guard (0...24).contains(number) else {
             throw CoordinateFormatter.Error.invalidRange
@@ -41,8 +36,8 @@ struct CoordinateFormatter {
         return numbers.compactMap { Int($0) }
     }
     
-    static func makePoint(from input: String) throws -> MyPoint {
-        guard isValidCoordinate(input) else {
+    static func makePoint(from input: String, validator: Validator) throws -> MyPoint {
+        guard validator.isValidFormat(input) else {
             throw CoordinateFormatter.Error.invalidFormat
         }
         let numbers = try parseNumbers(input)

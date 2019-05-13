@@ -12,6 +12,7 @@
 		30A89A7122848B9A00312A5E /* CoordinateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A89A6C22848B9A00312A5E /* CoordinateFormatter.swift */; };
 		30A89A7222848B9A00312A5E /* String+Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A89A6D22848B9A00312A5E /* String+Matches.swift */; };
 		30A89A7322848B9A00312A5E /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A89A6E22848B9A00312A5E /* OutputView.swift */; };
+		30A89A882289851700312A5E /* CoordinateChecker+Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A89A872289851700312A5E /* CoordinateChecker+Validator.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		30A89A6C22848B9A00312A5E /* CoordinateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateFormatter.swift; sourceTree = "<group>"; };
 		30A89A6D22848B9A00312A5E /* String+Matches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Matches.swift"; sourceTree = "<group>"; };
 		30A89A6E22848B9A00312A5E /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		30A89A872289851700312A5E /* CoordinateChecker+Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoordinateChecker+Validator.swift"; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				30A89A6D22848B9A00312A5E /* String+Matches.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				30A89A872289851700312A5E /* CoordinateChecker+Validator.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30A89A882289851700312A5E /* CoordinateChecker+Validator.swift in Sources */,
 				30A89A7022848B9A00312A5E /* MyPoint.swift in Sources */,
 				30A89A6F22848B9A00312A5E /* InputView.swift in Sources */,
 				30A89A7322848B9A00312A5E /* OutputView.swift in Sources */,
