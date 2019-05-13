@@ -10,7 +10,7 @@ import Foundation
 
 struct InputValidator {
     
-    static func convertStringtoInt(input: String) throws ->[Int] {
+    static func convertStringtoInt(input: String) throws -> MyPoint {
         var input = input
         
         if(input.first == "(") && (input.last == ")"){
@@ -22,18 +22,16 @@ struct InputValidator {
             for input in inputArray {
                 try validateRange(number: input)
             }
-            return inputArray
+            return MyPoint(x: inputArray[0], y: inputArray[1])
         }
         throw Error.removeValue
     }
-    
     
    static func validateRange(number: Int) throws {
         if !(1...24).contains(number){
             throw Error.wrongValue
         }
     }
-    
     
     enum Error: Swift.Error {
         case wrongValue
