@@ -24,7 +24,7 @@ struct CoordinateFormatter {
         }
     }
     
-    static func isValidCoordinate(_ input: String) -> Bool {
+    static private func isValidCoordinate(_ input: String) -> Bool {
         let regex = "\\(-?[\\d]+,-?[\\d]+\\)"
         return input.matches(regex)
     }
