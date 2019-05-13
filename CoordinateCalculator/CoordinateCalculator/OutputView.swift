@@ -19,6 +19,8 @@ struct OutputView {
     }
     
     static func draw(point: MyPoint) {
+        clear()
+        drawAxis()
         print("\(ANSICode.point.draw(point.x, point.y))")
     }
 }
