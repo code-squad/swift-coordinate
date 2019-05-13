@@ -12,14 +12,11 @@ enum Question: String {
     case request = "좌표를 입력하세요. ex.(10,10)"
 }
 
-
 struct InputView {
-    static func readInput(_ question: Question) -> String {
+    
+    static func readInput(_ question: Question) -> [String] {
         print(question.rawValue)
         let value = readLine() ?? ""
-        return value
+        return value.split(separator: "-").map { String($0)}
     }
 }
-
-
-
