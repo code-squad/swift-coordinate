@@ -9,17 +9,17 @@
 import Foundation
 
 func run() throws {
-    do {
-        let input = try InputView.readInput()
-        let point = try CoordinateFormatter.point(from: input)
-        OutputView.clear()
-        OutputView.drawAxis()
-        OutputView.draw(point: point)
-    } catch let error as InputView.Error {
-        print(error.localizedDescription)
-    } catch let error as CoordinateFormatter.Error {
-        print(error.localizedDescription)
-    }
+    repeat {
+        do {
+            let input = try InputView.readInput()
+            let point = try CoordinateFormatter.point(from: input)
+            OutputView.draw(point: point)
+        } catch let error as InputView.Error {
+            print(error.localizedDescription)
+        } catch let error as CoordinateFormatter.Error {
+            print(error.localizedDescription)
+        }
+    } while(true)
 }
 
 try run()
