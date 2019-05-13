@@ -8,18 +8,21 @@
 
 import Foundation
 
-func run() throws {
+func run() {
     repeat {
         do {
             let input = try InputView.readInput()
             let point = try CoordinateFormatter.point(from: input)
             OutputView.draw(point: point)
+            break
         } catch let error as InputView.Error {
             print(error.localizedDescription)
         } catch let error as CoordinateFormatter.Error {
+            print(error.localizedDescription)
+        } catch {
             print(error.localizedDescription)
         }
     } while(true)
 }
 
-try run()
+run()
