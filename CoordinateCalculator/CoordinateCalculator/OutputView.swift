@@ -20,14 +20,10 @@ struct MyLine {
 
 struct OutputView {
 
-    static func drawAxis(line: MyLine) {
-        
-         print("\(ANSICode.clear)\(ANSICode.home)")
-          print("\(ANSICode.cursor.move(row: 24-line.pointA.y+1, col: line.pointA.x*2+3))*")
-        
-        print("\(ANSICode.cursor.move(row: 24-line.pointB.x+1, col: line.pointB.y*2+3))*")
-        
+    static func drawAxis(_ line: MyLine) {
+        print("\(ANSICode.clear)\(ANSICode.home)")
+        print("\(ANSICode.cursor.move(row: 24-line.pointA.y+1, col: line.pointA.x*2+3))*")
+        print("\(ANSICode.cursor.move(row: 24-line.pointB.y+1, col: line.pointB.x*2+3))*")
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
-        
     }
 }
