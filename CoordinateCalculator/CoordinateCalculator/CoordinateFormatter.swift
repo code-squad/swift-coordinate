@@ -37,7 +37,7 @@ struct CoordinateFormatter {
     }
     
     static func makePoint(from input: String, validator: Validator) throws -> MyPoint {
-        guard validator.isValidFormat(input) else {
+        guard validator.isValid(input) else {
             throw CoordinateFormatter.Error.invalidFormat
         }
         let numbers = try parseNumbers(input)
