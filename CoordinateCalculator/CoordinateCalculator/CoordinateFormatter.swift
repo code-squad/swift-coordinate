@@ -46,6 +46,9 @@ struct CoordinateFormatter {
             throw CoordinateFormatter.Error.invalidFormat
         }
         let numbers = try parseNumbers(input)
+        for number in numbers {
+            try validateRange(number)
+        }
         return MyPoint(x: numbers[0], y: numbers[1])
     }
 }
