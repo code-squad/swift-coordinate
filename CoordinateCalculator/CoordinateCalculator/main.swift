@@ -12,7 +12,7 @@ func run() {
     repeat {
         do {
             let input = try InputView.readInput()
-            let point = try CoordinateFormatter.point(from: input)
+            let point = try CoordinateFormatter.makePoint(from: input)
             OutputView.draw(point: point)
             break
         } catch let error as InputView.Error {

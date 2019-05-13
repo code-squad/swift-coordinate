@@ -21,17 +21,19 @@ struct InputView {
         }
     }
     
-    private static let question = "좌표를 입력하세요."
-
-    static private func readText(ask question: String) throws -> String {
+    enum Question: String {
+        case inputCoodinates = "좌표를 입력하세요."
+    }
+    
+    static private func readText(ask question: Question) throws -> String {
         print(question)
         guard let input = readLine(), !input.isEmpty else {
             throw InputView.Error.isEmpty
         }
         return input
     }
-
+    
     static func readInput() throws -> String {
-        return try readText(ask: question)
+        return try readText(ask: .inputCoodinates)
     }
 }

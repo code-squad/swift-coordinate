@@ -1,5 +1,5 @@
 //
-//  PointFormatter.swift
+//  CoordinateFormatter.swift
 //  CoordinateCalculator
 //
 //  Created by BLU on 2019. 5. 9..
@@ -41,7 +41,7 @@ struct CoordinateFormatter {
         return numbers.compactMap { Int($0) }
     }
     
-    static func point(from input: String) throws -> MyPoint {
+    static func makePoint(from input: String) throws -> MyPoint {
         guard isValidCoordinate(input) else {
             throw CoordinateFormatter.Error.invalidFormat
         }
