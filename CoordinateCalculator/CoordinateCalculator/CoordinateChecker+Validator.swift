@@ -9,12 +9,12 @@
 import Foundation
 
 protocol Validator {
-    func isValidFormat(_ input: String) -> Bool
+    func isValid(_ input: String) -> Bool
 }
 
 struct CoordinateChecker: Validator {
     
-    func isValidFormat(_ input: String) -> Bool {
+    func isValid(_ input: String) -> Bool {
         let regex = "\\(-?[\\d]+,-?[\\d]+\\)"
         return input.matches(regex)
     }
