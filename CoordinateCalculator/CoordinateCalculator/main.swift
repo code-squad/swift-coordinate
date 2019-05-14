@@ -25,8 +25,8 @@ func run() {
             continue
         }
     }while true
-    guard let point2 = point else { return }
-    let coordinate = Converter.convertToCoordinate(point2)
+    guard let provenpoint = point else { return }
+    let coordinate = Converter.convertToCoordinate(provenpoint)
     OutputView.drawAxis(coordinate)
 }
 
