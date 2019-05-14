@@ -8,5 +8,15 @@
 
 import Foundation
 struct InputView {
-    <#fields#>
+    
+    static func readInput() -> String? {
+        ask(.requestCoordinate)
+        return readLine()
+    }
+    
+    private static func ask(_ massage:RequestMassage) {
+        print(massage.rawValue)
+    }
+    
+    
 }
