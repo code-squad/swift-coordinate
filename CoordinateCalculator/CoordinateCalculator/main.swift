@@ -14,18 +14,17 @@ func main() throws {
     let question = "좌표를 입력해주세요(예:(10,10))"
     let input = try InputView.ask(about: question)
     
+    //입력값 가공
+    let processingValue = Process.trimAndSplit(inputValue: input)
+    let coordinateValue = Process.makeCoordinateValueFrom(inputs: processingValue)
     
-    //값가공하기
-    let str = Process.trimAndSplit(inputValue: input)
-    let coordinate = Process.makeCoordinateValueFrom(inputs: str)
-   // let pointValue = Process.point(from: coordinate)
+    //좌표값 저장
+    let dot = MyPoint(x: coordinateValue.0, y: coordinateValue.1)
     
-    //dump(pointValue)
-    
-    
-    //좌표그리기
+    //좌표출력
     OutputView.drawAxis()
-//    OutputView.drawDot(at: <#T##MyPoint#>)
+    OutputView.drawDot(at: dot)
+
     
 }
 
