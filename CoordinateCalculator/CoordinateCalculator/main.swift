@@ -11,16 +11,23 @@ import Foundation
 func main() {
     
     while true {
+        let validator = Validator()
         let inputs = InputView.readInput(Question.request)
         do {
-            let points = try inputs.map { try InputValidator.convertStringtoInt(input: $0) }
-            let line = MyLine(pointA: points[0], pointB: points[1])
-            OutputView.drawAxis(line)
-            break
-        } catch let err as InputValidator.Error {
-            print(err.description)
+            let coordinates = try inputs.map { try validator.validateFormat(input: $0) }
+            let points = coordinates.map { Converter.makePoint(pointArray: $0) }
+            switch points.count {
+                case 1:
+                    OutputView.draw(points[0])
+                case 2:
+                    let line = Converter.makeLine(pointArray: points)
+                    OutputView.draw(line)
+            default:
+                break
+            }
+            
         } catch {
-            print("알 수 없는 에러")
+            print(error)
         }
     }
 }
