@@ -29,7 +29,7 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: 24-line.pointA.y+1, col: line.pointA.x*2+3))*")
         print("\(ANSICode.cursor.move(row: 24-line.pointB.y+1, col: line.pointB.x*2+3))*")
         drawAxis()
-        print(line.getValue())
+        print("두 점 사이의 거리는 \(line.getValue())")
     }
 }
 
