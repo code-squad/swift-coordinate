@@ -15,10 +15,8 @@ struct MyLine {
     private var lineLength: Double { return
         sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2)) }
     
-    private let explain = "두 점 사이의 거리는 "
-    
-    func getValue() -> String {
-        return "\(explain)\(lineLength)"
+    func getValue() -> Double {
+        return lineLength
     }
     
 }
