@@ -8,8 +8,15 @@
 
 import Foundation
 
+
+
 struct  InputView {
-    func readInput() {
-        
+    
+    static func ask(about question: String) throws -> String {
+        print(question)
+        guard let input = readLine() else {
+            throw ErrorMessage.noInput
+        }
+        return input
     }
 }
