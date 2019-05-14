@@ -10,6 +10,7 @@ import Foundation
 
 struct Converter {
     
+    
     static func makePoint (pointArray: [Int]) -> MyPoint {
         return MyPoint(x: pointArray[0], y: pointArray[1])
     }
