@@ -44,12 +44,11 @@ struct Process {
     }
     
     
-    static func point(from input: (Int,Int)) -> MyPoint {
-        let formattedInput = input
-
-        return MyPoint(x: formattedInput.0, y: formattedInput.1)
-
-    }
+//    static func point(from input: (Int,Int)) -> MyPoint {
+//        let formattedInput = input
+//
+//        return MyPoint(x: formattedInput.0, y: formattedInput.1)
+//    }
     
     
     

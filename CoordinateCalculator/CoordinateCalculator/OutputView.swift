@@ -15,11 +15,11 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func drawDot() {
+    static func drawDot(at value: MyPoint) {
         let startPoint = 25
         var result = ""
-        let x = 7
-        let y = 7
+        let x = value.x
+        let y = value.y
         
         result += ANSICode.cursor.move(row: startPoint-x, col: (y*2)+2)
         result += "😆"
