@@ -9,20 +9,32 @@
 import Foundation
 
 func run() {
-    repeat {
+    while(true) {
+        let input: String
+        let point: MyPoint
+        
         do {
-            let input = try InputView.readInput()
-            let point = try CoordinateFormatter.makePoint(from: input, validator: CoordinateChecker())
-            OutputView.draw(point: point)
-            break
+            input = try InputView.readInput()
         } catch let error as InputView.Error {
             print(error.localizedDescription)
+            continue
+        } catch {
+            print("예상치 못한 에러 발생: \(error).")
+            continue
+        }
+        
+        do {
+            point = try CoordinateFormatter.makePoint(from: input, validator: CoordinateChecker())
+            OutputView.draw(point: point)
+            break
         } catch let error as CoordinateFormatter.Error {
             print(error.localizedDescription)
+            continue
         } catch {
-            print(error.localizedDescription)
+            print("예상치 못한 에러 발생: \(error).")
+            continue
         }
-    } while(true)
+    }
 }
 
 run()
