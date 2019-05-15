@@ -10,7 +10,7 @@ import Foundation
 struct Validator {
     var userInput = ""
     
-    mutating func verifyInput(_ userInputOptionalString:String?)throws ->MyPoint {
+    mutating func verifyInput(_ userInputOptionalString:String?)throws ->(Int,Int) {
         try convertString(userInputOptionalString)
         try isCorrectFormat()
         let seperatedUserInput = seperate()
@@ -45,10 +45,10 @@ struct Validator {
         }
     }
     
-    private mutating func convertToCoordinateFormat(_ seperatedUserInput:[String])throws ->MyPoint{
+    private mutating func convertToCoordinateFormat(_ seperatedUserInput:[String])throws ->(Int,Int){
         let x = try convertToInt(seperatedUserInput[0])
         let y = try convertToInt(seperatedUserInput[1])
-        return MyPoint(x: x, y: y)
+        return (x,y)
     }
     
     private func convertToInt(_ seperatedUserInput:String)throws->Int {
@@ -58,9 +58,9 @@ struct Validator {
         return convertedInt
     }
     
-    private func coordinateIsInRange(_ point:MyPoint)throws {
-        try isInRange(point.x)
-        try isInRange(point.y)
+    private func coordinateIsInRange(_ point:(Int,Int))throws {
+        try isInRange(point.0)
+        try isInRange(point.1)
     }
     
     private func isInRange(_ point: Int)throws {
