@@ -14,9 +14,16 @@ enum Question: String {
 
 struct InputView {
     
-    static func readInput(_ question: Question) -> [String] {
+    static func ask(_ question: Question) throws -> String {
         print(question.rawValue)
-        let value = readLine() ?? ""
+        guard let value = readLine() else {
+            throw Error.emptyValue
+        }
+        return value
+    }
+    
+    static func readInputs() throws -> [String] {
+        let value = try ask(.request)
         return value.split(separator: "-").map {String($0)}
     }
 }
