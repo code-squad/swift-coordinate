@@ -16,14 +16,12 @@ struct Validator {
         }
         throw Error.wrongValue
     }
-    
-    func validateRange(number: Int) throws {
+
+    static func validateRange(number: Int) throws {
         if !(1...24).contains(number){
             throw Error.wrongValue
         }
     }
-    
-   
 }
 
 enum Error: Swift.Error {
