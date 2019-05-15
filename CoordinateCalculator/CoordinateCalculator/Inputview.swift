@@ -10,13 +10,9 @@ import Foundation
 struct InputView {
     
     static func readInput(_ massage:RequestMassage) -> String? {
-        ask(massage)
+        
+        print(massage.rawValue)
+     
         return readLine()
     }
-    
-    private static func ask(_ massage:RequestMassage) {
-        print(massage.rawValue)
-    }
-    
-    
 }
