@@ -10,20 +10,11 @@ import Foundation
 
 struct Validator {
     
-    func validateFormat(input: String) throws -> [Int] {
-        var validateTarget = input 
-        
-        guard (validateTarget.first == "(" && validateTarget.last == ")" ) else { throw Error.wrongValue }
-        validateTarget.removeFirst()
-        validateTarget.removeLast()
-        let points = validateTarget.split(separator: ",").map {String($0)}
-        let convertPointstoInt = try points.map { (point: String) -> Int in
-            guard let point = Int(point) else {
-                throw Error.notIntValue
-            }
-            return point
+    static func validateFormatChecker(input: String) throws -> Bool {
+        if (input.first == "(" && input.last == ")" ) {
+            return true
         }
-        return convertPointstoInt
+        throw Error.wrongValue
     }
     
     func validateRange(number: Int) throws {
@@ -32,18 +23,21 @@ struct Validator {
         }
     }
     
-    enum Error: Swift.Error {
-        case wrongValue
-        case removeValue
-        case notIntValue
-        
-        var description: String {
-            switch self {
-            case .wrongValue: return "24까지의 좌표값만 입력해주세요"
-            case .removeValue: return "(,)으로 값을 입력해주세요)"
-            case .notIntValue: return "숫자로 입력해주세요"
-            }
+   
+}
+
+enum Error: Swift.Error {
+    case wrongValue
+    case removeValue
+    case notIntValue
+    case wrongFormat
+    
+    var description: String {
+        switch self {
+        case .wrongValue: return "24까지의 좌표값만 입력해주세요"
+        case .removeValue: return "(,)으로 값을 입력해주세요)"
+        case .notIntValue: return "숫자로 입력해주세요"
+        case .wrongFormat: return "포맷이 맞지 않습니다"
         }
     }
 }
-
