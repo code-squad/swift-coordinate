@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-
+    
     static func drawAxis(){
         print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
@@ -19,15 +19,19 @@ struct OutputView {
     }
     
     static func draw(_ point: MyPoint) {
-        clear()
         print("\(ANSICode.cursor.move(row: 24-point.y+1, col: point.x*2+3))*")
+    }
+    
+    static func drawPoint(_ point: MyPoint) {
+        clear()
+        draw(point)
         drawAxis()
     }
     
-    static func draw(_ line: MyLine) {
+    static func drawLine(_ line: MyLine) {
         clear()
-        print("\(ANSICode.cursor.move(row: 24-line.pointA.y+1, col: line.pointA.x*2+3))*")
-        print("\(ANSICode.cursor.move(row: 24-line.pointB.y+1, col: line.pointB.x*2+3))*")
+        draw(line.pointA)
+        draw(line.pointB)
         drawAxis()
         print("두 점 사이의 거리는 \(line.getValue())")
     }
