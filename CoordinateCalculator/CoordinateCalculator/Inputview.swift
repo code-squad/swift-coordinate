@@ -9,8 +9,8 @@
 import Foundation
 struct InputView {
     
-    static func readInput() -> String? {
-        ask(.requestCoordinate)
+    static func readInput(_ massage:RequestMassage) -> String? {
+        ask(massage)
         return readLine()
     }
     
