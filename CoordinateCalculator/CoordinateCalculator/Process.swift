@@ -9,28 +9,30 @@
 import Foundation
 
 enum ErrorMessage: Error {
-    case noInput
+    case noInputValue
     case incorrectFormet
-    case incorrectInput
+    case incorrectInputValue
+    case incorrectInputValueCount
     case rangeOver
     
     var description: String {
         switch self {
-        case .noInput:
-            return "입력값이 없습니다"
+        case .noInputValue:
+            return "입력값이 없습니다. 값을 입력해주세요."
         case .incorrectFormet:
-            return "입력형식이 잘못됐습닙다"
-        case .incorrectInput:
-            return "숫자를 입력해주세요"
+            return "입력형식이 잘못됐습니다. 괄호안에 좌표를 입력해주세요."
+        case .incorrectInputValue:
+            return "숫자를 입력해주세요."
+        case .incorrectInputValueCount:
+            return "(x,y) 두값을 입력해주세요."
         case .rangeOver:
-            return "입력범위를 초과했습니다"
+            return "입력범위를 초과했습니다. 0~24 범위안에서 입력해주세요."
         }
     }
 }
 
 struct Process {
     
-    //입력받은 좌표값 형식확인
     static func checkFormat(inputValue: String) throws -> String {
         var inputValue = inputValue
         guard inputValue.first == "(" , inputValue.last == ")" else {
@@ -43,23 +45,39 @@ struct Process {
         return inputValue
     }
     
-    
-    static func trimAndSplit(inputValue: String) -> [String] {
-        let trimmedValue = inputValue.trimmingCharacters(in: ["(",")"])
-        let splitedValues = trimmedValue.components(separatedBy: ",")
+    static func convertForm(checkValue: String) throws -> (x: Int, y: Int) {
+        let convertedValues = checkValue.split(separator: ",", omittingEmptySubsequences: false).map{String($0)}
         
-        return splitedValues
-    }
-
-    
-    static func makeCoordinateValueFrom(inputs: [String])throws -> (x: Int,y: Int) {
-        guard let xValue = Int(inputs[0]), let yValue = Int(inputs[1]) else {
-            throw ErrorMessage.incorrectInput
+        guard convertedValues.count != 1 else {
+            throw ErrorMessage.incorrectInputValueCount
         }
         
-        return (x: xValue, y: yValue)
+        guard convertedValues[1] != "" else {
+            throw ErrorMessage.incorrectFormet
+        }
+        
+        let intValues = try convertedValues.map {(value: String) -> Int in
+            guard let intValue = Int(value) else {
+                throw ErrorMessage.incorrectInputValue
+            }
+            return intValue
+            
+        }
+        guard intValues.count == 2 else {
+            throw ErrorMessage.incorrectInputValueCount
+        }
+        
+        
+        guard intValues[0] < 24, intValues[1] < 24 else {
+            throw ErrorMessage.rangeOver
+        }
+        
+        guard intValues[0] >= 0, intValues[1] >= 0 else {
+            throw ErrorMessage.rangeOver
+        }
+        
+        return (x: intValues[0], y: intValues[1])
     }
-
 }
 
 

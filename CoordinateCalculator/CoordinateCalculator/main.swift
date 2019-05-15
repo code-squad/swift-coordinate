@@ -15,11 +15,11 @@ func main() throws {
     let input = try InputView.ask(about: question)
     
     //입력값 가공
-    let processingValue = Process.trimAndSplit(inputValue: input)
-    let coordinateValue = try Process.makeCoordinateValueFrom(inputs: processingValue)
+    let processingValue = try Process.checkFormat(inputValue: input)
+    let coordinateValue = try Process.convertForm(checkValue: processingValue)
     
     //좌표값 저장
-    let dot = MyPoint(x: coordinateValue.0, y: coordinateValue.1)
+    let dot = MyPoint(x: coordinateValue.x, y: coordinateValue.y)
     
     //좌표출력
     OutputView.drawAxis()
