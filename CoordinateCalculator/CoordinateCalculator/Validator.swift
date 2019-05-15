@@ -29,6 +29,7 @@ enum Error: Swift.Error {
     case removeValue
     case notIntValue
     case wrongFormat
+    case emptyValue
     
     var description: String {
         switch self {
@@ -36,6 +37,7 @@ enum Error: Swift.Error {
         case .removeValue: return "(,)으로 값을 입력해주세요)"
         case .notIntValue: return "숫자로 입력해주세요"
         case .wrongFormat: return "포맷이 맞지 않습니다"
+        case .emptyValue: return "값이 없습니다"
         }
     }
 }

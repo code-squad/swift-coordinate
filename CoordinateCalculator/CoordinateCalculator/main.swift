@@ -11,9 +11,8 @@ import Foundation
 func main() {
     
     while true {
-    
-        let inputs = InputView.readInput(Question.request)
         do {
+            let inputs = try InputView.readInputs()
             let coordinates = try inputs.map { try Converter.ConvertInput(input: $0) }
             let points = try coordinates.map { try Converter.makePoint(pointArray: $0) }
             try Converter.classifyInput(points: points)
