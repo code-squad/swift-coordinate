@@ -16,7 +16,7 @@ func main() throws {
     
     //입력값 가공
     let processingValue = Process.trimAndSplit(inputValue: input)
-    let coordinateValue = Process.makeCoordinateValueFrom(inputs: processingValue)
+    let coordinateValue = try Process.makeCoordinateValueFrom(inputs: processingValue)
     
     //좌표값 저장
     let dot = MyPoint(x: coordinateValue.0, y: coordinateValue.1)
