@@ -18,6 +18,5 @@ struct InputView {
         print(question.rawValue)
         let value = readLine() ?? ""
         return value.split(separator: "-").map {String($0)}
-        
     }
 }
