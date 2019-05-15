@@ -15,8 +15,8 @@ func main() {
         let inputs = InputView.readInput(Question.request)
         do {
             let coordinates = try inputs.map { try Converter.ConvertInput(input: $0) }
-            let points = coordinates.map { Converter.makePoint(pointArray: $0) }
-            Converter.classifyInput(points: points)
+            let points = try coordinates.map { try Converter.makePoint(pointArray: $0) }
+            try Converter.classifyInput(points: points)
         } catch {
             print(error)
         }

@@ -10,14 +10,19 @@ import Foundation
 
 struct Converter {
     
-    static func makePoint (pointArray: [Int]) -> MyPoint {
+    static func makePoint (pointArray: [Int]) throws -> MyPoint {
+        guard pointArray.count == 2 else {
+            throw Error.wrongValue
+        }
         return MyPoint(x: pointArray[0], y: pointArray[1])
     }
     
-    static func makeLine (pointArray: [MyPoint]) -> MyLine {
+    static func makeLine (pointArray: [MyPoint]) throws -> MyLine {
+        guard pointArray.count == 2 else {
+            throw Error.wrongValue
+        }
         return MyLine(pointA: pointArray[0], pointB: pointArray[1])
     }
-    
     
     static func checkPointToInt(point: String) throws -> Int {
         guard let point = Int(point) else {
@@ -44,28 +49,19 @@ struct Converter {
         throw Error.wrongFormat
     }
     
-    
-    
-    
-    
-    
-    
-    static func classifyInput(points: [MyPoint]){
+    static func classifyInput(points: [MyPoint]) throws {
         switch points.count {
         case 1:
             OutputView.drawPoint(points[0])
         case 2:
-            let line = Converter.makeLine(pointArray: points)
+            let line = try Converter.makeLine(pointArray: points)
             OutputView.drawLine(line)
             
         default:
             break
         }
-        
     }
-    
-    
-    
+
 }
     
 
