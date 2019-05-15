@@ -14,7 +14,7 @@ struct  InputView {
     
     static func ask(about question: String) throws -> String {
         print(question)
-        guard let input = readLine() else {
+        guard let input = readLine() , input != "" else {
             throw ErrorMessage.noInput
         }
         return input

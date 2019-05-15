@@ -10,6 +10,7 @@ import Foundation
 
 enum ErrorMessage: Error {
     case noInput
+    case incorrectFormet
     case incorrectInput
     case rangeOver
     
@@ -17,6 +18,8 @@ enum ErrorMessage: Error {
         switch self {
         case .noInput:
             return "입력값이 없습니다"
+        case .incorrectFormet:
+            return "입력형식이 잘못됐습닙다"
         case .incorrectInput:
             return "숫자를 입력해주세요"
         case .rangeOver:
@@ -27,6 +30,20 @@ enum ErrorMessage: Error {
 
 struct Process {
     
+    //입력받은 좌표값 형식확인
+    static func checkFormat(inputValue: String) throws -> String {
+        var inputValue = inputValue
+        guard inputValue.first == "(" , inputValue.last == ")" else {
+            throw ErrorMessage.incorrectFormet
+        }
+        
+        inputValue.removeFirst()
+        inputValue.removeLast()
+        
+        return inputValue
+    }
+    
+    
     static func trimAndSplit(inputValue: String) -> [String] {
         let trimmedValue = inputValue.trimmingCharacters(in: ["(",")"])
         let splitedValues = trimmedValue.components(separatedBy: ",")
@@ -35,12 +52,12 @@ struct Process {
     }
 
     
-    static func makeCoordinateValueFrom(inputs: [String]) -> (Int,Int) {
+    static func makeCoordinateValueFrom(inputs: [String])throws -> (x: Int,y: Int) {
         guard let xValue = Int(inputs[0]), let yValue = Int(inputs[1]) else {
-            return (0,0)
+            throw ErrorMessage.incorrectInput
         }
         
-        return (xValue, yValue)
+        return (x: xValue, y: yValue)
     }
 
 }
