@@ -17,10 +17,9 @@ struct OutputView {
     }
     
     private static func draw(_ point:MyPoint) {
-        var result = ANSICode.cursor.move(row: point.y, col: point.x)
-        result += "😼"
-        result += ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2)
-        print(result)
+
+        print("\(ANSICode.cursor.move(row: point.y, col: point.x))😼\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2))")
+    
     }
     
 }
