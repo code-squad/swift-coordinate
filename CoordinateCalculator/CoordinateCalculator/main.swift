@@ -12,7 +12,7 @@ func run() {
     var point:MyPoint?
     
     repeat{
-        let userInput = InputView.readInput()
+        let userInput = InputView.readInput(.requestCoordinate)
         var validator = Validator()
         do {
             point = try validator.verifyInput(userInput)
