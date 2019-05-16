@@ -12,11 +12,14 @@ struct InputView {
     
     enum Error: Swift.Error {
         case isEmpty
+        case invalidCharacters
         
         var localizedDescription: String {
             switch self {
             case .isEmpty:
                 return "입력이 정의되지 않았습니다."
+            case .invalidCharacters:
+                return "유효하지 않은 문자가 입력되었습니다."
             }
         }
     }
@@ -33,7 +36,11 @@ struct InputView {
         return input
     }
     
-    static func readInput() throws -> String {
-        return try readText(ask: .inputCoodinates)
+    static func readCoordinates() throws -> [String] {
+        let text = try readText(ask : .inputCoodinates)
+        guard text.validateCoordinate() else {
+            throw InputView.Error.invalidCharacters
+        }
+        return text.components(separatedBy: "-")
     }
 }
