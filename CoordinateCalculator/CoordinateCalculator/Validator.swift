@@ -11,16 +11,17 @@ import Foundation
 struct Validator {
     
     static func validateFormatChecker(input: String) throws -> Bool {
-        if (input.first == "(" && input.last == ")" ) {
-            return true
-        }
-        throw Error.wrongValue
-    }
-
-    static func validateRange(number: Int) throws {
-        if !(1...24).contains(number){
+       guard (input.first == "(" && input.last == ")" ) else {
             throw Error.wrongValue
         }
+        return true
+    }
+    
+    static func validateRange(number: Int) throws {
+        guard !(1...24).contains(number) else {
+            return
+        }
+        throw Error.wrongValue
     }
 }
 
