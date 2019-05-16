@@ -12,14 +12,14 @@ struct Converter {
     
     static func makePoint (pointArray: [Int]) throws -> MyPoint {
         guard pointArray.count == 2 else {
-            throw Error.wrongValue
+            throw Error.wrongFormat
         }
         return MyPoint(x: pointArray[0], y: pointArray[1])
     }
     
     static func makeLine (pointArray: [MyPoint]) throws -> MyLine {
         guard pointArray.count == 2 else {
-            throw Error.wrongValue
+            throw Error.wrongFormat
         }
         return MyLine(pointA: pointArray[0], pointB: pointArray[1])
     }
