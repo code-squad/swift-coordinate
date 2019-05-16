@@ -30,4 +30,15 @@ extension String {
             return []
         }
     }
+    
+    func validate(in characterSet: CharacterSet) -> Bool {
+        return self.rangeOfCharacter(from: characterSet) != nil
+    }
+    
+    func validateCoordinate() -> Bool {
+        var characterSet = CharacterSet.decimalDigits
+        characterSet.insert(charactersIn: "(")
+        characterSet.insert(charactersIn: ")")
+        return validate(in: characterSet)
+    }
 }
