@@ -8,14 +8,6 @@
 
 import Foundation
 
-protocol Shape {
-    func points() -> [MyPoint]
-}
-
-protocol Dimension {
-    func area() -> Double
-}
-
 struct ShapeConverter {
     private let coordinateParser: CoordinateParser
     private let validator: Validator
