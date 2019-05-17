@@ -10,24 +10,15 @@ import Foundation
 
 func run() {
     while(true) {
-        let coordinates: [String]
-        let points: [MyPoint]
-        
         do {
-            coordinates = try InputView.readCoordinates()
+            let coordinates = try InputView.readCoordinates()
+            let points = try coordinates.map { try CoordinateConverter.makePoint(from: $0, validator: CoordinateChecker()) }
+            OutputView.draw(point: points[0])
+            break
         } catch let error as InputView.Error {
             print(error.localizedDescription)
             continue
-        } catch {
-            print("예상치 못한 에러 발생: \(error).")
-            continue
-        }
-        
-        do {
-            points = try coordinates.map { try CoordinateFormatter.makePoint(from: $0, validator: CoordinateChecker()) }
-            OutputView.draw(point: points[0])
-            break
-        } catch let error as CoordinateFormatter.Error {
+        } catch let error as CoordinateConverter.Error {
             print(error.localizedDescription)
             continue
         } catch {

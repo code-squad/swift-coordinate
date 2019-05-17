@@ -1,5 +1,5 @@
 //
-//  CoordinateFormatter.swift
+//  CoordinateConverter.swift
 //  CoordinateCalculator
 //
 //  Created by BLU on 2019. 5. 9..
@@ -12,7 +12,7 @@ protocol Shape {
     var area: Double? { get }
 }
 
-struct CoordinateFormatter {
+struct CoordinateConverter {
     
     enum Error: Swift.Error {
         case invalidFormat
