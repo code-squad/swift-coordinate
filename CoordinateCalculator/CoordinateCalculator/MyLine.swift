@@ -8,11 +8,16 @@
 
 import Foundation
 
-struct MyLine: Shape {
+struct MyLine: Shape, Dimension {
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
     
-    var area: Double? {
+    func points() -> [MyPoint] {
+        return [pointA, pointB]
+    }
+    
+    func area() -> Double {
         return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
 }
+

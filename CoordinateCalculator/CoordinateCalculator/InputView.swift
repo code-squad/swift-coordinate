@@ -25,7 +25,7 @@ struct InputView {
     }
     
     enum Question: String {
-        case inputCoodinates = "좌표를 입력하세요."
+        case enterCoodinates = "좌표를 입력하세요."
     }
     
     static private func readText(ask question: Question) throws -> String {
@@ -37,7 +37,7 @@ struct InputView {
     }
     
     static func readCoordinates() throws -> [String] {
-        let text = try readText(ask : .inputCoodinates)
+        let text = try readText(ask : .enterCoodinates)
         guard text.validateCoordinate() else {
             throw InputView.Error.invalidCharacters
         }
