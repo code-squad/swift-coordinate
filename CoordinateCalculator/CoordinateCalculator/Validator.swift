@@ -10,11 +10,8 @@ import Foundation
 
 struct Validator {
     
-    static func validateFormatChecker(input: String) throws -> Bool {
-       guard (input.first == "(" && input.last == ")" ) else {
-            throw Error.removeValue
-        }
-        return true
+    static func validateFormatChecker(input: String) -> Bool {
+        return (input.first == "(" && input.last == ")" )
     }
     
     static func validateRange(number: Int) throws {
