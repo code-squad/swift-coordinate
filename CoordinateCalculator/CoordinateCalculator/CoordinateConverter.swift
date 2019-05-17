@@ -17,9 +17,11 @@ protocol Dimension {
 }
 
 struct CoordinateConverter {
+    private let parser: Parser
     private let validator: Validator
     
-    init(validator: Validator) {
+    init(parser: Parser, validator: Validator) {
+        self.parser = parser
         self.validator = validator
     }
     
@@ -27,6 +29,7 @@ struct CoordinateConverter {
         case invalidFormat
         case invalidRange
         case exceedCoordinateCount
+        case failedParsingCoordinates
         
         var localizedDescription: String {
             switch self {
@@ -36,29 +39,19 @@ struct CoordinateConverter {
                 return "유효하지 않은 범위의 숫자입니다."
             case .exceedCoordinateCount:
                 return "좌표 갯수를 초과하였습니다."
+            case .failedParsingCoordinates:
+                return "좌표 파싱에 실패하였습니다."
             }
         }
-    }
-    
-    private func checkRange(_ number: Int) throws {
-        guard (0...24).contains(number) else {
-            throw CoordinateConverter.Error.invalidRange
-        }
-    }
-    
-    private func parseNumbers(_ input: String) throws -> [Int] {
-        let regex = "-?[0-9]+"
-        let numbers = input.matches(for: regex)
-        return numbers.compactMap { Int($0) }
     }
     
     private func makePoint(from coordinate: String) throws -> MyPoint {
         guard validator.isValid(coordinate) else {
             throw CoordinateConverter.Error.invalidFormat
         }
-        let numbers = try parseNumbers(coordinate)
-        for number in numbers {
-            try checkRange(number)
+        let numbers = parser.parseNumbers(coordinate)
+        guard numbers.count == 2 else {
+            throw CoordinateConverter.Error.failedParsingCoordinates
         }
         return MyPoint(x: numbers[0], y: numbers[1])
     }
