@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint: Shape {
+struct MyPoint: Shape, Equatable {
     private(set) var x: Int
     private(set) var y: Int
     
@@ -19,5 +19,9 @@ struct MyPoint: Shape {
     
     func points() -> [MyPoint] {
         return [self]
+    }
+    
+    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
+        return (lhs.x == rhs.x && lhs.y == rhs.y)
     }
 }
