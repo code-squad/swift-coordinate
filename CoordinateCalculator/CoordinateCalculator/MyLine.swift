@@ -13,7 +13,7 @@ struct MyLine: Shape, Dimension {
     private(set) var pointB: MyPoint
     
     init?(pointA: MyPoint, pointB: MyPoint) {
-        guard pointA == pointB else {
+        guard pointA != pointB else {
             return nil
         }
         self.pointA = pointA

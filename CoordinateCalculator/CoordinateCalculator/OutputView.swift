@@ -19,15 +19,15 @@ struct OutputView {
     }
     
     static private func draw(_ point: MyPoint) {
-        print("\(ANSICode.point.draw(point.x, point.y))")
+        print("\(ANSICode.point.draw(point.x, point.y))", terminator: "")
     }
     
     static func draw(_ shape: Shape) {
         clear()
-        drawAxis()
         for point in shape.points() {
             draw(point)
         }
+        drawAxis()
         if let dimension = (shape as? Dimension)?.area() {
             print(dimension)
         }
