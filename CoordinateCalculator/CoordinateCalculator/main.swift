@@ -13,8 +13,7 @@ func run() {
         do {
             let coordinates = try InputView.readCoordinates()
             let coordinateConverter = CoordinateConverter(validator: CoordinateChecker())
-            let points = try coordinates.map { try coordinateConverter.makePoint(from: $0) }
-            OutputView.draw(point: points[0])
+            let shape = try coordinateConverter.makeShape(from: coordinates)
             break
         } catch let error as InputView.Error {
             print(error.localizedDescription)
