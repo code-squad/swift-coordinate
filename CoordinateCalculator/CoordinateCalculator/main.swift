@@ -24,7 +24,7 @@ func run() {
             print(error.localizedDescription)
             continue
         } catch {
-            print("예상치 못한 에러 발생: \(error).")
+            print("\(Message.unexpectedError)\(error)")
             continue
         }
     }

@@ -1,0 +1,13 @@
+//
+//  Message.swift
+//  CoordinateCalculator
+//
+//  Created by BLU on 2019. 5. 17..
+//  Copyright © 2019년 Codesquad Inc. All rights reserved.
+//
+
+import Foundation
+
+struct Message {
+    static let unexpectedError = "예상치 못한 에러가 발생하였습니다"
+}
