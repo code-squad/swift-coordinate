@@ -9,49 +9,49 @@
 import XCTest
 
 class CoordinateCalculatorTest: XCTestCase {
-    var verification: Validator!
+    var converter: Converter!
     override func setUp() {
-        verification = Validator()
+        converter = Converter()
     }
     
     func testCorrectFormat() {
-        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
     }
     
     func testInCorrectFormat() {
-        XCTAssertThrowsError(try verification.verifyInput("0,0"))
+        XCTAssertThrowsError(try converter.convertInput("0,0"))
     }
-    
+
     func testConsistOfTwoItem() {
-        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
     }
-    
+
     func testNotConsistOfTwoItem() {
-        XCTAssertThrowsError(try verification.verifyInput("(0,0,0)"))
+        XCTAssertThrowsError(try converter.convertInput("(0,0,0)"))
     }
-    
+
     func testCanConvertToInt() {
-        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
     }
-    
+
     func testCanNotConvertToInt() {
-        XCTAssertThrowsError(try verification.verifyInput("(zero,zero)"))
+        XCTAssertThrowsError(try converter.convertInput("(zero,zero)"))
     }
-    
+
     func testMoreThanZero() {
-        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
     }
-    
+
     func testBelowZero() {
-        XCTAssertThrowsError(try verification.verifyInput("(-1,-1)"))
+        XCTAssertThrowsError(try converter.convertInput("(-1,-1)"))
     }
-    
+
     func testUnderTwentyFour() {
-        XCTAssertNoThrow(try verification.verifyInput("(24,24)"))
+        XCTAssertNoThrow(try converter.convertInput("(24,24)"))
     }
-    
+
     func testExcessTwentyFour() {
-        XCTAssertThrowsError(try verification.verifyInput("(25,25)"))
+        XCTAssertThrowsError(try converter.convertInput("(25,25)"))
     }
 }
 
