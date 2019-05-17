@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Shape, Dimension {
+struct MyLine: Shape, Measurable {
     private let pointA: MyPoint
     private let pointB: MyPoint
     

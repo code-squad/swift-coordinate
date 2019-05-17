@@ -28,8 +28,8 @@ struct OutputView {
             draw(point)
         }
         drawAxis()
-        if let dimension = (shape as? Dimension)?.area() {
-            print("\(Message.distanceBetweenPoints(distance: dimension))")
+        if let area = (shape as? Measurable)?.area() {
+            print("\(Message.distanceBetweenPoints(distance: area))")
         }
     }
 }
