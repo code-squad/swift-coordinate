@@ -17,11 +17,8 @@ struct Converter {
         return MyPoint(x: pointArray[0], y: pointArray[1])
     }
     
-    static func makeLine (pointArray: [MyPoint]) throws -> MyLine {
-        guard pointArray.count == 2 else {
-            throw Error.wrongFormat
-        }
-        return MyLine(pointA: pointArray[0], pointB: pointArray[1])
+    static func makeLine (pointA: MyPoint, pointB: MyPoint) -> MyLine {
+        return MyLine(pointA: pointA, pointB: pointB)
     }
     
     static func checkPointToInt(point: String) throws -> Int {
@@ -49,12 +46,12 @@ struct Converter {
         throw Error.wrongFormat
     }
     
-    static func classifyInput(points: [MyPoint]) throws {
+    static func classifyInput(points: [MyPoint]){
         switch points.count {
         case 1:
             OutputView.drawPoint(points[0])
         case 2:
-            let line = try Converter.makeLine(pointArray: points)
+            let line = Converter.makeLine(pointA: points[0], pointB: points[1])
             OutputView.drawLine(line)
             
         default:
