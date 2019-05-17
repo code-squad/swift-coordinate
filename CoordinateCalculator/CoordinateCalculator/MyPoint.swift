@@ -12,10 +12,12 @@ struct MyPoint: Shape {
     private(set) var x: Int
     private(set) var y: Int
     
-    var area: Double?
-    
     init(x: Int, y: Int) {
         self.x = x
         self.y = y
+    }
+    
+    func points() -> [MyPoint] {
+        return [self]
     }
 }

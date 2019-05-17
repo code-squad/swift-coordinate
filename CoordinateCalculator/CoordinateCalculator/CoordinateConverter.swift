@@ -9,7 +9,11 @@
 import Foundation
 
 protocol Shape {
-    var area: Double? { get }
+    func points() -> [MyPoint]
+}
+
+protocol Dimension {
+    func area() -> Double
 }
 
 struct CoordinateConverter {
@@ -66,7 +70,6 @@ struct CoordinateConverter {
     }
     
     func makeShape(from coordinates: [String]) throws -> Shape {
-        
         switch coordinates.count {
         case 1:
             return try makePoint(from: coordinates[0])
