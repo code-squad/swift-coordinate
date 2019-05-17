@@ -30,6 +30,7 @@ struct CoordinateConverter {
         case invalidRange
         case exceedCoordinateCount
         case failedParsingCoordinates
+        case failedCreatingShape
         
         var localizedDescription: String {
             switch self {
@@ -41,6 +42,8 @@ struct CoordinateConverter {
                 return "좌표 갯수를 초과하였습니다."
             case .failedParsingCoordinates:
                 return "좌표 파싱에 실패하였습니다."
+            case .failedCreatingShape:
+                return "도형 생성에 실패하였습니다."
             }
         }
     }
@@ -59,7 +62,10 @@ struct CoordinateConverter {
     private func makeLine(_ coordinateA: String, _ coordinateB: String) throws -> MyLine {
         let pointA = try makePoint(from: coordinateA)
         let pointB = try makePoint(from: coordinateB)
-        return MyLine(pointA: pointA, pointB: pointB)
+        guard let line = MyLine(pointA: pointA, pointB: pointB) else {
+            throw CoordinateConverter.Error.failedCreatingShape
+        }
+        return line
     }
     
     func makeShape(from coordinates: [String]) throws -> Shape {

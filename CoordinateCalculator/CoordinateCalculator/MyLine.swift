@@ -12,6 +12,14 @@ struct MyLine: Shape, Dimension {
     private(set) var pointA: MyPoint
     private(set) var pointB: MyPoint
     
+    init?(pointA: MyPoint, pointB: MyPoint) {
+        guard pointA == pointB else {
+            return nil
+        }
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
     func points() -> [MyPoint] {
         return [pointA, pointB]
     }
