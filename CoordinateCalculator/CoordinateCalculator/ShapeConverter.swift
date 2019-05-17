@@ -1,5 +1,5 @@
 //
-//  CoordinateConverter.swift
+//  ShapeConverter.swift
 //  CoordinateCalculator
 //
 //  Created by BLU on 2019. 5. 9..
@@ -16,7 +16,7 @@ protocol Dimension {
     func area() -> Double
 }
 
-struct CoordinateConverter {
+struct ShapeConverter {
     private let parser: Parser
     private let validator: Validator
     
@@ -50,11 +50,11 @@ struct CoordinateConverter {
     
     private func makePoint(from coordinate: String) throws -> MyPoint {
         guard validator.isValid(coordinate) else {
-            throw CoordinateConverter.Error.invalidFormat
+            throw ShapeConverter.Error.invalidFormat
         }
         let numbers = parser.parseNumbers(coordinate)
         guard numbers.count == 2 else {
-            throw CoordinateConverter.Error.failedParsingCoordinates
+            throw ShapeConverter.Error.failedParsingCoordinates
         }
         return MyPoint(x: numbers[0], y: numbers[1])
     }
@@ -63,7 +63,7 @@ struct CoordinateConverter {
         let pointA = try makePoint(from: coordinateA)
         let pointB = try makePoint(from: coordinateB)
         guard let line = MyLine(pointA: pointA, pointB: pointB) else {
-            throw CoordinateConverter.Error.failedCreatingShape
+            throw ShapeConverter.Error.failedCreatingShape
         }
         return line
     }
@@ -75,7 +75,7 @@ struct CoordinateConverter {
         case 2:
             return try makeLine(coordinates[0], coordinates[1])
         default:
-            throw CoordinateConverter.Error.exceedCoordinateCount
+            throw ShapeConverter.Error.exceedCoordinateCount
         }
     }
 }

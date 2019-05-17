@@ -12,7 +12,7 @@ func run() {
     while(true) {
         do {
             let coordinates = try InputView.readCoordinates()
-            let coordinateConverter = CoordinateConverter(parser: CoordinateParser(),
+            let coordinateConverter = ShapeConverter(parser: CoordinateParser(),
                                                           validator: CoordinateChecker())
             let shape = try coordinateConverter.makeShape(from: coordinates)
             OutputView.draw(shape)
@@ -20,7 +20,7 @@ func run() {
         } catch let error as InputView.Error {
             print(error.localizedDescription)
             continue
-        } catch let error as CoordinateConverter.Error {
+        } catch let error as ShapeConverter.Error {
             print(error.localizedDescription)
             continue
         } catch {
