@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol Shape {
+    var area: Double? { get }
+}
+
 struct CoordinateFormatter {
     
     enum Error: Swift.Error {
@@ -24,7 +28,7 @@ struct CoordinateFormatter {
         }
     }
     
-    static private func validateRange(_ number: Int) throws {
+    static private func checkRange(_ number: Int) throws {
         guard (0...24).contains(number) else {
             throw CoordinateFormatter.Error.invalidRange
         }
@@ -42,8 +46,25 @@ struct CoordinateFormatter {
         }
         let numbers = try parseNumbers(input)
         for number in numbers {
-            try validateRange(number)
+            try checkRange(number)
         }
         return MyPoint(x: numbers[0], y: numbers[1])
+    }
+    
+    static func makeLine(from coordinates: [String], validator: Validator) throws -> MyLine {
+        let points = try coordinates.map { try CoordinateFormatter.makePoint(from: $0, validator: validator) }
+        return MyLine(pointA: points[0], pointB: points[1])
+    }
+    
+    static func makeShape(from coordinates: [String], validator: Validator) throws -> Shape {
+        
+        switch coordinates.count {
+        case 1:
+            return try makePoint(from: coordinates[0], validator: validator)
+        case 2:
+            return try makeLine(from: coordinates, validator: validator)
+        default:
+            throw CoordinateFormatter.Error.invalidFormat
+        }
     }
 }
