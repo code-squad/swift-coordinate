@@ -62,10 +62,10 @@ struct ShapeConverter {
     private func makeLine(_ coordinateA: String, _ coordinateB: String) throws -> MyLine {
         let pointA = try makePoint(from: coordinateA)
         let pointB = try makePoint(from: coordinateB)
-        guard let line = MyLine(pointA: pointA, pointB: pointB) else {
-            throw ShapeConverter.Error.failedCreatingShape
+        if let line = MyLine(pointA: pointA, pointB: pointB) {
+            return line
         }
-        return line
+        throw ShapeConverter.Error.failedCreatingShape
     }
     
     func makeShape(from coordinates: [String]) throws -> Shape {

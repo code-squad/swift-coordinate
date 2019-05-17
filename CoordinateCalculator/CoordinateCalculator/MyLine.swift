@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyLine: Shape, Dimension {
-    private(set) var pointA: MyPoint
-    private(set) var pointB: MyPoint
+    private let pointA: MyPoint
+    private let pointB: MyPoint
     
     init?(pointA: MyPoint, pointB: MyPoint) {
         guard pointA != pointB else {
