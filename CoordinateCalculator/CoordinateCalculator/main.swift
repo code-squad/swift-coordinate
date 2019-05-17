@@ -14,6 +14,7 @@ func run() {
             let coordinates = try InputView.readCoordinates()
             let coordinateConverter = CoordinateConverter(validator: CoordinateChecker())
             let shape = try coordinateConverter.makeShape(from: coordinates)
+            OutputView.draw(shape)
             break
         } catch let error as InputView.Error {
             print(error.localizedDescription)

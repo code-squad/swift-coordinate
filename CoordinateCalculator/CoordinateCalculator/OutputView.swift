@@ -10,17 +10,26 @@ import Foundation
 
 struct OutputView {
     
-    static func clear() {
+    static private func clear() {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    static func drawAxis() {
+    static private func drawAxis() {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    static func draw(point: MyPoint) {
+    static private func draw(_ point: MyPoint) {
+        print("\(ANSICode.point.draw(point.x, point.y))")
+    }
+    
+    static func draw(_ shape: Shape) {
         clear()
         drawAxis()
-        print("\(ANSICode.point.draw(point.x, point.y))")
+        for point in shape.points() {
+            draw(point)
+        }
+        if let dimension = (shape as? Dimension)?.area() {
+            print(dimension)
+        }
     }
 }
