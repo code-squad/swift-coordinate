@@ -1,5 +1,5 @@
 //
-//  Parser.swift
+//  CoordinateParser.swift
 //  CoordinateCalculator
 //
 //  Created by BLU on 2019. 5. 17..
@@ -8,14 +8,9 @@
 
 import Foundation
 
-protocol Parser {
-    func checkRange(_ number: Int) -> Bool
-    func parseNumbers(_ input: String) -> [Int]
-}
-
-struct CoordinateParser: Parser {
+struct CoordinateParser {
     
-    func checkRange(_ number: Int) -> Bool {
+    private func checkRange(_ number: Int) -> Bool {
         return (0...24).contains(number)
     }
     

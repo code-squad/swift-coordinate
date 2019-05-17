@@ -17,11 +17,11 @@ protocol Dimension {
 }
 
 struct ShapeConverter {
-    private let parser: Parser
+    private let coordinateParser: CoordinateParser
     private let validator: Validator
     
-    init(parser: Parser, validator: Validator) {
-        self.parser = parser
+    init(coordinateParser: CoordinateParser, validator: Validator) {
+        self.coordinateParser = coordinateParser
         self.validator = validator
     }
     
@@ -52,7 +52,7 @@ struct ShapeConverter {
         guard validator.isValid(coordinate) else {
             throw ShapeConverter.Error.invalidFormat
         }
-        let numbers = parser.parseNumbers(coordinate)
+        let numbers = coordinateParser.parseNumbers(coordinate)
         guard numbers.count == 2 else {
             throw ShapeConverter.Error.failedParsingCoordinates
         }
