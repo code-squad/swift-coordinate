@@ -38,9 +38,6 @@ struct InputView {
     
     static func readCoordinates() throws -> [String] {
         let text = try readText(ask : .enterCoodinates)
-        guard text.validateCoordinate() else {
-            throw InputView.Error.invalidCharacters
-        }
         return text.components(separatedBy: "-")
     }
 }
