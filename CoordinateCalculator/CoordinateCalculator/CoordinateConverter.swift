@@ -13,6 +13,11 @@ protocol Shape {
 }
 
 struct CoordinateConverter {
+    private let validator: Validator
+    
+    init(validator: Validator) {
+        self.validator = validator
+    }
     
     enum Error: Swift.Error {
         case invalidFormat
@@ -28,43 +33,43 @@ struct CoordinateConverter {
         }
     }
     
-    static private func checkRange(_ number: Int) throws {
+    private func checkRange(_ number: Int) throws {
         guard (0...24).contains(number) else {
-            throw CoordinateFormatter.Error.invalidRange
+            throw CoordinateConverter.Error.invalidRange
         }
     }
     
-    static private func parseNumbers(_ input: String) throws -> [Int] {
+    private func parseNumbers(_ input: String) throws -> [Int] {
         let regex = "-?[0-9]+"
         let numbers = input.matches(for: regex)
         return numbers.compactMap { Int($0) }
     }
     
-    static func makePoint(from input: String, validator: Validator) throws -> MyPoint {
-        guard validator.isValid(input) else {
-            throw CoordinateFormatter.Error.invalidFormat
+    func makePoint(from coordinate: String) throws -> MyPoint {
+        guard validator.isValid(coordinate) else {
+            throw CoordinateConverter.Error.invalidFormat
         }
-        let numbers = try parseNumbers(input)
+        let numbers = try parseNumbers(coordinate)
         for number in numbers {
             try checkRange(number)
         }
         return MyPoint(x: numbers[0], y: numbers[1])
     }
     
-    static func makeLine(from coordinates: [String], validator: Validator) throws -> MyLine {
-        let points = try coordinates.map { try CoordinateFormatter.makePoint(from: $0, validator: validator) }
+    func makeLine(from coordinates: [String]) throws -> MyLine {
+        let points = try coordinates.map { try makePoint(from: $0) }
         return MyLine(pointA: points[0], pointB: points[1])
     }
     
-    static func makeShape(from coordinates: [String], validator: Validator) throws -> Shape {
+    func makeShape(from coordinates: [String]) throws -> Shape {
         
         switch coordinates.count {
         case 1:
-            return try makePoint(from: coordinates[0], validator: validator)
+            return try makePoint(from: coordinates[0])
         case 2:
-            return try makeLine(from: coordinates, validator: validator)
+            return try makeLine(from: coordinates)
         default:
-            throw CoordinateFormatter.Error.invalidFormat
+            throw CoordinateConverter.Error.invalidFormat
         }
     }
 }

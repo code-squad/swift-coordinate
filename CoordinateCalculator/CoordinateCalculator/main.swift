@@ -12,7 +12,8 @@ func run() {
     while(true) {
         do {
             let coordinates = try InputView.readCoordinates()
-            let points = try coordinates.map { try CoordinateConverter.makePoint(from: $0, validator: CoordinateChecker()) }
+            let coordinateConverter = CoordinateConverter(validator: CoordinateChecker())
+            let points = try coordinates.map { try coordinateConverter.makePoint(from: $0) }
             OutputView.draw(point: points[0])
             break
         } catch let error as InputView.Error {
