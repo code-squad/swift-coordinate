@@ -15,7 +15,7 @@ func run() {
         var converter = Converter()
         let outputView = OutputView()
         do {
-            let convertedInput = try converter.convertInput(userInput)
+            let convertedInput = try converter.convertInput(userInput,Validator())
             outputView.drawAxis(convertedInput)
         }catch let error as UserInputError{
             print(error.description)

@@ -15,7 +15,7 @@ struct Validator {
         }
     }
     
-    mutating func hasTwoItem(_ seperatedUserInput:[String])throws {
+    func hasTwoItem(_ seperatedUserInput:[String])throws {
         guard seperatedUserInput.count == 2 else{
             throw UserInputError.inCorrectItemNumber
         }

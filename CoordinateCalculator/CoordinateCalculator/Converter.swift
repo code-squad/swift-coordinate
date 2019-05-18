@@ -9,9 +9,8 @@
 import Foundation
 
 struct Converter {
-    var validator = Validator()
     
-    mutating func convertInput(_ userInputOptionalString:String?)throws ->MyPoint {
+    mutating func convertInput(_ userInputOptionalString:String?,_ validator:Validator)throws ->MyPoint {
         let userInput = try convertString(userInputOptionalString)
         try validator.isCorrectFormat(userInput)
         let seperatedUserInput = seperate(userInput)

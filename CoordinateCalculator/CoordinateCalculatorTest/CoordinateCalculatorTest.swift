@@ -15,43 +15,43 @@ class CoordinateCalculatorTest: XCTestCase {
     }
     
     func testCorrectFormat() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)",Validator()))
     }
     
     func testInCorrectFormat() {
-        XCTAssertThrowsError(try converter.convertInput("0,0"))
+        XCTAssertThrowsError(try converter.convertInput("0,0",Validator()))
     }
 
     func testConsistOfTwoItem() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)",Validator()))
     }
 
     func testNotConsistOfTwoItem() {
-        XCTAssertThrowsError(try converter.convertInput("(0,0,0)"))
+        XCTAssertThrowsError(try converter.convertInput("(0,0,0)",Validator()))
     }
 
     func testCanConvertToInt() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)",Validator()))
     }
 
     func testCanNotConvertToInt() {
-        XCTAssertThrowsError(try converter.convertInput("(zero,zero)"))
+        XCTAssertThrowsError(try converter.convertInput("(zero,zero)",Validator()))
     }
 
     func testMoreThanZero() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.convertInput("(0,0)",Validator()))
     }
 
     func testBelowZero() {
-        XCTAssertThrowsError(try converter.convertInput("(-1,-1)"))
+        XCTAssertThrowsError(try converter.convertInput("(-1,-1)",Validator()))
     }
 
     func testUnderTwentyFour() {
-        XCTAssertNoThrow(try converter.convertInput("(24,24)"))
+        XCTAssertNoThrow(try converter.convertInput("(24,24)",Validator()))
     }
 
     func testExcessTwentyFour() {
-        XCTAssertThrowsError(try converter.convertInput("(25,25)"))
+        XCTAssertThrowsError(try converter.convertInput("(25,25)",Validator()))
     }
 }
 
