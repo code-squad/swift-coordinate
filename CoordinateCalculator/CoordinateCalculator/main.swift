@@ -21,17 +21,9 @@ func main() throws {
             coordinateValue = try Process.convertForm(checkValue: processingValue)
             break
             
-        } catch ErrorMessage.noInputValue {
-            print(ErrorMessage.noInputValue.description)
-        } catch ErrorMessage.incorrectFormet {
-            print(ErrorMessage.incorrectFormet.description)
-        } catch ErrorMessage.incorrectInputValue {
-            print(ErrorMessage.incorrectInputValue.description)
-        } catch ErrorMessage.incorrectInputValueCount {
-            print(ErrorMessage.incorrectInputValueCount.description)
-        } catch ErrorMessage.rangeOver {
-            print(ErrorMessage.rangeOver.description)
-        }catch {
+        } catch let error as ErrorMessage {
+            print(error.description)
+        } catch {
             print("알수없는오류발생")
         }
    }

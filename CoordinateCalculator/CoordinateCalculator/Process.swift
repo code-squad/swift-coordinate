@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ErrorMessage: Error {
+enum ErrorMessage: Error, CustomStringConvertible {
     case noInputValue
     case incorrectFormet
     case incorrectInputValue
@@ -34,6 +34,7 @@ enum ErrorMessage: Error {
 struct Process {
     
     static func checkFormat(inputValue: String) throws -> String {
+    
         var inputValue = inputValue
         guard inputValue.first == "(" , inputValue.last == ")" else {
             throw ErrorMessage.incorrectFormet
