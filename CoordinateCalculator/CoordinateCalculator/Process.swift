@@ -34,25 +34,20 @@ enum ErrorMessage: Error, CustomStringConvertible {
 struct Process {
     
     static func checkFormat(inputValue: String) throws -> String {
-    
         var inputValue = inputValue
         guard inputValue.first == "(" , inputValue.last == ")" else {
             throw ErrorMessage.incorrectFormet
         }
-        
         inputValue.removeFirst()
         inputValue.removeLast()
-        
         return inputValue
     }
     
     static func convertForm(checkValue: String) throws -> (x: Int, y: Int) {
         let convertedValues = checkValue.split(separator: ",", omittingEmptySubsequences: false).map{String($0)}
-        
         guard convertedValues.count != 1 else {
             throw ErrorMessage.incorrectInputValueCount
         }
-        
         guard convertedValues[1] != "" else {
             throw ErrorMessage.incorrectFormet
         }
@@ -62,21 +57,16 @@ struct Process {
                 throw ErrorMessage.incorrectInputValue
             }
             return intValue
-            
         }
         guard intValues.count == 2 else {
             throw ErrorMessage.incorrectInputValueCount
         }
-        
-        
         guard intValues[0] < 24, intValues[1] < 24 else {
             throw ErrorMessage.rangeOver
         }
-        
         guard intValues[0] >= 0, intValues[1] >= 0 else {
             throw ErrorMessage.rangeOver
         }
-        
         return (x: intValues[0], y: intValues[1])
     }
 }
