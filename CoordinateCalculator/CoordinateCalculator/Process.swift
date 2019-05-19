@@ -33,35 +33,35 @@ enum ErrorMessage: Error, CustomStringConvertible {
 
 struct Process {
     
-    static func checkFormat(inputValue: String) throws -> String {
+    static func checkFormat(inputValue: String) throws -> [String] {
         var inputValue = inputValue
         guard inputValue.first == "(" , inputValue.last == ")" else {
-            throw ErrorMessage.incorrectFormet
+            throw ErrorMessage.incorrectFormet //형식
         }
         inputValue.removeFirst()
         inputValue.removeLast()
-        return inputValue
+        
+        let checkValues = inputValue.split(separator: ",", omittingEmptySubsequences: false).map{String($0)}
+        guard checkValues.count != 1 else {
+            throw ErrorMessage.incorrectInputValueCount//형식
+        }
+        guard checkValues[1] != "" else {
+            throw ErrorMessage.incorrectFormet //형식
+        }
+        guard checkValues.count == 2 else {
+            throw ErrorMessage.incorrectInputValueCount //형식
+        }
+        return checkValues
     }
     
-    static func convertForm(checkValue: String) throws -> (x: Int, y: Int) {
-        let convertedValues = checkValue.split(separator: ",", omittingEmptySubsequences: false).map{String($0)}
-        guard convertedValues.count != 1 else {
-            throw ErrorMessage.incorrectInputValueCount
-        }
-        guard convertedValues[1] != "" else {
-            throw ErrorMessage.incorrectFormet
-        }
-        
-        let intValues = try convertedValues.map {(value: String) -> Int in
+    static func convertForm(values: [String]) throws -> (x: Int, y: Int) {
+        let intValues = try values.map {(value: String) -> Int in
             guard let intValue = Int(value) else {
                 throw ErrorMessage.incorrectInputValue
             }
             return intValue
         }
-        guard intValues.count == 2 else {
-            throw ErrorMessage.incorrectInputValueCount
-        }
-        guard intValues[0] < 24, intValues[1] < 24 else {
+        guard intValues[0] <= 24, intValues[1] <= 24 else {
             throw ErrorMessage.rangeOver
         }
         guard intValues[0] >= 0, intValues[1] >= 0 else {

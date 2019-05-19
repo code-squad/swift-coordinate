@@ -18,7 +18,7 @@ func main()  {
             let input = try InputView.ask(about: question)
             
             let processingValue = try Process.checkFormat(inputValue: input)
-            coordinateValue = try Process.convertForm(checkValue: processingValue)
+            coordinateValue = try Process.convertForm(values: processingValue)
             break
             
         } catch let error as ErrorMessage {
