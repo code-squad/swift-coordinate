@@ -17,14 +17,9 @@ struct OutputView {
     
     static func drawDot(at value: MyPoint) {
         let startPoint = ANSICode.axis.AxisLimit + 1
-        var result = ""
         let x = value.x
         let y = value.y
 
-        result += ANSICode.cursor.move(row: startPoint-y, col: (x*2)+2)
-        result += "😆"
-        result += ANSICode.cursor.move(row: startPoint+1, col: (startPoint*2)+2)
-
-        print(result)
+        print("\(ANSICode.cursor.move(row: startPoint-y, col: (x*2)+2))😆\(ANSICode.cursor.move(row: startPoint+1, col: (startPoint*2)+2))")
     }
 }
