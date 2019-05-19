@@ -12,8 +12,8 @@ struct ShapeConverter {
     private let numberParser: NumberParser
     private let validator: Validator
     
-    init(coordinateParser: NumberParser, validator: Validator) {
-        self.numberParser = coordinateParser
+    init(numberParser: NumberParser, validator: Validator) {
+        self.numberParser = numberParser
         self.validator = validator
     }
     
