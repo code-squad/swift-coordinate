@@ -13,11 +13,22 @@ func main()  {
     var coordinateValue = (x: 0, y: 0)
 
     while true {
+        var processingValue = [String]()
+        
         do {
             let question = "좌표를 입력해주세요(예:(10,10))"
             let input = try InputView.ask(about: question)
-            
-            let processingValue = try Process.checkFormat(inputValue: input)
+            processingValue = try Process.checkFormat(inputValue: input)
+        
+        } catch let error as ErrorMessage {
+            print(error.description)
+            continue
+        } catch {
+            print("알수없는오류발생")
+            continue
+        }
+        
+        do {
             coordinateValue = try Process.convertForm(values: processingValue)
             break
             
