@@ -8,7 +8,7 @@
 
 import Foundation
 
-func main() throws {
+func main()  {
     
     var coordinateValue = (x: 0, y: 0)
 
@@ -27,16 +27,12 @@ func main() throws {
             print("알수없는오류발생")
         }
    }
-    
     //좌표값 저장
     let dot = MyPoint(x: coordinateValue.x, y: coordinateValue.y)
-    
     //좌표출력
     OutputView.drawAxis()
     OutputView.drawDot(at: dot)
-
-    
 }
 
-try main()
+main()
 
