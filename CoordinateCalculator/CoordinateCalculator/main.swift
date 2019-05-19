@@ -24,7 +24,7 @@ func main()  {
             print(error.description)
             continue
         } catch {
-            print("알수없는오류발생")
+            print(ErrorMessage.unknown)
             continue
         }
         
@@ -35,7 +35,7 @@ func main()  {
         } catch let error as ErrorMessage {
             print(error.description)
         } catch {
-            print("알수없는오류발생")
+            print(ErrorMessage.unknown)
         }
    }
     //좌표값 저장

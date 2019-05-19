@@ -14,6 +14,7 @@ enum ErrorMessage: Error, CustomStringConvertible {
     case incorrectInputValue
     case incorrectInputValueCount
     case rangeOver
+    case unknown
     
     var description: String {
         switch self {
@@ -27,6 +28,8 @@ enum ErrorMessage: Error, CustomStringConvertible {
             return "(x,y) 두값을 입력해주세요."
         case .rangeOver:
             return "입력범위를 초과했습니다. 0~24 범위안에서 입력해주세요."
+        case .unknown:
+            return "알수없는 오류입니다"
         }
     }
 }
