@@ -9,11 +9,11 @@
 import Foundation
 
 struct ShapeConverter {
-    private let coordinateParser: CoordinateParser
+    private let numberParser: NumberParser
     private let validator: Validator
     
-    init(coordinateParser: CoordinateParser, validator: Validator) {
-        self.coordinateParser = coordinateParser
+    init(coordinateParser: NumberParser, validator: Validator) {
+        self.numberParser = coordinateParser
         self.validator = validator
     }
     
@@ -44,7 +44,7 @@ struct ShapeConverter {
         guard validator.isValid(coordinate) else {
             throw ShapeConverter.Error.invalidFormat
         }
-        let numbers = coordinateParser.parseNumbers(coordinate)
+        let numbers = numberParser.parseNumbers(coordinate)
         guard numbers.count == 2 else {
             throw ShapeConverter.Error.failedParsingCoordinates
         }
