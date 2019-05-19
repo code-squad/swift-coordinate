@@ -38,9 +38,9 @@ func main()  {
             print(ErrorMessage.unknown)
         }
    }
-    //좌표값 저장
-    let dot = MyPoint(x: coordinateValue.x, y: coordinateValue.y)
-    //좌표출력
+
+    let dot = InputView.makePoint(x: coordinateValue.x, y: coordinateValue.y)
+
     OutputView.drawAxis()
     OutputView.drawDot(at: dot)
 }
