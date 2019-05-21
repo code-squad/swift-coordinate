@@ -8,5 +8,23 @@
 
 import Foundation
 
-OutputView.drawAxis()
+func run() {
+    
+    repeat{
+        let userInput = InputView.readInput(.requestCoordinate)
+        var converter = Converter()
+        let outputView = OutputView()
+        do {
+            let convertedInput = try converter.convertInput(userInput,Validator())
+            outputView.drawAxis(convertedInput)
+        }catch let error as UserInputError{
+            print(error.description)
+            continue
+        }catch {
+            print(UserInputError.unknown.description)
+            continue
+        }
+    }while true
+}
 
+run()

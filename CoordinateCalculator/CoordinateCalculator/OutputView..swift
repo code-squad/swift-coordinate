@@ -10,10 +10,20 @@ import Foundation
 
 struct OutputView {
     
-    static func drawAxis() {
-        
+    func drawAxis(_ point: MyPoint) {
+        drawBoard()
+        drawDot(point)
+    }
+    
+    private func drawBoard() {
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+    
+    private func drawDot(_ point:MyPoint) {
+        
+        print("\(ANSICode.cursor.move(row: point.y, col: point.x))😼\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2))")
+        
     }
     
 }
