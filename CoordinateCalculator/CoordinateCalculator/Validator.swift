@@ -10,6 +10,15 @@ import Foundation
 
 struct Validator: Validatable {
     
+    func isContainFormatItem(_ userInput:String,_ formatItem:String)throws{
+        let ConvertedFormatItem = CharacterSet(charactersIn: formatItem)
+        let convertedUserInput = CharacterSet(charactersIn:userInput)
+        let subtractset = convertedUserInput.subtracting(ConvertedFormatItem)
+        guard subtractset.isEmpty == true else{
+            throw UserInputError.inCorrectFormat
+        }
+    }
+    
     func isCorrectFormat(_ userInput:String) throws {
         guard userInput.first == "(" && userInput.last == ")" else{
             throw UserInputError.inCorrectFormat
