@@ -18,13 +18,13 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    static func draw(_ point: MyPoint) {
+    static func draw(_ point: MyPoint){
         print("\(ANSICode.cursor.move(row: 24-point.y+1, col: point.x*2+3))*")
     }
     
-    static func draw(_ drawable: Drawable) {
+    static func draw(_ drawable: Drawable){
         clear()
-        for point in drawable.points {
+        for point in drawable.points{
             draw(point)
         }
         drawAxis()
