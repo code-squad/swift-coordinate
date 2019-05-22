@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint: Drawable,Hashable {
+    var points: [MyPoint] {
+        return [self]
+    }
+    
     var x = 0
     var y = 0
 }

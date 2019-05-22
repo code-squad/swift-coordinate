@@ -21,6 +21,10 @@ struct Converter {
         return MyLine(pointA: pointA, pointB: pointB)
     }
     
+//    static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
+//        return MyTriangle(pointA: My)
+//    }
+    
     static func checkPointToInt(point: String) throws -> Int {
         guard let point = Int(point) else {
             throw Error.notIntValue
@@ -49,11 +53,13 @@ struct Converter {
     static func classifyInput(points: [MyPoint]){
         switch points.count {
         case 1:
-            OutputView.drawPoint(points[0])
+            OutputView.draw(points[0])
         case 2:
             let line = Converter.makeLine(pointA: points[0], pointB: points[1])
-            OutputView.drawLine(line)
-            
+            OutputView.draw(line)
+        case 3:
+             let triangle = MyTriangle.init(lineAB: MyLine(pointA: points[0], pointB: points[1]), lineBC: MyLine(pointA: points[1], pointB: points[2]), lineAC: MyLine(pointA: points[0], pointB: points[2]))
+            OutputView.draw(triangle)
         default:
             break
         }

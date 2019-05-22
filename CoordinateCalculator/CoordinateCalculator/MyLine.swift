@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct MyLine {
-    private (set) var pointA = MyPoint(x: 0, y: 0)
-    private (set) var pointB = MyPoint(x: 0, y: 0)
+struct MyLine:Drawable {
+    var points: [MyPoint] {
+        return [pointA, pointB]
+    }
+    
+    private(set) var pointA = MyPoint(x: 0, y: 0)
+    private(set) var pointB = MyPoint(x: 0, y: 0)
     
     private var lineLength: Double { return
         sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2)) }

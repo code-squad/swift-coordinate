@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5625860F227BE5F900CF5485 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625860E227BE5F900CF5485 /* Validator.swift */; };
+		565386452293CA5000F5FF98 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565386442293CA5000F5FF98 /* MyTriangle.swift */; };
+		565386472293F54D00F5FF98 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565386462293F54D00F5FF98 /* Drawable.swift */; };
 		566663D322746ED4007FFD65 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566663D222746ED4007FFD65 /* OutputView.swift */; };
 		566663D72276CF1B007FFD65 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566663D62276CF1B007FFD65 /* InputView.swift */; };
 		568B4216228A88CD00B3191E /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B4215228A88CD00B3191E /* Converter.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		5625860E227BE5F900CF5485 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		565386442293CA5000F5FF98 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
+		565386462293F54D00F5FF98 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		566663D222746ED4007FFD65 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		566663D62276CF1B007FFD65 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		568B4215228A88CD00B3191E /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				56AD0E962289DEE4006C441A /* MyPoint.swift */,
 				56AD0E982289DEEF006C441A /* MyLine.swift */,
 				568B4215228A88CD00B3191E /* Converter.swift */,
+				565386442293CA5000F5FF98 /* MyTriangle.swift */,
+				565386462293F54D00F5FF98 /* Drawable.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -281,9 +287,11 @@
 				56AD0E972289DEE4006C441A /* MyPoint.swift in Sources */,
 				5625860F227BE5F900CF5485 /* Validator.swift in Sources */,
 				568B4216228A88CD00B3191E /* Converter.swift in Sources */,
+				565386452293CA5000F5FF98 /* MyTriangle.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				56AD0E992289DEEF006C441A /* MyLine.swift in Sources */,
 				566663D322746ED4007FFD65 /* OutputView.swift in Sources */,
+				565386472293F54D00F5FF98 /* Drawable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
