@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3019407722967C9A00BD3A0F /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019407622967C9A00BD3A0F /* StringUtility.swift */; };
+		3019407922967D3900BD3A0F /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3019407822967D3900BD3A0F /* MyTriangle.swift */; };
 		30A1EC7B228E4D7300AF7450 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1EC7A228E4D7300AF7450 /* MyLine.swift */; };
 		30A1EC7D228ED1F900AF7450 /* NumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1EC7C228ED1F900AF7450 /* NumberParser.swift */; };
 		30A1EC7F228EDB5D00AF7450 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1EC7E228EDB5D00AF7450 /* Message.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3019407622967C9A00BD3A0F /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
+		3019407822967D3900BD3A0F /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		30A1EC7A228E4D7300AF7450 /* MyLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		30A1EC7C228ED1F900AF7450 /* NumberParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParser.swift; sourceTree = "<group>"; };
 		30A1EC7E228EDB5D00AF7450 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				30A1EC80228F01CB00AF7450 /* Shape.swift */,
 				30A1EC82228F01DD00AF7450 /* Measurable.swift */,
 				3019407622967C9A00BD3A0F /* StringUtility.swift */,
+				3019407822967D3900BD3A0F /* MyTriangle.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				30A1EC7F228EDB5D00AF7450 /* Message.swift in Sources */,
 				30A89A7022848B9A00312A5E /* MyPoint.swift in Sources */,
 				30A89A6F22848B9A00312A5E /* InputView.swift in Sources */,
+				3019407922967D3900BD3A0F /* MyTriangle.swift in Sources */,
 				30A1EC7D228ED1F900AF7450 /* NumberParser.swift in Sources */,
 				30A89A7322848B9A00312A5E /* OutputView.swift in Sources */,
 				30A1EC81228F01CB00AF7450 /* Shape.swift in Sources */,
