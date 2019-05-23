@@ -24,7 +24,7 @@ struct OutputView {
     
     static func draw(_ shape: Shape) {
         clear()
-        for point in shape.points() {
+        for point in shape.points {
             draw(point)
         }
         drawAxis()

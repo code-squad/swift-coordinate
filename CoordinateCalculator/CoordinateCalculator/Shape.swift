@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Shape {
-    func points() -> [MyPoint]
+    var points: [MyPoint] { get }
 }
