@@ -17,6 +17,9 @@ struct MyTriangle: Shape, Measurable {
         let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
         return sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
     }
+    var areaDescription: String {
+        return Message.triangleArea(area).description
+    }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         guard let lineAB = MyLine(pointA: pointA, pointB: pointB),
