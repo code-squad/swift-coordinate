@@ -17,11 +17,11 @@ struct Factory {
         return MyPoint(x: pointArray[0], y: pointArray[1])
     }
     
-    static func makeLine (pointA: MyPoint, pointB: MyPoint) -> Drawable {
+    static func makeLine (pointA: MyPoint, pointB: MyPoint) -> MyLine {
         return MyLine(pointA: pointA, pointB: pointB)
     }
     
-    static func makeTriangle (points:[MyPoint]) -> Drawable {
+    static func makeTriangle (points:[MyPoint]) -> MyTriangle {
         return MyTriangle(lineAB: MyLine(pointA: points[0], pointB: points[1]), lineBC:  MyLine(pointA: points[1], pointB: points[2]),lineAC: MyLine(pointA: points[0], pointB: points[2]))
     }
 }
