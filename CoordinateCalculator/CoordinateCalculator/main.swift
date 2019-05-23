@@ -9,17 +9,24 @@
 import Foundation
 
 func run() {
-    while(true) {
+    repeat {
+        let coordinates: [String]
+        let shape: Shape
         do {
-            let coordinates = try InputView.readCoordinates()
-            let shapeConverter = ShapeConverter(numberParser: NumberParser(),
-                                                          validator: CoordinateChecker())
-            let shape = try shapeConverter.makeShape(from: coordinates)
-            OutputView.draw(shape)
-            break
+            coordinates = try InputView.readCoordinates()
         } catch let error as InputView.Error {
             print(error.localizedDescription)
             continue
+        } catch {
+            print("\(Message.unexpectedError(error: error))")
+            continue
+        }
+        do {
+            let shapeConverter = ShapeConverter(numberParser: NumberParser(),
+                                                validator: CoordinateChecker())
+            shape = try shapeConverter.makeShape(from: coordinates)
+            OutputView.draw(shape)
+            break
         } catch let error as ShapeConverter.Error {
             print(error.localizedDescription)
             continue
@@ -27,7 +34,7 @@ func run() {
             print("\(Message.unexpectedError(error: error))")
             continue
         }
-    }
+    } while(true)
 }
 
 run()
