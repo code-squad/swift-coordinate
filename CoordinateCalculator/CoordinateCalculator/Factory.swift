@@ -9,19 +9,20 @@
 import Foundation
 
 struct Factory {
-static func makePoint (pointArray: [Int]) throws -> MyPoint {
-    guard pointArray.count == 2 else {
-        throw Error.wrongFormat
-    }
-    return MyPoint(x: pointArray[0], y: pointArray[1])
-}
-
-static func makeLine (pointA: MyPoint, pointB: MyPoint) -> Drawable {
-    return MyLine(pointA: pointA, pointB: pointB)
-}
-
-static func makeTriangle (points:[MyPoint]) -> Drawable {
-    return MyTriangle(lineAB: MyLine(pointA: points[0], pointB: points[1]), lineBC:  MyLine(pointA: points[1], pointB: points[2]),lineAC: MyLine(pointA: points[0], pointB: points[2]))
-}
-     }
     
+    static func makePoint (pointArray: [Int]) throws -> MyPoint {
+        guard pointArray.count == 2 else {
+            throw Error.wrongFormat
+        }
+        return MyPoint(x: pointArray[0], y: pointArray[1])
+    }
+    
+    static func makeLine (pointA: MyPoint, pointB: MyPoint) -> Drawable {
+        return MyLine(pointA: pointA, pointB: pointB)
+    }
+    
+    static func makeTriangle (points:[MyPoint]) -> Drawable {
+        return MyTriangle(lineAB: MyLine(pointA: points[0], pointB: points[1]), lineBC:  MyLine(pointA: points[1], pointB: points[2]),lineAC: MyLine(pointA: points[0], pointB: points[2]))
+    }
+}
+

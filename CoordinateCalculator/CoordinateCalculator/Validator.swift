@@ -30,5 +30,5 @@ enum Error: String,Swift.Error,CustomStringConvertible {
     case notIntValue = "숫자로 입력해주세요"
     case wrongFormat = "포맷이 맞지 않습니다"
     case emptyValue = "값이 없습니다"
-
+    
 }

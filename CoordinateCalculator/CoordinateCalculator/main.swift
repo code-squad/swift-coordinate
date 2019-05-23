@@ -15,7 +15,7 @@ func main() {
             let inputs = try InputView.readInputs()
             let coordinates = try inputs.map { try Converter.ConvertInput(input: $0) }
             let points = try coordinates.map { try Factory.makePoint(pointArray: $0) }
-            Converter.classifyInput(points: points as! [MyPoint])
+            Converter.classifyInput(points: points)
             isError = false
         } catch let error as Error.Type {
             print(error)

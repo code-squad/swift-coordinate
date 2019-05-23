@@ -18,17 +18,18 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
     }
     
-    static func draw(_ point: MyPoint){
+    static func draw(point: MyPoint){
         print("\(ANSICode.cursor.move(row: 24-point.y+1, col: point.x*2+3))*")
     }
     
     static func draw(_ drawable: Drawable){
         clear()
         for point in drawable.points{
-            draw(point)
+            draw(point: point)
         }
         drawAxis()
-       // print("두 점 사이의 거리는 \(line.getVlink())")
+        guard let ex = drawable as? Explanation else { return }
+        print(ex.explanation)
     }
 }
 

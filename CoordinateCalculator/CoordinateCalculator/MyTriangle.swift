@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: Drawable,Calculable {
+struct MyTriangle: Drawable, Explanation {
     
     var points: [MyPoint] {
         return [lineAC.pointA,lineAC.pointB,lineBC.pointA]
@@ -18,13 +18,14 @@ struct MyTriangle: Drawable,Calculable {
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     
-    var explanation: String {
-        return "삼각형의 넓이 : \(value)"
+    private var size: Double {
+        let s = (lineAB.value + lineAC.value + lineBC.value) / 2
+        return sqrt(s * (s - lineAB.value) * (s - lineAC.value) * (s - lineBC.value))
     }
     
-    var value: Double {
-        let s = (lineAB.getValue() + lineAC.getValue() + lineBC.getValue()) / 2
-        return sqrt(s * (s - lineAB.getValue()) * (s - lineAC.getValue()) * (s - lineBC.getValue()))
+    var explanation: String {
+        return "삼각형의 넓이 : \(size)"
     }
+    
 }
 
