@@ -44,12 +44,12 @@ struct Converter {
             let line = Factory.makeLine(pointA: points[0], pointB: points[1])
             OutputView.draw(line)
         case 3:
-             let triangle = Factory.makeTriangle(points: points)
+            let triangle = Factory.makeTriangle(points: points)
             OutputView.draw(triangle)
         default:
             break
         }
     }
 }
-    
+
 
