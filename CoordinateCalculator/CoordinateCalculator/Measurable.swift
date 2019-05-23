@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Measurable {
-    func area() -> Double
+    var area: Double { get }
 }
