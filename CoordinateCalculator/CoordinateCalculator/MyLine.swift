@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MyLine:Drawable {
+struct MyLine:Drawable,Explanation {
+    
     var points: [MyPoint] {
         return [pointA, pointB]
     }
@@ -16,11 +17,12 @@ struct MyLine:Drawable {
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
     
-    private var lineLength: Double { return
-        sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2)) }
+    var explanation: String {
+        return "두 점 사이의 거리는 : \(value)"
+    }
     
-    func getValue() -> Double {
-        return lineLength
+    var value: Double {
+        return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
     }
     
 }
