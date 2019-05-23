@@ -35,19 +35,16 @@ struct Converter {
         throw Error.wrongFormat
     }
     
-    static func classifyInput(points: [MyPoint]){
-        
+    static func classifyInput(points: [MyPoint]) throws -> Drawable {
         switch points.count {
         case 1:
-            OutputView.draw(points[0])
+            return points[0]
         case 2:
-            let line = Factory.makeLine(pointA: points[0], pointB: points[1])
-            OutputView.draw(line)
+            return Factory.makeLine(pointA: points[0], pointB: points[1])
         case 3:
-            let triangle = Factory.makeTriangle(points: points)
-            OutputView.draw(triangle)
+            return Factory.makeTriangle(points: points)
         default:
-            break
+            throw Error.wrongValue
         }
     }
 }
