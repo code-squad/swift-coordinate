@@ -16,8 +16,8 @@ struct MyTriangle: Shape, Measurable {
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         guard let lineAB = MyLine(pointA: pointA, pointB: pointB),
-            let lineBC = MyLine(pointA: pointA, pointB: pointB),
-            let lineAC = MyLine(pointA: pointA, pointB: pointB),
+            let lineBC = MyLine(pointA: pointB, pointB: pointC),
+            let lineAC = MyLine(pointA: pointA, pointB: pointC),
             lineAB != lineBC || lineBC != lineAC || lineAC != lineAB else {
                 return nil
         }
