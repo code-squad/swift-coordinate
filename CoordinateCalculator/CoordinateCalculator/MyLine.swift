@@ -12,6 +12,9 @@ struct MyLine: Shape, Measurable, Equatable {
     private let pointA: MyPoint
     private let pointB: MyPoint
     var points: [MyPoint]
+    var area: Double {
+        return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
+    }
     
     init?(pointA: MyPoint, pointB: MyPoint) {
         guard pointA != pointB else {
@@ -20,10 +23,6 @@ struct MyLine: Shape, Measurable, Equatable {
         self.pointA = pointA
         self.pointB = pointB
         self.points = [pointA, pointB]
-    }
-    
-    func area() -> Double {
-        return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
     
     public static func ==(lhs: MyLine, rhs: MyLine) -> Bool {

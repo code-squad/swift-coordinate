@@ -13,6 +13,10 @@ struct MyTriangle: Shape, Measurable {
     private let lineBC: MyLine
     private let lineAC: MyLine
     var points: [MyPoint]
+    var area: Double {
+        let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
+        return sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
+    }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         guard let lineAB = MyLine(pointA: pointA, pointB: pointB),
@@ -25,10 +29,5 @@ struct MyTriangle: Shape, Measurable {
         self.lineBC = lineBC
         self.lineAC = lineAC
         self.points = [pointA, pointB, pointC]
-    }
-    
-    func area() -> Double {
-        let sum = (lineAB.area() + lineBC.area() + lineAC.area()) / 2
-        return sqrt(sum * (sum - lineAB.area()) * (sum - lineBC.area()) * (sum - lineAC.area()))
     }
 }
