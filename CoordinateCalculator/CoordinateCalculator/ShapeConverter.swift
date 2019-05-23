@@ -60,12 +60,24 @@ struct ShapeConverter {
         throw ShapeConverter.Error.failedCreatingShape
     }
     
+    private func makeTriangle(_ coordinateA: String, _ coordinateB: String, _ coordinateC: String) throws -> MyTriangle {
+        let pointA = try makePoint(from: coordinateA)
+        let pointB = try makePoint(from: coordinateB)
+        let pointC = try makePoint(from: coordinateC)
+        if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
+            return triangle
+        }
+        throw ShapeConverter.Error.failedCreatingShape
+    }
+    
     func makeShape(from coordinates: [String]) throws -> Shape {
         switch coordinates.count {
         case 1:
             return try makePoint(from: coordinates[0])
         case 2:
             return try makeLine(coordinates[0], coordinates[1])
+        case 3:
+            return try makeTriangle(coordinates[0], coordinates[1], coordinates[2])
         default:
             throw ShapeConverter.Error.exceedCoordinateCount
         }
