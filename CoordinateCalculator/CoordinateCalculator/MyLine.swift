@@ -11,6 +11,7 @@ import Foundation
 struct MyLine: Shape, Measurable, Equatable {
     private let pointA: MyPoint
     private let pointB: MyPoint
+    var points: [MyPoint]
     
     init?(pointA: MyPoint, pointB: MyPoint) {
         guard pointA != pointB else {
@@ -18,10 +19,7 @@ struct MyLine: Shape, Measurable, Equatable {
         }
         self.pointA = pointA
         self.pointB = pointB
-    }
-    
-    func points() -> [MyPoint] {
-        return [pointA, pointB]
+        self.points = [pointA, pointB]
     }
     
     func area() -> Double {
