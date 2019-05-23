@@ -94,12 +94,12 @@
 				30A89A6C22848B9A00312A5E /* ShapeConverter.swift */,
 				30A89A6B22848B9A00312A5E /* MyPoint.swift */,
 				30A1EC7A228E4D7300AF7450 /* MyLine.swift */,
+				3019407822967D3900BD3A0F /* MyTriangle.swift */,
 				30A1EC7C228ED1F900AF7450 /* NumberParser.swift */,
 				30A1EC7E228EDB5D00AF7450 /* Message.swift */,
 				30A1EC80228F01CB00AF7450 /* Shape.swift */,
 				30A1EC82228F01DD00AF7450 /* Measurable.swift */,
 				3019407622967C9A00BD3A0F /* StringUtility.swift */,
-				3019407822967D3900BD3A0F /* MyTriangle.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
