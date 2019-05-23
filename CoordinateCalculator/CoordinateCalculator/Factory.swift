@@ -17,8 +17,11 @@ struct Factory {
         return MyPoint(x: pointArray[0], y: pointArray[1])
     }
     
-    static func makeLine (pointA: MyPoint, pointB: MyPoint) -> MyLine {
-        return MyLine(pointA: pointA, pointB: pointB)
+    static func makeLine (pointA: MyPoint, pointB: MyPoint) throws -> MyLine {
+        guard (pointA.x == pointB.x) && (pointA.y == pointB.y) else {
+            return MyLine(pointA: pointA, pointB: pointB)
+        }  
+        throw Error.wrongValue
     }
     
     static func makeTriangle (points:[MyPoint]) -> MyTriangle {
