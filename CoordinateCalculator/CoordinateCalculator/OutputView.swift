@@ -19,7 +19,7 @@ struct OutputView {
     }
     
     static private func draw(_ point: MyPoint) {
-        print("\(ANSICode.point.draw(point.x, point.y))", terminator: "")
+        print("\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit - point.y + 1, col: point.x * 2 + 3))•\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit + 2, col: 0))", terminator: "")
     }
     
     static func draw(_ shape: Shape) {
