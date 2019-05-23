@@ -22,6 +22,11 @@ struct MyTriangle: Shape, Measurable {
     }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+        let inclinationAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
+        let inclinationBC = (pointC.y - pointB.y) / (pointC.x - pointB.x)
+        guard inclinationAB != inclinationBC else {
+            return nil
+        }
         guard let lineAB = MyLine(pointA: pointA, pointB: pointB),
             let lineBC = MyLine(pointA: pointB, pointB: pointC),
             let lineAC = MyLine(pointA: pointA, pointB: pointC),
