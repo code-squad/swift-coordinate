@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol Calculable {
+protocol Explanation {
     var explanation : String { get }
-    var value : Double { get }
 }
