@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Shape, Measurable {
+struct MyLine: Shape, Measurable, Equatable {
     private let pointA: MyPoint
     private let pointB: MyPoint
     
@@ -26,5 +26,9 @@ struct MyLine: Shape, Measurable {
     
     func area() -> Double {
         return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
+    }
+    
+    public static func ==(lhs: MyLine, rhs: MyLine) -> Bool {
+        return (lhs.pointA == rhs.pointA && lhs.pointB == rhs.pointB) || (lhs.pointA == rhs.pointB && lhs.pointB == rhs.pointA)
     }
 }
