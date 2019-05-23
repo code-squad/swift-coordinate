@@ -40,7 +40,7 @@ struct Converter {
         case 1:
             return points[0]
         case 2:
-            return Factory.makeLine(pointA: points[0], pointB: points[1])
+            return try Factory.makeLine(pointA: points[0], pointB: points[1])
         case 3:
             return Factory.makeTriangle(points: points)
         default:
