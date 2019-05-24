@@ -15,7 +15,7 @@ struct MyLine: Shape, Measurable, Equatable {
     var area: Double {
         return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
-    var areaDescription: String {
+    var description: String {
         return "\(Message.distanceBetweenTwoPoints(distance: area).description)"
     }
     

@@ -8,10 +8,16 @@
 
 import Foundation
 
-struct MyRect: Shape {
+struct MyRect: Shape, Measurable {
     private let leftTop: MyPoint
     private let rightBottom: MyPoint
     private(set) var points: [MyPoint]
+    var area: Double {
+        return Double((rightBottom.x - leftTop.x) * (leftTop.y - rightBottom.y))
+    }
+    var description: String {
+        return "\(Message.areaInRect(area: area).description)"
+    }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
         guard (pointA.x < pointB.x && pointA.y == pointB.y)
@@ -35,5 +41,4 @@ struct MyRect: Shape {
         let rightTop = MyPoint(x: origin.x + width, y: origin.y + height)
         self.points = [origin, self.rightBottom, rightTop, self.leftTop]
     }
-    
 }
