@@ -28,8 +28,11 @@ struct Factory {
         return MyTriangle(pointA, pointB, pointC)
     }
     
-    static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> MyRect{
-        return MyRect(pointA, pointB, pointC, pointD)
+    static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect{
+        guard ((pointA.x < pointB.x) && (pointA.y == pointB.y))||((pointB.y < pointC.y) && (pointB.x == pointC.x)) || ((pointC.y == pointD.y) && (pointD.x < pointC.y)) || ((pointA.y < pointD.y) && (pointA.x == pointD.x)) else {
+             throw Error.failedCreateRectangle
+        }
+       return MyRect(pointA, pointB, pointC, pointD)
     }
 }
 

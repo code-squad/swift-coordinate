@@ -31,5 +31,6 @@ enum Error: String,Swift.Error,CustomStringConvertible {
     case wrongFormat = "포맷이 맞지 않습니다"
     case emptyValue = "값이 없습니다"
     case duplicateValue = "중복된 값을 입력하였습니다"
+    case failedCreateRectangle = "사각형을 잘못 생성하였습니다"
     
 }

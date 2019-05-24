@@ -9,11 +9,9 @@
 import Foundation
 
 struct MyPoint: Drawable, Hashable {
-    
     private (set) var x = 0
     private (set) var y = 0
     var points: [MyPoint] {
         return [self]
     }
-    
 }
