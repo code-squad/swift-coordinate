@@ -13,9 +13,8 @@ func main() {
     repeat {
         do {
             let inputs = try InputView.readInputs()
-            
-            let coordinates = try inputs.map { try Converter.ConvertInput(input: $0) }
-            let points = try coordinates.map { try Factory.makePoint(pointArray: $0) }
+            let coordinates = try inputs.map { try Converter.convert(input: $0) }
+            let points = try coordinates.map { try Factory.makePoint(points: $0) }
             let classifyPoint = try Converter.classifyInput(points: points)
             OutputView.draw(classifyPoint)
             isError = false

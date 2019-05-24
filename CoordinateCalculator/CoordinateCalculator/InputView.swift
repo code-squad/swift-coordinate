@@ -13,7 +13,6 @@ enum Question: String {
 }
 
 struct InputView {
-    
     static func ask(_ question: Question) throws -> String {
         print(question.rawValue)
         guard let value = readLine() else {

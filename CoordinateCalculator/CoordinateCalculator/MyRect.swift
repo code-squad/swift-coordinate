@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct MyRect : Drawable, Explanation {
+struct MyRect: Drawable, Explanation {
     var points: [MyPoint]
-    
     var leftTop = MyPoint()
     var rightBottom = MyPoint()
     var rightTop = MyPoint()

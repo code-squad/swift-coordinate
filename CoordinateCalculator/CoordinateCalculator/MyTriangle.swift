@@ -9,7 +9,6 @@
 import Foundation
 
 struct MyTriangle: Drawable, Explanation {
-    
     init(_ pointA: MyPoint, _ pointB: MyPoint, _ pointC: MyPoint) {
         self.lineAB = MyLine(pointA, pointB)
         self.lineBC = MyLine(pointB, pointC)
@@ -29,6 +28,5 @@ struct MyTriangle: Drawable, Explanation {
     var explanation: String {
         return ExplanationType.triangle.rawValue + ": \(size)"
     }
-    
 }
 
