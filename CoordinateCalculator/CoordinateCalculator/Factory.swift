@@ -21,7 +21,7 @@ struct Factory {
         guard (pointA.x == pointB.x) && (pointA.y == pointB.y) else {
             return MyLine(pointA, pointB)
         }
-        throw Error.wrongValue
+        throw Error.duplicateValue
     }
     
     static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
