@@ -37,7 +37,7 @@ struct InputView {
     }
     
     static func readCoordinates() throws -> [String] {
-        let text = try readText(ask : .enterCoodinates)
+        let text = try readText(ask: .enterCoodinates)
         return StringUtility.hyphenSeparated(value: text)
     }
 }
