@@ -18,7 +18,7 @@ struct MyTriangle: Shape, Measurable {
         return sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
     }
     var description: String {
-        return "\(Message.areaInTriangle(area: area))"
+        return "삼각형 넓이는 \(area) 입니다."
     }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
