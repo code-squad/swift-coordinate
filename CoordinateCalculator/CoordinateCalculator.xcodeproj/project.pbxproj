@@ -16,6 +16,7 @@
 		569D22CF229572CF0065CA47 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D22CE229572CF0065CA47 /* Factory.swift */; };
 		569D22D122957FCC0065CA47 /* Calculable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D22D022957FCC0065CA47 /* Calculable.swift */; };
 		569D22D3229682230065CA47 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D22D2229682230065CA47 /* main.swift */; };
+		569D22D5229794310065CA47 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D22D4229794310065CA47 /* Enum.swift */; };
 		56AD0E972289DEE4006C441A /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD0E962289DEE4006C441A /* MyPoint.swift */; };
 		56AD0E992289DEEF006C441A /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD0E982289DEEF006C441A /* MyLine.swift */; };
 		56AD0EA62289EB6C006C441A /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD0E982289DEEF006C441A /* MyLine.swift */; };
@@ -56,6 +57,7 @@
 		569D22CE229572CF0065CA47 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		569D22D022957FCC0065CA47 /* Calculable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculable.swift; sourceTree = "<group>"; };
 		569D22D2229682230065CA47 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		569D22D4229794310065CA47 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		56AD0E962289DEE4006C441A /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		56AD0E982289DEEF006C441A /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		56AD0E9E2289E9B8006C441A /* CoodinateCalulator.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoodinateCalulator.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				569D22CE229572CF0065CA47 /* Factory.swift */,
 				569D22D022957FCC0065CA47 /* Calculable.swift */,
 				569D22D2229682230065CA47 /* main.swift */,
+				569D22D4229794310065CA47 /* Enum.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				56AD0E972289DEE4006C441A /* MyPoint.swift in Sources */,
 				5625860F227BE5F900CF5485 /* Validator.swift in Sources */,
 				568B4216228A88CD00B3191E /* Converter.swift in Sources */,
+				569D22D5229794310065CA47 /* Enum.swift in Sources */,
 				565386452293CA5000F5FF98 /* MyTriangle.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				56AD0E992289DEEF006C441A /* MyLine.swift in Sources */,
