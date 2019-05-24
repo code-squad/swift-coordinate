@@ -12,6 +12,14 @@ struct MyRect {
     private let leftTop: MyPoint
     private let rightBottom: MyPoint
     
+    init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
+        guard pointA.y == pointB.y || pointB.x == pointC.x || pointC.y == pointD.y || pointD.x == pointA.x else {
+            return nil
+        }
+        self.leftTop = pointD
+        self.rightBottom = pointB
+    }
+    
     init?(origin: MyPoint, size: CGSize) {
         guard size.width > 0 || size.height > 0 else {
             return nil
