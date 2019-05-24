@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct MyRect {
+struct MyRect: Shape {
     private let leftTop: MyPoint
     private let rightBottom: MyPoint
+    private(set) var points: [MyPoint]
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
         guard (pointA.x < pointB.x && pointA.y == pointB.y)
@@ -20,13 +21,19 @@ struct MyRect {
         }
         self.leftTop = pointD
         self.rightBottom = pointB
+        self.points = [pointA, pointB, pointC, pointD]
     }
     
     init?(origin: MyPoint, size: CGSize) {
-        guard size.width > 0 || size.height > 0 else {
+        let width = Int(size.width)
+        let height = Int(size.height)
+        guard width > 0 || height > 0 else {
             return nil
         }
-        self.leftTop = MyPoint(x: origin.x, y: origin.y + Int(size.height))
-        self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y)
+        self.leftTop = MyPoint(x: origin.x, y: origin.y + height)
+        self.rightBottom = MyPoint(x: origin.x + width, y: origin.y)
+        let rightTop = MyPoint(x: origin.x + width, y: origin.y + height)
+        self.points = [origin, self.rightBottom, rightTop, self.leftTop]
     }
+    
 }
