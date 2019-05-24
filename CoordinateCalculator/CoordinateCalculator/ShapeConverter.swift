@@ -70,6 +70,17 @@ struct ShapeConverter {
         throw ShapeConverter.Error.failedCreatingShape
     }
     
+    private func makeRect(coordA: String, coordB: String, coordC: String, coordD: String) throws -> MyRect {
+        let pointA = try makePoint(from: coordA)
+        let pointB = try makePoint(from: coordB)
+        let pointC = try makePoint(from: coordC)
+        let pointD = try makePoint(from: coordD)
+        if let rect = MyRect(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) {
+            return rect
+        }
+        throw ShapeConverter.Error.failedCreatingShape
+    }
+    
     func makeShape(_ coordinates: [String]) throws -> Shape {
         switch coordinates.count {
         case 1:
@@ -78,6 +89,8 @@ struct ShapeConverter {
             return try makeLine(from: coordinates[0], to: coordinates[1])
         case 3:
             return try makeTriangle(coordA: coordinates[0], coordB: coordinates[1], coordC: coordinates[2])
+        case 4:
+            return try makeRect(coordA: coordinates[0], coordB: coordinates[1], coordC: coordinates[2], coordD: coordinates[3])
         default:
             throw ShapeConverter.Error.exceedCoordinateCount
         }
