@@ -12,7 +12,7 @@ struct MyTriangle: Shape, Measurable {
     private let lineAB: MyLine
     private let lineBC: MyLine
     private let lineAC: MyLine
-    var points: [MyPoint]
+    private(set) var points: [MyPoint]
     var area: Double {
         let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
         return sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
