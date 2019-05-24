@@ -42,7 +42,7 @@ struct Converter {
         case 2:
             return try Factory.makeLine(pointA: points[0], pointB: points[1])
         case 3:
-            return Factory.makeTriangle(points: points)
+            return Factory.makeTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         default:
             throw Error.wrongValue
         }

@@ -14,9 +14,15 @@ struct MyLine:Drawable,Explanation {
         return [pointA, pointB]
     }
     
-    private(set) var pointA = MyPoint(x: 0, y: 0)
-    private(set) var pointB = MyPoint(x: 0, y: 0)
+ 
+    init(_ pointA: MyPoint, _ pointB: MyPoint){
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointB = MyPoint(x: 0, y: 0)
     
+  
     var explanation: String {
         return "두 점 사이의 거리는 : \(value)"
     }

@@ -19,13 +19,13 @@ struct Factory {
     
     static func makeLine (pointA: MyPoint, pointB: MyPoint) throws -> MyLine {
         guard (pointA.x == pointB.x) && (pointA.y == pointB.y) else {
-            return MyLine(pointA: pointA, pointB: pointB)
-        }  
+            return MyLine(pointA, pointB)
+        }
         throw Error.wrongValue
     }
     
-    static func makeTriangle (points:[MyPoint]) -> MyTriangle {
-        return MyTriangle(lineAB: MyLine(pointA: points[0], pointB: points[1]), lineBC:  MyLine(pointA: points[1], pointB: points[2]),lineAC: MyLine(pointA: points[0], pointB: points[2]))
+    static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
+        return MyTriangle(pointA, pointB, pointC)
     }
 }
 
