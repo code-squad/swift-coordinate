@@ -36,12 +36,14 @@ enum UserInputError: Error, CustomStringConvertible {
 
 struct Validify {
     
-    static func validify(coordinateValue: String) throws {
+    static func validify(coordinateValue: String) throws -> (x: Int, y: Int) {
         let correctFormatValues = try checkFormat(inputValue: coordinateValue)
-        try convertForm(values: correctFormatValues)
+        let result = try convertForm(intValues: correctFormatValues)
+        
+        return result
     }
     
-    static func checkFormat(inputValue: String) throws -> [String] {
+    static func checkFormat(inputValue: String) throws -> (x: Int, y: Int) {
         var inputValue = inputValue
         guard inputValue.first == "(" , inputValue.last == ")" else {
             throw UserInputError.incorrectFormat //형식
@@ -50,29 +52,28 @@ struct Validify {
         inputValue.removeLast()
         
         let checkValues = inputValue.split(separator: ",", omittingEmptySubsequences: false).map{String($0)}
-        guard checkValues.count != 1 else {
+        guard checkValues.count == 2 else {
             throw UserInputError.incorrectInputValueCount//형식
         }
-        guard checkValues[1] != "" else {
-            throw UserInputError.incorrectFormat //형식
-        }
-        return checkValues
-    }
-    
-    static func convertForm(values: [String]) throws -> (x: Int, y: Int) {
-        let intValues = try values.map {(value: String) -> Int in
+        
+        let intValues = try checkValues.map { (value: String) -> Int in
             guard let intValue = Int(value) else {
                 throw UserInputError.incorrectInputValue
             }
             return intValue
         }
-        guard intValues[0] <= 24, intValues[1] <= 24 else {
-            throw UserInputError.rangeOver
-        }
-        guard intValues[0] >= 0, intValues[1] >= 0 else {
-            throw UserInputError.rangeOver
-        }
         return (x: intValues[0], y: intValues[1])
+    }
+    
+    static func convertForm(intValues: (Int,Int)) throws -> (x: Int, y: Int) {
+
+        guard intValues.0 <= 24, intValues.1 <= 24 else {
+            throw UserInputError.rangeOver
+        }
+        guard intValues.0 >= 0, intValues.1 >= 0 else {
+            throw UserInputError.rangeOver
+        }
+        return (x: intValues.0, y: intValues.1)
     }
 }
 
