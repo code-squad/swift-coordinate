@@ -11,4 +11,5 @@ import Foundation
 enum ExplanationType: String {
     case line = "두 점 사이의 거리는"
     case triangle = "세 점 사이의 거리는"
+    case rectangle = "사각형의 넓이는"
 }
