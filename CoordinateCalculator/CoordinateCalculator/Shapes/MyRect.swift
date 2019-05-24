@@ -16,7 +16,7 @@ struct MyRect: Shape, Measurable {
         return Double((rightBottom.x - leftTop.x) * (leftTop.y - rightBottom.y))
     }
     var description: String {
-        return "\(Message.areaInRect(area: area).description)"
+        return "사각형 넓이는 \(area) 입니다."
     }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
