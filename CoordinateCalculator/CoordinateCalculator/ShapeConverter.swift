@@ -40,7 +40,7 @@ struct ShapeConverter {
         }
     }
     
-    private func makePoint(_ coordinate: String) throws -> MyPoint {
+    private func makePoint(from coordinate: String) throws -> MyPoint {
         guard validator.isValid(coordinate) else {
             throw ShapeConverter.Error.invalidFormat
         }
@@ -51,9 +51,9 @@ struct ShapeConverter {
         return MyPoint(x: numbers[0], y: numbers[1])
     }
     
-    private func makeLine(_ coordinateA: String, _ coordinateB: String) throws -> MyLine {
-        let pointA = try makePoint(coordinateA)
-        let pointB = try makePoint(coordinateB)
+    private func makeLine(from coordinateA: String, to coordinateB: String) throws -> MyLine {
+        let pointA = try makePoint(from: coordinateA)
+        let pointB = try makePoint(from: coordinateB)
         if let line = MyLine(pointA: pointA, pointB: pointB) {
             return line
         }
@@ -61,9 +61,9 @@ struct ShapeConverter {
     }
     
     private func makeTriangle(_ coordinateA: String, _ coordinateB: String, _ coordinateC: String) throws -> MyTriangle {
-        let pointA = try makePoint(coordinateA)
-        let pointB = try makePoint(coordinateB)
-        let pointC = try makePoint(coordinateC)
+        let pointA = try makePoint(from: coordinateA)
+        let pointB = try makePoint(from: coordinateB)
+        let pointC = try makePoint(from: coordinateC)
         if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
             return triangle
         }
@@ -73,9 +73,9 @@ struct ShapeConverter {
     func makeShape(_ coordinates: [String]) throws -> Shape {
         switch coordinates.count {
         case 1:
-            return try makePoint(coordinates[0])
+            return try makePoint(from: coordinates[0])
         case 2:
-            return try makeLine(coordinates[0], coordinates[1])
+            return try makeLine(from: coordinates[0], to: coordinates[1])
         case 3:
             return try makeTriangle(coordinates[0], coordinates[1], coordinates[2])
         default:
