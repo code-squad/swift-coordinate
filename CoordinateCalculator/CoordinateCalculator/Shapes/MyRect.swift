@@ -13,7 +13,9 @@ struct MyRect {
     private let rightBottom: MyPoint
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
-        guard pointA.y == pointB.y || pointB.x == pointC.x || pointC.y == pointD.y || pointD.x == pointA.x else {
+        guard (pointA.x < pointB.x && pointA.y == pointB.y)
+            || (pointB.y < pointD.y && pointB.x == pointD.x)
+            || (pointB.x == pointC.x && pointD.y == pointC.y) else {
             return nil
         }
         self.leftTop = pointD
