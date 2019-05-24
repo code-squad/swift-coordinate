@@ -9,7 +9,6 @@
 import Foundation
 
 struct Converter {
-    
     static func checkPointToInt(point: String) throws -> Int {
         guard let point = Int(point) else {
             throw Error.notIntValue
@@ -17,17 +16,15 @@ struct Converter {
         return point
     }
     
-    static func ConvertInput(input: String) throws -> [Int] {
+    static func convert(input: String) throws -> [Int] {
         var input = input
         
         if Validator.validateFormatChecker(input: input) {
             input.removeFirst()
             input.removeLast()
-            let points = input.split(separator: ",").map{String($0)}
-            let convertPointstoInt = try points.map { try checkPointToInt(point: $0)
-            }
-            
-            for point in convertPointstoInt{
+            let points = input.split(separator: ",").map{ String($0) }
+            let convertPointstoInt = try points.map { try checkPointToInt(point: $0) }
+            for point in convertPointstoInt {
                 try Validator.validateRange(number: point)
             }
             return convertPointstoInt

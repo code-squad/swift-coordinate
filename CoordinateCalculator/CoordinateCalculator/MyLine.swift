@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct MyLine:Drawable, Explanation {
-    
+struct MyLine: Drawable, Explanation {
+    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointB = MyPoint(x: 0, y: 0)
     var points: [MyPoint] {
         return [pointA, pointB]
     }
@@ -18,8 +19,6 @@ struct MyLine:Drawable, Explanation {
         self.pointA = pointA
         self.pointB = pointB
     }
-    private var pointA = MyPoint(x: 0, y: 0)
-    private var pointB = MyPoint(x: 0, y: 0)
     
     var explanation: String {
         return ExplanationType.line.rawValue + ": \(value)"
@@ -28,5 +27,4 @@ struct MyLine:Drawable, Explanation {
     var value: Double {
         return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
     }
-    
 }
