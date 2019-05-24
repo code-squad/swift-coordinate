@@ -18,7 +18,4 @@ struct  InputView {
         return input
     }
     
-    static func makePoint(x: Int, y: Int) -> MyPoint {
-        return MyPoint(x: x, y: y)
-    }
 }
