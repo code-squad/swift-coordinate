@@ -11,12 +11,12 @@ import Foundation
 struct InputView {
     
     enum Error: Swift.Error {
-        case isEmpty
+        case isEmptyInput
         case invalidCharacters
         
         var localizedDescription: String {
             switch self {
-            case .isEmpty:
+            case .isEmptyInput:
                 return "입력이 정의되지 않았습니다."
             case .invalidCharacters:
                 return "유효하지 않은 문자가 입력되었습니다."
@@ -31,7 +31,7 @@ struct InputView {
     static private func readText(ask question: Question) throws -> String {
         print(question.rawValue)
         guard let input = readLine(), !input.isEmpty else {
-            throw InputView.Error.isEmpty
+            throw InputView.Error.isEmptyInput
         }
         return input
     }
