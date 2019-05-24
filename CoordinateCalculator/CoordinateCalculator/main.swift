@@ -20,11 +20,11 @@ func main()  {
             let input = try InputView.ask(about: question)
             processingValue = try Process.checkFormat(inputValue: input)
         
-        } catch let error as ErrorMessage {
+        } catch let error as UserInputError {
             print(error.description)
             continue
         } catch {
-            print(ErrorMessage.unknown)
+            print(UserInputError.unknown)
             continue
         }
         
@@ -32,10 +32,10 @@ func main()  {
             coordinateValue = try Process.convertForm(values: processingValue)
             break
             
-        } catch let error as ErrorMessage {
+        } catch let error as UserInputError {
             print(error.description)
         } catch {
-            print(ErrorMessage.unknown)
+            print(UserInputError.unknown)
         }
    }
 
