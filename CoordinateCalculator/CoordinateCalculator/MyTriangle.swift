@@ -31,7 +31,7 @@ struct MyTriangle: Drawable, Explanation {
     }
     
     var explanation: String {
-        return "삼각형의 넓이 : \(size)"
+        return ExplanationType.triangle.rawValue + ": \(size)"
     }
     
 }
