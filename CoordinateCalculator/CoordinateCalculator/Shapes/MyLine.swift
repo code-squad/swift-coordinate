@@ -11,7 +11,7 @@ import Foundation
 struct MyLine: Shape, Measurable, Equatable {
     private let pointA: MyPoint
     private let pointB: MyPoint
-    var points: [MyPoint]
+    private(set) var points: [MyPoint]
     var area: Double {
         return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
