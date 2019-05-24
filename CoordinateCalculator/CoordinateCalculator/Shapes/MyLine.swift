@@ -16,7 +16,7 @@ struct MyLine: Shape, Measurable, Equatable {
         return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
     var description: String {
-        return "\(Message.distanceBetweenTwoPoints(distance: area).description)"
+        return "점과 점사이의 거리는 \(area) 입니다."
     }
     
     init?(pointA: MyPoint, pointB: MyPoint) {
