@@ -28,13 +28,8 @@ struct OutputView {
             draw(point)
         }
         drawAxis()
-        switch shape {
-        case let line as MyLine:
-            print("\(Message.distanceBetweenTwoPoints(distance: line.area))")
-        case let triangle as MyTriangle:
-            print("\(Message.areaInTriangle(area: triangle.area))")
-        default:
-            break
+        if let shape = shape as? Measurable {
+            print(shape.areaDescription)
         }
     }
 }
