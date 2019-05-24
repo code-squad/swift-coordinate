@@ -44,7 +44,7 @@ struct Converter {
         case 3:
             return Factory.makeTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         case 4:
-            return Factory.makeRectangle(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
+            return try Factory.makeRectangle(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
         default:
             throw Error.wrongValue
         }
