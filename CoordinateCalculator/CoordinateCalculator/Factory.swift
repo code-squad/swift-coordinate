@@ -27,5 +27,9 @@ struct Factory {
     static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
         return MyTriangle(pointA, pointB, pointC)
     }
+    
+    static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> MyRect{
+        return MyRect(pointA, pointB, pointC, pointD)
+    }
 }
 
