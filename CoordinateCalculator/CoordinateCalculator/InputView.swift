@@ -12,11 +12,9 @@ import Foundation
 
 struct  InputView {
     
-    static func ask(about question: String) throws -> String {
+    static func ask(about question: String) -> String {
         print(question)
-        guard let input = readLine() , input != "" else {
-            throw ErrorMessage.noInputValue
-        }
+        let input = readLine() ?? "" //nil병합연산자
         return input
     }
     
