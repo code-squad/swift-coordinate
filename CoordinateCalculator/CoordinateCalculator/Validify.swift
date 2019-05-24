@@ -34,7 +34,12 @@ enum UserInputError: Error, CustomStringConvertible {
     }
 }
 
-struct Process {
+struct Validify {
+    
+    static func validify(coordinateValue: String) throws {
+        let correctFormatValues = try checkFormat(inputValue: coordinateValue)
+        try convertForm(values: correctFormatValues)
+    }
     
     static func checkFormat(inputValue: String) throws -> [String] {
         var inputValue = inputValue
