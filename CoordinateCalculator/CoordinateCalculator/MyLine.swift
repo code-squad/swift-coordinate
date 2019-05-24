@@ -8,13 +8,12 @@
 
 import Foundation
 
-struct MyLine:Drawable,Explanation {
+struct MyLine:Drawable, Explanation {
     
     var points: [MyPoint] {
         return [pointA, pointB]
     }
     
- 
     init(_ pointA: MyPoint, _ pointB: MyPoint){
         self.pointA = pointA
         self.pointB = pointB
@@ -22,7 +21,6 @@ struct MyLine:Drawable,Explanation {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
     
-  
     var explanation: String {
         return ExplanationType.line.rawValue + ": \(value)"
     }
