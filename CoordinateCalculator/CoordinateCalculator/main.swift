@@ -18,7 +18,7 @@ func main()  {
         do {
             let question = "좌표를 입력해주세요(예:(10,10))"
             let input = try InputView.ask(about: question)
-            processingValue = try Process.checkFormat(inputValue: input)
+            processingValue = try Validify.checkFormat(inputValue: input)
         
         } catch let error as UserInputError {
             print(error.description)
@@ -29,7 +29,7 @@ func main()  {
         }
         
         do {
-            coordinateValue = try Process.convertForm(values: processingValue)
+            coordinateValue = try Validify.convertForm(values: processingValue)
             break
             
         } catch let error as UserInputError {
