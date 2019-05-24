@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Drawable {
-    var points : [MyPoint] { get }
+    var points: [MyPoint] { get }
 }
