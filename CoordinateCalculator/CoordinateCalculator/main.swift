@@ -10,14 +10,19 @@ import Foundation
 
 func main()  {
     
-    var coordinateValue = (x: 0, y: 0)
+   // var coordinateValue = (x: 0, y: 0)
 
     while true {
         
         do {
             let question = "좌표를 입력해주세요(예:(10,10))"
             let input = InputView.ask(about: question)
-            try Validify.validify(coordinateValue: input)
+            var coordinateValue = try Validify.validify(coordinateValue: input)
+            
+            let dot = Make.makePoint(x: coordinateValue.x, y: coordinateValue.y)
+            
+            OutputView.drawDot(at: dot)
+            
             break
         } catch let error as UserInputError {
             print(error.description)
@@ -25,11 +30,6 @@ func main()  {
             print(UserInputError.unknown)
         }
     }
-
-    let dot = InputView.makePoint(x: coordinateValue.x, y: coordinateValue.y)
-
-    OutputView.drawAxis()
-    OutputView.drawDot(at: dot)
 }
 
 main()
