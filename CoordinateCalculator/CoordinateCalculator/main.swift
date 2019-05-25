@@ -17,11 +17,17 @@ func main()  {
         do {
             let question = "좌표를 입력해주세요(예:(10,10))"
             let input = InputView.ask(about: question)
-            var coordinateValue = try Validify.validify(coordinateValue: input)
+            var coordinateValue = try Validify.separate(element: input)
+
+            let dot = ShapeMaker.makeShape(points: coordinateValue)
             
-            let dot = ShapeMaker.makePoint(x: coordinateValue.x, y: coordinateValue.y)
-            
-            OutputView.drawDot(at: dot)
+            guard let dotdot = dot else {
+                print("지원되지 않는 도형입니다.")
+                continue
+            }
+        
+            OutputView.drawAxis()
+            OutputView.draw(shape: dotdot)
             
             break
         } catch let error as UserInputError {
