@@ -14,9 +14,10 @@ func run() {
         let userInput = InputView.readInput(.requestCoordinate)
         var converter = Converter()
         let outputView = OutputView()
+        
         do {
-            let convertedInput = try converter.convertInput(userInput,Validator())
-            outputView.drawAxis(convertedInput)
+            let convertedInput = try converter.converterChoice(userInput)
+            try outputView.drawAxis(convertedInput)
         }catch let error as UserInputError{
             print(error.description)
             continue
@@ -25,6 +26,7 @@ func run() {
             continue
         }
     }while true
+
 }
 
 run()

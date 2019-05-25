@@ -10,6 +10,8 @@ import Foundation
 
 protocol Validatable {
     
+    func isContainPointSeparator(_ userInput:String) -> Bool
+    
     func isCorrectFormat(_ userInput:String) throws
     
     func hasTwoItem(_ seperatedUserInput:[String]) throws

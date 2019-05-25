@@ -28,6 +28,11 @@
 		64E80FD52293AB2E008BE490 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		64E80FD82293ABFB008BE490 /* CoordinateCalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FD72293ABFB008BE490 /* CoordinateCalculatorTest.swift */; };
 		64E80FDA2293AE1B008BE490 /* Myline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FD92293AE1B008BE490 /* Myline.swift */; };
+		64E80FDC2293F604008BE490 /* FormatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FDB2293F604008BE490 /* FormatItem.swift */; };
+		64E80FDD2298F8EA008BE490 /* FormatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FDB2293F604008BE490 /* FormatItem.swift */; };
+		64E80FE222997965008BE490 /* Myline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FD92293AE1B008BE490 /* Myline.swift */; };
+		64E80FE4229983F3008BE490 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FE3229983F3008BE490 /* Drawable.swift */; };
+		64E80FE522998BB2008BE490 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FE3229983F3008BE490 /* Drawable.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +61,8 @@
 		64E80FC82293AAFF008BE490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64E80FD72293ABFB008BE490 /* CoordinateCalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateCalculatorTest.swift; sourceTree = "<group>"; };
 		64E80FD92293AE1B008BE490 /* Myline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Myline.swift; sourceTree = "<group>"; };
+		64E80FDB2293F604008BE490 /* FormatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatItem.swift; sourceTree = "<group>"; };
+		64E80FE3229983F3008BE490 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -115,11 +122,13 @@
 				64E80FB42293A9E2008BE490 /* Validator.swift */,
 				64E80FB62293AA0E008BE490 /* Validatable.swift */,
 				64E80FBA2293AA5A008BE490 /* Converter.swift */,
+				64E80FDB2293F604008BE490 /* FormatItem.swift */,
 				64E80FB82293AA36008BE490 /* UserInputError.swift */,
 				644F0DEF228A62AA003FE7A8 /* OutputView..swift */,
-				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				64E80FBC2293AA8F008BE490 /* Mypoint.swift */,
 				64E80FD92293AE1B008BE490 /* Myline.swift */,
+				64E80FE3229983F3008BE490 /* Drawable.swift */,
+				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -217,6 +226,9 @@
 				64E80FD22293AB25008BE490 /* Validator.swift in Sources */,
 				64E80FCC2293AB16008BE490 /* Mypoint.swift in Sources */,
 				64E80FCD2293AB18008BE490 /* ANSICode.swift in Sources */,
+				64E80FE522998BB2008BE490 /* Drawable.swift in Sources */,
+				64E80FDD2298F8EA008BE490 /* FormatItem.swift in Sources */,
+				64E80FE222997965008BE490 /* Myline.swift in Sources */,
 				64E80FCE2293AB1A008BE490 /* OutputView..swift in Sources */,
 				64E80FCF2293AB1D008BE490 /* UserInputError.swift in Sources */,
 				64E80FD02293AB20008BE490 /* Converter.swift in Sources */,
@@ -235,6 +247,7 @@
 				644F0DF0228A62AA003FE7A8 /* OutputView..swift in Sources */,
 				64E80FB72293AA0E008BE490 /* Validatable.swift in Sources */,
 				64E80FBD2293AA8F008BE490 /* Mypoint.swift in Sources */,
+				64E80FDC2293F604008BE490 /* FormatItem.swift in Sources */,
 				64E80FBF2293AAC4008BE490 /* RequestMassage.swift in Sources */,
 				64E80FBB2293AA5A008BE490 /* Converter.swift in Sources */,
 				64E80FDA2293AE1B008BE490 /* Myline.swift in Sources */,
@@ -243,6 +256,7 @@
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				644F0DF1228A65FE003FE7A8 /* main.swift in Sources */,
 				64E80FB92293AA36008BE490 /* UserInputError.swift in Sources */,
+				64E80FE4229983F3008BE490 /* Drawable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
