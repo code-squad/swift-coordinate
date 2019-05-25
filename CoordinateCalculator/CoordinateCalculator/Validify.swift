@@ -39,7 +39,7 @@ struct Validify {
     static func separate(element: String) throws -> [(x: Int, y: Int)] {
         var separatedElements = element.split(separator: "-").map { String($0) }
         var result: [(x:Int, y: Int)] = []
-        for index in 0 ..< separatedElements.count - 1 {
+        for index in separatedElements.indices {
             var value = try validify(coordinateValue: separatedElements[index])
             result.append(value)
         }
