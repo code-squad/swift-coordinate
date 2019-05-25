@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: Drawable {
+struct MyLine: DrawableShape {
     
     var pointA: MyPoint
     var pointB: MyPoint
