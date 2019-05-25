@@ -13,6 +13,10 @@ struct MyLine:Drawable {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
     
+    var calculateDistance:Double {
+        return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
+    }
+    
     init(pointA:MyPoint, pointB:MyPoint) {
         self.pointA = pointA
         self.pointB = pointB

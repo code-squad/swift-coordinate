@@ -27,10 +27,13 @@ struct OutputView {
         }
         let line = try downCastToMyLine(drawThing: drawThing)
         drawLine(line)
+        print("두 점 사이의 거리: \(line.calculateDistance)")
     }
     
     private func drawDot(_ point:MyPoint) {
-        print("\(ANSICode.cursor.move(row: point.y, col: point.x))😼\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2))")    }
+        let x = point.x * 2 + 2
+        let y = (ANSICode.axis.AxisLimit - point.y) + 1
+        print("\(ANSICode.cursor.move(row: y, col: x))😼\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2))")    }
     
     private func drawLine(_ line:MyLine) {
         let points = [line.pointA,line.pointB]
