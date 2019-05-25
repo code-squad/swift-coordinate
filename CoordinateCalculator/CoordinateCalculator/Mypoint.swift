@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint:Drawable {
+    var pointNumber: Int = 1
     var x = 0
     var y = 0
 }
