@@ -10,9 +10,9 @@ import Foundation
 
 struct OutputView {
     
-    func drawAxis(_ drawThing: Drawable) {
+    func drawAxis(_ drawThing: Drawable)throws {
         drawBoard()
-        drawOfRequest(drawThing)
+        try drawOfRequest(drawThing)
     }
     
     private func drawBoard() {
@@ -20,11 +20,13 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    private func drawOfRequest(_ drawThing: Drawable) {
+    private func drawOfRequest(_ drawThing: Drawable)throws {
         if drawThing.pointNumber == 1 {
-            return drawDot(drawThing as! MyPoint)
+            let point = try downCastToMypoint(drawThing: drawThing)
+            drawDot(point)
         }
-        return drawLine(drawThing as! MyLine)
+        let line = try downCastToMyLine(drawThing: drawThing)
+        drawLine(line)
     }
     
     private func drawDot(_ point:MyPoint) {
@@ -36,4 +38,19 @@ struct OutputView {
             drawDot(point)
         }
     }
+    
+    private func downCastToMypoint(drawThing: Drawable)throws -> MyPoint {
+        guard let point = drawThing as? MyPoint else{
+            throw UserInputError.inCorrectFormat
+        }
+        return point
+    }
+    
+    private func downCastToMyLine(drawThing: Drawable)throws -> MyLine {
+        guard let line = drawThing as? MyLine else{
+            throw UserInputError.inCorrectFormat
+        }
+        return line
+    }
+
 }
