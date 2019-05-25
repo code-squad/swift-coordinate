@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Message: CustomStringConvertible {
-    case unexpectedError(error: Error)
+enum Message {
+    case unexpectedError
     
     var description: String {
         switch self {
-        case .unexpectedError(let error):
-            return "예상치 못한 에러가 발생하였습니다.\(error)"
+        case .unexpectedError:
+            return "예상치 못한 에러가 발생하였습니다."
         }
     }
 }
