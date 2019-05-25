@@ -15,50 +15,50 @@ class CoordinateCalculatorTest: XCTestCase {
     }
     
     func testCorrectFormat() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
     func testCorrectFormatOfLine() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)-(0,0)"))
+        XCTAssertNoThrow(try converter.converterChoice("(0,0)-(0,0)"))
     }
     
     func testInCorrectFormat() {
-        XCTAssertThrowsError(try converter.convertInput("0,0"))
+        XCTAssertThrowsError(try converter.converterChoice("0,0"))
     }
     
     func testInCorrectFormatOfLine() {
-        XCTAssertThrowsError(try converter.convertInput("(0,0)(0,0)"))
+        XCTAssertThrowsError(try converter.converterChoice("(0,0)(0,0)"))
     }
     
     func testConsistOfTwoItem() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
     func testNotConsistOfTwoItem() {
-        XCTAssertThrowsError(try converter.convertInput("(0,0,0)"))
+        XCTAssertThrowsError(try converter.converterChoice("(0,0,0)"))
     }
     
     func testCanConvertToInt() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
     func testCanNotConvertToInt() {
-        XCTAssertThrowsError(try converter.convertInput("(zero,zero)"))
+        XCTAssertThrowsError(try converter.converterChoice("(zero,zero)"))
     }
     
     func testMoreThanZero() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
     func testBelowZero() {
-        XCTAssertThrowsError(try converter.convertInput("(-1,-1)"))
+        XCTAssertThrowsError(try converter.converterChoice("(-1,-1)"))
     }
     
     func testUnderTwentyFour() {
-        XCTAssertNoThrow(try converter.convertInput("(24,24)"))
+        XCTAssertNoThrow(try converter.converterChoice("(24,24)"))
     }
     
     func testExcessTwentyFour() {
-        XCTAssertThrowsError(try converter.convertInput("(25,25)"))
+        XCTAssertThrowsError(try converter.converterChoice("(25,25)"))
     }
 }
