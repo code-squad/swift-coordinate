@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Drawable {
+protocol DrawableShape {
     func drawablePoints() -> [MyPoint]
 }
