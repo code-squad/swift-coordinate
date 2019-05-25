@@ -10,6 +10,12 @@ import Foundation
 
 struct OutputView {
     
+    static func draw(shape: Drawable) {
+        for point in shape.drawablePoints() {
+            drawDot(at: point)
+        }
+    }
+
     static func drawAxis(){
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
