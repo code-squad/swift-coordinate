@@ -17,7 +17,7 @@ struct MyTriangle: Shape, Measurable {
         let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
         return sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
     }
-    var description: String {
+    var areaDescription: String {
         return "삼각형 넓이는 \(area) 입니다."
     }
     
