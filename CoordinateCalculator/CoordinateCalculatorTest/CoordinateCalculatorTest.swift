@@ -30,8 +30,12 @@ class CoordinateCalculatorTest: XCTestCase {
         XCTAssertThrowsError(try converter.converterChoice("(0,0)(0,0)"))
     }
     
-    func testLineNotConsistOfTwoItem() {
+    func testLineNotConsistOfThreeItem() {
         XCTAssertThrowsError(try converter.converterChoice("(0,0)-(0,0)-(0,0)"))
+    }
+    
+    func testLineNotConsistOfOneItem() {
+        XCTAssertThrowsError(try converter.converterChoice("(0,0)-"))
     }
     
     func testCoordinateConsistOfTwoItem() {
