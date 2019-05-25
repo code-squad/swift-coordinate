@@ -14,7 +14,7 @@ class CoordinateCalculatorTest: XCTestCase {
         converter = Converter()
     }
     
-    func testCorrectFormat() {
+    func testCorrectFormatOfPoint() {
         XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
@@ -22,7 +22,7 @@ class CoordinateCalculatorTest: XCTestCase {
         XCTAssertNoThrow(try converter.converterChoice("(0,0)-(0,0)"))
     }
     
-    func testInCorrectFormat() {
+    func testInCorrectFormatOfPoint() {
         XCTAssertThrowsError(try converter.converterChoice("0,0"))
     }
     
@@ -30,35 +30,39 @@ class CoordinateCalculatorTest: XCTestCase {
         XCTAssertThrowsError(try converter.converterChoice("(0,0)(0,0)"))
     }
     
-    func testConsistOfTwoItem() {
+    func testLineNotConsistOfTwoItem() {
+        XCTAssertThrowsError(try converter.converterChoice("(0,0)-(0,0)-(0,0)"))
+    }
+    
+    func testCoordinateConsistOfTwoItem() {
         XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
-    func testNotConsistOfTwoItem() {
+    func testCoordinateNotConsistOfTwoItem() {
         XCTAssertThrowsError(try converter.converterChoice("(0,0,0)"))
     }
     
-    func testCanConvertToInt() {
+    func testCoordinateCanConvertToInt() {
         XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
-    func testCanNotConvertToInt() {
+    func testCoordinateCanNotConvertToInt() {
         XCTAssertThrowsError(try converter.converterChoice("(zero,zero)"))
     }
     
-    func testMoreThanZero() {
+    func testCoordinateMoreThanZero() {
         XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
     }
     
-    func testBelowZero() {
+    func testCoordinateBelowZero() {
         XCTAssertThrowsError(try converter.converterChoice("(-1,-1)"))
     }
     
-    func testUnderTwentyFour() {
+    func testCoordinateUnderTwentyFour() {
         XCTAssertNoThrow(try converter.converterChoice("(24,24)"))
     }
     
-    func testExcessTwentyFour() {
+    func testCoordinateExcessTwentyFour() {
         XCTAssertThrowsError(try converter.converterChoice("(25,25)"))
     }
 }
