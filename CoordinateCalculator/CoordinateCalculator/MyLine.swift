@@ -13,7 +13,7 @@ struct MyLine: Drawable {
     var pointA: MyPoint
     var pointB: MyPoint
     
-    func drawablePoint() -> [MyPoint] {
+    func drawablePoints() -> [MyPoint] {
         return [pointA, pointB]
     }
 }
