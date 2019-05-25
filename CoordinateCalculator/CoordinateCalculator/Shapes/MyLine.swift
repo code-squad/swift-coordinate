@@ -12,9 +12,7 @@ struct MyLine: Shape, Measurable, Equatable {
     private let pointA: MyPoint
     private let pointB: MyPoint
     private(set) var points: [MyPoint]
-    var area: Double {
-        return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
-    }
+    private(set) var area: Double
     var areaDescription: String {
         return "점과 점사이의 거리는 \(area) 입니다."
     }
@@ -26,6 +24,7 @@ struct MyLine: Shape, Measurable, Equatable {
         self.pointA = pointA
         self.pointB = pointB
         self.points = [pointA, pointB]
+        self.area = sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
     }
     
     public static func ==(lhs: MyLine, rhs: MyLine) -> Bool {
