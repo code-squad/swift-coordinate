@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol Measurable: CustomStringConvertible {
+protocol Measurable {
     var area: Double { get }
+    var areaDescription: String { get }
 }
