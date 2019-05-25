@@ -23,8 +23,6 @@ struct OutputView {
     
     static func drawDot(at value: MyPoint) {
         
-        drawAxis()
-        
         let startPoint = ANSICode.axis.AxisLimit + 1
         let x = value.x
         let y = value.y
