@@ -12,9 +12,7 @@ struct MyRect: Shape, Measurable {
     private let leftTop: MyPoint
     private let rightBottom: MyPoint
     private(set) var points: [MyPoint]
-    var area: Double {
-        return Double((rightBottom.x - leftTop.x) * (leftTop.y - rightBottom.y))
-    }
+    private(set) var area: Double
     var areaDescription: String {
         return "사각형 넓이는 \(area) 입니다."
     }
@@ -28,6 +26,7 @@ struct MyRect: Shape, Measurable {
         self.leftTop = pointD
         self.rightBottom = pointB
         self.points = [pointA, pointB, pointC, pointD]
+        self.area = Double((rightBottom.x - leftTop.x) * (leftTop.y - rightBottom.y))
     }
     
     init?(origin: MyPoint, size: CGSize) {
@@ -40,5 +39,6 @@ struct MyRect: Shape, Measurable {
         self.rightBottom = MyPoint(x: origin.x + width, y: origin.y)
         let rightTop = MyPoint(x: origin.x + width, y: origin.y + height)
         self.points = [origin, self.rightBottom, rightTop, self.leftTop]
+        self.area = Double(width * height)
     }
 }

@@ -13,10 +13,7 @@ struct MyTriangle: Shape, Measurable {
     private let lineBC: MyLine
     private let lineAC: MyLine
     private(set) var points: [MyPoint]
-    var area: Double {
-        let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
-        return sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
-    }
+    private(set) var area: Double
     var areaDescription: String {
         return "삼각형 넓이는 \(area) 입니다."
     }
@@ -37,5 +34,7 @@ struct MyTriangle: Shape, Measurable {
         self.lineBC = lineBC
         self.lineAC = lineAC
         self.points = [pointA, pointB, pointC]
+        let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
+        self.area = sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
     }
 }
