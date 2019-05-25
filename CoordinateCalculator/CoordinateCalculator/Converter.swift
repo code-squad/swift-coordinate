@@ -22,13 +22,14 @@ struct Converter {
     
     private mutating func convertToLine(_ userInput:String)throws -> MyLine {
         let seperatedInput = userInput.components(separatedBy: formatItem.pointSeparator)
-        //seperatedInput.count == 2 ???
+        try validator.hasTwoPoint(seperatedInput)
         let mypoints = try seperatedInput.map{try convertToPoint($0)}
         return MyLine(pointA: mypoints[0], pointB: mypoints[1])
     }
     
     
     private mutating func convertToPoint(_ userInput:String)throws ->MyPoint {
+        try validator.isContainPointFormat(userInput)
         try validator.isCorrectFormat(userInput)
         let seperatedUserInput = seperateToCoordinate(userInput)
         try validator.hasTwoItem(seperatedUserInput)

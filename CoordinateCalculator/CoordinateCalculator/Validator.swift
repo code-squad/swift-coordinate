@@ -17,8 +17,22 @@ struct Validator: Validatable {
         return formatItem.pointSeparator.subtracting(convertedInputToCharacterSet).isEmpty
     }
     
+    func isContainPointFormat(_ userInput:String)throws {
+        let convertedInputToCharacterSet = CharacterSet(charactersIn: userInput)
+        let coordinateFormatItem = formatItem.coordinateContainer.union(formatItem.coordinateItemSeparator).union(CharacterSet.decimalDigits)
+        guard convertedInputToCharacterSet.subtracting(coordinateFormatItem).isEmpty else{
+            throw UserInputError.inCorrectFormat
+        }
+    }
+    
     func isCorrectFormat(_ userInput:String) throws {
         guard userInput.first == "(" && userInput.last == ")" else{
+            throw UserInputError.inCorrectFormat
+        }
+    }
+    
+    func hasTwoPoint(_ seperatedInput:[String])throws {
+        guard seperatedInput.count == 2 else{
             throw UserInputError.inCorrectFormat
         }
     }

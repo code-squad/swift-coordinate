@@ -12,7 +12,11 @@ protocol Validatable {
     
     func isContainPointSeparator(_ userInput:String) -> Bool
     
+    func isContainPointFormat(_ userInput:String) throws
+    
     func isCorrectFormat(_ userInput:String) throws
+    
+    func hasTwoPoint(_ seperatedInput:[String])throws
     
     func hasTwoItem(_ seperatedUserInput:[String]) throws
     
