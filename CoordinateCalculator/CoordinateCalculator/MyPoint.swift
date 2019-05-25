@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint: Drawable {
+   
     var x: Int
     var y: Int
+    
+    func drawablePoint() -> [MyPoint] {
+        return [self]
+    }
+    
 }
