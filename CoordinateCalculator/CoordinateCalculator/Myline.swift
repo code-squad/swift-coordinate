@@ -10,6 +10,6 @@ import Foundation
 
 struct MyLine:Drawable {
     var pointNumber: Int = 2
-    var pointA = MyPoint()
-    var pointB = MyPoint()
+    var pointA = MyPoint(x: 0, y: 0)
+    var pointB = MyPoint(x: 0, y: 0)
 }
