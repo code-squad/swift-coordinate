@@ -14,9 +14,6 @@ struct MyTriangle: Shape, Measurable {
     private let lineAC: MyLine
     private(set) var points: [MyPoint]
     private(set) var area: Double
-    var areaDescription: String {
-        return "삼각형 넓이는 \(area) 입니다."
-    }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         let inclinationAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
@@ -36,5 +33,9 @@ struct MyTriangle: Shape, Measurable {
         self.points = [pointA, pointB, pointC]
         let sum = (lineAB.area + lineBC.area + lineAC.area) / 2
         self.area = sqrt(sum * (sum - lineAB.area) * (sum - lineBC.area) * (sum - lineAC.area))
+    }
+    
+    func areaDescription() -> String {
+        return "삼각형 넓이는 \(area) 입니다."
     }
 }

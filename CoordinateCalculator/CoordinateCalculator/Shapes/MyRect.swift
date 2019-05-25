@@ -13,9 +13,6 @@ struct MyRect: Shape, Measurable {
     private let rightBottom: MyPoint
     private(set) var points: [MyPoint]
     private(set) var area: Double
-    var areaDescription: String {
-        return "사각형 넓이는 \(area) 입니다."
-    }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
         guard (pointA.x < pointB.x && pointA.y == pointB.y)
@@ -40,5 +37,9 @@ struct MyRect: Shape, Measurable {
         let rightTop = MyPoint(x: origin.x + width, y: origin.y + height)
         self.points = [origin, self.rightBottom, rightTop, self.leftTop]
         self.area = Double(width * height)
+    }
+    
+    func areaDescription() -> String {
+        return "사각형 넓이는 \(area) 입니다."
     }
 }
