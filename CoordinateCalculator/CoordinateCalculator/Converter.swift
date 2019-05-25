@@ -57,9 +57,7 @@ struct Converter {
     }
     
     private func convertMypoint(point:(Int,Int)) -> MyPoint {
-        let x = point.0 * 2 + 2
-        let y = (ANSICode.axis.AxisLimit - point.1) + 1
-        return MyPoint(x: x, y: y)
+        return MyPoint(x: point.0, y: point.1)
     }
     
 }
