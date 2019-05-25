@@ -9,7 +9,6 @@
 import Foundation
 
 enum UserInputError:Error {
-    case isNotString
     case inCorrectFormat
     case inCorrectItemNumber
     case canNotConvertToInt
@@ -18,8 +17,6 @@ enum UserInputError:Error {
     
     var description: String{
         switch self{
-        case .isNotString:
-            return "잘못된 입력입니다."
         case .inCorrectFormat:
             return "잘못된 형식의 입력입니다."
         case .inCorrectItemNumber:
