@@ -10,6 +10,8 @@
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		E9D4DE6A2297C1B500B2A8A0 /* Make.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4DE692297C1B500B2A8A0 /* Make.swift */; };
+		E9D4DE6C2298088A00B2A8A0 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4DE6B2298088A00B2A8A0 /* Drawable.swift */; };
+		E9D4DE6E22990D2400B2A8A0 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4DE6D22990D2400B2A8A0 /* MyLine.swift */; };
 		E9D908CE22840026004C07F8 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D908CD22840026004C07F8 /* OutputView.swift */; };
 		E9D917B522841EC500DAE832 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D917B422841EC500DAE832 /* InputView.swift */; };
 		E9D917B722844F1900DAE832 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D917B622844F1900DAE832 /* MyPoint.swift */; };
@@ -33,6 +35,8 @@
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
 		E9D4DE692297C1B500B2A8A0 /* Make.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make.swift; sourceTree = "<group>"; };
+		E9D4DE6B2298088A00B2A8A0 /* Drawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		E9D4DE6D22990D2400B2A8A0 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		E9D908CD22840026004C07F8 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		E9D917B422841EC500DAE832 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E9D917B622844F1900DAE832 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
@@ -72,8 +76,10 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				E9D908CD22840026004C07F8 /* OutputView.swift */,
+				E9D4DE6D22990D2400B2A8A0 /* MyLine.swift */,
 				E9D917B82285496000DAE832 /* Validify.swift */,
 				E9D4DE692297C1B500B2A8A0 /* Make.swift */,
+				E9D4DE6B2298088A00B2A8A0 /* Drawable.swift */,
 				E9D917B622844F1900DAE832 /* MyPoint.swift */,
 				E9D917B422841EC500DAE832 /* InputView.swift */,
 			);
@@ -141,9 +147,11 @@
 				E9D4DE6A2297C1B500B2A8A0 /* Make.swift in Sources */,
 				E9D917B722844F1900DAE832 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				E9D4DE6C2298088A00B2A8A0 /* Drawable.swift in Sources */,
 				E9D917B522841EC500DAE832 /* InputView.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				E9D908CE22840026004C07F8 /* OutputView.swift in Sources */,
+				E9D4DE6E22990D2400B2A8A0 /* MyLine.swift in Sources */,
 				E9D917B92285496000DAE832 /* Validify.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
