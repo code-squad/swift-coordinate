@@ -10,5 +10,5 @@ import Foundation
 
 protocol Measurable {
     var area: Double { get }
-    var areaDescription: String { get }
+    func areaDescription() -> String
 }

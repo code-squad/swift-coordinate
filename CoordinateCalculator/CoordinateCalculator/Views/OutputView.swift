@@ -29,7 +29,7 @@ struct OutputView {
         }
         drawAxis()
         if let shape = shape as? Measurable {
-            print(shape.areaDescription)
+            print(shape.areaDescription())
         }
     }
 }
