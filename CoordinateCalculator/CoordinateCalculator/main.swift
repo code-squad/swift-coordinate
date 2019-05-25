@@ -18,7 +18,7 @@ func run() {
             print(error.localizedDescription)
             continue
         } catch {
-            print("\(Message.unexpectedError(error: error))")
+            print("\(Message.unexpectedError): \(error)")
             continue
         }
         do {
@@ -31,7 +31,7 @@ func run() {
             print(error.localizedDescription)
             continue
         } catch {
-            print("\(Message.unexpectedError(error: error))")
+            print("\(Message.unexpectedError): \(error)")
             continue
         }
     } while(true)
