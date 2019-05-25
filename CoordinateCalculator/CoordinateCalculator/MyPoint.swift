@@ -13,7 +13,7 @@ struct MyPoint: Drawable {
     var x: Int
     var y: Int
     
-    func drawablePoint() -> [MyPoint] {
+    func drawablePoints() -> [MyPoint] {
         return [self]
     }
     
