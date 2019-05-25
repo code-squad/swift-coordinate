@@ -19,7 +19,7 @@ func main()  {
             let input = InputView.ask(about: question)
             var coordinateValue = try Validify.validify(coordinateValue: input)
             
-            let dot = Make.makePoint(x: coordinateValue.x, y: coordinateValue.y)
+            let dot = ShapeMaker.makePoint(x: coordinateValue.x, y: coordinateValue.y)
             
             OutputView.drawDot(at: dot)
             
