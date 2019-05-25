@@ -36,6 +36,17 @@ enum UserInputError: Error, CustomStringConvertible {
 
 struct Validify {
     
+    static func separate(element: String) throws -> [(x: Int, y: Int)] {
+        var separatedElements = element.split(separator: "-").map { String($0) }
+        var result: [(x:Int, y: Int)] = []
+        for index in 0 ..< separatedElements.count - 1 {
+            var value = try validify(coordinateValue: separatedElements[index])
+            result.append(value)
+        }
+        return result
+    }
+    
+    
     static func validify(coordinateValue: String) throws -> (x: Int, y: Int) {
         let correctFormatValues = try checkFormat(inputValue: coordinateValue)
         let result = try convertForm(intValues: correctFormatValues)
@@ -51,7 +62,7 @@ struct Validify {
         inputValue.removeFirst()
         inputValue.removeLast()
         
-        let checkValues = inputValue.split(separator: ",", omittingEmptySubsequences: false).map{String($0)}
+        let checkValues = inputValue.split(separator: ",", omittingEmptySubsequences: false).map { String($0) }
         guard checkValues.count == 2 else {
             throw UserInputError.incorrectInputValueCount//형식
         }
