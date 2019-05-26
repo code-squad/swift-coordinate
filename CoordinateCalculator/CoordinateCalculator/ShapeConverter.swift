@@ -75,7 +75,10 @@ struct ShapeConverter {
         let pointB = try makePoint(from: coordB)
         let pointC = try makePoint(from: coordC)
         let pointD = try makePoint(from: coordD)
-        if let rect = MyRect(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) {
+        let origin = min(pointA, pointB, pointC, pointD)
+        let rightTop = max(pointA, pointB, pointC, pointD)
+        let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
+        if let rect = MyRect(origin: origin, size: size) {
             return rect
         }
         throw ShapeConverter.Error.createShapeFailed
