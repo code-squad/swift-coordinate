@@ -8,30 +8,28 @@
 
 import Foundation
 
-func main()  {
-    
-   // var coordinateValue = (x: 0, y: 0)
+func main() {
 
     while true {
         
-        do {
-            let question = "좌표를 입력해주세요(예:(10,10))"
-            let input = InputView.ask(about: question)
-            var coordinateValue = try Validify.separate(element: input)
-
-            let dot = ShapeMaker.makeShape(points: coordinateValue)
-            
-            guard let dotdot = dot else {
-                print("지원되지 않는 도형입니다.")
-                continue
-            }
+        let input = InputView.ask(about: "좌표를 입력해주세요(예:(10,10))")
         
+        do {
+            
+            let shape = try CoordinateCalculator.makeShape(from: input)
+            
             OutputView.drawAxis()
-            OutputView.draw(shape: dotdot)
+            OutputView.draw(shape: shape)
+            if let line = shape as? MyLine {
+                OutputView.printDistance(line: line)
+            }
+            
             
             break
         } catch let error as UserInputError {
             print(error.description)
+        } catch CoordinateCalculatorError.unsupportedShape {
+            print("지원하지않는 도형입니다")
         } catch {
             print(UserInputError.unknown)
         }
@@ -39,4 +37,5 @@ func main()  {
 }
 
 main()
+
 
