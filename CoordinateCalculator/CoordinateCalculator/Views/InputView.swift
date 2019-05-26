@@ -12,14 +12,11 @@ struct InputView {
     
     enum Error: Swift.Error {
         case isEmptyInput
-        case invalidCharacters
         
         var localizedDescription: String {
             switch self {
             case .isEmptyInput:
                 return "입력이 정의되지 않았습니다."
-            case .invalidCharacters:
-                return "유효하지 않은 문자가 입력되었습니다."
             }
         }
     }
