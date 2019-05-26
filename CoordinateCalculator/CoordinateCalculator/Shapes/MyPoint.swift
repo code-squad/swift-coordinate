@@ -15,7 +15,11 @@ struct MyPoint: Shape, Equatable, Comparable {
         return [self]
     }
     
-    init(x: Int, y: Int) {
+    init?(x: Int, y: Int) {
+        let passRange = 0...24
+        guard passRange.contains(x) && passRange.contains(y) else {
+            return nil
+        }
         self.x = x
         self.y = y
     }
