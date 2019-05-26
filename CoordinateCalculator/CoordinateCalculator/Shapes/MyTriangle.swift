@@ -16,9 +16,9 @@ struct MyTriangle: Shape, Measurable {
     private(set) var area: Double
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        let inclinationAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
-        let inclinationBC = (pointC.y - pointB.y) / (pointC.x - pointB.x)
-        guard inclinationAB != inclinationBC else {
+        let slopeOfLineAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
+        let slopeOfLineBC = (pointC.y - pointB.y) / (pointC.x - pointB.x)
+        guard slopeOfLineAB != slopeOfLineBC else {
             return nil
         }
         guard let lineAB = MyLine(pointA: pointA, pointB: pointB),
