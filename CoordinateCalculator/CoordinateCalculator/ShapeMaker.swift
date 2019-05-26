@@ -10,12 +10,12 @@ import Foundation
 
 struct ShapeMaker {
 
-    static func makeShape(points: [(x: Int, y: Int)]) -> Drawable? {
-        switch points.count {
+    static func makeShape(fromCoordinateValues coordinateValues: [(x: Int, y: Int)]) -> DrawableShape? {
+        switch coordinateValues.count {
         case 1:
-            return MyPoint(x: points[0].x, y: points[0].y)
+            return MyPoint(x: coordinateValues[0].x, y: coordinateValues[0].y)
         case 2:
-            return MyLine(pointA: MyPoint(x: points[0].x, y: points[0].y), pointB: MyPoint(x: points[1].x, y: points[1].y))
+            return MyLine(pointA: MyPoint(x: coordinateValues[0].x, y: coordinateValues[0].y), pointB: MyPoint(x: coordinateValues[1].x, y: coordinateValues[1].y))
         default:
             return nil
         }
