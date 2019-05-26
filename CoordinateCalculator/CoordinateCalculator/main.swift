@@ -24,7 +24,7 @@ func run() {
         do {
             let shapeConverter = ShapeConverter(numberParser: NumberParser(),
                                                 validator: CoordinateChecker())
-            shape = try shapeConverter.makeShape(coordinates)
+            shape = try shapeConverter.makeShape(coordinates: coordinates)
             OutputView.draw(shape)
             break
         } catch let error as ShapeConverter.Error {
