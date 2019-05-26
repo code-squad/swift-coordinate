@@ -22,10 +22,10 @@ struct OutputView {
     
     private func drawOfRequest(_ drawThing: Drawable)throws {
         if drawThing.pointNumber == 1 {
-            let point = try downCastToMypoint(drawThing: drawThing)
+            let point = try typeCastToMypoint(drawThing: drawThing)
             drawDot(point)
         }
-        let line = try downCastToMyLine(drawThing: drawThing)
+        let line = try typeCastToMyLine(drawThing: drawThing)
         drawLine(line)
         print("두 점 사이의 거리: \(line.calculateDistance)")
     }
@@ -42,14 +42,14 @@ struct OutputView {
         }
     }
     
-    private func downCastToMypoint(drawThing: Drawable)throws -> MyPoint {
+    private func typeCastToMypoint(drawThing: Drawable)throws -> MyPoint {
         guard let point = drawThing as? MyPoint else{
             throw UserInputError.inCorrectFormat
         }
         return point
     }
     
-    private func downCastToMyLine(drawThing: Drawable)throws -> MyLine {
+    private func typeCastToMyLine(drawThing: Drawable)throws -> MyLine {
         guard let line = drawThing as? MyLine else{
             throw UserInputError.inCorrectFormat
         }
