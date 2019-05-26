@@ -15,7 +15,7 @@ struct MyLine: Drawable, Explanation {
         return [pointA, pointB]
     }
     
-    init(_ pointA: MyPoint, _ pointB: MyPoint){
+    init(_ pointA: MyPoint, _ pointB: MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }
