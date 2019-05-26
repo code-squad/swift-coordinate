@@ -17,13 +17,15 @@ struct MyRect: Shape, Measurable {
     init?(origin: MyPoint, size: CGSize) {
         let width = Int(size.width)
         let height = Int(size.height)
-        guard width > 0 || height > 0 else {
-            return nil
+        guard let leftTop = MyPoint(x: origin.x, y: origin.y + height),
+            let rightBottom = MyPoint(x: origin.x + width, y: origin.y),
+            let rightTop = MyPoint(x: origin.x + width, y: origin.y + height),
+            width > 0 || height > 0 else {
+                return nil
         }
-        self.leftTop = MyPoint(x: origin.x, y: origin.y + height)
-        self.rightBottom = MyPoint(x: origin.x + width, y: origin.y)
-        let rightTop = MyPoint(x: origin.x + width, y: origin.y + height)
-        self.points = [origin, self.rightBottom, rightTop, self.leftTop]
+        self.leftTop = leftTop
+        self.rightBottom = rightBottom
+        self.points = [origin, leftTop, rightBottom, rightTop]
         self.area = Double(width * height)
     }
     
