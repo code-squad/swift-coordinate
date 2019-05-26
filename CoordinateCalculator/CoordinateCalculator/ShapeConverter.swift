@@ -78,10 +78,22 @@ struct ShapeConverter {
         let origin = min(pointA, pointB, pointC, pointD)
         let rightTop = max(pointA, pointB, pointC, pointD)
         let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
-        if let rect = MyRect(origin: origin, size: size) {
+        if let rect = MyRect(origin: origin, size: size),
+            isRect(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) {
             return rect
         }
         throw ShapeConverter.Error.createShapeFailed
+    }
+    
+    private func isRect(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
+        let points = [pointA, pointB, pointC, pointD]
+        var pointXSet = Set<Int>()
+        var pointYSet = Set<Int>()
+        for point in points {
+            pointXSet.insert(point.x)
+            pointYSet.insert(point.y)
+        }
+        return pointXSet.count == 2 && pointYSet.count == 2
     }
     
     func makeShape(_ coordinates: [String]) throws -> Shape {
