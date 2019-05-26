@@ -19,7 +19,6 @@ extension String {
     }
     
     func matches(for regex: String) -> [String] {
-
         do {
             let regex = try NSRegularExpression(pattern: regex)
             let nsString = self as NSString
