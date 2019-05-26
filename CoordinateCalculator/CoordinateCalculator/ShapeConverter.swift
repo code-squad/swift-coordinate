@@ -19,7 +19,6 @@ struct ShapeConverter {
     
     enum Error: Swift.Error {
         case invalidFormat
-        case invalidRange
         case exceedNumberOfCoordinate
         case parseCoordinateFailed
         case createShapeFailed
@@ -28,8 +27,6 @@ struct ShapeConverter {
             switch self {
             case .invalidFormat:
                 return "유효하지 않은 형식입니다."
-            case .invalidRange:
-                return "유효하지 않은 범위의 숫자입니다."
             case .exceedNumberOfCoordinate:
                 return "좌표 갯수를 초과하였습니다."
             case .parseCoordinateFailed:
