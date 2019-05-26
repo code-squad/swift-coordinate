@@ -14,18 +14,6 @@ struct MyRect: Shape, Measurable {
     private(set) var points: [MyPoint]
     private(set) var area: Double
     
-    init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) {
-        guard (pointA.x < pointB.x && pointA.y == pointB.y)
-            || (pointB.y < pointD.y && pointB.x == pointD.x)
-            || (pointB.x == pointC.x && pointD.y == pointC.y) else {
-            return nil
-        }
-        self.leftTop = pointD
-        self.rightBottom = pointB
-        self.points = [pointA, pointB, pointC, pointD]
-        self.area = Double((rightBottom.x - leftTop.x) * (leftTop.y - rightBottom.y))
-    }
-    
     init?(origin: MyPoint, size: CGSize) {
         let width = Int(size.width)
         let height = Int(size.height)
