@@ -27,11 +27,26 @@ struct Factory {
         return MyTriangle(pointA, pointB, pointC)
     }
     
-    static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect{
-        guard (pointA.x < pointB.x) && (pointA.y == pointB.y)||(pointB.y < pointD.y) && (pointB.x == pointD.x) || (pointB.x == pointC.x) && (pointD.y == pointC.y) else {
-             throw Error.failedCreateRect
+    static func isRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
+        let points = [pointA, pointB, pointC, pointD]
+        var pointXSet = Set<Int>()
+        var pointYSet = Set<Int>()
+        for point in points {
+            pointXSet.insert(point.x)
+            pointYSet.insert(point.y)
         }
-       return MyRect(pointA, pointB, pointC, pointD)
+        return pointXSet.count == 2 && pointYSet.count == 2
+    }
+    
+    static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect {
+        let origin = min(pointA, pointB, pointC, pointD)
+        let rightTop = max(pointA, pointB, pointC, pointD)
+        let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
+        let rect = MyRect(origin, size)
+        guard isRectangle(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) else {
+            throw Error.failedCreateRect
+        }
+        return rect
     }
 }
 

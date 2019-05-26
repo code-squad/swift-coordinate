@@ -9,37 +9,27 @@
 import Foundation
 
 struct MyRect: Drawable, Explanation {
-    var points: [MyPoint]
-    var leftTop = MyPoint()
-    var rightBottom = MyPoint()
-    var rightTop = MyPoint()
-    var leftBottom = MyPoint()
+    private(set) var points: [MyPoint]
+    private let leftTop: MyPoint
+    private let rightBottom: MyPoint
+    private let rightTop: MyPoint
+    private let leftBottom: MyPoint
+    private let area: Double
     
     init(_ origin: MyPoint, _ size: CGSize) {
+        let width = Int(size.width)
+        let height = Int(size.height)
         self.leftBottom = MyPoint(x: origin.x, y: origin.y)
         self.leftTop = MyPoint(x: origin.x, y: origin.y + Int(size.height))
         self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y)
-        self.rightTop = MyPoint(x: origin.x + Int(size.width), y: Int(size.height))
+        self.rightTop = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
+        self.area = Double(width * height)
         self.points = [leftBottom,rightBottom,rightTop,leftTop]
-    }
-    
-    init(_ pointA: MyPoint, _ pointB: MyPoint, _ pointC: MyPoint, _ pointD: MyPoint) {
-        self.points = [pointA,pointB,pointC,pointD]
-        self.leftBottom = pointA
-        self.rightBottom = pointB
-        self.rightTop = pointC
-        self.leftTop = pointD
-    }
-    
-    private var area: Double {
-        let width = rightBottom.x - leftBottom.x
-        let height = leftTop.y - rightBottom.y
-        return Double(width * height)
     }
     
     var explanation: String {
         return ExplanationType.rectangle.rawValue
-                +  ": \(area)"
+            +  ": \(area)"
     }
 }
 
