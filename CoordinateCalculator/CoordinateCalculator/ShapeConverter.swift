@@ -19,7 +19,7 @@ struct ShapeConverter {
     
     enum Error: Swift.Error {
         case invalidFormat
-        case exceedNumberOfCoordinate
+        case exceedNumberOfCoordinates
         case parseCoordinateFailed
         case createShapeFailed
         
@@ -27,7 +27,7 @@ struct ShapeConverter {
             switch self {
             case .invalidFormat:
                 return "유효하지 않은 형식입니다."
-            case .exceedNumberOfCoordinate:
+            case .exceedNumberOfCoordinates:
                 return "좌표 갯수를 초과하였습니다."
             case .parseCoordinateFailed:
                 return "좌표 파싱에 실패하였습니다."
@@ -99,7 +99,7 @@ struct ShapeConverter {
         case 4:
             return try makeRect(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
         default:
-            throw ShapeConverter.Error.exceedNumberOfCoordinate
+            throw ShapeConverter.Error.exceedNumberOfCoordinates
         }
     }
 }
