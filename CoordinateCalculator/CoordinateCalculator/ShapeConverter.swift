@@ -42,11 +42,13 @@ struct ShapeConverter {
             throw ShapeConverter.Error.invalidFormat
         }
         let numbers = numberParser.parseNumbers(coordinate)
-        if let point = MyPoint(x: numbers[0], y: numbers[1]),
-            numbers.count == 2 {
+        guard numbers.count == 2 else {
+            throw ShapeConverter.Error.parseCoordinateFailed
+        }
+        if let point = MyPoint(x: numbers[0], y: numbers[1]) {
             return point
         }
-        throw ShapeConverter.Error.parseCoordinateFailed
+        throw ShapeConverter.Error.createShapeFailed
     }
     
     private func makeLine(from pointA: MyPoint, to pointB: MyPoint) throws -> MyLine {
