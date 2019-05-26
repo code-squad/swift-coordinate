@@ -17,8 +17,9 @@ struct MyLine:Drawable {
         return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
     }
     
-    init(pointA:MyPoint, pointB:MyPoint) {
+    init(pointA:MyPoint, pointB:MyPoint, pointNumber:Int) {
         self.pointA = pointA
         self.pointB = pointB
+        self.pointNumber = pointNumber
     }
 }

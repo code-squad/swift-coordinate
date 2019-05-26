@@ -24,7 +24,7 @@ struct Converter {
         let seperatedInput = userInput.components(separatedBy: formatItem.pointSeparator)
         try validator.hasTwoPoint(seperatedInput)
         let mypoints = try seperatedInput.map{try convertToPoint($0)}
-        return MyLine(pointA: mypoints[0], pointB: mypoints[1])
+        return MyLine(pointA: mypoints[0], pointB: mypoints[1], pointNumber: mypoints.count)
     }
     
     
