@@ -51,30 +51,21 @@ struct ShapeConverter {
         return MyPoint(x: numbers[0], y: numbers[1])
     }
     
-    private func makeLine(from coordinateA: String, to coordinateB: String) throws -> MyLine {
-        let pointA = try makePoint(from: coordinateA)
-        let pointB = try makePoint(from: coordinateB)
+    private func makeLine(from pointA: MyPoint, to pointB: MyPoint) throws -> MyLine {
         if let line = MyLine(pointA: pointA, pointB: pointB) {
             return line
         }
         throw ShapeConverter.Error.createShapeFailed
     }
     
-    private func makeTriangle(coordA: String, coordB: String, coordC: String) throws -> MyTriangle {
-        let pointA = try makePoint(from: coordA)
-        let pointB = try makePoint(from: coordB)
-        let pointC = try makePoint(from: coordC)
+    private func makeTriangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) throws -> MyTriangle {
         if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
             return triangle
         }
         throw ShapeConverter.Error.createShapeFailed
     }
     
-    private func makeRect(coordA: String, coordB: String, coordC: String, coordD: String) throws -> MyRect {
-        let pointA = try makePoint(from: coordA)
-        let pointB = try makePoint(from: coordB)
-        let pointC = try makePoint(from: coordC)
-        let pointD = try makePoint(from: coordD)
+    private func makeRect(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect {
         let origin = min(pointA, pointB, pointC, pointD)
         let rightTop = max(pointA, pointB, pointC, pointD)
         let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
@@ -97,15 +88,16 @@ struct ShapeConverter {
     }
     
     func makeShape(_ coordinates: [String]) throws -> Shape {
+        let points = try coordinates.map { try makePoint(from: $0) }
         switch coordinates.count {
         case 1:
-            return try makePoint(from: coordinates[0])
+            return points[0]
         case 2:
-            return try makeLine(from: coordinates[0], to: coordinates[1])
+            return try makeLine(from: points[0], to: points[1])
         case 3:
-            return try makeTriangle(coordA: coordinates[0], coordB: coordinates[1], coordC: coordinates[2])
+            return try makeTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
         case 4:
-            return try makeRect(coordA: coordinates[0], coordB: coordinates[1], coordC: coordinates[2], coordD: coordinates[3])
+            return try makeRect(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
         default:
             throw ShapeConverter.Error.exceedNumberOfCoordinate
         }
