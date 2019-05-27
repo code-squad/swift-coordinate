@@ -11,7 +11,6 @@
 		644F0DF1228A65FE003FE7A8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		64E80FB12293A9A2008BE490 /* Inputview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB02293A9A2008BE490 /* Inputview.swift */; };
 		64E80FB52293A9E2008BE490 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB42293A9E2008BE490 /* Validator.swift */; };
-		64E80FB72293AA0E008BE490 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB62293AA0E008BE490 /* Validatable.swift */; };
 		64E80FB92293AA36008BE490 /* UserInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB82293AA36008BE490 /* UserInputError.swift */; };
 		64E80FBB2293AA5A008BE490 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FBA2293AA5A008BE490 /* Converter.swift */; };
 		64E80FBD2293AA8F008BE490 /* Mypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FBC2293AA8F008BE490 /* Mypoint.swift */; };
@@ -21,7 +20,6 @@
 		64E80FCE2293AB1A008BE490 /* OutputView..swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F0DEF228A62AA003FE7A8 /* OutputView..swift */; };
 		64E80FCF2293AB1D008BE490 /* UserInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB82293AA36008BE490 /* UserInputError.swift */; };
 		64E80FD02293AB20008BE490 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FBA2293AA5A008BE490 /* Converter.swift */; };
-		64E80FD12293AB22008BE490 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB62293AA0E008BE490 /* Validatable.swift */; };
 		64E80FD22293AB25008BE490 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB42293A9E2008BE490 /* Validator.swift */; };
 		64E80FD32293AB28008BE490 /* RequestMassage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FBE2293AAC4008BE490 /* RequestMassage.swift */; };
 		64E80FD42293AB2B008BE490 /* Inputview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB02293A9A2008BE490 /* Inputview.swift */; };
@@ -52,7 +50,6 @@
 		644F0DEF228A62AA003FE7A8 /* OutputView..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView..swift; sourceTree = "<group>"; };
 		64E80FB02293A9A2008BE490 /* Inputview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputview.swift; sourceTree = "<group>"; };
 		64E80FB42293A9E2008BE490 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		64E80FB62293AA0E008BE490 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		64E80FB82293AA36008BE490 /* UserInputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputError.swift; sourceTree = "<group>"; };
 		64E80FBA2293AA5A008BE490 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		64E80FBC2293AA8F008BE490 /* Mypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mypoint.swift; sourceTree = "<group>"; };
@@ -120,7 +117,6 @@
 				64E80FB02293A9A2008BE490 /* Inputview.swift */,
 				64E80FBE2293AAC4008BE490 /* RequestMassage.swift */,
 				64E80FB42293A9E2008BE490 /* Validator.swift */,
-				64E80FB62293AA0E008BE490 /* Validatable.swift */,
 				64E80FBA2293AA5A008BE490 /* Converter.swift */,
 				64E80FDB2293F604008BE490 /* FormatItem.swift */,
 				64E80FB82293AA36008BE490 /* UserInputError.swift */,
@@ -234,7 +230,6 @@
 				64E80FD02293AB20008BE490 /* Converter.swift in Sources */,
 				64E80FD52293AB2E008BE490 /* main.swift in Sources */,
 				64E80FD32293AB28008BE490 /* RequestMassage.swift in Sources */,
-				64E80FD12293AB22008BE490 /* Validatable.swift in Sources */,
 				64E80FD82293ABFB008BE490 /* CoordinateCalculatorTest.swift in Sources */,
 				64E80FD42293AB2B008BE490 /* Inputview.swift in Sources */,
 			);
@@ -245,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				644F0DF0228A62AA003FE7A8 /* OutputView..swift in Sources */,
-				64E80FB72293AA0E008BE490 /* Validatable.swift in Sources */,
 				64E80FBD2293AA8F008BE490 /* Mypoint.swift in Sources */,
 				64E80FDC2293F604008BE490 /* FormatItem.swift in Sources */,
 				64E80FBF2293AAC4008BE490 /* RequestMassage.swift in Sources */,

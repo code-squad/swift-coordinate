@@ -10,8 +10,8 @@ import Foundation
 
 struct Converter {
     
-    var validator:Validatable = Validator()
-    let formatItem = FormatItem()
+    private var validator:Validatable = Validator()
+    private let formatItem = FormatItem()
     
     mutating func converterChoice(_ userInput:String)throws ->Drawable {
         if validator.isContainPointSeparator(userInput){
@@ -35,7 +35,7 @@ struct Converter {
         try validator.hasTwoItem(seperatedUserInput)
         let point = try convertToCoordinateFormat(seperatedUserInput)
         try validator.coordinateIsInRange(point)
-        return convertMypoint(point: point)
+        return MyPoint(x: point.0, y: point.1)
     }
     
     private func seperateToCoordinate(_ userInput:String)->[String] {
@@ -54,10 +54,6 @@ struct Converter {
             throw UserInputError.canNotConvertToInt
         }
         return convertedInt
-    }
-    
-    private func convertMypoint(point:(Int,Int)) -> MyPoint {
-        return MyPoint(x: point.0, y: point.1)
     }
     
 }
