@@ -10,23 +10,21 @@ import Foundation
 
 struct Validator {
     
-    private let formatItem = FormatItem()
-    
     func isContainPointSeparator(_ userInput:String) -> Bool {
         let convertedInputToCharacterSet = CharacterSet(charactersIn: userInput)
-        return formatItem.pointSeparator.subtracting(convertedInputToCharacterSet).isEmpty
+        return FormatItem.pointSeparator.subtracting(convertedInputToCharacterSet).isEmpty
     }
     
     func isContainPointFormat(_ userInput:String)throws {
         let convertedInputToCharacterSet = CharacterSet(charactersIn: userInput)
-        let coordinateFormatItem = formatItem.coordinateContainer.union(formatItem.coordinateItemSeparator).union(CharacterSet.decimalDigits)
+        let coordinateFormatItem = FormatItem.coordinateContainer.union(FormatItem.coordinateItemSeparator).union(CharacterSet.decimalDigits)
         guard convertedInputToCharacterSet.subtracting(coordinateFormatItem).isEmpty else{
             throw UserInputError.inCorrectFormat
         }
     }
     
     func isCorrectFormat(_ userInput:String) throws {
-        guard userInput.first == "(" && userInput.last == ")" else{
+        guard userInput.hasPrefix(FormatItem.coordinateContainerLeft) && userInput.hasSuffix(FormatItem.coordinateContainerRight) else{
             throw UserInputError.inCorrectFormat
         }
     }

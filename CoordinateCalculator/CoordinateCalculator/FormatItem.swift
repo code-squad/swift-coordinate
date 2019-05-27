@@ -9,7 +9,9 @@
 import Foundation
 
 struct FormatItem {
-    let coordinateContainer = CharacterSet(charactersIn: "()")
-    let coordinateItemSeparator = CharacterSet(charactersIn: ",")
-    let pointSeparator = CharacterSet(charactersIn: "-")
+    static let coordinateContainer = CharacterSet(charactersIn: "()")
+    static let coordinateContainerLeft = "("
+    static let coordinateContainerRight = ")"
+    static let coordinateItemSeparator = CharacterSet(charactersIn: ",")
+    static let pointSeparator = CharacterSet(charactersIn: "-")
 }
