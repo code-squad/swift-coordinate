@@ -15,7 +15,7 @@ struct Validator {
         return FormatItem.pointSeparator.subtracting(convertedInputToCharacterSet).isEmpty
     }
     
-    func isContainPointFormat(_ userInput:String)throws {
+    func isContainPointFormat(_ userInput:String) throws {
         let convertedInputToCharacterSet = CharacterSet(charactersIn: userInput)
         let coordinateFormatItem = FormatItem.coordinateContainer.union(FormatItem.coordinateItemSeparator).union(CharacterSet.decimalDigits)
         guard convertedInputToCharacterSet.subtracting(coordinateFormatItem).isEmpty else{
@@ -29,7 +29,7 @@ struct Validator {
         }
     }
     
-    func hasTwoPoint(_ seperatedInput:[String])throws {
+    func hasTwoPoint(_ seperatedInput:[String]) throws {
         guard seperatedInput.count == 2 else{
             throw UserInputError.inCorrectFormat
         }
