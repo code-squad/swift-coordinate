@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Validator: Validatable {
+struct Validator {
     
-    let formatItem = FormatItem()
+    private let formatItem = FormatItem()
     
     func isContainPointSeparator(_ userInput:String) -> Bool {
         let convertedInputToCharacterSet = CharacterSet(charactersIn: userInput)
