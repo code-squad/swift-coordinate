@@ -132,14 +132,14 @@
 				5625860E227BE5F900CF5485 /* Validator.swift */,
 				56AD0E962289DEE4006C441A /* MyPoint.swift */,
 				56AD0E982289DEEF006C441A /* MyLine.swift */,
-				568B4215228A88CD00B3191E /* Converter.swift */,
 				565386442293CA5000F5FF98 /* MyTriangle.swift */,
+				569D22D62297BF140065CA47 /* MyRect.swift */,
+				568B4215228A88CD00B3191E /* Converter.swift */,
 				565386462293F54D00F5FF98 /* Drawable.swift */,
 				569D22CE229572CF0065CA47 /* Factory.swift */,
 				569D22D022957FCC0065CA47 /* Calculable.swift */,
 				569D22D2229682230065CA47 /* main.swift */,
 				569D22D4229794310065CA47 /* Enum.swift */,
-				569D22D62297BF140065CA47 /* MyRect.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
