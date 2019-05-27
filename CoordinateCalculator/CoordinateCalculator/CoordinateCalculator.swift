@@ -8,9 +8,10 @@
 
 import Foundation
 
-enum CoordinateCalculatorError: Error {
-    case unsupportedShape
+enum CoordinateCalculatorError: String, Error {
+    case unsupportedShape = "지원하지않는 도형입니다"
 }
+
 
 struct CoordinateCalculator {
     static func makeShape(from input: String) throws -> DrawableShape {

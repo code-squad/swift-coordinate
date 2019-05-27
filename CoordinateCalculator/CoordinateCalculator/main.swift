@@ -29,7 +29,7 @@ func main() {
         } catch let error as UserInputError {
             print(error.description)
         } catch CoordinateCalculatorError.unsupportedShape {
-            print("지원하지않는 도형입니다")
+            print(CoordinateCalculatorError.unsupportedShape.rawValue)
         } catch {
             print(UserInputError.unknown)
         }
@@ -39,4 +39,4 @@ func main() {
 main()
 
 
-CGPoint
+
