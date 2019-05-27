@@ -67,9 +67,9 @@ struct ShapeConverter {
     }
     
     private func isTriangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> Bool {
-        let slopeOfLineAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
-        let slopeOfLineBC = (pointC.y - pointB.y) / (pointC.x - pointB.x)
-        return slopeOfLineAB != slopeOfLineBC
+        let slopeOfPointAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
+        let slopeOfPointBC = (pointC.y - pointB.y) / (pointC.x - pointB.x)
+        return slopeOfPointAB != slopeOfPointBC
     }
     
     private func isRect(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
