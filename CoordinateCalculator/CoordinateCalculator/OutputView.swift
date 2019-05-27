@@ -28,7 +28,7 @@ struct OutputView {
         }
         drawAxis()
         guard let ex = drawable as? Explanation else { return }
-        print(ex.explanation)
+        print(" \(ex.explanation): \(ex.shapeValue)")
     }
 }
 

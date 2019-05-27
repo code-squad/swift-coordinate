@@ -25,8 +25,12 @@ struct MyTriangle: Drawable, Explanation {
         self.points = [pointA,pointB,pointC]
     }
     
+    var shapeValue: Double {
+        return self.size
+    }
+    
     var explanation: String {
-        return ExplanationType.triangle.rawValue + ": \(size)"
+        return ExplanationType.triangle.description
     }
 }
 
