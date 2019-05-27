@@ -24,7 +24,7 @@ struct MyPoint: Shape, Equatable, Comparable {
         self.y = y
     }
     
-    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
+    static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
         return (lhs.x == rhs.x && lhs.y == rhs.y)
     }
     
