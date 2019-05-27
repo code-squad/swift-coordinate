@@ -17,7 +17,7 @@ func run() {
         
         do {
             let convertedInput = try converter.converterChoice(userInput)
-            try outputView.drawAxis(convertedInput)
+            outputView.drawAxis(convertedInput)
         }catch let error as UserInputError{
             print(error.description)
             continue

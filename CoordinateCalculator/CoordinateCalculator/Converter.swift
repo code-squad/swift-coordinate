@@ -12,14 +12,14 @@ struct Converter {
     
     private var validator = Validator()
     
-    mutating func converterChoice(_ userInput:String)throws ->Drawable {
+    mutating func converterChoice(_ userInput:String) throws -> Drawable {
         if validator.isContainPointSeparator(userInput){
             return try convertToLine(userInput)
         }
         return try convertToPoint(userInput)
     }
     
-    private mutating func convertToLine(_ userInput:String)throws -> MyLine {
+    private mutating func convertToLine(_ userInput:String) throws -> MyLine {
         let seperatedInput = userInput.components(separatedBy: FormatItem.pointSeparator)
         try validator.hasTwoPoint(seperatedInput)
         let mypoints = try seperatedInput.map{try convertToPoint($0)}
@@ -27,7 +27,7 @@ struct Converter {
     }
     
     
-    private mutating func convertToPoint(_ userInput:String)throws ->MyPoint {
+    private mutating func convertToPoint(_ userInput:String) throws -> MyPoint {
         try validator.isContainPointFormat(userInput)
         try validator.isCorrectFormat(userInput)
         let seperatedUserInput = seperateToCoordinate(userInput)
@@ -37,18 +37,18 @@ struct Converter {
         return MyPoint(x: point.0, y: point.1)
     }
     
-    private func seperateToCoordinate(_ userInput:String)->[String] {
+    private func seperateToCoordinate(_ userInput:String) -> [String] {
         let transformateduserInput = userInput.trimmingCharacters(in: FormatItem.coordinateContainer)
         return transformateduserInput.components(separatedBy: FormatItem.coordinateItemSeparator)
     }
     
-    private func convertToCoordinateFormat(_ seperatedUserInput:[String])throws ->(Int,Int){
+    private func convertToCoordinateFormat(_ seperatedUserInput:[String]) throws -> (Int,Int) {
         let x = try convertToInt(seperatedUserInput[0])
         let y = try convertToInt(seperatedUserInput[1])
         return (x,y)
     }
     
-    private func convertToInt(_ seperatedUserInput:String)throws->Int {
+    private func convertToInt(_ seperatedUserInput:String) throws -> Int {
         guard let convertedInt = Int(seperatedUserInput) else{
             throw UserInputError.canNotConvertToInt
         }
