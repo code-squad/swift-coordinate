@@ -9,28 +9,29 @@
 import Foundation
 
 struct Factory {
-    static func makePoint (points: [Int]) throws -> MyPoint {
+    private static func makePoint (points: [Int]) throws -> MyPoint {
         guard points.count == 2 else {
             throw Error.wrongFormat
         }
         return MyPoint(x: points[0], y: points[1])
     }
     
-    static func makeLine (pointA: MyPoint, pointB: MyPoint) throws -> MyLine {
+    private static func makeLine (pointA: MyPoint, pointB: MyPoint) throws -> MyLine {
         guard (pointA.x == pointB.x) && (pointA.y == pointB.y) else {
             return MyLine(pointA: pointA, pointB: pointB)
         }
         throw Error.duplicateValue
     }
     
-    static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
+    private static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
         return MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC)
     }
     
-    static func isRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
+    private static func isRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
         let points = [pointA, pointB, pointC, pointD]
         var pointXSet = Set<Int>()
         var pointYSet = Set<Int>()
+        
         for point in points {
             pointXSet.insert(point.x)
             pointYSet.insert(point.y)
@@ -38,7 +39,7 @@ struct Factory {
         return pointXSet.count == 2 && pointYSet.count == 2
     }
     
-    static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect {
+    private static func makeRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect {
         let origin = min(pointA, pointB, pointC, pointD)
         let rightTop = max(pointA, pointB, pointC, pointD)
         let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
@@ -47,6 +48,23 @@ struct Factory {
             throw Error.failedCreateRect
         }
         return rect
+    }
+    
+    static func classifyInput(coordinates: [[Int]]) throws -> Drawable {
+        let points = try coordinates.map { try Factory.makePoint(points: $0) }
+        
+        switch points.count {
+        case 1:
+            return points[0]
+        case 2:
+            return try Factory.makeLine(pointA: points[0], pointB: points[1])
+        case 3:
+            return Factory.makeTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
+        case 4:
+            return try Factory.makeRectangle(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
+        default:
+            throw Error.wrongValue
+        }
     }
 }
 

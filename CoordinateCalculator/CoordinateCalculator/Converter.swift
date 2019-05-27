@@ -9,16 +9,15 @@
 import Foundation
 
 struct Converter {
-    static func checkPointToInt(point: String) throws -> Int {
-        guard let point = Int(point) else {
-            throw Error.notIntValue
+    static func converts(inputs: [String] ) throws -> [[Int]]{
+        let coordintes = try inputs.map {
+            try Converter.convert(input: $0)
         }
-        return point
+        return coordintes
     }
     
-    static func convert(input: String) throws -> [Int] {
+    private static func convert(input: String) throws -> [Int] {
         var input = input
-        
         guard Validator.validateFormatChecker(input: input) else {
             throw Error.wrongFormat
         }
@@ -32,19 +31,11 @@ struct Converter {
         return convertPointstoInt
     }
     
-    static func classifyInput(points: [MyPoint]) throws -> Drawable {
-        switch points.count {
-        case 1:
-            return points[0]
-        case 2:
-            return try Factory.makeLine(pointA: points[0], pointB: points[1])
-        case 3:
-            return Factory.makeTriangle(pointA: points[0], pointB: points[1], pointC: points[2])
-        case 4:
-            return try Factory.makeRectangle(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
-        default:
-            throw Error.wrongValue
+    private static func checkPointToInt(point: String) throws -> Int {
+        guard let point = Int(point) else {
+            throw Error.notIntValue
         }
+        return point
     }
 }
 

@@ -8,9 +8,12 @@
 
 import Foundation
 
-struct MyLine: Drawable, Explanation {
+struct MyLine: Drawable {
     private var pointA = MyPoint(x: 0, y: 0)
     private var pointB = MyPoint(x: 0, y: 0)
+    private var length: Double {
+        return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
+    }
     var points: [MyPoint] {
         return [pointA, pointB]
     }
@@ -19,16 +22,13 @@ struct MyLine: Drawable, Explanation {
         self.pointA = pointA
         self.pointB = pointB
     }
-    
-    var value: Double {
-        return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
-    }
-    
-    var shapeValue: Double {
-        return self.value
-    }
-    
+}
+
+extension MyLine: Explanation {
     var explanation: String {
-        return ExplanationType.line.description 
+        return ExplanationType.line.description
+    }
+    var shapeValue: Double {
+        return self.length
     }
 }

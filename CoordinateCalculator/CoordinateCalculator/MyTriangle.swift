@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct MyTriangle: Drawable, Explanation {
+struct MyTriangle: Drawable {
     private (set) var points: [MyPoint]
     private (set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private (set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var size: Double {
-        let s = (lineAB.value + lineAC.value + lineBC.value) / 2
-        return sqrt(s * (s - lineAB.value) * (s - lineAC.value) * (s - lineBC.value))
+        let s = (lineAB.shapeValue + lineAC.shapeValue + lineBC.shapeValue) / 2
+        return sqrt(s * (s - lineAB.shapeValue) * (s - lineAC.shapeValue) * (s - lineBC.shapeValue))
     }
     
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
@@ -24,13 +24,14 @@ struct MyTriangle: Drawable, Explanation {
         self.lineAC = MyLine(pointA: pointC, pointB: pointA)
         self.points = [pointA,pointB,pointC]
     }
-    
-    var shapeValue: Double {
-        return self.size
-    }
-    
+}
+
+extension MyTriangle: Explanation {
     var explanation: String {
         return ExplanationType.triangle.description
+    }
+    var shapeValue: Double {
+        return self.size
     }
 }
 
