@@ -83,7 +83,7 @@ struct ShapeConverter {
         return pointXSet.count == 2 && pointYSet.count == 2
     }
     
-    func makeShape(coordinates: [String]) throws -> Shape {
+    func makeShape(from coordinates: [String]) throws -> Shape {
         let points = try coordinates.map { try makePoint(from: $0) }
         switch coordinates.count {
         case 1:
