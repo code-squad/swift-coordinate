@@ -20,10 +20,6 @@ func main() {
             
             OutputView.drawAxis()
             OutputView.draw(shape: shape)
-            if let line = shape as? MyLine {
-                OutputView.printDistance(line: line)
-            }
-            
             
             break
         } catch let error as UserInputError {
