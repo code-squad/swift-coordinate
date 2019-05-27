@@ -23,9 +23,14 @@ struct MyRect: Drawable, Explanation {
         self.points = [leftBottom,rightBottom,rightTop,leftTop]
     }
     
+    var shapeValue: Double {
+        get {
+            return self.area
+        }
+    }
+    
     var explanation: String {
-        return ExplanationType.rectangle.rawValue
-            +  ": \(area)"
+        return ExplanationType.rectangle.description
     }
 }
 

@@ -20,11 +20,15 @@ struct MyLine: Drawable, Explanation {
         self.pointB = pointB
     }
     
-    var explanation: String {
-        return ExplanationType.line.rawValue + ": \(value)"
-    }
-    
     var value: Double {
         return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
+    }
+    
+    var shapeValue: Double {
+        return self.value
+    }
+    
+    var explanation: String {
+        return ExplanationType.line.description 
     }
 }

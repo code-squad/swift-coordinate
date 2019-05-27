@@ -10,4 +10,5 @@ import Foundation
 
 protocol Explanation {
     var explanation: String { get }
+    var shapeValue: Double { get }
 }

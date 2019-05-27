@@ -8,8 +8,19 @@
 
 import Foundation
 
-enum ExplanationType: String {
-    case line = "두 점 사이의 거리는"
-    case triangle = "세 점 사이의 거리는"
-    case rectangle = "사각형의 넓이는"
+enum ExplanationType: CustomStringConvertible {
+    case line
+    case triangle
+    case rectangle
+    
+    var description: String {
+        switch self {
+        case .line:
+            return "두 점 사이의 거리는"
+        case .triangle:
+            return "세 점 사이의 거리는"
+        case .rectangle:
+            return "사각형의 넓이는"
+        }
+    }
 }
