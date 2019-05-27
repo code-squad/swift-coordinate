@@ -11,7 +11,6 @@ import Foundation
 struct Converter {
     
     private var validator = Validator()
-    private let formatItem = FormatItem()
     
     mutating func converterChoice(_ userInput:String)throws ->Drawable {
         if validator.isContainPointSeparator(userInput){
@@ -21,7 +20,7 @@ struct Converter {
     }
     
     private mutating func convertToLine(_ userInput:String)throws -> MyLine {
-        let seperatedInput = userInput.components(separatedBy: formatItem.pointSeparator)
+        let seperatedInput = userInput.components(separatedBy: FormatItem.pointSeparator)
         try validator.hasTwoPoint(seperatedInput)
         let mypoints = try seperatedInput.map{try convertToPoint($0)}
         return MyLine(pointA: mypoints[0], pointB: mypoints[1], pointNumber: mypoints.count)
@@ -39,8 +38,8 @@ struct Converter {
     }
     
     private func seperateToCoordinate(_ userInput:String)->[String] {
-        let transformateduserInput = userInput.trimmingCharacters(in: formatItem.coordinateContainer)
-        return transformateduserInput.components(separatedBy: formatItem.coordinateItemSeparator)
+        let transformateduserInput = userInput.trimmingCharacters(in: FormatItem.coordinateContainer)
+        return transformateduserInput.components(separatedBy: FormatItem.coordinateItemSeparator)
     }
     
     private func convertToCoordinateFormat(_ seperatedUserInput:[String])throws ->(Int,Int){
