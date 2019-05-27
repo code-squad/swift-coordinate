@@ -10,19 +10,15 @@ import Foundation
 
 struct MyRect: Drawable, Explanation {
     private(set) var points: [MyPoint]
-    private let leftTop: MyPoint
-    private let rightBottom: MyPoint
-    private let rightTop: MyPoint
-    private let leftBottom: MyPoint
     private let area: Double
     
     init(origin: MyPoint, size: CGSize) {
         let width = Int(size.width)
         let height = Int(size.height)
-        self.leftBottom = MyPoint(x: origin.x, y: origin.y)
-        self.leftTop = MyPoint(x: origin.x, y: origin.y + Int(size.height))
-        self.rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y)
-        self.rightTop = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
+        let leftBottom = MyPoint(x: origin.x, y: origin.y)
+        let leftTop = MyPoint(x: origin.x, y: origin.y + Int(size.height))
+        let rightBottom = MyPoint(x: origin.x + Int(size.width), y: origin.y)
+        let rightTop = MyPoint(x: origin.x + Int(size.width), y: origin.y + Int(size.height))
         self.area = Double(width * height)
         self.points = [leftBottom,rightBottom,rightTop,leftTop]
     }
