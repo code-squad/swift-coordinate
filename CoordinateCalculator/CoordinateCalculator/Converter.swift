@@ -19,17 +19,17 @@ struct Converter {
     static func convert(input: String) throws -> [Int] {
         var input = input
         
-        if Validator.validateFormatChecker(input: input) {
-            input.removeFirst()
-            input.removeLast()
-            let points = input.split(separator: ",").map{ String($0) }
-            let convertPointstoInt = try points.map { try checkPointToInt(point: $0) }
-            for point in convertPointstoInt {
-                try Validator.validateRange(number: point)
-            }
-            return convertPointstoInt
+        guard Validator.validateFormatChecker(input: input) else {
+            throw Error.wrongFormat
         }
-        throw Error.wrongFormat
+        input.removeFirst()
+        input.removeLast()
+        let points = input.split(separator: ",").map{ String($0) }
+        let convertPointstoInt = try points.map { try checkPointToInt(point: $0) }
+        for point in convertPointstoInt {
+            try Validator.validateRange(number: point)
+        }
+        return convertPointstoInt
     }
     
     static func classifyInput(points: [MyPoint]) throws -> Drawable {
