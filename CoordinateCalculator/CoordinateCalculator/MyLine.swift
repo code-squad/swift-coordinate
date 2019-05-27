@@ -10,8 +10,8 @@ import Foundation
 
 struct MyLine: DrawableShape {
     
-    var pointA: MyPoint
-    var pointB: MyPoint
+    private (set) var pointA: MyPoint
+    private (set) var pointB: MyPoint
     
     func drawablePoints() -> [MyPoint] {
         return [pointA, pointB]
