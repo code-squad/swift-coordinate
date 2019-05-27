@@ -10,7 +10,7 @@ import Foundation
 
 struct Converter {
     
-    private var validator:Validatable = Validator()
+    private var validator = Validator()
     private let formatItem = FormatItem()
     
     mutating func converterChoice(_ userInput:String)throws ->Drawable {
