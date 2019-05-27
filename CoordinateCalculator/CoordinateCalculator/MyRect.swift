@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyRect: Drawable, Explanation {
+struct MyRect: Drawable {
     private(set) var points: [MyPoint]
     private let area: Double
     
@@ -22,15 +22,16 @@ struct MyRect: Drawable, Explanation {
         self.area = Double(width * height)
         self.points = [leftBottom,rightBottom,rightTop,leftTop]
     }
-    
+}
+
+extension MyRect: Explanation {
+    var explanation: String {
+        return ExplanationType.rectangle.description
+    }
     var shapeValue: Double {
         get {
             return self.area
         }
-    }
-    
-    var explanation: String {
-        return ExplanationType.rectangle.description
     }
 }
 
