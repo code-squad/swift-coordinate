@@ -17,7 +17,7 @@ struct ShapeConverter {
         self.validator = validator
     }
     
-    enum ConvertError: Swift.Error {
+    enum Error: Swift.Error {
         case exceedNumberOfCoordinates
         case createShapeFailed
         
@@ -37,21 +37,21 @@ struct ShapeConverter {
         if let point = MyPoint(x: numbers[0], y: numbers[1]) {
             return point
         }
-        throw ShapeConverter.ConvertError.createShapeFailed
+        throw ShapeConverter.Error.createShapeFailed
     }
     
     private func makeLine(from pointA: MyPoint, to pointB: MyPoint) throws -> MyLine {
         if let line = MyLine(pointA: pointA, pointB: pointB) {
             return line
         }
-        throw ShapeConverter.ConvertError.createShapeFailed
+        throw ShapeConverter.Error.createShapeFailed
     }
     
     private func makeTriangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) throws -> MyTriangle {
         if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
             return triangle
         }
-        throw ShapeConverter.ConvertError.createShapeFailed
+        throw ShapeConverter.Error.createShapeFailed
     }
     
     private func makeRect(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) throws -> MyRect {
@@ -62,7 +62,7 @@ struct ShapeConverter {
             isRect(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) {
             return rect
         }
-        throw ShapeConverter.ConvertError.createShapeFailed
+        throw ShapeConverter.Error.createShapeFailed
     }
     
     private func isRect(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
@@ -88,7 +88,7 @@ struct ShapeConverter {
         case 4:
             return try makeRect(pointA: points[0], pointB: points[1], pointC: points[2], pointD: points[3])
         default:
-            throw ShapeConverter.ConvertError.exceedNumberOfCoordinates
+            throw ShapeConverter.Error.exceedNumberOfCoordinates
         }
     }
 }
