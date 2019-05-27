@@ -38,7 +38,7 @@ struct ShapeConverter {
         guard validator.isValid(coordinate) else {
             throw ShapeConverter.ConvertError.invalidFormat
         }
-        let numbers = try numberParser.parseNumbers(coordinate)
+        let numbers = try numberParser.parse(coordinate)
         if let point = MyPoint(x: numbers[0], y: numbers[1]) {
             return point
         }

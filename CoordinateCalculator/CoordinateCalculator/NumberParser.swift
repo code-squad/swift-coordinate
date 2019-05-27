@@ -21,7 +21,7 @@ struct NumberParser {
         }
     }
     
-    func parseNumbers(_ input: String) throws -> [Int] {
+    func parse(_ input: String) throws -> [Int] {
         let regex = "-?[0-9]+"
         let numbers = input.matches(for: regex)
         let parsedNumbers = numbers.compactMap { Int($0) }
