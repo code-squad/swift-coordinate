@@ -14,6 +14,10 @@ struct OutputView {
         for point in shape.drawablePoints() {
             draw(point: point)
         }
+        
+        if let line = shape as? MyLine {
+            OutputView.printDistance(line: line)
+        }
     }
 
     static func drawAxis(){
@@ -30,10 +34,8 @@ struct OutputView {
         print("\(ANSICode.cursor.move(row: startPoint-y, col: (x*2)+2))😆\(ANSICode.cursor.move(row: startPoint+1, col: (startPoint*2)+2))")
     }
     
-    static func printDistance(line: MyLine) {
-        
-        print(line.distance())
-        
+    private static func printDistance(line: MyLine) {
+        print("두 점 사이 거리는 \(line.distance())")
     }
     
 }
