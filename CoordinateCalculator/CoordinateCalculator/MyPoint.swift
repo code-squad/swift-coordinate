@@ -10,11 +10,15 @@ import Foundation
 
 struct MyPoint: DrawableShape {
    
-    var x: Int
-    var y: Int
+    private (set) var x: Int
+    private (set) var y: Int
     
     func drawablePoints() -> [MyPoint] {
         return [self]
     }
     
 }
+
+
+
+
