@@ -25,7 +25,7 @@ struct MyLine: Shape, Measurable, Equatable {
     }
     
     func areaDescription() -> String {
-        return "점과 점사이의 거리는 \(area) 입니다."
+        return "두 점 사이 거리는"
     }
     
     public static func ==(lhs: MyLine, rhs: MyLine) -> Bool {
