@@ -28,6 +28,10 @@ struct OutputView {
             draw(point)
         }
         drawAxis()
+        printArea(shape: shape)
+    }
+    
+    static func printArea(shape: Shape) {
         if let shape = shape as? Measurable {
             print("\(shape.areaDescription()) \(shape.area)")
         }
