@@ -48,7 +48,8 @@ struct ShapeConverter {
     }
     
     private func makeTriangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) throws -> MyTriangle {
-        if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
+        if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC),
+            isTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
             return triangle
         }
         throw ShapeConverter.Error.createShapeFailed
@@ -63,6 +64,12 @@ struct ShapeConverter {
             return rect
         }
         throw ShapeConverter.Error.createShapeFailed
+    }
+    
+    private func isTriangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> Bool {
+        let slopeOfLineAB = (pointB.y - pointA.y) / (pointB.x - pointA.x)
+        let slopeOfLineBC = (pointC.y - pointB.y) / (pointC.x - pointB.x)
+        return slopeOfLineAB != slopeOfLineBC
     }
     
     private func isRect(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
