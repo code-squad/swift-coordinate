@@ -30,6 +30,6 @@ struct MyRect: Shape, Measurable {
     }
     
     func areaDescription() -> String {
-        return "사각형 넓이는 \(area) 입니다."
+        return "사각형 넓이는"
     }
 }
