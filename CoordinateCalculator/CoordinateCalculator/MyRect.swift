@@ -16,7 +16,7 @@ struct MyRect: Drawable, Explanation {
     private let leftBottom: MyPoint
     private let area: Double
     
-    init(_ origin: MyPoint, _ size: CGSize) {
+    init(origin: MyPoint, size: CGSize) {
         let width = Int(size.width)
         let height = Int(size.height)
         self.leftBottom = MyPoint(x: origin.x, y: origin.y)

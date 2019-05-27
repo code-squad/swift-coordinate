@@ -9,20 +9,20 @@
 import Foundation
 
 struct MyTriangle: Drawable, Explanation {
-    init(_ pointA: MyPoint, _ pointB: MyPoint, _ pointC: MyPoint) {
-        self.lineAB = MyLine(pointA, pointB)
-        self.lineBC = MyLine(pointB, pointC)
-        self.lineAC = MyLine(pointC, pointA)
-        self.points = [pointA,pointB,pointC]
-    }
-    
     private (set) var points: [MyPoint]
-    private (set) var lineAB = MyLine(MyPoint(), MyPoint())
-    private (set) var lineBC = MyLine(MyPoint(), MyPoint())
-    private (set) var lineAC = MyLine(MyPoint(), MyPoint())
+    private (set) var lineAB = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private (set) var lineBC = MyLine(pointA: MyPoint(), pointB: MyPoint())
+    private (set) var lineAC = MyLine(pointA: MyPoint(), pointB: MyPoint())
     private var size: Double {
         let s = (lineAB.value + lineAC.value + lineBC.value) / 2
         return sqrt(s * (s - lineAB.value) * (s - lineAC.value) * (s - lineBC.value))
+    }
+    
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+        self.lineAB = MyLine(pointA: pointA, pointB: pointB)
+        self.lineBC = MyLine(pointA: pointB, pointB: pointC)
+        self.lineAC = MyLine(pointA: pointC, pointB: pointA)
+        self.points = [pointA,pointB,pointC]
     }
     
     var explanation: String {

@@ -18,13 +18,13 @@ struct Factory {
     
     static func makeLine (pointA: MyPoint, pointB: MyPoint) throws -> MyLine {
         guard (pointA.x == pointB.x) && (pointA.y == pointB.y) else {
-            return MyLine(pointA, pointB)
+            return MyLine(pointA: pointA, pointB: pointB)
         }
         throw Error.duplicateValue
     }
     
     static func makeTriangle (pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) -> MyTriangle {
-        return MyTriangle(pointA, pointB, pointC)
+        return MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC)
     }
     
     static func isRectangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint, pointD: MyPoint) -> Bool {
@@ -42,7 +42,7 @@ struct Factory {
         let origin = min(pointA, pointB, pointC, pointD)
         let rightTop = max(pointA, pointB, pointC, pointD)
         let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
-        let rect = MyRect(origin, size)
+        let rect = MyRect(origin: origin, size: size)
         guard isRectangle(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) else {
             throw Error.failedCreateRect
         }
