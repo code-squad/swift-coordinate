@@ -9,13 +9,26 @@
 import Foundation
 
 protocol Validator {
-    func isValid(_ input: String) -> Bool
+    func isValid(_ input: String) throws
 }
 
 struct CoordinateChecker: Validator {
     
-    func isValid(_ input: String) -> Bool {
+    enum Error: Swift.Error {
+        case invalidFormat
+        
+        var localizedDescription: String {
+            switch self {
+            case .invalidFormat:
+                return "유효하지 않은 형식입니다."
+            }
+        }
+    }
+    
+    func isValid(_ input: String) throws {
         let regex = "\\(-?[\\d]+,-?[\\d]+\\)"
-        return input.matches(regex)
+        guard input.matches(regex) else {
+            throw Error.invalidFormat
+        }
     }
 }

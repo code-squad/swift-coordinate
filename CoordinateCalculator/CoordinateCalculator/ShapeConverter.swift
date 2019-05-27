@@ -18,14 +18,11 @@ struct ShapeConverter {
     }
     
     enum ConvertError: Swift.Error {
-        case invalidFormat
         case exceedNumberOfCoordinates
         case createShapeFailed
         
         var localizedDescription: String {
             switch self {
-            case .invalidFormat:
-                return "유효하지 않은 형식입니다."
             case .exceedNumberOfCoordinates:
                 return "좌표 갯수를 초과하였습니다."
             case .createShapeFailed:
@@ -35,9 +32,7 @@ struct ShapeConverter {
     }
     
     private func makePoint(from coordinate: String) throws -> MyPoint {
-        guard validator.isValid(coordinate) else {
-            throw ShapeConverter.ConvertError.invalidFormat
-        }
+        try validator.isValid(coordinate)
         let numbers = try numberParser.parse(coordinate)
         if let point = MyPoint(x: numbers[0], y: numbers[1]) {
             return point
