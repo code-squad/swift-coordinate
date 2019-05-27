@@ -16,7 +16,7 @@ struct CoordinateCalculator {
     static func makeShape(from input: String) throws -> DrawableShape {
         let coordinateValues = try CoordinateConverter.makeCoordinateValues(from: input)
         
-        guard let shape = ShapeMaker.makeShape(fromCoordinateValues: coordinateValues) else {
+        guard let shape = ShapeMaker.makeShape(from: coordinateValues) else {
             throw CoordinateCalculatorError.unsupportedShape
         }
         return shape
