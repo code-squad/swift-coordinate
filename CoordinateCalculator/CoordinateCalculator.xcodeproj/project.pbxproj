@@ -124,18 +124,18 @@
 			children = (
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				64E80FB02293A9A2008BE490 /* Inputview.swift */,
-				64E80FBE2293AAC4008BE490 /* RequestMassage.swift */,
 				64E80FB42293A9E2008BE490 /* Validator.swift */,
-				649A3E06229CEF110044C09F /* Validatable.swift */,
 				64E80FBA2293AA5A008BE490 /* Converter.swift */,
+				649A3E03229CED870044C09F /* figureFactory.swift */,
+				644F0DEF228A62AA003FE7A8 /* OutputView..swift */,
+				64E80FBE2293AAC4008BE490 /* RequestMassage.swift */,
+				649A3E06229CEF110044C09F /* Validatable.swift */,
 				64E80FDB2293F604008BE490 /* FormatItem.swift */,
 				64E80FB82293AA36008BE490 /* UserInputError.swift */,
-				649A3E03229CED870044C09F /* figureFactory.swift */,
+				64E80FE3229983F3008BE490 /* Drawable.swift */,
 				64E80FBC2293AA8F008BE490 /* Mypoint.swift */,
 				64E80FD92293AE1B008BE490 /* Myline.swift */,
 				649A3E0C229D543B0044C09F /* MyTriangle.swift */,
-				64E80FE3229983F3008BE490 /* Drawable.swift */,
-				644F0DEF228A62AA003FE7A8 /* OutputView..swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 			);
 			path = CoordinateCalculator;
