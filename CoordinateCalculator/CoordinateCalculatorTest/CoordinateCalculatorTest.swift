@@ -22,16 +22,20 @@ class CoordinateCalculatorTest: XCTestCase {
         XCTAssertNoThrow(try converter.convertToPoints("(0,0)-(0,0)", Validator()))
     }
     
+    func testCorrectFormatOfTriangle() {
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)-(0,0)-(0,0)", Validator()))
+    }
+    
     func testInCorrectFormatOfPoint() {
         XCTAssertThrowsError(try converter.convertToPoints("0,0", Validator()))
     }
     
-    func testInCorrectFormatOfLine() {
+    func testInCorrectFormatOfPointSeperator() {
         XCTAssertThrowsError(try converter.convertToPoints("(0,0)(0,0)", Validator()))
     }
     
-    func testLineNotConsistOfThreeItem() {
-        XCTAssertThrowsError(try converter.convertToPoints("(0,0)-(0,0)-(0,0)", Validator()))
+    func testOverThreeItem() {
+        XCTAssertThrowsError(try converter.convertToPoints("(0,0)-(0,0)-(0,0)-(0,0)", Validator()))
     }
     
     func testLineNotConsistOfOneItem() {
