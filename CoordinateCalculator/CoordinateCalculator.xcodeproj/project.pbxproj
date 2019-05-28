@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		E98312C9229D97DF00AEA0D8 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98312C8229D97DF00AEA0D8 /* MyTriangle.swift */; };
 		E9D4DE6A2297C1B500B2A8A0 /* ShapeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4DE692297C1B500B2A8A0 /* ShapeMaker.swift */; };
 		E9D4DE6C2298088A00B2A8A0 /* DrawableShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4DE6B2298088A00B2A8A0 /* DrawableShape.swift */; };
 		E9D4DE6E22990D2400B2A8A0 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4DE6D22990D2400B2A8A0 /* MyLine.swift */; };
@@ -35,6 +36,7 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		E98312C8229D97DF00AEA0D8 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		E9D4DE692297C1B500B2A8A0 /* ShapeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeMaker.swift; sourceTree = "<group>"; };
 		E9D4DE6B2298088A00B2A8A0 /* DrawableShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawableShape.swift; sourceTree = "<group>"; };
 		E9D4DE6D22990D2400B2A8A0 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
@@ -79,11 +81,12 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				E9D4DE6F229956E400B2A8A0 /* CoordinateCalculator.swift */,
 				E9D908CD22840026004C07F8 /* OutputView.swift */,
+				E9D917B622844F1900DAE832 /* MyPoint.swift */,
 				E9D4DE6D22990D2400B2A8A0 /* MyLine.swift */,
+				E98312C8229D97DF00AEA0D8 /* MyTriangle.swift */,
 				E9D917B82285496000DAE832 /* CoordinateConverter.swift */,
 				E9D4DE692297C1B500B2A8A0 /* ShapeMaker.swift */,
 				E9D4DE6B2298088A00B2A8A0 /* DrawableShape.swift */,
-				E9D917B622844F1900DAE832 /* MyPoint.swift */,
 				E9D917B422841EC500DAE832 /* InputView.swift */,
 			);
 			path = CoordinateCalculator;
@@ -149,6 +152,7 @@
 			files = (
 				E9D4DE6A2297C1B500B2A8A0 /* ShapeMaker.swift in Sources */,
 				E9D917B722844F1900DAE832 /* MyPoint.swift in Sources */,
+				E98312C9229D97DF00AEA0D8 /* MyTriangle.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				E9D4DE70229956E400B2A8A0 /* CoordinateCalculator.swift in Sources */,
 				E9D4DE6C2298088A00B2A8A0 /* DrawableShape.swift in Sources */,
