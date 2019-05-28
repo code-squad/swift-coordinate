@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle:Drawable {
+struct MyTriangle:Drawable,hasArea {
     
     var lineA = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     var lineB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
@@ -18,7 +18,7 @@ struct MyTriangle:Drawable {
         return [lineA.pointA,lineB.pointA,lineC.pointA]
     }
     
-    var trianglearea:Double {
+    var calculateArea:Double {
         let a = (lineA.pointA.x * lineB.pointA.y)+(lineB.pointA.x * lineC.pointA.y)+(lineC.pointA.x * lineA.pointA.y)
         let b = (lineA.pointA.x * lineC.pointA.y)+(lineC.pointA.x * lineB.pointA.y)+(lineB.pointA.x * lineA.pointA.y)
         return Double(abs(a-b)) / 2.0

@@ -13,5 +13,5 @@ protocol Drawable {
 }
 
 protocol hasArea {
-    var calculateDistance:Double { get }
+    var calculateArea:Double { get }
 }
