@@ -19,12 +19,15 @@ struct ShapeConverter {
     
     enum Error: Swift.Error {
         case exceedNumberOfCoordinates
+        case verifyShapeFailed
         case createShapeFailed
         
         var localizedDescription: String {
             switch self {
             case .exceedNumberOfCoordinates:
                 return "좌표 갯수를 초과하였습니다."
+            case .verifyShapeFailed:
+                return "도형 검증에 실패하였습니다."
             case .createShapeFailed:
                 return "도형 생성에 실패하였습니다."
             }
@@ -48,8 +51,10 @@ struct ShapeConverter {
     }
     
     private func makeTriangle(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) throws -> MyTriangle {
-        if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC),
-            isTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
+        guard isTriangle(pointA: pointA, pointB: pointB, pointC: pointC) else {
+            throw ShapeConverter.Error.verifyShapeFailed
+        }
+        if let triangle = MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC) {
             return triangle
         }
         throw ShapeConverter.Error.createShapeFailed
@@ -59,8 +64,10 @@ struct ShapeConverter {
         let origin = min(pointA, pointB, pointC, pointD)
         let rightTop = max(pointA, pointB, pointC, pointD)
         let size = CGSize(width: rightTop.x - origin.x, height: rightTop.y - origin.y)
-        if let rect = MyRect(origin: origin, size: size),
-            isRect(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) {
+        guard isRect(pointA: pointA, pointB: pointB, pointC: pointC, pointD: pointD) else {
+            throw ShapeConverter.Error.verifyShapeFailed
+        }
+        if let rect = MyRect(origin: origin, size: size) {
             return rect
         }
         throw ShapeConverter.Error.createShapeFailed
