@@ -30,7 +30,7 @@ func run() {
         } catch let error as ShapeConverter.ValidateError {
             print(error.localizedDescription)
             continue
-        } catch let error as NumberParser.Error {
+        } catch let error as ShapeConverter.ParseError {
             print(error.localizedDescription)
             continue
         } catch let error as ShapeConverter.ConvertError {
