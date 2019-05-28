@@ -31,7 +31,7 @@ struct OutputView {
     
     private static func printDistance(_ drawThing:Drawable) {
         if let area = drawThing as? hasArea{
-            print("도형의 영역은: \(area.calculateDistance)")
+            print("도형의 영역은: \(area.calculateArea)")
         }
     }
     

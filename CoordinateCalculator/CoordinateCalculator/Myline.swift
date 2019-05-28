@@ -16,7 +16,7 @@ struct MyLine:Drawable,hasArea {
         return [pointA,pointB]
     }
     
-    var calculateDistance:Double {
+    var calculateArea:Double {
         return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
     }
     
