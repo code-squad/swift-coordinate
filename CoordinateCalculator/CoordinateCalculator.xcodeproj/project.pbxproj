@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		644F0DF0228A62AA003FE7A8 /* OutputView..swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F0DEF228A62AA003FE7A8 /* OutputView..swift */; };
 		644F0DF1228A65FE003FE7A8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		649A3E04229CED870044C09F /* figureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649A3E03229CED870044C09F /* figureFactory.swift */; };
+		649A3E05229CED870044C09F /* figureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649A3E03229CED870044C09F /* figureFactory.swift */; };
+		649A3E07229CEF110044C09F /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649A3E06229CEF110044C09F /* Validatable.swift */; };
+		649A3E08229CEF110044C09F /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649A3E06229CEF110044C09F /* Validatable.swift */; };
 		64E80FB12293A9A2008BE490 /* Inputview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB02293A9A2008BE490 /* Inputview.swift */; };
 		64E80FB52293A9E2008BE490 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB42293A9E2008BE490 /* Validator.swift */; };
 		64E80FB92293AA36008BE490 /* UserInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E80FB82293AA36008BE490 /* UserInputError.swift */; };
@@ -48,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		644F0DEF228A62AA003FE7A8 /* OutputView..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView..swift; sourceTree = "<group>"; };
+		649A3E03229CED870044C09F /* figureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = figureFactory.swift; sourceTree = "<group>"; };
+		649A3E06229CEF110044C09F /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		64E80FB02293A9A2008BE490 /* Inputview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputview.swift; sourceTree = "<group>"; };
 		64E80FB42293A9E2008BE490 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		64E80FB82293AA36008BE490 /* UserInputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputError.swift; sourceTree = "<group>"; };
@@ -117,13 +123,15 @@
 				64E80FB02293A9A2008BE490 /* Inputview.swift */,
 				64E80FBE2293AAC4008BE490 /* RequestMassage.swift */,
 				64E80FB42293A9E2008BE490 /* Validator.swift */,
+				649A3E06229CEF110044C09F /* Validatable.swift */,
 				64E80FBA2293AA5A008BE490 /* Converter.swift */,
 				64E80FDB2293F604008BE490 /* FormatItem.swift */,
 				64E80FB82293AA36008BE490 /* UserInputError.swift */,
-				644F0DEF228A62AA003FE7A8 /* OutputView..swift */,
+				649A3E03229CED870044C09F /* figureFactory.swift */,
 				64E80FBC2293AA8F008BE490 /* Mypoint.swift */,
 				64E80FD92293AE1B008BE490 /* Myline.swift */,
 				64E80FE3229983F3008BE490 /* Drawable.swift */,
+				644F0DEF228A62AA003FE7A8 /* OutputView..swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 			);
 			path = CoordinateCalculator;
@@ -227,11 +235,13 @@
 				64E80FE222997965008BE490 /* Myline.swift in Sources */,
 				64E80FCE2293AB1A008BE490 /* OutputView..swift in Sources */,
 				64E80FCF2293AB1D008BE490 /* UserInputError.swift in Sources */,
+				649A3E05229CED870044C09F /* figureFactory.swift in Sources */,
 				64E80FD02293AB20008BE490 /* Converter.swift in Sources */,
 				64E80FD52293AB2E008BE490 /* main.swift in Sources */,
 				64E80FD32293AB28008BE490 /* RequestMassage.swift in Sources */,
 				64E80FD82293ABFB008BE490 /* CoordinateCalculatorTest.swift in Sources */,
 				64E80FD42293AB2B008BE490 /* Inputview.swift in Sources */,
+				649A3E08229CEF110044C09F /* Validatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +254,10 @@
 				64E80FDC2293F604008BE490 /* FormatItem.swift in Sources */,
 				64E80FBF2293AAC4008BE490 /* RequestMassage.swift in Sources */,
 				64E80FBB2293AA5A008BE490 /* Converter.swift in Sources */,
+				649A3E07229CEF110044C09F /* Validatable.swift in Sources */,
 				64E80FDA2293AE1B008BE490 /* Myline.swift in Sources */,
 				64E80FB12293A9A2008BE490 /* Inputview.swift in Sources */,
+				649A3E04229CED870044C09F /* figureFactory.swift in Sources */,
 				64E80FB52293A9E2008BE490 /* Validator.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				644F0DF1228A65FE003FE7A8 /* main.swift in Sources */,

@@ -15,58 +15,58 @@ class CoordinateCalculatorTest: XCTestCase {
     }
     
     func testCorrectFormatOfPoint() {
-        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)", Validator()))
     }
     
     func testCorrectFormatOfLine() {
-        XCTAssertNoThrow(try converter.converterChoice("(0,0)-(0,0)"))
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)-(0,0)", Validator()))
     }
     
     func testInCorrectFormatOfPoint() {
-        XCTAssertThrowsError(try converter.converterChoice("0,0"))
+        XCTAssertThrowsError(try converter.convertToPoints("0,0", Validator()))
     }
     
     func testInCorrectFormatOfLine() {
-        XCTAssertThrowsError(try converter.converterChoice("(0,0)(0,0)"))
+        XCTAssertThrowsError(try converter.convertToPoints("(0,0)(0,0)", Validator()))
     }
     
     func testLineNotConsistOfThreeItem() {
-        XCTAssertThrowsError(try converter.converterChoice("(0,0)-(0,0)-(0,0)"))
+        XCTAssertThrowsError(try converter.convertToPoints("(0,0)-(0,0)-(0,0)", Validator()))
     }
     
     func testLineNotConsistOfOneItem() {
-        XCTAssertThrowsError(try converter.converterChoice("(0,0)-"))
+        XCTAssertThrowsError(try converter.convertToPoints("(0,0)-", Validator()))
     }
     
     func testCoordinateConsistOfTwoItem() {
-        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)", Validator()))
     }
     
     func testCoordinateNotConsistOfTwoItem() {
-        XCTAssertThrowsError(try converter.converterChoice("(0,0,0)"))
+        XCTAssertThrowsError(try converter.convertToPoints("(0,0,0)", Validator()))
     }
     
     func testCoordinateCanConvertToInt() {
-        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)", Validator()))
     }
     
     func testCoordinateCanNotConvertToInt() {
-        XCTAssertThrowsError(try converter.converterChoice("(zero,zero)"))
+        XCTAssertThrowsError(try converter.convertToPoints("(zero,zero)", Validator()))
     }
     
     func testCoordinateMoreThanZero() {
-        XCTAssertNoThrow(try converter.converterChoice("(0,0)"))
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)", Validator()))
     }
     
     func testCoordinateBelowZero() {
-        XCTAssertThrowsError(try converter.converterChoice("(-1,-1)"))
+        XCTAssertThrowsError(try converter.convertToPoints("(-1,-1)", Validator()))
     }
     
     func testCoordinateUnderTwentyFour() {
-        XCTAssertNoThrow(try converter.converterChoice("(24,24)"))
+        XCTAssertNoThrow(try converter.convertToPoints("(24,24)", Validator()))
     }
     
     func testCoordinateExcessTwentyFour() {
-        XCTAssertThrowsError(try converter.converterChoice("(25,25)"))
+        XCTAssertThrowsError(try converter.convertToPoints("(25,25)", Validator()))
     }
 }

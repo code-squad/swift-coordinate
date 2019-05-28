@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Validator {
+struct Validator:Validatable {
     
     func isContainPointSeparator(_ userInput:String) -> Bool {
         let convertedInputToCharacterSet = CharacterSet(charactersIn: userInput)
@@ -29,8 +29,8 @@ struct Validator {
         }
     }
     
-    func hasTwoPoint(_ seperatedInput:[String]) throws {
-        guard seperatedInput.count == 2 else{
+    func belowthreePoint(_ seperatedInput:[String]) throws {
+        guard seperatedInput.count < 3 else{
             throw UserInputError.inCorrectFormat
         }
     }

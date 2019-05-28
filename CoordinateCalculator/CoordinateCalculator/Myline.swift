@@ -20,7 +20,7 @@ struct MyLine:Drawable,hasDistance {
         return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
     }
     
-    init(pointA:MyPoint, pointB:MyPoint, pointNumber:Int) {
+    init(pointA:MyPoint, pointB:MyPoint) {
         self.pointA = pointA
         self.pointB = pointB
     }

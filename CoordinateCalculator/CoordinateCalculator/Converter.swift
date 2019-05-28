@@ -8,33 +8,32 @@
 
 import Foundation
 
+typealias coordinate = (Int,Int)
+
 struct Converter {
     
-    private var validator = Validator()
+    mutating func convertToPoints(_ userInput:String,_ validator:Validatable) throws -> [coordinate] {
+        let seperatedPoints = seperateToPoints(userInput,validator)
+        try validator.belowthreePoint(seperatedPoints)
+        let points = try seperatedPoints.map{try convertToPoint($0, validator)}
+        return points
+    }
     
-    mutating func converterChoice(_ userInput:String) throws -> Drawable {
-        if validator.isContainPointSeparator(userInput){
-            return try convertToLine(userInput)
+    private func seperateToPoints(_ userInput:String,_ validator:Validatable) -> [String] {
+        if validator.isContainPointSeparator(userInput) {
+            return userInput.components(separatedBy: FormatItem.pointSeparator)
         }
-        return try convertToPoint(userInput)
+        return [userInput]
     }
     
-    private mutating func convertToLine(_ userInput:String) throws -> MyLine {
-        let seperatedInput = userInput.components(separatedBy: FormatItem.pointSeparator)
-        try validator.hasTwoPoint(seperatedInput)
-        let mypoints = try seperatedInput.map{try convertToPoint($0)}
-        return MyLine(pointA: mypoints[0], pointB: mypoints[1], pointNumber: mypoints.count)
-    }
-    
-    
-    private mutating func convertToPoint(_ userInput:String) throws -> MyPoint {
+    private mutating func convertToPoint(_ userInput:String,_ validator:Validatable) throws -> coordinate {
         try validator.isContainPointFormat(userInput)
         try validator.isCorrectFormat(userInput)
         let seperatedUserInput = seperateToCoordinate(userInput)
         try validator.hasTwoItem(seperatedUserInput)
         let point = try convertToCoordinateFormat(seperatedUserInput)
         try validator.coordinateIsInRange(point)
-        return MyPoint(x: point.0, y: point.1)
+        return point
     }
     
     private func seperateToCoordinate(_ userInput:String) -> [String] {
