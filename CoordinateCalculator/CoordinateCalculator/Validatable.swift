@@ -16,7 +16,7 @@ protocol Validatable {
     
     func isCorrectFormat(_ userInput:String) throws
     
-    func belowthreePoint(_ seperatedInput:[String])throws
+    func isBelowFourPoint(_ seperatedInput:[String])throws
     
     func hasTwoItem(_ seperatedUserInput:[String]) throws
     
