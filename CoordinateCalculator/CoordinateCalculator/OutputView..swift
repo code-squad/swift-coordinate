@@ -10,9 +10,10 @@ import Foundation
 
 struct OutputView {
     
-    func drawAxis(_ drawThing: Drawable)throws {
+    func drawAxis(_ drawThing:Drawable) {
         drawBoard()
-        try drawOfRequest(drawThing)
+        drawPoint(drawThing)
+        printDistance(drawThing)
     }
     
     private func drawBoard() {
@@ -20,40 +21,18 @@ struct OutputView {
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    private func drawOfRequest(_ drawThing: Drawable)throws {
-        if drawThing.pointNumber == 1 {
-            let point = try typeCastToMypoint(drawThing: drawThing)
-            drawDot(point)
-        }
-        let line = try typeCastToMyLine(drawThing: drawThing)
-        drawLine(line)
-        print("두 점 사이의 거리: \(line.calculateDistance)")
-    }
-    
-    private func drawDot(_ point:MyPoint) {
-        let x = point.x * 2 + 2
-        let y = (ANSICode.axis.AxisLimit - point.y) + 1
-        print("\(ANSICode.cursor.move(row: y, col: x))😼\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2))")    }
-    
-    private func drawLine(_ line:MyLine) {
-        let points = [line.pointA,line.pointB]
-        for point in points {
-            drawDot(point)
+    private func drawPoint(_ mypoints:Drawable) {
+        for point in mypoints.points {
+            let x = point.x * 2 + 2
+            let y = (ANSICode.axis.AxisLimit - point.y) + 1
+            print("\(ANSICode.cursor.move(row: y, col: x))😼\(ANSICode.cursor.move(row: ANSICode.axis.AxisLimit+2, col: ANSICode.axis.AxisLimit+2))")
         }
     }
     
-    private func typeCastToMypoint(drawThing: Drawable)throws -> MyPoint {
-        guard let point = drawThing as? MyPoint else{
-            throw UserInputError.inCorrectFormat
+    private func printDistance(_ drawThing:Drawable) {
+        if let line = drawThing as? hasDistance{
+            print("두 점 사이의 거리: \(line.calculateDistance)")
         }
-        return point
-    }
-    
-    private func typeCastToMyLine(drawThing: Drawable)throws -> MyLine {
-        guard let line = drawThing as? MyLine else{
-            throw UserInputError.inCorrectFormat
-        }
-        return line
     }
 
 }

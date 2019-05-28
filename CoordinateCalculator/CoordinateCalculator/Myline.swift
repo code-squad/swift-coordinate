@@ -8,10 +8,13 @@
 
 import Foundation
 
-struct MyLine:Drawable {
-    private(set) var pointNumber: Int = 2
+struct MyLine:Drawable,hasDistance {
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
+    
+    var points:[MyPoint] {
+      return [pointA,pointB]
+    }
     
     var calculateDistance:Double {
         return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
@@ -20,6 +23,5 @@ struct MyLine:Drawable {
     init(pointA:MyPoint, pointB:MyPoint, pointNumber:Int) {
         self.pointA = pointA
         self.pointB = pointB
-        self.pointNumber = pointNumber
     }
 }

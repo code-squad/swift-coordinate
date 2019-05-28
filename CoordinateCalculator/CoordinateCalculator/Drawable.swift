@@ -9,5 +9,9 @@
 import Foundation
 
 protocol Drawable {
-    var pointNumber:Int { get }
+    var points : [MyPoint] { get }
+}
+
+protocol hasDistance {
+    var calculateDistance:Double { get }
 }

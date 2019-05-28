@@ -9,9 +9,12 @@
 import Foundation
 
 struct MyPoint:Drawable {
-    private(set) var pointNumber: Int = 1
     private(set) var x = 0
     private(set) var y = 0
+    
+    var points:[MyPoint] {
+        return [self]
+    }
     
     init(x:Int,y:Int) {
         self.x = x
