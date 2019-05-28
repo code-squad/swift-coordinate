@@ -28,6 +28,17 @@ struct ShapeConverter {
         }
     }
     
+    enum ParseError: Error {
+        case parseFailed
+        
+        var localizedDescription: String {
+            switch self {
+            case .parseFailed:
+                return "숫자 파싱에 실패하였습니다."
+            }
+        }
+    }
+    
     enum ConvertError: Error {
         case exceedNumberOfCoordinates
         case verifyShapeFailed
@@ -49,7 +60,10 @@ struct ShapeConverter {
         guard validator.isValid(coordinate) else {
             throw ValidateError.invalidFormat
         }
-        let numbers = try numberParser.parse(coordinate)
+        let numbers = numberParser.parse(coordinate)
+        guard numbers.count == 2 else {
+            throw ParseError.parseFailed
+        }
         if let point = MyPoint(x: numbers[0], y: numbers[1]) {
             return point
         }
