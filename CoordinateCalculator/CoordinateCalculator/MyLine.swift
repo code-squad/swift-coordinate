@@ -10,16 +10,16 @@ import Foundation
 
 struct MyLine: DrawableShape {
     
-    private (set) var pointA: MyPoint
-    private (set) var pointB: MyPoint
+    private (set) var startPoint: MyPoint
+    private (set) var endPoint: MyPoint
     
     func drawablePoints() -> [MyPoint] {
-        return [pointA, pointB]
+        return [startPoint, endPoint]
     }
     
     
     func distance() -> Double {
-        return sqrt(pow(Double(pointA.x - pointB.x), 2) + pow(Double(pointA.y - pointB.y), 2))
+        return sqrt(pow(Double(startPoint.x - endPoint.x), 2) + pow(Double(startPoint.y - endPoint.y), 2))
     }
     
 }
