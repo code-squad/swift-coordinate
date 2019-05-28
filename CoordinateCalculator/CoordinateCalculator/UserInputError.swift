@@ -13,6 +13,7 @@ enum UserInputError:Error {
     case inCorrectItemNumber
     case canNotConvertToInt
     case outOfRange
+    case isNotFigure
     case unknown
     
     var description: String{
@@ -27,6 +28,8 @@ enum UserInputError:Error {
             return "표시할수 있는 좌표값을 벗어났습니다. "
         case .unknown:
             return "알 수 없는 오류가 발생했습니다."
+        case .isNotFigure:
+            return "출력 가능한 점이 없습니다."
         }
     }
 }
