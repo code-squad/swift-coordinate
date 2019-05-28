@@ -13,11 +13,11 @@ func run() {
     repeat{
         let userInput = InputView.readInput(.requestCoordinate)
         var converter = Converter()
-        let outputView = OutputView()
         
         do {
-            let convertedInput = try converter.converterChoice(userInput)
-            outputView.drawAxis(convertedInput)
+            let convertedPoints = try converter.convertToPoints(userInput, Validator())
+            let figure = try figureFactory.converterChoice(convertedPoints, Validator())
+            OutputView.drawAxis(figure)
         }catch let error as UserInputError{
             print(error.description)
             continue

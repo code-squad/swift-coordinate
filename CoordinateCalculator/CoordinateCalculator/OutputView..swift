@@ -10,18 +10,18 @@ import Foundation
 
 struct OutputView {
     
-    func drawAxis(_ drawThing:Drawable) {
+    static func drawAxis(_ drawThing:Drawable) {
         drawBoard()
         drawPoint(drawThing)
         printDistance(drawThing)
     }
     
-    private func drawBoard() {
+    private static func drawBoard() {
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
     }
     
-    private func drawPoint(_ mypoints:Drawable) {
+    private static func drawPoint(_ mypoints:Drawable) {
         for point in mypoints.points {
             let x = point.x * 2 + 2
             let y = (ANSICode.axis.AxisLimit - point.y) + 1
@@ -29,7 +29,7 @@ struct OutputView {
         }
     }
     
-    private func printDistance(_ drawThing:Drawable) {
+    private static func printDistance(_ drawThing:Drawable) {
         if let line = drawThing as? hasDistance{
             print("두 점 사이의 거리: \(line.calculateDistance)")
         }
