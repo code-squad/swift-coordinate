@@ -19,8 +19,10 @@ struct MyTriangle:Drawable,hasArea {
     }
     
     var calculateArea:Double {
-        let a = (lineA.pointA.x * lineB.pointA.y)+(lineB.pointA.x * lineC.pointA.y)+(lineC.pointA.x * lineA.pointA.y)
-        let b = (lineA.pointA.x * lineC.pointA.y)+(lineC.pointA.x * lineB.pointA.y)+(lineB.pointA.x * lineA.pointA.y)
+//        let a = (lineA.pointA.x * lineB.pointA.y)+(lineB.pointA.x * lineC.pointA.y)+(lineC.pointA.x * lineA.pointA.y)
+//        let b = (lineA.pointA.x * lineC.pointA.y)+(lineC.pointA.x * lineB.pointA.y)+(lineB.pointA.x * lineA.pointA.y)
+        let a = (lineB.pointA.x - lineA.pointA.x) * (lineC.pointA.y - lineA.pointA.y)
+        let b = (lineC.pointA.x - lineA.pointA.x) * (lineC.pointB.y - lineA.pointA.y)
         return Double(abs(a-b)) / 2.0
     }
     
