@@ -27,7 +27,7 @@ func run() {
             shape = try shapeConverter.makeShape(from: coordinates)
             OutputView.draw(shape)
             break
-        } catch let error as CoordinateChecker.Error {
+        } catch let error as ShapeConverter.ValidateError {
             print(error.localizedDescription)
             continue
         } catch let error as NumberParser.Error {
