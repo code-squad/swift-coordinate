@@ -13,7 +13,7 @@ struct InputView {
         
         print(massage.rawValue)
         return readLine() ?? ""
-    
+        
     }
     
 }

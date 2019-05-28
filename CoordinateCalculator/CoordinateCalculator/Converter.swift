@@ -14,7 +14,7 @@ struct Converter {
     
     mutating func convertToPoints(_ userInput:String,_ validator:Validatable) throws -> [coordinate] {
         let seperatedPoints = seperateToPoints(userInput,validator)
-        try validator.belowthreePoint(seperatedPoints)
+        try validator.isBelowFourPoint(seperatedPoints)
         let points = try seperatedPoints.map{try convertToPoint($0, validator)}
         return points
     }
