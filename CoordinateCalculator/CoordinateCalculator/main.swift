@@ -33,7 +33,7 @@ func run() {
         } catch let error as NumberParser.Error {
             print(error.localizedDescription)
             continue
-        } catch let error as ShapeConverter.Error {
+        } catch let error as ShapeConverter.ConvertError {
             print(error.localizedDescription)
             continue
         } catch {
