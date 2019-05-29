@@ -20,22 +20,24 @@ struct figureFactory {
         case 1:
             return myPoints[0]
         case 2:
-            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
+            return MyLine(points: myPoints)
         case 3:
-            return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
+            return MyTriangle(points: myPoints)
         case 4:
-            var x = myPoints.map{$0.x}
-            var y = myPoints.map{$0.y}
-            x.sort()
-            y.sort()
-            let size = CGSize(width: x[3] - x[0], height: y[3] - y[0])
-            let oringin = MyPoint(x: x[0], y: y[0])
-            return MyRect(origin: oringin, size: size, points: myPoints)
+            let RectInitItem = convertMyRectInitFormat(points: myPoints)
+            return MyRect(origin: RectInitItem.0, size: RectInitItem.1, points: myPoints)
         default:
             throw UserInputError.isNotFigure
         }
     }
     
-    
+    static func convertMyRectInitFormat(points:[MyPoint]) -> (MyPoint,CGSize) {
+        var x = points.map{$0.x}, y = points.map{$0.y}
+        x.sort()
+        y.sort()
+        let size = CGSize(width: x[3] - x[0], height: y[3] - y[0])
+        let oringin = MyPoint(x: x[0], y: y[0])
+        return (origin: oringin, size: size)
+    }
     
 }
