@@ -26,6 +26,10 @@ class CoordinateCalculatorTest: XCTestCase {
         XCTAssertNoThrow(try converter.convertToPoints("(0,0)-(0,0)-(0,0)", Validator()))
     }
     
+    func testCorrectFormatOfRect() {
+        XCTAssertNoThrow(try converter.convertToPoints("(0,0)-(0,0)-(0,0)-(0,0)", Validator()))
+    }
+    
     func testInCorrectFormatOfPoint() {
         XCTAssertThrowsError(try converter.convertToPoints("0,0", Validator()))
     }
@@ -34,8 +38,8 @@ class CoordinateCalculatorTest: XCTestCase {
         XCTAssertThrowsError(try converter.convertToPoints("(0,0)(0,0)", Validator()))
     }
     
-    func testOverThreeItem() {
-        XCTAssertThrowsError(try converter.convertToPoints("(0,0)-(0,0)-(0,0)-(0,0)", Validator()))
+    func testOverFourItem() {
+        XCTAssertThrowsError(try converter.convertToPoints("(0,0)-(0,0)-(0,0)-(0,0)-(0,0)", Validator()))
     }
     
     func testLineNotConsistOfOneItem() {
