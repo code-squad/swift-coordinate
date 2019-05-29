@@ -20,9 +20,9 @@ struct figureFactory {
         case 1:
             return myPoints[0]
         case 2:
-            return MyLine(points: myPoints)
+            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         case 3:
-            return MyTriangle(points: myPoints)
+            return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
         case 4:
             let RectInitItem = convertMyRectInitFormat(points: myPoints)
             return MyRect(origin: RectInitItem.0, size: RectInitItem.1, points: myPoints)
