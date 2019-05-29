@@ -14,6 +14,7 @@ enum UserInputError:Error {
     case canNotConvertToInt
     case outOfRange
     case isNotFigure
+    case isNotRect
     case unknown
     
     var description: String{
@@ -30,6 +31,8 @@ enum UserInputError:Error {
             return "알 수 없는 오류가 발생했습니다."
         case .isNotFigure:
             return "출력 가능한 점이 없습니다."
+        case .isNotRect:
+            return "직사각형이 아닙니다."
         }
     }
 }
