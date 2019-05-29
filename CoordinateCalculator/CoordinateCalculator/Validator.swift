@@ -53,13 +53,21 @@ struct Validator:Validatable {
         }
     }
     
-    static func isRectangle(points: [coordinate]) throws {
-        if points.count == 4 {
-            try isRectangle(points: points)
+    static func canDrawLine(line:MyLine) throws {
+        guard line.pointA.x != line.pointB.x || line.pointA.y != line.pointB.y else{
+            throw UserInputError.canNotDrawLine
         }
     }
     
-    static func canDrawRect(points: [coordinate]) throws {
+    static func canDrawTriangle(triangle:MyTriangle) throws {
+        var triangleLines = [triangle.lineA.calculateArea,triangle.lineB.calculateArea,triangle.lineC.calculateArea]
+        triangleLines.sort()
+        guard  triangleLines[0] + triangleLines[1] > triangleLines[2] else {
+            throw UserInputError.canNotDrawTriangle
+        }
+    }
+    
+    static func canDrawRect(points:[coordinate]) throws {
         var xSet: Set<Int> = []
         var ySet: Set<Int> = []
         
@@ -68,8 +76,10 @@ struct Validator:Validatable {
             ySet.insert(point.1)
         }
         guard xSet.count == 2 && ySet.count == 2 else {
-            throw UserInputError.isNotRect
+            throw UserInputError.canNotDrawRect
         }
     }
     
 }
+
+
