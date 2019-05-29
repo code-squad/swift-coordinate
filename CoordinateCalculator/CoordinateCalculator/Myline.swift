@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine:Drawable,hasArea {
+struct MyLine:Drawable,HasArea {
     private(set) var pointA = MyPoint(x: 0, y: 0)
     private(set) var pointB = MyPoint(x: 0, y: 0)
     
