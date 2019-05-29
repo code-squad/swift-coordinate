@@ -30,7 +30,7 @@ struct Validator:Validatable {
     }
     
     func isBelowFourPoint(_ seperatedInput:[String]) throws {
-        guard seperatedInput.count < 4 else{
+        guard seperatedInput.count < 5 else{
             throw UserInputError.inCorrectFormat
         }
     }
