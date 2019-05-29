@@ -10,9 +10,9 @@ import Foundation
 
 struct MyTriangle: DrawableShape {
     
-    var lineAB: MyLine
-    var lineBC: MyLine
-    var lineAC: MyLine
+    private (set) var lineAB: MyLine
+    private (set) var lineBC: MyLine
+    private (set) var lineAC: MyLine
     
     //    var lineAB = MyLine(startPoint: MyPoint(), endPoint: MyPoint())
     //    var lineBC = MyLine(startPoint: MyPoint(), endPoint: MyPoint())
