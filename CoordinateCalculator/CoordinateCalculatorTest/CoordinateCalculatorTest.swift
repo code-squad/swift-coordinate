@@ -77,4 +77,13 @@ class CoordinateCalculatorTest: XCTestCase {
     func testCoordinateExcessTwentyFour() {
         XCTAssertThrowsError(try converter.convertToPoints("(25,25)", Validator()))
     }
+    
+    func testCanDrawLine() {
+        XCTAssertThrowsError(try Validator.canDrawLine(line: MyLine(pointA: MyPoint(x: 5, y: 5), pointB: MyPoint(x: 5, y: 5))))
+    }
+
+    func testCanDrawTriangle() {
+        XCTAssertThrowsError(try Validator.canDrawTriangle(triangle: MyTriangle(pointA: MyPoint(x: 5, y: 5), pointB: MyPoint(x: 2, y: 2), pointC: MyPoint(x: 9, y: 9))))
+    }
+
 }
