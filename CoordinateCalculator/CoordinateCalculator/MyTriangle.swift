@@ -29,5 +29,16 @@ struct MyTriangle: DrawableShape {
         return [lineAB.startPoint, lineBC.startPoint, lineAC.endPoint]
     }
     
+    func calcurateTriangle() -> Double {
+        
+        let a = self.lineAB.distance()
+        let b = self.lineBC.distance()
+        let c = self.lineAC.distance()
+        
+        let s = (a+b+c)/2
+        let triangleArea = sqrt(s*(s-a)*(s-b)*(s-c))
+        
+        return triangleArea
+    }
     
 }
