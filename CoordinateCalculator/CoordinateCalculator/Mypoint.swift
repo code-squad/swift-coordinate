@@ -9,8 +9,8 @@
 import Foundation
 
 struct MyPoint:Drawable {
-    private(set) var x = 0
-    private(set) var y = 0
+    private(set) var x : Int
+    private(set) var y : Int
     
     var points:[MyPoint] {
         return [self]
