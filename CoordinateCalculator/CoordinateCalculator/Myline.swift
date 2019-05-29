@@ -9,19 +9,14 @@
 import Foundation
 
 struct MyLine:Drawable,HasArea {
-    private(set) var pointA : MyPoint
-    private(set) var pointB : MyPoint
     
-    var points:[MyPoint] {
-        return [pointA,pointB]
-    }
+    var points:[MyPoint]
     
     var calculateArea:Double {
-        return sqrt(pow(Double(pointA.x - pointB.x),2) + pow(Double(pointA.y - pointB.y),2))
+        return sqrt(pow(Double(points[0].x - points[1].x),2) + pow(Double(points[0].y - points[1].y),2))
     }
     
-    init(pointA:MyPoint, pointB:MyPoint) {
-        self.pointA = pointA
-        self.pointB = pointB
+    init(points:[MyPoint]) {
+        self.points = points
     }
 }
