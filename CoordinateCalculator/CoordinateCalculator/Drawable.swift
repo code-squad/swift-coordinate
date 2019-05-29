@@ -12,6 +12,6 @@ protocol Drawable {
     var points : [MyPoint] { get }
 }
 
-protocol hasArea {
+protocol HasArea {
     var calculateArea:Double { get }
 }

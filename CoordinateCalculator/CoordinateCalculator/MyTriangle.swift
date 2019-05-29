@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle:Drawable,hasArea {
+struct MyTriangle:Drawable,HasArea {
     
     var lineA = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
     var lineB = MyLine(pointA: MyPoint(x: 0, y: 0), pointB: MyPoint(x: 0, y: 0))
