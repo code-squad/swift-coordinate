@@ -18,6 +18,10 @@ struct OutputView {
         if let line = shape as? MyLine {
             OutputView.printDistance(line: line)
         }
+        
+        if let triangle = shape as? MyTriangle {
+            OutputView.printTriangleArea(triangle: triangle)
+        }
     }
 
     static func drawAxis(){
@@ -36,6 +40,10 @@ struct OutputView {
     
     private static func printDistance(line: MyLine) {
         print("두 점 사이 거리는 \(line.distance())")
+    }
+    
+    static func printTriangleArea(triangle: MyTriangle) {
+        print("삼각형 넓이는 \(triangle.calcurateTriangle())")
     }
     
 }
