@@ -52,4 +52,24 @@ struct Validator:Validatable {
             throw UserInputError.outOfRange
         }
     }
+    
+    static func isRectangle(points: [coordinate]) throws {
+        if points.count == 4 {
+            try isRectangle(points: points)
+        }
+    }
+    
+    static func canDrawRect(points: [coordinate]) throws {
+        var xSet: Set<Int> = []
+        var ySet: Set<Int> = []
+        
+        for point in points {
+            xSet.insert(point.0)
+            ySet.insert(point.1)
+        }
+        guard xSet.count == 2 && ySet.count == 2 else {
+            throw UserInputError.isNotRect
+        }
+    }
+    
 }
