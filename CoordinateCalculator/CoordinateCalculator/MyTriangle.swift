@@ -10,9 +10,9 @@ import Foundation
 
 struct MyTriangle:Drawable,HasArea {
     
-    var lineA : MyLine
-    var lineB : MyLine
-    var lineC : MyLine
+    private var lineA : MyLine
+    private var lineB : MyLine
+    private var lineC : MyLine
     
     var points:[MyPoint] {
         return [lineA.pointA,lineB.pointA,lineC.pointA]

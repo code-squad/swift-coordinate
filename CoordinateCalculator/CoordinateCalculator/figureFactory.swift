@@ -13,21 +13,29 @@ struct figureFactory {
     private static var converter = Converter()
     
     static func makeFigure(_ points:[coordinate],_ validator:Validatable) throws -> Drawable {
-        switch points.count {
+        
+        let myPoints:[MyPoint] = points.map{MyPoint(x: $0.0, y: $0.1)}
+        
+        switch myPoints.count {
         case 1:
-            return MyPoint(x: points[0].0, y: points[0].1)
+            return myPoints[0]
         case 2:
-            let pointA = MyPoint(x: points[0].0, y: points[0].1)
-            let pointB = MyPoint(x: points[1].0, y: points[1].1)
-            return MyLine(pointA: pointA, pointB: pointB)
+            return MyLine(pointA: myPoints[0], pointB: myPoints[1])
         case 3:
-            let pointA = MyPoint(x: points[0].0, y: points[0].1)
-            let pointB = MyPoint(x: points[1].0, y: points[1].1)
-            let pointC = MyPoint(x: points[2].0, y: points[2].1)
-            return MyTriangle(pointA: pointA, pointB: pointB, pointC: pointC)
+            return MyTriangle(pointA: myPoints[0], pointB: myPoints[1], pointC: myPoints[2])
+        case 4:
+            var x = myPoints.map{$0.x}
+            var y = myPoints.map{$0.y}
+            x.sort()
+            y.sort()
+            let size = CGSize(width: x[3] - x[0], height: y[3] - y[0])
+            let oringin = MyPoint(x: x[0], y: y[0])
+            return MyRect(origin: oringin, size: size, points: myPoints)
         default:
             throw UserInputError.isNotFigure
         }
     }
+    
+    
     
 }

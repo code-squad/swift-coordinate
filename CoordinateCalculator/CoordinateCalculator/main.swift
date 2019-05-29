@@ -16,6 +16,7 @@ func run() {
         
         do {
             let convertedPoints = try converter.convertToPoints(userInput, Validator())
+            try Validator.canDrawRect(points: convertedPoints)
             let figure = try figureFactory.makeFigure(convertedPoints, Validator())
             OutputView.drawAxis(figure)
         }catch let error as UserInputError{
