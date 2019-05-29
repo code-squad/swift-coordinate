@@ -23,8 +23,5 @@ protocol Validatable {
     func coordinateIsInRange(_ point:(Int,Int)) throws
     
     func isInRange(_ point: Int) throws
-    
-    static func canDrawRect(points:[coordinate])throws
-    
-    static func isRectangle(points:[coordinate])throws
+
 }

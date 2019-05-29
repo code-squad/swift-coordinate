@@ -14,7 +14,9 @@ enum UserInputError:Error {
     case canNotConvertToInt
     case outOfRange
     case isNotFigure
-    case isNotRect
+    case canNotDrawLine
+    case canNotDrawTriangle
+    case canNotDrawRect
     case unknown
     
     var description: String{
@@ -31,8 +33,12 @@ enum UserInputError:Error {
             return "알 수 없는 오류가 발생했습니다."
         case .isNotFigure:
             return "출력 가능한 점이 없습니다."
-        case .isNotRect:
-            return "직사각형이 아닙니다."
+        case .canNotDrawLine:
+            return "두개의 점이 겹쳐 있어 직선을 표현할 수 없습니다."
+        case .canNotDrawTriangle:
+            return "세점이 한직선 위에 있어 삼각형을 표현할 수 없습니다."
+        case .canNotDrawRect:
+            return "사각형을 표시할 수 없습니다."
         }
     }
 }
