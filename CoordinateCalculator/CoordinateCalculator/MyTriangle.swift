@@ -10,16 +10,24 @@ import Foundation
 
 struct MyTriangle:Drawable,HasArea {
     
-    var points:[MyPoint]
+    private var lineA : MyLine
+    private var lineB : MyLine
+    private var lineC : MyLine
+    
+    var points:[MyPoint] {
+        return [lineA.pointA,lineB.pointA,lineC.pointA]
+    }
     
     var calculateArea:Double {
-        let a = (points[1].x - points[0].x) * (points[2].y - points[0].y)
-        let b = (points[2].x - points[0].x) * (points[2].y - points[0].y)
+        let a = (lineB.pointA.x - lineA.pointA.x) * (lineC.pointA.y - lineA.pointA.y)
+        let b = (lineC.pointA.x - lineA.pointA.x) * (lineC.pointB.y - lineA.pointA.y)
         return Double(abs(a-b)) / 2.0
     }
     
-    init(points:[MyPoint]) {
-        self.points = points
+    init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
+        self.lineA = MyLine(pointA: pointA, pointB: pointB)
+        self.lineB = MyLine(pointA: pointB, pointB: pointC)
+        self.lineC = MyLine(pointA: pointC, pointB: pointA)
     }
     
 }
