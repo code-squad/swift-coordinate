@@ -42,7 +42,7 @@ struct OutputView {
         print("두 점 사이 거리는 \(line.distance())")
     }
     
-    static func printTriangleArea(triangle: MyTriangle) {
+    private static func printTriangleArea(triangle: MyTriangle) {
         print("삼각형 넓이는 \(triangle.calcurateTriangle())")
     }
     
