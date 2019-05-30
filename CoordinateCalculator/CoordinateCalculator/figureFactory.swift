@@ -10,8 +10,6 @@ import Foundation
 
 struct figureFactory {
     
-    private static var converter = Converter()
-    
     static func makeFigure(_ points:[coordinate]) throws -> Drawable {
         
         let myPoints:[MyPoint] = points.map{MyPoint(x: $0.0, y: $0.1)}
