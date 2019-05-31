@@ -13,7 +13,7 @@ struct MyLine: DrawableShape {
     private (set) var startPoint: MyPoint
     private (set) var endPoint: MyPoint
     
-    func drawablePoints() -> [MyPoint] {
+    var drawablePoints: [MyPoint] {
         return [startPoint, endPoint]
     }
     
