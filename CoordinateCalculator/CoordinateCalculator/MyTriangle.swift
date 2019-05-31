@@ -14,18 +14,13 @@ struct MyTriangle: DrawableShape {
     private (set) var lineBC: MyLine
     private (set) var lineAC: MyLine
     
-    //    var lineAB = MyLine(startPoint: MyPoint(), endPoint: MyPoint())
-    //    var lineBC = MyLine(startPoint: MyPoint(), endPoint: MyPoint())
-    //    var lineAC = MyLine(startPoint: MyPoint(), endPoint: MyPoint())
-    
     init(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         self.lineAB = MyLine(startPoint: pointA, endPoint: pointB)
         self.lineBC = MyLine(startPoint: pointB, endPoint: pointC)
         self.lineAC = MyLine(startPoint: pointA, endPoint: pointC)
     }
     
-    
-    func drawablePoints() -> [MyPoint] {
+    var drawablePoints: [MyPoint] {
         return [lineAB.startPoint, lineBC.startPoint, lineAC.endPoint]
     }
     

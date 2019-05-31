@@ -13,10 +13,11 @@ struct MyPoint: DrawableShape {
     private (set) var x: Int
     private (set) var y: Int
     
-    func drawablePoints() -> [MyPoint] {
-        return [self]
+    var drawablePoints: [MyPoint] {
+        get {
+            return [self]
+        }
     }
-    
 }
 
 
