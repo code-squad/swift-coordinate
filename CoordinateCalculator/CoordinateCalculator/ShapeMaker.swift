@@ -10,7 +10,7 @@ import Foundation
 
 struct ShapeMaker {
 
-    static func makeShape(from coordinates: [(x: Int, y: Int)]) -> DrawableShape? {
+    static func makeShape(from coordinates: [(x: Int, y: Int)])throws -> DrawableShape? {
         switch coordinates.count {
         case 1:
             return MyPoint(x: coordinates[0].x, y: coordinates[0].y)
@@ -19,14 +19,21 @@ struct ShapeMaker {
         case 3:
             return MyTriangle(pointA: MyPoint(x: coordinates[0].x, y: coordinates[0].y), pointB: MyPoint(x: coordinates[1].x, y: coordinates[1].y), pointC: MyPoint(x: coordinates[2].x, y: coordinates[2].y))
         case 4:
-            let coordinateSet = makeCoordinateSet(from: coordinates)
-            let xStat = calculateStatistics(numbers: coordinateSet.xValues)
-            let yStat = calculateStatistics(numbers: coordinateSet.yValues)
-        
-            return MyRect(origin: MyPoint(x: xStat.min y: yStat.max), size: CGSize(width: xStat.max - xStat.min, height: yStat.max - yStat.min))
+            return try makeRect(from: coordinates)
         default:
             return nil
         }
+    }
+    
+    /// 아래 두개의 메소드를 호출해서 사각형만드는 메소드
+    private static func makeRect(from coordinates: [(x: Int, y: Int)]) throws -> MyRect {
+        let coordinateSet = makeCoordinateSet(from: coordinates)
+        guard coordinateSet.xValues.count == 2 && coordinateSet.yValues.count == 2 else {
+            throw CoordinateCalculatorError.invalidRectValues
+        }
+        let xStat = calculateStatistics(numbers: coordinateSet.xValues)
+        let yStat = calculateStatistics(numbers: coordinateSet.yValues)
+        return MyRect(origin: MyPoint(x: xStat.min, y: yStat.max), size: CGSize(width: xStat.max - xStat.min, height: yStat.max - yStat.min))
     }
     
     /// 최대 최소값 구하는 메소드
