@@ -19,7 +19,6 @@
 		E9D917B722844F1900DAE832 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D917B622844F1900DAE832 /* MyPoint.swift */; };
 		E9D917B92285496000DAE832 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D917B82285496000DAE832 /* CoordinateConverter.swift */; };
 		E9F31F9D22A10A0C00AFFE8A /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F31F9C22A10A0C00AFFE8A /* MyRect.swift */; };
-		E9F31F9F22A11BA900AFFE8A /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F31F9E22A11BA900AFFE8A /* Check.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,7 +47,6 @@
 		E9D917B622844F1900DAE832 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		E9D917B82285496000DAE832 /* CoordinateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
 		E9F31F9C22A10A0C00AFFE8A /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
-		E9F31F9E22A11BA900AFFE8A /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +89,6 @@
 				E9F31F9C22A10A0C00AFFE8A /* MyRect.swift */,
 				E9D917B82285496000DAE832 /* CoordinateConverter.swift */,
 				E9D4DE692297C1B500B2A8A0 /* ShapeMaker.swift */,
-				E9F31F9E22A11BA900AFFE8A /* Check.swift */,
 				E9D4DE6B2298088A00B2A8A0 /* DrawableShape.swift */,
 				E9D917B422841EC500DAE832 /* InputView.swift */,
 			);
@@ -163,7 +160,6 @@
 				E9D4DE70229956E400B2A8A0 /* CoordinateCalculator.swift in Sources */,
 				E9D4DE6C2298088A00B2A8A0 /* DrawableShape.swift in Sources */,
 				E9D917B522841EC500DAE832 /* InputView.swift in Sources */,
-				E9F31F9F22A11BA900AFFE8A /* Check.swift in Sources */,
 				E9F31F9D22A10A0C00AFFE8A /* MyRect.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				E9D908CE22840026004C07F8 /* OutputView.swift in Sources */,
