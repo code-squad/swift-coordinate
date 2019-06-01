@@ -22,6 +22,10 @@ struct OutputView {
         if let triangle = shape as? MyTriangle {
             OutputView.printTriangleArea(triangle: triangle)
         }
+        
+        if let rect = shape as? MyRect {
+            OutputView.printRectArea(rect: rect)
+        }
     }
 
     static func drawAxis() {
@@ -45,5 +49,10 @@ struct OutputView {
     private static func printTriangleArea(triangle: MyTriangle) {
         print("삼각형 넓이는 \(triangle.calcurateTriangle())")
     }
+    
+    private static func printRectArea(rect: MyRect) {
+        print("사각형 넓이는 \(rect.area)")
+    }
+    
     
 }
