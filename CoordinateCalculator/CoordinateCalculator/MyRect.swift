@@ -21,4 +21,7 @@ struct MyRect: DrawableShape {
         return [leftTop, rightBottom, MyPoint(x: leftTop.x, y: rightBottom.y), MyPoint(x: rightBottom.x, y: leftTop.y)]
     }
 
+    var area: Int {
+        return (rightBottom.x - leftTop.x)*(leftTop.y - rightBottom.y)
+    }
 }
