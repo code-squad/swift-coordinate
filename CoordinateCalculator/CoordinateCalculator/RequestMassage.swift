@@ -7,7 +7,3 @@
 //
 
 import Foundation
-
-enum RequestMassage:String {
-    case requestCoordinate = "좌표를 입력해 주세요."
-}
