@@ -9,14 +9,18 @@
 import Foundation
 
 func run() {
-    
+    let validatedInput = inputValidate()
+    OutputView.drawAxis(validatedInput)
+}
+
+func inputValidate() -> (Int,Int) {
+    var validatedInput:(Int,Int)
     repeat{
         let userInput = InputView.readInput(.requestCoordinate)
-        var converter = Converter()
-        let outputView = OutputView()
+        var validator = Validator()
         do {
-            let convertedInput = try converter.convertInput(userInput)
-            outputView.drawAxis(convertedInput)
+            validatedInput = try validator.verifyInput(userInput)
+            return validatedInput
         }catch let error as UserInputError{
             print(error.description)
             continue

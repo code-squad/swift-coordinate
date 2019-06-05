@@ -9,49 +9,49 @@
 import XCTest
 
 class CoordinateCalculatorTest: XCTestCase {
-    var converter: Converter!
+    var verification: Validator!
     override func setUp() {
-        converter = Converter()
+        verification = Validator()
     }
     
     func testCorrectFormat() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
     }
     
     func testInCorrectFormat() {
-        XCTAssertThrowsError(try converter.convertInput("0,0"))
+        XCTAssertThrowsError(try verification.verifyInput("0,0"))
     }
-
+    
     func testConsistOfTwoItem() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
     }
-
+    
     func testNotConsistOfTwoItem() {
-        XCTAssertThrowsError(try converter.convertInput("(0,0,0)"))
+        XCTAssertThrowsError(try verification.verifyInput("(0,0,0)"))
     }
-
+    
     func testCanConvertToInt() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
     }
-
+    
     func testCanNotConvertToInt() {
-        XCTAssertThrowsError(try converter.convertInput("(zero,zero)"))
+        XCTAssertThrowsError(try verification.verifyInput("(zero,zero)"))
     }
-
+    
     func testMoreThanZero() {
-        XCTAssertNoThrow(try converter.convertInput("(0,0)"))
+        XCTAssertNoThrow(try verification.verifyInput("(0,0)"))
     }
-
+    
     func testBelowZero() {
-        XCTAssertThrowsError(try converter.convertInput("(-1,-1)"))
+        XCTAssertThrowsError(try verification.verifyInput("(-1,-1)"))
     }
-
+    
     func testUnderTwentyFour() {
-        XCTAssertNoThrow(try converter.convertInput("(24,24)"))
+        XCTAssertNoThrow(try verification.verifyInput("(24,24)"))
     }
-
+    
     func testExcessTwentyFour() {
-        XCTAssertThrowsError(try converter.convertInput("(25,25)"))
+        XCTAssertThrowsError(try verification.verifyInput("(25,25)"))
     }
 }
 
