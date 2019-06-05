@@ -29,7 +29,7 @@ enum UserInputError:Error {
         case .outOfRange:
             return "표시할수 있는 좌표값을 벗어났습니다. "
         case .unknown:
-            return "알 수 없는 오류가 발생했습니다."
+            return "알수 없는 오류가 발생했습니다."
         }
     }
 }
