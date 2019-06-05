@@ -20,6 +20,8 @@
 		64FB5682228B5625005A72D0 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5681228B5625005A72D0 /* Validator.swift */; };
 		64FB5683228B563F005A72D0 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5681228B5625005A72D0 /* Validator.swift */; };
 		64FB5685228B570C005A72D0 /* UserInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5684228B570C005A72D0 /* UserInputError.swift */; };
+		64FB5687228B5810005A72D0 /* converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5686228B5810005A72D0 /* converter.swift */; };
+		64FB5688228B586F005A72D0 /* converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5686228B5810005A72D0 /* converter.swift */; };
 		64FB5689228B5877005A72D0 /* Inputview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5679228B516A005A72D0 /* Inputview.swift */; };
 		64FB568A228B587E005A72D0 /* UserInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB5684228B570C005A72D0 /* UserInputError.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
@@ -48,6 +50,7 @@
 		64FB567D228B5409005A72D0 /* Mypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mypoint.swift; sourceTree = "<group>"; };
 		64FB5681228B5625005A72D0 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		64FB5684228B570C005A72D0 /* UserInputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputError.swift; sourceTree = "<group>"; };
+		64FB5686228B5810005A72D0 /* converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = converter.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 				64FB567B228B523B005A72D0 /* RequestMassage.swift */,
 				64FB5681228B5625005A72D0 /* Validator.swift */,
 				64FB5684228B570C005A72D0 /* UserInputError.swift */,
+				64FB5686228B5810005A72D0 /* converter.swift */,
 				64FB567D228B5409005A72D0 /* Mypoint.swift */,
 				64FB5668228B4F2D005A72D0 /* OutputView.swift */,
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
@@ -206,6 +210,7 @@
 				64FB5689228B5877005A72D0 /* Inputview.swift in Sources */,
 				64FB5671228B504F005A72D0 /* CoordinateCalculatorTest.swift in Sources */,
 				64FB5680228B5447005A72D0 /* RequestMassage.swift in Sources */,
+				64FB5688228B586F005A72D0 /* converter.swift in Sources */,
 				64FB567F228B5444005A72D0 /* Mypoint.swift in Sources */,
 				64FB5677228B505F005A72D0 /* ANSICode.swift in Sources */,
 				64FB5683228B563F005A72D0 /* Validator.swift in Sources */,
@@ -224,6 +229,7 @@
 				64FB567A228B516A005A72D0 /* Inputview.swift in Sources */,
 				64FB567E228B5409005A72D0 /* Mypoint.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				64FB5687228B5810005A72D0 /* converter.swift in Sources */,
 				64FB5682228B5625005A72D0 /* Validator.swift in Sources */,
 				64FB567C228B523B005A72D0 /* RequestMassage.swift in Sources */,
 				64FB5669228B4F2D005A72D0 /* OutputView.swift in Sources */,

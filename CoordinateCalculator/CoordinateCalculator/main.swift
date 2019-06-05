@@ -10,7 +10,8 @@ import Foundation
 
 func run() {
     let validatedInput = inputValidate()
-    OutputView.drawAxis(validatedInput)
+    let coordinate = Converter.convertToCoordinate(validatedInput)
+    OutputView.drawAxis(coordinate)
 }
 
 func inputValidate() -> (Int,Int) {
