@@ -15,8 +15,9 @@ struct Validator {
         try isCorrectFormat()
         let seperatedUserInput = seperate()
         try hasTwoItem(seperatedUserInput)
-        let point = try convertToCoordinateFormat(seperatedUserInput)
-        try coordinateIsInRange(point)
+        let point = try convertInt(seperatedUserInput)
+        try isInRange(point.x)
+        try isInRange(point.y)
         return point
     }
     
@@ -45,22 +46,14 @@ struct Validator {
         }
     }
     
-    private mutating func convertToCoordinateFormat(_ seperatedUserInput:[String])throws ->MyPoint{
-        let x = try convertToInt(seperatedUserInput[0])
-        let y = try convertToInt(seperatedUserInput[1])
-        return MyPoint(x: x, y: y)
-    }
-    
-    private func convertToInt(_ seperatedUserInput:String)throws->Int {
-        guard let convertedInt = Int(seperatedUserInput) else{
+    private mutating func convertInt(_ seperatedUserInput:[String])throws ->MyPoint{
+        guard let x = Int(seperatedUserInput[0]) else{
             throw UserInputError.canNotConvertTOInt
         }
-        return convertedInt
-    }
-    
-    private func coordinateIsInRange(_ point:MyPoint)throws {
-        try isInRange(point.x)
-        try isInRange(point.y)
+        guard let y = Int(seperatedUserInput[1]) else{
+            throw UserInputError.canNotConvertTOInt
+        }
+        return MyPoint(x: x, y: y)
     }
     
     private func isInRange(_ point: Int)throws {
