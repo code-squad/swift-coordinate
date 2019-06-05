@@ -10,9 +10,9 @@ import Foundation
 
 struct Converter {
     
-    static func convertToCoordinate(_ point: (Int,Int)) -> MyPoint {
-        let translatedX = point.0 * 2 + 3
-        let translatedY = ANSICode.axis.AxisLimit - point.1 + 1
+    static func convertToCoordinate(_ point: MyPoint) -> MyPoint {
+        let translatedX = point.x * 2 + 3
+        let translatedY = ANSICode.axis.AxisLimit - point.y + 1
         return MyPoint(x: translatedX, y: translatedY)
     }
     
