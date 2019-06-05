@@ -8,26 +8,5 @@
 
 import Foundation
 
-func run() {
-    var point:MyPoint?
-    
-    repeat{
-        let userInput = InputView.readInput()
-        var validator = Validator()
-        do {
-            point = try validator.verifyInput(userInput)
-            break
-        }catch let error as UserInputError{
-            print(error.description)
-            continue
-        }catch{
-            print("예상치 못한 에러 발생: \(error).")
-            continue
-        }
-    }while true
-    guard let point2 = point else { return }
-    let coordinate = Converter.convertToCoordinate(point2)
-    OutputView.drawAxis(coordinate)
-}
-run()
+
 
