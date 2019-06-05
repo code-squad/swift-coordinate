@@ -20,8 +20,8 @@ func run() {
         }catch let error as UserInputError{
             print(error.description)
             continue
-        }catch {
-            print(error.localizedDescription)
+        }catch{
+            print("예상치 못한 에러 발생: \(error).")
             continue
         }
     }while true
