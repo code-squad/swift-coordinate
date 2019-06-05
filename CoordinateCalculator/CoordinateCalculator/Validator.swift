@@ -8,11 +8,12 @@
 
 import Foundation
 struct Validator {
+    var userInput = ""
     
     mutating func verifyInput(_ userInputOptionalString:String?)throws ->(Int,Int) {
-        let userInput = try convertString(userInputOptionalString)
-        try isCorrectFormat(userInput)
-        let seperatedUserInput = seperate(userInput)
+        try convertString(userInputOptionalString)
+        try isCorrectFormat()
+        let seperatedUserInput = seperate()
         try hasTwoItem(seperatedUserInput)
         let point = try convertToCoordinateFormat(seperatedUserInput)
         try coordinateIsInRange(point)
@@ -20,22 +21,22 @@ struct Validator {
     }
     
     
-    private mutating func convertString(_ optionalString:String?)throws ->String{
+    private mutating func convertString(_ optionalString:String?)throws {
         guard let convertedString = optionalString else{
             throw UserInputError.isNotString
         }
-        return convertedString
+        userInput = convertedString
     }
     
-    private func isCorrectFormat(_ userInput:String)throws {
+    private func isCorrectFormat()throws {
         guard userInput.first == "(" && userInput.last == ")" else{
             throw UserInputError.inCorrectFormat
         }
     }
     
-    private mutating func seperate(_ userInput:String)->[String] {
-        let transformateduserInput = userInput.trimmingCharacters(in: ["(",")"])
-        return transformateduserInput.components(separatedBy: ",")
+    private mutating func seperate()->[String] {
+        userInput = userInput.trimmingCharacters(in: ["(",")"])
+        return userInput.components(separatedBy: ",")
     }
     
     private mutating func hasTwoItem(_ seperatedUserInput:[String])throws {
