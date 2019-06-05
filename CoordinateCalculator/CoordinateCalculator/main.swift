@@ -8,5 +8,5 @@
 
 import Foundation
 
-
+ OutputView.drawAxis()
 
