@@ -29,6 +29,5 @@ func run() {
     let coordinate = Converter.convertToCoordinate(point2)
     OutputView.drawAxis(coordinate)
 }
-
 run()
 
