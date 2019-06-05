@@ -26,4 +26,10 @@ struct OutputView {
     
     }
     
+    private func convertToCoordinate(_ point:MyPoint) -> MyPoint {
+        let convertedX = point.x * 2 + 3
+        let convertedY = ANSICode.axis.AxisLimit - point.y + 1
+        return MyPoint(x: convertedX, y: convertedY)
+    }
+    
 }
