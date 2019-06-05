@@ -21,7 +21,7 @@ func run() {
             print(error.description)
             continue
         }catch {
-            print(UserInputError.unknown.description)
+            print(error.localizedDescription)
             continue
         }
     }while true
