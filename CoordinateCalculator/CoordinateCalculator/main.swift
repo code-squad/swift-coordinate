@@ -9,19 +9,14 @@
 import Foundation
 
 func run() {
-    let validatedInput = inputValidate()
-    let coordinate = Converter.convertToCoordinate(validatedInput)
-    OutputView.drawAxis(coordinate)
-}
-
-func inputValidate() -> (Int,Int) {
-    var validatedInput:(Int,Int)
+    var point:MyPoint?
+    
     repeat{
         let userInput = InputView.readInput(.requestCoordinate)
         var validator = Validator()
         do {
-            validatedInput = try validator.verifyInput(userInput)
-            return validatedInput
+            point = try validator.verifyInput(userInput)
+            break
         }catch let error as UserInputError{
             print(error.description)
             continue
@@ -30,6 +25,9 @@ func inputValidate() -> (Int,Int) {
             continue
         }
     }while true
+    guard let provenpoint = point else { return }
+    let coordinate = Converter.convertToCoordinate(provenpoint)
+    OutputView.drawAxis(coordinate)
 }
 
 run()
