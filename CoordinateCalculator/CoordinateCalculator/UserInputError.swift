@@ -12,7 +12,7 @@ enum UserInputError:Error {
     case isNotString
     case inCorrectFormat
     case inCorrectItemNumber
-    case canNotConvertToInt
+    case canNotConvertTOInt
     case outOfRange
     case unknown
     
@@ -24,7 +24,7 @@ enum UserInputError:Error {
             return "잘못된 형식의 입력입니다."
         case .inCorrectItemNumber:
             return "좌표 값은 두개를 입력하세요."
-        case .canNotConvertToInt:
+        case .canNotConvertTOInt:
             return "정수를 입력하세요."
         case .outOfRange:
             return "표시할수 있는 좌표값을 벗어났습니다. "
