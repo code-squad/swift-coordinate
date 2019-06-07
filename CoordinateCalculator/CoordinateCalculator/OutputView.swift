@@ -14,17 +14,9 @@ struct OutputView {
         for point in shape.drawablePoints {
             draw(point: point)
         }
-        
-        if let line = shape as? MyLine {
-            OutputView.printDistance(line: line)
-        }
-
-        if let triangle = shape as? MyTriangle {
-            OutputView.printTriangleArea(triangle: triangle)
-        }
-        
-        if let rect = shape as? MyRect {
-            OutputView.printRectArea(rect: rect)
+        // SimplyDescribable 채택한 도형들 형변환 성공하면 설명 출력
+        if let simplyDescribable = shape as? SimplyDescribable {
+            print(simplyDescribable.simpleDescription)
         }
     }
 
@@ -41,18 +33,4 @@ struct OutputView {
 
         print("\(ANSICode.cursor.move(row: startPoint-y, col: (x*2)+2))😆\(ANSICode.cursor.move(row: startPoint+1, col: (startPoint*2)+2))")
     }
-    
-    private static func printDistance(line: MyLine) {
-        print("두 점 사이 거리는 \(line.distance())")
-    }
-
-    private static func printTriangleArea(triangle: MyTriangle) {
-        print("삼각형 넓이는 \(triangle.calcurateTriangle())")
-    }
-    
-    private static func printRectArea(rect: MyRect) {
-        print("사각형 넓이는 \(rect.area)")
-    }
-    
-    
 }
