@@ -11,3 +11,8 @@ import Foundation
 protocol DrawableShape {    
     var drawablePoints: [MyPoint] { get }
 }
+
+protocol SimplyDescribable {
+    /// 간단한 설명을 반환합니다.
+    var simpleDescription: String { get }
+}
