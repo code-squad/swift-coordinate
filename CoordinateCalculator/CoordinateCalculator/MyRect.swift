@@ -10,8 +10,8 @@ import Foundation
 
 struct MyRect: DrawableShape, SimplyDescribable {
     
-    var leftTop: MyPoint
-    var rightBottom: MyPoint
+    private (set) var leftTop: MyPoint
+    private (set) var rightBottom: MyPoint
 
     init(origin: MyPoint, size: CGSize) {
         self.leftTop = MyPoint(x: origin.x, y: origin.y)
