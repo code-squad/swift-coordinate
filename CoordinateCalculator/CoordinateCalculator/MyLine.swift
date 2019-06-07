@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine: DrawableShape {
+struct MyLine: DrawableShape, SimplyDescribable {
     
     private (set) var startPoint: MyPoint
     private (set) var endPoint: MyPoint
@@ -20,6 +20,11 @@ struct MyLine: DrawableShape {
     
     func distance() -> Double {
         return sqrt(pow(Double(startPoint.x - endPoint.x), 2) + pow(Double(startPoint.y - endPoint.y), 2))
+    }
+    
+
+    var simpleDescription: String {
+        return "두 점 사이 거리는 \(distance())"
     }
     
 }

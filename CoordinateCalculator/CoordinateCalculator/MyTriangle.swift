@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyTriangle: DrawableShape {
+struct MyTriangle: DrawableShape, SimplyDescribable {
     
     private (set) var lineAB: MyLine
     private (set) var lineBC: MyLine
@@ -34,6 +34,10 @@ struct MyTriangle: DrawableShape {
         let triangleArea = sqrt(s*(s-a)*(s-b)*(s-c))
         
         return triangleArea
+    }
+    
+    var simpleDescription: String {
+        return "삼각형 넓이는 \(calcurateTriangle())"
     }
     
 }
