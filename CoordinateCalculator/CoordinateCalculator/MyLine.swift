@@ -18,13 +18,13 @@ struct MyLine: DrawableShape, SimplyDescribable {
     }
     
     
-    func distance() -> Double {
+    var distance: Double {
         return sqrt(pow(Double(startPoint.x - endPoint.x), 2) + pow(Double(startPoint.y - endPoint.y), 2))
     }
     
 
     var simpleDescription: String {
-        return "두 점 사이 거리는 \(distance())"
+        return "두 점 사이 거리는 \(distance)"
     }
     
 }

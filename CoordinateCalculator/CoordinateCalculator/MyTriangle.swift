@@ -24,11 +24,11 @@ struct MyTriangle: DrawableShape, SimplyDescribable {
         return [lineAB.startPoint, lineBC.startPoint, lineAC.endPoint]
     }
     
-    func calcurateTriangle() -> Double {
+    var area: Double {
         
-        let a = self.lineAB.distance()
-        let b = self.lineBC.distance()
-        let c = self.lineAC.distance()
+        let a = self.lineAB.distance
+        let b = self.lineBC.distance
+        let c = self.lineAC.distance
         
         let s = (a+b+c)/2
         let triangleArea = sqrt(s*(s-a)*(s-b)*(s-c))
@@ -37,7 +37,7 @@ struct MyTriangle: DrawableShape, SimplyDescribable {
     }
     
     var simpleDescription: String {
-        return "삼각형 넓이는 \(calcurateTriangle())"
+        return "삼각형 넓이는 \(area)"
     }
     
 }
