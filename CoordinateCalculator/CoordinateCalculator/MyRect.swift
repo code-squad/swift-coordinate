@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MyRect: DrawableShape {
+struct MyRect: DrawableShape, SimplyDescribable {
+    
     var leftTop: MyPoint
     var rightBottom: MyPoint
 
@@ -24,4 +25,9 @@ struct MyRect: DrawableShape {
     var area: Int {
         return (rightBottom.x - leftTop.x)*(leftTop.y - rightBottom.y)
     }
+    
+    var simpleDescription: String {
+        return "사각형 넓이는 \(area)"
+    }
+
 }
