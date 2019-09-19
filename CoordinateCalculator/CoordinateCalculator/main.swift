@@ -8,5 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
 
+let controller = CoordinateInputController()
+let coordinates = controller.readCoordinates()
+
+let outputView = CoordinateOutputView(coordinates: coordinates)
+outputView.printCoordinates()
