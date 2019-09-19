@@ -8,7 +8,29 @@
 
 import Foundation
 
-print("\(ANSICode.clear)\(ANSICode.home)")
-print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
 
-RunLoop.main.run(until: Date(timeIntervalSinceNow: 15))
+
+
+func main() {
+    
+    guard let stringPoint = InputView.readInput() else {
+        return
+    }
+
+    guard let myPoint = Utility.parsingStringToPoint(string: stringPoint) else {
+        return
+    }
+    
+    OutputView.showPointOnCoordinatePlane(point: myPoint)
+    
+    RunLoop.main.run(until: Date(timeIntervalSinceNow: 5))
+}
+
+main()
+
+
+
+
+
+
+
