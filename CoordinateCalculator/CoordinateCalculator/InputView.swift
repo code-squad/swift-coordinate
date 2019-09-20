@@ -18,6 +18,7 @@ struct InputView {
             }
             
             guard let point = Utility.parsingStringToPoint(string: readPoint) else {
+                print("Error: Invalid range (x < 24,y < 24) or format.")
                 continue
             }
             
