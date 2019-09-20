@@ -8,5 +8,11 @@
 
 import Foundation
 
-print("Hello, World!")
+
+func main() {
+    let coordinate = InputView.readInput()
+   
+}
+
+main()
 
