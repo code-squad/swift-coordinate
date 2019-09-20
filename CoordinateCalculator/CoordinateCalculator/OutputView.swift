@@ -9,10 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static private let xLegend = 2 //원래 3이지만 특수문자의 경우 2가 눈에 맞아보임.
-    static private let yLegend = 25
-    static private let xPosScale = 2
-    static private let descriptionPos = MyPoint(x: 0, y: 29)
+    static private let descriptionPos = MyPoint(xPos: 0, yPos: 29)
     
     //static private let explodingHead = "\u{1F92F}"
     //static private let coffee = "\u{2615}"
@@ -27,11 +24,15 @@ struct OutputView {
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
         
-        print("\(ANSICode.cursor.move(row: yLegend-point.y, col: xLegend+xPosScale*(point.x)))", terminator: "")
+        print("\(ANSICode.cursor.move(row: point.yPosToShow(), col: point.xPosToShow()))", terminator: "")
         
         print("\(ANSICode.text.green)\(positonMark)", terminator: "")
         
-        print("\(ANSICode.cursor.move(row: descriptionPos.y, col: descriptionPos.x))", terminator: "")
-        print("\t\(ANSICode.text.white)(x = \(point.x), y = \(point.y))")
+        print("\(ANSICode.cursor.move(row: descriptionPos.Y, col: descriptionPos.X))", terminator: "")
+        print("\t\(ANSICode.text.white)(x = \(point.X), y = \(point.Y))")
+    }
+    
+    static func printError(message: String) {
+        print(message)
     }
 }
