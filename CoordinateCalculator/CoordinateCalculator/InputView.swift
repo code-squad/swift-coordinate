@@ -9,13 +9,23 @@
 import Foundation
 
 struct InputView {
-    static func readInput() -> String? {
-        print("좌표를 입력하세요.")
-        guard let readPoint = readLine() else {
-            return nil
+    static func readInput() -> MyPoint? {
+        var myPoint : MyPoint!
+        while true {
+            print("좌표를 입력하세요.")
+            guard let readPoint = readLine() else {
+                return nil
+            }
+            
+            guard let point = Utility.parsingStringToPoint(string: readPoint) else {
+                continue
+            }
+            
+            myPoint = point
+            break;
         }
         
-        return readPoint
+        return myPoint
     }
 }
 
@@ -37,6 +47,10 @@ struct Utility {
         }
         
         guard let y = Int(pointStringArray[1]) else {
+            return nil
+        }
+        
+        if x > 24 || y > 24 {
             return nil
         }
         

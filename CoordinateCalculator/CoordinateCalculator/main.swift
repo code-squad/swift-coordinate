@@ -13,11 +13,7 @@ import Foundation
 
 func main() {
     
-    guard let stringPoint = InputView.readInput() else {
-        return
-    }
-
-    guard let myPoint = Utility.parsingStringToPoint(string: stringPoint) else {
+    guard let myPoint = InputView.readInput() else {
         return
     }
     
