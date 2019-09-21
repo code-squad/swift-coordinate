@@ -16,7 +16,14 @@ import Foundation
 
 struct InputView {
     
-    func readInput() {
+    static func readInput() -> Coodinatable {
+        print("좌표를 입력하세요.")
+        var inputSyntex = "(0,0)"
+        let typedSyntex = readLine() ?? ""
+        if InputHandler.canUse(syntex: typedSyntex) {
+            inputSyntex = typedSyntex
+        }
         
+        return InputHandler.parseToPoint(inputSyntex)
     }
 }

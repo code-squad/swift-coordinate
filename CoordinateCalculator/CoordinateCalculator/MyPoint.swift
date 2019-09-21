@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : TestCoordinateCalculator.swift
+ * File Name        : MyPoint.swift
  * Description      : CoordinateCalculator
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -12,20 +12,18 @@
  * PURPOSE.
  ******************************************************************************/
 
-import XCTest
+import Foundation
 
-class TestCoordinateCalculator: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func test_OutputView_withCodinate() {
-        
+struct MyPoint : Coodinatable {
+    private(set) var x = 0
+    private(set) var y = 0
+    
+    init(_ x:Int = 0, _ y:Int = 0) {
+        self.x = x
+        self.y = y
     }
     
 }
+
+
+

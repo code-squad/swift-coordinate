@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : TestCoordinateCalculator.swift
+ * File Name        : Coodinatable.swift
  * Description      : CoordinateCalculator
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -12,20 +12,22 @@
  * PURPOSE.
  ******************************************************************************/
 
-import XCTest
+import Foundation
 
-class TestCoordinateCalculator: XCTestCase {
+protocol Coodinatable {
+    var x: Int { get }
+    var y: Int { get }
+    
+    func convertToCoodinate() -> (x: Int, y: Int)
+    
+}
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func test_OutputView_withCodinate() {
+extension Coodinatable {
+    func convertToCoodinate() -> (x: Int, y: Int) {
+        let convertedX: Int = ANSICode.axis.AxisXBorder + (x*2)
+        let convertedY: Int = (ANSICode.axis.AxisLimit+1 - y)
         
+        return (x: convertedX, y: convertedY)
     }
     
 }
