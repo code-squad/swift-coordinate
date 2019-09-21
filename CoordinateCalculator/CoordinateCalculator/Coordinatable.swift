@@ -13,16 +13,18 @@
  ******************************************************************************/
 
 import Foundation
-
+                   
 protocol Coodinatable {
+    
     var x: Int { get }
     var y: Int { get }
     
     func convertToCoodinate() -> (x: Int, y: Int)
-    
+    func isEqualTo(_ obj:Coodinatable) -> Bool
 }
 
-extension Coodinatable {
+extension Coodinatable where Self: Equatable {
+    
     func convertToCoodinate() -> (x: Int, y: Int) {
         let convertedX: Int = ANSICode.axis.AxisXBorder + (x*2)
         let convertedY: Int = (ANSICode.axis.AxisLimit+1 - y)
@@ -30,4 +32,10 @@ extension Coodinatable {
         return (x: convertedX, y: convertedY)
     }
     
+    func isEqualTo(_ other: Coodinatable) -> Bool {
+        guard let otherX = other as? Self else { return false }
+        return self == otherX
+    }
+    
 }
+
