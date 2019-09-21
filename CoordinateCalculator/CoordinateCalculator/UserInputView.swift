@@ -10,13 +10,17 @@ import Foundation
 
 enum Prompt {
     case read
-    case retry(error: String)
+    case retry(error: LocalizedError)
     case finish
     
     var description: String {
         switch self {
         case .read                  : return "> 좌표를 입력하세요.형식:(10,10)"
-        case .retry(let error)      : return "> \(error). 다시 입력해 주세요."
+        case .retry(let error)      :
+            guard let errorDescription = error.errorDescription else {
+                return "> 다시 입력해 주세요."
+            }
+            return "> \(errorDescription). 다시 입력해 주세요."
         case .finish                : return "> 입력을 끝내시겠습니까? (y/n)"
         }
     }

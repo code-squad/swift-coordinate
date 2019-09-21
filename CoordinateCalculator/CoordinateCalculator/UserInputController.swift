@@ -16,17 +16,20 @@ struct UserInputController {
 
         while coordinates.count < CoordinateConstants.maxUserInput {
             guard isValid(userInput: userInput) else {
-                userInput = UserInputView.read(with: .retry(error: "잘못된 형식입니다:[입력:\(userInput)]"))
+                let error = CoordinateError.wrongInputFormat(message: userInput)
+                userInput = UserInputView.read(with: .retry(error: error))
                 continue
             }
             guard let coordinate = convert(userInput: userInput) else {
-                userInput = UserInputView.read(with: .retry(error: "내부 에러가 발생했습니다."))
+                let error = CoordinateError.internalError
+                userInput = UserInputView.read(with: .retry(error: error))
                 continue
             }
 
             let point = MyPoint(x: coordinate.x, y: coordinate.y)
             guard coordinates.contains(point) == false else {
-                userInput = UserInputView.read(with: .retry(error: "동일한 데이터가 존재합니다."))
+                let error = CoordinateError.alreadyExist
+                userInput = UserInputView.read(with: .retry(error: error))
                 continue
             }
             coordinates.append(point)
