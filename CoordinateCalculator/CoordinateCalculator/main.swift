@@ -8,10 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
-
 struct InputView {
 	static func readInput() -> String {
+		print("좌표를 입력하시오.")
 		guard let rawInput = readLine() else {
 			fatalError()
 		}
@@ -38,7 +37,7 @@ extension String {
 	}
 }
 
-struct MyPoint: Comparable {
+struct MyPoint: Comparable, PointRepresentable {
 	static func < (lhs: MyPoint, rhs: MyPoint) -> Bool {
 		return lhs.x == rhs.x && lhs.y == rhs.y
 	}
@@ -47,10 +46,6 @@ struct MyPoint: Comparable {
 	let y: Int
 	
 	init?(from inputText: String) throws {
-		let pattern = #"^\(\d+\,\d+\)$"#
-		guard inputText.range(of: pattern, options: .regularExpression) != nil else {
-			throw CalculatorError.failedToCreatePoint
-		}
 		let matches = inputText.matches(regex: #"(\d+)"#)
 		guard matches.count == 2 else {
 			throw CalculatorError.failedToCreatePoint
@@ -76,3 +71,30 @@ struct MyPoint: Comparable {
 		self.y = y
 	}
 }
+
+protocol PointRepresentable {
+	var x: Int { get }
+	var y: Int { get }
+}
+
+struct OutputView {
+	static func display(_ point: PointRepresentable) {
+		print("결과 출력")
+		print("\(ANSICode.clear)\(ANSICode.home)")
+		print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+	}
+}
+
+var outPoint: MyPoint! = nil
+
+while true {
+	let input = InputView.readInput()
+	guard let point = try? MyPoint(from: input) else {
+		print("잘못된 입력")
+		continue
+	}
+	outPoint = point
+	break
+}
+
+OutputView.display(outPoint)
