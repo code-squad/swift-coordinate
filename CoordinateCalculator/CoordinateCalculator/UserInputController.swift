@@ -9,13 +9,19 @@
 import Foundation
 
 struct UserInputController {
+    
+    private let validator: UserInputValidatable
+    
+    init(validator: UserInputValidatable = LiteralPointValidator() ) {
+        self.validator = validator
+    }
 
     func readCoordinates() -> [MyPoint] {
         var coordinates: [MyPoint] = []
         var userInput = UserInputView.read(with: .read)
 
         while coordinates.count < CoordinateConstants.maxUserInput {
-            guard isValid(userInput: userInput) else {
+            guard validator.isValid(userInput: userInput) else {
                 let error = CoordinateError.wrongInputFormat(message: userInput)
                 userInput = UserInputView.read(with: .retry(error: error))
                 continue
@@ -39,11 +45,6 @@ struct UserInputController {
             userInput = UserInputView.read(with: .read)
         }
         return coordinates
-    }
-    
-    func isValid(userInput: String) -> Bool {
-        let regex = "\\(([0-1]{0,1}[0-9]|[2][0-4]),\\s{0,1}([0-1]{0,1}[0-9]|[2][0-4])\\)"
-        return userInput.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
     }
     
     func convert(userInput: String) -> (x: Int, y: Int)? {

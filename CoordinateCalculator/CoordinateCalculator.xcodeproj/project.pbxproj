@@ -15,6 +15,7 @@
 		CF648B642333DBFF00592E72 /* CoordinateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B632333DBFF00592E72 /* CoordinateConstants.swift */; };
 		CF648B662333F24E00592E72 /* CoordinateOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B652333F24E00592E72 /* CoordinateOutputView.swift */; };
 		CF7205132336148300F01CC1 /* CoordinateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7205122336148300F01CC1 /* CoordinateError.swift */; };
+		CF7205152336162900F01CC1 /* LiteralPointValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7205142336162900F01CC1 /* LiteralPointValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		CF648B632333DBFF00592E72 /* CoordinateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConstants.swift; sourceTree = "<group>"; };
 		CF648B652333F24E00592E72 /* CoordinateOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateOutputView.swift; sourceTree = "<group>"; };
 		CF7205122336148300F01CC1 /* CoordinateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateError.swift; sourceTree = "<group>"; };
+		CF7205142336162900F01CC1 /* LiteralPointValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralPointValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				CF648B5D2333C28E00592E72 /* UserInputView.swift */,
 				CF648B5F2333C34100592E72 /* UserInputController.swift */,
+				CF7205142336162900F01CC1 /* LiteralPointValidator.swift */,
 				CF648B612333C7BA00592E72 /* MyPoint.swift */,
 				CF648B632333DBFF00592E72 /* CoordinateConstants.swift */,
 				CF648B652333F24E00592E72 /* CoordinateOutputView.swift */,
@@ -146,6 +149,7 @@
 				CF7205132336148300F01CC1 /* CoordinateError.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				CF7205152336162900F01CC1 /* LiteralPointValidator.swift in Sources */,
 				CF648B5E2333C28E00592E72 /* UserInputView.swift in Sources */,
 				CF648B602333C34100592E72 /* UserInputController.swift in Sources */,
 				CF648B642333DBFF00592E72 /* CoordinateConstants.swift in Sources */,
