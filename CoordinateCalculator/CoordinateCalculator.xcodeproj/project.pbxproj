@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F9AD19A23366087005134F5 /* CoordinateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9AD19923366087005134F5 /* CoordinateCalculatorTests.swift */; };
 		6F9AD19F233660CA005134F5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
+		6F9AD1A02336765C005134F5 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -179,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9AD19F233660CA005134F5 /* main.swift in Sources */,
+				6F9AD1A02336765C005134F5 /* ANSICode.swift in Sources */,
 				6F9AD19A23366087005134F5 /* CoordinateCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

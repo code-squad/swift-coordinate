@@ -25,8 +25,17 @@ class CoordinateCalculatorTests: XCTestCase {
 	func test_GivenCreatePoint_WhenInputValidText_ThenValidOne() throws {
 		let validText = "(10,20)"
 		let point = try MyPoint(from: validText)
+		XCTAssertNotNil(point)
 		XCTAssertEqual(point!, MyPoint(x: 10, y: 20))
 	}
+	
+	func test_GivenCreatePoint_WhenInputValidText_ThenValidOne2() throws {
+		let validText = "(15,22)"
+		let point = try MyPoint(from: validText)
+		XCTAssertNotNil(point)
+		XCTAssertEqual(point!, MyPoint(x: 15, y: 22))
+	}
+
 	
 	func test_GivenCreatePoint_WhenInputLarge_ThenThrowError() {
 		let point = try? MyPoint(from: "(99,88)")
