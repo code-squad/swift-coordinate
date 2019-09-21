@@ -18,55 +18,31 @@ struct UserInputController {
         self.inputReader = inputReader
         self.validator = validator
     }
-
-    func readCoordinates() -> [MyPoint] {
-        var coordinates: [MyPoint] = []
-        var userInput = inputReader.read(with: .read)
-
-        while coordinates.count < CoordinateConstants.maxUserInput {
-            guard validator.isValid(userInput: userInput) else {
-                let error = CoordinateError.wrongInputFormat(message: userInput)
-                userInput = inputReader.read(with: .retry(error: error))
-                continue
-            }
-            guard let coordinate = convert(userInput: userInput) else {
-                let error = CoordinateError.internalError
-                userInput = inputReader.read(with: .retry(error: error))
-                continue
-            }
-
-            let point = MyPoint(x: coordinate.x, y: coordinate.y)
-            guard coordinates.contains(point) == false else {
-                let error = CoordinateError.alreadyExist
-                userInput = inputReader.read(with: .retry(error: error))
-                continue
-            }
-            coordinates.append(point)
-            guard inputReader.read(with: .finish).bool == false else {
-                break
-            }
-            userInput = inputReader.read(with: .read)
-        }
-        return coordinates
-    }
     
-    func convert(userInput: String) -> (x: Int, y: Int)? {
-        let userInputs = userInput.trimmingCharacters(in: ["(",")"]).components(separatedBy: ",")
-        guard let x = userInputs.first, let y = userInputs.last,
-            let coordinateX = Int(x), let coordinateY = Int(y) else {
-                return nil
-        }
-        return ((coordinateX + CoordinateConstants.xAxisStartPos) * CoordinateConstants.coordinatesMagnifyingFactor.x,
-                CoordinateConstants.yAxisEndPos - (coordinateY * CoordinateConstants.coordinatesMagnifyingFactor.y))
-    }
-}
+    func readValidString(tries: Int) -> String? {
+        var validInput: String?
+        var prompt: Prompt = .read
 
-extension String {
-    var bool: Bool {
-        switch self.lowercased() {
-        case "y", "yes" : return true
-        case "n", "no" : return false
-        default :       return false
+        for _ in 0..<tries {
+            let userInput = inputReader.read(with: prompt)
+            guard validator.isValid(userInput: userInput) else {
+                let message = "입력형식:(10,10) 입력:\(userInput)]"
+                prompt = .retry(error: CoordinateError.wrongInputFormat(message: message))
+                continue
+            }
+            validInput = userInput
+            break
         }
+        return validInput
+    }
+
+    func readPoint(tries: Int) throws -> MyPoint {
+        guard let userString = readValidString(tries: tries) else {
+            throw CoordinateError.exceedMaxUserInput
+        }
+        guard let point = MyPoint(string: userString) else {
+            throw CoordinateError.internalError
+        }
+        return point
     }
 }
