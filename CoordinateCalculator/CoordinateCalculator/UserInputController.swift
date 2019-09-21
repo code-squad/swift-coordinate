@@ -1,5 +1,5 @@
 //
-//  UserCoordinateReader.swift
+//  UserInputController.swift
 //  CoordinateCalculator
 //
 //  Created by sungchan.you on 2019/09/19.
@@ -8,32 +8,32 @@
 
 import Foundation
 
-struct CoordinateInputController {
+struct UserInputController {
 
     func readCoordinates() -> [MyPoint] {
         var coordinates: [MyPoint] = []
-        var userInput = CoordinateInputView.read(with: .read)
+        var userInput = UserInputView.read(with: .read)
 
         while coordinates.count < CoordinateConstants.maxUserInput {
             guard isValid(userInput: userInput) else {
-                userInput = CoordinateInputView.read(with: .retry(error: "잘못된 형식입니다:[입력:\(userInput)]"))
+                userInput = UserInputView.read(with: .retry(error: "잘못된 형식입니다:[입력:\(userInput)]"))
                 continue
             }
             guard let coordinate = convert(userInput: userInput) else {
-                userInput = CoordinateInputView.read(with: .retry(error: "내부 에러가 발생했습니다."))
+                userInput = UserInputView.read(with: .retry(error: "내부 에러가 발생했습니다."))
                 continue
             }
 
             let point = MyPoint(x: coordinate.x, y: coordinate.y)
             guard coordinates.contains(point) == false else {
-                userInput = CoordinateInputView.read(with: .retry(error: "동일한 데이터가 존재합니다."))
+                userInput = UserInputView.read(with: .retry(error: "동일한 데이터가 존재합니다."))
                 continue
             }
             coordinates.append(point)
-            guard CoordinateInputView.read(with: .finish).bool == false else {
+            guard UserInputView.read(with: .finish).bool == false else {
                 break
             }
-            userInput = CoordinateInputView.read(with: .read)
+            userInput = UserInputView.read(with: .read)
         }
         return coordinates
     }

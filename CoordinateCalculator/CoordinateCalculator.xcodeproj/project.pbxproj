@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
-		CF648B5E2333C28E00592E72 /* CoordinateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B5D2333C28E00592E72 /* CoordinateInputView.swift */; };
-		CF648B602333C34100592E72 /* CoordinateInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B5F2333C34100592E72 /* CoordinateInputController.swift */; };
+		CF648B5E2333C28E00592E72 /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B5D2333C28E00592E72 /* UserInputView.swift */; };
+		CF648B602333C34100592E72 /* UserInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B5F2333C34100592E72 /* UserInputController.swift */; };
 		CF648B622333C7BA00592E72 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B612333C7BA00592E72 /* MyPoint.swift */; };
 		CF648B642333DBFF00592E72 /* CoordinateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B632333DBFF00592E72 /* CoordinateConstants.swift */; };
 		CF648B662333F24E00592E72 /* CoordinateOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF648B652333F24E00592E72 /* CoordinateOutputView.swift */; };
@@ -32,8 +32,8 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
-		CF648B5D2333C28E00592E72 /* CoordinateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateInputView.swift; sourceTree = "<group>"; };
-		CF648B5F2333C34100592E72 /* CoordinateInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateInputController.swift; sourceTree = "<group>"; };
+		CF648B5D2333C28E00592E72 /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
+		CF648B5F2333C34100592E72 /* UserInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputController.swift; sourceTree = "<group>"; };
 		CF648B612333C7BA00592E72 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		CF648B632333DBFF00592E72 /* CoordinateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateConstants.swift; sourceTree = "<group>"; };
 		CF648B652333F24E00592E72 /* CoordinateOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateOutputView.swift; sourceTree = "<group>"; };
@@ -71,8 +71,8 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
-				CF648B5D2333C28E00592E72 /* CoordinateInputView.swift */,
-				CF648B5F2333C34100592E72 /* CoordinateInputController.swift */,
+				CF648B5D2333C28E00592E72 /* UserInputView.swift */,
+				CF648B5F2333C34100592E72 /* UserInputController.swift */,
 				CF648B612333C7BA00592E72 /* MyPoint.swift */,
 				CF648B632333DBFF00592E72 /* CoordinateConstants.swift */,
 				CF648B652333F24E00592E72 /* CoordinateOutputView.swift */,
@@ -142,8 +142,8 @@
 				CF648B622333C7BA00592E72 /* MyPoint.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
-				CF648B5E2333C28E00592E72 /* CoordinateInputView.swift in Sources */,
-				CF648B602333C34100592E72 /* CoordinateInputController.swift in Sources */,
+				CF648B5E2333C28E00592E72 /* UserInputView.swift in Sources */,
+				CF648B602333C34100592E72 /* UserInputController.swift in Sources */,
 				CF648B642333DBFF00592E72 /* CoordinateConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
