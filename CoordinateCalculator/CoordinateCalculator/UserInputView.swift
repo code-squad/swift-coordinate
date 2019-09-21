@@ -26,8 +26,12 @@ enum Prompt {
     }
 }
 
-struct UserInputView {
-    static func read(with prompt: Prompt) -> String {
+protocol UserInputReadable {
+    func read(with prompt: Prompt) -> String
+}
+
+struct UserInputView: UserInputReadable {
+    func read(with prompt: Prompt) -> String {
         print(prompt.description)
         return readLine() ?? ""
     }

@@ -10,39 +10,42 @@ import Foundation
 
 struct UserInputController {
     
+    private let inputReader: UserInputReadable
     private let validator: UserInputValidatable
     
-    init(validator: UserInputValidatable = LiteralPointValidator() ) {
+    init(inputReader: UserInputReadable = UserInputView(),
+         validator: UserInputValidatable = LiteralPointValidator() ) {
+        self.inputReader = inputReader
         self.validator = validator
     }
 
     func readCoordinates() -> [MyPoint] {
         var coordinates: [MyPoint] = []
-        var userInput = UserInputView.read(with: .read)
+        var userInput = inputReader.read(with: .read)
 
         while coordinates.count < CoordinateConstants.maxUserInput {
             guard validator.isValid(userInput: userInput) else {
                 let error = CoordinateError.wrongInputFormat(message: userInput)
-                userInput = UserInputView.read(with: .retry(error: error))
+                userInput = inputReader.read(with: .retry(error: error))
                 continue
             }
             guard let coordinate = convert(userInput: userInput) else {
                 let error = CoordinateError.internalError
-                userInput = UserInputView.read(with: .retry(error: error))
+                userInput = inputReader.read(with: .retry(error: error))
                 continue
             }
 
             let point = MyPoint(x: coordinate.x, y: coordinate.y)
             guard coordinates.contains(point) == false else {
                 let error = CoordinateError.alreadyExist
-                userInput = UserInputView.read(with: .retry(error: error))
+                userInput = inputReader.read(with: .retry(error: error))
                 continue
             }
             coordinates.append(point)
-            guard UserInputView.read(with: .finish).bool == false else {
+            guard inputReader.read(with: .finish).bool == false else {
                 break
             }
-            userInput = UserInputView.read(with: .read)
+            userInput = inputReader.read(with: .read)
         }
         return coordinates
     }
