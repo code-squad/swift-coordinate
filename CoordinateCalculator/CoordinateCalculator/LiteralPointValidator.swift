@@ -13,8 +13,13 @@ protocol UserInputValidatable {
 }
 
 struct LiteralPointValidator: UserInputValidatable {
+    
     func isValid(userInput: String) -> Bool {
-        let regex = "\\(([0-1]{0,1}[0-9]|[2][0-4]),\\s{0,1}([0-1]{0,1}[0-9]|[2][0-4])\\)"
-        return userInput.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+        let regex = "\\(([0-1]{0,1}[0-9]|[2][0-4]),([0-1]{0,1}[0-9]|[2][0-4])\\)"
+        guard let range = userInput.range(of: regex, options: .regularExpression, range: nil, locale: nil),
+                    userInput.range(of: userInput) == range else {
+            return false
+        }
+        return true
     }
 }
