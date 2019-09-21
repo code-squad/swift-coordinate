@@ -9,8 +9,6 @@
 import Foundation
 
 struct CoordinateConstants {
-
-    static let maxUserInput: Int = 24
     
     static let coordinatesMagnifyingFactor: (x: Int, y: Int) = (2, 1)
     

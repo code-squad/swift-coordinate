@@ -9,13 +9,12 @@
 import Foundation
 
 struct CoordinateOutputView {
-    let coordinates: [MyPoint]
     
-    func printCoordinates() {
-        print("\(ANSICode.clear)\(ANSICode.home)")
+    func print(coordinates: [MyPoint]) {
+        Swift.print("\(ANSICode.clear)\(ANSICode.home)")
         coordinates.forEach {
-            print("\(ANSICode.cursor.move(row:$0.y, col: $0.x))*")
+            Swift.print("\(ANSICode.cursor.move(row:$0.coordinate.row, col: $0.coordinate.col))*")
         }
-        print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
+        Swift.print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
     }
 }

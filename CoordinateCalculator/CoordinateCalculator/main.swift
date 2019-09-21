@@ -8,9 +8,14 @@
 
 import Foundation
 
+do {
+    let controller = UserInputController()
+    let outputView = CoordinateOutputView()
+    
+    let point = try controller.readPoint(tries: 3)
+    outputView.print(coordinates: [point])
+}
+catch let e {
+    print(e.localizedDescription)
+}
 
-let controller = UserInputController()
-let coordinates = controller.readCoordinates()
-
-let outputView = CoordinateOutputView(coordinates: coordinates)
-outputView.printCoordinates()
