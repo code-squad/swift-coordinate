@@ -1,5 +1,5 @@
 //
-//  CoordinateInputView.swift
+//  UserInputView.swift
 //  CoordinateCalculator
 //
 //  Created by sungchan.you on 2019/09/19.
@@ -22,7 +22,7 @@ enum Prompt {
     }
 }
 
-struct CoordinateInputView {
+struct UserInputView {
     static func read(with prompt: Prompt) -> String {
         print(prompt.description)
         return readLine() ?? ""

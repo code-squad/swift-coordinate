@@ -9,7 +9,7 @@
 import Foundation
 
 
-let controller = CoordinateInputController()
+let controller = UserInputController()
 let coordinates = controller.readCoordinates()
 
 let outputView = CoordinateOutputView(coordinates: coordinates)
