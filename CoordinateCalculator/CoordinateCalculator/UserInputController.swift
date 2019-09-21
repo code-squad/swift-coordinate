@@ -41,6 +41,7 @@ struct UserInputController {
             throw CoordinateError.exceedMaxUserInput
         }
         guard let point = MyPoint(string: userString) else {
+            // Error casued by system. Not testable
             throw CoordinateError.internalError
         }
         return point
