@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
+typealias Point = (x: Int, y: Int)
 
+var point = InputView.readPoint()
+let outputView = OutputView(point: point)
+outputView.drawAll()
