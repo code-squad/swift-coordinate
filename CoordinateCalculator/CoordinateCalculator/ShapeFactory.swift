@@ -30,7 +30,7 @@ struct ShapeFactory {
             let pointB = MyPoint(x: points[1].x, y: points[1].y)
             shape = MyLine(x: pointA, y: pointB)
         default:
-            // Make polygon
+            // Will test Later ater implementing step-3 requrement
             shape = MyPoint(x: points[0].x, y: points[0].y)
         }
         return shape
