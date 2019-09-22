@@ -12,18 +12,34 @@ import Foundation
 
 
 func main() {
-    var myPoint : MyPoint!
+    var shapeByPoints : ShapeByPoints!
     
     while true {
         do {
             let pointString = InputView.readPoint()
-            let xyPosTuple = try Utility.parsingStringToXY(pointInBracket: pointString)
-            guard  MyPoint.isInValidRange(pos: xyPosTuple.xPos)
-                && MyPoint.isInValidRange(pos: xyPosTuple.yPos) else {
-                   throw PointValueError.invalidRange
+            let xyPosTupleArray = try Utility.parsingPointsString(with: pointString)
+            
+            for xyPosTuple in xyPosTupleArray {
+                guard  MyPoint.isInValidRange(xyPosTuple: xyPosTuple) else {
+                       throw PointValueError.invalidRange
+                }
             }
             
-            myPoint = MyPoint(xPos: xyPosTuple.xPos, yPos: xyPosTuple.yPos)
+            
+            
+            {
+                if xyPosTupleArray.count == 1 {
+                    let point = MyPoint(x: xyPosTupleArray[0].xPos, y: xyPosTupleArray[0].yPos)
+                    shapeByPoints = point as ShapeByPoints
+                }
+                else if xyPosTupleArray.count == 2 {
+                    
+                    let line = MyLine(pointA: MyPoint(x: xyPosTupleArray[0].xPos, y: xyPosTupleArray[0].yPos), pointB: MyPoint(x: xyPosTupleArray[1].xPos, y: xyPosTupleArray[1].yPos))
+                    
+                    shapeByPoints = line as ShapeByPoints
+                }               
+            }
+            
             break;
         }
         catch PointValueError.invalidRange {
@@ -40,7 +56,7 @@ func main() {
         }
     }
     
-    OutputView.showPointOnCoordinatePlane(point: myPoint)
+    OutputView.showPointOnCoordinatePlane(shapeByPoints: shapeByPoints)
     
     //RunLoop.main.run(until: Date(timeIntervalSinceNow: 5))
 }
