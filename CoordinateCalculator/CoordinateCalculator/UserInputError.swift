@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum UserInputError: LocalizedError {
+enum UserInputError: LocalizedError, Equatable {
     
     case wrongInputFormat(message: String)
     case internalError

@@ -18,27 +18,28 @@ class ShapeFactoryTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    lazy var factory: ShapeFactory = {
-        let reader = MockUserInputView()
-        return ShapeFactory(inputReader: reader)
+    lazy var provider: VertexProvidable = {
+        let reader = MockUserInputReader()
+        let parser = StringPointParser()
+        return VertexProvider(reader: reader, parser: parser)
     }()
     
     func configureTest(with strings: [String]) {
-        MockUserInputView.pos = 0
-        MockUserInputView.inputs = strings
+        MockUserInputReader.pos = 0
+        MockUserInputReader.inputs = strings
     }
     
-    func testShapeFactory_readShape_no_input_should_return_nil() {
+    func testShapeFactory_createShape_should_return_nil() {
         let strings =  [""]
         configureTest(with: strings)
-        let point = try? factory.readShape(tries: strings.count)
+        let point = try? ShapeFactory.createShape(verticeProvider: provider)
         XCTAssertNil(point)
     }
     
-    func testShapeFactory_readShape_should_return_mypoint() {
+    func testShapeFactory_createShape_should_return_mypoint() {
         let strings =  ["(9,0)"]
         configureTest(with: strings)
-        let shape = try? factory.readShape(tries: strings.count)
+        let shape = try? ShapeFactory.createShape(verticeProvider: provider)
         guard let point = shape as? MyPoint else {
             XCTFail()
             return
@@ -46,10 +47,23 @@ class ShapeFactoryTests: XCTestCase {
         XCTAssertTrue(point.x==9 && point.y==0)
     }
     
-    func testShapeFactory_readShape_should_return_mypoint_with_secondString() {
+    func testShapeFactory_createShape_should_return_myline() {
+        let strings =  ["(9,0)-(20,20)"]
+        configureTest(with: strings)
+        let shape = try? ShapeFactory.createShape(verticeProvider: provider)
+        guard let line = shape as? MyLine else {
+            XCTFail()
+            return
+        }
+        XCTAssertTrue(line.pointA.x == 9 && line.pointA.y == 0)
+        XCTAssertTrue(line.pointB.x == 20 && line.pointB.y == 20)
+    }
+
+    
+    func testShapeFactory_createShape_should_return_mypoint_with_secondString() {
         let strings =  ["(-9,0)", "(10,10)"]
         configureTest(with: strings)
-        let shape = try? factory.readShape(tries: strings.count)
+        let shape = try? ShapeFactory.createShape(verticeProvider: provider)
         guard let point = shape as? MyPoint else {
             XCTFail()
             return
@@ -57,18 +71,18 @@ class ShapeFactoryTests: XCTestCase {
         XCTAssertTrue(point.x==10 && point.y==10)
     }
     
-    func testShapeFactory_readShape_should_return_nil() {
+    func testShapeFactory_createShape_outofrange_should_return_nil() {
         let strings =  ["(-9,10)"]
         configureTest(with: strings)
-        let point = try? factory.readShape(tries: strings.count)
+        let point = try? ShapeFactory.createShape(verticeProvider: provider)
         XCTAssertNil(point)
     }
     
-    func testShapeFactory_readShape_should_throw_error() {
+    func testShapeFactory_createShape_should_throw_error() {
         let strings =  ["(-9,0)"]
         configureTest(with: strings)
         do {
-            _ = try factory.readShape(tries: strings.count)
+            _ = try ShapeFactory.createShape(verticeProvider: provider)
             XCTFail()
         }
         catch let e {
@@ -78,34 +92,6 @@ class ShapeFactoryTests: XCTestCase {
             }
             XCTAssertTrue( error.errorDescription == UserInputError.exceedMaxUserInput.errorDescription)
         }
-    }
-    
-    func testShapeFactory_readValidString_should_return_first_string() {
-        let strings =  ["(1,0)", "(-14,10)", "(-11,11)"]
-        configureTest(with: strings)
-        let string = factory.readValidString(tries: strings.count)
-        XCTAssertTrue(string == "(1,0)")
-    }
-    
-    func testShapeFactory_readValidString_should_return_second_string() {
-        let strings =  ["(-1,0)", "(14,10)", "(-11,11)"]
-        configureTest(with: strings)
-        let string = factory.readValidString(tries: strings.count)
-        XCTAssertTrue(string == "(14,10)")
-    }
-
-    func testShapeFactory_readValidString_should_return_last_string() {
-        let strings = ["(-1,0)", "(-24,10)", "(11,11)"]
-        configureTest(with: strings)
-        let string = factory.readValidString(tries: strings.count)
-        XCTAssertTrue(string == "(11,11)")
-    }
-    
-    func testShapeFactory_readValidString_should_return_nil() {
-        let strings = ["(-1,0)", "(-24,10)", "(11,-11)"]
-        configureTest(with: strings)
-        let string = factory.readValidString(tries: strings.count)
-        XCTAssertNil(string)
     }
 
     func testPerformanceExample() {

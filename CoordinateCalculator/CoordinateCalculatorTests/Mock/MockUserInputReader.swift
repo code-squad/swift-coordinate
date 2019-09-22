@@ -8,13 +8,16 @@
 
 import Foundation
 
-struct MockUserInputView: UserInputReadable {
+struct MockUserInputReader: UserInputReadable {
     static var inputs = [""]
     static var pos = 0
     
     func read(with prompt: Prompt) -> String {
-        let result = MockUserInputView.inputs[MockUserInputView.pos]
-        MockUserInputView.pos += 1
-        return result
+        if MockUserInputReader.pos < MockUserInputReader.inputs.count {
+            let result = MockUserInputReader.inputs[MockUserInputReader.pos]
+            MockUserInputReader.pos += 1
+            return result
+        }
+        return ""
     }
 }

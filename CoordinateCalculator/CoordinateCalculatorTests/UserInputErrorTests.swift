@@ -26,7 +26,7 @@ class UserInputErrorTests: XCTestCase {
     }
     
     func testUserInputError_should_return_errorMessage() {
-        let errors: [UserInputError] = [.internalError, .alreadyExist, .exceedMaxUserInput]
+        let errors: [UserInputError] = [.internalError, .alreadyExist, .exceedMaxUserInput, .inputParsingError]
         errors.forEach {
             XCTAssertNotNil($0.errorDescription)
         }

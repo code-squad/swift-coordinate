@@ -18,26 +18,39 @@ class MyPointTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testMyPoint_can_init_with_string() {
-        let strings = ["(0,0)", "-19,-22", "(10,10)", "-11,22"]
-        strings.forEach {
-            let point = MyPoint(string: $0)
-            XCTAssertNotNil(point)
+    var points: [MyPoint] = {
+        return [MyPoint(x: 1, y: 1),
+                MyPoint(x: 4, y: 8),
+                MyPoint(x: 20, y: 10),
+                MyPoint(x: 10, y: 20)]
+    }()
+    
+    func testMyPoint_return_valid_coordinate() {
+        let point = MyPoint(x: 10, y: 10)
+        XCTAssertTrue(point.coordinate.row == 15 && point.coordinate.col == 22)
+    }
+    
+    func testMyPoint_have_one_vertex() {
+        points.forEach {
+            XCTAssertTrue($0.vertices.count == 1)
         }
     }
     
-    func testMyPoint_should_return_nil_with_invalid_string() {
-        let strings = ["(00)", "apgro", "(10$$$0)", "한글", "", "-12,,22"]
-        strings.forEach {
-            let point = MyPoint(string: $0)
-            XCTAssertNil(point)
+    func testMyPoint_have_valid_vertex() {
+        let point = MyPoint(x: 10, y:10)
+        guard let coordinate = point.vertices.first?.coordinate else {
+            XCTFail()
+            return
         }
+        XCTAssertTrue(coordinate == point.coordinate)
     }
     
-    func testMyPoint_should_return_coordinate() {
-        let point = MyPoint(string: "(10,10)")
-        let coordinate = point?.coordinate
-        XCTAssertTrue(coordinate?.row == 15 && coordinate?.col == 22)
+    func testMyPoint_have_no_description() {
+        let point = MyPoint(x: 10, y:10)
+        guard point.description == nil else {
+            XCTFail()
+            return
+        }
     }
     
     func testPerformanceExample() {
