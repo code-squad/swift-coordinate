@@ -79,22 +79,37 @@ protocol PointRepresentable {
 
 struct OutputView {
 	static func display(_ point: PointRepresentable) {
-		print("결과 출력")
 		print("\(ANSICode.clear)\(ANSICode.home)")
-		print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+		print(ANSICode.makePoint(geometry: point, symbol: "😈"))
+		print(ANSICode.makePoint(geometry: MyPoint(x: 23, y: 4), symbol: "😈"))
+		print("\(ANSICode.text.white)\(ANSICode.axis.draw())")
 	}
 }
 
-var outPoint: MyPoint! = nil
-
-while true {
-	let input = InputView.readInput()
-	guard let point = try? MyPoint(from: input) else {
-		print("잘못된 입력")
-		continue
+extension ANSICode {
+	static func makePoint(geometry: PointRepresentable, symbol: String) -> String {
+		var point = ANSICode.cursor.move(row:geometry.x, col: geometry.y)
+		point += symbol
+		return point
 	}
-	outPoint = point
-	break
 }
+
+var outPoint = MyPoint(x: 10, y: 20)
+
+//while true {
+//	let input = InputView.readInput()
+//	guard let point = try? MyPoint(from: input) else {
+//		print("잘못된 입력")
+//		continue
+//	}
+//	outPoint = point
+//	break
+//}
 
 OutputView.display(outPoint)
+
+//struct Calculator {
+//	static func transform(_ point: PointRepresentable) -> PointRepresentable {
+//
+//	}
+//}
