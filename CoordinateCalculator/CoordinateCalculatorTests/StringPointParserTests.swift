@@ -8,7 +8,7 @@
 
 import XCTest
 
-class LiteralPointValidatorTests: XCTestCase {
+class StringPointParserTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,7 +18,7 @@ class LiteralPointValidatorTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testLiteralPointValidater_valid_string_return_true() {
+    func testStringPointParser_valid_string_return_true() {
         let validator = LiteralPointValidator()
         let strings = ["(0,0)", "(0,24)", "(24,24)", "(10,10)", "(24,0)"]
         strings.forEach {
@@ -26,7 +26,7 @@ class LiteralPointValidatorTests: XCTestCase {
         }
     }
     
-    func testLiteralPointValidater_string_exceeding_boundary_return_false() {
+    func testStringPointParser_string_exceeding_boundary_return_false() {
         let validator = LiteralPointValidator()
         let strings = ["(-1,24)", "(0,25)", "(25,0)", "(24,-1)"]
         strings.forEach {
@@ -34,7 +34,7 @@ class LiteralPointValidatorTests: XCTestCase {
         }
     }
     
-    func testLiteralPointValidater_string_invalid_format_return_false() {
+    func testStringPointParser_string_invalid_format_return_false() {
         let validator = LiteralPointValidator()
         let strings = ["(0,  0)", "(024)", "(24-24)", "(10??10)", "(24,,0)", "(20,20)(10,10)"]
         strings.forEach {
