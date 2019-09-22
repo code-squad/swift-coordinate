@@ -1,6 +1,6 @@
 //
-//  CoordinateCalculatorTests.swift
-//  CoordinateCalculatorTests
+//  MyPointTests.swift
+//  MyPointTests
 //
 //  Created by hoemoon on 2019/09/21.
 //  Copyright © 2019 Codesquad Inc. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CoordinateCalculator
 
-class CoordinateCalculatorTests: XCTestCase {
+class MyPointTests: XCTestCase {
 	func test_GivenCreatePoint_WhenInputInvalidText_ThenThrowError() {
 		let invalidText = "xxxx"
 		let point = try? MyPoint(from: invalidText)
@@ -46,5 +46,4 @@ class CoordinateCalculatorTests: XCTestCase {
 		let point = try? MyPoint(from: "(-99,-88)")
 		XCTAssertNil(point)
 	}
-
 }
