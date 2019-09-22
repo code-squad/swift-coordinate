@@ -1,5 +1,5 @@
 //
-//  CoordinateErrorTests.swift
+//  UserInputErrorTests.swift
 //  CoordinateCalculatorTests
 //
 //  Created by sungchan.you on 2019/09/21.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CoordinateErrorTests: XCTestCase {
+class UserInputErrorTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,15 +18,15 @@ class CoordinateErrorTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testCoordinateError_wrong_format_should_contain_user_message() {
+    func testUserInputError_wrong_format_should_contain_user_message() {
         let errorString = "Wrong Format"
-        let error = CoordinateError.wrongInputFormat(message: errorString)
+        let error = UserInputError.wrongInputFormat(message: errorString)
         XCTAssertNotNil(error.errorDescription)
         XCTAssertTrue(error.errorDescription!.contains(errorString))
     }
     
-    func testCoordinateError_should_return_errorMessage() {
-        let errors: [CoordinateError] = [.internalError, .alreadyExist, .exceedMaxUserInput]
+    func testUserInputError_should_return_errorMessage() {
+        let errors: [UserInputError] = [.internalError, .alreadyExist, .exceedMaxUserInput]
         errors.forEach {
             XCTAssertNotNil($0.errorDescription)
         }

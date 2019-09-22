@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CoordinateConvertable {
+protocol CoordinatePresentable {
     var coordinate: (row: Int, col: Int) { get }
 }

@@ -9,11 +9,13 @@
 import Foundation
 
 do {
-    let controller = UserInputController()
-    let outputView = CoordinateOutputView()
+    let parser = StringPointParser()
+    let reader = UserInputReader()
+    let verticeProvider = VertexProvider(reader: reader, parser: parser)
+    let shape = try ShapeFactory.createShape(verticeProvider: verticeProvider)
     
-    let point = try controller.readPoint(tries: 3)
-    outputView.print(coordinates: [point])
+    let outputView = CoordinateOutputView()
+    outputView.print(shape: shape)
 }
 catch let e {
     print(e.localizedDescription)

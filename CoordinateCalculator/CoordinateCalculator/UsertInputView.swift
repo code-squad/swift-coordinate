@@ -1,8 +1,8 @@
 //
-//  UserInputView.swift
+//  UsertInputView.swift
 //  CoordinateCalculator
 //
-//  Created by sungchan.you on 2019/09/19.
+//  Created by sungchan.you on 2019/09/22.
 //  Copyright © 2019 Codesquad Inc. All rights reserved.
 //
 
@@ -30,7 +30,7 @@ protocol UserInputReadable {
     func read(with prompt: Prompt) -> String
 }
 
-struct UserInputView: UserInputReadable {
+struct UserInputReader: UserInputReadable {
     func read(with prompt: Prompt) -> String {
         print(prompt.description)
         return readLine() ?? ""
