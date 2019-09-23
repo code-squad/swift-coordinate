@@ -68,9 +68,19 @@ struct MakeShape {
             
             shapeByPoints = rect as Shapable
         }
+        else { // n
+            let sortedPoints = Utility.getClockWisePolygonPoints(orgPoints: points)
             
-        else {
-            throw PointValueError.invalidFormat
+            var myPoints : [MyPoint] = []
+            
+            for point in sortedPoints {
+                myPoints.append(MyPoint(point: point))
+            }
+            
+            let myPoly = MyPoly(myPoints: myPoints)
+            
+            shapeByPoints = myPoly as Shapable
+        
         }
         
         return shapeByPoints
