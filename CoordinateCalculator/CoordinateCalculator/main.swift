@@ -10,7 +10,13 @@ import Foundation
 
 
 func main() {
-    let point = InputView.readInput()
+    let verifier = InputVerifier()
+    let inputView = InputView(verifier: verifier)
+    
+    guard let point = inputView.readInput() else {
+        print("wrong input")
+        return
+    }
 
     OutputView.drawAxis()
     OutputView.draw(with: point)
