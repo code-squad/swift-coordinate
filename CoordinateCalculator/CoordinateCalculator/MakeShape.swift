@@ -12,7 +12,7 @@ struct MakeShape {
     static func makeShapeByPoints(points: Array<Point>) throws -> Shapable {
         for point in points {
             guard  MyPoint.isValidInRange(point: point) else {
-                throw PointValueError.invalidRange
+                throw PointValueError.invalidRange(point: point)
             }
         }
         
@@ -28,7 +28,7 @@ struct MakeShape {
                 pointA: MyPoint(point: points[0]),
                 pointB: MyPoint(point: points[1])) else {
                     
-                    throw PointValueError.samePoints
+                    throw PointValueError.samePointsExist
             }
             
             shapeByPoints = line as Shapable
@@ -39,7 +39,7 @@ struct MakeShape {
                 pointB: MyPoint(point: points[1]),
                 pointC: MyPoint(point: points[2])) else {
                     
-                throw PointValueError.samePoints
+                throw PointValueError.samePointsExist
             }
             
             shapeByPoints = triangle as Shapable
@@ -60,7 +60,7 @@ struct MakeShape {
             let rightBottom = points.filter {$0.xPos != minXpos && $0.yPos != maxYpos}
             
             guard leftTop.count == 1 && rightBottom.count == 1 else {
-                throw PointValueError.samePoints
+                throw PointValueError.samePointsExist
             }
             
             let rect = MyRect(leftTop: MyPoint(point: leftTop[0]), rightBottom: MyPoint(point: rightBottom[0]))

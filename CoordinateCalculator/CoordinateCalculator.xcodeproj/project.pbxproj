@@ -34,6 +34,8 @@
 		5DFF069123390EBE00CF80E1 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF069023390EBE00CF80E1 /* MyRect.swift */; };
 		5DFF069323394CC700CF80E1 /* MyRectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF069223394CC700CF80E1 /* MyRectTest.swift */; };
 		5DFF069423394D7800CF80E1 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF069023390EBE00CF80E1 /* MyRect.swift */; };
+		5DFF06962339503A00CF80E1 /* MyPoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF06952339503A00CF80E1 /* MyPoly.swift */; };
+		5DFF06982339505000CF80E1 /* MyPolyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF06972339505000CF80E1 /* MyPolyTest.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,8 @@
 		5DFF068D2338F78500CF80E1 /* MyTriangleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangleTest.swift; sourceTree = "<group>"; };
 		5DFF069023390EBE00CF80E1 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		5DFF069223394CC700CF80E1 /* MyRectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRectTest.swift; sourceTree = "<group>"; };
+		5DFF06952339503A00CF80E1 /* MyPoly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoly.swift; sourceTree = "<group>"; };
+		5DFF06972339505000CF80E1 /* MyPolyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolyTest.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			children = (
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
+				5DFF06952339503A00CF80E1 /* MyPoly.swift */,
+				5DFF06972339505000CF80E1 /* MyPolyTest.swift */,
 				5DD70CC82333F09500798630 /* MyPoint.swift */,
 				5DD70CCA2333F0A100798630 /* InputView.swift */,
 				5DD70CCC2333F0AD00798630 /* OutputView.swift */,
@@ -242,6 +248,7 @@
 				5DFF06892338737600CF80E1 /* MakeShape.swift in Sources */,
 				5DD70CD02334CBCB00798630 /* ANSICode.swift in Sources */,
 				5DD70CD12334CBCB00798630 /* main.swift in Sources */,
+				5DFF06982339505000CF80E1 /* MyPolyTest.swift in Sources */,
 				5DD70CD22334CBCB00798630 /* MyPoint.swift in Sources */,
 				5DD70CD32334CBCB00798630 /* InputView.swift in Sources */,
 				5DD70CD92334D0AB00798630 /* UtilityTest.swift in Sources */,
@@ -263,6 +270,7 @@
 				5DFF06822338709F00CF80E1 /* MakeShape.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				5DD70CCF2334C98200798630 /* Utility.swift in Sources */,
+				5DFF06962339503A00CF80E1 /* MyPoly.swift in Sources */,
 				5DD70CCB2333F0A100798630 /* InputView.swift in Sources */,
 				5DFF068C2338F77300CF80E1 /* MyTriangle.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
