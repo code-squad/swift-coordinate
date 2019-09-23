@@ -9,12 +9,15 @@
 import Foundation
 
 struct InputView {
-	static func readInput() -> String {
+	static func readPointInput() -> String {
 		print("좌표를 입력하시오.")
 		guard let rawInput = readLine() else {
 			fatalError()
 		}
 		return rawInput
+	}
+	static func readLineInput() -> String {
+		return readPointInput()
 	}
 }
 

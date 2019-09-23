@@ -29,3 +29,9 @@ extension MyPoint: Comparable {
 	}
 
 }
+
+extension MyPoint {
+	static var empty: MyPoint {
+		return MyPoint(x: 0, y: 0)
+	}
+}
