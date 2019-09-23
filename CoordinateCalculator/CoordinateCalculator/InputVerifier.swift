@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : InputHandler.swift
+ * File Name        : InputVerifier.swift
  * Description      : RacingCar
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,7 +14,7 @@
 
 import Foundation
 
-struct InputHandler {
+struct InputVerifier {
     
     static func canUse(syntex input: String) -> Bool {
            return (input.count > 1)
