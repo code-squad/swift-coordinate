@@ -31,6 +31,9 @@
 		5DFF068C2338F77300CF80E1 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF068B2338F77300CF80E1 /* MyTriangle.swift */; };
 		5DFF068E2338F78500CF80E1 /* MyTriangleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF068D2338F78500CF80E1 /* MyTriangleTest.swift */; };
 		5DFF068F2339084C00CF80E1 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF068B2338F77300CF80E1 /* MyTriangle.swift */; };
+		5DFF069123390EBE00CF80E1 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF069023390EBE00CF80E1 /* MyRect.swift */; };
+		5DFF069323394CC700CF80E1 /* MyRectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF069223394CC700CF80E1 /* MyRectTest.swift */; };
+		5DFF069423394D7800CF80E1 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF069023390EBE00CF80E1 /* MyRect.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,8 @@
 		5DFF06852338711B00CF80E1 /* MakeShapeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeShapeTest.swift; sourceTree = "<group>"; };
 		5DFF068B2338F77300CF80E1 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		5DFF068D2338F78500CF80E1 /* MyTriangleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangleTest.swift; sourceTree = "<group>"; };
+		5DFF069023390EBE00CF80E1 /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
+		5DFF069223394CC700CF80E1 /* MyRectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRectTest.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 				5DFF0683233870FB00CF80E1 /* MyLineTest.swift */,
 				5DFF06852338711B00CF80E1 /* MakeShapeTest.swift */,
 				5DFF068D2338F78500CF80E1 /* MyTriangleTest.swift */,
+				5DFF069223394CC700CF80E1 /* MyRectTest.swift */,
 			);
 			path = CoordinateCalculatorTest;
 			sourceTree = "<group>";
@@ -132,6 +138,7 @@
 				5DD70CDC2338056A00798630 /* Shapable.swift */,
 				5DFF06812338709F00CF80E1 /* MakeShape.swift */,
 				5DFF068B2338F77300CF80E1 /* MyTriangle.swift */,
+				5DFF069023390EBE00CF80E1 /* MyRect.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DFF069423394D7800CF80E1 /* MyRect.swift in Sources */,
 				5DFF068F2339084C00CF80E1 /* MyTriangle.swift in Sources */,
 				5DFF068A2338737C00CF80E1 /* MakeShapeTest.swift in Sources */,
 				5DFF06872338737600CF80E1 /* MyLine.swift in Sources */,
@@ -241,6 +249,7 @@
 				5DD70CD72334D09300798630 /* MyPointTest.swift in Sources */,
 				5DD70CD42334CBCB00798630 /* OutputView.swift in Sources */,
 				5DD70CD52334CBCB00798630 /* Utility.swift in Sources */,
+				5DFF069323394CC700CF80E1 /* MyRectTest.swift in Sources */,
 				5DD70CC32333DF8100798630 /* CoordinateCalculatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD70CCD2333F0AD00798630 /* OutputView.swift in Sources */,
+				5DFF069123390EBE00CF80E1 /* MyRect.swift in Sources */,
 				5DFF06822338709F00CF80E1 /* MakeShape.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				5DD70CCF2334C98200798630 /* Utility.swift in Sources */,

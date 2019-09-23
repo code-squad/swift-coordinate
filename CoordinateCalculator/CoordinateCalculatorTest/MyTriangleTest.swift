@@ -19,8 +19,7 @@ class MyTriangleTest: XCTestCase {
     }
 
     func test_MyTriangle_init() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
         let triangle = MyTriangle(
             pointA: MyPoint(point: (23,4)),
             pointB: MyPoint(point: (4,5)),
@@ -31,8 +30,7 @@ class MyTriangleTest: XCTestCase {
     }
     
     func test_MyTriangle_init_nill_same_points() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
         let triangle = MyTriangle(
             pointA: MyPoint(point: (23,4)),
             pointB: MyPoint(point: (23,4)),
@@ -43,8 +41,7 @@ class MyTriangleTest: XCTestCase {
     }
     
     func test_MyTriangle_pointToShow() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
         let triangle = MyTriangle(
             pointA: MyPoint(point: (23,6)),
             pointB: MyPoint(point: (24,4)),
@@ -55,8 +52,6 @@ class MyTriangleTest: XCTestCase {
             XCTFail()
             return
         }
-        
-        print(points)
         
         XCTAssertTrue(points[0] == (48, 19))
         XCTAssertTrue(points[1] == (50, 21))

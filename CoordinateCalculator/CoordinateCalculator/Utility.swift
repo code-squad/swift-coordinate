@@ -13,6 +13,7 @@ enum PointValueError : Error {
     case invalidRange
     case invalidFormat
     case samePoints
+    case cantBeRectangle
     
     
 }

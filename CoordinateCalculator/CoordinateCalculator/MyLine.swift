@@ -10,8 +10,8 @@ import Foundation
 
 struct MyLine {
     
-    var pointA = MyPoint(x: 0, y: 0)
-    var pointB = MyPoint(x: 0, y: 0)
+    private var pointA = MyPoint(x: 0, y: 0)
+    private var pointB = MyPoint(x: 0, y: 0)
     
     init?(pointA: MyPoint, pointB: MyPoint) {
         guard pointA != pointB else {
@@ -22,8 +22,30 @@ struct MyLine {
         self.pointB = pointB
     }
     
+    init?(pointA: Point, pointB: Point) {
+        self.init(pointA: MyPoint(point: pointA), pointB: MyPoint(point: pointB))
+    }
+    
     func distance() -> Double {
         return sqrt( pow(Double(pointA.X - pointB.X), 2.0) + pow(Double(pointA.Y - pointB.Y), 2.0) )
+    }
+    
+    func isStraight() -> Bool {
+        if (pointA.X == pointB.X) || (pointA.Y == pointB.Y) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func isDiagonal() -> Bool {
+        if (pointA.X != pointB.X) && (pointA.Y != pointB.Y) {
+            return true
+        }
+        else {
+            return false
+        }
     }
     
 }
