@@ -17,6 +17,10 @@ struct MyPoint {
         self.y = y
     }
     
+    init(point: Point) {
+        self.init(x: point.xPos, y: point.yPos)
+    }
+    
     var X : Int {
         get {
             return self.x
@@ -40,7 +44,10 @@ struct MyPoint {
     func yPosToShow() -> Int {
         return yLegend - self.y
     }
-    
+}
+
+//static methods
+extension MyPoint {
     static private let MaxPosValue = 24
     
     static func isValidInRange(pos: Int) -> Bool {
