@@ -99,6 +99,7 @@
 		5DD70CC12333DF8100798630 /* CoordinateCalculatorTest */ = {
 			isa = PBXGroup;
 			children = (
+				5DFF06972339505000CF80E1 /* MyPolyTest.swift */,
 				5DD70CC22333DF8100798630 /* CoordinateCalculatorTest.swift */,
 				5DD70CD82334D0AB00798630 /* UtilityTest.swift */,
 				5DD70CD62334D09300798630 /* MyPointTest.swift */,
@@ -135,7 +136,6 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				5DFF06952339503A00CF80E1 /* MyPoly.swift */,
-				5DFF06972339505000CF80E1 /* MyPolyTest.swift */,
 				5DD70CC82333F09500798630 /* MyPoint.swift */,
 				5DD70CCA2333F0A100798630 /* InputView.swift */,
 				5DD70CCC2333F0AD00798630 /* OutputView.swift */,
