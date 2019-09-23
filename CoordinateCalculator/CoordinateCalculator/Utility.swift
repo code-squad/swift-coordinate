@@ -10,11 +10,21 @@ import Foundation
 
 
 enum PointValueError : Error {
-    case invalidRange
+    case invalidRange(point: Point)
     case invalidFormat
-    case samePoints
+    case samePointsExist
     case cantBeRectangle
+    case cantBeConvexPolygon
     
+    func message() -> String {
+        switch self {
+        case .invalidRange(let point): return "Invalid range \(point)"
+        case .invalidFormat: return "Invalid format"
+        case .samePointsExist: return "Duplicated point."
+        case .cantBeRectangle: return "These points can't be rectange"
+        case .cantBeConvexPolygon: return "These points can't be convex polygon"            
+        }
+    }
     
 }
 

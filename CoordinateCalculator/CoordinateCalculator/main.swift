@@ -20,20 +20,28 @@ func main() {
             
             break;
         }
-        catch PointValueError.invalidRange {
-            OutputView.printError(message: "Invalid range")
+        catch PointValueError.invalidRange(let point){
+            OutputView.printError(pointError: PointValueError.invalidRange(point: point))
             continue
         }
         catch PointValueError.invalidFormat {
-            OutputView.printError(message: "Invalid format")
+            OutputView.printError(pointError: PointValueError.invalidFormat)
             continue
         }
-        catch PointValueError.samePoints {
-            OutputView.printError(message: "Same points exist.")
+        catch PointValueError.samePointsExist {
+            OutputView.printError(pointError: PointValueError.samePointsExist)
+            continue
+        }
+        catch PointValueError.cantBeRectangle {
+            OutputView.printError(pointError: PointValueError.cantBeRectangle)
+            continue
+        }
+        catch PointValueError.cantBeConvexPolygon {
+            OutputView.printError(pointError: PointValueError.cantBeConvexPolygon)
             continue
         }
         catch {
-            OutputView.printError(message: "Unexpected error")
+            OutputView.printError(pointError: PointValueError.invalidFormat)
             continue
         }
     }

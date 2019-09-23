@@ -36,7 +36,7 @@ struct OutputView {
         print("\(ANSICode.text.white)\(shapeByPoints.shapeDependentResult())")
     }
     
-    static func printError(message: String) {
-        print(message)
+    static func printError(pointError: PointValueError) {
+        print(pointError.message())
     }
 }
