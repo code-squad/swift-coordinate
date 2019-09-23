@@ -13,37 +13,19 @@ protocol PointRepresentable {
 	var y: Int { get }
 }
 
-struct MyPoint: Comparable, PointRepresentable {
-	static func < (lhs: MyPoint, rhs: MyPoint) -> Bool {
-		return lhs.x == rhs.x && lhs.y == rhs.y
-	}
-	
+struct MyPoint: PointRepresentable {
 	let x: Int
 	let y: Int
-	
-	init?(from inputText: String) throws {
-		let matches = inputText.matches(regex: #"(\d+)"#)
-		guard matches.count == 2 else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		guard let first = Int(matches[0]) else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		guard let second = Int(matches[1]) else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		guard 0 < first, 0 < second else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		guard first < 25, second < 25 else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		x = first
-		y = second
-	}
-	
+		
 	init(x: Int, y: Int) {
 		self.x = x
 		self.y = y
 	}
+}
+
+extension MyPoint: Comparable {
+	static func < (lhs: MyPoint, rhs: MyPoint) -> Bool {
+		return lhs.x == rhs.x && lhs.y == rhs.y
+	}
+
 }

@@ -18,7 +18,7 @@ extension String {
 			range: NSRange(self.startIndex..., in: self)
 		)
 		return results.map {
-				String(self[Range($0.range, in: self)!])
+			String(self[Range($0.range, in: self)!])
 		}
 	}
 }
