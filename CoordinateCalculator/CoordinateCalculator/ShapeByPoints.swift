@@ -8,7 +8,9 @@
 
 import Foundation
 
+typealias XYPosTuple = (xPos: Int, yPos: Int)
+
 protocol ShapeByPoints {
     func getXYPosArrayToShow() -> [XYPosTuple]
-    func getShapeDependentResult() -> String
+    func getShapeDependentResult() -> String    
 }

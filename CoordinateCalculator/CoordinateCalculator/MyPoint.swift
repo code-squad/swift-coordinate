@@ -65,10 +65,8 @@ struct MyPoint : ShapeByPoints, Equatable {
         return "입력된 좌표는 (\(self.x), \(self.y))"
     }
     
-    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool{
-        
+    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
         return lhs.X == rhs.X && lhs.Y == rhs.Y
-        
     }
     
 }

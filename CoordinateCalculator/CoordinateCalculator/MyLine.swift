@@ -13,6 +13,15 @@ struct MyLine : ShapeByPoints {
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
     
+    init?(pointA: MyPoint, pointB: MyPoint) {
+        guard pointA != pointB else {
+            return nil
+        }
+        
+        self.pointA = pointA
+        self.pointB = pointB
+    }
+    
     func getXYPosArrayToShow() -> [XYPosTuple] {
         
         let lineXYArray = [

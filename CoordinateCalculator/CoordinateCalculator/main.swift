@@ -9,8 +9,6 @@
 import Foundation
 
 
-
-
 func main() {
     var shapeByPoints : ShapeByPoints!
     
@@ -25,20 +23,7 @@ func main() {
                 }
             }
             
-            
-            
-            {
-                if xyPosTupleArray.count == 1 {
-                    let point = MyPoint(x: xyPosTupleArray[0].xPos, y: xyPosTupleArray[0].yPos)
-                    shapeByPoints = point as ShapeByPoints
-                }
-                else if xyPosTupleArray.count == 2 {
-                    
-                    let line = MyLine(pointA: MyPoint(x: xyPosTupleArray[0].xPos, y: xyPosTupleArray[0].yPos), pointB: MyPoint(x: xyPosTupleArray[1].xPos, y: xyPosTupleArray[1].yPos))
-                    
-                    shapeByPoints = line as ShapeByPoints
-                }               
-            }
+            shapeByPoints = try MakeShape.makeShapeByPoints(xyPosTupleArray: xyPosTupleArray)
             
             break;
         }
@@ -48,6 +33,10 @@ func main() {
         }
         catch PointValueError.invalidFormat {
             OutputView.printError(message: "Invalid format")
+            continue
+        }
+        catch PointValueError.samePoints {
+            OutputView.printError(message: "Same points exist.")
             continue
         }
         catch {

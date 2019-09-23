@@ -8,12 +8,13 @@
 
 import Foundation
 
-typealias XYPosTuple = (xPos: Int, yPos: Int)
 
 enum PointValueError : Error {
     case invalidRange
     case invalidFormat
+    case samePoints
 }
+
 
 struct Utility {
     static func parsingPointsString(with multiPointString: String) throws -> Array<XYPosTuple>{
@@ -25,7 +26,7 @@ struct Utility {
             throw PointValueError.invalidFormat
         }
         
-        var xyTupleArray = Array<(xPos: Int, yPos: Int)>()
+        var xyTupleArray = Array<XYPosTuple>()
         
         for pointString in pointStringArray {
             let xyTuple = try parsingStringToXY(pointInBracket: pointString)
