@@ -16,11 +16,17 @@ import Foundation
 
 struct InputVerifier {
     
-    func canUse(syntex input: String) -> Bool {
-           return (input.count > 1)
+    func canUse(syntex input: String?) -> Bool {
+        guard let input = input else {
+            return false
+        }
+        return (input.count > 1)
     }
     
-    func parseToPoint(_ input: String) -> Coodinatable? {
+    func parseToPoint(_ input: String?) -> Coodinatable? {
+        guard let input = input else {
+            return nil
+        }
         let inputToSplit = input
         let trimedInput = inputToSplit.trimmingCharacters(in: ["(", ")"])
         let strNumbers = trimedInput.components(separatedBy: ",")

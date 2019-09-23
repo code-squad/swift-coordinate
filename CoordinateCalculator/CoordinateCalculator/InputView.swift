@@ -22,22 +22,27 @@ struct InputView {
     }
     
     func readInput() -> Coodinatable? {
-        print("좌표를 입력하세요.")
-        var inputSyntex = "(0,0)"
-        let typedSyntex = readLine() ?? ""
-        
-        var result: Coodinatable? = nil
         
         guard let verifier = verifier else {
-            return result
+            print("ERR: there's no verifier")
+            return nil
         }
         
-        if verifier.canUse(syntex: typedSyntex) {
-            inputSyntex = typedSyntex
+        print("좌표를 입력하세요.")
+        var typedSyntex: String?
+        var point: Coodinatable?
+        repeat {
+            typedSyntex = readLine()
+             
+            if verifier.canUse(syntex: typedSyntex) {
+                point = verifier.parseToPoint(typedSyntex)
+            }
+            if point == nil {
+                print("다시 입력 바랍니다")
+            }
         }
+        while ( point == nil )
         
-        result = verifier.parseToPoint(inputSyntex)
-        
-        return result
+        return point
     }
 }
