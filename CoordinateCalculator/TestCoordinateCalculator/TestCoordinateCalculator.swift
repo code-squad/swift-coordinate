@@ -47,7 +47,7 @@ class TestCoordinateCalculator: XCTestCase {
     
     //요구사항5 - 정상적인 좌표값을 입력한 경우, 해당 좌표에 특수문자를 표시한다.
     func testCase5(){
-        let inputPoint = MyPoint(x: 12, y: 13)
+//        let inputPoint = MyPoint(x: 12, y: 13)
 //        CoordinatePrinter(inputPoint).print()
     }
     

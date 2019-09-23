@@ -17,22 +17,23 @@ struct InputMenu {
     
     fileprivate static let MAX_COORDINATE_VALUE = 24
     fileprivate static let INVALID_COORDINATE_VALUE = -1
-    fileprivate static let ERROR_MESSAGE_INPUTLINE_NILL = "아무것도 입력하지 않았습니다. 다시 입력해주세요\n"
-    fileprivate static let ERROR_MESSAGE_COORDINATE_NILL = "아무것도 입력되지 않은 좌표가 있습니다. 다시 입력해주세요\n"
-    fileprivate static let ERROR_MESSAGE_IS_OVER_VALUE = "24를 초과된 좌표값이 있습니다. 다시 입력해주세요\n"
+    fileprivate static let ERROR_MESSAGE_INPUTLINE_NILL = "아무것도 입력하지 않았습니다. 다시 입력해주세요"
+    fileprivate static let ERROR_MESSAGE_COORDINATE_NILL = "아무것도 입력되지 않은 좌표가 있습니다. 다시 입력해주세요"
+    fileprivate static let ERROR_MESSAGE_IS_OVER_VALUE = "24를 초과된 좌표값이 있습니다. 다시 입력해주세요"
     
     static func getCoordinateInfo() -> MyPoint {
-        var inputPoint = askPoint(inputLine: readLine(), afterAsk: parseStringToPoint)
+        var inputPoint = readInput(afterAsk: parseStringToPoint)
         
         while !isValidPoint(checkPoint: inputPoint) {
-            inputPoint = askPoint(inputLine: readLine(), afterAsk: parseStringToPoint)
+            inputPoint = readInput(afterAsk: parseStringToPoint)
         }
         
         return inputPoint!
     }
     
-    static func askPoint(inputLine:String?, afterAsk: (String?) -> MyPoint?) -> MyPoint? {
+    static func readInput(afterAsk: (String?) -> MyPoint?) -> MyPoint? {
         print("좌표를 입력하세요.")
+        let inputLine = readLine()
         return afterAsk(inputLine)
     }
     
