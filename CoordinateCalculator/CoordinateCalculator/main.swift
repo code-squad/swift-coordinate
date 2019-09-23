@@ -15,14 +15,7 @@ func main() {
     while true {
         do {
             let pointString = InputView.readPoint()
-            let points = try Utility.parsingPointsString(with: pointString)
-            
-            for point in points {
-                guard  MyPoint.isValidInRange(point: point) else {
-                       throw PointValueError.invalidRange
-                }
-            }
-            
+            let points = try Utility.parsingPointsString(with: pointString)            
             shapeByPoints = try MakeShape.makeShapeByPoints(points: points)
             
             break;

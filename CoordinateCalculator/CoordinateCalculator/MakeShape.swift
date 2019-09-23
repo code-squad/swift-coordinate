@@ -10,6 +10,12 @@ import Foundation
 
 struct MakeShape {
     static func makeShapeByPoints(points: Array<Point>) throws -> Shapable {
+        for point in points {
+            guard  MyPoint.isValidInRange(point: point) else {
+                throw PointValueError.invalidRange
+            }
+        }
+        
         var shapeByPoints : Shapable!
         
         if points.count == 1 {
@@ -19,14 +25,27 @@ struct MakeShape {
         else if points.count == 2 {
             
             guard let line = MyLine(
-                pointA: MyPoint(x: points[0].xPos, y: points[0].yPos),
-                pointB: MyPoint(x: points[1].xPos, y: points[1].yPos)) else {
+                pointA: MyPoint(point: points[0]),
+                pointB: MyPoint(point: points[1])) else {
                     
                     throw PointValueError.samePoints
             }
             
             shapeByPoints = line as Shapable
         }
+        else if points.count == 3 {
+            guard let triangle = MyTriangle(
+                pointA: MyPoint(point: points[0]),
+                pointB: MyPoint(point: points[1]),
+                pointC: MyPoint(point: points[2])) else {
+                throw PointValueError.samePoints
+            }
+            
+            shapeByPoints = triangle as Shapable
+            
+            
+        }
+            
         else {
             throw PointValueError.invalidFormat
         }

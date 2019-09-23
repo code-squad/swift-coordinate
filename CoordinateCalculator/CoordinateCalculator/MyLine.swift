@@ -22,6 +22,10 @@ struct MyLine {
         self.pointB = pointB
     }
     
+    func distance() -> Double {
+        return sqrt( pow(Double(pointA.X - pointB.X), 2.0) + pow(Double(pointA.Y - pointB.Y), 2.0) )
+    }
+    
 }
 
 extension MyLine : Shapable {
@@ -29,16 +33,15 @@ extension MyLine : Shapable {
     func pointToShow() -> [Point] {
         var linePoints = Array<Point>()
         
-        linePoints.append((xPos: self.pointA.xPosToShow(), yPos: self.pointA.yPosToShow()))
-        linePoints.append((xPos: self.pointB.xPosToShow(), yPos: self.pointB.yPosToShow()))
+        linePoints.append(self.pointA.pointToShow()[0])
+        linePoints.append(self.pointB.pointToShow()[0])
         
         return linePoints
     }
     
     func shapeDependentResult() -> String {
-        let distance = sqrt( pow(Double(pointA.X - pointB.X), 2.0) + pow(Double(pointA.Y - pointB.Y), 2.0) )
+        let distance = self.distance()
         
         return "두 점 사이 거리는 \(distance)"
     }
-    
 }

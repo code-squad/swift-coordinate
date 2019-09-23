@@ -64,6 +64,33 @@ class MakeShapeTest: XCTestCase {
         }
     }
     
+    func test_MakeShape_returns_MyTriangle() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        do {
+            let shapeByPoints = try MakeShape.makeShapeByPoints(points: [(10,2), (24, 6), (3,1)])
+            
+            XCTAssertTrue(shapeByPoints is MyTriangle)
+            
+        }
+        catch PointValueError.invalidRange {
+            XCTFail()
+        }
+        catch PointValueError.invalidFormat {
+            XCTFail()
+        }
+        catch PointValueError.samePoints {
+            XCTFail()
+        }
+        catch {
+            XCTFail()
+        }
+    }
+    
+    func test_MakeShape_throws_invalid_range() {
+        XCTAssertThrowsError(try MakeShape.makeShapeByPoints(points: [(10,12), (10, 34)]))
+    }
+    
     func test_MakeShape_throws_same_points() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
