@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint: Equatable {
+struct MyPoint: Hashable {
     var x = 0
     var y = 0
 }

@@ -51,6 +51,14 @@ class ShapeFactoryTests: XCTestCase {
         XCTAssertTrue(line.pointB.x == 20 && line.pointB.y == 20)
     }
 
+    func testShapeFactory_createShape_should_return_mytriangle() {
+        MockUserInputReader.inputs =  ["(10,10)-(14,15)-(20,8)"]
+        let shape = try? ShapeFactory.createShape(verticeProvider: provider)
+        guard (shape as? MyTriangle) != nil else {
+            XCTFail()
+            return
+        }
+    }
     
     func testShapeFactory_createShape_should_return_mypoint_with_secondString() {
         MockUserInputReader.inputs =  ["(-9,0)", "(10,10)"]
