@@ -9,21 +9,22 @@
 import Foundation
 
 
-
-
 func main() {
-    var myPoint : MyPoint!
+    var shapeByPoints : ShapeByPoints!
     
     while true {
         do {
             let pointString = InputView.readPoint()
-            let xyPosTuple = try Utility.parsingStringToXY(pointInBracket: pointString)
-            guard  MyPoint.isInValidRange(pos: xyPosTuple.xPos)
-                && MyPoint.isInValidRange(pos: xyPosTuple.yPos) else {
-                   throw PointValueError.invalidRange
+            let xyPosTupleArray = try Utility.parsingPointsString(with: pointString)
+            
+            for xyPosTuple in xyPosTupleArray {
+                guard  MyPoint.isInValidRange(xyPosTuple: xyPosTuple) else {
+                       throw PointValueError.invalidRange
+                }
             }
             
-            myPoint = MyPoint(xPos: xyPosTuple.xPos, yPos: xyPosTuple.yPos)
+            shapeByPoints = try MakeShape.makeShapeByPoints(xyPosTupleArray: xyPosTupleArray)
+            
             break;
         }
         catch PointValueError.invalidRange {
@@ -34,13 +35,17 @@ func main() {
             OutputView.printError(message: "Invalid format")
             continue
         }
+        catch PointValueError.samePoints {
+            OutputView.printError(message: "Same points exist.")
+            continue
+        }
         catch {
             OutputView.printError(message: "Unexpected error")
             continue
         }
     }
     
-    OutputView.showPointOnCoordinatePlane(point: myPoint)
+    OutputView.showPointOnCoordinatePlane(shapeByPoints: shapeByPoints)
     
     //RunLoop.main.run(until: Date(timeIntervalSinceNow: 5))
 }

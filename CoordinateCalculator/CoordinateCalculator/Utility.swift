@@ -8,13 +8,41 @@
 
 import Foundation
 
+
 enum PointValueError : Error {
     case invalidRange
     case invalidFormat
+    case samePoints
 }
 
+
 struct Utility {
-    static func parsingStringToXY(pointInBracket: String) throws -> (xPos: Int, yPos: Int) {
+    static func parsingPointsString(with multiPointString: String) throws -> Array<XYPosTuple>{
+        let pointStringArray = splitPointStringArray(pointsString: multiPointString)
+        
+        //print(pointStringArray)
+        
+        guard pointStringArray.count >= 1 else {
+            throw PointValueError.invalidFormat
+        }
+        
+        var xyTupleArray = Array<XYPosTuple>()
+        
+        for pointString in pointStringArray {
+            let xyTuple = try parsingStringToXY(pointInBracket: pointString)
+            
+            xyTupleArray.append(xyTuple)
+        }
+        
+        //print(xyTupleArray)
+        return xyTupleArray
+    }
+    
+    static func splitPointStringArray(pointsString: String) -> Array<String> {
+         return pointsString.split(separator: "-").map{ String($0) }
+    }
+    
+    static func parsingStringToXY(pointInBracket: String) throws -> XYPosTuple {
         let stringRemovedBracket = String(pointInBracket.map {
             ($0 == "(" || $0 == ")") ? " " : $0
         })

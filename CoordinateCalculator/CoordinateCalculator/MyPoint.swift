@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct MyPoint {
+struct MyPoint : ShapeByPoints, Equatable {
     private var x = 0
     private var y = 0
     
-    init(xPos: Int , yPos: Int) {
-        self.x = xPos
-        self.y = yPos
+    init(x: Int , y: Int) {
+        self.x = x
+        self.y = y
     }
     
     var X : Int {
@@ -51,8 +51,22 @@ struct MyPoint {
         else {
             return false
         }
-        
-        
+    }
+    
+    static func isInValidRange(xyPosTuple : XYPosTuple) -> Bool {
+        return isInValidRange(pos: xyPosTuple.xPos) && isInValidRange(pos: xyPosTuple.yPos)
+    }
+    
+    func getXYPosArrayToShow() -> [XYPosTuple] {
+        return [(xPos: self.xPosToShow(), yPos: self.yPosToShow())]
+    }
+    
+    func getShapeDependentResult() -> String {
+        return "입력된 좌표는 (\(self.x), \(self.y))"
+    }
+    
+    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
+        return lhs.X == rhs.X && lhs.Y == rhs.Y
     }
     
 }

@@ -69,52 +69,60 @@ class MyPointTest: XCTestCase {
     }
     
     func test_MyPoint_xPosToShow_0() {
-        let myPoint = MyPoint(xPos: 0, yPos: 0)
+        let myPoint = MyPoint(x: 0, y: 0)
         let xPosToShow = myPoint.xPosToShow()
         
         XCTAssertEqual(xPosToShow, 2)
     }
     
     func test_MyPoint_xPosToShow_10() {
-        let myPoint = MyPoint(xPos: 10, yPos: 0)
+        let myPoint = MyPoint(x: 10, y: 0)
         let xPosToShow = myPoint.xPosToShow()
         
         XCTAssertEqual(xPosToShow, 22)
     }
     
     func test_MyPoint_xPosToShow_24() {
-        let myPoint = MyPoint(xPos: 24, yPos: 0)
+        let myPoint = MyPoint(x: 24, y: 0)
         let xPosToShow = myPoint.xPosToShow()
         
         XCTAssertEqual(xPosToShow, 50)
     }
     
     func test_MyPoint_yPosToShow_0() {
-        let myPoint = MyPoint(xPos: 0, yPos: 0)
+        let myPoint = MyPoint(x: 0, y: 0)
         let yPosToShow = myPoint.yPosToShow()
         
         XCTAssertEqual(yPosToShow, 25)
     }
     
     func test_MyPoint_yPosToShow_10() {
-        let myPoint = MyPoint(xPos: 0, yPos: 10)
+        let myPoint = MyPoint(x: 0, y: 10)
         let yPosToShow = myPoint.yPosToShow()
         
         XCTAssertEqual(yPosToShow, 15)
     }
     
     func test_MyPoint_yPosToShow_24() {
-        let myPoint = MyPoint(xPos: 0, yPos: 24)
+        let myPoint = MyPoint(x: 0, y: 24)
         let yPosToShow = myPoint.yPosToShow()
         
         XCTAssertEqual(yPosToShow, 1)
     }
     
     func test_MyPoint_getXY() {
-        let myPoint = MyPoint(xPos: 10, yPos: 15)
+        let myPoint = MyPoint(x: 10, y: 15)
         XCTAssertEqual(myPoint.X, 10)
         XCTAssertEqual(myPoint.Y, 15)
     }
+    
+    func test_MyPoint_getXYPosArrayToShow() {
+        
+        let myPoint = MyPoint(x: 10, y: 15)
+        XCTAssertTrue(myPoint.getXYPosArrayToShow()[0] == (22, 10))
+    }
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
