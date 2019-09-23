@@ -10,14 +10,6 @@ import XCTest
 
 class StringPointParserTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testStringPointParser_valid_string_return_true() {
         let parser = StringPointParser()
         let strings = ["(0,0)", "(0,24)", "(24,24)", "(10,10)", "(24,0)"]
@@ -49,12 +41,6 @@ class StringPointParserTests: XCTestCase {
                 XCTAssertTrue( error == UserInputError.inputParsingError )
             }
         }
-    }    
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
         }
     }
 

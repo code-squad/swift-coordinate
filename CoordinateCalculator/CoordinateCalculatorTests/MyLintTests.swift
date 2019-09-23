@@ -10,14 +10,6 @@ import XCTest
 
 class MyLineTests: XCTestCase {
     
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     var lines: [MyLine] = {
         return [ MyLine(x: MyPoint(x: 10, y: 0), y: MyPoint(x: 5, y: 1)),
                  MyLine(x: MyPoint(x: 5, y: 1), y: MyPoint(x: 4, y: 3)),
@@ -48,12 +40,4 @@ class MyLineTests: XCTestCase {
             }
         }
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
