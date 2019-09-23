@@ -15,16 +15,16 @@
 import Foundation
 
 struct InputView {
-    var verifier: InputVerifier?
+    var processor: InputProcessor?
     
-    init(verifier: InputVerifier?) {
-        self.verifier = verifier
+    init(processor: InputProcessor?) {
+        self.processor = processor
     }
     
     func readInput() -> [Coodinatable] {
         
-        guard let verifier = verifier else {
-            print("ERR: there's no verifier")
+        guard let processor = processor else {
+            print("ERR: there's no processor")
             return []
         }
         
@@ -34,10 +34,10 @@ struct InputView {
         repeat {
             typedSyntex = readLine()
              
-            if verifier.canUse(syntex: typedSyntex) {
-                let seperates = verifier.seperate(typedSyntex)
+            if processor.canUse(syntex: typedSyntex) {
+                let seperates = processor.seperate(typedSyntex)
                 for seperate in seperates {
-                    if let point = verifier.parseToPoint(seperate) {
+                    if let point = processor.parseToPoint(seperate) {
                         points.append(point)
                     }
                 }

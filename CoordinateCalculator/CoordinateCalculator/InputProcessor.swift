@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : InputVerifier.swift
+ * File Name        : InputProcessor.swift
  * Description      : RacingCar
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,7 +14,7 @@
 
 import Foundation
 
-struct InputVerifier {
+struct InputProcessor {
     
     func canUse(syntex input: String?) -> Bool {
         guard let input = input else {
