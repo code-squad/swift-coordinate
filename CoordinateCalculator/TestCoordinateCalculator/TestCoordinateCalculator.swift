@@ -25,20 +25,21 @@ class TestCoordinateCalculator: XCTestCase {
     }
 
     func test_InputHandler_parseToPoint() {
+        let verifier = InputVerifier()
         let point = MyPoint(10, 20)
-        let parsedPoint = InputVerifier.parseToPoint("(10,20)")
+        let parsedPoint = verifier.parseToPoint("(10,20)")
         
-        XCTAssertTrue(point.isEqualTo(parsedPoint))
+        XCTAssertTrue(point.isEqualTo(parsedPoint!))
 
-        var wrongPoint = InputVerifier.parseToPoint("aaaa")
-        XCTAssertTrue(InputVerifier.ErrorPoint.isEqualTo(wrongPoint))
+        var wrongPoint = verifier.parseToPoint("aaaa")
+        XCTAssertNil(wrongPoint)
         
-        wrongPoint = InputVerifier.parseToPoint("10,10,10")
-        XCTAssertTrue(InputVerifier.ErrorPoint.isEqualTo(wrongPoint))
-        wrongPoint = InputVerifier.parseToPoint("a,10")
-        XCTAssertTrue(InputVerifier.ErrorPoint.isEqualTo(wrongPoint))
-        wrongPoint = InputVerifier.parseToPoint("10,aa")
-        XCTAssertTrue(InputVerifier.ErrorPoint.isEqualTo(wrongPoint))
+        wrongPoint = verifier.parseToPoint("10,10,10")
+        XCTAssertNil(wrongPoint)
+        wrongPoint = verifier.parseToPoint("a,10")
+        XCTAssertNil(wrongPoint)
+        wrongPoint = verifier.parseToPoint("10,aa")
+        XCTAssertNil(wrongPoint)
     }
     
     func test_Coordinatable_isEqual() {

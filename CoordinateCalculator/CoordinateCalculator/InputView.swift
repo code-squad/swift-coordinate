@@ -15,15 +15,29 @@
 import Foundation
 
 struct InputView {
+    var verifier: InputVerifier?
     
-    static func readInput() -> Coodinatable {
+    init(verifier: InputVerifier?) {
+        self.verifier = verifier
+    }
+    
+    func readInput() -> Coodinatable? {
         print("좌표를 입력하세요.")
         var inputSyntex = "(0,0)"
         let typedSyntex = readLine() ?? ""
-        if InputVerifier.canUse(syntex: typedSyntex) {
+        
+        var result: Coodinatable? = nil
+        
+        guard let verifier = verifier else {
+            return result
+        }
+        
+        if verifier.canUse(syntex: typedSyntex) {
             inputSyntex = typedSyntex
         }
         
-        return InputVerifier.parseToPoint(inputSyntex)
+        result = verifier.parseToPoint(inputSyntex)
+        
+        return result
     }
 }
