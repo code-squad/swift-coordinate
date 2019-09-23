@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : MyPoint.swift
+ * File Name        : MyLine.swift
  * Description      : CoordinateCalculator
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,29 +14,25 @@
 
 import Foundation
 
-struct MyPoint : Polygonable, Coodinatable, Equatable {
+struct MyLine: Polygonable {
     
-    private(set) var x = 0
-    private(set) var y = 0
-    
-    init(_ x:Int = 0, _ y:Int = 0) {
-        self.x = x
-        self.y = y
-    }
-    
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return ((lhs.x == rhs.x) && (lhs.y == rhs.y))
-    }
+    var pointA = MyPoint(0, 0)
+    var pointB = MyPoint(0, 0)
     
     func draw(outView: OutputView) {
         outView.drawAxis()
-        outView.draw(with: self)
+        outView.draw(with: self.pointA)
+        outView.draw(with: self.pointB)
         outView.finishingOperation()
     }
     
+    func calculateArea() -> Double? {
+        return 0.0
+    }
+     
+    func printResult(outView: OutputView, area: Double?) {
+        if let area = area {
+            print("두 점 사이 거리는 \(area)")
+        }
+    }
 }
-
-
-
-
-

@@ -21,28 +21,33 @@ struct InputView {
         self.verifier = verifier
     }
     
-    func readInput() -> Coodinatable? {
+    func readInput() -> [Coodinatable] {
         
         guard let verifier = verifier else {
             print("ERR: there's no verifier")
-            return nil
+            return []
         }
         
         print("좌표를 입력하세요.")
         var typedSyntex: String?
-        var point: Coodinatable?
+        var points: [Coodinatable] = []
         repeat {
             typedSyntex = readLine()
              
             if verifier.canUse(syntex: typedSyntex) {
-                point = verifier.parseToPoint(typedSyntex)
+                let seperates = verifier.seperate(typedSyntex)
+                for seperate in seperates {
+                    if let point = verifier.parseToPoint(seperate) {
+                        points.append(point)
+                    }
+                }
             }
-            if point == nil {
+            if points.isEmpty {
                 print("다시 입력 바랍니다")
             }
         }
-        while ( point == nil )
+        while (points.isEmpty)
         
-        return point
+        return points
     }
 }

@@ -23,6 +23,16 @@ struct InputVerifier {
         return (input.count > 1)
     }
     
+    func seperate(_ input: String?) -> [String] {
+        var inputs: [String] = []
+        
+        if let input = input {
+            inputs = input.components(separatedBy: "-")
+        }
+        
+        return inputs
+    }
+    
     func parseToPoint(_ input: String?) -> Coodinatable? {
         guard let input = input else {
             return nil
@@ -48,4 +58,16 @@ struct InputVerifier {
         return MyPoint(firstNum, secondNum)
     }
     
+    func makePolygon(_ inputs: [Coodinatable]) -> Polygonable? {
+        var polygon: Polygonable? = nil
+        
+        switch (inputs.count) {
+        case 2:
+            polygon = MyLine(pointA: inputs[0] as! MyPoint, pointB: inputs[1] as! MyPoint)
+        default:
+            polygon = inputs.first as! MyPoint
+        }
+        
+        return polygon
+    }
 }
