@@ -14,5 +14,15 @@ extension ANSICode {
 		point += symbol
 		return point
 	}
+	
+	static func makeLine(
+		geometry: LineRepresentable,
+		firstSymbol: String,
+		secondSymbol: String) -> String {
+		
+		var point = makePoint(geometry: geometry.pointA, symbol: firstSymbol)
+		point += makePoint(geometry: geometry.pointB, symbol: secondSymbol)
+		return point
+	}
 }
 

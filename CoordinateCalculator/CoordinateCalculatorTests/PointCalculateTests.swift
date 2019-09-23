@@ -1,5 +1,5 @@
 //
-//  CalculatorTests.swift
+//  PointCalculateTests.swift
 //  CoordinateCalculatorTests
 //
 //  Created by hoemoon on 2019/09/22.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import CoordinateCalculator
 
-class CalculatorTests: XCTestCase {
+class PointCalculateTests: XCTestCase {
 	func test_GivenCreatePoint_WhenInputInvalidText_ThenThrowError() {
 		let invalidText = "xxxx"
 		let point = try? Calculator.makePoint(from: invalidText)
