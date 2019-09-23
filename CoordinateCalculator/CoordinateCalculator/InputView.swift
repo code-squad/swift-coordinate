@@ -10,20 +10,41 @@ import Foundation
 
 struct InputView {
     
-    static func readInput() -> MyPoint {
+    static func readPointInput() -> MyPoint {
         print("좌표를 입력하세요.")
         let inputString = readLine() ?? ""
-        let point = StringConverter.modify(str: inputString)
+        let point = StringConverter.convertToPoint(str: inputString)
         guard point.isValid else {
             print("좌표 범위 에러")
-            return readInput()
+            return readPointInput()
         }
         return point
     }
+    
+    static func readLineInput() -> MyLine {
+        print("좌표를 입력하세요.")
+        let inputString = readLine() ?? ""
+        let line = StringConverter.convertToLine(str: inputString)
+        guard line.isValid else {
+            print("좌표 범위 에러")
+            return readLineInput()
+        }
+        return line
+    }
 }
 
-extension MyPoint {
+protocol ValidIdentiable {
+    var isValid: Bool { get }
+}
+
+extension MyPoint: ValidIdentiable {
     var isValid: Bool {
         return x <= 24 && y <= 24
+    }
+}
+
+extension MyLine: ValidIdentiable {
+    var isValid: Bool {
+        return pointA.isValid && pointB.isValid
     }
 }

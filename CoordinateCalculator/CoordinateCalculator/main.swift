@@ -8,5 +8,8 @@
 
 import Foundation
 
-let point = InputView.readInput()
-OutputView.printResult(point: point)
+//let point = InputView.readPointInput()
+//OutputView.printResult(point: point)
+
+let line = InputView.readLineInput()
+OutputView.printResult(line: line)
