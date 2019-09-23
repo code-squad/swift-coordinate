@@ -25,7 +25,6 @@ protocol Coodinatable {
     func draw(outView: OutputView)
     func calculateArea() -> Double?
     func printResult(outView: OutputView, area: Double?)
-
 }
 
 extension Coodinatable where Self: Equatable {
@@ -41,14 +40,5 @@ extension Coodinatable where Self: Equatable {
         guard let otherX = other as? Self else { return false }
         return self == otherX
     }
-    
-    func calculateArea() -> Double? {
-        return nil
-    }
-    
-    func printResult(outView: OutputView, area: Double?) {
-        //set optional
-    }
-    
 }
 

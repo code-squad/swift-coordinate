@@ -13,8 +13,8 @@ func main() {
     let verifier = InputVerifier()
     let inputView = InputView(verifier: verifier)
     
-    guard let coordinated = inputView.readInput() else {
-        print("wrong input")
+    let coordinates = inputView.readInput()
+    guard let coordinated = verifier.makePolygon(coordinates) else {
         return
     }
     

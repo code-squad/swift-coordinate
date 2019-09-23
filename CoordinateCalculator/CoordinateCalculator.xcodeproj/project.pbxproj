@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C57D9FC23392CBA00C32672 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57D9FB23392CBA00C32672 /* MyLine.swift */; };
+		2C57D9FE23392ED200C32672 /* Polygonable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57D9FD23392ED200C32672 /* Polygonable.swift */; };
 		2C7C7D0F23355B9000FA3F77 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D0E23355B9000FA3F77 /* InputView.swift */; };
 		2C7C7D1123355B9D00FA3F77 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D1023355B9D00FA3F77 /* OutputView.swift */; };
 		2C7C7D1923355C3900FA3F77 /* TestCoordinateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D1823355C3900FA3F77 /* TestCoordinateCalculator.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C57D9FB23392CBA00C32672 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
+		2C57D9FD23392ED200C32672 /* Polygonable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygonable.swift; sourceTree = "<group>"; };
 		2C7C7D0D23355B3300FA3F77 /* requirement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = requirement.md; sourceTree = "<group>"; };
 		2C7C7D0E23355B9000FA3F77 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		2C7C7D1023355B9D00FA3F77 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -104,7 +108,9 @@
 				2C7C7D0E23355B9000FA3F77 /* InputView.swift */,
 				2C7C7D252336176F00FA3F77 /* InputVerifier.swift */,
 				2C7C7D23233613CF00FA3F77 /* Coordinatable.swift */,
+				2C57D9FD23392ED200C32672 /* Polygonable.swift */,
 				2C7C7D2123355DD500FA3F77 /* MyPoint.swift */,
+				2C57D9FB23392CBA00C32672 /* MyLine.swift */,
 				2C7C7D1023355B9D00FA3F77 /* OutputView.swift */,
 			);
 			path = CoordinateCalculator;
@@ -216,9 +222,11 @@
 			files = (
 				2C7C7D2223355DD600FA3F77 /* MyPoint.swift in Sources */,
 				2C7C7D24233613CF00FA3F77 /* Coordinatable.swift in Sources */,
+				2C57D9FE23392ED200C32672 /* Polygonable.swift in Sources */,
 				2C7C7D0F23355B9000FA3F77 /* InputView.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
+				2C57D9FC23392CBA00C32672 /* MyLine.swift in Sources */,
 				2C7C7D1123355B9D00FA3F77 /* OutputView.swift in Sources */,
 				2C7C7D262336176F00FA3F77 /* InputVerifier.swift in Sources */,
 			);

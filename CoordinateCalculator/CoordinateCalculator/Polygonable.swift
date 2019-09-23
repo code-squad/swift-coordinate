@@ -1,6 +1,6 @@
 //
 /******************************************************************************
- * File Name        : MyPoint.swift
+ * File Name        : Polygonable.swift
  * Description      : CoordinateCalculator
  *******************************************************************************
  * Copyright (c) 2002-2019 KineMaster Corp. All rights reserved.
@@ -14,29 +14,23 @@
 
 import Foundation
 
-struct MyPoint : Polygonable, Coodinatable, Equatable {
+
+protocol Polygonable {
     
-    private(set) var x = 0
-    private(set) var y = 0
+    func draw(outView: OutputView)
+    func calculateArea() -> Double?
+    func printResult(outView: OutputView, area: Double?)
+
+}
+
+extension Polygonable {
     
-    init(_ x:Int = 0, _ y:Int = 0) {
-        self.x = x
-        self.y = y
+    func calculateArea() -> Double? {
+        return nil
     }
     
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return ((lhs.x == rhs.x) && (lhs.y == rhs.y))
-    }
-    
-    func draw(outView: OutputView) {
-        outView.drawAxis()
-        outView.draw(with: self)
-        outView.finishingOperation()
+    func printResult(outView: OutputView, area: Double?) {
+        //set optional
     }
     
 }
-
-
-
-
-
