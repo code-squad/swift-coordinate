@@ -9,9 +9,9 @@
 import Foundation
 
 struct MyTriangle {
-    var lineAB : MyLine!
-    var lineBC : MyLine!
-    var lineAC : MyLine!
+    private var lineAB : MyLine!
+    private var lineBC : MyLine!
+    private var lineAC : MyLine!
     
     init(lineAB: MyLine, lineBC: MyLine, lineAC: MyLine) {
         self.lineAB = lineAB
@@ -21,15 +21,15 @@ struct MyTriangle {
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
         guard let lineAB = MyLine(pointA: pointA, pointB: pointB) else {
-            return nil
+            return nil // same points
         }
         
         guard let lineBC = MyLine(pointA: pointB, pointB: pointC) else {
-            return nil
+            return nil // same points
         }
         
         guard let lineAC = MyLine(pointA: pointA, pointB: pointC) else {
-            return nil
+            return nil // same points
         }
         
         self.init(lineAB: lineAB, lineBC: lineBC, lineAC: lineAC)
