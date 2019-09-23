@@ -24,9 +24,9 @@ class StringPointParserTests: XCTestCase {
         }
     }
     
-    func testStringPointParser_invalid_string_return_empty_array() {
+    func testStringPointParser_3digit_string_point_return_empty_array() {
         let parser = StringPointParser()
-        let strings = ["(-110,0)", "(0-,24)", "=((24,24)", "(10,10)(10,10)", "(24,022)"]
+        let strings = ["(240,0)", "(0,110)", "(210,110)"]
         
         strings.forEach {
             do {
@@ -41,7 +41,62 @@ class StringPointParserTests: XCTestCase {
                 XCTAssertTrue( error == UserInputError.inputParsingError )
             }
         }
+    }
+    
+    func testStringPointParser_minus_string_point_return_empty_array() {
+        let parser = StringPointParser()
+        let strings = ["(-10,0)", "(0,-10)", "(-10,-10)"]
+        
+        strings.forEach {
+            do {
+                _ = try parser.parse(userInput: $0)
+                XCTFail()
+            }
+            catch let e {
+                guard let error = e as? UserInputError else {
+                    XCTFail()
+                    return
+                }
+                XCTAssertTrue( error == UserInputError.inputParsingError )
+            }
         }
     }
-
+    
+    func testStringPointParser_continuous_valid_two_string_point_return_empty_array() {
+        let parser = StringPointParser()
+        let strings = ["(10,0)(10,10)", "(20,20)(20,20)", "(30,30)"]
+        
+        strings.forEach {
+            do {
+                _ = try parser.parse(userInput: $0)
+                XCTFail()
+            }
+            catch let e {
+                guard let error = e as? UserInputError else {
+                    XCTFail()
+                    return
+                }
+                XCTAssertTrue( error == UserInputError.inputParsingError )
+            }
+        }
+    }
+    
+    func testStringPointParser_invalid_string_return_empty_array() {
+        let parser = StringPointParser()
+        let strings = ["(0-,24)", "=((24,24)", "$(0,0)"]
+        
+        strings.forEach {
+            do {
+                _ = try parser.parse(userInput: $0)
+                XCTFail()
+            }
+            catch let e {
+                guard let error = e as? UserInputError else {
+                    XCTFail()
+                    return
+                }
+                XCTAssertTrue( error == UserInputError.inputParsingError )
+            }
+        }
+    }    
 }
