@@ -11,7 +11,7 @@ import XCTest
 class ShapeFactoryTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        MockUserInputReader.pos = 0
     }
 
     override func tearDown() {
@@ -24,21 +24,14 @@ class ShapeFactoryTests: XCTestCase {
         return VertexProvider(reader: reader, parser: parser)
     }()
     
-    func configureTest(with strings: [String]) {
-        MockUserInputReader.pos = 0
-        MockUserInputReader.inputs = strings
-    }
-    
     func testShapeFactory_createShape_should_return_nil() {
-        let strings =  [""]
-        configureTest(with: strings)
+        MockUserInputReader.inputs =  [""]
         let point = try? ShapeFactory.createShape(verticeProvider: provider)
         XCTAssertNil(point)
     }
     
     func testShapeFactory_createShape_should_return_mypoint() {
-        let strings =  ["(9,0)"]
-        configureTest(with: strings)
+        MockUserInputReader.inputs =  ["(9,0)"]
         let shape = try? ShapeFactory.createShape(verticeProvider: provider)
         guard let point = shape as? MyPoint else {
             XCTFail()
@@ -48,8 +41,7 @@ class ShapeFactoryTests: XCTestCase {
     }
     
     func testShapeFactory_createShape_should_return_myline() {
-        let strings =  ["(9,0)-(20,20)"]
-        configureTest(with: strings)
+        MockUserInputReader.inputs =  ["(9,0)-(20,20)"]
         let shape = try? ShapeFactory.createShape(verticeProvider: provider)
         guard let line = shape as? MyLine else {
             XCTFail()
@@ -61,8 +53,7 @@ class ShapeFactoryTests: XCTestCase {
 
     
     func testShapeFactory_createShape_should_return_mypoint_with_secondString() {
-        let strings =  ["(-9,0)", "(10,10)"]
-        configureTest(with: strings)
+        MockUserInputReader.inputs =  ["(-9,0)", "(10,10)"]
         let shape = try? ShapeFactory.createShape(verticeProvider: provider)
         guard let point = shape as? MyPoint else {
             XCTFail()
@@ -72,15 +63,13 @@ class ShapeFactoryTests: XCTestCase {
     }
     
     func testShapeFactory_createShape_outofrange_should_return_nil() {
-        let strings =  ["(-9,10)"]
-        configureTest(with: strings)
+        MockUserInputReader.inputs =  ["(-9,10)"]
         let point = try? ShapeFactory.createShape(verticeProvider: provider)
         XCTAssertNil(point)
     }
     
     func testShapeFactory_createShape_should_throw_error() {
-        let strings =  ["(-9,0)"]
-        configureTest(with: strings)
+        MockUserInputReader.inputs =  ["(-9,0)"]
         do {
             _ = try ShapeFactory.createShape(verticeProvider: provider)
             XCTFail()
@@ -93,5 +82,4 @@ class ShapeFactoryTests: XCTestCase {
             XCTAssertTrue( error.errorDescription == UserInputError.exceedMaxUserInput.errorDescription)
         }
     }
-
 }
