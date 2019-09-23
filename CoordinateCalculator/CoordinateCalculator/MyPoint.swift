@@ -15,6 +15,7 @@
 import Foundation
 
 struct MyPoint : Coodinatable, Equatable {
+    
     private(set) var x = 0
     private(set) var y = 0
     
@@ -25,6 +26,12 @@ struct MyPoint : Coodinatable, Equatable {
     
     static func == (lhs: Self, rhs: Self) -> Bool {
         return ((lhs.x == rhs.x) && (lhs.y == rhs.y))
+    }
+    
+    func draw(outView: OutputView) {
+        outView.drawAxis()
+        outView.draw(with: self)
+        outView.finishingOperation()
     }
     
 }

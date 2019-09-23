@@ -13,14 +13,15 @@ func main() {
     let verifier = InputVerifier()
     let inputView = InputView(verifier: verifier)
     
-    guard let point = inputView.readInput() else {
+    guard let coordinated = inputView.readInput() else {
         print("wrong input")
         return
     }
-
-    OutputView.drawAxis()
-    OutputView.draw(with: point)
-    OutputView.finishingOperation()
+    
+    let outputView = OutputView()
+    coordinated.draw(outView: outputView)
+    let areaSize = coordinated.calculateArea()
+    coordinated.printResult(outView: outputView, area: areaSize)
     
     //print(point) for debug
 }
