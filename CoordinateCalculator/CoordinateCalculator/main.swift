@@ -10,20 +10,20 @@ import Foundation
 
 
 func main() {
-    var shapeByPoints : ShapeByPoints!
+    var shapeByPoints : Shapable!
     
     while true {
         do {
             let pointString = InputView.readPoint()
-            let xyPosTupleArray = try Utility.parsingPointsString(with: pointString)
+            let points = try Utility.parsingPointsString(with: pointString)
             
-            for xyPosTuple in xyPosTupleArray {
-                guard  MyPoint.isInValidRange(xyPosTuple: xyPosTuple) else {
+            for point in points {
+                guard  MyPoint.isValidInRange(point: point) else {
                        throw PointValueError.invalidRange
                 }
             }
             
-            shapeByPoints = try MakeShape.makeShapeByPoints(xyPosTupleArray: xyPosTupleArray)
+            shapeByPoints = try MakeShape.makeShapeByPoints(points: points)
             
             break;
         }

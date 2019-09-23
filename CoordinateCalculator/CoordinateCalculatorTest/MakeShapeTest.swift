@@ -22,7 +22,7 @@ class MakeShapeTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         do {
-            let shapeByPoints = try MakeShape.makeShapeByPoints(xyPosTupleArray: [(10,2)])
+            let shapeByPoints = try MakeShape.makeShapeByPoints(points: [(10,2)])
             
             XCTAssertTrue(shapeByPoints is MyPoint)
             
@@ -45,7 +45,7 @@ class MakeShapeTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         do {
-            let shapeByPoints = try MakeShape.makeShapeByPoints(xyPosTupleArray: [(10,2), (24, 6)])
+            let shapeByPoints = try MakeShape.makeShapeByPoints(points: [(10,2), (24, 6)])
             
             XCTAssertTrue(shapeByPoints is MyLine)
             
@@ -64,26 +64,11 @@ class MakeShapeTest: XCTestCase {
         }
     }
     
-    func test_MakeShape_throws_invalid_range() {
+    func test_MakeShape_throws_same_points() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        do {
-            let shapeByPoints = try MakeShape.makeShapeByPoints(xyPosTupleArray: [(10,54), (24, 6)])
-            XCTFail()
-            
-        }
-        catch PointValueError.invalidRange {
-            XCTAssert(true)
-        }
-        catch PointValueError.invalidFormat {
-            XCTFail()
-        }
-        catch PointValueError.samePoints {
-            XCTFail()
-        }
-        catch {
-            XCTFail()
-        }
+        
+        XCTAssertThrowsError(try MakeShape.makeShapeByPoints(points: [(10,12), (10, 12)]))
     }
 
     func testPerformanceExample() {

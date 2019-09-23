@@ -22,35 +22,35 @@ class MyPointTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pos = 5
-        XCTAssertTrue(MyPoint.isInValidRange(pos: pos))
+        XCTAssertTrue(MyPoint.isValidInRange(pos: pos))
     }
     
     func test_MyPoint_isInValidRange_24() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pos = 24
-        XCTAssertTrue(MyPoint.isInValidRange(pos: pos))
+        XCTAssertTrue(MyPoint.isValidInRange(pos: pos))
     }
     
     func test_MyPoint_isInValidRange_25() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pos = 25
-        XCTAssertFalse(MyPoint.isInValidRange(pos: pos))
+        XCTAssertFalse(MyPoint.isValidInRange(pos: pos))
     }
     
     func test_MyPoint_isInValidRange_26() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pos = 26
-        XCTAssertFalse(MyPoint.isInValidRange(pos: pos))
+        XCTAssertFalse(MyPoint.isValidInRange(pos: pos))
     }
     
     func test_MyPoint_isInValidRange_100() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let pos = 100
-        XCTAssertFalse(MyPoint.isInValidRange(pos: pos))
+        XCTAssertFalse(MyPoint.isValidInRange(pos: pos))
     }
     
     func test_MyPoint_isInValidRange_loop() {
@@ -59,10 +59,10 @@ class MyPointTest: XCTestCase {
         
         for count in 0...100 {
             if count <= 24 {
-                XCTAssertTrue(MyPoint.isInValidRange(pos: count))
+                XCTAssertTrue(MyPoint.isValidInRange(pos: count))
             }
             else {
-                XCTAssertFalse(MyPoint.isInValidRange(pos: count))
+                XCTAssertFalse(MyPoint.isValidInRange(pos: count))
             }
         }
         
@@ -119,7 +119,7 @@ class MyPointTest: XCTestCase {
     func test_MyPoint_getXYPosArrayToShow() {
         
         let myPoint = MyPoint(x: 10, y: 15)
-        XCTAssertTrue(myPoint.getXYPosArrayToShow()[0] == (22, 10))
+        XCTAssertTrue(myPoint.pointToShow()[0] == (22, 10))
     }
     
     
