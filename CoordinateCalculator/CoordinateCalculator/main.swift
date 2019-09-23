@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let point = InputView.readInput()
+OutputView.printResult(point: point)
