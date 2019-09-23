@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct CoordinatePrinter {
+    private var point:MyPoint
+    
+    init(initPoint:MyPoint) {
+        self.point = initPoint
+    }
+    
+    func printPoint() {
+//        print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
+    }
+}

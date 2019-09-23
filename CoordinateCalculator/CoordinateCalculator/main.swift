@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let inputPoint = InputMenu.getCoordinateInfo()
+print(inputPoint)
+//let a = ANSICode.text.whiteBright
+//let b = ANSICode.axis.draw()
+//print("\(a)\(b)")
