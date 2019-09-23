@@ -10,11 +10,11 @@ import Foundation
 
 
 func main() {
-    let verifier = InputVerifier()
-    let inputView = InputView(verifier: verifier)
+    let processor = InputProcessor()
+    let inputView = InputView(processor: processor)
     
     let coordinates = inputView.readInput()
-    guard let coordinated = verifier.makePolygon(coordinates) else {
+    guard let coordinated = processor.makePolygon(coordinates) else {
         return
     }
     
