@@ -35,20 +35,24 @@ class TestCoordinateCalculator: XCTestCase {
     
     //요구사항3 - X, Y좌표 모두 최대 24까지만 입력할 수 있다.
     func testCase3_isValidPoint(){
+        let inputPoint = MyPoint(x: 24, y: 24)
+        let resultValue = InputMenu.isValidPoint(checkPoint: inputPoint)
+        XCTAssertTrue(resultValue)
+    }
+    
+    //요구사항4 - 입력 범위를 초과할 경우 에러 문구를 출력하고 다시 입력을 받는다.
+    func testCase4_isValidPoint_inValidCase(){
         let inputPoint = MyPoint(x: 25, y: 25)
         let resultValue = InputMenu.isValidPoint(checkPoint: inputPoint)
         XCTAssertFalse(resultValue)
     }
     
-    //요구사항4 - 입력 범위를 초과할 경우 에러 문구를 출력하고 다시 입력을 받는다.
-    func testCase4(){
-        
-    }
-    
     //요구사항5 - 정상적인 좌표값을 입력한 경우, 해당 좌표에 특수문자를 표시한다.
-    func testCase5(){
-//        let inputPoint = MyPoint(x: 12, y: 13)
-//        CoordinatePrinter(inputPoint).print()
+    func testCase5_extension_cursor_move(){
+        let inputPoint = MyPoint(x: 12, y: 13)
+        let expectedPoint = ANSICode.cursor.move(row: 25 - inputPoint.y, col: inputPoint.x * 2 + 2)
+        let resultPoint = ANSICode.cursor.move(point: inputPoint)
+        XCTAssertEqual(expectedPoint, resultPoint)
     }
     
     func testExample() {
