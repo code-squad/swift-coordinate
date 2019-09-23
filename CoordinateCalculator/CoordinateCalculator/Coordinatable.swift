@@ -21,6 +21,11 @@ protocol Coodinatable {
     
     func convertToCoodinate() -> (x: Int, y: Int)
     func isEqualTo(_ obj:Coodinatable) -> Bool
+    
+    func draw(outView: OutputView)
+    func calculateArea() -> Double?
+    func printResult(outView: OutputView, area: Double?)
+
 }
 
 extension Coodinatable where Self: Equatable {
@@ -35,6 +40,14 @@ extension Coodinatable where Self: Equatable {
     func isEqualTo(_ other: Coodinatable) -> Bool {
         guard let otherX = other as? Self else { return false }
         return self == otherX
+    }
+    
+    func calculateArea() -> Double? {
+        return nil
+    }
+    
+    func printResult(outView: OutputView, area: Double?) {
+        //set optional
     }
     
 }
