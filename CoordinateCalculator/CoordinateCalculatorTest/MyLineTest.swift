@@ -40,7 +40,7 @@ class MyLineTest: XCTestCase {
             return
         }
         
-        let xyPosArray = myLine.getXYPosArrayToShow()
+        let xyPosArray = myLine.pointToShow()
         
         XCTAssertTrue(xyPosArray[0] == (2,24))
         XCTAssertTrue(xyPosArray[1] == (22,20))

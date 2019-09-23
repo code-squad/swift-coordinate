@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyPoint : ShapeByPoints, Equatable {
+struct MyPoint {
     private var x = 0
     private var y = 0
     
@@ -43,7 +43,7 @@ struct MyPoint : ShapeByPoints, Equatable {
     
     static private let MaxPosValue = 24
     
-    static func isInValidRange(pos: Int) -> Bool {
+    static func isValidInRange(pos: Int) -> Bool {
         
         if pos <= self.MaxPosValue {
             return true
@@ -53,20 +53,23 @@ struct MyPoint : ShapeByPoints, Equatable {
         }
     }
     
-    static func isInValidRange(xyPosTuple : XYPosTuple) -> Bool {
-        return isInValidRange(pos: xyPosTuple.xPos) && isInValidRange(pos: xyPosTuple.yPos)
+    static func isValidInRange(point : Point) -> Bool {
+        return isValidInRange(pos: point.xPos) && isValidInRange(pos: point.yPos)
     }
-    
-    func getXYPosArrayToShow() -> [XYPosTuple] {
+}
+
+extension MyPoint : Shapable {
+    func pointToShow() -> [Point] {
         return [(xPos: self.xPosToShow(), yPos: self.yPosToShow())]
     }
     
-    func getShapeDependentResult() -> String {
+    func shapeDependentResult() -> String {
         return "입력된 좌표는 (\(self.x), \(self.y))"
     }
-    
+}
+
+extension MyPoint : Equatable {
     public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
         return lhs.X == rhs.X && lhs.Y == rhs.Y
     }
-    
 }

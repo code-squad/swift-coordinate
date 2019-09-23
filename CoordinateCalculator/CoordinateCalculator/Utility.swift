@@ -13,36 +13,38 @@ enum PointValueError : Error {
     case invalidRange
     case invalidFormat
     case samePoints
+    
+    
 }
 
 
 struct Utility {
-    static func parsingPointsString(with multiPointString: String) throws -> Array<XYPosTuple>{
-        let pointStringArray = splitPointStringArray(pointsString: multiPointString)
+    static func parsingPointsString(with multiPointString: String) throws -> Array<Point>{
+        let pointStrings = splitPointStringArray(pointsString: multiPointString)
         
         //print(pointStringArray)
         
-        guard pointStringArray.count >= 1 else {
+        guard pointStrings.count >= 1 else {
             throw PointValueError.invalidFormat
         }
         
-        var xyTupleArray = Array<XYPosTuple>()
+        var points = Array<Point>()
         
-        for pointString in pointStringArray {
-            let xyTuple = try parsingStringToXY(pointInBracket: pointString)
+        for pointString in pointStrings {
+            let point = try parsingStringToXY(pointInBracket: pointString)
             
-            xyTupleArray.append(xyTuple)
+            points.append(point)
         }
         
         //print(xyTupleArray)
-        return xyTupleArray
+        return points
     }
     
     static func splitPointStringArray(pointsString: String) -> Array<String> {
          return pointsString.split(separator: "-").map{ String($0) }
     }
     
-    static func parsingStringToXY(pointInBracket: String) throws -> XYPosTuple {
+    static func parsingStringToXY(pointInBracket: String) throws -> Point {
         let stringRemovedBracket = String(pointInBracket.map {
             ($0 == "(" || $0 == ")") ? " " : $0
         })

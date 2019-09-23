@@ -9,23 +9,23 @@
 import Foundation
 
 struct MakeShape {
-    static func makeShapeByPoints(xyPosTupleArray: Array<XYPosTuple>) throws -> ShapeByPoints {
-        var shapeByPoints : ShapeByPoints!
+    static func makeShapeByPoints(points: Array<Point>) throws -> Shapable {
+        var shapeByPoints : Shapable!
         
-        if xyPosTupleArray.count == 1 {
-            let point = MyPoint(x: xyPosTupleArray[0].xPos, y: xyPosTupleArray[0].yPos)
-            shapeByPoints = point as ShapeByPoints
+        if points.count == 1 {
+            let point = MyPoint(x: points[0].xPos, y: points[0].yPos)
+            shapeByPoints = point as Shapable
         }
-        else if xyPosTupleArray.count == 2 {
+        else if points.count == 2 {
             
             guard let line = MyLine(
-                pointA: MyPoint(x: xyPosTupleArray[0].xPos, y: xyPosTupleArray[0].yPos),
-                pointB: MyPoint(x: xyPosTupleArray[1].xPos, y: xyPosTupleArray[1].yPos)) else {
+                pointA: MyPoint(x: points[0].xPos, y: points[0].yPos),
+                pointB: MyPoint(x: points[1].xPos, y: points[1].yPos)) else {
                     
                     throw PointValueError.samePoints
             }
             
-            shapeByPoints = line as ShapeByPoints
+            shapeByPoints = line as Shapable
         }
         else {
             throw PointValueError.invalidFormat

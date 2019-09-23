@@ -69,6 +69,9 @@ class UtilityTest: XCTestCase {
     func test_Utility_parsingStringToXY_throws_invalid_format_unknowChracter() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        //XCTAssertThrowsSpecific(try Utility.parsingStringToXY(pointInBracket: "%24,1)"), PointValueError.invalidFormat)
+        
         do {
             try Utility.parsingStringToXY(pointInBracket: "%24,1)")
             XCTFail()

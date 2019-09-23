@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MyLine : ShapeByPoints {
+struct MyLine {
     
     var pointA = MyPoint(x: 0, y: 0)
     var pointB = MyPoint(x: 0, y: 0)
@@ -22,16 +22,20 @@ struct MyLine : ShapeByPoints {
         self.pointB = pointB
     }
     
-    func getXYPosArrayToShow() -> [XYPosTuple] {
+}
+
+extension MyLine : Shapable {
+    
+    func pointToShow() -> [Point] {
+        var linePoints = Array<Point>()
         
-        let lineXYArray = [
-        (xPos: self.pointA.xPosToShow(), yPos: self.pointA.yPosToShow()),
-        (xPos: self.pointB.xPosToShow(), yPos: self.pointB.yPosToShow())
-        ]
-        return lineXYArray
+        linePoints.append((xPos: self.pointA.xPosToShow(), yPos: self.pointA.yPosToShow()))
+        linePoints.append((xPos: self.pointB.xPosToShow(), yPos: self.pointB.yPosToShow()))
+        
+        return linePoints
     }
     
-    func getShapeDependentResult() -> String {
+    func shapeDependentResult() -> String {
         let distance = sqrt( pow(Double(pointA.X - pointB.X), 2.0) + pow(Double(pointA.Y - pointB.Y), 2.0) )
         
         return "두 점 사이 거리는 \(distance)"

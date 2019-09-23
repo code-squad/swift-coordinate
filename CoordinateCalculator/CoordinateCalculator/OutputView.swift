@@ -20,21 +20,20 @@ struct OutputView {
     //static private let normal = "*"
     static private let positonMark = whale
     
-    static func showPointOnCoordinatePlane(shapeByPoints : ShapeByPoints) {
-       
+    static func showPointOnCoordinatePlane(shapeByPoints : Shapable) {
         
-        let xyPosArray = shapeByPoints.getXYPosArrayToShow()
-        print(xyPosArray)
+        let points = shapeByPoints.pointToShow()
         
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
-        for point in xyPosArray {
+        
+        for point in points {
             print("\(ANSICode.cursor.move(row: point.yPos, col: point.xPos))", terminator: "")
             print("\(ANSICode.text.green)\(positonMark)", terminator: "")
         }
         
         print("\(ANSICode.cursor.move(row: descriptionPos.Y, col: descriptionPos.X))", terminator: "")
-        print("\(ANSICode.text.white)\(shapeByPoints.getShapeDependentResult())")
+        print("\(ANSICode.text.white)\(shapeByPoints.shapeDependentResult())")
     }
     
     static func printError(message: String) {
