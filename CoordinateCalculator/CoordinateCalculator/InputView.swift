@@ -20,10 +20,10 @@ struct InputView {
         print("좌표를 입력하세요.")
         var inputSyntex = "(0,0)"
         let typedSyntex = readLine() ?? ""
-        if InputHandler.canUse(syntex: typedSyntex) {
+        if InputVerifier.canUse(syntex: typedSyntex) {
             inputSyntex = typedSyntex
         }
         
-        return InputHandler.parseToPoint(inputSyntex)
+        return InputVerifier.parseToPoint(inputSyntex)
     }
 }

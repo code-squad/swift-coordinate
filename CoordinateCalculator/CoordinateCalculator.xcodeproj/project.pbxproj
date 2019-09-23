@@ -15,8 +15,8 @@
 		2C7C7D2023355C6A00FA3F77 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D1023355B9D00FA3F77 /* OutputView.swift */; };
 		2C7C7D2223355DD600FA3F77 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D2123355DD500FA3F77 /* MyPoint.swift */; };
 		2C7C7D24233613CF00FA3F77 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D23233613CF00FA3F77 /* Coordinatable.swift */; };
-		2C7C7D262336176F00FA3F77 /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D252336176F00FA3F77 /* InputHandler.swift */; };
-		2C7C7D272336176F00FA3F77 /* InputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D252336176F00FA3F77 /* InputHandler.swift */; };
+		2C7C7D262336176F00FA3F77 /* InputVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D252336176F00FA3F77 /* InputVerifier.swift */; };
+		2C7C7D272336176F00FA3F77 /* InputVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D252336176F00FA3F77 /* InputVerifier.swift */; };
 		2C7C7D282336177A00FA3F77 /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D2123355DD500FA3F77 /* MyPoint.swift */; };
 		2C7C7D292336177D00FA3F77 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C7D23233613CF00FA3F77 /* Coordinatable.swift */; };
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
@@ -44,7 +44,7 @@
 		2C7C7D1A23355C3900FA3F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C7C7D2123355DD500FA3F77 /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		2C7C7D23233613CF00FA3F77 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
-		2C7C7D252336176F00FA3F77 /* InputHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputHandler.swift; sourceTree = "<group>"; };
+		2C7C7D252336176F00FA3F77 /* InputVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputVerifier.swift; sourceTree = "<group>"; };
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				8377CC6F1F8BAF74007F7335 /* ANSICode.swift */,
 				8377CC511F8B6F7E007F7335 /* main.swift */,
 				2C7C7D0E23355B9000FA3F77 /* InputView.swift */,
-				2C7C7D252336176F00FA3F77 /* InputHandler.swift */,
+				2C7C7D252336176F00FA3F77 /* InputVerifier.swift */,
 				2C7C7D23233613CF00FA3F77 /* Coordinatable.swift */,
 				2C7C7D2123355DD500FA3F77 /* MyPoint.swift */,
 				2C7C7D1023355B9D00FA3F77 /* OutputView.swift */,
@@ -206,7 +206,7 @@
 				2C7C7D282336177A00FA3F77 /* MyPoint.swift in Sources */,
 				2C7C7D1E23355C6200FA3F77 /* ANSICode.swift in Sources */,
 				2C7C7D2023355C6A00FA3F77 /* OutputView.swift in Sources */,
-				2C7C7D272336176F00FA3F77 /* InputHandler.swift in Sources */,
+				2C7C7D272336176F00FA3F77 /* InputVerifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +220,7 @@
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				2C7C7D1123355B9D00FA3F77 /* OutputView.swift in Sources */,
-				2C7C7D262336176F00FA3F77 /* InputHandler.swift in Sources */,
+				2C7C7D262336176F00FA3F77 /* InputVerifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
