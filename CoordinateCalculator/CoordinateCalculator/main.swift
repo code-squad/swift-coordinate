@@ -12,10 +12,10 @@ func main() {
 	while true {
 		let input = InputView.readInput()
 		guard let point = try? Calculator.makePoint(from: input) else {
-			print("잘못된 입력")
-			continue
+				print("잘못된 입력")
+				continue
 		}
-		let transformed = Calculator.transform(point!)
+		let transformed = Calculator.transform(point)
 		OutputView.display(transformed)
 		break
 	}
