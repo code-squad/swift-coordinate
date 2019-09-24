@@ -22,13 +22,13 @@ struct OutputView {
     
     static func showPointOnCoordinatePlane(shapeByPoints : Shapable) {
         
-        let points = shapeByPoints.pointToShow()
+        let points = shapeByPoints.pointToDraw()
         
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
         
         for point in points {
-            print("\(ANSICode.cursor.move(row: point.yPos, col: point.xPos))", terminator: "")
+            print("\(ANSICode.cursor.move(row: point.yDrawable, col: point.xDrawable))", terminator: "")
             print("\(ANSICode.text.green)\(positonMark)", terminator: "")
         }
         

@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct MyPoint {
-    private var x = 0
-    private var y = 0
+struct MyPoint : PointDrawable {
+    private var x : Int
+    private var y : Int
     
     init(x: Int , y: Int) {
         self.x = x
@@ -37,12 +37,16 @@ struct MyPoint {
     private let yLegend = 25
     private let xPosScale = 2
     
-    func xPosToShow() -> Int {
-        return xLegend + xPosScale * (self.x)
+    var xDrawable : Int {
+        get {
+            return xLegend + xPosScale * (self.x)
+        }
     }
     
-    func yPosToShow() -> Int {
-        return yLegend - self.y
+    var yDrawable : Int {
+        get {
+            return yLegend - self.y
+        }
     }
 }
 
@@ -66,8 +70,8 @@ extension MyPoint {
 }
 
 extension MyPoint : Shapable {
-    func pointToShow() -> [Point] {
-        return [(xPos: self.xPosToShow(), yPos: self.yPosToShow())]
+    func pointToDraw() -> [PointDrawable] {        
+        return [self]
     }
     
     func shapeDependentResult() -> String {

@@ -52,13 +52,12 @@ struct MyLine {
 
 extension MyLine : Shapable {
     
-    func pointToShow() -> [Point] {
-        var linePoints = Array<Point>()
+    func pointToDraw() -> [PointDrawable] {
         
-        linePoints.append(self.pointA.pointToShow()[0])
-        linePoints.append(self.pointB.pointToShow()[0])
+        let drawablePointA = self.pointA.pointToDraw()[0]
+        let drawablePointB = self.pointB.pointToDraw()[0]
         
-        return linePoints
+        return [drawablePointA, drawablePointB]
     }
     
     func shapeDependentResult() -> String {

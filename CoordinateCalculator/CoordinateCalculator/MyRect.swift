@@ -31,15 +31,14 @@ struct MyRect {
 }
 
 extension MyRect : Shapable {
-    func pointToShow() -> [Point] {
-        var rectPoints = Array<Point>()
+    func pointToDraw() -> [PointDrawable] {
         
-        rectPoints.append(leftTop.pointToShow()[0])
-        rectPoints.append(rightBottom.pointToShow()[0])
-        rectPoints.append(MyPoint(x: leftTop.X, y: rightBottom.Y).pointToShow()[0])
-        rectPoints.append(MyPoint(x: rightBottom.X, y: leftTop.Y).pointToShow()[0])
+        let drawableLeftTop = leftTop.pointToDraw()[0]
+        let drawableRightBottom = rightBottom.pointToDraw()[0]
+        let drawableRightTop = MyPoint(x: rightBottom.X, y: leftTop.Y).pointToDraw()[0]
+        let drawableLeftBottom = MyPoint(x: leftTop.X, y: rightBottom.Y).pointToDraw()[0]
         
-        return rectPoints
+        return [drawableLeftTop, drawableRightTop, drawableRightBottom, drawableLeftBottom]
     }
     
     func shapeDependentResult() -> String {

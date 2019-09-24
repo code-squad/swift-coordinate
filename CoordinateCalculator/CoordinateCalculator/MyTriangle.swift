@@ -20,15 +20,10 @@ struct MyTriangle {
     }
     
     init?(pointA: MyPoint, pointB: MyPoint, pointC: MyPoint) {
-        guard let lineAB = MyLine(pointA: pointA, pointB: pointB) else {
-            return nil // same points
-        }
-        
-        guard let lineBC = MyLine(pointA: pointB, pointB: pointC) else {
-            return nil // same points
-        }
-        
-        guard let lineAC = MyLine(pointA: pointA, pointB: pointC) else {
+        guard
+            let lineAB = MyLine(pointA: pointA, pointB: pointB),
+            let lineBC = MyLine(pointA: pointB, pointB: pointC),
+            let lineAC = MyLine(pointA: pointA, pointB: pointC) else {
             return nil // same points
         }
         
@@ -49,15 +44,13 @@ struct MyTriangle {
 
 extension MyTriangle : Shapable {
     
-    func pointToShow() -> [Point] {
-        var trianglePoints = Array<Point>()
+    func pointToDraw() -> [PointDrawable] {
         
+        let drawablePointA = self.lineAB.pointToDraw()[0]
+        let drawablePointB = self.lineAB.pointToDraw()[1]
+        let drawablePointC = self.lineBC.pointToDraw()[1]
         
-        trianglePoints.append(lineAB.pointToShow()[0])
-        trianglePoints.append(lineAB.pointToShow()[1])
-        trianglePoints.append(lineAC.pointToShow()[1])
-        
-        return trianglePoints
+        return [drawablePointA, drawablePointB, drawablePointC]
     }
     
     func shapeDependentResult() -> String {
