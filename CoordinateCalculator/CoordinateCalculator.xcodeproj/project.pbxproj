@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8377CC521F8B6F7E007F7335 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC511F8B6F7E007F7335 /* main.swift */; };
 		8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377CC6F1F8BAF74007F7335 /* ANSICode.swift */; };
+		BB0A68AA233A2AEF005FAFEB /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A68A9233A2AEF005FAFEB /* MyRect.swift */; };
 		CF2DB49923370342003A20A1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2DB49823370342003A20A1 /* Shape.swift */; };
 		CF2DB49A23370B68003A20A1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2DB49823370342003A20A1 /* Shape.swift */; };
 		CF2DB49C233732FE003A20A1 /* MyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2DB49B233732FE003A20A1 /* MyLine.swift */; };
@@ -60,6 +61,7 @@
 		8377CC4E1F8B6F7E007F7335 /* CoordinateCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoordinateCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377CC511F8B6F7E007F7335 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8377CC6F1F8BAF74007F7335 /* ANSICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSICode.swift; sourceTree = "<group>"; };
+		BB0A68A9233A2AEF005FAFEB /* MyRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRect.swift; sourceTree = "<group>"; };
 		CF2DB49823370342003A20A1 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		CF2DB49B233732FE003A20A1 /* MyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLine.swift; sourceTree = "<group>"; };
 		CF2DB4A0233752B5003A20A1 /* UsertInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsertInputView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				CF648B612333C7BA00592E72 /* MyPoint.swift */,
 				CF2DB49B233732FE003A20A1 /* MyLine.swift */,
 				CF4340A823390A1400CDB311 /* MyTriangle.swift */,
+				BB0A68A9233A2AEF005FAFEB /* MyRect.swift */,
 				CF648B632333DBFF00592E72 /* CoordinateConstants.swift */,
 				CF648B652333F24E00592E72 /* CoordinateOutputView.swift */,
 				CF7205122336148300F01CC1 /* UserInputError.swift */,
@@ -261,6 +264,7 @@
 				CF648B622333C7BA00592E72 /* MyPoint.swift in Sources */,
 				CF7205132336148300F01CC1 /* UserInputError.swift in Sources */,
 				8377CC521F8B6F7E007F7335 /* main.swift in Sources */,
+				BB0A68AA233A2AEF005FAFEB /* MyRect.swift in Sources */,
 				8377CC701F8BAF74007F7335 /* ANSICode.swift in Sources */,
 				CF2DB4A1233752B5003A20A1 /* UsertInputView.swift in Sources */,
 				CF7205152336162900F01CC1 /* StringPointParser.swift in Sources */,
