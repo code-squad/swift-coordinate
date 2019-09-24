@@ -8,23 +8,30 @@
 
 import Foundation
 
-struct OutputView {
-	static func display(_ point: PointRepresentable) {
-		let pointANSI = ANSICode.makePoint(
-			geometry: point,
-			symbol: "😈"
-		)
-		display(with: pointANSI)
-	}
+protocol Displayable {
 	
-	static func display(line: LineRepresentable, distance: Double) {
-		let lineANSI = ANSICode.makeLine(
-			geometry: line,
-			firstSymbol: "😈",
-			secondSymbol: "👻"
-		)
-		display(with: lineANSI)
-		print("두 점 사이의 거리는 \(distance)")
+}
+
+struct OutputView {
+	static func display(_ displayable: Displayable) {
+		switch displayable {
+		case let pointRepresentable as PointRepresentable:
+					let pointANSI = ANSICode.makePoint(
+				geometry: pointRepresentable,
+				symbol: "😈"
+			)
+			display(with: pointANSI)
+		case let lineRepresentable as LineRepresentable:
+			let lineANSI = ANSICode.makeLine(
+				geometry: lineRepresentable,
+				firstSymbol: "😈",
+				secondSymbol: "👻"
+			)
+			display(with: lineANSI)
+			print("두 점 사이의 거리는 \(lineRepresentable.distance)")
+		default:
+			fatalError()
+		}
 	}
 	
 	private static func display(with string: String) {

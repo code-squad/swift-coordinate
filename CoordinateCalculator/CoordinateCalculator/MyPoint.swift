@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PointRepresentable {
+protocol PointRepresentable: Displayable {
 	var x: Int { get }
 	var y: Int { get }
 }
