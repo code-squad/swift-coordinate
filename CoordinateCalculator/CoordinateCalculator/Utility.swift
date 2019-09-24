@@ -67,11 +67,9 @@ struct Utility {
             throw PointValueError.invalidFormat
         }
         
-        guard let x = Int(pointStringArray[0]) else {
-            throw PointValueError.invalidFormat
-        }
-        
-        guard let y = Int(pointStringArray[1]) else {
+        guard
+            let x = Int(pointStringArray[0]),
+            let y = Int(pointStringArray[1]) else {
             throw PointValueError.invalidFormat
         }
         
@@ -83,10 +81,8 @@ struct Utility {
         
         // A utility function to return square of distance between
         // p1 and p2
-        func dist(p1:Point, p2:Point) -> Int
-        {
-            return (p1.xPos - p2.xPos)*(p1.xPos - p2.xPos) +
-                (p1.yPos - p2.yPos)*(p1.yPos - p2.yPos);
+        func dist(p1:Point, p2:Point) -> Int {
+            return (p1.xPos - p2.xPos)*(p1.xPos - p2.xPos) + (p1.yPos - p2.yPos)*(p1.yPos - p2.yPos)
         }
         
         // To find orientation of ordered triplet (p, q, r).
@@ -94,54 +90,47 @@ struct Utility {
         // 0 --> p, q and r are colinear
         // 1 --> Clockwise
         // 2 --> Counterclockwise
-        func orientation(p: Point, q: Point, r: Point) -> Int
-        {
-            let value = (q.yPos - p.yPos) * (r.xPos - q.xPos) -
-                (q.xPos - p.xPos) * (r.yPos - q.yPos);
+        func orientation(p: Point, q: Point, r: Point) -> Int {
+            let value = (q.yPos - p.yPos) * (r.xPos - q.xPos) - (q.xPos - p.xPos) * (r.yPos - q.yPos)
             
             if value == 0 {
                 return 0  // colinear
             }
             
-            return (value > 0) ? 1: 2; // clockwise or counterclock wise
+            return (value > 0) ? 1 : 2 // clockwise or counterclock wise
         }
         
         // A function used .yPos library function qsort() to sort
         //  an array of points with respect to the first point
-        func compare(vp1: Point, vp2: Point) -> Bool
-        {
-            let p1 : Point = vp1;
-            let p2 : Point = vp2;
+        func compare(vp1: Point, vp2: Point) -> Bool {
+            let p1 : Point = vp1
+            let p2 : Point = vp2
             
             // Find orientation
-            let o = orientation(p:p0, q:p1, r:p2);
+            let o = orientation(p:p0, q:p1, r:p2)
             
             if (o == 0) {
                 return (dist(p1:p0, p2:p2) >= dist(p1:p0, p2:p1))
             }
             
-            //return (o == 2)? -1: 1;
+            //return (o == 2)? -1: 1
             return (o == 2)
         }
         
-        func run(pointsToSort: [Point]) -> [Point]
-        {
+        func run(pointsToSort: [Point]) -> [Point] {
             var points = pointsToSort
             // Find the bottommost point
             var ymin = points[0].yPos
-            var min = 0;
-            for  i in 1...points.count-1
-            {
-                let y = points[i].yPos;
+            var min = 0
+            for  i in 1...points.count-1 {
+                let y = points[i].yPos
                 
                 // Pick the bottom-most. In case of tie, chose the
                 // left most point
-                if (y < ymin) || (ymin == y &&
-                    points[i].xPos < points[min].xPos) {
+                if (y < ymin) || (ymin == y && points[i].xPos < points[min].xPos) {
                     ymin = points[i].yPos
                     min = i
                 }
-                
             }
             
             // Place the bottom-most point at first position
@@ -149,38 +138,18 @@ struct Utility {
             points[0] = points[min]
             points[min] = temp
             
-            //swap(points[0], points[min]);
+            //swap(points[0], points[min])
             
             // Sort n-1 points with respect to the first point.
             // A point p1 comes before p2 in sorted ouput if p2
             // has larger polar angle (in counterclockwise
             // direction) than p1
-            p0 = points[0];
+            p0 = points[0]
             let sortedPoints = points.sorted(by: {compare(vp1: $0, vp2: $1)})
-            //qsort(&points[1], n-1, sizeof(Point), compare);
+            //qsort(&points[1], n-1, sizeof(Point), compare)
             
             return sortedPoints
         }
-        
-        //func get_clockwise_angle(point p: Point) -> Double {
-        //    var angle : Double = 0.0;
-        //    //var quadrant : Int = get_quadrant(point: p);
-        //
-        //    /*making sure the quadrants are correct*/
-        //    //cout << "Point: " << p << " is on the " << quadrant << " quadrant" << endl;
-        //
-        //    /*calculate angle and return it*/
-        //    angle = -atan2(Double(p.xPos), Double(-p.yPos));
-        //    return angle
-        //}
-        //
-        //func compare_points(pointA: Point, pointB: Point) -> Bool {
-        //    return (get_clockwise_angle(point: pointA) < get_clockwise_angle(point: pointB));
-        //}
-        
-        
-        
-        //let ppp = points.sorted(by: {compare_points(pointA: $0, pointB: $1)})
         
         return run(pointsToSort: orgPoints)
     }

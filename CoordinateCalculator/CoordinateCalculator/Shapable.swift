@@ -8,14 +8,14 @@
 
 import Foundation
 
-//typealias XYPosTuple = (xPos: Int, yPos: Int)
-//protocol Point {
-//    var point : (xPos: Int, yPos: Int) { get }
-//}
-
 typealias Point = (xPos: Int, yPos: Int)
 
 protocol Shapable {
-    func pointToShow() -> [Point]
+    func pointToDraw() -> [PointDrawable]
     func shapeDependentResult() -> String    
+}
+
+protocol PointDrawable {
+    var xDrawable: Int { get }
+    var yDrawable: Int { get }
 }

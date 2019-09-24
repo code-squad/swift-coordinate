@@ -31,11 +31,12 @@ struct MyPoly {
 
 
 extension MyPoly : Shapable {
-    func pointToShow() -> [Point] {
-        var polyPoints = Array<Point>()
+    func pointToDraw() -> [PointDrawable] {
+        var polyPoints = Array<PointDrawable>()
         
-        for point in myPoints {
-            polyPoints.append(point.pointToShow()[0])
+        for point in self.myPoints {
+            let drawablePoint = point.pointToDraw()[0]
+            polyPoints.append(drawablePoint)
         }
         
         return polyPoints
