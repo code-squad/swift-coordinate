@@ -13,6 +13,12 @@ protocol PointRepresentable: Displayable {
 	var y: Int { get }
 }
 
+extension PointRepresentable {
+	var hash: Int {
+		return x.hashValue * y.hashValue
+	}
+}
+
 struct MyPoint: PointRepresentable {
 	let x: Int
 	let y: Int
@@ -21,17 +27,20 @@ struct MyPoint: PointRepresentable {
 		self.x = x
 		self.y = y
 	}
+	
+	var points: [PointRepresentable] {
+		return [self]
+	}
 }
 
 extension MyPoint: Comparable {
 	static func < (lhs: MyPoint, rhs: MyPoint) -> Bool {
 		return lhs.x == rhs.x && lhs.y == rhs.y
 	}
-
 }
 
 extension MyPoint {
-	static var empty: MyPoint {
+	static var empty: PointRepresentable {
 		return MyPoint(x: 0, y: 0)
 	}
 }

@@ -12,7 +12,7 @@ func main() {
 	while true {
 		let input = InputView.readInput()
 		do {
-			let result = try Calculator.makeLine(from: input)
+			let result = try Calculator.makeDisplayable(from: input)
 			let transformed = Calculator.transform(result)
 			OutputView.display(transformed)
 			break
