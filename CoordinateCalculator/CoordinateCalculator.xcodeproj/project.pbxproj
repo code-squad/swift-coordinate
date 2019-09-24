@@ -43,6 +43,7 @@
 		CF7205352336322F00F01CC1 /* StringPointParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7205342336322F00F01CC1 /* StringPointParserTests.swift */; };
 		CF720537233633E900F01CC1 /* ShapeFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF720536233633E900F01CC1 /* ShapeFactoryTests.swift */; };
 		CF72053A2336346F00F01CC1 /* MockUserInputReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7205392336346F00F01CC1 /* MockUserInputReader.swift */; };
+		CFB9D2F2233A721F00041F07 /* MyRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0A68A9233A2AEF005FAFEB /* MyRect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -280,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF72052C23362BEE00F01CC1 /* MyPoint.swift in Sources */,
+				CFB9D2F2233A721F00041F07 /* MyRect.swift in Sources */,
 				CF2DB4A723375D25003A20A1 /* MyLintTests.swift in Sources */,
 				CF72052D23362BF200F01CC1 /* CoordinateConstants.swift in Sources */,
 				CF72053123362CBE00F01CC1 /* main.swift in Sources */,

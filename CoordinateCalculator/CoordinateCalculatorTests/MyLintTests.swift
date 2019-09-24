@@ -23,9 +23,9 @@ class MyLineTests: XCTestCase {
         }
     }
     
-    func testMyLine_have_description() {
+    func testMyLine_have_no_extent() {
         lines.forEach {
-            guard $0.description != nil else {
+            guard $0.extent() == 0 else {
                 XCTFail()
                 return
             }
@@ -34,7 +34,7 @@ class MyLineTests: XCTestCase {
     
     func testMyLine_can_calculate_distance() {
         lines.forEach {
-            guard $0.distance > 0 else {
+            guard $0.distance() > 0 else {
                 XCTFail()
                 return
             }

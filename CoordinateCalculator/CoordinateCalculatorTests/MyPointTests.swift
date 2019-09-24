@@ -37,9 +37,9 @@ class MyPointTests: XCTestCase {
         XCTAssertTrue(coordinate == point.coordinate)
     }
     
-    func testMyPoint_have_no_description() {
+    func testMyPoint_have_no_distance() {
         let point = MyPoint(x: 10, y:10)
-        guard point.description == nil else {
+        guard point.distance() == 0 else {
             XCTFail()
             return
         }

@@ -28,9 +28,9 @@ class MyTriangleTests: XCTestCase {
     }
     
     
-    func testTriangle_have_description() {
+    func testTriangle_have_no_distance() {
         triangles.forEach {
-            guard $0.description != nil else {
+            guard $0.distance() == 0 else {
                 XCTFail()
                 return
             }
@@ -39,7 +39,7 @@ class MyTriangleTests: XCTestCase {
     
     func testTriangle_can_calculate_extent() {
         triangles.forEach {
-            guard $0.extent > 0 else {
+            guard $0.extent() > 0 else {
                 XCTFail()
                 return
             }
