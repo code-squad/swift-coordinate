@@ -26,7 +26,6 @@ class TestCoordinateCalculator: XCTestCase {
     }
     
     //요구사항2 - 좌표 정보는 괄호"(", ")"로 둘러쌓여 있으며 쉼표(,)로 x값과 y값을 구분한다.
-    //요구사항2' - InputView 구조체에서 입력가능한 CharacterSet을 만들어서 입력된 문자열 중에 입력할 수 없는 문자가 포함되어 있는지 비교한다. 입력 불가능한 문자가 포함된 경우 다시 입력받는다.
     func testCase2_isValidInputLine_validInputLine(){
         let inputPoint = MyPoint(x: 10,y: 10)
         let isValid = Validation.isValidInputLine(inputLine: inputPoint.description)//InputMenu.createPoint(inputLine: inputLine)
@@ -69,4 +68,10 @@ class TestCoordinateCalculator: XCTestCase {
     }
     //요구사항8 - 좌표가 그려진 아래 27번째 줄에는 두 점 사이 거리를 계산해서 출력한다.
 
+    //요구사항9 - InputView 구조체에서 입력가능한 CharacterSet을 만들어서 입력된 문자열 중에 입력할 수 없는 문자가 포함되어 있는지 비교한다. 입력 불가능한 문자가 포함된 경우 다시 입력받는다.
+    func testCase8_isValidCharacterSet(){
+        let inputText = "!@#$#@^("
+        let isValid = Validation.isValidCharacterSet(inputLine: inputText)
+        XCTAssertFalse(isValid)
+    }
 }
