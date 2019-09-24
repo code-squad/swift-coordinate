@@ -8,17 +8,22 @@
 
 import Foundation
 
-protocol LineRepresentable {
+protocol LineRepresentable: Displayable {
 	var pointA: MyPoint { get }
 	var pointB: MyPoint { get }
+	var distance: Double { get }
 }
 
-struct MyLine: LineRepresentable {
+struct MyLine: LineRepresentable, Equatable {
 	let pointA: MyPoint
 	let pointB: MyPoint
+	
+	var distance: Double {
+		let xDistance = Double(pointA.x - pointB.x)
+		let yDistance = Double(pointA.y - pointB.y)
+		return (xDistance * xDistance + yDistance * yDistance).squareRoot()
+	}
 }
-
-extension MyLine: Equatable {}
 
 extension MyLine {
 	static var empty: MyLine {

@@ -10,15 +10,16 @@ import Foundation
 
 func main() {
 	while true {
-		let input = InputView.readPointInput()
-		guard let line = try? Calculator.makeLine(from: input) else {
-				print("잘못된 입력")
-				continue
+		let input = InputView.readInput()
+		do {
+			let result = try Calculator.makeLine(from: input)
+			let transformed = Calculator.transform(result)
+			OutputView.display(transformed)
+			break
+		} catch let e {
+			let calculatorError = e as? CalculatorError
+			print(calculatorError?.message ?? "unkown error")
 		}
-		let transformed = Calculator.transform(line)
-		let distance = Calculator.distance(line)
-		OutputView.display(line: transformed, distance: distance)
-		break
 	}
 }
 
