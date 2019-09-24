@@ -70,6 +70,8 @@ extension MyPoint {
 }
 
 extension MyPoint : Shapable {
+    static let resultString = "입력된 좌표는 "
+    
     func pointToDraw() -> [PointDrawable] {        
         return [self]
     }
