@@ -22,15 +22,3 @@ protocol Polygonable {
     func printResult(outView: OutputView, area: Double?)
 
 }
-
-extension Polygonable {
-    
-    func calculateArea() -> Double? {
-        return nil
-    }
-    
-    func printResult(outView: OutputView, area: Double?) {
-        //set optional
-    }
-    
-}

@@ -15,7 +15,7 @@
 import Foundation
 
 struct InputView {
-    var processor: InputProcessor?
+    private var processor: InputProcessor?
     
     init(processor: InputProcessor?) {
         self.processor = processor
@@ -37,7 +37,7 @@ struct InputView {
             if processor.canUse(syntex: typedSyntex) {
                 let seperates = processor.seperate(typedSyntex)
                 for seperate in seperates {
-                    if let point = processor.parseToPoint(seperate) {
+                    if let point = processor.makePoint(seperate) {
                         points.append(point)
                     }
                 }

@@ -34,6 +34,13 @@ struct MyPoint : Polygonable, Coodinatable, Equatable {
         outView.finishingOperation()
     }
     
+    func calculateArea() -> Double? {
+        return nil
+    }
+    
+    func printResult(outView: OutputView, area: Double?) {
+    }
+    
 }
 
 
