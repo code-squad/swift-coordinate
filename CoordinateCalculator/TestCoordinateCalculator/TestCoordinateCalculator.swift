@@ -27,19 +27,17 @@ class TestCoordinateCalculator: XCTestCase {
     func test_InputHandler_makePoint() {
         let processor = InputProcessor()
         let point = MyPoint(10, 20)
-        let parsedPoint = processor.makePoint("(10,20)")
         
+        var parsedPoint: Coodinatable?
+        XCTAssertNoThrow(parsedPoint = try processor.makePoint("(10,20)"))
         XCTAssertTrue(point.isEqualTo(parsedPoint!))
 
-        var wrongPoint = processor.makePoint("aaaa")
-        XCTAssertNil(wrongPoint)
+        XCTAssertThrowsError(try processor.makePoint("aaaa"))
         
-        wrongPoint = processor.makePoint("10,10,10")
-        XCTAssertNil(wrongPoint)
-        wrongPoint = processor.makePoint("a,10")
-        XCTAssertNil(wrongPoint)
-        wrongPoint = processor.makePoint("10,aa")
-        XCTAssertNil(wrongPoint)
+        XCTAssertThrowsError(try processor.makePoint("10,10,10"))
+        XCTAssertThrowsError(try processor.makePoint("a,10"))
+        XCTAssertThrowsError(try processor.makePoint("10,aa"))
+
     }
     
     func test_Coordinatable_isEqual() {

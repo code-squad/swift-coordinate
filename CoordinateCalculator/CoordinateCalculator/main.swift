@@ -13,17 +13,21 @@ func main() {
     let processor = InputProcessor()
     let inputView = InputView(processor: processor)
     
-    let coordinates = inputView.readInput()
-    guard let coordinated = processor.makePolygon(coordinates) else {
-        return
+    do {
+        let coordinates = try inputView.readInput()
+        let coordinated = try processor.makePolygon(coordinates)
+        
+        let outputView = OutputView()
+        coordinated.draw(outView: outputView)
+        let areaSize = coordinated.calculateArea()
+        coordinated.printResult(outView: outputView, area: areaSize)
+        
+    } catch let error as ErrorType {
+        print(error.description)
+    } catch {
+        print(ErrorType.unknown.description)
     }
     
-    let outputView = OutputView()
-    coordinated.draw(outView: outputView)
-    let areaSize = coordinated.calculateArea()
-    coordinated.printResult(outView: outputView, area: areaSize)
-    
-    //print(point) for debug
 }
 
 main()
