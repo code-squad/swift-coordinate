@@ -137,3 +137,34 @@ public struct ANSICode {
         }
     }
 }
+
+extension ANSICode {
+    struct point: PointDrawable {
+        static func draw(point: MyPoint, emoji: String) -> String {
+            var result = ""
+            result += ANSICode.cursor.move(row: (25-point.y), col: point.x*2+3) + emoji
+            return result
+        }
+    }
+    
+    struct line {
+        static func draw(line: MyLine, emoji: String) -> String {
+            var result = ""
+            result += "\(ANSICode.point.draw(point: line.pointA, emoji: emoji))"
+            result += "\(ANSICode.point.draw(point: line.pointB, emoji: emoji))"
+            result += "두 점 사이 거리는 \(LineConverter.convert(line) ?? 0)"
+            return result
+        }
+    }
+    
+    struct triangle {
+        static func draw(triangle: MyTriangle, emoji: String) -> String {
+            var result = ""
+            result += "\(ANSICode.point.draw(point: triangle.lineAC.pointA, emoji: emoji))"
+            result += "\(ANSICode.point.draw(point: triangle.lineAB.pointB, emoji: emoji))"
+            result += "\(ANSICode.point.draw(point: triangle.lineAC.pointB, emoji: emoji))"
+            result += "삼각형 넓이는 \(MyTriangle.area(pointA: triangle.lineAC.pointA, pointB: triangle.lineBC.pointB, pointC: triangle.lineAC.pointB))"
+            return result
+        }
+    }
+}
