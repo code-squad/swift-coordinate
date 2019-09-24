@@ -60,6 +60,15 @@ class ShapeFactoryTests: XCTestCase {
         }
     }
     
+    func testShapeFactory_createShape_should_return_rectangle() {
+        MockUserInputReader.inputs =  ["(10,10)-(22,10)-(22,18)-(10,18)"]
+        let shape = try? ShapeFactory.createShape(verticeProvider: provider)
+        guard (shape as? MyRect) != nil else {
+            XCTFail()
+            return
+        }
+    }
+    
     func testShapeFactory_createShape_should_return_mypoint_with_secondString() {
         MockUserInputReader.inputs =  ["(-9,0)", "(10,10)"]
         let shape = try? ShapeFactory.createShape(verticeProvider: provider)
@@ -76,7 +85,27 @@ class ShapeFactoryTests: XCTestCase {
         XCTAssertNil(point)
     }
     
-    func testShapeFactory_createShape_should_throw_error() {
+    
+    func testShapeFactory_createShape_for_rect_should_throw_error() {
+        MockUserInputReader.inputs =  ["(10,10)-(22,10)-(22,18)-(10,11)"]
+        do {
+            _ = try ShapeFactory.createShape(verticeProvider: provider)
+            XCTFail()
+        }
+        catch let e {
+            guard let error = e as? UserInputError else {
+                XCTFail()
+                return
+            }
+            XCTAssertTrue( error.errorDescription == UserInputError.exceedMaxUserInput.errorDescription)
+        }
+        
+        let point = try? ShapeFactory.createShape(verticeProvider: provider)
+        XCTAssertNil(point)
+    }
+    
+    
+    func testShapeFactory_createShape_for_point_should_throw_error() {
         MockUserInputReader.inputs =  ["(-9,0)"]
         do {
             _ = try ShapeFactory.createShape(verticeProvider: provider)
