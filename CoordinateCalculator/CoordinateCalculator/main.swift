@@ -8,8 +8,5 @@
 
 import Foundation
 
-//let point = InputView.readPointInput()
-//OutputView.printResult(point: point)
-
-let line = InputView.readLineInput()
-OutputView.printResult(line: line)
+let triangle = InputView.askTriangle()
+OutputView.printResult(triangle: triangle, emoji: "+")

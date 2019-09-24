@@ -10,41 +10,67 @@ import Foundation
 
 struct InputView {
     
-    static func readPointInput() -> MyPoint {
-        print("좌표를 입력하세요.")
-        let inputString = readLine() ?? ""
-        let point = StringConverter.convertToPoint(str: inputString)
-        guard point.isValid else {
-            print("좌표 범위 에러")
-            return readPointInput()
+    static func askPoint() -> MyPoint {
+        do {
+            let point = try readPointInput()
+            if point.isValid { return point }
+            return askPoint()
+        } catch {
+            return askPoint()
         }
-        return point
     }
     
-    static func readLineInput() -> MyLine {
+    static func askLine() -> MyLine {
+        do {
+            let line = try readLineInput()
+            if line.isValid { return line }
+            return askLine()
+        } catch {
+            return askLine()
+        }
+    }
+    
+    static func askTriangle() -> MyTriangle {
+        do {
+            let triangle = try readTriangleInput()
+            if triangle.isValid { return triangle }
+            return askTriangle()
+        } catch {
+            return askTriangle()
+        }
+    }
+    
+    static func readPointInput() throws -> MyPoint {
         print("좌표를 입력하세요.")
         let inputString = readLine() ?? ""
-        let line = StringConverter.convertToLine(str: inputString)
-        guard line.isValid else {
-            print("좌표 범위 에러")
-            return readLineInput()
+        do {
+            let point = try StringConverter.convertToPoint(str: inputString)
+            return point
+        } catch {
+            throw CoordinateError.stringConvert
         }
-        return line
+    }
+    
+    static func readLineInput() throws -> MyLine {
+        print("좌표를 입력하세요.")
+        let inputString = readLine() ?? ""
+        do {
+            let line = try StringConverter.convertToLine(str: inputString)
+            return line
+        } catch {
+            throw CoordinateError.stringConvert
+        }
+    }
+    
+    static func readTriangleInput() throws -> MyTriangle {
+        print("좌표를 입력하세요.")
+        let inputString = readLine() ?? ""
+        do {
+            let triangle = try StringConverter.convertToTriangle(str: inputString)
+            return triangle
+        } catch {
+            throw CoordinateError.stringConvert
+        }
     }
 }
 
-protocol ValidIdentiable {
-    var isValid: Bool { get }
-}
-
-extension MyPoint: ValidIdentiable {
-    var isValid: Bool {
-        return x <= 24 && y <= 24
-    }
-}
-
-extension MyLine: ValidIdentiable {
-    var isValid: Bool {
-        return pointA.isValid && pointB.isValid
-    }
-}
