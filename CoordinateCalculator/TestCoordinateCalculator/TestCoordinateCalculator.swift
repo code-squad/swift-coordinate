@@ -24,21 +24,21 @@ class TestCoordinateCalculator: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_InputHandler_parseToPoint() {
+    func test_InputHandler_makePoint() {
         let processor = InputProcessor()
         let point = MyPoint(10, 20)
-        let parsedPoint = processor.parseToPoint("(10,20)")
+        let parsedPoint = processor.makePoint("(10,20)")
         
         XCTAssertTrue(point.isEqualTo(parsedPoint!))
 
-        var wrongPoint = processor.parseToPoint("aaaa")
+        var wrongPoint = processor.makePoint("aaaa")
         XCTAssertNil(wrongPoint)
         
-        wrongPoint = processor.parseToPoint("10,10,10")
+        wrongPoint = processor.makePoint("10,10,10")
         XCTAssertNil(wrongPoint)
-        wrongPoint = processor.parseToPoint("a,10")
+        wrongPoint = processor.makePoint("a,10")
         XCTAssertNil(wrongPoint)
-        wrongPoint = processor.parseToPoint("10,aa")
+        wrongPoint = processor.makePoint("10,aa")
         XCTAssertNil(wrongPoint)
     }
     

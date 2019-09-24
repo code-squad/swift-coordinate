@@ -16,8 +16,13 @@ import Foundation
 
 struct MyLine: Polygonable {
     
-    var pointA = MyPoint(0, 0)
-    var pointB = MyPoint(0, 0)
+    private var pointA = MyPoint(0, 0)
+    private var pointB = MyPoint(0, 0)
+    
+    init(pointA: MyPoint, pointB: MyPoint) {
+        self.pointA = pointA
+        self.pointB = pointB
+    }
     
     func draw(outView: OutputView) {
         outView.drawAxis()

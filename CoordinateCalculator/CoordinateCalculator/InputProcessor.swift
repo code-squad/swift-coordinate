@@ -33,7 +33,7 @@ struct InputProcessor {
         return inputs
     }
     
-    func parseToPoint(_ input: String?) -> Coodinatable? {
+    func makePoint(_ input: String?) -> Coodinatable? {
         guard let input = input else {
             return nil
         }
