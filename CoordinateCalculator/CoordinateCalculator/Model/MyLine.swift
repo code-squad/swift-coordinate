@@ -9,24 +9,36 @@
 import Foundation
 
 protocol LineRepresentable: Displayable {
-	var pointA: MyPoint { get }
-	var pointB: MyPoint { get }
+	var pointA: PointRepresentable { get }
+	var pointB: PointRepresentable { get }
+	var points: [PointRepresentable] { get }
 	var distance: Double { get }
 }
 
 struct MyLine: LineRepresentable, Equatable {
-	let pointA: MyPoint
-	let pointB: MyPoint
+	static func == (lhs: MyLine, rhs: MyLine) -> Bool {
+		return lhs.pointA.hash == rhs.pointA.hash
+			&& lhs.pointB.hash == rhs.pointB.hash
+	}
+	let pointA: PointRepresentable
+	let pointB: PointRepresentable
 	
 	var distance: Double {
 		let xDistance = Double(pointA.x - pointB.x)
 		let yDistance = Double(pointA.y - pointB.y)
 		return (xDistance * xDistance + yDistance * yDistance).squareRoot()
 	}
+	
+}
+
+extension MyLine: Displayable {
+	var points: [PointRepresentable] {
+		return [pointA, pointB]
+	}
 }
 
 extension MyLine {
 	static var empty: MyLine {
-		MyLine(pointA: .empty, pointB: .empty)
+		MyLine(pointA: MyPoint.empty, pointB: MyPoint.empty)
 	}
 }

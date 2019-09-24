@@ -11,6 +11,8 @@ import Foundation
 enum CalculatorError: Error {
 	case failedToCreatePoint
 	case failedToCreateLine
+	case failedToCreateTriangle
+	case wrongInput
 	
 	var message: String {
 		switch self {
@@ -18,70 +20,110 @@ enum CalculatorError: Error {
 			return "failed To Create Line"
 		case .failedToCreatePoint:
 			return "failed To Create Point"
+		case .failedToCreateTriangle:
+			return "failed To Create Triangle"
+		case .wrongInput:
+			return "wrong input"
 		}
 	}
 }
 
 struct Calculator {
-	static func makePoint(from text: String) throws -> PointRepresentable {
+	static func makeDisplayable(from text: String) throws -> Displayable {
+		if let point = try? makePoint(from: text) {
+			return point
+		} else
+		if let line = try? makeLine(from: text) {
+			return line
+		}
+		if let triangle = try? makeTriangle(from: text) {
+			return triangle
+		}
+		throw CalculatorError.wrongInput
+	}
+	
+	static func transform(_ displayable: Displayable) -> Displayable {
+		switch displayable {
+		case let point as PointRepresentable:
+			return point.transformed
+		case let line as LineRepresentable:
+			return MyLine(
+				pointA: line.pointA.transformed,
+				pointB: line.pointB.transformed
+			)
+		case let triangle as TriangleRepresentable:
+			return MyTriangle(
+				pointA: triangle.pointA.transformed,
+				pointB: triangle.pointB.transformed,
+				pointC: triangle.pointC.transformed
+			)
+		default:
+			fatalError()
+		}
+	}
+}
+
+extension Calculator {
+	static private func makePoint(from text: String) throws -> PointRepresentable {
 		let matches = text.matches(regex: #"(\d+)"#)
 		guard matches.count == 2 else {
 			throw CalculatorError.failedToCreatePoint
 		}
-		guard let first = Int(matches[0]) else {
+		guard text.numbers.count == 2 else {
 			throw CalculatorError.failedToCreatePoint
 		}
-		guard let second = Int(matches[1]) else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		guard 0 < first, 0 < second else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		guard first < 25, second < 25 else {
-			throw CalculatorError.failedToCreatePoint
-		}
-		return MyPoint(x: first, y: second)
+		return MyPoint(x: text.numbers[0], y: text.numbers[1])
 	}
 	
-	static func makeLine(from text: String) throws -> LineRepresentable {
+	static private func makeLine(from text: String) throws -> LineRepresentable {
 		let matches = text.matches(regex: #"\(\d+\,\d+\)\-\(\d+\,\d+\)"#)
 		guard matches.count == 1 else {
 			throw CalculatorError.failedToCreateLine
 		}
-		let numbers = text.matches(regex: #"(\d+)"#)
-			.compactMap { Int($0) }
-		guard numbers.count == 4 else {
+		guard text.numbers.count == 4 else {
 			throw CalculatorError.failedToCreateLine
 		}
 		return MyLine(
-			pointA: MyPoint(x: numbers[0], y: numbers[1]),
-			pointB: MyPoint(x: numbers[2], y: numbers[3])
+			pointA: MyPoint(x: text.numbers[0], y: text.numbers[1]),
+			pointB: MyPoint(x: text.numbers[2], y: text.numbers[3])
 		)
 	}
-		
-	static func transform(_ displayable: Displayable) -> Displayable {
-		switch displayable {
-		case let pointRepresentable as PointRepresentable:
-			return transform(pointRepresentable)
-		case let lineRepresentable as LineRepresentable:
-			let first = MyPoint(
-				x: transform(point: lineRepresentable.pointA).x,
-				y: transform(point: lineRepresentable.pointA).y
-			)
-			let second = MyPoint(
-				x: transform(point: lineRepresentable.pointB).x,
-				y: transform(point: lineRepresentable.pointB).y
-			)
-			return MyLine(pointA: first, pointB: second)
-
-		default:
-			fatalError()
+	
+	static private func makeTriangle(from text: String) throws -> TriangleRepresentable {
+		let matches = text.matches(regex: #"\(\d+\,\d+\)\-\(\d+\,\d+\)-\(\d+\,\d+\)"#)
+		guard matches.count == 1 else {
+			throw CalculatorError.failedToCreateTriangle
 		}
+		let numbers = text.numbers
+		guard numbers.count == 6 else {
+			throw CalculatorError.failedToCreateTriangle
+		}
+		return MyTriangle(
+			pointA: MyPoint(x: numbers[0], y: numbers[1]),
+			pointB: MyPoint(x: numbers[2], y: numbers[3]),
+			pointC: MyPoint(x: numbers[4], y: numbers[5])
+		)
 	}
 	
 	private static func transform(point: PointRepresentable) -> PointRepresentable {
 		let newY = 25 - point.y
 		let newX = 3 + point.x * 2
+		return MyPoint(x: newX, y: newY)
+	}
+}
+
+extension String {
+	var numbers: [Int] {
+		return self.matches(regex: #"(\d+)"#)
+			.compactMap { Int($0) }
+			.filter { $0 < 25 && $0 > 0 }
+	}
+}
+
+extension PointRepresentable {
+	var transformed: PointRepresentable {
+		let newY = 25 - self.y
+		let newX = 3 + self.x * 2
 		return MyPoint(x: newX, y: newY)
 	}
 }
