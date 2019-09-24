@@ -30,6 +30,9 @@ struct StringPointParser: UserInputParsable {
                 throw error
             }
         }
+        guard isValid(points: points) else {
+            throw UserInputError.inputParsingError
+        }
         return points
     }
     
@@ -51,6 +54,29 @@ struct StringPointParser: UserInputParsable {
         guard let range = userInput.range(of: regex, options: .regularExpression, range: nil, locale: nil),
                     userInput.range(of: userInput) == range else {
             return false
+        }
+        return true
+    }
+    
+    private func canMakeRect(points: [(x: Int, y: Int)]) -> Bool{
+        let sorted = points.sorted { $0.x < $1.x }
+        let leftPoints = [sorted[0], sorted[1]].sorted { $0.y > $1.y }
+        let rightPoints = [sorted[2], sorted[3]].sorted { $0.y > $1.y }
+        
+        let topWidth    = rightPoints[0].x - leftPoints[0].x
+        let leftHeight  = leftPoints[0].y - leftPoints[1].y
+        let bottomWidth = rightPoints[1].x - leftPoints[1].x
+        let rightHeight = rightPoints[0].y - rightPoints[1].y
+        
+        guard (topWidth == bottomWidth) && (leftHeight == rightHeight) else {
+            return false
+        }
+        return true
+    }
+    
+    private func isValid(points: [(x: Int, y: Int)]) -> Bool{
+        if points.count == 4 {
+            return canMakeRect(points: points)
         }
         return true
     }
