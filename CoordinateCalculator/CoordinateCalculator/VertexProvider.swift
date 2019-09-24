@@ -35,7 +35,7 @@ struct VertexProvider: VertexProvidable {
                 break
             }
             catch {
-                let message = "입력형식:(10,10) 입력:\(userInput)]"
+                let message = "잘못된 형식입니다. 입력:[\(userInput)]"
                 prompt = .retry(error: UserInputError.wrongInputFormat(message: message))
                 continue
             }
