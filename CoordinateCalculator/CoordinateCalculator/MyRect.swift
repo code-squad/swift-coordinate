@@ -35,10 +35,6 @@ struct MyRect {
         self.leftTop = leftPoints[0]
         self.rightBottom = rightPoints[1]
     }
-    
-    var extent: Double {
-        return MyLine(x: leftTop, y: rightTop).distance * MyLine(x: leftTop, y: leftBottom).distance
-    }
 }
 
 extension MyRect: Shape {
@@ -46,8 +42,8 @@ extension MyRect: Shape {
         return [leftTop, rightTop, leftBottom, rightBottom]
     }
     
-    var description: String? {
-        return "사각형의 넓이는:\(extent)"
+    func extent() -> Double {
+        return MyLine(x: leftTop, y: rightTop).distance() * MyLine(x: leftTop, y: leftBottom).distance()
     }
 }
 

@@ -18,15 +18,6 @@ struct MyTriangle {
         lineBC = MyLine(x: pointB, y: pointC)
         lineAC = MyLine(x: pointA, y: pointC)
     }
-    
-    var extent: Double {
-        let cosB = (pow(lineBC.distance,2) + pow(lineAB.distance,2) - pow(lineAC.distance,2))
-                    / (2*lineBC.distance*lineAC.distance)
-        let sinB = sqrt(1 - pow(cosB,2))
-        let result = sinB > 0 ? lineBC.distance * lineAB.distance * sinB / 2 :
-                                lineBC.distance * lineAC.distance / 2
-        return result
-    }
 }
 
 extension MyTriangle: Shape {
@@ -36,7 +27,15 @@ extension MyTriangle: Shape {
         return result
     }
     
-    var description: String? {
-        return "삼각형의 넓이는 \(extent)"
+    func extent() -> Double {
+        let distanceAB = lineAB.distance()
+        let distanceBC = lineBC.distance()
+        let distanceAC = lineAC.distance()
+        
+        let cosB = (pow(distanceBC,2) + pow(distanceAB,2) - pow(distanceAC,2)) / (2*distanceBC*distanceAC)
+        let sinB = sqrt(1 - pow(cosB,2))
+        let result = sinB > 0 ? distanceBC * distanceAB * sinB / 2 :
+                                distanceBC * distanceAC / 2
+        return result
     }
 }

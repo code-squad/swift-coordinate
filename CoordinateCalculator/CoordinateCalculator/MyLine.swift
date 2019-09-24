@@ -16,11 +16,6 @@ struct MyLine {
         pointA = x
         pointB = y
     }
-    
-    var distance: Double {
-        return sqrt( pow((Double(pointA.x) - Double(pointB.x)), 2) +
-                        pow((Double(pointA.y) - Double(pointB.y)), 2))
-    }
 }
 
 extension MyLine: Shape {
@@ -28,7 +23,8 @@ extension MyLine: Shape {
         return [pointA, pointB]
     }
     
-    var description: String? {
-        return "두 점 사이의 거리는 \(distance)"
+    func distance() -> Double {
+        return sqrt( pow((Double(pointA.x) - Double(pointB.x)), 2) +
+            pow((Double(pointA.y) - Double(pointB.y)), 2))
     }
 }

@@ -10,11 +10,16 @@ import Foundation
 
 protocol Shape {
     var vertices: [CoordinatePresentable] { get }
-    var description: String? { get }
+    func extent() -> Double
+    func distance() -> Double
 }
 
 extension Shape {
-    var description: String? {
-        return nil
+    func extent() -> Double {
+        return 0
+    }
+
+    func distance() -> Double {
+        return 0
     }
 }

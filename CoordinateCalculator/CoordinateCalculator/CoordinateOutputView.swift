@@ -17,8 +17,14 @@ struct CoordinateOutputView {
         }
         Swift.print("\(ANSICode.text.redBright)\(ANSICode.axis.draw())")
         
-        if let description = shape.description {
-            Swift.print(description)
+        let distance = shape.distance()
+        if distance > 0 {
+            Swift.print("직선의 거리는:\(distance)")
+        }
+        
+        let extent = shape.extent()
+        if extent > 0 {
+            Swift.print("도형의 넓이는:\(extent)")
         }
     }
 }
