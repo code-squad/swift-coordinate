@@ -9,20 +9,30 @@
 import Foundation
 
 struct MyPoint {
-    var x:Int = 0
-    var y:Int = 0
+    private var x:Int = 0
+    private var y:Int = 0
+    
+    init(x:Int, y:Int) {
+        self.x = x
+        self.y = y
+    }
 }
 
-extension MyPoint : Descriptable, Equatable {
-    func toString() -> String {
-        return "x:\(x) y:\(y)"
+extension MyPoint : CustomStringConvertible, Equatable {
+    
+    func getX() -> Int {
+        return self.x
+    }
+    
+    func getY() -> Int {
+        return self.y
+    }
+    
+    var description: String {
+        return "(\(x),\(y))"
     }
     
     public static func == (lhs: MyPoint, rhs: MyPoint) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y
     }
-}
-
-protocol Descriptable {
-    func toString() -> String
 }

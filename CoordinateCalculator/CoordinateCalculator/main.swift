@@ -8,5 +8,12 @@
 
 import Foundation
 
-let inputPoint = InputMenu.getCoordinateInfo()
-CoordinatePrinter(initPoint: inputPoint).printPoint()
+var inputString = InputMenu.readInput()
+
+while !Validation.isValidInputLine(inputLine: inputString) {
+    inputString = InputMenu.readInput()
+}
+
+let inputPoint:MyPoint = CoordinateFactory.createMyPoint(inputLine: inputString!)
+
+OutputView.printPoint(point: inputPoint)
