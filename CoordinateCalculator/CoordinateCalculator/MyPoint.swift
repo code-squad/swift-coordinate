@@ -12,3 +12,18 @@ struct MyPoint {
     var x: Int
     var y: Int
 }
+
+protocol ValidIdentiable {
+    var isValid: Bool { get }
+}
+
+extension MyPoint: ValidIdentiable {
+    var isValid: Bool {
+        return x <= 24 && y <= 24
+    }
+}
+extension MyPoint: Equatable {
+    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
+}
