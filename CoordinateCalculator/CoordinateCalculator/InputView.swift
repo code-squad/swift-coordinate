@@ -21,11 +21,10 @@ struct InputView {
         self.processor = processor
     }
     
-    func readInput() -> [Coodinatable] {
+    func readInput()throws -> [Coodinatable] {
         
         guard let processor = processor else {
-            print("ERR: there's no processor")
-            return []
+            throw ErrorType.noProcessor
         }
         
         print("좌표를 입력하세요.")
@@ -34,13 +33,19 @@ struct InputView {
         repeat {
             typedSyntex = readLine()
              
-            if processor.canUse(syntex: typedSyntex) {
-                let seperates = processor.seperate(typedSyntex)
-                for seperate in seperates {
-                    if let point = processor.makePoint(seperate) {
-                        points.append(point)
+            do {
+                if try processor.canUse(syntex: typedSyntex) {
+                    let seperates = processor.seperate(typedSyntex)
+                    for seperate in seperates {
+                        if let point = try processor.makePoint(seperate) {
+                            points.append(point)
+                        }
                     }
                 }
+            } catch let error as ErrorType {
+                print(error.description)
+            } catch {
+                print(ErrorType.unknown.description)
             }
             if points.isEmpty {
                 print("다시 입력 바랍니다")

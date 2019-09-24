@@ -16,9 +16,9 @@ import Foundation
 
 struct InputProcessor {
     
-    func canUse(syntex input: String?) -> Bool {
+    func canUse(syntex input: String?)throws -> Bool {
         guard let input = input else {
-            return false
+            throw ErrorType.isNotString
         }
         return (input.count > 1)
     }
@@ -33,32 +33,32 @@ struct InputProcessor {
         return inputs
     }
     
-    func makePoint(_ input: String?) -> Coodinatable? {
+    func makePoint(_ input: String?)throws -> Coodinatable? {
         guard let input = input else {
-            return nil
+            throw ErrorType.isNotString
         }
         let inputToSplit = input
         let trimedInput = inputToSplit.trimmingCharacters(in: ["(", ")"])
         let strNumbers = trimedInput.components(separatedBy: ",")
         
-        guard strNumbers.count == 2 else{
-            return nil
+        guard strNumbers.count == 2 else {
+            throw ErrorType.inCorrectFormat
         }
         
         guard let first = strNumbers.first,
             let firstNum = Int(first) else {
-                return nil
+                throw ErrorType.canNotConvertToInt
         }
         
         guard let second = strNumbers.last,
             let secondNum = Int(second) else {
-                return nil
+                throw ErrorType.canNotConvertToInt
         }
         
         return MyPoint(firstNum, secondNum)
     }
     
-    func makePolygon(_ inputs: [Coodinatable]) -> Polygonable? {
+    func makePolygon(_ inputs: [Coodinatable])throws -> Polygonable {
         var polygon: Polygonable? = nil
         
         switch (inputs.count) {
@@ -68,6 +68,10 @@ struct InputProcessor {
             polygon = inputs.first as! MyPoint
         }
         
-        return polygon
+        if polygon == nil {
+            throw ErrorType.canNotConvertToPolygon
+        }
+        
+        return polygon!
     }
 }
