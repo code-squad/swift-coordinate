@@ -32,7 +32,8 @@ struct MyLine: Polygonable {
     }
     
     func calculateArea() -> Double? {
-        return 0.0
+        return sqrt(pow((Double(pointA.x) - Double(pointB.x)), 2) +
+                    pow((Double(pointA.y) - Double(pointB.y)), 2))
     }
      
     func printResult(outView: OutputView, area: Double?) {
