@@ -95,6 +95,8 @@ struct MakeShape {
     private static func getMyPoly(points: Array<Point>) throws -> MyPoly {
         let sortedPoints = Utility.getClockWisePolygonPoints(orgPoints: points)
         
+        try Utility.checkConvex(sortedPoints: sortedPoints)
+        
         var myPoints : [MyPoint] = []
         
         for point in sortedPoints {

@@ -153,4 +153,48 @@ struct Utility {
         
         return run(pointsToSort: orgPoints)
     }
+    
+    static func checkConvex(sortedPoints: Array<Point>) throws -> Bool {
+        // f(x,y) = (x2-x1)(y-y1)-(y2-y1)(x-x1) = 0
+        let lineFunc: (Point, Point, Point) -> Int
+        lineFunc = { (p1:Point, p2:Point, p: Point) in
+            return (p2.xPos - p1.xPos) * (p.yPos - p1.yPos) - (p2.yPos - p1.yPos)*(p.xPos - p1.xPos)
+        }
+        
+        enum Sign {
+            case Plus
+            case Minus
+            case Zero
+        }
+        
+        let checkSign: ((Point, Point, Point) -> Int, Point, Point, Point) -> Sign
+        checkSign = { (fx:(Point, Point, Point) -> Int, p1:Point, p2:Point, p: Point) in
+            return fx(p1, p2, p) == 0 ? .Zero : fx(p1, p2, p) > 0 ? .Plus : .Minus
+        }
+        
+        for i in 0...sortedPoints.count - 1 {
+            let j = (i + 1) % sortedPoints.count
+            let k = (i + 2) % sortedPoints.count
+            
+            let standard = checkSign(lineFunc, sortedPoints[i], sortedPoints[j], sortedPoints[k])
+            
+            guard standard != .Zero else {
+                throw PointValueError.samePointsExist
+            }
+            
+            for point in sortedPoints {
+                let sign = checkSign(lineFunc, sortedPoints[i], sortedPoints[j], point)
+                
+                if sign == .Zero {
+                    continue
+                }
+                
+                guard sign == standard else {
+                    throw PointValueError.cantBeConvexPolygon
+                }
+            }
+        }
+        
+        return true
+    }
 }
