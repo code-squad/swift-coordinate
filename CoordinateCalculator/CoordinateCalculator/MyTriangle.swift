@@ -53,10 +53,10 @@ extension MyTriangle : Shapable {
         return [drawablePointA, drawablePointB, drawablePointC]
     }
     
-    func shapeDependentResult() -> String {
+    func shapeDependentResult(display: (Shapable, String, Any) -> ()) {
         let area = self.area()
-
-        return "삼각형의 넓이는 \(area)"
+        
+        display(self, "삼각형의 넓이는 ", area)
     }
     
 }

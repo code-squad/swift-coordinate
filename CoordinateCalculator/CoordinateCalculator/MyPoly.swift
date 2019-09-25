@@ -42,10 +42,10 @@ extension MyPoly : Shapable {
         return polyPoints
     }
     
-    func shapeDependentResult() -> String {
+    func shapeDependentResult(display: (Shapable, String, Any) -> ()) {
         let area = self.area()
         
-        return "다각형의 넓이는 \(area)"
+        display(self, "다각형의 넓이는 ", area)
     }
     
 }

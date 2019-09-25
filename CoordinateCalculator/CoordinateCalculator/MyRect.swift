@@ -41,10 +41,10 @@ extension MyRect : Shapable {
         return [drawableLeftTop, drawableRightTop, drawableRightBottom, drawableLeftBottom]
     }
     
-    func shapeDependentResult() -> String {
+    func shapeDependentResult(display: (Shapable, String, Any) -> ()) {
         let area = self.area()
         
-        return "사각형의 넓이는 \(area)"
+        display(self, "사각형의 넓이는 ", area)
     }
     
 }
