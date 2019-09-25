@@ -12,7 +12,8 @@ typealias Point = (xPos: Int, yPos: Int)
 
 protocol Shapable {
     func pointToDraw() -> [PointDrawable]
-    func shapeDependentResult() -> String    
+    //func shapeDependentResult() -> String
+    func shapeDependentResult(display: (Shapable, String, Any) -> ())
 }
 
 protocol PointDrawable {

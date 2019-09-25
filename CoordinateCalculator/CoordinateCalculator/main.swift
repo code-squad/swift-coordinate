@@ -46,7 +46,8 @@ func main() {
         }
     }
     
-    OutputView.showPointOnCoordinatePlane(shapeByPoints: shapeByPoints)
+    shapeByPoints.shapeDependentResult(display: OutputView.showPointOnCoordinatePlane(shape:resultMessage:resultValue:))
+    //OutputView.showPointOnCoordinatePlane(shapeByPoints: shapeByPoints)
     
     //RunLoop.main.run(until: Date(timeIntervalSinceNow: 5))
 }

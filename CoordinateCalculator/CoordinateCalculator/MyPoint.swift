@@ -70,14 +70,17 @@ extension MyPoint {
 }
 
 extension MyPoint : Shapable {
-    static let resultString = "입력된 좌표는 "
     
     func pointToDraw() -> [PointDrawable] {        
         return [self]
     }
     
-    func shapeDependentResult() -> String {
-        return "입력된 좌표는 (\(self.x), \(self.y))"
+//    func shapeDependentResult() -> String {
+//        return "입력된 좌표는 (\(self.x), \(self.y))"
+//    }
+    
+    func shapeDependentResult(display: (Shapable, String, Any) -> ()) {
+        display(self, "입력된 좌표는 ", "(\(self.x), \(self.y))" )
     }
 }
 

@@ -60,9 +60,9 @@ extension MyLine : Shapable {
         return [drawablePointA, drawablePointB]
     }
     
-    func shapeDependentResult() -> String {
+    func shapeDependentResult(display: (Shapable, String, Any) -> ()) {
         let distance = self.distance()
         
-        return "두 점 사이 거리는 \(distance)"
+        display(self, "두 점 사이 거리는 ", distance)
     }
 }

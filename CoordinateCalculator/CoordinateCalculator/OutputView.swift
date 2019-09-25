@@ -9,7 +9,7 @@
 import Foundation
 
 struct OutputView {
-    static private let descriptionPos = MyPoint(x: 0, y: 27)
+    static private let descriptionPos = MyPoint(x: 0, y: 28)
     
     //static private let explodingHead = "\u{1F92F}"
     //static private let coffee = "\u{2615}"
@@ -20,9 +20,9 @@ struct OutputView {
     //static private let normal = "*"
     static private let positonMark = whale
     
-    static func showPointOnCoordinatePlane(shapeByPoints : Shapable) {
+    static func showPointOnCoordinatePlane(shape: Shapable, resultMessage: String, resultValue: Any) {
         
-        let points = shapeByPoints.pointToDraw()
+        let points = shape.pointToDraw()
         
         print("\(ANSICode.clear)\(ANSICode.home)")
         print("\(ANSICode.text.whiteBright)\(ANSICode.axis.draw())")
@@ -33,7 +33,18 @@ struct OutputView {
         }
         
         print("\(ANSICode.cursor.move(row: descriptionPos.Y, col: descriptionPos.X))", terminator: "")
-        print("\(ANSICode.text.white)\(shapeByPoints.shapeDependentResult())")
+        print("\(ANSICode.text.white)\(resultMessage)", terminator: "")
+        
+        
+        if let result = resultValue as? String {
+            print (result)
+        }
+        else if let result = resultValue as? Int {
+            print (result)
+        }
+        else if let result = resultValue as? Double {
+            print(result)
+        }
     }
     
     static func printError(pointError: PointValueError) {
