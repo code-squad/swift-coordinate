@@ -20,9 +20,3 @@ struct LineConverter: DistanceConvertable {
         return sqrt(Double(x^2 + y^2))
     }
 }
-
-extension MyPoint: Equatable {
-    public static func ==(lhs: MyPoint, rhs: MyPoint) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y
-    }
-}

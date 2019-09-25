@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48BD1F76233A51B10051E041 /* CoordinateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BD1F75233A51B10051E041 /* CoordinateError.swift */; };
+		48BD1F78233A5E810051E041 /* MyTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BD1F77233A5E810051E041 /* MyTriangle.swift */; };
 		48EA1619233903BC00F167CA /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA1618233903BC00F167CA /* InputView.swift */; };
 		48EA161B233903F700F167CA /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA161A233903F700F167CA /* MyPoint.swift */; };
 		48EA161D233904C200F167CA /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA161C233904C200F167CA /* OutputView.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		48BD1F75233A51B10051E041 /* CoordinateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateError.swift; sourceTree = "<group>"; };
+		48BD1F77233A5E810051E041 /* MyTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTriangle.swift; sourceTree = "<group>"; };
 		48EA1618233903BC00F167CA /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		48EA161A233903F700F167CA /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
 		48EA161C233904C200F167CA /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				48EA162223390ED600F167CA /* StringConverter.swift */,
 				48EA16242339166900F167CA /* MyLine.swift */,
 				48EA16262339191900F167CA /* LineConverter.swift */,
+				48BD1F75233A51B10051E041 /* CoordinateError.swift */,
+				48BD1F77233A5E810051E041 /* MyTriangle.swift */,
 			);
 			path = CoordinateCalculator;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48BD1F76233A51B10051E041 /* CoordinateError.swift in Sources */,
 				48EA16272339191900F167CA /* LineConverter.swift in Sources */,
 				48EA161D233904C200F167CA /* OutputView.swift in Sources */,
 				48EA161B233903F700F167CA /* MyPoint.swift in Sources */,
@@ -157,6 +164,7 @@
 				48EA162123390D2500F167CA /* PointConverter.swift in Sources */,
 				48EA16252339166900F167CA /* MyLine.swift in Sources */,
 				48EA162323390ED600F167CA /* StringConverter.swift in Sources */,
+				48BD1F78233A5E810051E041 /* MyTriangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,3 +12,9 @@ struct MyLine {
     var pointA: MyPoint
     var pointB: MyPoint
 }
+
+extension MyLine: ValidIdentiable {
+    var isValid: Bool {
+        return pointA.isValid && pointB.isValid
+    }
+}
